@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-service-gain",
-  "revision": 2,
+  "revision": 4,
   "lifecycle": "active",
   "subject": "A",
   "learning": {
@@ -47,6 +47,24 @@
         "actorId": "codex",
         "kind": "numbers",
         "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題の数値と小数第3位切捨てを基準とする。 入力は年間提供時間（時間）=5000、移行前停止（時間）=100、移行後停止（分）=30。",
+        "affectsAnswer": true,
+        "answerDetails": "可用性=(提供時間−停止時間)÷提供時間×100。移行前98.00％、移行後99.99％。差は1.99パーセントポイント。"
+      },
+      {
+        "at": "2026-10-07T01:52:19.212Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の数値と小数第3位切捨てを基準とする。 入力は年間提供時間（時間）=5000、移行前停止（時間）=100、移行後停止（分）=30。",
+        "affectsAnswer": true,
+        "answerDetails": "可用性=(提供時間−停止時間)÷提供時間×100。移行前98.00％、移行後99.99％。差は1.99パーセントポイント。"
+      },
+      {
+        "at": "2026-10-07T01:55:48.121Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
         "details": "原問題の数値と小数第3位切捨てを基準とする。 入力は年間提供時間（時間）=5000、移行前停止（時間）=100、移行後停止（分）=30。",
         "affectsAnswer": true,
         "answerDetails": "可用性=(提供時間−停止時間)÷提供時間×100。移行前98.00％、移行後99.99％。差は1.99パーセントポイント。"
@@ -284,7 +302,7 @@
   "choiceShuffleAllowed": true,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-07",
     "reviewerIds": [
       "codex"
     ],

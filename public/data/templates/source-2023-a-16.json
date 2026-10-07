@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-16",
-  "revision": 2,
+  "revision": 5,
   "title": "人材マネジメント",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-16",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-16",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "4d65a606db128df2b924f811b81bee849e8cd14e4fa191138caa5ca58a894305"
+  "originalContentSha256": "0b668a671cdaa27495197169d3f851921e6181e50380d1e92298bf846145e900"
 }

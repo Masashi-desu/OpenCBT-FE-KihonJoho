@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2024-a-15",
-  "revision": 2,
+  "revision": 5,
   "title": "データの前処理",
   "baseQuestionRef": {
     "questionId": "question-template-source-2024-a-15",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2024-a-15",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "8239f04f66304c5fba95a33ba7952149bfb08ab1bb24a6a7f21a209b4846ba2e"
+  "originalContentSha256": "5d27433ca861153c674149100964b57ea8b8906b92a3dbbf6b58c09e23cb74ff"
 }

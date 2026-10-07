@@ -3,7 +3,8 @@ import { DataError } from "./errors";
 import { preserveSourceFormat } from "./generation-formats";
 import { sha256 } from "./hash";
 import {
-  additionalContracts,
+  additionalContract,
+  definitionForVersion,
   bindAdditionalQuestion,
   checkAdditionalParameters,
 } from "./generators";
@@ -134,6 +135,7 @@ type Contract = {
   fields: Field[];
   reference: number[];
   notes: string;
+  version?: string;
 };
 const field = (name: string, minimum: number, maximum: number): Field => ({
   name,
@@ -289,7 +291,7 @@ const legacyContracts: Contract[] = [
 ];
 // Previous generator contracts remain valid for stored sessions.
 export const generationContracts: Contract[] = legacyContracts.map((legacy) => {
-  const c = structuredClone(legacy);
+  const c = { ...structuredClone(legacy), version: "2.1.0" };
   if (c.id === "logic-table")
     c.notes =
       "原問題と同じ合成演算の表から、未知の演算の真理値表を選ぶ形式を維持する。";
@@ -322,16 +324,14 @@ export const generationContracts: Contract[] = legacyContracts.map((legacy) => {
   return c;
 });
 export function contractFor(t: Template) {
+  if (["3.2.0"].includes(t.generatorRef.version))
+    return additionalContract(t.generatorRef.id, t.generatorRef.version);
   return (
-    ["3.0.0", "3.0.1"].includes(t.generatorRef.version)
-      ? additionalContracts
-      : t.generatorRef.version === "2.0.0"
-        ? generationContracts
-        : legacyContracts
+    t.generatorRef.version === "2.1.0" ? generationContracts : legacyContracts
   ).find((c) => `generator-${c.id}` === t.generatorRef.id);
 }
 export function validateTemplateContract(t: Template) {
-  if (!["1.0.0", "2.0.0", "3.0.0", "3.0.1"].includes(t.generatorRef.version))
+  if (!["1.0.0", "2.1.0", "3.2.0"].includes(t.generatorRef.version))
     throw new DataError("GENERATOR_REF", "未対応の生成器の版です");
   if (t.generatorRef.id === "generator-array-sum") {
     if (
@@ -380,7 +380,7 @@ export function checkParameters(t: Template, v: number[]) {
     )
   )
     throw new DataError("PARAMETER_DOMAIN", "生成値が許可域を外れています");
-  if (["3.0.0", "3.0.1"].includes(t.generatorRef.version)) {
+  if (["3.2.0"].includes(t.generatorRef.version)) {
     checkAdditionalParameters(t, v);
     return;
   }
@@ -392,7 +392,7 @@ export function checkParameters(t: Template, v: number[]) {
     (id === "cafe-profit" && v[0] <= v[1]) ||
     (id === "count-multiples" && v[1] < v[0] + 10) ||
     (id === "complement" &&
-      t.generatorRef.version === "2.0.0" &&
+      t.generatorRef.version === "2.1.0" &&
       v[0] >= 2 ** v[1]) ||
     (id === "retention" &&
       (v[2] > v[0] ||
@@ -740,10 +740,10 @@ function bindLegacyQuestion(
     ];
     blocks = [
       p(
-        "前月末から当月末まで継続した会員の割合が最も高いサービスを選ぶ。新規会員は当月内に退会していない。",
+        "サービスA〜Dの中で、リテンション率が最も高いものはどれか。リテンションの対象は前月末から当月末まで継続した会員とし、新規会員は当月内に退会していない。",
       ),
       table(
-        "会員数",
+        "会員数（単位：人）",
         ["サービス", "前月末", "当月新規", "当月末"],
         [0, 1, 2, 3].map((i) => [
           "ABCD"[i],
@@ -934,9 +934,9 @@ export function bindQuestion(
 ): Question {
   validateTemplateContract(t);
   checkParameters(t, v);
-  if (["3.0.0", "3.0.1"].includes(t.generatorRef.version))
+  if (["3.2.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
-  if (t.generatorRef.version !== "2.0.0")
+  if (t.generatorRef.version !== "2.1.0")
     return bindLegacyQuestion(base, t, v, instanceId, at);
   const id = contractFor(t)!.id;
   const changedAlgorithm = [
@@ -956,4 +956,10 @@ export function answerSignature(q: Question) {
     .find((c) => c.id === q.correctAnswer.choiceId)!
     .content.blocks.map((b) => ("text" in b ? b.text : JSON.stringify(b)))
     .join("\n");
+}
+export function answerCanVary(t: Template) {
+  return (
+    definitionForVersion(t.generatorRef.id, t.generatorRef.version)
+      ?.answerVariation !== "fixed"
+  );
 }

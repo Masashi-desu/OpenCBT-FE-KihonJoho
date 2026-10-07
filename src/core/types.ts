@@ -198,7 +198,12 @@ export type Catalog = {
   generationCoverage?: "complete" | "partial";
   actors: { id: string; name: string; kind: string }[];
   files: Record<string, { path: string; sha256: string }[]>;
-  withdrawals: { questionRef: Ref; reason: string; [key: string]: unknown }[];
+  withdrawals: {
+    questionRef: Ref;
+    reason: string;
+    replacement?: Ref;
+    [key: string]: unknown;
+  }[];
 };
 export type Bundle = {
   catalog: Catalog;

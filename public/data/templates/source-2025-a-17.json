@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-17",
-  "revision": 2,
+  "revision": 5,
   "title": "生成AIサービスのデータ設定",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-17",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-17",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "09008cad40b6918efe184eab07cd68a57fc125addf004a01e502b617cc029719"
+  "originalContentSha256": "164dcab1b7c2d534231b453f74c84de67d4900d08ae1f9aeaf293a587f9d5539"
 }

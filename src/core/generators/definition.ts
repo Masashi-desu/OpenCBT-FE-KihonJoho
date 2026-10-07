@@ -18,8 +18,8 @@ export type GenerationDefinition = {
   reference: number[];
   sourceAnswer: string;
   notes: string;
-  version?: "3.0.1";
-  legacyBuild?: (values: number[]) => GeneratedBody;
+  version?: "3.2.0";
+  answerVariation?: "fixed";
   build: (values: number[]) => GeneratedBody;
 };
 export const field = (name: string, minimum: number, maximum: number) => ({
@@ -89,7 +89,7 @@ export function numbers(correct: number, count = 4, digits = 0): string[] {
   );
 }
 export const variableNotes =
-  "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。";
+  "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。";
 export function ownContexts(
   body: GeneratedBody,
   attribution: Question["prompt"]["attribution"],

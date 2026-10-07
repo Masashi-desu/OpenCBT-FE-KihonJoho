@@ -8,6 +8,7 @@ import {
   bindQuestion,
   parametersForSeed,
   answerSignature,
+  answerCanVary,
 } from "../src/core/generation";
 import { schema, validateBundle } from "../src/core/validation";
 import { validateSourceFormat } from "../src/core/generation-formats";
@@ -164,10 +165,22 @@ for (const d of additionalDefinitions)
             assert(html.includes("<desc"));
           }
     }
-    assert(
-      answers.size >= 2,
-      `${d.source} must change answer content, not only option order`,
-    );
+    if (answerCanVary(t))
+      assert(
+        answers.size >= 2,
+        `${d.source} must change answer content, not only option order`,
+      );
+    else {
+      assert.equal(d.source, "2024-a-20");
+      assert.equal(answers.size, 1);
+      assert(
+        new Set(
+          Array.from({ length: 8 }, (_, i) =>
+            JSON.stringify(d.build([i]).choices),
+          ),
+        ).size === 8,
+      );
+    }
     assert.equal(JSON.stringify(base), before);
   });
 

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-11",
-  "revision": 2,
+  "revision": 5,
   "title": "E-Rモデルの構成要素",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-11",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-11",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "74b8e4a7dd066b5c71d14eb0d732e35e1c096bb13c5024b02090833ad5425b6d"
+  "originalContentSha256": "c22d53dd644486754ad3e331cd4539a9b3ac3e2ef65659e17dd2776b7b5e87c9"
 }

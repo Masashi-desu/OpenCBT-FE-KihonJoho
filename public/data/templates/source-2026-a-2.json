@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-2",
-  "revision": 2,
+  "revision": 5,
   "title": "整列アルゴリズム",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-2",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-2",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "248be2f348ade932656c89cb811672d79ffdbf3fbe6b7385e753dbba2b038d7a"
+  "originalContentSha256": "92a89658c137de3075947d544857305d917fd84b97237d922ae43035314f7ea7"
 }

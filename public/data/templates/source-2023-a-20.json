@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-20",
-  "revision": 2,
+  "revision": 5,
   "title": "ソフトウェアの契約形態",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-20",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-20",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "a533f977a03d7caaa61c8074ce4b5b6e294e4958bbeaeb6225bb792d1cd9d926"
+  "originalContentSha256": "ebc39bb2f7cb89b351ba11523ceacfc370476c47a409b555f75c67039ba4f915"
 }

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-5",
-  "revision": 2,
+  "revision": 6,
   "title": "開発を支援するツール",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-5",
-    "revision": 2
+    "revision": 6
   },
   "generatorRef": {
     "id": "generator-source-2025-a-5",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "ebfd4fb24fe7566dc4cc4abb5eb8c29ad3f26ed534e205b900b03ea81f88143b"
+  "originalContentSha256": "95ddfb9d09e798f11a71cb5f11b250c40fd51b0b6746341538949cce9d2a813a"
 }

@@ -45,28 +45,58 @@ const exprIndex = (s: string, name: string, offset: number) =>
 // Frozen, reviewed conceptual correspondences are not recalculated from the
 // production bank during tests. Their factual quality remains a manual review.
 for (const fact of facts)
-  test(`${fact.source}: every knowledge target/direction has one correct correspondence`, () => {
+  test(`${fact.source}: every knowledge target preserves its source question and has one correct answer`, () => {
     const d = additionalDefinitions.find((d) => d.source === fact.source)!;
     assert.equal(d.fields[0].maximum + 1, fact.pairs.length);
     for (const [target, pair] of fact.pairs.entries())
-      for (let direction = 0; direction < 3; direction++) {
-        const b = d.build([target, direction]);
-        if (direction === 2)
-          unique(
-            b,
-            (choice) =>
-              !fact.pairs.some(
-                ([name, meaning]) => choice === `${name}：${meaning}`,
-              ),
+      for (let rotation = 0; rotation < 3; rotation++) {
+        const b = d.build([target, rotation]);
+        assert.equal(d.version, "3.2.0");
+        assert(!paragraph(b).includes("誤っている"));
+        if (fact.answerForm === "audit") {
+          assert(paragraph(b).includes("指摘事項として監査報告書に記載すべき"));
+          const failures = "failures" in fact ? fact.failures! : [];
+          unique(b, (choice) => failures.includes(choice));
+          assert(choices(b).includes(failures[target]));
+          assert(
+            choices(b).every(
+              (choice) =>
+                failures.includes(choice) ||
+                fact.pairs.some(([, meaning]) => meaning === choice),
+            ),
           );
-        else {
-          const allTerms = choices(b).every((c) =>
-            fact.pairs.some(([name]) => name === c),
+        } else if (fact.answerForm === "statements") {
+          assert(paragraph(b).includes("LAN間接続装置に関する記述"));
+          unique(b, (choice) =>
+            fact.pairs.some(
+              ([name, meaning]) => choice === `${name}は、${meaning}。`,
+            ),
           );
-          const subject = pair[allTerms ? 1 : 0];
-          assert(paragraph(b).startsWith(subject), d.source);
-          unique(b, (choice) => choice === pair[allTerms ? 0 : 1]);
+        } else if (fact.answerForm === "comparison") {
+          assert.match(paragraph(b), /HTTPとHTTPS.*HTTPSだけ/);
+          const shared = "sharedFeatures" in fact ? fact.sharedFeatures! : [];
+          unique(b, (choice) =>
+            fact.pairs.some(([, meaning]) => choice === meaning),
+          );
+          assert(choices(b).includes(pair[1]));
+          assert(
+            choices(b).every(
+              (choice) => choice === pair[1] || shared.includes(choice),
+            ),
+          );
+        } else {
+          const termChoice =
+            fact.answerForm === "term" || fact.answerForm === "purpose";
+          assert(paragraph(b).includes(pair[termChoice ? 1 : 0]), d.source);
+          assert(
+            choices(b).every((choice) =>
+              fact.pairs.some((pair) => choice === pair[termChoice ? 0 : 1]),
+            ),
+          );
+          unique(b, (choice) => choice === pair[termChoice ? 0 : 1]);
         }
+        assert(b.explanation.includes(pair[0]));
+        assert(b.explanation.includes(pair[1]));
       }
   });
 
@@ -102,7 +132,7 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       const list = b.prompt.find((x) => x.type === "list")!;
       assert(list.type === "list");
       const deps = list.items
-        .slice(0, 2)
+        .filter((s) => !s.startsWith("{"))
         .map((s) => s.split(/ → |[{}，]/).filter(Boolean));
       unique(b, (c) => {
         const [a, mid, end] = c.split(" → ");
@@ -192,13 +222,13 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       unique(b, (_, i) => i === v[0]);
       return; // Geometric covariance tested independently in full-coverage.
     case "2024-a-20": {
-      const sets = [
-        "意匠権実用新案権商標権特許権",
-        "特許権実用新案権",
-        "意匠権商標権",
-        "特許権商標権",
-      ];
-      unique(b, (c) => norm(c) === sets[v[0]]);
+      const rights = new Set(["特許権", "実用新案権", "意匠権", "商標権"]);
+      assert(prompt.includes("産業財産権と総称される四つの権利"));
+      assert(cs.every((c) => c.split("、").length === 4));
+      unique(b, (c) => {
+        const parts = c.split("、");
+        return new Set(parts).size === 4 && parts.every((p) => rights.has(p));
+      });
       return;
     }
     case "2025-a-3": {
@@ -373,12 +403,27 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
     case "2026-a-18":
       unique(b, (c) => !c.includes("学習"));
       return;
-    case "2026-a-20":
-      unique(
-        b,
-        (c) => c === ["氏名表示権", "複製権", "同一性保持権", "公表権"][v[0]],
+    case "2026-a-20": {
+      assert(prompt.includes("利用を行う上で生じる制約"));
+      const constraints = [
+        "著作権の譲渡だけでは、B社の著作者名をA社の著作者名へ変更することは認められない。",
+        "著作権の譲渡だけでは、B社の意に反する図の改変が自由に認められるわけではない。",
+        "社内利用だけの許諾では、A社が未公表の図を公表することは認められない。",
+        "複製の許諾を受けていないA社は、B社に留保された複製権に基づく許諾を得る必要がある。",
+      ];
+      assert(
+        prompt.includes(
+          v[0] >= 2 ? "著作権をB社に留保" : "著作権を全てA社へ譲渡",
+        ),
       );
+      if (v[0] === 2) {
+        assert(prompt.includes("社内での利用だけを許諾"));
+        assert(prompt.includes("公開に同意していない"));
+      }
+      unique(b, (c) => c === constraints[v[0]]);
+      assert(cs.every((c) => c.endsWith("。")));
       return;
+    }
     case "2023-b-1":
       unique(b, (c) => {
         const [upper, condition] = c.split("｜");
@@ -722,19 +767,10 @@ for (const d of additionalDefinitions.filter(
     }
   });
 
-test("four corrected generators retain their old builds for saved sessions", () => {
+test("reviewed corrections are included in current unpublished definitions", () => {
   for (const source of ["2023-a-10", "2024-b-2", "2023-b-6", "2026-b-1"]) {
     const d = additionalDefinitions.find((d) => d.source === source)!;
-    assert.equal(d.version, "3.0.1");
-    assert(d.legacyBuild);
-    const params =
-      source === "2024-b-2"
-        ? [2, 1, 18]
-        : source === "2023-b-6"
-          ? [3, 2]
-          : source === "2026-b-1"
-            ? [4, 8]
-            : [0, 0];
-    assert.notDeepEqual(d.build(params), d.legacyBuild(params));
+    assert.equal(d.version, "3.2.0");
+    assert.equal("legacyBuild" in d, false);
   }
 });

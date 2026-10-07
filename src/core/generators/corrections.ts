@@ -1,16 +1,15 @@
 import { type GenerationDefinition, p, programs } from "./definition";
 
-// Keep version 3.0.0 available for stored runs; issue corrected definitions as 3.0.1.
+// Apply reviewed content corrections before issuing the current definitions.
 export function withCorrections(d: GenerationDefinition): GenerationDefinition {
   if (!["2023-a-10", "2024-b-2", "2023-b-6", "2026-b-1"].includes(d.source))
     return d;
-  const legacyBuild = d.build;
+  const originalBuild = d.build;
   return {
     ...d,
-    version: "3.0.1",
-    legacyBuild,
+    version: "3.2.0",
     build(values) {
-      const body = legacyBuild(values);
+      const body = originalBuild(values);
       if (d.source === "2023-a-10") {
         const first = body.prompt[0];
         if (first.type !== "paragraph") throw Error("SOURCE_FORMAT");

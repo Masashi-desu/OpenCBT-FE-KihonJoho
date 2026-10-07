@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-12",
-  "revision": 2,
+  "revision": 5,
   "title": "スクラムのイベント",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-12",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-12",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "3f4be583679d1af33b2501912c5a7a89682b2639670c742541398d3d0fa856ec"
+  "originalContentSha256": "f95464b0e5ea170eaba3073605b645d5a83801ab1067dbca89f11d54c809659c"
 }

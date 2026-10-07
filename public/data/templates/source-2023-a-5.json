@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-5",
-  "revision": 2,
+  "revision": 5,
   "title": "CGの描画処理",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-5",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-5",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "9a225a395a84e91ae5f0bf427fccc009be8f4cb341c2ca1c38b88eaaabd378b2"
+  "originalContentSha256": "9c346db3f01182baa4bbce7957a7c4393be1340c451ee2d3bcef06888e8cab6f"
 }

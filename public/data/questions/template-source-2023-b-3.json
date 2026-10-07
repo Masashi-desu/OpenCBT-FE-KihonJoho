@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-source-2023-b-3",
-  "revision": 2,
+  "revision": 4,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -48,6 +48,24 @@
         "kind": "wording",
         "summary": "原問題の出題形式を維持する生成用基準問題を定義",
         "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 配列の並び=25、各値への加算値=0。",
+        "affectsAnswer": true,
+        "answerDetails": "中央の基準値3に対し左右から走査・交換する。初回の分割結果は2 1 3 5 4であり、再帰呼出しによる全体の整列が完了した時の出力を問うものではない。"
+      },
+      {
+        "at": "2026-10-07T01:52:19.238Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 配列の並び=25、各値への加算値=0。",
+        "affectsAnswer": true,
+        "answerDetails": "中央の基準値3に対し左右から走査・交換する。初回の分割結果は2 1 3 5 4であり、再帰呼出しによる全体の整列が完了した時の出力を問うものではない。"
+      },
+      {
+        "at": "2026-10-07T01:55:48.145Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 配列の並び=25、各値への加算値=0。",
         "affectsAnswer": true,
         "answerDetails": "中央の基準値3に対し左右から走査・交換する。初回の分割結果は2 1 3 5 4であり、再帰呼出しによる全体の整列が完了した時の出力を問うものではない。"
       }
@@ -98,11 +116,11 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "次の記述中の空欄に入る答えを選べ。配列の要素番号は1から始まる。sort(1, 5)を呼び出し、/*** α ***/を最初に実行した時の出力は【空欄】となる。"
+        "text": "次の記述中の空欄に入る答えを選べ。配列の要素番号は1から始まる。sortは大域配列dataのfirstからlastまでの要素を昇順に整列する。ここで、first < lastとする。floorは小数部を切り捨てた整数を表す。sort(1, 5)を呼び出し、/*** α ***/を最初に実行した時の出力は【空欄】となる。"
       },
       {
         "type": "code",
-        "text": "大域: 整数型の配列: data ← {2, 1, 3, 5, 4}\n○sort(整数型: first, 整数型: last)\n    整数型: pivot ← data[floor((first + last) / 2)]\n    整数型: i ← first, j ← last\n    while (true)\n        while (data[i] < pivot)\n            i ← i + 1\n        endwhile\n        while (pivot < data[j])\n            j ← j - 1\n        endwhile\n        if (i ≧ j)\n            繰返しを終了する\n        endif\n        data[i]とdata[j]を交換する\n        i ← i + 1\n        j ← j - 1\n    endwhile\n    dataの全要素を空白区切りで出力する /*** α ***/\n    if (first < i - 1)\n        sort(first, i - 1)\n    endif\n    if (j + 1 < last)\n        sort(j + 1, last)\n    endif",
+        "text": "大域: 整数型の配列: data ← {2, 1, 3, 5, 4}\n○sort(整数型: first, 整数型: last)\n    整数型: pivot ← data[floor((first + last) / 2)]\n    整数型: i ← first, j ← last\n    while (true)\n        while (data[i] < pivot)\n            i ← i + 1\n        endwhile\n        while (pivot < data[j])\n            j ← j - 1\n        endwhile\n        if (i ≧ j)\n            繰返しを終了する\n        endif\n        data[i]とdata[j]を交換する\n        i ← i + 1\n        j ← j - 1\n    endwhile\n    dataの全要素を要素番号の順に空白区切りで出力する /*** α ***/\n    if (first < i - 1)\n        sort(first, i - 1)\n    endif\n    if (j + 1 < last)\n        sort(j + 1, last)\n    endif",
         "language": "pseudocode"
       }
     ]
@@ -292,6 +310,6 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
   }
 }

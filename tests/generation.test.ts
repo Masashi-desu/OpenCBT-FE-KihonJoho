@@ -10,6 +10,7 @@ import {
   parametersForSeed,
   bindQuestion,
   answerSignature,
+  answerCanVary,
   generationContracts,
   checkParameters,
   contractFor,
@@ -196,10 +197,11 @@ test("full mix generates every slot; originals, values, displayed answer IDs and
       for (const [index, instance] of run.instances.entries()) {
         const t = b.templates.find((t) => t.id === instance.templateRef.id)!;
         assert.notDeepEqual(instance.parameters, t.referenceParameters);
-        assert.notEqual(
-          answerSignature(instance.question),
-          answerSignature(baseFor(t, b)),
-        );
+        if (answerCanVary(t))
+          assert.notEqual(
+            answerSignature(instance.question),
+            answerSignature(baseFor(t, b)),
+          );
         assert.deepEqual(
           run.session.entries[index].choiceOrder.slice().sort(),
           instance.question.choices.map((c) => c.id).sort(),
@@ -235,7 +237,12 @@ test("full mix generates every slot; originals, values, displayed answer IDs and
     for (const i of previous.instances)
       last.set(i.templateRef.id, answerSignature(i.question));
     for (const i of next.instances) {
-      assert.notEqual(answerSignature(i.question), last.get(i.templateRef.id));
+      const t = b.templates.find((t) => t.id === i.templateRef.id)!;
+      if (answerCanVary(t))
+        assert.notEqual(
+          answerSignature(i.question),
+          last.get(i.templateRef.id),
+        );
       last.set(i.templateRef.id, answerSignature(i.question));
     }
   }
@@ -480,7 +487,7 @@ function answerText(block: Question["prompt"]["blocks"][number]) {
 
 test("version 1 saved runs retain their older tables and numeric questions after version 2 is added", async () => {
   const b = fixture();
-  b.templates = b.templates.filter((t) => t.generatorRef.version === "2.0.0");
+  b.templates = b.templates.filter((t) => t.generatorRef.version === "2.1.0");
   b.catalog.generationCoverage = "partial";
   b.sets = b.sets.map((s) => ({
     ...s,

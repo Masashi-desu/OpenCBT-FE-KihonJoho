@@ -6,6 +6,7 @@ import {
   bindQuestion,
   parametersForSeed,
   answerSignature,
+  answerCanVary,
   checkParameters,
 } from "./generation";
 import { selectQuestions } from "./selection";
@@ -105,8 +106,8 @@ export async function prepareRun(
         }
         const answer = answerSignature(q);
         if (
-          answer === answerSignature(base) ||
-          answer === lastAnswer.get(key)
+          answerCanVary(t) &&
+          (answer === answerSignature(base) || answer === lastAnswer.get(key))
         ) {
           q = undefined;
           continue;

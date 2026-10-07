@@ -151,12 +151,14 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       );
       return {
         prompt: [
-          p("次のプログラム中の空欄【a】と【b】に入る正しい組合せを選べ。"),
           p(
-            `findPrimeNumbersは${upper}以下の全ての素数を返す。maxNumは${offset + 2}以上の整数である。`,
+            "次のプログラム中の空欄【a】と【b】に入る正しい組合せを選べ。ここで、配列の要素番号は1から始まる。",
+          ),
+          p(
+            `findPrimeNumbersは${upper}以下の全ての素数を返す。maxNumは${offset + 2}以上の整数である。sqrtは正の平方根、floorは小数部を切り捨てた整数を表し、modは整数の除算の余りを表す。`,
           ),
           code(
-            `○整数型の配列: findPrimeNumbers(整数型: maxNum)\n    整数型の配列: pnList ← {}\n    整数型: i, j\n    論理型: divideFlag\n    for (i を 2 から 【a】まで 1 ずつ増やす)\n        divideFlag ← true\n        for (j を 2 から floor(sqrt(i)) まで 1 ずつ増やす)\n            if (【b】)\n                divideFlag ← false\n                内側の繰返しを終了する\n            endif\n        endfor\n        if (divideFlag が true と等しい)\n            pnListの末尾にiを追加する\n        endif\n    endfor\n    return pnList`,
+            `○整数型の配列: findPrimeNumbers(整数型: maxNum)\n    整数型の配列: pnList ← {}\n    整数型: i, j\n    論理型: divideFlag\n    for (i を 2 から 【a】まで 1 ずつ増やす)\n        divideFlag ← true\n        /* floor(sqrt(i))が2未満のときは、繰返し処理を実行しない */\n        for (j を 2 から floor(sqrt(i)) まで 1 ずつ増やす)\n            if (【b】)\n                divideFlag ← false\n                内側の繰返しを終了する\n            endif\n        endfor\n        if (divideFlag が true と等しい)\n            pnListの末尾にiを追加する\n        endif\n    endfor\n    return pnList`,
           ),
         ],
         choices: pairs([
@@ -219,10 +221,10 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "次の記述中の空欄に入る答えを選べ。配列の要素番号は1から始まる。sort(1, 5)を呼び出し、/*** α ***/を最初に実行した時の出力は【空欄】となる。",
+            "次の記述中の空欄に入る答えを選べ。配列の要素番号は1から始まる。sortは大域配列dataのfirstからlastまでの要素を昇順に整列する。ここで、first < lastとする。floorは小数部を切り捨てた整数を表す。sort(1, 5)を呼び出し、/*** α ***/を最初に実行した時の出力は【空欄】となる。",
           ),
           code(
-            `大域: 整数型の配列: data ← {${input.join(", ")}}\n○sort(整数型: first, 整数型: last)\n    整数型: pivot ← data[floor((first + last) / 2)]\n    整数型: i ← first, j ← last\n    while (true)\n        while (data[i] < pivot)\n            i ← i + 1\n        endwhile\n        while (pivot < data[j])\n            j ← j - 1\n        endwhile\n        if (i ≧ j)\n            繰返しを終了する\n        endif\n        data[i]とdata[j]を交換する\n        i ← i + 1\n        j ← j - 1\n    endwhile\n    dataの全要素を空白区切りで出力する /*** α ***/\n    if (first < i - 1)\n        sort(first, i - 1)\n    endif\n    if (j + 1 < last)\n        sort(j + 1, last)\n    endif`,
+            `大域: 整数型の配列: data ← {${input.join(", ")}}\n○sort(整数型: first, 整数型: last)\n    整数型: pivot ← data[floor((first + last) / 2)]\n    整数型: i ← first, j ← last\n    while (true)\n        while (data[i] < pivot)\n            i ← i + 1\n        endwhile\n        while (pivot < data[j])\n            j ← j - 1\n        endwhile\n        if (i ≧ j)\n            繰返しを終了する\n        endif\n        data[i]とdata[j]を交換する\n        i ← i + 1\n        j ← j - 1\n    endwhile\n    dataの全要素を要素番号の順に空白区切りで出力する /*** α ***/\n    if (first < i - 1)\n        sort(first, i - 1)\n    endif\n    if (j + 1 < last)\n        sort(j + 1, last)\n    endif`,
           ),
         ],
         choices: strings(
@@ -261,7 +263,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
             "次の記述中の空欄に入る答えを選べ。配列の添字は1から始まる。test終了直後のhashArrayは【空欄】となる。",
           ),
           p(
-            "addは第1候補が空なら格納し、空でなければ第2候補へ格納する。両方が使用中ならfalseを返す。−1は空を表す。",
+            "addは引数valueとして正の整数を受け取る。第1候補が空なら格納し、空でなければ第2候補へ格納する。格納できればtrue、両方が使用中ならfalseを返す。−1は空を表す。modは整数の除算の余りを表す。",
           ),
           code(
             `大域: 整数型の配列: hashArray\n○論理型: add(整数型: value)\n    整数型: i ← calcHash1(value)\n    if (hashArray[i] = -1)\n        hashArray[i] ← value\n        return true\n    endif\n    i ← calcHash2(value)\n    if (hashArray[i] = -1)\n        hashArray[i] ← value\n        return true\n    endif\n    return false\n○整数型: calcHash1(整数型: value)\n    return (value mod hashArrayの要素数) + 1\n○整数型: calcHash2(整数型: value)\n    return ((value + ${offset}) mod hashArrayの要素数) + 1\n○test()\n    hashArray ← {${size}個の -1}\n    ${input.map((n) => `add(${n})`).join("\n    ")}`,
@@ -295,7 +297,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "プログラム中の空欄a・bに入る組合せを選べ。vector1とvector2は同じ要素数nで、どちらも零ベクトルではない。配列の添字は1から始まる。",
+            "プログラム中の空欄a・bに入る組合せを選べ。vector1とvector2は同じ要素数n（n≧1）の実数型の配列で、どちらも零ベクトルではない。配列の添字は1から始まる。vector1の各要素をa₁〜aₙ、vector2の各要素をb₁〜bₙとしたとき、コサイン類似度は次の式で計算する。sqrtは正の平方根を表す。",
           ),
           {
             type: "formula",
@@ -379,7 +381,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `空欄に入る式を選べ。convDecimalは0〜${radix - 1}の数字だけで構成した符号なし${radix}進数の文字列を整数へ変換する。intは一文字の数字をその整数値へ変換する。例として${sample}は${value}になる。`,
+            `空欄に入る式を選べ。convDecimalは0〜${radix - 1}の数字だけで構成した1文字以上の文字列を、符号なし${radix}進数として解釈した整数へ変換する。intは一文字の数字をその整数値へ変換する。例として${sample}は${value}になる。`,
           ),
           code(
             `○整数型: convDecimal(文字列型: digits)\n    整数型: result ← 0, i, length ← digitsの文字数\n    for (iを1からlengthまで1ずつ増やす)\n        result ← 【空欄】\n    endfor\n    return result`,
@@ -410,7 +412,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "プログラム中の空欄に入る答えを選べ。無向グラフの辺リストを対称な隣接行列に変換する。自己接続はなく、配列の添字は1から始まる。",
+            "プログラム中の空欄に入る答えを選べ。無向グラフの辺リストを隣接行列に変換する。各頂点間の辺は高々一つで、自己接続はない。配列の添字は1から始まる。edgeListの各要素は辺の両端の頂点番号を格納した要素数2の配列で、nodeNumは頂点数を表す。隣接行列はnodeNum行nodeNum列で、行・列に対応する頂点間に辺があれば1、それ以外は0であり、対角成分は全て0となる対称行列である。",
           ),
           p(
             `頂点番号は${1 + offset}〜${5 + offset}であり、行列の行・列の添字は頂点番号から${offset}を引いた値である。`,
@@ -554,7 +556,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `空欄a〜cに入る正しい組合せを選べ。注文データから${names[metric]}を計算する。Mは同時購入数、Nは全注文数、Kx・Kyはそれぞれの商品を含む注文数。計算は実数として行う。`,
+            `空欄a〜cに入る正しい組合せを選べ。注文データから${names[metric]}を計算する。Mは二つの商品を同じ注文で購入した注文数、Nは全注文数、Kx・Kyはそれぞれの商品を含む注文数。計算は実数として行う。配列の要素番号は1から始まる。商品は文字列、注文は購入商品の配列、ordersは注文の配列で表す。注文データには2種類以上の商品が含まれ、引数itemはその中にある商品とする。putRelatedItemはitemとの関連度が最も大きい商品のうちの一つと、その関連度を出力する。`,
           ),
           table(
             "注文データの例",
@@ -602,7 +604,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "空欄a・bへ入る正しい組合せを選べ。pushは格納に成功するとtrue、満杯ならfalseを返す。popは最後に格納した値を取り出し、空なら未定義の値を返す。配列の添字は1から始まる。",
+            "空欄a・bへ入る正しい組合せを選べ。pushは格納に成功するとtrue、満杯ならfalseを返す。popは最後に格納した値を取り出し、空なら未定義の値を返す。配列の添字は1から始まる。プログラムでは配列の領域外を参照してはならない。",
           ),
           p(
             `stackPosには次の空き位置に${offset}を加えた値を保持する。図は初期状態で、網掛けは未定義の要素。`,
@@ -647,10 +649,10 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `記述中の空欄に入る答えを選べ。searchはdataにあるkeyと同じ並びの先頭の要素番号を全て返す。search({${[...data].map((s) => `"${s}"`).join(", ")}}, {${[...key].map((s) => `"${s}"`).join(", ")}})では、βの条件式が真になる回数は【空欄】回である。`,
+            `記述中の空欄に入る答えを選べ。配列の要素番号は1から始まる。keyは要素数1以上の文字型の配列である。searchはdataにあるkeyと同じ並びの先頭の要素番号を全て返し、見つからなければ要素数0の配列を返す。search({${[...data].map((s) => `"${s}"`).join(", ")}}, {${[...key].map((s) => `"${s}"`).join(", ")}})では、βの条件式が真になる回数は【空欄】回である。`,
           ),
           code(
-            `○整数型の配列: search(文字型の配列: data, key)\n    整数型の配列: result ← {}\n    整数型: i, j\n    for (iを1からdataの要素数 − keyの要素数 + 1まで増やす)\n        for (jを1からkeyの要素数まで増やす) // α\n            if (data[i + j - 1] = key[j]) /*** β ***/\n                if (j = keyの要素数)\n                    resultの末尾にiを追加する\n                endif\n            else\n                αから始まる繰返しを終了する\n            endif\n        endfor\n    endfor\n    return result`,
+            `○整数型の配列: search(文字型の配列: data, key)\n    整数型の配列: result ← {}\n    整数型: i, j\n    /* dataの要素数 − keyの要素数 + 1が0以下のときは、繰返し処理を実行しない */\n    for (iを1からdataの要素数 − keyの要素数 + 1まで増やす)\n        for (jを1からkeyの要素数まで増やす) // α\n            if (data[i + j - 1] = key[j]) /*** β ***/\n                if (j = keyの要素数)\n                    resultの末尾にiを追加する\n                endif\n            else\n                αから始まる繰返しを終了する\n            endif\n        endfor\n    endfor\n    return result`,
           ),
         ],
         choices: strings(
@@ -693,7 +695,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "記述中のa・bに入る組合せを選べ。病気にかかるかどうかと予防接種の有無が独立だと仮定した理論度数を計算する。端数は小数第3位を四捨五入する。医学的な予防効果を判定する設問ではない。",
+            "記述中のa・bに入る組合せを選べ。病気にかかるかどうかと予防接種の有無が独立だと仮定した理論度数を計算する。配列の要素番号は1から始まる。関数fの引数と戻り値は二次元配列で、行と列は表の行と列に対応する。表2の『非表示』は値を表示していない部分を示す。端数は小数第3位を四捨五入する。",
           ),
           table(
             "表1　集計結果（人）",
@@ -761,7 +763,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "空欄a・bへ入る組合せを選べ。dataListに値、pointerListに次の要素へのポインタを保持する。先頭は要素1、末尾のポインタは未定義である。",
+            "空欄a・bへ入る組合せを選べ。配列の要素番号は1から始まる。単方向リストをdataListとpointerListで表す。dataListに値、pointerListに次の要素へのポインタを保持する。先頭は要素1、末尾のポインタは未定義である。値を格納していないdataListの要素と、それに対応するpointerListの要素も未定義である。図の網掛けは未定義の要素を示す。",
           ),
           p(
             `次ポインタは実際の要素番号に${offset}を加えた値で保存する。orderListは先頭からたどった順の値を返す。`,
@@ -806,7 +808,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "空欄a・bへ入る組合せを選べ。色の名前を初出順に名前一覧へ追加し、その一覧の中の位置だけが1となるOne-Hot表現へ変換する。配列の添字は1から始まる。",
+            "空欄a・bへ入る組合せを選べ。本問では、一つの要素だけが1で他の要素が0である整数型の配列をOne-Hot表現という。oneHotEncodingは色の名前を格納した要素数1以上の文字列型の配列を受け取る。色の名前を初出順に名前一覧へ追加し、各要素をその一覧の中の位置だけが1となるOne-Hot表現へ変換して、整数型配列の配列として返す。配列の添字は1から始まる。",
           ),
           p(`走査変数i・jには実際の要素番号に${offset}を加えた値を使う。`),
           figure(

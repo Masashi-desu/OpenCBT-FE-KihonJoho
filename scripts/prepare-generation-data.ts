@@ -41,11 +41,15 @@ const refreshSources = new Set(
     .filter(Boolean),
 );
 for (const source of refreshSources)
-  if (!additionalContracts.some((c) => c.source === source))
+  if (
+    ![...generationContracts, ...additionalContracts].some(
+      (c) => c.source === source,
+    )
+  )
     throw Error(`Unknown refresh source ${source}`);
 let changed = false;
 for (const c of [...generationContracts, ...additionalContracts]) {
-  // Preserve unrelated verified templates and their metadata during the diagram repair.
+  // Refresh selected series, preserving unrelated verified content and metadata.
   const existingQuestion = questions.find(
     (q) => q.id === `question-template-${c.id}`,
   );
@@ -54,9 +58,9 @@ for (const c of [...generationContracts, ...additionalContracts]) {
   if (
     existingQuestion &&
     !(
-      additional &&
-      (process.argv.includes("--refresh-additional") ||
-        refreshSources.has(c.source))
+      process.argv.includes("--refresh-all") ||
+      refreshSources.has(c.source) ||
+      (additional && process.argv.includes("--refresh-additional"))
     )
   ) {
     const questionPath = `questions/template-${c.id}.json`,
@@ -87,7 +91,7 @@ for (const c of [...generationContracts, ...additionalContracts]) {
     baseQuestionRef: refOf(original),
     generatorRef: {
       id: `generator-${c.id}`,
-      version: "version" in c ? String(c.version) : "2.0.0",
+      version: c.version ?? "2.1.0",
     },
     parameterDomain: {
       values: {
@@ -134,7 +138,7 @@ for (const c of [...generationContracts, ...additionalContracts]) {
   q.review.notes = `${c.notes} 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。`;
   q.review.checkedOn = "2026-10-07";
   q.origin.changes[q.origin.changes.length - 1].summary =
-    "原問題の出題形式を維持する生成用基準問題を定義";
+    "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義";
   t.baseQuestionRef = refOf(q);
   t.originalContentSha256 = await contentHash(q);
   generated.push({
@@ -203,6 +207,14 @@ catalog.files.exams = records(
 );
 catalog.revision += 1;
 catalog.generationCoverage = "complete";
+// Replacement references must resolve after managed questions are revised.
+for (const withdrawal of catalog.withdrawals) {
+  if (!withdrawal.replacement) continue;
+  const replacement = generated.find(
+    (g) => g.question.id === withdrawal.replacement!.questionId,
+  );
+  if (replacement) withdrawal.replacement = refOf(replacement.question);
+}
 for (const kind of Object.keys(catalog.files))
   catalog.files[kind] = records(catalog.files[kind]);
 write("catalog.json", catalog);

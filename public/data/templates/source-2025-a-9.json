@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-9",
-  "revision": 2,
+  "revision": 5,
   "title": "暗号と鍵のリスク",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-9",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-9",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "1053391c585756f915ac39d3b693d14ff3624e43ef8eca40a5bdc594010b2b03"
+  "originalContentSha256": "5613331976fb086ef653a946debbb668bad53f1cf227cacd0d182bf2a2e084a7"
 }

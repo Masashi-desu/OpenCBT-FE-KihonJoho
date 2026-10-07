@@ -1,27 +1,27 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2024-a-20",
-  "revision": 2,
+  "revision": 5,
   "title": "産業財産権の分類",
   "baseQuestionRef": {
     "questionId": "question-template-source-2024-a-20",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2024-a-20",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
       "length": 1,
       "minimum": 0,
-      "maximum": 3
+      "maximum": 7
     },
     "fields": [
       {
-        "name": "保護対象の分類",
+        "name": "誤答群に混ぜる権利",
         "minimum": 0,
-        "maximum": 3
+        "maximum": 7
       }
     ]
   },
@@ -59,5 +59,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "9f6af43d038beac9f280a58055fe637cdea59a668c7b0413b1d894f6b3ccbe58"
+  "originalContentSha256": "ef5a5e227fb3a1f45b427a6d50b14f3c88a305558b54a032e40ce55669c2de1b"
 }

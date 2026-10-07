@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-18",
-  "revision": 2,
+  "revision": 6,
   "title": "販売方針と必要な施策",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-18",
-    "revision": 2
+    "revision": 6
   },
   "generatorRef": {
     "id": "generator-source-2025-a-18",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "929609e87980f9ab0f5d9c6ecdf96853c51f6a97ea40008ff2eea45b521a9956"
+  "originalContentSha256": "248de16ce610275cf1dc2faf81ae92a3d8ed6bf2a4e9062c4e63d8eceaa95516"
 }

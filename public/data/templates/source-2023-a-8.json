@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-8",
-  "revision": 2,
+  "revision": 5,
   "title": "IPv4の運用機能",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-8",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-8",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "eaaa47cd2ce19f130964f9a1234c6c3816c1d1473005929fda5a78442d412984"
+  "originalContentSha256": "fd627faab850fac556bd207dd60daefb525862a9f2d8d9f53e85e68ab2cfb19a"
 }

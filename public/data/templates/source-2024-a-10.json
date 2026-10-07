@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2024-a-10",
-  "revision": 2,
+  "revision": 5,
   "title": "Webの入力に対する対策",
   "baseQuestionRef": {
     "questionId": "question-template-source-2024-a-10",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2024-a-10",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "36dedef64d0376476b345252de2349862183a6ec54fb7ca0a292cae90be4b137"
+  "originalContentSha256": "fb589cbfe8fe6aafbe5c44bb49e8e2668316d78e19c4f3933ad5d435aeb79f28"
 }

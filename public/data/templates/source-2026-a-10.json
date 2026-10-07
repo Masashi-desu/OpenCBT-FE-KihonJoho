@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-10",
-  "revision": 2,
+  "revision": 5,
   "title": "セキュリティの専門組織",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-10",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-10",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "0c59809a0de6eb96c7acec778ad2d350abd3343ed57c7f3ad942a332fcbfb4e8"
+  "originalContentSha256": "1f5c44b69b9dd32804fb7b613bc004d66dbb3bab6975ddd5e47141af6b2c889e"
 }

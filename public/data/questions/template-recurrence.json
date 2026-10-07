@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-recurrence",
-  "revision": 2,
+  "revision": 4,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -47,6 +47,24 @@
         "actorId": "codex",
         "kind": "numbers",
         "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。 入力は引数n=5、2項前の係数=2。",
+        "affectsAnswer": true,
+        "answerDetails": "更新後のdata[1]は2項前、data[2]は1項前である。従って空欄は2 × data[1] + data[2]。iを添字にすると繰返し中に配列の範囲を超える。独自の動作確認例n=5では[1, 1, 3, 5, 11]の順に計算し、戻り値は11。"
+      },
+      {
+        "at": "2026-10-07T01:52:19.214Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。 入力は引数n=5、2項前の係数=2。",
+        "affectsAnswer": true,
+        "answerDetails": "更新後のdata[1]は2項前、data[2]は1項前である。従って空欄は2 × data[1] + data[2]。iを添字にすると繰返し中に配列の範囲を超える。独自の動作確認例n=5では[1, 1, 3, 5, 11]の順に計算し、戻り値は11。"
+      },
+      {
+        "at": "2026-10-07T01:55:48.123Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
         "details": "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。 入力は引数n=5、2項前の係数=2。",
         "affectsAnswer": true,
         "answerDetails": "更新後のdata[1]は2項前、data[2]は1項前である。従って空欄は2 × data[1] + data[2]。iを添字にすると繰返し中に配列の範囲を超える。独自の動作確認例n=5では[1, 1, 3, 5, 11]の順に計算し、戻り値は11。"
@@ -428,7 +446,7 @@
   "choiceShuffleAllowed": true,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-07",
     "reviewerIds": [
       "codex"
     ],

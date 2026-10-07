@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-15",
-  "revision": 2,
+  "revision": 5,
   "title": "サーバ室の物理的安全対策",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-15",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-15",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "f83e3c12acbb165b6b504a9815072aa056614b5f81cbec104a464f0010c95c1a"
+  "originalContentSha256": "03b81475b65d0cc35e31778cf64988fa2a0002d0c3a5f7cd29591ea0e312e494"
 }

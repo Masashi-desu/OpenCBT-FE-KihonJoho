@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-2",
-  "revision": 2,
+  "revision": 5,
   "title": "数値計算の誤差",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-2",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-2",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "ed0c3961beb2dccf25ce2540d0c39959229d7ec54550a2139bfdeebfff8c8b27"
+  "originalContentSha256": "f851b4e2351c73562bb07d27b0d724b847fd7b5a3d9e014225a725ce5afb2b29"
 }

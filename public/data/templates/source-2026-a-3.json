@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-3",
-  "revision": 2,
+  "revision": 5,
   "title": "計算装置の特徴",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-3",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-3",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "cd0002bbd0ba668a2a87ae905809a072461722e2b672d85b87e7ec85f5831758"
+  "originalContentSha256": "9b1636e9f3533d094bb6441e95856f9f612c3ef2ee605a82ce8846c279ef08cd"
 }

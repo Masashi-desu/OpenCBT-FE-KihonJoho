@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2024-a-7",
-  "revision": 2,
+  "revision": 5,
   "title": "DBMSのACID特性",
   "baseQuestionRef": {
     "questionId": "question-template-source-2024-a-7",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2024-a-7",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "912e14d8fc1ba8377eae237d6442c08ae262ffb2e442486171fbb09aef1720ee"
+  "originalContentSha256": "355776f4db6b3ee7c7c3a5443d7764baf1bdf7193783bdd8fb7206705b767de1"
 }

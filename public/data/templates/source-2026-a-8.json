@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-8",
-  "revision": 2,
+  "revision": 5,
   "title": "無線通信の仕組み",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-8",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-8",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "297c636df4b248ae1353fd0d119dd5e628fc37d07d0348efa207711cc0096baa"
+  "originalContentSha256": "82d382780848fb93bfbc0ef552a65358a2ed997eb14f78a520c1023d4775bfb9"
 }

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-15",
-  "revision": 2,
+  "revision": 5,
   "title": "クラウドの配置形態",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-15",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-15",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "6d5e90aeddbc894ab29e156585b379e9853c87ce19cc15bee62d9f8221974a6f"
+  "originalContentSha256": "a1d6da8a47d3b68662b49d5641559f7a954869a768cbf4fa7e51e79258999516"
 }

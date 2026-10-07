@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-1",
-  "revision": 2,
+  "revision": 6,
   "title": "学習済みモデルの利用",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-1",
-    "revision": 2
+    "revision": 6
   },
   "generatorRef": {
     "id": "generator-source-2025-a-1",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "d6e901b65d4a3492022c64668bfbae40f08ed7003ec9194e71186078b323183e"
+  "originalContentSha256": "793e9855bc6e6f8104ce52dd55ad871785fc6995da5db37ab997da8c0f67b391"
 }

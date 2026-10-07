@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-11",
-  "revision": 2,
+  "revision": 5,
   "title": "開発上の問題への対策",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-11",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-11",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "b7f4579ae75e6ffbec76b50863c416b584b6d2936d5b27f43685407c66c1239a"
+  "originalContentSha256": "0d4a5a099283b389fcf098e9204495c725506614e28e5c3f842bfd63ac6f1b98"
 }

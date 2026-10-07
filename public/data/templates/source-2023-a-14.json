@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-14",
-  "revision": 2,
+  "revision": 5,
   "title": "テレワーク監査の確認目的",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-14",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-14",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "20305a982fa68798176deb136bbdb4304eb4ced2214cc1a43ec5e4eb0caed3d4"
+  "originalContentSha256": "9d96f213155195d8a9da395eee7df2039ba3c8aadb9c980eb7c7d2155e09741c"
 }

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-16",
-  "revision": 2,
+  "revision": 5,
   "title": "マーケティングの分析手法",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-16",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-16",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "2ced90c440ae17efaa8f566088fb5859dc7632ba79ed5d85d894618df01f131c"
+  "originalContentSha256": "042e7290ff0c1b093fa504b4de40400bd945b5cbdbcf251a1c0912faee98d322"
 }

@@ -53,7 +53,7 @@ const rules: Block[] = [
   ruleTitle("3. ログのアクセス管理"),
   bullets([
     "運用担当者だけがログにアクセスできるようにすること。",
-    "ログをエクスポートして保存する場合も、運用担当者だけが保存先のログにアクセスできるようにすること。",
+    "ログをエクスポートして保存する場合は、社内ネットワークに設置した自部署のファイルサーバへ保存し、運用担当者だけが保存先のログにアクセスできるようにすること。",
     "運用担当者は2名以上にすること。",
     "クラウドサービスへの運用担当者のログインには、2要素認証を必要とすること。",
   ]),
@@ -233,7 +233,7 @@ export function preserveSourceFormat(
       blocks: [
         paragraph("次のプログラム中の空欄【a】に入る正しい条件を選べ。"),
         paragraph(
-          `関数changeは10より大きい整数nを受け取り、1円玉・5円玉・10円玉でちょうどn円にする枚数の組合せの総数を返す。順序は区別しない。残額を扱う変数restには、実際の残額に${offset}を加えた値を保持する。`,
+          `関数changeは10より大きい整数nを受け取り、1円玉・5円玉・10円玉でちょうどn円にする枚数の組合せの総数を返す。順序は区別しない。残額を扱う変数restには、実際の残額に${offset}を加えた値を保持する。floorは小数部を切り捨てた整数を表す。`,
         ),
         paragraph(
           `例えば${n}円では、10円玉を0枚から順に増やし、各残額に対して5円玉を使う枚数を数え上げる。`,
@@ -366,7 +366,7 @@ export function preserveSourceFormat(
             ["(三)", `ログの日時は${jst ? "日本標準時" : "UTC"}で記録する。`],
             [
               "(四)",
-              `ログを毎月Yサーバへエクスポートする。保存先は${access ? "一般利用者も" : "運用担当者だけが"}アクセスできる。`,
+              `ログを毎月Yサーバへエクスポートする。保存先のログは${access ? "一般利用者も" : "運用担当者だけが"}アクセスできる。`,
             ],
           ],
         ),
@@ -389,7 +389,7 @@ export function preserveSourceFormat(
       ].map((m) => [paragraph(label(m))]),
     );
     explanation(
-      `ルール3は担当者限定のアクセス、エクスポート先の制限、複数担当者と2要素認証を求める。担当者${operators}名${operators < 2 ? "は人数条件に違反" : "は適合"}し、保存先は${access ? "一般利用者もアクセスできるため違反" : "担当者限定で適合"}する。上書きはルール5、日時はルール2の論点である。従って${label(correctMask)}。`,
+      `ルール3は担当者限定のアクセス、エクスポート先の制限、複数担当者と2要素認証を求める。担当者${operators}名${operators < 2 ? "は人数条件に違反" : "は適合"}し、保存先のログは${access ? "一般利用者もアクセスできるため違反" : "担当者限定で適合"}する。上書きはルール5、日時はルール2の論点である。従って${label(correctMask)}。`,
     );
   }
   q.id = `question-${instanceId}`;
@@ -418,11 +418,11 @@ export function preserveSourceFormat(
 }
 
 export function validateSourceFormat(q: Question, t: Template) {
-  if (["3.0.0", "3.0.1"].includes(t.generatorRef.version)) {
+  if (["3.2.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;
   }
-  if (t.generatorRef.version !== "2.0.0") return;
+  if (t.generatorRef.version !== "2.1.0") return;
   const formats: Record<string, [string[], number, string]> = {
     "hex-fraction": [["paragraph"], 4, "paragraph"],
     "logic-table": [["paragraph", "table"], 4, "table"],

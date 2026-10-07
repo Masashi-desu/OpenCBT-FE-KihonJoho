@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-8",
-  "revision": 2,
+  "revision": 5,
   "title": "Web通信の機能",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-8",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-8",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "9e4fbff2e6fb5aa5a1988ca17497d311b6ef3f8b90f543dacda53b4593992a58"
+  "originalContentSha256": "73322d2e915211eaf1d116c737c17c4382181800554068eca7ac9203fe21ee8b"
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-count-multiples",
-  "revision": 2,
+  "revision": 4,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -47,6 +47,24 @@
         "actorId": "codex",
         "kind": "numbers",
         "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ二つの空欄と6組の解答群を維持し、除数へ値をバインドする。n・mの値は独自解説の動作確認例に用いる。 入力は下限n=1、上限m=12、除数=4。",
+        "affectsAnswer": true,
+        "answerDetails": "最初の倍数までの移動は最大3回である。空欄aでその回数を確保し、空欄bでtempNから4刻みに数えれば、すべてのn・mでfunction1と一致する。独自の動作確認例n=1、m=12では、区間内の倍数は3個。例の戻り値そのものを選ぶ設問ではない。"
+      },
+      {
+        "at": "2026-10-07T01:52:19.213Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題と同じ二つの空欄と6組の解答群を維持し、除数へ値をバインドする。n・mの値は独自解説の動作確認例に用いる。 入力は下限n=1、上限m=12、除数=4。",
+        "affectsAnswer": true,
+        "answerDetails": "最初の倍数までの移動は最大3回である。空欄aでその回数を確保し、空欄bでtempNから4刻みに数えれば、すべてのn・mでfunction1と一致する。独自の動作確認例n=1、m=12では、区間内の倍数は3個。例の戻り値そのものを選ぶ設問ではない。"
+      },
+      {
+        "at": "2026-10-07T01:55:48.122Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
         "details": "原問題と同じ二つの空欄と6組の解答群を維持し、除数へ値をバインドする。n・mの値は独自解説の動作確認例に用いる。 入力は下限n=1、上限m=12、除数=4。",
         "affectsAnswer": true,
         "answerDetails": "最初の倍数までの移動は最大3回である。空欄aでその回数を確保し、空欄bでtempNから4刻みに数えれば、すべてのn・mでfunction1と一致する。独自の動作確認例n=1、m=12では、区間内の倍数は3個。例の戻り値そのものを選ぶ設問ではない。"
@@ -412,7 +430,7 @@
   "choiceShuffleAllowed": true,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-07",
     "reviewerIds": [
       "codex"
     ],

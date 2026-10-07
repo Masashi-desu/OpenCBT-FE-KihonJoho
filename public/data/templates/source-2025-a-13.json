@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2025-a-13",
-  "revision": 2,
+  "revision": 5,
   "title": "スクラムの役割",
   "baseQuestionRef": {
     "questionId": "question-template-source-2025-a-13",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2025-a-13",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "c7e8f7fb05b6beefd2b7055d167e7a3994933e9d9aaf76df563e1ad24cb3ddc8"
+  "originalContentSha256": "8f2325a766147f1d46e752602a8e1dd2b9f8a2e4621ece032fc5e607dc18c74c"
 }

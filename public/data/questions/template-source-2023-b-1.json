@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-source-2023-b-1",
-  "revision": 2,
+  "revision": 4,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -48,6 +48,24 @@
         "kind": "wording",
         "summary": "原問題の出題形式を維持する生成用基準問題を定義",
         "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 上限から引く値=0、説明例のmaxNum=20。",
+        "affectsAnswer": true,
+        "answerDetails": "上限はmaxNumであり、2以上の除数で割り切れれば素数でない。従ってa=maxNum、b=i mod j が 0 と等しい。maxNum=20という独自の確認例では{2, 3, 5, 7, 11, 13, 17, 19}を返す。"
+      },
+      {
+        "at": "2026-10-07T01:52:19.237Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 上限から引く値=0、説明例のmaxNum=20。",
+        "affectsAnswer": true,
+        "answerDetails": "上限はmaxNumであり、2以上の除数で割り切れれば素数でない。従ってa=maxNum、b=i mod j が 0 と等しい。maxNum=20という独自の確認例では{2, 3, 5, 7, 11, 13, 17, 19}を返す。"
+      },
+      {
+        "at": "2026-10-07T01:55:48.144Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 上限から引く値=0、説明例のmaxNum=20。",
         "affectsAnswer": true,
         "answerDetails": "上限はmaxNumであり、2以上の除数で割り切れれば素数でない。従ってa=maxNum、b=i mod j が 0 と等しい。maxNum=20という独自の確認例では{2, 3, 5, 7, 11, 13, 17, 19}を返す。"
       }
@@ -98,15 +116,15 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "次のプログラム中の空欄【a】と【b】に入る正しい組合せを選べ。"
+        "text": "次のプログラム中の空欄【a】と【b】に入る正しい組合せを選べ。ここで、配列の要素番号は1から始まる。"
       },
       {
         "type": "paragraph",
-        "text": "findPrimeNumbersはmaxNum以下の全ての素数を返す。maxNumは2以上の整数である。"
+        "text": "findPrimeNumbersはmaxNum以下の全ての素数を返す。maxNumは2以上の整数である。sqrtは正の平方根、floorは小数部を切り捨てた整数を表し、modは整数の除算の余りを表す。"
       },
       {
         "type": "code",
-        "text": "○整数型の配列: findPrimeNumbers(整数型: maxNum)\n    整数型の配列: pnList ← {}\n    整数型: i, j\n    論理型: divideFlag\n    for (i を 2 から 【a】まで 1 ずつ増やす)\n        divideFlag ← true\n        for (j を 2 から floor(sqrt(i)) まで 1 ずつ増やす)\n            if (【b】)\n                divideFlag ← false\n                内側の繰返しを終了する\n            endif\n        endfor\n        if (divideFlag が true と等しい)\n            pnListの末尾にiを追加する\n        endif\n    endfor\n    return pnList",
+        "text": "○整数型の配列: findPrimeNumbers(整数型: maxNum)\n    整数型の配列: pnList ← {}\n    整数型: i, j\n    論理型: divideFlag\n    for (i を 2 から 【a】まで 1 ずつ増やす)\n        divideFlag ← true\n        /* floor(sqrt(i))が2未満のときは、繰返し処理を実行しない */\n        for (j を 2 から floor(sqrt(i)) まで 1 ずつ増やす)\n            if (【b】)\n                divideFlag ← false\n                内側の繰返しを終了する\n            endif\n        endfor\n        if (divideFlag が true と等しい)\n            pnListの末尾にiを追加する\n        endif\n    endfor\n    return pnList",
         "language": "pseudocode"
       }
     ]
@@ -336,6 +354,6 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
   }
 }

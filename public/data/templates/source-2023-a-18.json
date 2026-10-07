@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-18",
-  "revision": 2,
+  "revision": 5,
   "title": "新製品の採用時期",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-18",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-18",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "16fabd7d7d190d4e11b1c72987fe882a7223b889cf66a8325e98189a1ac63c7b"
+  "originalContentSha256": "c9c5ea0185a88ef9bccaa10c279774e28a54b55bf0de82dc54f7d89a940a7cb5"
 }

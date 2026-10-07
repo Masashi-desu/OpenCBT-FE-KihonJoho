@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-19",
-  "revision": 2,
+  "revision": 5,
   "title": "経営の最高責任者",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-19",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-19",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "9f7ba3f2e025c2e219d50b52e11f64943a959eb7f3cd00d59a82c3af8fcf2abb"
+  "originalContentSha256": "fcb9619e4fd7944bb212e32d4713fdcb37f888916308d1fea03fc94eb3225643"
 }

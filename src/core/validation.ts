@@ -111,6 +111,9 @@ export async function validateBundle(b: Bundle) {
     fail("DUPLICATE_ID", "作成主体の重複");
   const get = (kind: string, key: string) =>
     maps[kind].get(key) || fail("REFERENCE", `${kind}:${key}`);
+  for (const withdrawal of b.catalog.withdrawals)
+    if (withdrawal.replacement)
+      get("question", refKey(withdrawal.replacement));
   const rights = (
     refs: string[],
     adapted: boolean,

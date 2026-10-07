@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-19",
-  "revision": 2,
+  "revision": 5,
   "title": "会議とコミュニケーション",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-19",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-19",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "139aa4f6f8e83b56ba2ca4f8e29d26b3a56207edf15648308a98b38eb4aabe31"
+  "originalContentSha256": "431e498dc95d359faa7f8c9409a1392674fb6a262792ca8855d3a255ca223648"
 }

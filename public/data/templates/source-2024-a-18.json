@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2024-a-18",
-  "revision": 2,
+  "revision": 5,
   "title": "業務領域とICT",
   "baseQuestionRef": {
     "questionId": "question-template-source-2024-a-18",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2024-a-18",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "97c1c8e599547ed2a3f7ab2cca83c1425f49d46f6d94e451051cce12760ff430"
+  "originalContentSha256": "11e95ab6d56a90ddc5f5a415152e828d1e740c30e6ccb0f4e4aebc72e130ffd2"
 }

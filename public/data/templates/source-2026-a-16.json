@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2026-a-16",
-  "revision": 2,
+  "revision": 5,
   "title": "小売業のIT活用",
   "baseQuestionRef": {
     "questionId": "question-template-source-2026-a-16",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2026-a-16",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "0e4e30626cbf786ee4964a26ba69f698f44b34cc58dc1b2dc6a16a598e5b54bc"
+  "originalContentSha256": "58bf1e038c65d3d6577ddc8e4d83a444ff0e780ed778c62562472ab59330cddc"
 }

@@ -332,3 +332,22 @@ test("withdrawn content cannot remain in the active distribution", async () => {
   });
   await assert.rejects(validateBundle(b), /取り下げ/);
 });
+
+test("withdrawal replacements must resolve to an included immutable question revision", async () => {
+  const b = fixture();
+  assert(b.catalog.withdrawals.length > 0);
+  for (const withdrawal of b.catalog.withdrawals)
+    assert(
+      b.questions.some(
+        (q) =>
+          q.id === withdrawal.replacement?.questionId &&
+          q.revision === withdrawal.replacement?.revision,
+      ),
+    );
+  const stale = structuredClone(b);
+  stale.catalog.withdrawals[0].replacement!.revision = 3;
+  await assert.rejects(validateBundle(stale), { code: "REFERENCE" });
+  const missing = structuredClone(b);
+  missing.catalog.withdrawals[0].replacement!.questionId = "question-missing";
+  await assert.rejects(validateBundle(missing), { code: "REFERENCE" });
+});

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-source-2023-a-17",
-  "revision": 2,
+  "revision": 5,
   "title": "企業活動とIT",
   "baseQuestionRef": {
     "questionId": "question-template-source-2023-a-17",
-    "revision": 2
+    "revision": 5
   },
   "generatorRef": {
     "id": "generator-source-2023-a-17",
-    "version": "3.0.0"
+    "version": "3.2.0"
   },
   "parameterDomain": {
     "values": {
@@ -19,12 +19,12 @@
     },
     "fields": [
       {
-        "name": "問う対象",
+        "name": "問う対象・判定する条件",
         "minimum": 0,
         "maximum": 3
       },
       {
-        "name": "設問の方向と判定条件",
+        "name": "選択肢の配置",
         "minimum": 0,
         "maximum": 2
       }
@@ -65,5 +65,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "4d29499ceee596c6ec38c9aa429006409800c5dee0c7840aa8a5d9f865efc602"
+  "originalContentSha256": "fa609a5d0990ba1a8c0a5eb40d0755f2073bc0e99d75c333d22b0be6b6b59090"
 }

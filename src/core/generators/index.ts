@@ -7,40 +7,53 @@ import { securityDefinitions } from "./security";
 import { ownContexts, p } from "./definition";
 import { sourceFigureAlt, validateSourceFigure } from "../source-figures";
 import { withCorrections } from "./corrections";
+import { knowledgeForms } from "./knowledge-formats";
+import { subjectAFormatDefinitions } from "./subject-a-formats";
 
 export const additionalDefinitions = [
   ...knowledgeDefinitions,
   ...subjectADefinitions,
+  ...subjectAFormatDefinitions,
   ...subjectBDefinitions,
   ...securityDefinitions,
-].map(withCorrections);
+]
+  .map(withCorrections)
+  .map((d) => ({ ...d, version: "3.2.0" as const }));
 if (
   new Set(additionalDefinitions.map((d) => d.source)).size !==
   additionalDefinitions.length
 )
   throw Error("Duplicate source generator");
-export const additionalContracts = additionalDefinitions.map((d) => ({
+const asContract = (d: (typeof additionalDefinitions)[number]) => ({
   id: `source-${d.source}`,
   source: d.source,
   title: d.title,
   fields: d.fields,
   reference: d.reference,
   notes: d.notes,
-  version: d.version ?? "3.0.0",
-}));
+  version: d.version ?? "3.2.0",
+});
+export const additionalContracts = additionalDefinitions.map(asContract);
+export function additionalContract(id: string, version: string) {
+  const d = definitionForVersion(id, version);
+  return d ? asContract(d) : undefined;
+}
 export function additionalDefinition(id: string) {
   return additionalDefinitions.find(
     (d) => `generator-source-${d.source}` === id,
   );
 }
+export function definitionForVersion(id: string, version: string) {
+  const d = additionalDefinition(id);
+  if (!d) return undefined;
+  if (version === (d.version ?? "3.2.0")) return d;
+  return undefined;
+}
 export function checkAdditionalParameters(t: Template, values: number[]) {
-  const d = additionalDefinition(t.generatorRef.id);
-  if (!d || !["3.0.0", d.version ?? "3.0.0"].includes(t.generatorRef.version))
-    throw new DataError("GENERATOR_REF", "未登録の全問対応生成器");
+  const d = definitionForVersion(t.generatorRef.id, t.generatorRef.version);
+  if (!d) throw new DataError("GENERATOR_REF", "未登録の全問対応生成器");
   try {
-    (t.generatorRef.version === "3.0.0" ? (d.legacyBuild ?? d.build) : d.build)(
-      values,
-    );
+    d.build(values);
   } catch (e) {
     if (e instanceof Error && e.message === "PARAMETER_CONSTRAINT")
       throw new DataError("PARAMETER_CONSTRAINT", "計算条件を満たしません");
@@ -54,11 +67,9 @@ export function bindAdditionalQuestion(
   instanceId: string,
   at: string,
 ): Question {
-  const d = additionalDefinition(t.generatorRef.id);
+  const d = definitionForVersion(t.generatorRef.id, t.generatorRef.version);
   if (!d) throw new DataError("GENERATOR_REF", "未登録の生成器");
-  const body = (
-      t.generatorRef.version === "3.0.0" ? (d.legacyBuild ?? d.build) : d.build
-    )(values),
+  const body = d.build(values),
     q = structuredClone(base),
     attr = t.attribution;
   let diagramIndex = 0;
@@ -117,12 +128,9 @@ export function bindAdditionalQuestion(
   return q;
 }
 export function validateAdditionalFormat(q: Question, t: Template) {
-  const d = additionalDefinition(t.generatorRef.id);
-  if (!d || !["3.0.0", d.version ?? "3.0.0"].includes(t.generatorRef.version))
-    throw new DataError("GENERATOR_REF", "生成形式の未登録");
-  const reference = (
-      t.generatorRef.version === "3.0.0" ? (d.legacyBuild ?? d.build) : d.build
-    )(d.reference),
+  const d = definitionForVersion(t.generatorRef.id, t.generatorRef.version);
+  if (!d) throw new DataError("GENERATOR_REF", "生成形式の未登録");
+  const reference = d.build(d.reference),
     types = (blocks: Block[]) => blocks.map((b) => b.type).join(",");
   if (
     types(q.prompt.blocks) !== types(reference.prompt) ||
@@ -147,6 +155,29 @@ export function validateAdditionalFormat(q: Question, t: Template) {
     ].some((c) => c.blocks.some((b) => b.type === "image"))
   )
     throw new DataError("SOURCE_FORMAT", "生成問題に固定画像が含まれています");
+  if (
+    knowledgeForms[d.source] ||
+    subjectAFormatDefinitions.some((f) => f.source === d.source)
+  ) {
+    // These source forms have small, enumerated subjects. Comparing their
+    // semantic scaffold also rejects reversed questions with identical blocks.
+    const choices = (items: Block[][]) =>
+      items.map((blocks) => JSON.stringify(blocks)).sort();
+    const actual = choices(q.choices.map((c) => c.content.blocks));
+    const matches = Array.from(
+      { length: d.fields[0].maximum + 1 },
+      (_, target) => d.build([target, 0]),
+    ).some(
+      (body) =>
+        JSON.stringify(q.prompt.blocks) === JSON.stringify(body.prompt) &&
+        JSON.stringify(actual) === JSON.stringify(choices(body.choices)),
+    );
+    if (!matches)
+      throw new DataError(
+        "SOURCE_FORMAT",
+        "原問題の問い方・判定条件・選択肢の役割と一致しません",
+      );
+  }
   for (const content of [
     q.prompt,
     ...q.contexts.map((c) => c.content),
