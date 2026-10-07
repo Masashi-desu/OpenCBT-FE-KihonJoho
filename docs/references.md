@@ -213,10 +213,10 @@
 
 ## R23 — GitHub Pages {#r23--github-pages}
 
-- 発行主体・資料：GitHub、[Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。ページの更新日の明示は確認できない。確認日2026-10-06。
+- 発行主体・資料：GitHub、[Using custom workflows with GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。ページの更新日の明示は確認できない。確認日2026-10-06、再確認日2026-10-07。
 - 対象・節：GitHub PagesのカスタムActions、Configuring the configure-pages action／Uploading Pages artifacts／Deploying GitHub Pages artifacts。
 - 確認した事実・対応：ビルド済み静的ファイルをartifactとして配信でき、必要な権限とgithub-pages environmentを設定する。mainへのpush及びmainでの手動起動に対応するPagesワークフロー、相対資産URL、ハッシュ遷移を採用する。
-- 限界：本リポジトリのGitHub側設定・権限・実URLで配信済みという根拠ではない。2026-10-06の確認はローカルのサブディレクトリ配信までである。リポジトリのpublish／pushだけではPagesでの配信を確認したことにしない。
+- 限界：公式ガイドだけでは本リポジトリの実配信成功を確認したことにならない。2026-10-06はローカルのサブディレクトリ配信まで確認し、2026-10-07にGitHub Actionsと実公開URLで確認した。[公開検証記録](/verification#github-pagesの自動配信2026-10-07)に実行結果を記載する。
 
 ## 全問生成の追加確認（2026-10-07）
 

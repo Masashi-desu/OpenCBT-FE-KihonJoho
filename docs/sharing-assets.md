@@ -48,7 +48,7 @@ npm run assets:generate -- --config path/to/site.json --out-dir output/share-pre
 npm run assets:generate -- --site-url https://example.com/opencbt/
 ```
 
-公開URLは`--site-url`、環境変数`SITE_URL`、設定ファイルの順で採用する。別の出力先ではアプリの`index.html`を書き換えない。`SITE_URL=https://example.com/opencbt/ npm run build`でも変更できる。初期値はGitリモートから得たGitHub Pagesの予定構成であり、設定済みというだけで公開完了を意味しない。確認時点2026-10-07には予定URLのHTTP応答は404で、SNS上の共有表示は公開後の確認対象である。
+公開URLは`--site-url`、環境変数`SITE_URL`、設定ファイルの順で採用する。別の出力先ではアプリの`index.html`を書き換えない。`SITE_URL=https://example.com/opencbt/ npm run build`でも変更できる。既定の[GitHub Pages公開URL](https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/)は2026-10-07に配信成功とHTTP 200を確認した。HTML・OpenGraph画像・manifest・アイコンはローカルのビルド成果物とSHA-256が一致する。[公開検証記録](/verification#github-pagesの自動配信2026-10-07)を参照する。SNS上での共有カード表示は未確認である。
 
 ## 生成物とメタ情報
 

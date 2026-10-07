@@ -422,3 +422,20 @@ Chrome以外の実ブラウザ、実スマートフォン、スクリーンリ�
 | 分岐の表示 | 全知識対象・選択肢の意味検査を維持。103基準問題と2,590生成入力の表示検査に、対象ごとの学習段階・サービス種別・用途の条件を追加 |
 | 再生成処理 | 一時ディレクトリで2023年度科目A問10だけを再生成し、問題の改訂と訂正通知の参照の更新を確認。他の205問はバイト単位で同一 |
 | 現行配布 | 生成器2.1.0／3.2.0、基準問題・テンプレート改訂4〜6、ミックス改訂11、カタログ改訂13。原問題103問の再録データと素材は変更していない |
+
+## GitHub Pagesの自動配信（2026-10-07）
+
+mainへのpushで本体を自動公開する指示に基づき、Pagesの公開元をGitHub Actionsに設定した。`github-pages`環境の許可ブランチはmain、HTTPSは有効。ワークフローにmainのpushを追加し、手動起動もmainだけを配信対象とする。Node.js 24でテスト・配布検証・型確認・ビルドが成功してからdistを配信する。
+
+初回配信commitは`bcd515e630f3d09daab5a930f94afad388470d0c`。[GitHub Actions実行37596777534](https://github.com/Masashi-desu/OpenCBT-FE-KihonJoho/actions/runs/37596777534)のeventがpush、build・deployがsuccess、Pages deploymentのshaが同commitであることを確認した。
+
+| 確認 | 結果・範囲 |
+| --- | --- |
+| ローカル検証 | `npm ci`、`npm run check`成功。250テスト成功・失敗0・skip0、配布データ・型確認・本体ビルド・文書検証・文書ビルド成功 |
+| ワークフロー | `actionlint .github/workflows/pages.yml`成功。mainへのpushによる自動起動とGitHub上の250テスト・build・deploy成功を確認 |
+| 実公開URL | [OpenCBT FE](https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/)がHTTP 200。HTML・JS・CSS・カタログ・原問題画像・OpenGraph画像・manifest・アイコンの計10ファイルがローカル成果物とSHA-256一致 |
+| ブラウザ操作 | 隔離したヘッドレスChromiumで公開URLを開き、2026年度科目Aの開始説明から20問の学習を開始。原問題画像・選択肢・出典の表示を確認 |
+| ハッシュ経路と保存 | 選択肢アを選択し、`#/exam/<session-id>`で再読み込み。元セッション・選択済み解答・保存済み表示が復元された |
+| 読込みとエラー | 初回表示・再読込みの完了した通信1,011件にHTTPエラーなし。ブラウザconsoleのerror・warningは0件 |
+
+操作確認は上記の開始・解答・再読込みに限る。SNSでの共有カード表示や全ブラウザの互換性は今回の確認対象に含めていない。検証用ブラウザだけを閉じ、利用者の通常ブラウザや学習記録は操作していない。
