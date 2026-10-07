@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-original-array-sum",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "schema-example"
+    ]
+  },
+  "origin": {
+    "kind": "original",
+    "sourceRefs": [],
+    "derivedFrom": [],
+    "changes": [],
+    "independentCreationNotes": "整数配列の総和という一般的な学習目標を独立に構成した。動的生成の基準値は[3,5,2]。実在するIPA問題ではない。",
+    "isModified": false,
+    "modificationBasis": "none"
+  },
+  "contributors": [
+    {
+      "actorId": "codex",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "整数配列valuesは[3,5,2]で、添字は1から始まる。次の処理後のtotalを選ぶ。"
+      },
+      {
+        "type": "table",
+        "caption": "入力値",
+        "columns": [
+          "添字",
+          "値"
+        ],
+        "rows": [
+          [
+            "1",
+            "3"
+          ],
+          [
+            "2",
+            "5"
+          ],
+          [
+            "3",
+            "2"
+          ]
+        ]
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-values",
+        "rendererRef": {
+          "id": "renderer-diagram-basic",
+          "version": "1.0.0"
+        },
+        "caption": "valuesの配列",
+        "alt": "添字1の値は3、添字2の値は5、添字3の値は2。",
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "scene": {
+          "kind": "array",
+          "cells": [
+            {
+              "id": "cell-one",
+              "index": 1,
+              "value": 3
+            },
+            {
+              "id": "cell-two",
+              "index": 2,
+              "value": 5
+            },
+            {
+              "id": "cell-three",
+              "index": 3,
+              "value": 2
+            }
+          ]
+        }
+      },
+      {
+        "type": "code",
+        "language": "pseudocode",
+        "text": "整数型: total ← 0\nfor (i を 1 から 3 まで 1 ずつ増やす)\n    total ← total + values[i]\nendfor"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-minus-one",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-sum",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-plus-one",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-plus-three",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "13"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-sum",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "初期値0に3、5、2を順に加える。途中値は3、8、10で、最終値は10である。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "docs_only",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "not_applicable",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "not_applicable",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "独自の基準問題を手計算で確認した文書用例。描画・生成モジュールは未実装。"
+  }
+}

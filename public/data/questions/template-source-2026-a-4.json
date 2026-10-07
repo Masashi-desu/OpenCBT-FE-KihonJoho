@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2026-a-4",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "family-8b0a63e255198b51",
+      "parameterized",
+      "template-source-2026-a-4"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問4",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2026-a-4",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題は登録した正しい概念・条件の対応から問う対象を選ぶ。意味から名称／目的、名称／目的から意味、誤った対応の識別を切り替える。単なる選択肢順・固有名詞の変更だけを生成として扱わない。 問う対象=0、設問の方向と判定条件=0。",
+        "affectsAnswer": true,
+        "answerDetails": "PaaSは、開発や運用のためのミドルウェアなどのプラットフォームを提供する。IaaSは仮想サーバなどの計算資源を提供し、利用者がOSやアプリを管理する。SaaSは提供者が用意したアプリケーションを利用者がサービスとして使う。ハウジングは利用者が用意した機器を設置する場所や設備を提供する。問う対象と選択肢の意味を対応させる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問4",
+            "page": 5,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目A",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "PaaSの説明として適切なものはどれか。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問4",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "開発や運用のためのミドルウェアなどのプラットフォームを提供する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問4",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "仮想サーバなどの計算資源を提供し、利用者がOSやアプリを管理する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問4",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "提供者が用意したアプリケーションを利用者がサービスとして使う"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問4",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "利用者が用意した機器を設置する場所や設備を提供する"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "PaaSは、開発や運用のためのミドルウェアなどのプラットフォームを提供する。IaaSは仮想サーバなどの計算資源を提供し、利用者がOSやアプリを管理する。SaaSは提供者が用意したアプリケーションを利用者がサービスとして使う。ハウジングは利用者が用意した機器を設置する場所や設備を提供する。問う対象と選択肢の意味を対応させる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題は登録した正しい概念・条件の対応から問う対象を選ぶ。意味から名称／目的、名称／目的から意味、誤った対応の識別を切り替える。単なる選択肢順・固有名詞の変更だけを生成として扱わない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

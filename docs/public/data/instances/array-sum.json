@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "instance-array-sum-example",
+  "sessionId": "session-generated-example",
+  "entryIndex": 0,
+  "createdAt": "2026-10-06T08:00:00Z",
+  "templateRef": {
+    "id": "template-array-sum",
+    "revision": 1
+  },
+  "baseQuestionRef": {
+    "questionId": "question-original-array-sum",
+    "revision": 1
+  },
+  "generatorRef": {
+    "id": "generator-array-sum",
+    "version": "1.0.0"
+  },
+  "parameterSelection": "explicit",
+  "parameters": {
+    "values": [
+      4,
+      7,
+      1
+    ]
+  },
+  "question": {
+    "schemaVersion": "3.0.0",
+    "id": "question-instance-array-sum-example",
+    "revision": 1,
+    "lifecycle": "active",
+    "subject": "B",
+    "learning": {
+      "area": "algorithm",
+      "tags": [
+        "schema-example"
+      ]
+    },
+    "origin": {
+      "kind": "original",
+      "sourceRefs": [],
+      "derivedFrom": [
+        {
+          "questionId": "question-original-array-sum",
+          "revision": 1
+        }
+      ],
+      "changes": [
+        {
+          "at": "2026-10-06T08:00:00Z",
+          "actorId": "codex",
+          "kind": "numbers",
+          "summary": "基準配列[3,5,2]を[4,7,1]へ変更し、図・選択肢・正答・解説を更新",
+          "details": "基準配列[3,5,2]を[4,7,1]へ変更し、本文・表・図と選択肢・正答・解説を整合させた。文書用手入力例であり生成器を実行した結果ではない。",
+          "affectsAnswer": true,
+          "answerDetails": "基準の総和10に対してこの出題の総和は12。選択肢は11、12、13、15で、choice-sumが唯一の正答。"
+        }
+      ],
+      "independentCreationNotes": "整数配列の総和という一般的な学習目標を独立に構成した。動的生成の基準値は[3,5,2]。実在するIPA問題ではない。",
+      "isModified": true,
+      "modificationBasis": "base_question"
+    },
+    "contributors": [
+      {
+        "actorId": "codex",
+        "role": "author"
+      },
+      {
+        "actorId": "codex",
+        "role": "verifier"
+      }
+    ],
+    "contexts": [],
+    "contextRefs": [],
+    "prompt": {
+      "attribution": {
+        "origin": "original",
+        "sourceRefs": [],
+        "rightsRefs": [
+          "rights-original"
+        ],
+        "creatorIds": [
+          "codex"
+        ]
+      },
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "整数配列valuesは[4,7,1]で、添字は1から始まる。次の処理後のtotalを選ぶ。"
+        },
+        {
+          "type": "table",
+          "caption": "入力値",
+          "columns": [
+            "添字",
+            "値"
+          ],
+          "rows": [
+            [
+              "1",
+              "4"
+            ],
+            [
+              "2",
+              "7"
+            ],
+            [
+              "3",
+              "1"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "id": "diagram-values",
+          "rendererRef": {
+            "id": "renderer-diagram-basic",
+            "version": "1.0.0"
+          },
+          "caption": "valuesの配列",
+          "alt": "添字1の値は4、添字2の値は7、添字3の値は1。",
+          "attribution": {
+            "origin": "original",
+            "sourceRefs": [],
+            "rightsRefs": [
+              "rights-original"
+            ],
+            "creatorIds": [
+              "codex"
+            ]
+          },
+          "scene": {
+            "kind": "array",
+            "cells": [
+              {
+                "id": "cell-one",
+                "index": 1,
+                "value": 4
+              },
+              {
+                "id": "cell-two",
+                "index": 2,
+                "value": 7
+              },
+              {
+                "id": "cell-three",
+                "index": 3,
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "code",
+          "language": "pseudocode",
+          "text": "整数型: total ← 0\nfor (i を 1 から 3 まで 1 ずつ増やす)\n    total ← total + values[i]\nendfor"
+        }
+      ]
+    },
+    "choices": [
+      {
+        "id": "choice-minus-one",
+        "content": {
+          "attribution": {
+            "origin": "original",
+            "sourceRefs": [],
+            "rightsRefs": [
+              "rights-original"
+            ],
+            "creatorIds": [
+              "codex"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "11"
+            }
+          ]
+        }
+      },
+      {
+        "id": "choice-sum",
+        "content": {
+          "attribution": {
+            "origin": "original",
+            "sourceRefs": [],
+            "rightsRefs": [
+              "rights-original"
+            ],
+            "creatorIds": [
+              "codex"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "12"
+            }
+          ]
+        }
+      },
+      {
+        "id": "choice-plus-one",
+        "content": {
+          "attribution": {
+            "origin": "original",
+            "sourceRefs": [],
+            "rightsRefs": [
+              "rights-original"
+            ],
+            "creatorIds": [
+              "codex"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "13"
+            }
+          ]
+        }
+      },
+      {
+        "id": "choice-plus-three",
+        "content": {
+          "attribution": {
+            "origin": "original",
+            "sourceRefs": [],
+            "rightsRefs": [
+              "rights-original"
+            ],
+            "creatorIds": [
+              "codex"
+            ]
+          },
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "15"
+            }
+          ]
+        }
+      }
+    ],
+    "correctAnswer": {
+      "choiceId": "choice-sum",
+      "attribution": {
+        "origin": "original",
+        "sourceRefs": [],
+        "rightsRefs": [
+          "rights-original"
+        ],
+        "creatorIds": [
+          "codex"
+        ]
+      }
+    },
+    "explanation": {
+      "attribution": {
+        "origin": "original",
+        "sourceRefs": [],
+        "rightsRefs": [
+          "rights-original"
+        ],
+        "creatorIds": [
+          "codex"
+        ]
+      },
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "初期値0に4、7、1を順に加える。途中値は4、11、12で、最終値は12である。"
+        }
+      ]
+    },
+    "assetRefs": [],
+    "choiceShuffleAllowed": true,
+    "distribution": "docs_only",
+    "review": {
+      "checkedOn": "2026-10-06",
+      "reviewerIds": [
+        "codex"
+      ],
+      "checks": {
+        "publication": "not_applicable",
+        "terms": "pass",
+        "thirdParty": "pass",
+        "transcription": "not_applicable",
+        "answer": "pass",
+        "explanation": "pass"
+      },
+      "notes": "固定の文書用例を手計算（4+7+1=12）で照合。生成器・描画器を実装・実行していない。"
+    }
+  },
+  "contentSha256": "72481fe088c7a6085b5d519487215677d6f34f0f11f5aa04b28e839589bf9493",
+  "bindingPerformed": true
+}

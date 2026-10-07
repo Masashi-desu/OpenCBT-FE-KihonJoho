@@ -1,0 +1,358 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2025-b-2",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "annual-2025",
+      "family-50484caafe15ce53"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問2",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問2",
+            "page": 6,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2025-b-2-p6",
+        "caption": "原資料 p.6"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問２  次のプログラム中の           に入れる正しい答えを，解答群の中から選べ。           \n                                                        \n                                                        \n    関数 change は，10 より大きい整数を引数  n で受け取り，1 円玉，5 円玉，10 円玉  \n   を使ってちょうどn円にする組合せの総数を返す。                              \n                                                        \n    例えば，12  円にする組合せは，次のように数えられる。10       円玉を使わない場合に     \n   は，1円玉と5円玉だけでちょうど12円にすることになる。その組合せは，使える5              \n                                                        \n   円玉の枚数が  0 以上 (12 ÷ 5 の商) 以下なので，(12 ÷ 5 の商) ＋ 1 ＝ 3 通りあ\n   る。同様に，10円玉を1枚使う場合には，1円玉と5円玉だけでちょうど2円にする              \n                                                        \n   ことになり，その組合せは     (2 ÷ 5 の商) ＋ 1 ＝ 1 通りある。10 円玉を 2 枚以上\n   使う組合せはない。よって，1     円玉，5 円玉，10 円玉を使ってちょうど     12 円にする \n                                                        \n   組合せは，3  ＋ 1 ＝ 4通りである。                                \n                                                        \n                                                        \n 〔プログラム〕                                                \n     ○整数型:  change(整数型: n)                              \n       整数型: count ← 0                                   \n                                                        \n       整数型: rest ← n                                    \n       while (      )                                   \n        count ← count ＋ (rest ÷ 5 の商) ＋ 1               \n        rest ← rest － 10                                \n       endwhile                                         \n       return count                                     \n                                                        \n                                                        \n   解答群                                                  \n                                                        \n    ア  rest ≧ 0                                         \n    イ  rest ≧ 5                                         \n                                                        \n    ウ  rest ≧ 10                                        \n    エ  rest ＞ 0                                         \n                                                        \n    オ  rest ＞ 5                                         \n    カ  rest ＞ 10"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "カ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-1",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-ans",
+          "locator": {
+            "section": "科目B 問2 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2025-b-2-p6"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

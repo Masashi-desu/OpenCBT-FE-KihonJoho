@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-cafe-profit",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "family-a467d9113956e88b",
+      "parameterized",
+      "template-cafe-profit"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問19",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "19"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2025-a-19",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T14:00:00Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題の数値を基準とする。生成版は必要人数を小数第2位まで切り上げる。 入力は1人の売上（円）=500、1人の変動費（円）=100、固定費（円）=300000、目標利益（円）=100000、営業日数=20、客席数=10。",
+        "affectsAnswer": true,
+        "answerDetails": "1人当たり限界利益は400円。必要客数は(300000+100000)÷400。さらに20日×10席で割ると5.000000人であり、小数第2位まで切り上げて5.00人。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問19",
+            "page": 10,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目A",
+            "questionNumber": "19"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "月100000円以上の利益を確保するため、1客席当たり1日平均何人以上の客が必要か。人数は小数第2位まで切り上げる。"
+      },
+      {
+        "type": "table",
+        "caption": "喫茶店の条件",
+        "columns": [
+          "項目",
+          "値"
+        ],
+        "rows": [
+          [
+            "1人当たり売上",
+            "500円"
+          ],
+          [
+            "1人当たり変動費",
+            "100円"
+          ],
+          [
+            "月の固定費",
+            "300000円"
+          ],
+          [
+            "月の営業日",
+            "20"
+          ],
+          [
+            "客席数",
+            "10"
+          ]
+        ]
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5.00人"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "4.99人"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5.01人"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5.03人"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "1人当たり限界利益は400円。必要客数は(300000+100000)÷400。さらに20日×10席で割ると5.000000人であり、小数第2位まで切り上げて5.00人。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の数値を基準とする。生成版は必要人数を小数第2位まで切り上げる。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

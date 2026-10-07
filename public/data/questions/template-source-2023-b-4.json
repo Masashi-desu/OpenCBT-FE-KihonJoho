@@ -1,0 +1,335 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2023-b-4",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-752b57f048221ff3",
+      "parameterized",
+      "template-source-2023-b-4"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問4",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2023-b-4",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 表の要素数=5、第2ハッシュの加算値=3、第1入力=3、第2入力=18、第3入力=11。",
+        "affectsAnswer": true,
+        "answerDetails": "3、18、11を呼出し順に処理し、各候補が空かを確認する。格納済みの値を上書きせず、結果は{-1, 18, -1, 3, 11}となる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問4",
+            "page": 8,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の記述中の空欄に入る答えを選べ。配列の添字は1から始まる。test終了直後のhashArrayは【空欄】となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "addは第1候補が空なら格納し、空でなければ第2候補へ格納する。両方が使用中ならfalseを返す。−1は空を表す。"
+      },
+      {
+        "type": "code",
+        "text": "大域: 整数型の配列: hashArray\n○論理型: add(整数型: value)\n    整数型: i ← calcHash1(value)\n    if (hashArray[i] = -1)\n        hashArray[i] ← value\n        return true\n    endif\n    i ← calcHash2(value)\n    if (hashArray[i] = -1)\n        hashArray[i] ← value\n        return true\n    endif\n    return false\n○整数型: calcHash1(整数型: value)\n    return (value mod hashArrayの要素数) + 1\n○整数型: calcHash2(整数型: value)\n    return ((value + 3) mod hashArrayの要素数) + 1\n○test()\n    hashArray ← {5個の -1}\n    add(3)\n    add(18)\n    add(11)",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{-1, 18, -1, 3, 11}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{18, -1, 3, 11, -1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{-1, 3, 11, -1, 18}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{3, 11, -1, 18, -1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{11, -1, 18, -1, 3}"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "3、18、11を呼出し順に処理し、各候補が空かを確認する。格納済みの値を上書きせず、結果は{-1, 18, -1, 3, 11}となる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

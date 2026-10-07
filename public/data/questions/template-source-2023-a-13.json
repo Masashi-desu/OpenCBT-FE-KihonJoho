@@ -1,0 +1,376 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2023-a-13",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "management",
+    "tags": [
+      "family-4daac8f7ec3f79bb",
+      "parameterized",
+      "template-source-2023-a-13"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問13",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2023-a-13",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 クリティカルな枝=0、上側で安価な作業=1、共通作業の日数増分=0。",
+        "affectsAnswer": true,
+        "answerDetails": "三つの枝の長さはB+E=11、C=8、D+F=8日。最長の枝を1日短縮する必要があり、共通作業A・Gも含めて費用を比較するとEが最少となる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問13",
+            "page": 8,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目A",
+            "questionNumber": "13"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "図の予定に対し作業Aで1日の遅れが生じた。当初の予定日数で終えるため、1日短縮する追加費用を最少にする作業はどれか。各作業は1日短縮でき、表は1日当たりの増加費用を示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "作業ネットワーク",
+        "alt": "原資料の形式に基づく改変図。Aの後にB→E、C、D→Fが分岐・合流し、その後G。A〜Gの標準日数は4、6、8、4、5、4、5。凡例では作業名が矢印の上、日数が下。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "crash-network",
+          "values": [
+            4,
+            6,
+            8,
+            4,
+            5,
+            4,
+            5
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "table",
+        "caption": "費用増加率",
+        "columns": [
+          "作業名",
+          "費用増加率"
+        ],
+        "rows": [
+          [
+            "A",
+            "4"
+          ],
+          [
+            "B",
+            "6"
+          ],
+          [
+            "C",
+            "3"
+          ],
+          [
+            "D",
+            "2"
+          ],
+          [
+            "E",
+            "2.5"
+          ],
+          [
+            "F",
+            "2.5"
+          ],
+          [
+            "G",
+            "5"
+          ]
+        ]
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "B"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "C"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "D"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "E"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-4",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "三つの枝の長さはB+E=11、C=8、D+F=8日。最長の枝を1日短縮する必要があり、共通作業A・Gも含めて費用を比較するとEが最少となる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2026-a-1",
+  "revision": 2,
+  "title": "遷移確率表の関係",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2026-a-1",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2026-a-1",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 23
+    },
+    "fields": [
+      {
+        "name": "入力軸の向き",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "記号の配置",
+        "minimum": 0,
+        "maximum": 23
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問1",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "07fa45d677313c17ecbbd301d8e16e982de7e4bef9089a76efdd914d1efd3e0a"
+}

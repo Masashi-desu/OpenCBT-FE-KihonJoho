@@ -1,0 +1,344 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "set-mix-b",
+  "revision": 7,
+  "title": "科目B ランダムミックス（値・図・正答を生成）",
+  "subject": "B",
+  "questionRefs": [
+    {
+      "questionId": "question-template-count-multiples",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-coin-change",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-complement",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-recurrence",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-security-log",
+      "revision": 3
+    },
+    {
+      "questionId": "question-template-source-2023-b-1",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2023-b-2",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2023-b-3",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2023-b-4",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2023-b-5",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2024-b-1",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2024-b-2",
+      "revision": 3
+    },
+    {
+      "questionId": "question-template-source-2024-b-3",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2024-b-4",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2024-b-5",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2025-b-3",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2025-b-4",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2025-b-5",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2026-b-1",
+      "revision": 3
+    },
+    {
+      "questionId": "question-template-source-2026-b-4",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2026-b-5",
+      "revision": 2
+    },
+    {
+      "questionId": "question-template-source-2023-b-6",
+      "revision": 3
+    },
+    {
+      "questionId": "question-template-source-2024-b-6",
+      "revision": 2
+    }
+  ],
+  "examConfigRefs": [
+    {
+      "id": "exam-mix-b-study",
+      "revision": 7
+    },
+    {
+      "id": "exam-mix-b-practice",
+      "revision": 7
+    }
+  ],
+  "distribution": "included",
+  "generationBindings": [
+    {
+      "questionRef": {
+        "questionId": "question-template-count-multiples",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-count-multiples",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-coin-change",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-coin-change",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-complement",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-complement",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-recurrence",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-recurrence",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-security-log",
+        "revision": 3
+      },
+      "templateRef": {
+        "id": "template-security-log",
+        "revision": 3
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2023-b-1",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2023-b-1",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2023-b-2",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2023-b-2",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2023-b-3",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2023-b-3",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2023-b-4",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2023-b-4",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2023-b-5",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2023-b-5",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2024-b-1",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2024-b-1",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2024-b-2",
+        "revision": 3
+      },
+      "templateRef": {
+        "id": "template-source-2024-b-2",
+        "revision": 3
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2024-b-3",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2024-b-3",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2024-b-4",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2024-b-4",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2024-b-5",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2024-b-5",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2025-b-3",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2025-b-3",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2025-b-4",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2025-b-4",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2025-b-5",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2025-b-5",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2026-b-1",
+        "revision": 3
+      },
+      "templateRef": {
+        "id": "template-source-2026-b-1",
+        "revision": 3
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2026-b-4",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2026-b-4",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2026-b-5",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2026-b-5",
+        "revision": 2
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2023-b-6",
+        "revision": 3
+      },
+      "templateRef": {
+        "id": "template-source-2023-b-6",
+        "revision": 3
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-template-source-2024-b-6",
+        "revision": 2
+      },
+      "templateRef": {
+        "id": "template-source-2024-b-6",
+        "revision": 2
+      }
+    }
+  ]
+}

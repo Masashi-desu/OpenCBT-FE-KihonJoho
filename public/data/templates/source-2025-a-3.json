@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-a-3",
+  "revision": 2,
+  "title": "2分探索木の大小関係",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-a-3",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-a-3",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 6
+    },
+    "fields": [
+      {
+        "name": "ラベルの巡回配置",
+        "minimum": 0,
+        "maximum": 6
+      },
+      {
+        "name": "左右の配置",
+        "minimum": 0,
+        "maximum": 1
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問3",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "8a4c1ce3df73dfc829a122e368a86f92e40bddf0b889b70b721044e7ade203d2"
+}

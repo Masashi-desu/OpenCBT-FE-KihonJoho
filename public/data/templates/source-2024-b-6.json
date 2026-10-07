@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2024-b-6",
+  "revision": 2,
+  "title": "テレワークの接続変更と対策",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2024-b-6",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2024-b-6",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 500
+    },
+    "fields": [
+      {
+        "name": "対策が必要な問題",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "端末の台数",
+        "minimum": 100,
+        "maximum": 500
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      450
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 14,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "79d4dd961c02ef1ec5ed9b8cee9d3c8735d51bf50c3a2674de6588c98154cfeb"
+}

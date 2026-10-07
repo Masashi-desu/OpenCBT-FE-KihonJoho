@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-a-6",
+  "revision": 2,
+  "title": "SQLの条件の等価性",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-a-6",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-a-6",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "集合条件",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "仕入先の組",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問6",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "2de1c8bf93c05ee61698bef94044c52ec6a5af20f2182e382fe89c9b30c9e585"
+}

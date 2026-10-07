@@ -1,0 +1,379 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-coin-change",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-50484caafe15ce53",
+      "parameterized",
+      "template-coin-change"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問2",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2025-b-2",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T14:00:00Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じwhile条件の空欄補充と6択を維持する。残額変数をオフセット付きで表し、条件の閾値と計算式を整合して変更する。金額は説明用の例へバインドする。 入力は金額n（円）=12、残額変数のオフセット=0。",
+        "affectsAnswer": true,
+        "answerDetails": "実際の残額はrest−0であり、0円の場合も1通りとして数えるため、条件はrest≧0。5円玉の枚数は0〜floor(残額/5)、残りは1円玉で支払う。説明用の12円では4通り。閾値・更新式・枚数計算は同じオフセットを使う。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問2",
+            "page": 6,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次のプログラム中の空欄【a】に入る正しい条件を選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "関数changeは10より大きい整数nを受け取り、1円玉・5円玉・10円玉でちょうどn円にする枚数の組合せの総数を返す。順序は区別しない。残額を扱う変数restには、実際の残額に0を加えた値を保持する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "例えば12円では、10円玉を0枚から順に増やし、各残額に対して5円玉を使う枚数を数え上げる。"
+      },
+      {
+        "type": "code",
+        "language": "pseudocode",
+        "text": "○整数型: change(整数型: n)\n    整数型: count ← 0\n    整数型: rest ← n + 0\n    while (【a】)\n        count ← count + floor((rest - 0) / 5) + 1\n        rest ← rest - 10\n    endwhile\n    return count"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "rest ≧ 0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "rest ≧ 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "rest ≧ 10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "rest > 0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "rest > 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問2",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "rest > 10"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "実際の残額はrest−0であり、0円の場合も1通りとして数えるため、条件はrest≧0。5円玉の枚数は0〜floor(残額/5)、残りは1円玉で支払う。説明用の12円では4通り。閾値・更新式・枚数計算は同じオフセットを使う。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じwhile条件の空欄補充と6択を維持する。残額変数をオフセット付きで表し、条件の閾値と計算式を整合して変更する。金額は説明用の例へバインドする。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

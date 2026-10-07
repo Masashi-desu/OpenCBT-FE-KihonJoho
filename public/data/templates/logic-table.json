@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-logic-table",
+  "revision": 2,
+  "title": "真理値表と論理演算",
+  "baseQuestionRef": {
+    "questionId": "question-template-logic-table",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-logic-table",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 7
+    },
+    "fields": [
+      {
+        "name": "演算種別",
+        "minimum": 1,
+        "maximum": 7
+      },
+      {
+        "name": "誤答候補の回転",
+        "minimum": 0,
+        "maximum": 6
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      7,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問1",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "943c726f494972eed415ec8e6bc0750c90b74d0619364b7ee70286c690fe0728"
+}

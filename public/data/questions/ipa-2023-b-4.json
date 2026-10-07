@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2023-b-4",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "annual-2023",
+      "family-752b57f048221ff3"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問4",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問4",
+            "page": 8,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2023-b-4-p8",
+        "caption": "原資料 p.8"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2023-b-4-p9",
+        "caption": "原資料 p.9"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問４  次の記述中の          に入れる正しい答えを，解答群の中から選べ。ここで，           \n   配列の要素番号は1から始まる。                                      \n                                                        \n                                                        \n    関数addは，引数で指定された正の整数valueを大域の整数型の配列hashArrayに        \n                                                        \n   格納する。格納できた場合は     true を返し，格納できなかった場合は     false を返す。\n   ここで，整数valueをhashArrayのどの要素に格納すべきかを，関数calcHash1及び     \n                                                        \n   calcHash2を利用して決める。                                   \n    手続testは，関数addを呼び出して，hashArrayに正の整数を格納する。手続          \n                                                        \n   testの処理が終了した直後のhashArrayの内容は，          である。          \n                                                        \n 〔プログラム〕                                                \n                                                        \n     大域:  整数型の配列:  hashArray                            \n                                                        \n     ○論理型:  add(整数型: value)                             \n       整数型: i ← calcHash1(value)                        \n       if (hashArray[i] ＝ －1)                           \n        hashArray[i] ← value                            \n        return true                                     \n       else                                             \n        i ← calcHash2(value)                            \n        if (hashArray[i] ＝ －1)                          \n          hashArray[i] ← value                          \n                                                        \n          return true                                   \n        endif                                           \n       endif                                            \n       return false                                     \n                                                        \n     ○整数型:  calcHash1(整数型: value)                       \n       return (value mod hashArrayの要素数) ＋ 1             \n                                                        \n     ○整数型:  calcHash2(整数型: value)                       \n       return ((value ＋ 3) mod hashArrayの要素数) ＋ 1       \n                                                        \n     ○test()                                            \n       hashArray ← {5個の －1}                             \n                                                        \n       add(3)                                           \n       add(18)                                          \n       add(11)\n\n解答群                                                  \n    ア  {－1, 3, －1, 18, 11}                              \n                                                        \n    イ  {－1, 11, －1, 3, －1}                              \n                                                        \n    ウ  {－1, 11, －1, 18, －1}                             \n    エ  {－1, 18, －1, 3, 11}                              \n                                                        \n    オ  {－1, 18, 11, 3, －1}"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-4",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-ans",
+          "locator": {
+            "section": "科目B 問4 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2023-b-4-p8",
+    "asset-ipa-2023-b-4-p9"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

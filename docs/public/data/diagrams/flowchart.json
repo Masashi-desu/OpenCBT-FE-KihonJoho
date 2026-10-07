@@ -1,0 +1,62 @@
+{
+  "type": "diagram",
+  "id": "diagram-example-flowchart",
+  "rendererRef": {
+    "id": "renderer-diagram-basic",
+    "version": "1.0.0"
+  },
+  "caption": "独自のflowchart構造例",
+  "alt": "ノードと接続を表す文書用の独自構造例。実在するIPA図ではない。",
+  "attribution": {
+    "origin": "original",
+    "sourceRefs": [],
+    "rightsRefs": [
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "scene": {
+    "kind": "flowchart",
+    "nodes": [
+      {
+        "id": "node-start",
+        "label": "開始",
+        "x": 500,
+        "y": 100,
+        "role": "start"
+      },
+      {
+        "id": "node-process",
+        "label": "totalに値を加える",
+        "x": 500,
+        "y": 500,
+        "role": "process"
+      },
+      {
+        "id": "node-end",
+        "label": "終了",
+        "x": 500,
+        "y": 900,
+        "role": "end"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-one",
+        "from": "node-start",
+        "to": "node-process",
+        "label": "",
+        "directed": true
+      },
+      {
+        "id": "edge-two",
+        "from": "node-process",
+        "to": "node-end",
+        "label": "",
+        "directed": true
+      }
+    ]
+  }
+}

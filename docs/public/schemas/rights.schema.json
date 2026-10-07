@@ -1,0 +1,258 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/rights.schema.json",
+  "title": "利用条件と権利情報",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一つの利用条件と評価範囲を識別する。部品のrightsRefsから参照し、条件を変更した場合は別IDとして旧条件と混同しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "holders": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200,
+        "description": "「holders」に記録する一つの要素。この条件が対象とする権利主体又は出自主体。利用条件の表示を生成し、作成者や発行主体と権利者が同じとは限らないことを記録する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "description": "この条件が対象とする権利主体又は出自主体。利用条件の表示を生成し、作成者や発行主体と権利者が同じとは限らないことを記録する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "basis": {
+      "type": "string",
+      "enum": [
+        "official_policy",
+        "permission",
+        "own_work"
+      ],
+      "description": "利用の根拠を公式の利用方針、個別許諾、自作のいずれとして確認したかを示す。公開URLがあること自体を許諾として扱わない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceRef",
+        "description": "「evidence」に記録する一つの要素。利用条件又は許諾を確認した資料とその箇所。公式方針・許諾では参照を保持し、自作では空配列を使用できる。条件の再確認に使う。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 0,
+      "maxItems": 20,
+      "description": "利用条件又は許諾を確認した資料とその箇所。公式方針・許諾では参照を保持し、自作では空配列を使用できる。条件の再確認に使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "description": "条件の対象となる本文・選択肢・解説・図等の部品と、認められる利用の範囲。条件を別の素材やリポジトリ全体へ自動拡張しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "uses": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repositoryRedistribution": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "disallowed",
+            "unconfirmed"
+          ],
+          "description": "Gitリポジトリや配布物に素材を含めて再配布できると判断したか。ブラウザで見られることとは別に根拠を確認する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "browserDisplay": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "disallowed",
+            "unconfirmed"
+          ],
+          "description": "本アプリが素材を利用者のブラウザに表示できると判断したか。リポジトリ同梱の許可から自動的に値を流用しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "adaptation": {
+          "type": "string",
+          "enum": [
+            "allowed",
+            "disallowed",
+            "unconfirmed"
+          ],
+          "description": "素材の変更や派生問題の作成を認める条件を確認したか。改変する部品に適用し、isModifiedの自動判定には使わない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": [
+        "repositoryRedistribution",
+        "browserDisplay",
+        "adaptation"
+      ],
+      "description": "本プロジェクトで予定する行為ごとの利用可否の確認記録。同梱、ブラウザ表示、改変を独立に扱い、allowedだけを法的保証とみなさない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "attributionText": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2000,
+      "description": "この条件が要求する追加の権利表示を、そのまま画面と配布物へ維持するための文面。通常の資料名・URLから生成する出典表示に追加する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "modificationNoticeRequired": {
+      "type": "boolean",
+      "description": "この利用条件が改変時の表示を要求するかを記録する。素材が改変されているかの宣言とは別であり、必要な表示を省かないために使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "licenseId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "この素材に適用するライセンス又は個別条件を識別する名称。コードのOSSライセンスを第三者素材に広げず、条件一覧の対応に使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "thirdParty": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "none_identified",
+            "present_cleared",
+            "unresolved"
+          ],
+          "description": "第三者素材を未発見、別条件まで確認済み、未解決のどれとして記録したか。未発見は不存在の保証ではなく、未解決は配布対象に組み入れない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "description": "第三者素材について調べた部品・箇所と確認内容。どの素材へどの条件を適用するかを人が再確認できるように残す。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "rightsRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "「thirdParty.rightsRefs」に記録する一つの要素。確認した第三者素材へ適用する別のrightsレコード。全ての参照先条件を満たし、確認済み素材ありの場合は一件以上保持する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 200,
+          "description": "確認した第三者素材へ適用する別のrightsレコード。全ての参照先条件を満たし、確認済み素材ありの場合は一件以上保持する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": [
+        "status",
+        "notes",
+        "rightsRefs"
+      ],
+      "description": "資料に含まれる第三者の文章・図表等を確認した記録。資料の発行主体の方針だけで第三者素材まで利用可能とみなさないために分離する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "checkedOn": {
+      "type": "string",
+      "format": "date",
+      "description": "利用条件を実際に確認した日付。条件変更への対応と再確認の基準に使い、条件の公開日や問題の作成日とは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "assessmentNotes": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000,
+      "description": "用途別評価の理由と限界。明示された許諾と本プロジェクトの解釈を区別し、evidenceとscopeから判断過程を追跡できるように記録する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "holders",
+    "basis",
+    "evidence",
+    "scope",
+    "uses",
+    "attributionText",
+    "modificationNoticeRequired",
+    "licenseId",
+    "thirdParty",
+    "checkedOn",
+    "assessmentNotes"
+  ],
+  "description": "特定の部品と用途に適用する利用条件の確認記録。出典資料の存在と利用可否を分け、第三者素材と媒体ごとの条件を独立して評価する。",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "basis": {
+            "enum": [
+              "official_policy",
+              "permission"
+            ]
+          }
+        },
+        "required": [
+          "basis"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "evidence": {
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "thirdParty": {
+            "properties": {
+              "status": {
+                "const": "present_cleared"
+              }
+            },
+            "required": [
+              "status"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "thirdParty"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "thirdParty": {
+            "properties": {
+              "rightsRefs": {
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ]
+}

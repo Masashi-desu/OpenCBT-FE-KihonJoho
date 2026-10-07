@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2026-a-8",
+  "revision": 2,
+  "title": "無線通信の仕組み",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2026-a-8",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2026-a-8",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "問う対象",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "設問の方向と判定条件",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問8",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "297c636df4b248ae1353fd0d119dd5e628fc37d07d0348efa207711cc0096baa"
+}

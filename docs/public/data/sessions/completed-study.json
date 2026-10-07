@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "session-a-example",
+  "setRef": {
+    "id": "set-a-study",
+    "revision": 1
+  },
+  "examConfigRef": {
+    "id": "exam-a-study",
+    "revision": 1
+  },
+  "snapshot": {
+    "catalogId": "catalog-docs-examples",
+    "catalogRevision": 4,
+    "catalogSha256": "3591aaf0e55b0c8303c44cf78f611b2c4ab3987ae86c46d82e3a6c869be1f09b"
+  },
+  "status": "completed",
+  "createdAt": "2026-10-06T07:00:00Z",
+  "updatedAt": "2026-10-06T07:10:00Z",
+  "startedAt": "2026-10-06T07:00:00Z",
+  "endedAt": "2026-10-06T07:10:00Z",
+  "activeElapsedSeconds": 600,
+  "currentIndex": 1,
+  "entries": [
+    {
+      "questionRef": {
+        "questionId": "question-ipa-2025-a-16",
+        "revision": 1
+      },
+      "choiceOrder": [
+        "choice-3c",
+        "choice-abc",
+        "choice-conjoint",
+        "choice-basket"
+      ],
+      "reviewFlag": false,
+      "revealed": false,
+      "selectedChoiceId": "choice-basket",
+      "issuedContent": {
+        "bindingPerformed": false,
+        "isModified": false,
+        "originKind": "official_reprint",
+        "contentSha256": "474ced5f799b0678bc9195499c02da0a446542083ca868a309bf03d2e3fde894"
+      }
+    },
+    {
+      "questionRef": {
+        "questionId": "question-original-binary",
+        "revision": 1
+      },
+      "choiceOrder": [
+        "choice-eight",
+        "choice-nine",
+        "choice-ten",
+        "choice-eleven"
+      ],
+      "reviewFlag": true,
+      "revealed": false,
+      "issuedContent": {
+        "bindingPerformed": false,
+        "isModified": false,
+        "originKind": "original",
+        "contentSha256": "97e09770f115c58298048490024a2e42aacec00465ba58ad38c1475d6e1d9edd"
+      }
+    }
+  ],
+  "storage": "indexeddb",
+  "expiresAt": "2027-04-04T07:10:00Z",
+  "revision": 3,
+  "bindingMode": "original_data"
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2024-a-3",
+  "revision": 2,
+  "title": "CPU間の処理時間とヒット率",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2024-a-3",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2024-a-3",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 1,
+      "maximum": 600
+    },
+    "fields": [
+      {
+        "name": "ヒット率の百分率",
+        "minimum": 70,
+        "maximum": 96
+      },
+      {
+        "name": "アクセス時間差の倍率",
+        "minimum": 1,
+        "maximum": 5
+      },
+      {
+        "name": "CPU Yのキャッシュ時間",
+        "minimum": 5,
+        "maximum": 30
+      },
+      {
+        "name": "CPU Xの主記憶時間",
+        "minimum": 100,
+        "maximum": 600
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      90,
+      2,
+      20,
+      400
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問3",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "082f7768ffff72b85a6209ae0a07c876f4d6c35c546c15360c15ce8aa3e4bc14"
+}

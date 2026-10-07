@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2024-b-1",
+  "revision": 2,
+  "title": "最大又は最小を返す条件",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2024-b-1",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2024-b-1",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 2
+    },
+    "fields": [
+      {
+        "name": "返す値の種類",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "最初に比較する変数",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問1",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "0c26600402f6a7802d69acbf437bb2fd8d6802109390952a5d9badeb7b5d2ca0"
+}

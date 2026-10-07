@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/set.schema.json",
+  "title": "問題セット",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一つの学習用問題群を識別する永続ID。session.setRefはrevisionと組にして参照し、同じ名称の別セットと混同しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "候補問題と関連試験設定を固定する改訂。問題の追加・差替え・設定の変更時に増やし、過去の出題候補を上書きしない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "S01の問題セット選択に表示する名前。内容・学習目的を説明し、公式に提供された試験セットと誤認させない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "subject": {
+      "type": "string",
+      "enum": ["A", "B"],
+      "description": "このセットの問題に共通する本アプリ内の科目。参照するquestionとexamの科目に一致させ、混在したセットを開始しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "questionRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+        "description": "「questionRefs」に記録する一つの出題候補の不変参照。年度別では原順序を保持し、一つの問題を一枠へ選ぶ。生成ミックスでは基準問題を一度だけ候補に登録し、異なる入力を複数のセッション枠へ割り当てられる。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 500,
+      "description": "問題と基準問題の不変参照を持つ候補一覧。年度別では原順序を保つ。候補自体に重複参照を置かず、生成ミックスの枠数・同系列の別入力はexam.duplicatePolicyとsession.entriesで決める。候補数と生成出題数は同一とは限らない。",
+      "uniqueItems": true,
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "examConfigRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/entityRef",
+        "description": "「examConfigRefs」に記録する一つの要素。このセットで開始できる試験設定のID・改訂。問数や分野内訳を満たす設定だけを関連付け、不足するpracticeを選択可能にしない。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "description": "このセットで開始できる試験設定のID・改訂。問数や分野内訳を満たす設定だけを関連付け、不足するpracticeを選択可能にしない。",
+      "uniqueItems": true,
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "distribution": {
+      "type": "string",
+      "enum": ["docs_only", "included", "excluded"],
+      "description": "セットを文書例・除外・配布対象のどれにするか。配布対象は参照する問題とテンプレートも全て配布可能であることを必要とする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "generationBindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "questionRef": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "生成枠を代表する基準問題の不変参照。questionRefsに一度だけ含まれ、対応テンプレートのbaseQuestionRefと一致する。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "templateRef": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/entityRef",
+            "description": "その枠で使うテンプレートの不変ID・改訂。生成規則、入力域、作成時の改変宣言を解決し、最新改訂へ自動追従しない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          }
+        },
+        "required": ["questionRef", "templateRef"],
+        "description": "「generationBindings」に記録する一つの要素。セット内のどの候補問題をテンプレート生成の枠として扱うか。固定問題だけのセットでは空配列を保持する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 0,
+      "maxItems": 500,
+      "description": "このセットの出題候補に対する基準問題と生成テンプレートの対応。候補数は一回の出題数と分離し、実際に出題する枠は試験設定で選ぶ。全問対応では各対象の原問題を候補へ含める。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "title",
+    "subject",
+    "questionRefs",
+    "examConfigRefs",
+    "distribution",
+    "generationBindings"
+  ],
+  "description": "同じ科目の問題候補と選択可能な試験設定の組。年度別は必要な独立系列数を確保する。生成ミックスは登録された基準問題・テンプレートから指定の枠を生成し、異なる入力を用意できないときは開始を止める。"
+}

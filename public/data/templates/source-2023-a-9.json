@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-a-9",
+  "revision": 2,
+  "title": "マルウェアの侵入と被害",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-a-9",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-a-9",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "問う対象",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "設問の方向と判定条件",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問9",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "9"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "da2a8da6df744812b25ef48402991f2e4e49d16e40aff178b571c899fefd9bc1"
+}

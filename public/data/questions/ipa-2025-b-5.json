@@ -1,0 +1,397 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2025-b-5",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "annual-2025",
+      "family-a0162eda0d45cdd3"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問5",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問5",
+            "page": 12,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2025-b-5-p12",
+        "caption": "原資料 p.12"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2025-b-5-p13",
+        "caption": "原資料 p.13"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問５  次の記述中の      a    と    b   に入れる正しい答えの組合せを，解答群        \n   の中から選べ。ここで，配列の要素番号は1から始まる。                           \n                                                        \n                                                        \n    予防接種の病気Xに対する予防効果を調査するために集めたデータの集計結果を基               \n                                                        \n   に，病気Xにかかるかどうかが，予防接種の有無に影響されないと仮定した場合の人               \n   数を計算する。この人数を理論度数という。表        1 に集計結果の例を示し，表    2 に表 1\n                                                        \n   を基に計算した理論度数を示す。                                      \n    関数 f は，引数  data で受け取った集計結果を基に計算した理論度数を返す。引数         \n                                                        \n   と戻り値は二次元配列で，その行が表の行，その列が表の列に対応する。                    \n                                                        \n                                                        \n                      表1 集計結果の例                         \n                                             単位 人       \n                                                        \n                     病気Xにかからなかった    病気Xにかかった            \n      予防接種を受けた                   82              6      \n                                                        \n      予防接種を受けていない                58              8      \n                                                        \n                                                        \n                 表2  表1を基に計算した理論度数                      \n                                             単位 人       \n                                                        \n                     病気Xにかからなかった    病気Xにかかった            \n      予防接種を受けた             a                            \n                                                        \n      予防接種を受けていない                         b             \n     注記  網掛けの部分は表示していない。\n\n〔プログラム〕                                                \n     ○実数型の二次元配列:     f(実数型の二次元配列:   data)               \n       実数型: t ← dataの要素の和                               \n       整数型: row ← dataの行数                               \n       整数型: col ← dataの列数                               \n                                                        \n       実数型の二次元配列:    result ← {row行col列の 未定義の値}         \n       整数型: r, c                                        \n       for (r を 1 から row まで 1 ずつ増やす)                    \n        for (c を 1 から col まで 1 ずつ増やす)                   \n          result[r, c] ← (dataの行番号rの要素の和) ×             \n                     (dataの列番号cの要素の和)  ÷ t              \n        endfor                                          \n       endfor                                           \n       return result                                    \n                                                        \n                                                        \n   解答群                                                  \n                                                        \n            a          b                                \n    ア          44         33                            \n                                                        \n    イ          58          8                            \n    ウ          70          7                            \n                                                        \n    エ          75          2                            \n                                                        \n    オ          80          6                            \n    カ          80          8                            \n                                                        \n    キ          82          6"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "カ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-7",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "キ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-5",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-ans",
+          "locator": {
+            "section": "科目B 問5 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2025-b-5-p12",
+    "asset-ipa-2025-b-5-p13"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

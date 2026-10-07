@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-array-sum",
+  "revision": 1,
+  "title": "整数配列の総和（独自テンプレート）",
+  "baseQuestionRef": {
+    "questionId": "question-original-array-sum",
+    "revision": 1
+  },
+  "generatorRef": {
+    "id": "generator-array-sum",
+    "version": "1.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 1,
+      "maximum": 9
+    }
+  },
+  "referenceParameters": {
+    "values": [
+      3,
+      5,
+      2
+    ]
+  },
+  "attribution": {
+    "origin": "original",
+    "sourceRefs": [],
+    "rightsRefs": [
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "docs_only",
+  "bindingBasis": "base_question",
+  "originalContentSha256": "d6640fe1733f1293c80df13f39902d01f0195509e3479c51b66a16fd69f684ad"
+}

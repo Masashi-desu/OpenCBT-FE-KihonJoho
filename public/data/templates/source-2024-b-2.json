@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2024-b-2",
+  "revision": 3,
+  "title": "文字列の基数変換",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2024-b-2",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-source-2024-b-2",
+    "version": "3.0.1"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 0,
+      "maximum": 255
+    },
+    "fields": [
+      {
+        "name": "基数",
+        "minimum": 2,
+        "maximum": 8
+      },
+      {
+        "name": "走査する向き",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "説明例の整数",
+        "minimum": 1,
+        "maximum": 255
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      2,
+      0,
+      18
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問2",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "37fed6ea43428042c35b9e544870b40cbab28138af97276e981fb79f32c1e99c"
+}

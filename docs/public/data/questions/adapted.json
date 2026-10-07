@@ -1,0 +1,299 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-adapted-basket",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "schema-example"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a",
+        "locator": {
+          "section": "科目A 公開問題 問16",
+          "page": 9,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "16"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2025-a-16",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T07:01:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "購入場面を具体化して問題文を変更",
+        "details": "原問の買い合わせ分析という問いを、販売店の周辺機器案内という具体的な場面へ変更。正答の概念は維持。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T07:01:00Z",
+        "actorId": "codex",
+        "kind": "choices",
+        "summary": "選択肢の順序を変更",
+        "details": "ア=ABC、イ=マーケットバスケット、ウ=3C、エ=コンジョイントへ選択肢の順序を変更。",
+        "affectsAnswer": false,
+        "answerDetails": "正答ID choice-basketを維持し、表示ラベルはエからイへ変わる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "codex",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-a",
+          "locator": {
+            "section": "科目A 公開問題 問16",
+            "page": 9,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目A",
+            "questionNumber": "16"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-public",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "ある販売店は、ノートPCと同時に購入される周辺機器を調べ、商品を一緒に案内したい。購入履歴の組合せを調べる分析手法はどれか。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-abc",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ABC分析"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-basket",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "マーケットバスケット分析"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3c",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "3C分析"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-conjoint",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "コンジョイント分析"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-basket",
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-answer",
+          "locator": {
+            "section": "科目A 問16の正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目A",
+            "questionNumber": "16"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-public",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "購入の共起関係を調べるので、マーケットバスケット分析に対応する。選択肢の順序を原問題から変えている。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "docs_only",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "派生元の正答概念を保ったこととID choice-basketの位置変更を照合。表現依存を保守的に改変問題へ分類。確認主体は同一AIであり、担当を分離した人による二重確認は行っていない。文書専用サンプル。"
+  }
+}

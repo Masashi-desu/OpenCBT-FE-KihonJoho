@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/exam.schema.json",
+  "title": "FE試験設定",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "科目・モード・出題数・時間等をまとめた試験設定の永続ID。setとsessionからrevisionと組にして参照し、問題データのIDとは分ける。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "この試験設定の不変改訂。制限時間や順序等を変える場合に増やし、過去セッションを最新設定で説明し直さない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "subject": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B"
+      ],
+      "description": "この設定で扱う本アプリのFE科目。セットの科目と一致させ、科目Aと科目Bを一つのセッションへ混在させない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "モード選択と開始前説明に表示する設定名。公式の試験実施名と誤認させず、本アプリの練習又は学習用設定と分かる名前にする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "practice",
+        "study"
+      ],
+      "description": "制限時間付きで正答を終了後に示すpracticeか、時間制限なく正答表示・一時停止を扱うstudyかを選ぶ。FE本番の追加機能とは説明しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "questionCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60,
+      "description": "一つのセッションへ固定する出題枠数。年度別では同数の独立系列を必要とする。生成ミックスでは登録テンプレートから同系列の別入力を含めて全枠を生成するため、基準問題の候補数と同じとは限らない。必要な枠数・分野を確保できなければ開始しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "timeLimitSeconds": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 7200,
+      "description": "practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。",
+      "$comment": "条件付き：practiceでは必須で欠落を拒否する。studyでは省略し、時間制限を設けない。"
+    },
+    "questionOrder": {
+      "type": "string",
+      "enum": [
+        "set",
+        "shuffle"
+      ],
+      "description": "セットに記録した順序で選ぶか、開始時に順序を抽選するか。確定した出題順をsession.entriesへ保存し、再開時に再抽選しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "choiceOrder": {
+      "type": "string",
+      "enum": [
+        "fixed",
+        "shuffle"
+      ],
+      "description": "元のchoices順を使うか、開始時に順序を抽選するか。choiceShuffleAllowedを尊重し、実際の順序はchoiceOrder配列へ固定する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "duplicatePolicy": {
+      "description": "年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力と表示内容は同じセッションへ重複させない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。",
+      "enum": [
+        "lineage_unique",
+        "instance_unique"
+      ]
+    },
+    "shortagePolicy": {
+      "const": "block",
+      "description": "必要な問題数又は分野内訳を満たせない場合の処理。初期版では開始を拒否し、不足したまま短縮して形式練習を始めない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "quotas": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 60,
+          "description": "Bの形式練習で必要なアルゴリズム・プログラミング分野の枠数。生成枠も一つの基準問題として数える。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "security": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 60,
+          "description": "Bの形式練習で必要な情報セキュリティ分野の枠数。algorithmとの合計が出題数に対応することを確認する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": [
+        "algorithm",
+        "security"
+      ],
+      "description": "科目Bのpracticeで必要な分野別枠数。出題候補と確定したセッションの両方でalgorithm／securityの内訳を確認する。",
+      "$comment": "条件付き：Bのfull_examでは必須で欠落を拒否する。他の設定では省略し、ミックスの公開部分の内訳は選択時の分野構成で検証する。"
+    },
+    "practiceScope": {
+      "type": "string",
+      "enum": [
+        "full_exam",
+        "public_subset",
+        "learning_set"
+      ],
+      "description": "時間付き練習の問題数・時間の範囲。full_examは本番の問数・時間を使う生成ミックス、public_subsetは年度公開部分又は短い生成練習を扱う。learning_setは旧版・交換用の任意学習セットで、現行メニューに別の独自セットを追加する指定ではない。本番の非公開問題や公式採点を再現しない。",
+      "$comment": "practiceで省略時は既存仕様との互換としてfull_exam。studyでは省略し、時間制限を設けない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "subject",
+    "title",
+    "mode",
+    "questionCount",
+    "questionOrder",
+    "choiceOrder",
+    "duplicatePolicy",
+    "shortagePolicy"
+  ],
+  "description": "科目とモードごとの出題数・時間・順序・不足時動作を固定する。問題の内容やユーザー解答とは独立した不変改訂として参照する。",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "practice"
+          }
+        },
+        "required": [
+          "mode"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "required": [
+          "timeLimitSeconds"
+        ],
+        "type": "object"
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "timeLimitSeconds"
+              ],
+              "type": "object"
+            },
+            {
+              "required": [
+                "quotas"
+              ],
+              "type": "object"
+            },
+            {
+              "required": [
+                "practiceScope"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "practice"
+          },
+          "subject": {
+            "const": "A"
+          },
+          "practiceScope": {
+            "const": "full_exam"
+          }
+        },
+        "required": [
+          "mode",
+          "subject"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "questionCount": {
+            "const": 60
+          },
+          "timeLimitSeconds": {
+            "const": 5400
+          }
+        },
+        "not": {
+          "required": [
+            "quotas"
+          ],
+          "type": "object"
+        },
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "practice"
+          },
+          "subject": {
+            "const": "B"
+          },
+          "practiceScope": {
+            "const": "full_exam"
+          }
+        },
+        "required": [
+          "mode",
+          "subject"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "required": [
+          "quotas"
+        ],
+        "properties": {
+          "questionCount": {
+            "const": 20
+          },
+          "timeLimitSeconds": {
+            "const": 6000
+          },
+          "quotas": {
+            "properties": {
+              "algorithm": {
+                "const": 16
+              },
+              "security": {
+                "const": 4
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "const": "study"
+          },
+          "subject": {
+            "const": "B"
+          }
+        },
+        "required": [
+          "mode",
+          "subject"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "questionCount": {
+            "type": "integer",
+            "maximum": 20
+          }
+        }
+      }
+    }
+  ]
+}

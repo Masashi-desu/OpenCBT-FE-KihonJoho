@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/formula.schema.json",
+  "title": "数式ブロック",
+  "description": "数式の表示内容と日本語等の代替説明。Unicode又は許可範囲のLaTeXを表示する構造で、計算や任意HTMLの実行を行うデータではない。",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "const": "formula",
+      "description": "この部品を数式として描画することを示す判別子。文章内の記号を自動探索して数式に変えず、独立した数式ブロックとして扱う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "unicode",
+        "latex"
+      ],
+      "description": "textをUnicodeの表示テキストか、制限付きLaTeXかとして読むための指定。許可命令とCDN準備の必要性を切り替える。",
+      "$comment": "任意：省略は明示的な互換規則としてunicodeと解釈する。latexと推定せず、他のフィールドへこの初期値規則を広げない。"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "利用者に示す数式の表現。formatに対応する表示専用入力として扱い、計算・疑似言語実行・任意HTMLの生成命令として使わない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "alt": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "数式の意味を日本語等で読める代替説明。視覚表示と併記し、数式を解釈できない場合も内容へ到達できるようにする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "type",
+    "text",
+    "alt"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "format": {
+            "const": "latex"
+          }
+        },
+        "required": [
+          "format"
+        ]
+      },
+      "then": {
+        "properties": {
+          "text": {
+            "pattern": "^[\\x20-\\x7e\\t\\r\\n]+$",
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "allowedLatexCommand": {
+      "type": "string",
+      "enum": [
+        "frac",
+        "dfrac",
+        "sqrt",
+        "log",
+        "ln",
+        "sin",
+        "cos",
+        "tan",
+        "sum",
+        "prod",
+        "lim",
+        "min",
+        "max",
+        "times",
+        "cdot",
+        "div",
+        "pm",
+        "le",
+        "leq",
+        "ge",
+        "geq",
+        "ne",
+        "neq",
+        "approx",
+        "equiv",
+        "in",
+        "notin",
+        "subset",
+        "subseteq",
+        "supset",
+        "supseteq",
+        "cup",
+        "cap",
+        "land",
+        "lor",
+        "neg",
+        "lfloor",
+        "rfloor",
+        "lceil",
+        "rceil",
+        "left",
+        "right",
+        "infty",
+        "alpha",
+        "beta",
+        "gamma",
+        "delta",
+        "theta",
+        "lambda",
+        "mu",
+        "sigma",
+        "pi",
+        "omega",
+        "mathrm",
+        "mathit",
+        "mathbf",
+        "mathbb",
+        "text",
+        "operatorname",
+        "quad",
+        "qquad",
+        "begin",
+        "end",
+        "\\",
+        ",",
+        ";",
+        ":",
+        "!",
+        "{",
+        "}",
+        "|",
+        " "
+      ],
+      "description": "数式データの静的検証で許可するLaTeX命令名の集合。問題JSONに自由な命令やマクロを追加させず、描画側の許可範囲もこれに一致させる。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "allowedLatexEnvironment": {
+      "type": "string",
+      "enum": [
+        "matrix",
+        "pmatrix",
+        "bmatrix",
+        "cases",
+        "aligned"
+      ],
+      "description": "数式データで使用する行列・場合分け・整列の環境名の集合。入れ子等の追加制約は数式検証に従い、任意環境を解釈しない。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    }
+  }
+}

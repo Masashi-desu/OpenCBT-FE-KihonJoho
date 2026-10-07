@@ -1,0 +1,364 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2025-b-1",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "annual-2025",
+      "family-ad01ce2ee8a68353"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問1",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問1",
+            "page": 4,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "1"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2025-b-1-p4",
+        "caption": "原資料 p.4"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2025-b-1-p5",
+        "caption": "原資料 p.5"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問１  次のプログラム中の        a   と    b   に入れる正しい答えの組合せを，       \n   解答群の中から選べ。                                           \n                                                        \n                                                        \n    関数function1が受け取る引数と，関数function2が受け取る引数とが同じとき，       \n                                                        \n   二つの関数は同じ値を返す。ここで，引数nと引数mは正の整数であり，引数mは引               \n   数nよりも10以上大きい数とする。                                    \n                                                        \n                                                        \n 〔プログラム〕                                                \n                                                        \n     ○整数型:  function1(整数型: n, 整数型: m)                   \n       整数型: count ← 0                                   \n       整数型: i                                           \n       for (iをnからmまで1ずつ増やす)                             \n        if ((i mod 4)が0と等しい)                            \n          count ← count ＋ 1                             \n        endif                                           \n       endfor                                           \n       return count                                     \n                                                        \n     ○整数型:  function2(整数型: n, 整数型: m)                   \n                                                        \n       整数型: count ← 0                                   \n       整数型: tempN ← n                                   \n       整数型: i, j                                        \n       for (  a   )                                     \n        if ((tempN mod 4)が0と等しい)                        \n          繰返し処理を終了する                                    \n        endif                                           \n        tempN ← tempN ＋ 1                               \n       endfor                                           \n                                                        \n                                                        \n       for (  b   )                                     \n        count ← count ＋ 1                               \n       endfor                                           \n       return count\n\n解答群                                                  \n                                                        \n                a                       b               \n                          jをnから始めてmを超えない範囲でtempNずつ      \n    ア  iを1から2まで1ずつ増やす                                   \n                          増やす                           \n    イ  iを1から2まで1ずつ増やす     jをtempNからmまで1ずつ増やす            \n                          jをtempNから始めてmを超えない範囲で4ずつ      \n    ウ  iを1から2まで1ずつ増やす                                   \n                          増やす                           \n                          jをnから始めてmを超えない範囲でtempNずつ      \n    エ  iを1から3まで1ずつ増やす                                   \n                          増やす                           \n    オ  iを1から3まで1ずつ増やす     jをtempNからmまで1ずつ増やす            \n                          jをtempNから始めてmを超えない範囲で4ずつ      \n    カ  iを1から3まで1ずつ増やす                                   \n                          増やす"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問1",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問1",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問1",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問1",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問1",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問1",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "カ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-6",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-ans",
+          "locator": {
+            "section": "科目B 問1 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "1"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2025-b-1-p4",
+    "asset-ipa-2025-b-1-p5"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

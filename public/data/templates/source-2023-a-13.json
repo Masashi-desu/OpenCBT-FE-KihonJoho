@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-a-13",
+  "revision": 2,
+  "title": "作業短縮の最少追加費用",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-a-13",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-a-13",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "fields": [
+      {
+        "name": "クリティカルな枝",
+        "minimum": 0,
+        "maximum": 2
+      },
+      {
+        "name": "上側で安価な作業",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "共通作業の日数増分",
+        "minimum": 0,
+        "maximum": 5
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      1,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問13",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "704e1649ebe34ccc4239679e6a3f166242322d070d0414b46048e610cfbff155"
+}

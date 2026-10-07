@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve original notice bytes, including upstream final blank lines.
+public/notices/*.txt -text whitespace=-blank-at-eof
+LICENSE -text

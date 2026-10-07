@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "session-generated-example",
+  "setRef": {
+    "id": "set-b-generated",
+    "revision": 1
+  },
+  "examConfigRef": {
+    "id": "exam-b-study",
+    "revision": 1
+  },
+  "snapshot": {
+    "catalogId": "catalog-docs-examples",
+    "catalogRevision": 4,
+    "catalogSha256": "3591aaf0e55b0c8303c44cf78f611b2c4ab3987ae86c46d82e3a6c869be1f09b"
+  },
+  "status": "completed",
+  "createdAt": "2026-10-06T08:00:00Z",
+  "updatedAt": "2026-10-06T08:10:00Z",
+  "startedAt": "2026-10-06T08:00:00Z",
+  "activeElapsedSeconds": 600,
+  "currentIndex": 0,
+  "entries": [
+    {
+      "questionRef": {
+        "questionId": "question-original-array-sum",
+        "revision": 1
+      },
+      "generatedInstanceId": "instance-array-sum-example",
+      "issuedContent": {
+        "bindingPerformed": true,
+        "isModified": true,
+        "originKind": "original",
+        "contentSha256": "72481fe088c7a6085b5d519487215677d6f34f0f11f5aa04b28e839589bf9493"
+      },
+      "choiceOrder": [
+        "choice-minus-one",
+        "choice-sum",
+        "choice-plus-one",
+        "choice-plus-three"
+      ],
+      "selectedChoiceId": "choice-sum",
+      "reviewFlag": false,
+      "revealed": false
+    }
+  ],
+  "storage": "indexeddb",
+  "expiresAt": "2027-04-04T08:10:00Z",
+  "revision": 3,
+  "endedAt": "2026-10-06T08:10:00Z",
+  "bindingMode": "generated_values"
+}

@@ -1,0 +1,552 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json",
+  "title": "共有型と本文構造",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,79}$",
+      "description": "各レコード又は問題内要素を継続して識別するための共通型。表示名・順序・URLとは区別し、具体的な名前空間と参照先は使用フィールドの意味に従う。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "questionRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "questionId": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "参照する問題の永続ID。revisionと組にして不変の問題定義を特定し、画面の問順や原資料の問番号とは区別する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000,
+          "description": "参照先問題の内容・出典・条件を固定した改訂。最新版へ自動追従せず、当時の問題を説明できるようにする。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["questionId", "revision"],
+      "description": "問題の永続IDと内容を固定した改訂の組。表示・正答・条件が同じ不変定義へ到達するために使い、最新版への暗黙追従を行わない。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "entityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "参照元フィールドが指定する種類のセット・設定・テンプレートの永続ID。異なる種類の同名IDへ自動的に探索範囲を広げない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000,
+          "description": "参照先のセット・設定・テンプレートを固定した改訂。idと組にして契約や候補を特定し、最新版を暗黙に選ばない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["id", "revision"],
+      "description": "セット・試験設定・テンプレートを不変IDと改訂で参照する組。参照元で指定したレコード種類の中だけで解決する。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exam": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "原資料に記載された試験区分。FE・SG等の資料の適用対象を保持し、本アプリの科目選択から推定して書き換えない。",
+          "$comment": "原資料に記載がなく確認できなければ省略する。本アプリの設定から補わない。"
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2200,
+          "description": "原資料が対象とする西暦年度。公開日・閲覧日とは区別し、どの年度の問題かを原本リンクと合わせて特定する。",
+          "$comment": "原資料の対象年度を確認できなければ省略する。公開日の年で代用しない。"
+        },
+        "period": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "原資料の春期・秋期・上期・下期等の期の表記。制度や年度に依存する識別情報として保持する。",
+          "$comment": "記載のない通年資料等では省略し、春期等を推定で加えない。"
+        },
+        "subject": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "原資料に記載された科目名。問題の本アプリ内分類subjectとは分け、旧制度の資料の表記を保存する。",
+          "$comment": "原資料に科目表記がなければ省略する。本アプリのA／Bを逆輸入しない。"
+        },
+        "timeSlot": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "原資料の午前・午後等の時間区分。旧問題を現在の学習へ分類しても原表記を残し、出典の誤記を防ぐ。",
+          "$comment": "原資料に時間区分がなければ省略し、科目A／Bを代用しない。"
+        },
+        "questionNumber": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "原資料の問番号と必要な枝番。元の設問・解答箇所へ到達するために使い、本アプリ内の出題順とは分ける。",
+          "$comment": "問題番号を持たない案内・方針資料等では省略する。架空の問番号を付けない。"
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000,
+          "description": "原資料PDFの先頭から数えたページ位置。冊子の印刷ページ表記と異なる場合はsectionにも記録し、原本を照合できるようにする。",
+          "$comment": "固定ページのないWebページ等では省略する。0や閲覧画面の位置で代用しない。"
+        },
+        "section": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "description": "原本で照合する節・見出し又は設問の位置の説明。資料URLだけで特定できない参照箇所を識別し、必要なら印刷ページ表記も含める。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["section"],
+      "description": "原資料のどの箇所を照合すればよいかを表す位置情報。旧制度の表記を維持し、本アプリの学習分類から補わない。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sourceId": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "出典又は条件の根拠となるsourceのID。資料名・発行主体・公開URL・確認日を解決し、locatorと組にして原本を追跡する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "locator": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "exam": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "原資料に記載された試験区分。FE・SG等の資料の適用対象を保持し、本アプリの科目選択から推定して書き換えない。",
+              "$comment": "原資料に記載がなく確認できなければ省略する。本アプリの設定から補わない。"
+            },
+            "year": {
+              "type": "integer",
+              "minimum": 1900,
+              "maximum": 2200,
+              "description": "原資料が対象とする西暦年度。公開日・閲覧日とは区別し、どの年度の問題かを原本リンクと合わせて特定する。",
+              "$comment": "原資料の対象年度を確認できなければ省略する。公開日の年で代用しない。"
+            },
+            "period": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "原資料の春期・秋期・上期・下期等の期の表記。制度や年度に依存する識別情報として保持する。",
+              "$comment": "記載のない通年資料等では省略し、春期等を推定で加えない。"
+            },
+            "subject": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "原資料に記載された科目名。問題の本アプリ内分類subjectとは分け、旧制度の資料の表記を保存する。",
+              "$comment": "原資料に科目表記がなければ省略する。本アプリのA／Bを逆輸入しない。"
+            },
+            "timeSlot": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "原資料の午前・午後等の時間区分。旧問題を現在の学習へ分類しても原表記を残し、出典の誤記を防ぐ。",
+              "$comment": "原資料に時間区分がなければ省略し、科目A／Bを代用しない。"
+            },
+            "questionNumber": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "原資料の問番号と必要な枝番。元の設問・解答箇所へ到達するために使い、本アプリ内の出題順とは分ける。",
+              "$comment": "問題番号を持たない案内・方針資料等では省略する。架空の問番号を付けない。"
+            },
+            "page": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "description": "原資料PDFの先頭から数えたページ位置。冊子の印刷ページ表記と異なる場合はsectionにも記録し、原本を照合できるようにする。",
+              "$comment": "固定ページのないWebページ等では省略する。0や閲覧画面の位置で代用しない。"
+            },
+            "section": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "description": "原本で照合する節・見出し又は設問の位置の説明。資料URLだけで特定できない参照箇所を識別し、必要なら印刷ページ表記も含める。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["section"],
+          "description": "この参照が指す原資料内の位置。資料全体の確認記録sectionsとは分け、問題や部品ごとに参照した箇所を保持する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["sourceId", "locator"],
+      "description": "資料台帳への参照と、その原資料内で使用した箇所の組。原本リンクと問題・素材・条件ごとの照合に使う。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "attribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "origin": {
+          "type": "string",
+          "enum": ["official", "adapted", "original"],
+          "description": "この部品が公式由来、公式に依存する改変、独自作成のどれか。問題全体のorigin.kindとは独立し、独自解説を公式作成と誤認させない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceRef",
+            "description": "「attribution.sourceRefs」に記録する一つの要素。この部品が依存する資料と位置。出典表示と原本リンクに使い、独立に作った部品は空配列を保持する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 50,
+          "description": "この部品が依存する資料と位置。出典表示と原本リンクに使い、独立に作った部品は空配列を保持する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "rightsRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "「attribution.rightsRefs」に記録する一つの要素。この部品に適用する全てのrightsのID。追加表示と用途別条件を解決し、出典があることだけで利用可と扱わない。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 1,
+          "maxItems": 200,
+          "description": "この部品に適用する全てのrightsのID。追加表示と用途別条件を解決し、出典があることだけで利用可と扱わない。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "creatorIds": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "「attribution.creatorIds」に記録する一つの要素。この部品を作成したcatalog.actorsのID。公式の主体と独自解説・改変部分の主体を分けて表示し、未特定なら空配列を保持する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 200,
+          "description": "この部品を作成したcatalog.actorsのID。公式の主体と独自解説・改変部分の主体を分けて表示し、未特定なら空配列を保持する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["origin", "sourceRefs", "rightsRefs", "creatorIds"],
+      "description": "本文・選択肢・正答・解説・素材ごとに出自、根拠資料、利用条件、作成主体を保持する。問題全体の出自から各部品の由来を推定しない。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "block": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "paragraph",
+              "description": "この部品を段落として表示する判別子。許可した固定の描画規則を選び、任意のタグ名やコードを指定させない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20000,
+              "description": "段落に表示する文章。改行を維持したテキストとして表示し、含まれるHTMLやMarkdownの記号を実行・解釈しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["type", "text"],
+          "description": "段落。改行は表示に保持"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "heading",
+              "description": "この部品を問題内の小見出しとして表示する判別子。問題全体の画面タイトルとは別の見出し構造にする。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "level": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 4,
+              "description": "問題本文の中で見出しの階層を示す。長文の構造と読み上げを保ち、見た目の文字サイズだけの指定として使わない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "description": "問題内の見出しとして示す文章。固定の見出し要素へテキストとして挿入し、任意HTMLを表示規則にしない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["type", "level", "text"],
+          "description": "問題内部の見出し"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "list",
+              "description": "この部品を一覧の項目として表示する判別子。段落とは別に項目のまとまりを保ち、初期版では一階層で扱う。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "ordered": {
+              "type": "boolean",
+              "description": "項目の順序を番号付きで示す必要があるか。trueは番号付き、falseは箇条書きにし、いずれもitemsの記録順を保持する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 20000,
+                "description": "「block{list}.items」に記録する一つの要素。箇条書き又は番号付き一覧の各項目。各要素をテキストとして表示し、入れ子のHTMLやリスト構造を持ち込まない。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 1,
+              "maxItems": 50,
+              "description": "箇条書き又は番号付き一覧の各項目。各要素をテキストとして表示し、入れ子のHTMLやリスト構造を持ち込まない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["type", "ordered", "items"],
+          "description": "一階層の箇条書き。入れ子リストは初期版で扱わない"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "table",
+              "description": "この部品を列見出しのある矩形表として表示する判別子。結合セル等の未知の表構造を暗黙に追加しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "caption": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "表全体の内容を識別する表題。読み上げと本文中の対応に使い、権利表示の文面とは分ける。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 200,
+                "description": "列の見出し。原資料で左上が空欄の場合は空文字を明示し、行の見出しが並ぶ列として扱う。入力軸と出力軸は入力＼出力などの文字で宣言し、固定描画規則で斜線付き見出しへ対応させる。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 1,
+              "maxItems": 12,
+              "description": "表の各列の見出しを表示順で保持する。rowsのセル数と一致させ、ヘッダーと各値の対応を保つ。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 0,
+                  "maxLength": 2000,
+                  "description": "この行の一つのセルに表示する内容。対応する列見出しと同じ位置に保持し、空文字は空欄として表示する。列を省略して位置を詰めない。",
+                  "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+                },
+                "minItems": 1,
+                "maxItems": 12,
+                "description": "表の一行を構成するセルの並び。列見出しと同じ順序・列数を保持する。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 1,
+              "maxItems": 100,
+              "description": "表の行を表示順で保持する。各行はcolumnsと同じ列数のセルを持ち、任意HTMLや結合セルを入れない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["type", "caption", "columns", "rows"],
+          "description": "先頭行を列ヘッダーとして表示する矩形表。結合セルは扱わない"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "image",
+              "description": "許可した画像素材を表示する判別子。データから外部画像URLを直接読み込むブロックは作らない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "assetId": {
+              "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+              "description": "表示するassetのID。ファイル・代替文・素材条件を同じ素材レコードから解決し、question.assetRefsにも列挙する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "caption": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "description": "この使用箇所で画像を説明する文章。asset.altの代替文と素材条件の表示を置き換えず、図の文脈を補う。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["type", "assetId", "caption"],
+          "description": "自リポジトリ内の許可された画像。代替テキストはasset.altを使用"
+        },
+        {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/formula.schema.json"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "code",
+              "description": "コード又は疑似言語を表示専用として扱う判別子。実行・コンパイル・式評価の機能へ接続しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "language": {
+              "type": "string",
+              "enum": ["pseudocode", "text", "sql"],
+              "description": "表示しているコードの言語区分。疑似言語・通常テキスト・SQLの表示を識別し、実行方法や外部モジュールを指定しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20000,
+              "description": "空白・改行・インデントを含めて表示するコード本文。解答に必要な構造を保ち、ブラウザで実行しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["type", "language", "text"],
+          "description": "表示専用pre/code。コンパイル、eval、インタプリタを呼ばない"
+        },
+        {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/diagram.schema.json"
+        }
+      ],
+      "description": "許可した表示要素のいずれか一つを表す構造。文章・見出し・一覧・表・画像・数式・コード・図を明示的に選び、未知要素を実行しない。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/attribution",
+          "description": "この表示部品全体の作成主体・出典・条件。本文、選択肢、解説に別々に設定し、内部の画像・図の追加条件も維持する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/block",
+            "description": "「content.blocks」に記録する一つの要素。この部品を構成する文章・表・数式・図等の表示順。許可したブロックへ解決し、順序を変えて内容の対応を壊さない。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 1,
+          "maxItems": 100,
+          "description": "この部品を構成する文章・表・数式・図等の表示順。許可したブロックへ解決し、順序を変えて内容の対応を壊さない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["attribution", "blocks"],
+      "description": "表示順を持つブロック群と、その部品の出典・条件の組。問題文、選択肢、長文、解説それぞれへ別に設定できる。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "作成・編集・確認又は公式発行主体を識別するcatalog.actors内のID。名前が同じ主体の自動統合や連絡先の推定を行わない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "利用者へ公開して表示する主体の名称又は仮名。担当履歴と部品の作成者表示に使い、個人の連絡先を付加しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["organization", "person", "assistant"],
+          "description": "組織、個人、AIアシスタントのどれを記録したか。AIによる照合を人の確認と説明しないために主体の性質を保つ。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["id", "name", "kind"],
+      "description": "公開できる主体名と実際の主体種別の台帳項目。担当と素材の作成者をIDから解決し、連絡先等の個人情報は格納しない。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "moduleRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "開発側の固定レジストリに登録した描画器又は生成器の識別子。参照元によって役割を限定し、任意のURLや実行コードとして使わない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]*\\.[0-9]+\\.[0-9]+$",
+          "description": "その登録モジュールの挙動を固定した版。完全一致で解決し、過去instanceの生成や図を最新版の挙動へ置換しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["id", "version"],
+      "description": "開発側が登録した描画器又は生成器の不変ID・版の組。読込み先URLや実行コードを含めず、固定レジストリだけへ解決する。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": -1000000,
+            "maximum": 1000000,
+            "description": "「parameters.values」に記録する一つの要素。本文・表・図・正答・解説を整合させるために共通で使う配列入力。テンプレートの許可域を別途検証し、ユーザーの解答から値を変更しない。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 1,
+          "maxItems": 50,
+          "description": "本文・表・図・正答・解説を整合させるために共通で使う配列入力。テンプレートの許可域を別途検証し、ユーザーの解答から値を変更しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["values"],
+      "description": "初期の生成契約で本文・図・選択肢・正答・解説が共通に使う入力。許可域はtemplateで絞り、回答状態とは分離する。",
+      "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    }
+  },
+  "description": "各レコードで同じ意味を持つ参照・主体・本文構造の共有定義。参照元のフィールドがどのレコードを対象とするかは各フィールドの意味で指定する。"
+}

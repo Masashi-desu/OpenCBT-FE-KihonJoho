@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-original-b-trace",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "schema-example"
+    ]
+  },
+  "origin": {
+    "kind": "original",
+    "sourceRefs": [],
+    "derivedFrom": [],
+    "changes": [],
+    "independentCreationNotes": "一般的な知識からこの仕様説明のために作成した。実在するIPA問題の年度・問番号を割り当てない。",
+    "isModified": false,
+    "modificationBasis": "none"
+  },
+  "contributors": [
+    {
+      "actorId": "codex",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-array-sum",
+      "title": "配列の集計（独自の説明用長文）",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "配列の集計"
+          },
+          {
+            "type": "paragraph",
+            "text": "小さな図書室では、一日に返却された本の冊数を三つの時間帯ごとに記録している。担当者は記録を配列に格納し、その日の合計を求める。本問は、この仕様で定義する長文と設問の関連付け、表、画像、疑似言語の表現例である。実在するFE科目Bの公開問題の再録ではない。"
+          },
+          {
+            "type": "paragraph",
+            "text": "配列valuesの添字は1から始まり、要素数は3である。全ての要素は非負整数で、値の欠損はない。変数totalは合計、変数iは処理中の添字を表す。forは両端を含む順次処理とし、矢印は代入を表す。配列を変更する操作や並列処理は行わない。"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "添字は1、2、3の順に処理する。",
+              "各回で対応する値をtotalに加える。"
+            ]
+          },
+          {
+            "type": "table",
+            "caption": "時間帯別の返却冊数",
+            "columns": [
+              "添字",
+              "時間帯",
+              "values[i]"
+            ],
+            "rows": [
+              [
+                "1",
+                "朝",
+                "3"
+              ],
+              [
+                "2",
+                "昼",
+                "5"
+              ],
+              [
+                "3",
+                "夕方",
+                "2"
+              ]
+            ]
+          },
+          {
+            "type": "image",
+            "assetId": "asset-array-cells",
+            "caption": "配列の順序を説明する独自図"
+          },
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "整数型: total ← 0\n整数型: i\nfor (i を 1 から 3 まで 1 ずつ増やす)\n    total ← total + values[i]\nendfor\n/* 表示用であり、実行しない */"
+          },
+          {
+            "type": "paragraph",
+            "text": "次の設問では、ループ終了時点のtotalだけを問う。表は処理順と配列の値を示し、図は順序の補助説明である。疑似言語の評価は紙上で追跡できる範囲とし、本アプリがコードを実行して値を返す機能は初期版に含めない。"
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-array-sum"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "資料「配列の集計」を読み、集計が終わった時点のtotalの値を選ぶ。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-eight",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-ten",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-twelve",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-fifteen",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "15"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-ten",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "totalは0から始まり、3、5、2を順に足す。途中値は3、8、10。よって最終値は10である。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-array-cells"
+  ],
+  "choiceShuffleAllowed": true,
+  "distribution": "docs_only",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "not_applicable",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "not_applicable",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "正答は独立した計算又は定義で照合。確認主体は同一AIであり、担当を分離した人による二重確認は行っていない。文書専用サンプル。"
+  }
+}

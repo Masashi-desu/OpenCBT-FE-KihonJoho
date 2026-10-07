@@ -1,0 +1,464 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2023-b-6",
+  "revision": 3,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "family-3c90474bd343a78f",
+      "parameterized",
+      "template-source-2023-b-6"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2023-b-6",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原資料の三つの文章図を維持し、メール通知・暗号化・サーバ認証・宛先の条件を変更する。 残る情報セキュリティリスク=0、業務の担当人数=2。",
+        "affectsAnswer": true,
+        "answerDetails": "攻撃者が通知に似せたメールを送り、担当者をフィッシングサイトへ誘導して個人情報を取得する。 図2・図3の条件を組み合わせて判断する。委託先との秘密保持契約だけで、認証・暗号化・宛先・通知の真正性の問題が解消するわけではない。"
+      },
+      {
+        "at": "2026-10-07T00:31:03.730Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原資料の三つの文章図を維持し、メール通知・暗号化・サーバ認証・宛先の条件を変更する。 残る情報セキュリティリスク=0、業務の担当人数=2。",
+        "affectsAnswer": true,
+        "answerDetails": "攻撃者が通知に似せたメールを送り、担当者をフィッシングサイトへ誘導して個人情報を取得する。 図2・図3の条件を組み合わせて判断する。委託先との秘密保持契約だけで、認証・暗号化・宛先・通知の真正性の問題が解消するわけではない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-generated-1",
+      "title": "業務委託の検討",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "A社は採用書類の処理をC社へ委託する。C社は専任の担当者2名を割り当て、秘密保持契約を締結している。担当者以外は採用予定者の情報を閲覧する権限がない。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-generated-2",
+      "title": "図1　委託する業務",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "採用予定者から届いた入社時の書類をPDFへ変換し、ファイルサーバへ格納する。"
+            ],
+            "ordered": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-generated-3",
+      "title": "図2　複合機のスキャン機能",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "担当者ごとのIDとパスワードでスキャン機能を使う。",
+              "PDFを担当者ごとの鍵で暗号化してメールへ添付する。",
+              "送信先はスキャンを実行した本人とする。",
+              "大きなPDFは社内サーバへ格納し、URLを通知する。サーバは担当者ごとのIDとパスワードを必要とする。"
+            ],
+            "ordered": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-generated-4",
+      "title": "図3　評価で発見した事項",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "通知の差出人・件名・本文・ファイル名は初期設定のままで、誰が実行しても同じ。初期設定の内容は公開されている。",
+              "添付ファイルは業務の担当者だけに復号鍵を与える。",
+              "サーバ内の閲覧権限は必要な担当者へ限定する。ただし図2の認証条件が優先される。"
+            ],
+            "ordered": false
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-generated-1",
+    "context-generated-2",
+    "context-generated-3",
+    "context-generated-4"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問6",
+            "page": 12,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問　提示された条件で残るリスクとして最も適切なものを選べ。スキャン処理のログは取得し、提示されていない権限や保護機能は仮定しない。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "攻撃者が通知に似せたメールを送り、担当者をフィッシングサイトへ誘導して個人情報を取得する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "添付された平文のPDFが盗聴され、採用予定者の個人情報が漏えいする。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "URLを知った第三者が、認証のない保存サーバからPDFを取得する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "業務に従事しない社員にもPDFが送られ、閲覧権限のない者へ個人情報が渡る。"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "攻撃者が通知に似せたメールを送り、担当者をフィッシングサイトへ誘導して個人情報を取得する。 図2・図3の条件を組み合わせて判断する。委託先との秘密保持契約だけで、認証・暗号化・宛先・通知の真正性の問題が解消するわけではない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原資料の三つの文章図を維持し、メール通知・暗号化・サーバ認証・宛先の条件を変更する。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

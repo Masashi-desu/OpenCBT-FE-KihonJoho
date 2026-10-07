@@ -1,0 +1,363 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/diagram.schema.json",
+  "title": "管理された図データ",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "const": "diagram",
+      "description": "この部品を管理された描画器による図として扱う判別子。問題データにHTML・CSS・JSを持ち込むことを許可する値ではない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "問題内のこの図ブロックを識別するID。複数の図の対応や由来を維持し、図のノード・辺のIDとは別の範囲で一意にする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "rendererRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/moduleRef",
+      "description": "開発側で管理する図描画器のID・版。sceneを表示専用として描画する固定契約へ解決し、正答計算やネットワークへ接続しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "caption": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 300,
+      "description": "図の内容を識別する図題。原問題に図題があれば図に対応して表示する。図題のないアローダイアグラムではSVGの読み上げ用タイトルとして使い、画面へ新たな見出しを追加しない。素材の権利表示とは別に扱う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "alt": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "description": "図が見えなくても設問に必要な構造を理解できる代替説明。読み上げ用のaria-label又はSVGのdescとして保持し、通常の出題画面には説明文や補助表として追加しない。正答や解法は含めない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "attribution": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/attribution",
+      "description": "図の構造・ラベル等の素材そのものの出自と条件。描画コードのライセンスとは分け、図の直下と復習画面に表示する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "scene": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "array",
+              "description": "配列の添字と値をセルで示す図の種類。図を実行する命令や利用者の解答欄を表すものではない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "cells": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "この配列図内のセルを識別するID。値や添字が同じでも内容対応を維持し、図内で重複しない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "index": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 50,
+                    "description": "セルに表示する1始まりの配列添字。cellsの順序と一致させ、プログラミング上の表示と読み上げ用説明の対応を保つ。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "value": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000,
+                    "description": "セルに表示する入力値。生成問題では共通parametersと一致させ、図だけに異なる値を抽選しない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  }
+                },
+                "required": ["id", "index", "value"],
+                "description": "「scene{array}.cells」に記録する一つの要素。表示順に並んだ配列セル。各添字と値を図と読み上げ用説明へ共通で表示し、添字が連続することを確認する。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 1,
+              "maxItems": 50,
+              "description": "表示順に並んだ配列セル。各添字と値を図と読み上げ用説明へ共通で表示し、添字が連続することを確認する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["kind", "cells"],
+          "description": "整数配列の図"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "flowchart",
+              "description": "フローチャートのノードと辺を表示する種類。接続の意味を固定の描画規則へ対応させ、経路をブラウザで実行しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "この図内でノードを識別するID。辺のfrom／toの参照先として使い、表示ラベルが同じでも別要素を区別する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200,
+                    "description": "ノードが表す処理又は頂点の表示文。固定描画要素へテキストとして挿入し、読み上げ用説明にも同じ文を用いる。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "x": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "description": "固定論理面におけるノード中心の横位置。接続線と配置を決めるために使い、任意CSS文字列や画面の絶対座標にはしない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "description": "固定論理面におけるノード中心の縦位置。xと組にして配置を決め、文字拡大時には同じ構造の図内をスクロールできるようにする。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": ["start", "end", "process", "decision"],
+                    "description": "ノードの図上の役割。フローチャートでは開始・処理・分岐・終了の固定形状を選び、グラフでは頂点として示す。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  }
+                },
+                "required": ["id", "label", "x", "y", "role"],
+                "description": "「scene{flowchart}.nodes」に記録する一つの要素。フローチャート内の処理又は頂点を表す要素。id・ラベル・位置・役割を図と読み上げ用説明に共通で使う。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 1,
+              "maxItems": 50,
+              "description": "フローチャート内の処理又は頂点を表す要素。id・ラベル・位置・役割を図と読み上げ用説明に共通で使う。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "この図内の接続を識別するID。端点とラベルの対応を保ち、同じ辺IDを複数の接続へ割り当てない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "from": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "接続の起点となる同じscene内のノードID。toと組にして描画と読み上げ用説明の接続を定義する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "to": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "接続の終点となる同じscene内のノードID。起点とは別の存在するノードへ解決し、参照切れを表示前に拒否する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 100,
+                    "description": "この接続の条件又は関係を示す文字。分岐の説明と読み上げ用説明に使い、ラベル不要の場合も空文字で明示する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "directed": {
+                    "type": "boolean",
+                    "description": "接続に向きがあるか。フローチャートでは有向を固定し、グラフでは宣言に応じて矢印と読み上げ用説明の方向表示を切り替える。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  }
+                },
+                "required": ["id", "from", "to", "label", "directed"],
+                "description": "「scene{flowchart}.edges」に記録する一つの要素。フローチャートのノード間の接続。接続先と向き・ラベルを図と読み上げ用説明で一致させ、存在しない端点を拒否する。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 0,
+              "maxItems": 100,
+              "description": "フローチャートのノード間の接続。接続先と向き・ラベルを図と読み上げ用説明で一致させ、存在しない端点を拒否する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["kind", "nodes", "edges"],
+          "description": "フローチャート。論理幅・高さは1000固定"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "graph",
+              "description": "グラフのノードと辺を表示する種類。接続の意味を固定の描画規則へ対応させ、経路をブラウザで実行しない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "この図内でノードを識別するID。辺のfrom／toの参照先として使い、表示ラベルが同じでも別要素を区別する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200,
+                    "description": "一般のグラフでは頂点を識別する表示名。専用アローダイアグラムでは内部の節点名として保持し、無記名の円の中には表示しない。読み上げ用説明では図上の位置を用い、内部IDを利用者へ示さない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "x": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "description": "固定論理面におけるノード中心の横位置。接続線と配置を決めるために使い、任意CSS文字列や画面の絶対座標にはしない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000,
+                    "description": "固定論理面におけるノード中心の縦位置。xと組にして配置を決め、文字拡大時には同じ構造の図内をスクロールできるようにする。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "role": {
+                    "const": "vertex",
+                    "description": "ノードの図上の役割。フローチャートでは開始・処理・分岐・終了の固定形状を選び、グラフでは頂点として示す。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  }
+                },
+                "required": ["id", "label", "x", "y", "role"],
+                "description": "「scene{graph}.nodes」に記録する一つの要素。グラフ内の処理又は頂点を表す要素。id・ラベル・位置・役割を図と読み上げ用説明に共通で使う。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 1,
+              "maxItems": 50,
+              "description": "グラフ内の処理又は頂点を表す要素。id・ラベル・位置・役割を図と読み上げ用説明に共通で使う。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "この図内の接続を識別するID。端点とラベルの対応を保ち、同じ辺IDを複数の接続へ割り当てない。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "from": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "接続の起点となる同じscene内のノードID。toと組にして描画と読み上げ用説明の接続を定義する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "to": {
+                    "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                    "description": "接続の終点となる同じscene内のノードID。起点とは別の存在するノードへ解決し、参照切れを表示前に拒否する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "label": {
+                    "type": "string",
+                    "minLength": 0,
+                    "maxLength": 100,
+                    "description": "この接続の条件又は関係を示す文字。分岐の説明と読み上げ用説明に使い、ラベル不要の場合も空文字で明示する。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  },
+                  "directed": {
+                    "type": "boolean",
+                    "description": "接続に向きがあるか。フローチャートでは有向を固定し、グラフでは宣言に応じて矢印と読み上げ用説明の方向表示を切り替える。",
+                    "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+                  }
+                },
+                "required": ["id", "from", "to", "label", "directed"],
+                "description": "「scene{graph}.edges」に記録する一つの要素。グラフのノード間の接続。接続先と向き・ラベルを図と読み上げ用説明で一致させ、存在しない端点を拒否する。",
+                "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+              },
+              "minItems": 0,
+              "maxItems": 100,
+              "description": "グラフのノード間の接続。接続先と向き・ラベルを図と読み上げ用説明で一致させ、存在しない端点を拒否する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": ["kind", "nodes", "edges"],
+          "description": "有向／無向グラフ。論理幅・高さは1000固定"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "source_figure",
+              "description": "公開原問題の図形式を保つ登録プロファイル。任意SVG・HTML・CSS・JSを格納しない。",
+              "$comment": "必須：省略を拒否する。"
+            },
+            "profile": {
+              "type": "string",
+              "enum": [
+                "waf-network",
+                "euclid-flow",
+                "crash-network",
+                "cache-layout",
+                "scatter",
+                "bst",
+                "project-network",
+                "logic-circuit",
+                "waveform",
+                "undirected-graph",
+                "adjacency-matrix",
+                "stack",
+                "linked-arrays",
+                "ordered-array",
+                "onehot"
+              ],
+              "description": "開発側の固定描画規則の識別子。値の意味・範囲・個数を登録契約で検査する。",
+              "$comment": "必須：未登録・null・省略を拒否する。"
+            },
+            "values": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 50,
+              "items": {
+                "type": "integer",
+                "minimum": -1000000,
+                "maximum": 1000000,
+                "description": "登録プロファイルの入力値。実行する命令として解釈しない。",
+                "$comment": "要素：nullや穴を拒否する。"
+              },
+              "description": "登録順に図の値と構造を確定する入力列。図単独で再抽選しない。",
+              "$comment": "必須：個数・範囲を検査する。"
+            }
+          },
+          "required": ["kind", "profile", "values"],
+          "description": "固定描画器へ渡す宣言的な図の入力値。"
+        }
+      ],
+      "description": "配列、フローチャート、グラフ又は登録した原形式図プロファイルの構造。許可した値だけで構成し、コード・スタイル・イベントを含めない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "rendererRef",
+    "caption",
+    "alt",
+    "attribution",
+    "scene"
+  ],
+  "description": "管理された描画器へ渡す表示専用の図構造。図素材の出典・条件を保持し、任意コード、解答操作、経路実行をデータに含めない。"
+}

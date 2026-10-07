@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-critical-path",
+  "revision": 3,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "management",
+    "tags": [
+      "family-807297d73f22b1fd",
+      "parameterized",
+      "template-critical-path"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問13",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2024-a-13",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T14:27:02Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題の作業と2本の0日ダミーを維持し、図を独自描画する。 入力は作業Aの日数=30、作業Bの日数=5、作業Cの日数=30、作業Dの日数=20、作業Eの日数=40、作業Fの日数=25、作業Gの日数=30、作業Hの日数=30。",
+        "affectsAnswer": true,
+        "answerDetails": "破線のダミー作業は依存関係を表し、日数は0として計算する。開始から完了までの経路はA→B→E→H＝105日、A→C→F→H＝115日、A→D→G→H＝110日、A→B→F→H＝90日、A→C→G→H＝120日、A→B→G→H＝95日。全ての作業が完了する最少日数は、このうち最大の120日となる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問13",
+            "page": 6,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目A",
+            "questionNumber": "13"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "アローダイアグラムで表されるプロジェクトは、完了までに最少で何日を要するか。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated",
+        "rendererRef": {
+          "id": "renderer-activity-network",
+          "version": "1.0.0"
+        },
+        "caption": "アローダイアグラム",
+        "alt": "アローダイアグラム。円は無記名の節点。左端の円から左から二つ目の円へ、作業A、所要日数30。左から二つ目の円から中央上の円へ、作業B、所要日数5。左から二つ目の円から中央の円へ、作業C、所要日数30。左から二つ目の円から中央下の円へ、作業D、所要日数20。中央上の円から右から二つ目の円へ、作業E、所要日数40。中央の円から右から二つ目の円へ、作業F、所要日数25。中央下の円から右から二つ目の円へ、作業G、所要日数30。右から二つ目の円から右端の円へ、作業H、所要日数30。中央上から中央、中央から中央下への破線の矢印はダミー作業。凡例：実線の矢印の上に作業名、下に所要日数を示す。破線の矢印はダミー作業。",
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "scene": {
+          "kind": "graph",
+          "nodes": [
+            {
+              "id": "node-0",
+              "label": "開始",
+              "x": 46,
+              "y": 178,
+              "role": "vertex"
+            },
+            {
+              "id": "node-1",
+              "label": "結合点1",
+              "x": 253,
+              "y": 178,
+              "role": "vertex"
+            },
+            {
+              "id": "node-2",
+              "label": "結合点2",
+              "x": 445,
+              "y": 49,
+              "role": "vertex"
+            },
+            {
+              "id": "node-3",
+              "label": "結合点3",
+              "x": 473,
+              "y": 178,
+              "role": "vertex"
+            },
+            {
+              "id": "node-4",
+              "label": "結合点4",
+              "x": 499,
+              "y": 306,
+              "role": "vertex"
+            },
+            {
+              "id": "node-5",
+              "label": "結合点5",
+              "x": 693,
+              "y": 178,
+              "role": "vertex"
+            },
+            {
+              "id": "node-6",
+              "label": "完了",
+              "x": 900,
+              "y": 178,
+              "role": "vertex"
+            }
+          ],
+          "edges": [
+            {
+              "id": "edge-0",
+              "from": "node-0",
+              "to": "node-1",
+              "directed": true,
+              "label": "A 30日"
+            },
+            {
+              "id": "edge-1",
+              "from": "node-1",
+              "to": "node-2",
+              "directed": true,
+              "label": "B 5日"
+            },
+            {
+              "id": "edge-2",
+              "from": "node-1",
+              "to": "node-3",
+              "directed": true,
+              "label": "C 30日"
+            },
+            {
+              "id": "edge-3",
+              "from": "node-1",
+              "to": "node-4",
+              "directed": true,
+              "label": "D 20日"
+            },
+            {
+              "id": "edge-4",
+              "from": "node-2",
+              "to": "node-5",
+              "directed": true,
+              "label": "E 40日"
+            },
+            {
+              "id": "edge-5",
+              "from": "node-3",
+              "to": "node-5",
+              "directed": true,
+              "label": "F 25日"
+            },
+            {
+              "id": "edge-6",
+              "from": "node-4",
+              "to": "node-5",
+              "directed": true,
+              "label": "G 30日"
+            },
+            {
+              "id": "edge-7",
+              "from": "node-5",
+              "to": "node-6",
+              "directed": true,
+              "label": "H 30日"
+            },
+            {
+              "id": "edge-dummy-1",
+              "from": "node-2",
+              "to": "node-3",
+              "directed": true,
+              "label": "ダミー 0日"
+            },
+            {
+              "id": "edge-dummy-2",
+              "from": "node-3",
+              "to": "node-4",
+              "directed": true,
+              "label": "ダミー 0日"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "120日"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "119日"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "121日"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問13",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "123日"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "破線のダミー作業は依存関係を表し、日数は0として計算する。開始から完了までの経路はA→B→E→H＝105日、A→C→F→H＝115日、A→D→G→H＝110日、A→B→F→H＝90日、A→C→G→H＝120日、A→B→G→H＝95日。全ての作業が完了する最少日数は、このうち最大の120日となる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の作業と2本の0日ダミーを維持し、図を独自描画する。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/session.schema.json",
+  "title": "解答セッション",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一回の利用者の学習・形式練習を識別するID。結果・生成済み内容の所有先で、問題定義とは別に解答と状態を保存する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "setRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/entityRef",
+      "description": "開始時に選んだ問題セットの不変ID・改訂。出題枠が候補に含まれることを確認し、最新版の候補へ再開時に置き換えない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "examConfigRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/entityRef",
+      "description": "開始時に選んだ科目・モード・問数・時間等の設定。セットが許可する不変改訂を参照し、セッション中に設定を変更しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "catalogId": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "固定したcatalogのID。catalogRevisionとcatalogSha256を合わせて、どの許可ファイル集合を使ったかを識別する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "catalogRevision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000,
+          "description": "開始準備で選んだカタログの改訂。再開・復習で当時の定義を説明し、最新版への自動置換を防ぐ。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "catalogSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "開始時のカタログファイルの照合値。ID・改訂が同じでも別のバイト列を読み込まないために確認する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": [
+        "catalogId",
+        "catalogRevision",
+        "catalogSha256"
+      ],
+      "description": "開始準備で固定した資料・問題・条件等のカタログの識別情報。保存した旧内容を参照できるようにし、生成instanceとは別に保持する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "running",
+        "paused",
+        "completed",
+        "expired",
+        "abandoned",
+        "invalidated"
+      ],
+      "description": "開始前、解答中、一時停止、完了、時間切れ、放棄、無効の現在状態。操作と遷移を制御し、pausedはstudyだけで扱う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "開始準備のためセッションを作成した時刻。生成instanceの所有時刻を確認し、制限時間の起点startedAtとは分ける。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "ユーザー状態を最後に保存した時刻。競合・時刻順の確認と180日保持の起点に使い、問題自体の改訂時刻とは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "準備完了後に解答を開始した時刻。practiceの期限と経過時間の基準にし、再読込みで起点を更新しない。",
+      "$comment": "条件付き：readyでは省略する。開始後の全状態では必須として欠落を拒否する。"
+    },
+    "deadlineAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "practiceで解答を受け付ける最終時刻。startedAtと制限時間から固定し、確認ダイアログ・再読込み・バックグラウンドで延長しない。",
+      "$comment": "条件付き：開始後のpracticeでは必須で欠落を拒否する。readyとstudyでは省略し、架空の期限を補わない。"
+    },
+    "pausedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "studyを明示的に一時停止した時刻。停止期間を稼働時間へ含めず、再開時の状態確認に使う。",
+      "$comment": "条件付き：pausedでは必須で欠落を拒否する。それ以外の状態では省略する。"
+    },
+    "endedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "終端状態へ遷移して解答受付を止めた時刻。時間切れではdeadlineAtに一致させ、以後の解答変更を結果へ反映しない。",
+      "$comment": "条件付き：completed／expired／abandoned／invalidatedでは必須。それ以外では省略する。"
+    },
+    "activeElapsedSeconds": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 31536000,
+      "description": "studyの停止期間を除いた稼働時間、又はpracticeの開始からの経過時間。表示と保存に使い、practiceの期限をこの値だけで延長しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "currentIndex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 59,
+      "description": "現在表示しているentries内の位置。問題間移動・再開時の表示先を保存し、元資料の問番号や問題の永続IDとは分ける。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "questionRef": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "この枠の固定問題又は生成の基準問題の不変参照。生成枠の実際の内容はgeneratedInstanceIdからinstance.questionへ解決する。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "choiceOrder": {
+            "type": "array",
+            "items": {
+              "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+              "description": "「entries[].choiceOrder」に記録する一つの要素。実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。",
+              "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+            },
+            "minItems": 2,
+            "maxItems": 200,
+            "description": "実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。",
+            "uniqueItems": true,
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "selectedChoiceId": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "利用者が現在選んだ選択肢のID。choiceOrderと同じ問題のchoicesへ解決し、表示ラベルや配列位置で保存しない。",
+            "$comment": "省略は未解答を意味する。選択解除ではフィールドを削除し、最初の選択肢やnullで補わない。"
+          },
+          "reviewFlag": {
+            "type": "boolean",
+            "description": "後で見直すという利用者の印。未解答・解答済みとは独立して保存し、falseも明示して一覧の状態表示へ使う。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "revealed": {
+            "type": "boolean",
+            "description": "studyで一度でも正答・解説を表示した履歴。戻って解答を変えても消さず、practiceの解答中には表示しない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "generatedInstanceId": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "値を生成・バインドして確定したinstanceのID。同じセッション・枠の内容を指し、元データを使う出題では生成instanceを参照しない。",
+            "$comment": "条件付き：生成枠でbindingMode=generated_valuesなら必須。元データを使った枠と固定問題では省略する。"
+          },
+          "issuedContent": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "isModified": {
+                "type": "boolean",
+                "description": "出題処理から確定した改変表示。bindingPerformed=trueならtrueとし、falseなら使用した元データのorigin.isModifiedを維持する。既存の公式改変を元データ使用だけで改変なしにしない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "originKind": {
+                "type": "string",
+                "enum": [
+                  "official_reprint",
+                  "official_adaptation",
+                  "original"
+                ],
+                "description": "表示対象questionの出自区分を出題時に保存した値。公式再録・公式改変・独自問題の表示を過去結果でも保つ。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "contentSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "実際に出題したquestion全体の照合値。保存内容が変わった場合は停止し、改変あり／なしの宣言値へ自動変換しない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "bindingPerformed": {
+                "type": "boolean",
+                "description": "この出題枠で値の生成・バインドを行ったかの処理記録。実施した枠はtrue、元データ又は固定問題を使った枠はfalseとし、数値の一致や文字差分から推定しない。",
+                "$comment": "必須：欠落を拒否する。既定値や推定値で補完しない。"
+              }
+            },
+            "required": [
+              "isModified",
+              "originKind",
+              "contentSha256",
+              "bindingPerformed"
+            ],
+            "description": "実際の出題経路、出自、改変表示と内容照合値の記録。元データを使ったか値を生成してバインドしたかを保存し、過去の表示を再判定しない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          }
+        },
+        "required": [
+          "questionRef",
+          "choiceOrder",
+          "reviewFlag",
+          "revealed",
+          "issuedContent"
+        ],
+        "description": "「entries」に記録する一つの要素。開始時に固定した問題順と各問のユーザー状態。回答・見直し・正答表示履歴を問題定義から分離し、再開時に出題順を抽選し直さない。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "開始時に固定した問題順と各問のユーザー状態。回答・見直し・正答表示履歴を問題定義から分離し、再開時に出題順を抽選し直さない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "storage": {
+      "const": "indexeddb",
+      "description": "セッション、snapshot、生成instance、結果を利用者のブラウザ内で保持する保存方式。初期版ではサーバに解答を送る保存を追加しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "最終保存から180日で削除対象となる期限。セッションだけでなく所有instanceと依存snapshotの整理にも使用する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "利用者状態を保存するたびに進む保存版。競合更新とresult.sessionRevisionの照合に使い、問題・セットの不変改訂とは意味を分ける。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "invalidationReason": {
+      "type": "string",
+      "enum": [
+        "data_error",
+        "withdrawn",
+        "clock_change",
+        "missing_snapshot",
+        "storage_error"
+      ],
+      "description": "継続できない理由を示す区分。データ不正・撤回・時計変更・snapshot欠落・保存障害を区別し、S10と結果の説明に使う。",
+      "$comment": "条件付き：invalidatedでは必須で欠落を拒否する。他の状態では省略する。"
+    },
+    "bindingMode": {
+      "type": "string",
+      "enum": [
+        "original_data",
+        "generated_values"
+      ],
+      "description": "生成枠でバインド前の元データを使うか、値を生成してバインドするかの開始時選択。セッション内で固定し、再開・復習時に別の方式へ切り替えない。固定問題だけならoriginal_dataを選ぶ。",
+      "$comment": "必須：欠落を拒否する。既定値や推定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "setRef",
+    "examConfigRef",
+    "snapshot",
+    "status",
+    "createdAt",
+    "updatedAt",
+    "activeElapsedSeconds",
+    "currentIndex",
+    "entries",
+    "storage",
+    "expiresAt",
+    "revision",
+    "bindingMode"
+  ],
+  "description": "一回の練習・学習の出題順とユーザー状態。問題定義と分離して保存し、当時のカタログ・生成内容・改変宣言を再開と復習で維持する。",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "ready"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "startedAt"
+              ],
+              "type": "object"
+            },
+            {
+              "required": [
+                "endedAt"
+              ],
+              "type": "object"
+            },
+            {
+              "required": [
+                "deadlineAt"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "startedAt"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "paused"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "required": [
+          "pausedAt"
+        ],
+        "type": "object"
+      },
+      "else": {
+        "not": {
+          "required": [
+            "pausedAt"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "completed",
+              "expired",
+              "abandoned",
+              "invalidated"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "required": [
+          "endedAt"
+        ],
+        "type": "object"
+      },
+      "else": {
+        "not": {
+          "required": [
+            "endedAt"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "invalidated"
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "required": [
+          "invalidationReason"
+        ],
+        "type": "object"
+      },
+      "else": {
+        "not": {
+          "required": [
+            "invalidationReason"
+          ],
+          "type": "object"
+        }
+      }
+    }
+  ]
+}

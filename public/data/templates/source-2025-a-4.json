@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-a-4",
+  "revision": 2,
+  "title": "毎年の保守改善と稼働率",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-a-4",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-a-4",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 1,
+      "maximum": 8000
+    },
+    "fields": [
+      {
+        "name": "初年度MTBF",
+        "minimum": 1000,
+        "maximum": 8000
+      },
+      {
+        "name": "初年度MTTR",
+        "minimum": 500,
+        "maximum": 2000
+      },
+      {
+        "name": "毎年の改善時間",
+        "minimum": 20,
+        "maximum": 150
+      },
+      {
+        "name": "経過年数",
+        "minimum": 1,
+        "maximum": 6
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      4000,
+      1000,
+      100,
+      6
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問4",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "b07f5d2201e57b7ca512e164d98dcb0bee07c8135e155cafae3cf4d25468d101"
+}

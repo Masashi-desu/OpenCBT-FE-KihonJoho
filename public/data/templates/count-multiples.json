@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-count-multiples",
+  "revision": 2,
+  "title": "区間内の倍数を数える",
+  "baseQuestionRef": {
+    "questionId": "question-template-count-multiples",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-count-multiples",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 1,
+      "maximum": 250
+    },
+    "fields": [
+      {
+        "name": "下限n",
+        "minimum": 1,
+        "maximum": 100
+      },
+      {
+        "name": "上限m",
+        "minimum": 11,
+        "maximum": 250
+      },
+      {
+        "name": "除数",
+        "minimum": 2,
+        "maximum": 12
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      12,
+      4
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問1",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "b9fd92cc65d0dd7667251d8d8c2cb59cb50887d65c79cb20a11e9f621368cefa"
+}

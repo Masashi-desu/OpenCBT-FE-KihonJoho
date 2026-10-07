@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-b-3",
+  "revision": 2,
+  "title": "クイックソートの初回出力",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-b-3",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-b-3",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 119
+    },
+    "fields": [
+      {
+        "name": "配列の並び",
+        "minimum": 0,
+        "maximum": 119
+      },
+      {
+        "name": "各値への加算値",
+        "minimum": 0,
+        "maximum": 20
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      25,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問3",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "2e41443b7a4d0750e64bff4a09a5cd200f3463b2c15075d573435280c9c8f5c9"
+}

@@ -1,0 +1,496 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2026-b-6",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "annual-2026",
+      "family-bcb17ac868dbe2d8"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問6",
+            "page": 12,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2026-b-6-p12",
+        "caption": "原資料 p.12"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2026-b-6-p13",
+        "caption": "原資料 p.13"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問６  A 社は，従業員  1,000 名の広告代理店である。A  社では，各部署が    A 社の社内ネッ  \n   トワークに設置したファイルサーバを，設置した部署の運用担当者が管理している。               \n                                                        \n   各部署で新たなクラウドサービスを利用する場合，各部署の責任者の承認のもと契約               \n   し，各部署の運用担当者が管理している。                                  \n                                                        \n    営業部では，営業部がA社の社内ネットワークに設置したファイルサーバ（以下，               \n   Y サーバという）及び顧客管理のためのクラウドサービス（以下，Z           サービスという）  \n                                                        \n   を利用している。営業部の各従業員にはYサーバの一般利用者アカウントが割り当て               \n   られ，Y サーバ上の全てのファイルが編集可能である。また，営業部の各従業員には，             \n                                                        \n   Z サービスの一般利用者アカウントが割り当てられ，営業部の運用担当者には，Y             サ \n   ーバとZサービスの管理者アカウントが割り当てられている。                         \n                                                        \n    情報セキュリティ部門では，クラウドサービスに関連した情報セキュリティインシ               \n                                                        \n   デントの発生に備えて，各部署で利用しているクラウドサービスのログ管理に関する               \n   ルールを図1のとおりに整備した。                                     \n                                                        \n                                                        \n    1. ログの取得                                            \n    次のログを取得すること                                         \n    ・ログイン及びログアウトのログ（以下，ログインログという）                       \n    ・クラウドサービスでの重要な操作及びその成否に関するログ                        \n    2. ログの項目                                            \n    少なくとも次が記録されること                                      \n    ・対象のアカウント名，日本標準時での日時，操作内容                           \n    3. ログのアクセス管理                                        \n    ・運用担当者だけがログにアクセスできるようにすること                          \n    ・クラウドサービスからログをエクスポートして保管する場合は，社内ネットワークに設置           \n     した自部署のファイルサーバにログを保管し，運用担当者だけがアクセスできるようにす           \n     ること                                                \n    ・運用担当者は複数名にすること                                     \n    ・クラウドサービスへの運用担当者のログインには，2要素認証を必要とすること               \n    4. ログの保存期間                                          \n    ・少なくとも過去1年間のログが参照できるようにすること                         \n    5. 改ざんへの対策                                          \n    ・ログは運用担当者でも書込み及び消去ができないようにすること                      \n      図1  各部署で利用しているクラウドサービスのログ管理に関するルール                \n                                                        \n                                                        \n    営業部の情報セキュリティリーダーであるB課長は，運用担当者のC主任及び情報               \n                                                        \n   セキュリティ部門の協力を得て，図1のルールが順守されているかどうかを調査した。\n\nB課長は，Zサービスでの現在の運用の中で，図1のルールに違反しているものを表1              \n   のとおりまとめた。                                            \n                                                        \n                                                        \n                                                        \n              表1  図1のルールに違反している現在の運用                    \n    項番                     現在の運用                        \n         Z サービスのログは，空き容量が一定値以下になった場合，古いログから上書           \n    (一)                                                 \n         きされる。                                          \n         Zサービスの運用は，営業部のC主任とD主任の2名で担当していたが，D主            \n    (二)                                                 \n         任が先月退職したので，現在はC主任だけである。                        \n    (三)  Zサービスのログの日時は，UTCで記録されている。                      \n         Z サービスのログは，毎月末に全てエクスポートし，Y      サーバに保管してい      \n    (四)                                                 \n         る。                                             \n 設問  表1中の運用のうち，図1のルール3に違反しているものの項番だけを全て挙げ               \n    た組合せを，解答群の中から選べ。                                    \n                                                        \n                                                        \n   解答群                                                  \n    ア  (一)，(二)                イ (一)，(二)，(三)             \n                                                        \n    ウ  (一)，(二)，(四)            エ (一)，(三)                 \n                                                        \n    オ  (一)，(三)，(四)            カ (一)，(四)                 \n    キ  (二)，(三)                ク (二)，(三)，(四)             \n                                                        \n    ケ  (二)，(四)                コ (三)，(四)"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "カ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-7",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "キ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-8",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ク"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-9",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ケ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-10",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "コ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-9",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-b-ans",
+          "locator": {
+            "section": "科目B 問6 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2026-b-6-p12",
+    "asset-ipa-2026-b-6-p13"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

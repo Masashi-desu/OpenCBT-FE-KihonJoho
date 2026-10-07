@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "set-b-generated",
+  "revision": 1,
+  "title": "仕様説明用・生成枠を含む科目B学習",
+  "subject": "B",
+  "questionRefs": [
+    {
+      "questionId": "question-original-array-sum",
+      "revision": 1
+    }
+  ],
+  "examConfigRefs": [
+    {
+      "id": "exam-b-study",
+      "revision": 1
+    }
+  ],
+  "generationBindings": [
+    {
+      "questionRef": {
+        "questionId": "question-original-array-sum",
+        "revision": 1
+      },
+      "templateRef": {
+        "id": "template-array-sum",
+        "revision": 1
+      }
+    }
+  ],
+  "distribution": "docs_only"
+}

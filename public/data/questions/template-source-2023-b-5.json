@@ -1,0 +1,567 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2023-b-5",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-4c229440e94c728a",
+      "parameterized",
+      "template-source-2023-b-5"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問5",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2023-b-5",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 走査添字の基準差=0、分母の保持方式=0。",
+        "affectsAnswer": true,
+        "answerDetails": "aでは実際の添字i−0の要素の積を足す。最初のdenominatorは第1ベクトルの長さなので、bはdenominator × sqrt(temp)。最後の除算で、提示した式と同じ値になる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問5",
+            "page": 10,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "プログラム中の空欄a・bに入る組合せを選べ。vector1とvector2は同じ要素数nで、どちらも零ベクトルではない。配列の添字は1から始まる。"
+      },
+      {
+        "type": "formula",
+        "format": "latex",
+        "text": "\\frac{\\sum_{i=1}^{n} a_i b_i}{\\sqrt{\\sum_{i=1}^{n} a_i^2}\\sqrt{\\sum_{i=1}^{n} b_i^2}}",
+        "alt": "コサイン類似度は内積を二つのベクトルの長さの積で割った値。"
+      },
+      {
+        "type": "paragraph",
+        "text": "走査用のiは配列添字に0を加えた値である。"
+      },
+      {
+        "type": "code",
+        "text": "○実数型: calcCosineSimilarity(実数型の配列: vector1, vector2)\n    実数型: numerator ← 0, denominator, temp ← 0\n    整数型: i\n    for (iを1からvector1の要素数 + 0まで増やす)\n        numerator ← numerator + 【a】\n    endfor\n    for (iを1からvector1の要素数まで増やす)\n        temp ← temp + vector1[i]の2乗\n    endfor\n    denominator ← sqrt(temp)\n    temp ← 0\n    for (iを1からvector2の要素数まで増やす)\n        temp ← temp + vector2[i]の2乗\n    endfor\n    denominator ← 【b】\n    return numerator ÷ denominator",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "vector1[i] × vector2[i]",
+                "denominator × sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "sqrt(vector1[i] × vector2[i])",
+                "denominator × sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "sqrt(vector1[i] × vector2[i])",
+                "denominator ＋ sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "sqrt(vector1[i] × vector2[i])",
+                "sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "vector1[i]の2乗",
+                "denominator × sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "vector1[i]の2乗",
+                "denominator ＋ sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "vector1[i]の2乗",
+                "sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "vector1[i] × vector2[i]",
+                "denominator ＋ sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "vector1[i] × vector2[i]",
+                "sqrt(temp)"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "aでは実際の添字i−0の要素の積を足す。最初のdenominatorは第1ベクトルの長さなので、bはdenominator × sqrt(temp)。最後の除算で、提示した式と同じ値になる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

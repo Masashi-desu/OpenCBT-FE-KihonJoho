@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-a-14",
+  "revision": 2,
+  "title": "ダミーを含むプロジェクトの所要日数",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-a-14",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-a-14",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 9,
+      "minimum": 1,
+      "maximum": 20
+    },
+    "fields": [
+      {
+        "name": "作業Aの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Bの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Cの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Dの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Eの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Fの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Gの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Hの日数",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "作業Iの日数",
+        "minimum": 1,
+        "maximum": 20
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      3,
+      6,
+      8,
+      6,
+      5,
+      14,
+      11,
+      15,
+      5
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問14",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "14"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "78cf72ef10d02dde9a168224d9286bf10bec3626d020eac6d16e7a2f7c129345"
+}

@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2024-a-19",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "family-176fb4beae911cb1",
+      "parameterized",
+      "template-source-2024-a-19"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問19",
+          "page": 9,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "19"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2024-a-19",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 相関の種類=0、点の散らばり=0。",
+        "affectsAnswer": true,
+        "answerDetails": "点の共分散を計算すると負である。単に一部の点を見るのでなく、全体の増減の関係を読む。非線形な関係があっても線形相関が0になる場合がある。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問19",
+            "page": 9,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目A",
+            "questionNumber": "19"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "製造上の要因xと品質特性yの関係を散布図に示す。この図から読み取れるものはどれか。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "散布図",
+        "alt": "原資料の形式に基づく改変図。散布図の点(x,y)は(0.85,8.4)、(0.95,9.6)、(1.05,9.6)、(1.15,8.4)、(1.85,7.4)、(1.95,8.6)、(2.05,8.6)、(2.15,7.4)、(2.85,6.4)、(2.95,7.6)、(3.05,7.6)、(3.15,6.4)、(3.85,5.4)、(3.95,6.6)、(4.05,6.6)、(4.15,5.4)、(4.85,4.4)、(4.95,5.6)、(5.05,5.6)、(5.15,4.4)、(5.85,3.4)、(5.95,4.6)、(6.05,4.6)、(6.15,3.4)、(6.85,2.4)、(6.95,3.6)、(7.05,3.6)、(7.15,2.4)。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "scatter",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "xとyの相関係数は負である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "xとyの相関係数は正である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "xとyの線形相関係数は0である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問19",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目A",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "全ての点でxとyが等しい。"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "点の共分散を計算すると負である。単に一部の点を見るのでなく、全体の増減の関係を読む。非線形な関係があっても線形相関が0になる場合がある。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

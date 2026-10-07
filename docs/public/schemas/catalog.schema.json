@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/catalog.schema.json",
+  "title": "カタログと配布境界",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一つの許可ファイル集合を識別する永続ID。session.snapshotから改訂・hashと共に参照し、保存済みの出題定義を特定する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "配布するファイルと停止通知を固定したカタログ改訂。構成変更時に増やし、過去snapshotの同じ改訂を上書きしない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["docs_fixture", "distribution"],
+      "description": "カタログを説明用のdocs_fixture又は本体配布用distributionとして使う区分。文書例を本体の問題集へ混入させない入口条件にする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "actors": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/actor",
+        "description": "「actors」に記録する一つの要素。資料発行・作成・編集・確認に関わる公開主体の台帳。部品や履歴のactor IDから表示名と主体種別を解決する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 100,
+      "description": "資料発行・作成・編集・確認に関わる公開主体の台帳。部品や履歴のactor IDから表示名と主体種別を解決する。",
+      "uniqueItems": true,
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する出典資料JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した出典資料ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.sources」に記録する一つの要素。このカタログが読込みを許可する出典資料レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する出典資料レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "rights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する利用条件JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した利用条件ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.rights」に記録する一つの要素。このカタログが読込みを許可する利用条件レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する利用条件レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する画像素材のメタデータJSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した画像素材のメタデータファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.assets」に記録する一つの要素。このカタログが読込みを許可する画像素材のメタデータレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する画像素材のメタデータレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する問題JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した問題ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.questions」に記録する一つの要素。このカタログが読込みを許可する問題レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する問題レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "sets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する問題セットJSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した問題セットファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.sets」に記録する一つの要素。このカタログが読込みを許可する問題セットレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する問題セットレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "exams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する試験設定JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した試験設定ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.exams」に記録する一つの要素。このカタログが読込みを許可する試験設定レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する試験設定レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "templates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^(sources|rights|assets|questions|sets|exams|templates)/[a-z0-9-]+\\.json$",
+                "description": "許可する生成テンプレートJSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$",
+                "description": "指定した生成テンプレートファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              }
+            },
+            "required": ["path", "sha256"],
+            "description": "「files.templates」に記録する一つの要素。このカタログが読込みを許可する生成テンプレートレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 500,
+          "description": "このカタログが読込みを許可する生成テンプレートレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": [
+        "sources",
+        "rights",
+        "assets",
+        "questions",
+        "sets",
+        "exams",
+        "templates"
+      ],
+      "description": "本システムが読込みを許可する交換ファイルの集合。種類別に相対パスとhashを固定し、列挙されていないファイルを探索して補わない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "withdrawals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "questionRef": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "新規使用と保存内容の再表示を止める対象問題の不変参照。現行カタログから除いた問題も識別し、対象本文を再録する必要はない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "answer_correction",
+              "rights_request",
+              "conditions_changed",
+              "source_unavailable"
+            ],
+            "description": "停止理由を正答訂正、権利者要請、条件変更、資料利用不能として区別する。画面操作ではなく保守工程が判断した資源の通知に使う。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000,
+            "description": "利用者に公開できる停止理由の説明。対象本文・第三者素材・非公開の連絡を含めず、資源の公開可否をSchemaが判定する値でもない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "recordedOn": {
+            "type": "string",
+            "format": "date",
+            "description": "停止通知を記録した日付。クライアントの保存内容と保守の対応を追跡し、非公開のやり取りの全文履歴は残さない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "replacement": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "条件を満たして利用できる差替え問題の不変参照。利用者に次の学習対象を案内するために使い、過去の解答や結果を自動置換しない。",
+            "$comment": "差替えがない場合は省略する。最新版の同じIDを自動的に代用しない。"
+          }
+        },
+        "required": ["questionRef", "category", "reason", "recordedOn"],
+        "description": "「withdrawals」に記録する一つの要素。保存済み問題の使用停止を伝える通知。本文や撤回素材の公開履歴ではなく、対象の識別情報と公開可能な説明だけを保持する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 0,
+      "maxItems": 500,
+      "description": "保存済み問題の使用停止を伝える通知。本文や撤回素材の公開履歴ではなく、対象の識別情報と公開可能な説明だけを保持する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "generationCoverage": {
+      "type": "string",
+      "enum": ["complete", "partial"],
+      "description": "配布対象の公式問題を全て、検証済みの生成テンプレートへ一対一で関連付ける契約。completeの場合は件数を信頼せず、各原問題・基準問題・テンプレート・セットの対応を検査する。除外した素材や非公開問題まで含める意味ではない。",
+      "$comment": "任意：省略時はpartialとして扱い、旧保存カタログとの互換を維持する。nullを拒否する。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "scope",
+    "actors",
+    "files",
+    "withdrawals"
+  ],
+  "description": "読込みを許可する交換ファイルと公開主体・停止通知の集合。カタログの固定内容から参照を解決し、未確認のファイルを自動発見して配布へ加えない。"
+}

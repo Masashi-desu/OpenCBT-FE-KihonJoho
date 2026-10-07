@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-hex-fraction",
+  "revision": 2,
+  "title": "16進小数の変換",
+  "baseQuestionRef": {
+    "questionId": "question-template-hex-fraction",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-hex-fraction",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 1,
+      "maximum": 255
+    },
+    "fields": [
+      {
+        "name": "16進小数の値",
+        "minimum": 1,
+        "maximum": 255
+      },
+      {
+        "name": "16進小数の桁数",
+        "minimum": 1,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      12,
+      1
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問1",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "91c537bde71e60c346f86d0d0e6bdbc1d7e369555be0762c68af97fa6149b13c"
+}

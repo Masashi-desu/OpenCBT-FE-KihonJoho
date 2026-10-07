@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-b-5",
+  "revision": 2,
+  "title": "分割表の理論度数",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-b-5",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-b-5",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "fields": [
+      {
+        "name": "接種あり・罹患なし",
+        "minimum": 20,
+        "maximum": 100
+      },
+      {
+        "name": "接種あり・罹患あり",
+        "minimum": 1,
+        "maximum": 20
+      },
+      {
+        "name": "接種なし・罹患なし",
+        "minimum": 20,
+        "maximum": 100
+      },
+      {
+        "name": "接種なし・罹患あり",
+        "minimum": 1,
+        "maximum": 20
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      82,
+      6,
+      58,
+      8
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問5",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "872b213a4a4eb917b248a8d2fd4a307d7761204babe2708e0f800869b9681287"
+}

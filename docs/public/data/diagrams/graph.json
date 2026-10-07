@@ -1,0 +1,62 @@
+{
+  "type": "diagram",
+  "id": "diagram-example-graph",
+  "rendererRef": {
+    "id": "renderer-diagram-basic",
+    "version": "1.0.0"
+  },
+  "caption": "独自のgraph構造例",
+  "alt": "ノードと接続を表す文書用の独自構造例。実在するIPA図ではない。",
+  "attribution": {
+    "origin": "original",
+    "sourceRefs": [],
+    "rightsRefs": [
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "scene": {
+    "kind": "graph",
+    "nodes": [
+      {
+        "id": "node-a",
+        "label": "A",
+        "x": 100,
+        "y": 200,
+        "role": "vertex"
+      },
+      {
+        "id": "node-b",
+        "label": "B",
+        "x": 800,
+        "y": 200,
+        "role": "vertex"
+      },
+      {
+        "id": "node-c",
+        "label": "C",
+        "x": 500,
+        "y": 800,
+        "role": "vertex"
+      }
+    ],
+    "edges": [
+      {
+        "id": "edge-ab",
+        "from": "node-a",
+        "to": "node-b",
+        "label": "2",
+        "directed": false
+      },
+      {
+        "id": "edge-bc",
+        "from": "node-b",
+        "to": "node-c",
+        "label": "3",
+        "directed": false
+      }
+    ]
+  }
+}

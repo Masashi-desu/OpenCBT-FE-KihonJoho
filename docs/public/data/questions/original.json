@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-original-binary",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "schema-example"
+    ]
+  },
+  "origin": {
+    "kind": "original",
+    "sourceRefs": [],
+    "derivedFrom": [],
+    "changes": [],
+    "independentCreationNotes": "一般的な知識からこの仕様説明のために作成した。実在するIPA問題の年度・問番号を割り当てない。",
+    "isModified": false,
+    "modificationBasis": "none"
+  },
+  "contributors": [
+    {
+      "actorId": "codex",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "2進数1010を10進数で表した値を選ぶ。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-eight",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-nine",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-ten",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-eleven",
+      "content": {
+        "attribution": {
+          "origin": "original",
+          "sourceRefs": [],
+          "rightsRefs": [
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "11"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-ten",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "桁の重みは8、4、2、1である。1×8 + 0×4 + 1×2 + 0×1 = 10。"
+      },
+      {
+        "type": "formula",
+        "text": "1×2³ + 0×2² + 1×2¹ + 0×2⁰ = 10",
+        "alt": "二進数の桁の重みを掛けて足すと十になる"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "docs_only",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "not_applicable",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "not_applicable",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "正答は独立した計算又は定義で照合。確認主体は同一AIであり、担当を分離した人による二重確認は行っていない。文書専用サンプル。"
+  }
+}

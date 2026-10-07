@@ -1,0 +1,445 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-recurrence",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-908c44aa77cbc436",
+      "parameterized",
+      "template-recurrence"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問3",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目B",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2026-b-3",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T14:00:00Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。 入力は引数n=5、2項前の係数=2。",
+        "affectsAnswer": true,
+        "answerDetails": "更新後のdata[1]は2項前、data[2]は1項前である。従って空欄は2 × data[1] + data[2]。iを添字にすると繰返し中に配列の範囲を超える。独自の動作確認例n=5では[1, 1, 3, 5, 11]の順に計算し、戻り値は11。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問3",
+            "page": 6,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目B",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次のプログラム中の空欄【a】に入る正しい式を選べ。配列の要素番号は1から始まる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "func1とfunc2に同じ正の整数を与えると、二つの関数は同じ値を返す。配列の領域外を参照してはならない。"
+      },
+      {
+        "type": "code",
+        "language": "pseudocode",
+        "text": "○整数型: func1(整数型: n)\n    if (n ≦ 2)\n        return 1\n    endif\n    return 2 × func1(n - 2) + func1(n - 1)\n\n○整数型: func2(整数型: n)\n    整数型の配列: data ← {1, 1, 1}\n    整数型: i\n    /* nが3より小さい場合は繰返し処理を実行しない */\n    for (iを3からnまで1ずつ増やす)\n        data[1] ← data[2]\n        data[2] ← data[3]\n        data[3] ← 【a】\n    endfor\n    return data[3]"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "2 × data[1] + data[2]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "2 × data[2] + data[1]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "2 × data[i - 1] + data[i - 2]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "2 × data[i - 2] + data[i - 1]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "data[3] + 2 × data[1] + data[2]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "data[3] + 2 × data[2] + data[1]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "data[3] + 2 × data[i - 1] + data[i - 2]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "pseudocode",
+            "text": "data[3] + 2 × data[i - 2] + data[i - 1]"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "更新後のdata[1]は2項前、data[2]は1項前である。従って空欄は2 × data[1] + data[2]。iを添字にすると繰返し中に配列の範囲を超える。独自の動作確認例n=5では[1, 1, 3, 5, 11]の順に計算し、戻り値は11。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

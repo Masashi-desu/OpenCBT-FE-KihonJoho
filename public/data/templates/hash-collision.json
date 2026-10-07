@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-hash-collision",
+  "revision": 2,
+  "title": "ハッシュ表の衝突",
+  "baseQuestionRef": {
+    "questionId": "question-template-hash-collision",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-hash-collision",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 5,
+      "maximum": 122
+    },
+    "fields": [
+      {
+        "name": "表の大きさ",
+        "minimum": 5,
+        "maximum": 13
+      },
+      {
+        "name": "第1キーのASCII",
+        "minimum": 97,
+        "maximum": 109
+      },
+      {
+        "name": "第2キーのASCII",
+        "minimum": 98,
+        "maximum": 122
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      10,
+      100,
+      120
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問2",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "4da33a359521bd1c4e2182e087697378f573fb3851c8d1700a020c3147ff06ff"
+}

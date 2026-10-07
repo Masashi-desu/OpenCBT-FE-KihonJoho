@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2023-a-2",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "annual-2023",
+      "family-35cca78cc839fdbe"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問2",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問2",
+            "page": 2,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目A",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2023-a-2-p2",
+        "caption": "原資料 p.2"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問２  双方向のポインタをもつリスト構造のデータを表に示す。この表において新たな社               \n   員Gを社員Aと社員Kの間に追加する。追加後の表のポインタa～fの中で追加前と               \n                                                        \n   比べて値が変わるポインタだけを全て列記したものはどれか。                         \n                                                        \n                                                        \n    表                                                   \n     アドレス    社員名   次ポインタ    前ポインタ                       \n       100   社員A     300       0                        \n                                                        \n       200   社員T      0       300                       \n       300   社員K     200      100                       \n                                                        \n                                                        \n    追加後の表                                               \n                                                        \n     アドレス    社員名   次ポインタ    前ポインタ                       \n       100   社員A      a        b                        \n       200   社員T      c        d                        \n                                                        \n       300   社員K      e        f                        \n       400   社員G      x        y                        \n                                                        \n                                                        \n   ア  a，b，e，f   イ  a，e，f     ウ  a，f       エ  b，e"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問2",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問2",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問2",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問2",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-3",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-a-ans",
+          "locator": {
+            "section": "科目A 問2 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目A",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2023-a-2-p2"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

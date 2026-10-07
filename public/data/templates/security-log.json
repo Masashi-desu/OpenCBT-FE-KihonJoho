@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-security-log",
+  "revision": 3,
+  "title": "ログ管理ルールと運用の照合",
+  "baseQuestionRef": {
+    "questionId": "question-template-security-log",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-security-log",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 0,
+      "maximum": 4
+    },
+    "fields": [
+      {
+        "name": "運用担当者数",
+        "minimum": 0,
+        "maximum": 4
+      },
+      {
+        "name": "一般利用者のログアクセス",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "日時が日本標準時",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "過去ログの上書き",
+        "minimum": 0,
+        "maximum": 1
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "82b74f87c7298a4d12f317b491c23bdfe8fccc205032e43317fa39801d2474ad"
+}

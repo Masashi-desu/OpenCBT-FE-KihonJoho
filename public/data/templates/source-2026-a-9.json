@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2026-a-9",
+  "revision": 2,
+  "title": "認証要素の組合せ",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2026-a-9",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2026-a-9",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 1,
+      "minimum": 0,
+      "maximum": 8
+    },
+    "fields": [
+      {
+        "name": "異なる認証要素の組",
+        "minimum": 0,
+        "maximum": 8
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問9",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "9"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "0db74ced2b865339297670838bbe68e3a631b4cc79af5aeb6c2d1895d93de6b9"
+}

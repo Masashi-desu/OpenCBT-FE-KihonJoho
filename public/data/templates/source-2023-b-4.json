@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-b-4",
+  "revision": 2,
+  "title": "二つのハッシュ関数への格納",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-b-4",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-b-4",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 5,
+      "minimum": 1,
+      "maximum": 99
+    },
+    "fields": [
+      {
+        "name": "表の要素数",
+        "minimum": 5,
+        "maximum": 9
+      },
+      {
+        "name": "第2ハッシュの加算値",
+        "minimum": 1,
+        "maximum": 4
+      },
+      {
+        "name": "第1入力",
+        "minimum": 1,
+        "maximum": 99
+      },
+      {
+        "name": "第2入力",
+        "minimum": 1,
+        "maximum": 99
+      },
+      {
+        "name": "第3入力",
+        "minimum": 1,
+        "maximum": 99
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      5,
+      3,
+      3,
+      18,
+      11
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問4",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "b87295b823e645bb6066589cf95634c1028620bc1f865fb4ad66af3413cceeb1"
+}

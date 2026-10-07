@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-critical-path",
+  "revision": 3,
+  "title": "アローダイアグラムの最短完了日数",
+  "baseQuestionRef": {
+    "questionId": "question-template-critical-path",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-critical-path",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 8,
+      "minimum": 1,
+      "maximum": 60
+    },
+    "fields": [
+      {
+        "name": "作業Aの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Bの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Cの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Dの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Eの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Fの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Gの日数",
+        "minimum": 1,
+        "maximum": 60
+      },
+      {
+        "name": "作業Hの日数",
+        "minimum": 1,
+        "maximum": 60
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      30,
+      5,
+      30,
+      20,
+      40,
+      25,
+      30,
+      30
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問13",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "63d8aea0b2c6c51ec868825d478fdb6369d0785c84cf53f6080176f7353e9263"
+}

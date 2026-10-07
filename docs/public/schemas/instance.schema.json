@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/instance.schema.json",
+  "title": "生成済み出題内容",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一度確定した生成済み内容を識別するID。所有セッションの生成枠と結果から参照し、生成し直して同じIDの内容を置き換えない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "sessionId": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "このinstanceを所有するsessionのID。削除・保存期限・再開を同じ単位で扱い、他のセッションへ所有内容を流用しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "entryIndex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 59,
+      "description": "所有セッションのどの出題枠に結び付くかを示すentriesの位置。generatedInstanceIdと相互に対応させ、問題IDの代用にはしない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "生成済み内容を確定した時刻。所有セッションの準備中に保存したことを確認し、タイマー開始後に内容を入れ替えないために使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "templateRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/entityRef",
+      "description": "この出題内容を作る契約を定義したテンプレートのID・改訂。入力域・作成時の改変宣言と由来を再確認するために固定する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "baseQuestionRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+      "description": "生成の基となった不変問題のID・改訂。テンプレートの基準問題と一致させ、instance.questionの派生元からも追跡できるようにする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "generatorRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/moduleRef",
+      "description": "生成時に使用する登録モジュールのID・版。テンプレートに指定した契約へ一致させ、更新された生成器で過去結果を再生成しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "parameterSelection": {
+      "type": "string",
+      "enum": [
+        "seeded",
+        "explicit"
+      ],
+      "description": "入力を保存シードから選んだseededか、説明用に明示したexplicitか。explicitは文書用カタログだけで許可し、乱数実行結果と表示しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "seed": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{32}$",
+      "description": "入力選択の再現に使う固定シード。パラメータ・本文・正答を保存した後の再開では再抽選せず、生成経緯の説明に使う。",
+      "$comment": "条件付き：seededでは必須で欠落を拒否する。explicitでは省略し、実行していない抽選のシードを付けない。"
+    },
+    "parameters": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/parameters",
+      "description": "実際に本文・表・図・選択肢・正答・解説へ使用した入力。テンプレートの域と照合し、部品ごとの抽選で不一致を作らない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "question": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/question.schema.json",
+      "description": "実際に出題する完全な問題定義。生成結果の本文・出典・作成時の改変宣言を固定し、回答変更・再開・復習ではこの内容を読む。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "contentSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "保存したquestion全体をsorted-json-v1で固定する照合値。出題時記録との内容の一致を確認し、原本から改変されたかを判定しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "bindingPerformed": {
+      "const": true,
+      "description": "この保存内容を値の生成・バインドによって確定したことの記録。元データをそのまま使う枠にはinstanceを作らず、元questionの不変参照を使う。",
+      "$comment": "必須：欠落を拒否する。既定値や推定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "sessionId",
+    "entryIndex",
+    "createdAt",
+    "templateRef",
+    "baseQuestionRef",
+    "generatorRef",
+    "parameterSelection",
+    "parameters",
+    "question",
+    "contentSha256",
+    "bindingPerformed"
+  ],
+  "description": "一つのセッション枠のために確定した生成済み内容。入力と契約の版、完全なquestionを保存し、再開・復習で再抽選や再生成をしない。",
+  "allOf": [
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "parameterSelection": {
+            "const": "seeded"
+          }
+        },
+        "required": [
+          "parameterSelection"
+        ],
+        "description": "条件"
+      },
+      "then": {
+        "type": "object",
+        "required": [
+          "seed"
+        ]
+      },
+      "else": {
+        "not": {
+          "type": "object",
+          "required": [
+            "seed"
+          ]
+        }
+      }
+    }
+  ]
+}

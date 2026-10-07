@@ -1,0 +1,597 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/question.schema.json",
+  "title": "問題と改訂",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "同じ問題を改訂をまたいで識別する永続ID。表示順・元資料の問番号と分け、別問題へ再利用せず、revisionと組にして参照する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "この問題の内容・出典・条件・正答を一つに固定する改訂。変更時に番号を増やし、過去結果が参照する同じID・改訂の内容を上書きしない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": ["active", "withdrawn"],
+      "description": "この問題改訂を新規出題に使用できるかを示す状態。activeでも配布条件の確認が別途必要で、withdrawnの本文を履歴目的で再公開しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "subject": {
+      "type": "string",
+      "enum": ["A", "B"],
+      "description": "本アプリでA又はBのどちらの学習・出題へ使用するか。原資料の科目表記はsourceRef.locatorへ別に保存し、旧制度の表記を書き換えない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "learning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "area": {
+          "type": "string",
+          "enum": [
+            "technology",
+            "management",
+            "strategy",
+            "algorithm",
+            "security"
+          ],
+          "description": "問題の学習分野。Aの分野選択とBのalgorithm／securityの出題内訳に使い、公式資料の元科目名を置き換えるものではない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{1,49}$",
+            "description": "「learning.tags」に記録する一つの要素。学習テーマを検索・絞込みする補助語の一覧。公式年度・問番号等の出典識別情報を代用せず、不要なら空配列を保持する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 30,
+          "description": "学習テーマを検索・絞込みする補助語の一覧。公式年度・問番号等の出典識別情報を代用せず、不要なら空配列を保持する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["area", "tags"],
+      "description": "本アプリ内の検索・出題内訳・復習で使用する学習分類。原資料の年度・科目・時間区分から独立して管理する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["official_reprint", "official_adaptation", "original"],
+          "description": "作成者が原資料との関係を確認して定義する出自区分。公式再録、公式に依存する改変・類題、独自作成を区別し、isModifiedから自動計算しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceRef",
+            "description": "「origin.sourceRefs」に記録する一つの要素。問題全体が依存する原資料と位置。source.urlへ原本リンクを生成し、公式区分では公式公開問題を確認できる参照を保持する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 50,
+          "description": "問題全体が依存する原資料と位置。source.urlへ原本リンクを生成し、公式区分では公式公開問題を確認できる参照を保持する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "derivedFrom": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "「origin.derivedFrom」に記録する一つの要素。本プロジェクト内で派生元となった問題の不変ID・改訂。比較対象と系列を追跡し、循環や同系列の重複出題を防ぐ。独立作成では空配列を保持する。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 20,
+          "description": "本プロジェクト内で派生元となった問題の不変ID・改訂。比較対象と系列を追跡し、循環や同系列の重複出題を防ぐ。独立作成では空配列を保持する。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "at": {
+                "type": "string",
+                "format": "date-time",
+                "pattern": "Z$",
+                "description": "当該変更を記録した時刻。履歴の順序と編集経緯を説明するために使い、セッションで出題した時刻とは区別する。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "actorId": {
+                "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                "description": "当該変更を行った主体のcatalog.actors ID。自動生成の履歴でも定義した編集主体を保持し、人による編集と偽らない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "transcription",
+                  "layout",
+                  "wording",
+                  "numbers",
+                  "choices",
+                  "answer",
+                  "diagram"
+                ],
+                "description": "作成者が変更を説明するために選んだ種類。転記・レイアウトと本文等の変更を区別する補助情報で、isModifiedの推定規則には使わない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 500,
+                "description": "出題時にも見せられる短い変更概要。出典帯とS09で用い、正答を明かす具体値・判断はanswerDetailsへ分離する。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "details": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000,
+                "description": "原資料とどう異なるかを追跡する、正答を明かさない変更説明。文章・図・表等の変更対象を記録し、S09の詳細表示に使う。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "affectsAnswer": {
+                "type": "boolean",
+                "description": "変更が正答に影響すると作成者が確認したかの記録。正答再検証の手掛かりとし、履歴の種類やbooleanだけから正答を計算しない。",
+                "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+              },
+              "answerDetails": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000,
+                "description": "変更による正答・解説への影響のうち、回答前に見せない説明。practice終了後又はstudyの正答表示後だけS09で表示する。",
+                "$comment": "正答を明かす追加説明がなければ省略する。省略から正答への影響がないとは推定せず、affectsAnswerと正答確認記録を使う。"
+              }
+            },
+            "required": [
+              "at",
+              "actorId",
+              "kind",
+              "summary",
+              "details",
+              "affectsAnswer"
+            ],
+            "description": "「origin.changes」に記録する一つの要素。作成者・編集者が記録する変更の経緯。本文以外の図や表、選択肢等も対象にし、種別や件数から改変有無を算出しない。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 0,
+          "maxItems": 100,
+          "description": "作成者・編集者が記録する変更の経緯。本文以外の図や表、選択肢等も対象にし、種別や件数から改変有無を算出しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "independentCreationNotes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000,
+          "description": "特定の公式問題の表現に依存せず作成した経緯。一般的知識の参考と特定問題からの派生を区別し、originalの由来を説明する。",
+          "$comment": "条件付き：originalでは必須として欠落を拒否する。他の出自では非該当なら省略し、独立作成と推定しない。"
+        },
+        "isModified": {
+          "type": "boolean",
+          "description": "固定問題では作成時に原本との照合から定義する改変表示。生成済みquestionでは出題時に値の生成・バインドを行った経路に基づきtrueを記録する。テキスト・図・値の差やhash比較からは判定しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "modificationBasis": {
+          "type": "string",
+          "enum": ["none", "official_source", "base_question"],
+          "description": "改変表示の比較対象。固定問題では作成時に定義し、値を生成・バインドしたquestionではtemplate.bindingBasisを転記する。原資料又は保持した基準問題へ参照から到達できるようにする。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": [
+        "kind",
+        "sourceRefs",
+        "derivedFrom",
+        "changes",
+        "isModified",
+        "modificationBasis"
+      ],
+      "description": "問題全体の出自、原資料、派生元、変更履歴と作成時の改変宣言。本文・解説・図等の部品単位のattributionとは役割を分ける。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "actorId": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "担当主体のcatalog.actors ID。表示名と主体種別を解決し、AIによる確認を人の二重確認として記録しない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["author", "editor", "verifier"],
+            "description": "当該主体がこの改訂で担当した作成・編集・確認等の役割。権利者や資料発行主体を自動的に担当者へ加えない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          }
+        },
+        "required": ["actorId", "role"],
+        "description": "「contributors」に記録する一つの要素。この改訂の作成・編集・内容確認に関与した主体と役割。本文や独自解説の作成者を公式主体と誤認させない表示と確認経緯に使う。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "description": "この改訂の作成・編集・内容確認に関与した主体と役割。本文や独自解説の作成者を公式主体と誤認させない表示と確認経緯に使う。",
+      "uniqueItems": true,
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "この問題内の参照本文を識別するID。contextRefsの参照先となり、別問題で同じIDを使用しても共有レコードとは扱わない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200,
+            "description": "参照本文の見出し。長文と設問を対応させて提示するために使い、公式資料名や出典帯とは別に表示する。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "presentation": {
+            "type": "string",
+            "enum": ["text", "text_figure"],
+            "description": "元資料の参照本文が通常の文章か、枠と図番号を持つ文章図かを保持する表示区分。text_figureは安全な文章・箇条書きをfigureとして囲み、titleを図の説明として表示する。任意HTMLや作図コードを格納する値ではなく、通常の文章を新しい図へ変換するためには使用しない。",
+            "$comment": "任意：省略時はtextとして通常の参照本文を表示する。nullは拒否する。text_figureは原資料の文章図を確認した場合だけ記録する。"
+          },
+          "content": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/content",
+            "description": "その参照本文の文章・表・図等と部品の出典・条件。question本体と同じ改訂に固定し、設問がどの本文を読むかを保つ。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          }
+        },
+        "required": ["id", "title", "content"],
+        "description": "「contexts」に記録する一つの要素。長文等の参照本文を、問題改訂内へ固定して保持する。設問との関係をcontextRefsで示し、後から共通本文だけを差し替えない。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 0,
+      "maxItems": 20,
+      "description": "長文等の参照本文を、問題改訂内へ固定して保持する。設問との関係をcontextRefsで示し、後から共通本文だけを差し替えない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "contextRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+        "description": "「contextRefs」に記録する一つの要素。この設問が使用するcontextsのID一覧。全て存在する本文へ解決し、参照本文がない問題は空配列とする。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 0,
+      "maxItems": 200,
+      "description": "この設問が使用するcontextsのID一覧。全て存在する本文へ解決し、参照本文がない問題は空配列とする。",
+      "uniqueItems": true,
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "prompt": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/content",
+      "description": "利用者に回答を求める設問本文と、その出典・条件。必要な長文はcontextRefsで関連付け、選択肢や解説とは別の部品として表示する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "この問題内で選択肢の内容を識別するID。correctAnswerとユーザー解答の参照先で、ア・イ等の表示ラベルや数値そのものとは分ける。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "content": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/content",
+            "description": "一つの選択肢に表示する文章・数式・図等と部品の出典・条件。選択肢の順序を変えてもIDに結び付いた内容を維持する。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          }
+        },
+        "required": ["id", "content"],
+        "description": "「choices」に記録する一つの要素。選択肢の内容と永続IDの一覧。ここでの順序を原順序とし、画面の表示ラベルやシャッフル後の位置から正答を特定しない。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 2,
+      "maxItems": 10,
+      "description": "選択肢の内容と永続IDの一覧。ここでの順序を原順序とし、画面の表示ラベルやシャッフル後の位置から正答を特定しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "correctAnswer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "choiceId": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+          "description": "正答となるchoicesのID。表示順・ア等のラベルを変えても同じ選択肢を指し、存在しないIDは参照検証で拒否する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "attribution": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/attribution",
+          "description": "正答情報の作成主体・出典・条件。公式解答冊子又は独自の検証記録へ対応させ、設問の出典だけで正答の根拠を代用しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["choiceId", "attribution"],
+      "description": "この改訂の単一選択の正答と正答情報の出典・条件。解答セッションから分離し、公式解答と独自検証を区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "explanation": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/content",
+      "description": "復習で提示する解説とその出典・条件。独自に作成した解説はoriginalを明示し、公式問題に付けても公式解説と表示しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "assetRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+        "description": "「assetRefs」に記録する一つの要素。問題の各表示部品に含むimageが参照する素材IDの集合。過不足を検証して必要な画像だけを準備し、構造化diagramはここへ入れない。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 0,
+      "maxItems": 200,
+      "description": "問題の各表示部品に含むimageが参照する素材IDの集合。過不足を検証して必要な画像だけを準備し、構造化diagramはここへ入れない。",
+      "uniqueItems": true,
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "choiceShuffleAllowed": {
+      "type": "boolean",
+      "description": "選択肢順を変えても問題の意味を保てると作成時に確認したか。順序依存の問題ではfalseとし、出題設定がshuffleでも無断で並べ替えない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "distribution": {
+      "type": "string",
+      "enum": ["docs_only", "excluded", "included"],
+      "description": "この問題改訂を文書例だけに使うか、除外するか、配布に組み入れるかを示す工程上の区分。includedには内容・条件の確認を別途要求する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "checkedOn": {
+          "type": "string",
+          "format": "date",
+          "description": "この確認記録を作成した日付。資料の公開日や問題改訂日とは分け、取り込み工程の確認時点を追跡する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "reviewerIds": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "「review.reviewerIds」に記録する一つの要素。確認を実施したcatalog.actorsのID一覧。主体の種別を維持し、同じ主体による照合を担当分離した確認と呼ばない。",
+            "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+          },
+          "minItems": 1,
+          "maxItems": 200,
+          "description": "確認を実施したcatalog.actorsのID一覧。主体の種別を維持し、同じ主体による照合を担当分離した確認と呼ばない。",
+          "uniqueItems": true,
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "publication": {
+              "type": "string",
+              "enum": ["pass", "fail", "not_applicable"],
+              "description": "対象の公式問題が公式に公開されていることを確認した結果。公開問題と非公開問題を区別し、独自問題で非該当となる場合も明示する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "terms": {
+              "type": "string",
+              "enum": ["pass", "fail", "not_applicable"],
+              "description": "必要な用途と全素材の利用条件を確認した結果。出典の存在とは分け、未解決の条件がある問題を配布へ進めないために使う。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "thirdParty": {
+              "type": "string",
+              "enum": ["pass", "fail", "not_applicable"],
+              "description": "文章・図表等の第三者素材と別条件を確認した結果。発行主体の条件だけで利用可とすることを防ぎ、確認範囲をnotesへ記録する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "transcription": {
+              "type": "string",
+              "enum": ["pass", "fail", "not_applicable"],
+              "description": "文章だけでなく表・図・選択肢等を原資料と照合した結果。異なる表現形式でも原本リンクから確認し、isModifiedの機械判定として使わない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "answer": {
+              "type": "string",
+              "enum": ["pass", "fail", "not_applicable"],
+              "description": "正答情報を公式解答又は独立した計算・根拠と照合した結果。存在するchoiceIdを指すという構造検証よりも広い内容確認を記録する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "explanation": {
+              "type": "string",
+              "enum": ["pass", "fail", "not_applicable"],
+              "description": "独自解説の論理と正答との対応を確認した結果。第三者教材を流用していないことや解説の出自もnotesとattributionに記録する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": [
+            "publication",
+            "terms",
+            "thirdParty",
+            "transcription",
+            "answer",
+            "explanation"
+          ],
+          "description": "各取り込み工程の確認結果。pass／fail／not_applicableを工程ごとに記録し、配布可否の入口条件に使うが正しさや適法性を保証しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3000,
+          "description": "各工程で実際に確認した内容・方法・主体・限界を説明する。機械検証と原資料の照合、手計算等を区別し、実施していない確認を記載しない。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        }
+      },
+      "required": ["checkedOn", "reviewerIds", "checks", "notes"],
+      "description": "公開確認、条件確認、原文照合、正答・解説検証を行った記録。値を設定するだけで確認済みとなるものではなく、notesと資料を根拠にする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "lifecycle",
+    "subject",
+    "learning",
+    "origin",
+    "contributors",
+    "contexts",
+    "contextRefs",
+    "prompt",
+    "choices",
+    "correctAnswer",
+    "explanation",
+    "assetRefs",
+    "choiceShuffleAllowed",
+    "distribution",
+    "review"
+  ],
+  "description": "一設問の表示内容、正答、解説、出自と条件を一つの改訂に固定する。ユーザーの解答状態は含めず、sessionが不変参照で結び付く。",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "subject": {
+            "const": "A"
+          }
+        },
+        "required": ["subject"],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "choices": {
+            "minItems": 4,
+            "maxItems": 4,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "origin": {
+            "properties": {
+              "kind": {
+                "enum": ["official_reprint", "official_adaptation"]
+              }
+            },
+            "required": ["kind"],
+            "type": "object"
+          }
+        },
+        "required": ["origin"],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "origin": {
+            "properties": {
+              "sourceRefs": {
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "origin": {
+            "properties": {
+              "kind": {
+                "const": "official_adaptation"
+              }
+            },
+            "required": ["kind"],
+            "type": "object"
+          }
+        },
+        "required": ["origin"],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "origin": {
+            "properties": {
+              "derivedFrom": {
+                "minItems": 1,
+                "type": "array"
+              },
+              "changes": {
+                "minItems": 1,
+                "type": "array"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "origin": {
+            "properties": {
+              "kind": {
+                "const": "original"
+              }
+            },
+            "required": ["kind"],
+            "type": "object"
+          }
+        },
+        "required": ["origin"],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "origin": {
+            "required": ["independentCreationNotes"],
+            "properties": {},
+            "type": "object"
+          }
+        },
+        "type": "object"
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2024-b-5",
+  "revision": 2,
+  "title": "購買データの関連度の空欄",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2024-b-5",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2024-b-5",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "求める指標",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "注文の例",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問5",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "99a65f5065456e88e5103d1f8ad5a8a4792267f345e283f45d99e11694c2b6b6"
+}

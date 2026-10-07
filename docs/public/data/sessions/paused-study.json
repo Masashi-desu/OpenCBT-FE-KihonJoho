@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "session-b-example",
+  "setRef": {
+    "id": "set-b-study",
+    "revision": 1
+  },
+  "examConfigRef": {
+    "id": "exam-b-study",
+    "revision": 1
+  },
+  "snapshot": {
+    "catalogId": "catalog-docs-examples",
+    "catalogRevision": 4,
+    "catalogSha256": "3591aaf0e55b0c8303c44cf78f611b2c4ab3987ae86c46d82e3a6c869be1f09b"
+  },
+  "status": "paused",
+  "createdAt": "2026-10-06T07:00:00Z",
+  "updatedAt": "2026-10-06T07:10:00Z",
+  "startedAt": "2026-10-06T07:00:00Z",
+  "activeElapsedSeconds": 600,
+  "currentIndex": 0,
+  "entries": [
+    {
+      "questionRef": {
+        "questionId": "question-original-b-trace",
+        "revision": 1
+      },
+      "choiceOrder": [
+        "choice-eight",
+        "choice-ten",
+        "choice-twelve",
+        "choice-fifteen"
+      ],
+      "reviewFlag": true,
+      "revealed": true,
+      "selectedChoiceId": "choice-ten",
+      "issuedContent": {
+        "bindingPerformed": false,
+        "isModified": false,
+        "originKind": "original",
+        "contentSha256": "29bff033b747aa81268748f7935b48be86df186610291211efc06875c0d19eca"
+      }
+    }
+  ],
+  "storage": "indexeddb",
+  "expiresAt": "2027-04-04T07:10:00Z",
+  "revision": 3,
+  "pausedAt": "2026-10-06T07:10:00Z",
+  "bindingMode": "original_data"
+}

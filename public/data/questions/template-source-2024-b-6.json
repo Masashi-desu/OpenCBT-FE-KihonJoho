@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2024-b-6",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "family-a8bb94ba22bb8610",
+      "parameterized",
+      "template-source-2024-b-6"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 14,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2024-b-6",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 元の長文と文章図を保持し、外部接続に伴う保護の不足を変える。対象のリスクを明記し、対策をその条件から選ぶ。 対策が必要な問題=0、端末の台数=450。",
+        "affectsAnswer": true,
+        "answerDetails": "提示した不足を補うのは「社外からのクラウドへの認証に、独立した2要素の認証を導入する。」である。社内を経由しない通信は社内側の監視だけでは保護できず、速度制限も認証・保存・識別・暗号化の不足を解消しない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-generated-1",
+      "title": "テレワークの接続変更",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "A社は従業員450名へ社内PCを貸与し、私有PCから画面転送で接続する。利用するクラウドはグループウェアとオンライン会議である。社内回線の負荷が増えたので、私有PCからクラウドへ直接接続する方式を検討している。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-generated-2",
+      "title": "図1　変更後のシステム環境",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "list",
+            "items": [
+              "社内の業務システムへは社内PCからアクセスする。",
+              "クラウドへは社内ネットワークを経由せず、私有PCから直接アクセスする。",
+              "私有PCへの保存禁止機能は有効である。",
+              "クラウドの認証はIDとパスワードだけを使う。",
+              "利用者IDは従業員ごとに付与する。",
+              "私有PCとクラウド間の通信はTLSで保護する。"
+            ],
+            "ordered": false
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-generated-1",
+    "context-generated-2"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問6",
+            "page": 14,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問　接続変更に伴って社外からのクラウドへの不正ログインのリスクが残る。これを直接低減するために情報システム部へ依頼する対策はどれか。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "社外からのクラウドへの認証に、独立した2要素の認証を導入する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "私有PCへのダウンロードとコピーを禁止する機能を有効にする。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "従業員ごとのIDを発行し、IDに対応した操作記録を取得する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "私有PCからの通信をTLSで保護し、接続先証明書を検証する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "社内からクラウドへの通信速度を制限する。"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "提示した不足を補うのは「社外からのクラウドへの認証に、独立した2要素の認証を導入する。」である。社内を経由しない通信は社内側の監視だけでは保護できず、速度制限も認証・保存・識別・暗号化の不足を解消しない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 元の長文と文章図を保持し、外部接続に伴う保護の不足を変える。対象のリスクを明記し、対策をその条件から選ぶ。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

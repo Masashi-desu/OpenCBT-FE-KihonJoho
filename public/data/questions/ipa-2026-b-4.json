@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2026-b-4",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "annual-2026",
+      "family-bc8b967d602c431a"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問4",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目B",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問4",
+            "page": 8,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目B",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2026-b-4-p8",
+        "caption": "原資料 p.8"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2026-b-4-p9",
+        "caption": "原資料 p.9"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問４  次のプログラム中の        a   と    b   に入れる正しい答えの組合せを，       \n   解答群の中から選べ。ここで，配列の要素番号は1から始まる。                        \n                                                        \n                                                        \n    単方向リストを，配列     dataList と配列 pointerList の二つの配列で表現する。\n                                                        \n   dataListにリストの要素の値を格納し，pointerListにリストの次の要素に対応する      \n   dataList の要素番号を格納する。単方向リストの先頭は，dataList[1]       及び  \n                                                        \n   pointerList[1] の組みである。単方向リストの末尾に対応する    pointerList の要素\n   は未定義である。dataList のうち単方向リストの要素の値を格納していない要素と，          \n                                                        \n   対応するpointerListの要素は未定義である。                           \n    プログラムが扱う    dataList 及び pointerList の内容を図 1 に示す。先頭の次の要\n                                                        \n   素の要素番号は，pointerList[1] に格納された 3 であり，値は  dataList[3] に格納\n                                                        \n   された20である。その次の要素の要素番号はpointerList[3]   に格納された2であり，    \n   値はdataList[2] に格納された30である。                           \n                                                        \n                                                        \n        要素番号     1      2      3       4      5         \n                                                        \n        dataList   10     30     20      40             \n                                                        \n        要素番号     1      2      3       4      5         \n                                                        \n      pointerList   3      4      2                     \n                                                        \n      注記  網掛けはその要素が未定義であることを示す。                         \n               図1  dataList及びpointerListの内容             \n                                                        \n                                                        \n    関数 orderList は，図 1 の dataList 及び pointerList で表現した単方向リストの\n                                                        \n   値を，単方向リストの先頭からたどって順番に格納した配列を返す。関数             orderList\n   が返す配列を図2に示す。                                         \n                                                        \n                                                        \n                                                        \n            要素番号     1      2      3      4             \n                       10     20     30     40          \n                                                        \n                 図2  関数orderListが返す配列\n\n〔プログラム〕                                                \n     大域:  整数型の配列:  dataList ← {10, 30, 20, 40, 未定義の値}   \n     大域:  整数型の配列:  pointerList ← {3, 4, 2, 未定義の値, 未定義の値}\n                                                        \n     ○整数型の配列:    orderList()                            \n                                                        \n       整数型: i, p ← 1                                    \n       整数型の配列:   linearList ← {} // 要素数0の配列             \n       for (i を 1 から dataListの要素数 まで 1 ずつ増やす)           \n        linearListの末尾 に dataList[p]の値 を追加する             \n        if (   a   が 未定義)                               \n          繰返し処理を終了する                                    \n        endif                                           \n                                                        \n        p ←    b                                        \n       endfor                                           \n       return linearList                                \n                                                        \n   解答群                                                  \n                                                        \n             a             b                            \n    ア  dataList[p]   i                                  \n                                                        \n    イ  dataList[p]   pointerList[p]                     \n                                                        \n    ウ  pointerList[p] i                                 \n    エ  pointerList[p] pointerList[p]"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問4",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目B",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-4",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-b-ans",
+          "locator": {
+            "section": "科目B 問4 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目B",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2026-b-4-p8",
+    "asset-ipa-2026-b-4-p9"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

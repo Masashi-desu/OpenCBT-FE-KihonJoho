@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2025-a-16",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "schema-example"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a",
+        "locator": {
+          "section": "科目A 公開問題 問16",
+          "page": 9,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "16"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T07:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "PDFの改行・字間を表示用に正規化",
+        "details": "段落途中の改行を除去し、POS・3C・ABCの前後の組版上の字間を除去。問題の意味と選択肢順・正答は維持。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-a",
+          "locator": {
+            "section": "科目A 公開問題 問16",
+            "page": 9,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目A",
+            "questionNumber": "16"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-public"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "データマイニングの手法の一つであって，POSなどの蓄積データから“一緒に買われる商品”の組合せを発見する分析手法はどれか。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-3c",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "3C分析"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-abc",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ABC分析"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-conjoint",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "コンジョイント分析"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-basket",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-a",
+              "locator": {
+                "section": "科目A 公開問題 問16",
+                "page": 9,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目A",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-public"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "マーケットバスケット分析"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-basket",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-answer",
+          "locator": {
+            "section": "科目A 問16の正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目A",
+            "questionNumber": "16"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-public"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "購買の組合せを分析する手法に対応する。これは本プロジェクトの独自解説であり、IPAの解説ではない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "docs_only",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "問題PDF p.9の問16と解答PDF p.1のエを視覚照合。買い合わせ分析の用語に基づき独自解説の範囲を確認。確認主体は同一AIであり、担当を分離した人による二重確認は行っていない。文書専用サンプル。"
+  }
+}

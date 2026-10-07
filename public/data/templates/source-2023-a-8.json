@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-a-8",
+  "revision": 2,
+  "title": "IPv4の運用機能",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-a-8",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-a-8",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "問う対象",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "設問の方向と判定条件",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問8",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "eaaa47cd2ce19f130964f9a1234c6c3816c1d1473005929fda5a78442d412984"
+}

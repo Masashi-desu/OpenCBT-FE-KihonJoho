@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-cafe-profit",
+  "revision": 2,
+  "title": "喫茶店の利益と必要客数",
+  "baseQuestionRef": {
+    "questionId": "question-template-cafe-profit",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-cafe-profit",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 6,
+      "minimum": 0,
+      "maximum": 500000
+    },
+    "fields": [
+      {
+        "name": "1人の売上（円）",
+        "minimum": 100,
+        "maximum": 1500
+      },
+      {
+        "name": "1人の変動費（円）",
+        "minimum": 50,
+        "maximum": 800
+      },
+      {
+        "name": "固定費（円）",
+        "minimum": 50000,
+        "maximum": 500000
+      },
+      {
+        "name": "目標利益（円）",
+        "minimum": 0,
+        "maximum": 300000
+      },
+      {
+        "name": "営業日数",
+        "minimum": 10,
+        "maximum": 30
+      },
+      {
+        "name": "客席数",
+        "minimum": 5,
+        "maximum": 40
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      500,
+      100,
+      300000,
+      100000,
+      20,
+      10
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問19",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "19"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "60425dd663783fb458a31db6ae28ea77ef7dccf752330233fcd58a95a911b110"
+}

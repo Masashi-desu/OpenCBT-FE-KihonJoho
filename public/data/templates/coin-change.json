@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-coin-change",
+  "revision": 2,
+  "title": "硬貨の組合せの総数",
+  "baseQuestionRef": {
+    "questionId": "question-template-coin-change",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-coin-change",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 200
+    },
+    "fields": [
+      {
+        "name": "金額n（円）",
+        "minimum": 11,
+        "maximum": 200
+      },
+      {
+        "name": "残額変数のオフセット",
+        "minimum": 0,
+        "maximum": 20
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      12,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問2",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "bbf93992c9f5050b7af1a9b24d8166617a07cfe388ffb8e0594eb0aad7913fe3"
+}

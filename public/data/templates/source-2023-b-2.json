@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-b-2",
+  "revision": 2,
+  "title": "手続の呼出し順",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-b-2",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-b-2",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "proc2の処理順",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "proc1の処理順",
+        "minimum": 0,
+        "maximum": 1
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問2",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "c7a52a7adb96c3008f7ce838f43e7a8affd6ac4481ea5a3a63ff4fcd91fed06c"
+}

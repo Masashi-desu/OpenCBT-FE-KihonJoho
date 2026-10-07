@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2026-b-1",
+  "revision": 3,
+  "title": "配列の右への回転",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2026-b-1",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-source-2026-b-1",
+    "version": "3.0.1"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 1,
+      "maximum": 12
+    },
+    "fields": [
+      {
+        "name": "右へ移動する要素数",
+        "minimum": 1,
+        "maximum": 4
+      },
+      {
+        "name": "配列の要素数",
+        "minimum": 6,
+        "maximum": 12
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      9
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問1",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目B",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "2d1577141076df93e76e4db654eac2b4ea585c6baa88bfceecd98dff8130ff9e"
+}

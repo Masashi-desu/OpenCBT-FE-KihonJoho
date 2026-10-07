@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-availability",
+  "revision": 2,
+  "title": "MTBF・MTTRと稼働率",
+  "baseQuestionRef": {
+    "questionId": "question-template-availability",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-availability",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 0,
+      "maximum": 6000
+    },
+    "fields": [
+      {
+        "name": "MTBF（時間）",
+        "minimum": 100,
+        "maximum": 6000
+      },
+      {
+        "name": "MTTR（時間）",
+        "minimum": 100,
+        "maximum": 2000
+      },
+      {
+        "name": "MTBFの改善率（％）",
+        "minimum": 0,
+        "maximum": 40
+      },
+      {
+        "name": "MTTRの改善率（％）",
+        "minimum": 1,
+        "maximum": 40
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      3000,
+      1000,
+      20,
+      10
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問4",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "5253486678b9861a641438467b00528d4b520af66f7fff97ff382406ed732008"
+}

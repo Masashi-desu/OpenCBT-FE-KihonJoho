@@ -1,0 +1,30 @@
+:root {
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  --vp-c-brand-1: #17606c;
+  --vp-c-brand-2: #237586;
+  --vp-c-brand-3: #2b8797;
+}
+.dark { --vp-c-brand-1: #71ccd9; --vp-c-brand-2: #55b3c5; }
+.vp-doc { line-height: 1.9; overflow-wrap: anywhere; }
+.vp-doc table { display: block; max-width: 100%; overflow-x: auto; }
+.vp-doc th, .vp-doc td { min-width: 7rem; }
+.vp-doc th { white-space: nowrap; }
+.vp-doc td:first-child code { white-space: nowrap; overflow-wrap: normal; }
+.vp-doc div[class*='language-'] { max-width: 100%; }
+.vp-doc pre { overflow-x: auto; }
+.vp-doc :not(pre) > code { overflow-wrap: anywhere; }
+.VPDoc .content-container { max-width: 850px !important; }
+.VPSidebar .text { overflow-wrap: anywhere; }
+.VPNavBarTitle .title { overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 640px) {
+  .vp-doc th, .vp-doc td { min-width: 6rem; }
+  .vp-doc { font-size: 16px; }
+}
+
+/* 長い論理説明を列内で読める幅に保ち、表の内部だけをスクロールする。 */
+.schema-field-dictionary th:nth-child(2), .schema-field-dictionary td:nth-child(2) { min-width: 24rem; }
+.schema-field-dictionary th:nth-child(4), .schema-field-dictionary td:nth-child(4) { min-width: 18rem; }
+@media (max-width: 640px) {
+  .schema-field-dictionary th:nth-child(2), .schema-field-dictionary td:nth-child(2),
+  .schema-field-dictionary th:nth-child(4), .schema-field-dictionary td:nth-child(4) { min-width: 14rem; }
+}

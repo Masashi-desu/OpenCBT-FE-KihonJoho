@@ -1,0 +1,630 @@
+[
+  {
+    "id": "missing-source",
+    "target": "questions/reprint.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/origin/sourceRefs",
+        "value": []
+      }
+    ],
+    "expectedCode": "SCHEMA",
+    "reason": "公式再録の出典欠落"
+  },
+  {
+    "id": "unknown-answer-choice",
+    "target": "questions/original.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/correctAnswer/choiceId",
+        "value": "choice-missing"
+      }
+    ],
+    "expectedCode": "ANSWER_CHOICE",
+    "reason": "正答が存在しない選択肢を参照"
+  },
+  {
+    "id": "broken-source",
+    "target": "questions/reprint.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/origin/sourceRefs/0/sourceId",
+        "value": "source-missing"
+      }
+    ],
+    "expectedCode": "SOURCE_REF",
+    "reason": "出典参照切れ"
+  },
+  {
+    "id": "duplicate-question-id",
+    "target": "questions/original.json",
+    "operations": [
+      {
+        "op": "duplicate"
+      }
+    ],
+    "expectedCode": "DUPLICATE_ID",
+    "reason": "同じ問題ID・改訂が重複"
+  },
+  {
+    "id": "broken-image-reference",
+    "target": "questions/subject-b.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/contexts/0/content/blocks/5/assetId",
+        "value": "asset-missing"
+      }
+    ],
+    "expectedCode": "ASSET_REF",
+    "reason": "本文画像の参照切れ"
+  },
+  {
+    "id": "unconfirmed-reuse",
+    "target": "rights/ipa-public.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/uses/repositoryRedistribution",
+        "value": "unconfirmed"
+      }
+    ],
+    "expectedCode": "RIGHTS_USE",
+    "reason": "出典ありでも同梱条件未確認"
+  },
+  {
+    "id": "unresolved-third-party",
+    "target": "rights/ipa-public.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/thirdParty/status",
+        "value": "unresolved"
+      }
+    ],
+    "expectedCode": "THIRD_PARTY",
+    "reason": "第三者条件未確認"
+  },
+  {
+    "id": "cyclic-derivation",
+    "target": "questions/adapted.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/origin/derivedFrom/0/questionId",
+        "value": "question-adapted-basket"
+      }
+    ],
+    "expectedCode": "DERIVATION_CYCLE",
+    "reason": "自己派生参照"
+  },
+  {
+    "id": "nonrectangular-table",
+    "target": "questions/subject-b.json",
+    "operations": [
+      {
+        "op": "remove",
+        "path": "/contexts/0/content/blocks/4/rows/0/2"
+      }
+    ],
+    "expectedCode": "TABLE_SHAPE",
+    "reason": "表の列数不一致"
+  },
+  {
+    "id": "unsafe-asset-path",
+    "target": "assets/array-cells.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/path",
+        "value": "../secret.svg"
+      }
+    ],
+    "expectedCode": "SCHEMA",
+    "reason": "許可されないパスと画像形式"
+  },
+  {
+    "id": "unsafe-url",
+    "target": "sources/ipa-faq.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/url",
+        "value": "javascript:alert(1)"
+      }
+    ],
+    "expectedCode": "SCHEMA",
+    "reason": "HTTPS以外のURL"
+  },
+  {
+    "id": "missing-session-choice",
+    "target": "sessions/completed-study.json",
+    "operations": [
+      {
+        "op": "remove",
+        "path": "/entries/0/choiceOrder/0"
+      }
+    ],
+    "expectedCode": "SESSION_CHOICE_ORDER",
+    "reason": "保存した選択肢順の欠落"
+  },
+  {
+    "id": "expired-study",
+    "target": "sessions/completed-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/status",
+        "value": "expired"
+      }
+    ],
+    "expectedCode": "SESSION_TIMING",
+    "reason": "時間制限なし学習の時間切れ"
+  },
+  {
+    "id": "production-mixing",
+    "target": "catalog.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/scope",
+        "value": "distribution"
+      }
+    ],
+    "expectedCode": "RELEASE_GATE",
+    "reason": "説明用データが配布カタログへ混入"
+  },
+  {
+    "id": "unchecked-release",
+    "target": "questions/original.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/distribution",
+        "value": "included"
+      }
+    ],
+    "expectedCode": "RELEASE_GATE",
+    "reason": "文書用カタログ内の問題を本体の配布対象へ昇格させる"
+  },
+  {
+    "id": "missing-catalog-version",
+    "target": "sessions/completed-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/snapshot/catalogRevision",
+        "value": 999
+      }
+    ],
+    "expectedCode": "CATALOG_HASH",
+    "reason": "保存したカタログ改訂が存在しない"
+  },
+  {
+    "id": "tampered-catalog-file-hash",
+    "target": "catalog.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/files/questions/0/sha256",
+        "value": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "expectedCode": "FILE_HASH",
+    "reason": "ファイル参照ハッシュが不一致"
+  },
+  {
+    "id": "arbitrary-html-block",
+    "target": "questions/original.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/prompt/blocks/0/type",
+        "value": "html"
+      }
+    ],
+    "expectedCode": "SCHEMA",
+    "reason": "任意HTMLブロックを持ち込めない"
+  },
+  {
+    "id": "insufficient-practice-set",
+    "target": "sets/a-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/examConfigRefs/0/id",
+        "value": "exam-a-practice"
+      }
+    ],
+    "expectedCode": "SET_CAPACITY",
+    "reason": "60問必要な設定に2問のセットを関連付ける"
+  },
+  {
+    "id": "missing-modification-flag",
+    "target": "questions/reprint.json",
+    "operations": [
+      {
+        "op": "remove",
+        "path": "/origin/isModified"
+      }
+    ],
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "id": "nonboolean-modification",
+    "target": "questions/adapted.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/origin/isModified",
+        "value": "false"
+      }
+    ],
+    "expectedCode": "SCHEMA",
+    "reason": "作成時に定義する改変有無はbooleanのみ。文字列から推定変換しない"
+  },
+  {
+    "id": "issued-modification-mismatch",
+    "target": "sessions/generated-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/entries/0/issuedContent/isModified",
+        "value": false
+      }
+    ],
+    "expectedCode": "ISSUED_CONTENT"
+  },
+  {
+    "id": "generated-content-hash",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/contentSha256",
+        "value": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "expectedCode": "INSTANCE_HASH"
+  },
+  {
+    "id": "unknown-renderer",
+    "target": "questions/diagram-base.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/prompt/blocks/2/rendererRef/id",
+        "value": "renderer-unknown"
+      }
+    ],
+    "expectedCode": "RENDERER_REF"
+  },
+  {
+    "id": "diagram-broken-edge",
+    "target": "diagrams/graph.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/scene/edges/0/to",
+        "value": "node-missing"
+      }
+    ],
+    "expectedCode": "GRAPH_REF"
+  },
+  {
+    "id": "diagram-duplicate-node",
+    "target": "diagrams/graph.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/scene/nodes/1/id",
+        "value": "node-a"
+      }
+    ],
+    "expectedCode": "DIAGRAM_ID"
+  },
+  {
+    "id": "diagram-code-injection",
+    "target": "diagrams/graph.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/css",
+        "value": "body { display:none }"
+      }
+    ],
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "id": "parameter-outside-domain",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/parameters/values/0",
+        "value": 10
+      }
+    ],
+    "expectedCode": "PARAMETER_DOMAIN"
+  },
+  {
+    "id": "missing-template",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/templateRef/id",
+        "value": "template-missing"
+      }
+    ],
+    "expectedCode": "TEMPLATE_REF"
+  },
+  {
+    "id": "unknown-generator",
+    "target": "templates/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/generatorRef/id",
+        "value": "generator-unknown"
+      }
+    ],
+    "expectedCode": "GENERATOR_REF"
+  },
+  {
+    "id": "generated-lineage-removed",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/question/origin/derivedFrom",
+        "value": []
+      }
+    ],
+    "expectedCode": "GENERATION_LINEAGE"
+  },
+  {
+    "id": "instance-owner-mismatch",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/sessionId",
+        "value": "session-missing"
+      }
+    ],
+    "expectedCode": "INSTANCE_BINDING"
+  },
+  {
+    "id": "result-instance-mismatch",
+    "target": "results/generated-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/entries/0/generatedInstanceId",
+        "value": "instance-missing"
+      }
+    ],
+    "expectedCode": "RESULT_REF"
+  },
+  {
+    "id": "diagram-index-mismatch",
+    "target": "questions/diagram-base.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/prompt/blocks/2/scene/cells/0/index",
+        "value": 2
+      }
+    ],
+    "expectedCode": "DIAGRAM_INDEX"
+  },
+  {
+    "id": "generated-answer-not-a-choice",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/question/correctAnswer/choiceId",
+        "value": "choice-missing"
+      }
+    ],
+    "expectedCode": "ANSWER_CHOICE"
+  },
+  {
+    "id": "math-unknown-format",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/format",
+        "value": "html"
+      }
+    ],
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "id": "math-missing-alt",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "remove",
+        "path": "/alt"
+      }
+    ],
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "id": "math-link-command",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "\\href{https://example.com}{x}"
+      }
+    ],
+    "expectedCode": "MATH_COMMAND"
+  },
+  {
+    "id": "math-macro-definition",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "\\def\\x{1}\\x"
+      }
+    ],
+    "expectedCode": "MATH_COMMAND"
+  },
+  {
+    "id": "math-dollar-delimiter",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "$x^2$"
+      }
+    ],
+    "expectedCode": "MATH_SYNTAX"
+  },
+  {
+    "id": "math-unclosed-brace",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "\\frac{1}{2"
+      }
+    ],
+    "expectedCode": "MATH_STRUCTURE"
+  },
+  {
+    "id": "math-unknown-environment",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "\\begin{html}x\\end{html}"
+      }
+    ],
+    "expectedCode": "MATH_STRUCTURE"
+  },
+  {
+    "id": "math-excess-columns",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "\\begin{matrix}1&2&3&4&5&6&7&8&9\\end{matrix}"
+      }
+    ],
+    "expectedCode": "MATH_STRUCTURE"
+  },
+  {
+    "id": "math-nested-environment",
+    "target": "formulas/availability.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/text",
+        "value": "\\begin{matrix}\\begin{matrix}1\\end{matrix}\\end{matrix}"
+      }
+    ],
+    "expectedCode": "MATH_STRUCTURE"
+  },
+  {
+    "id": "missing-original-data-hash",
+    "target": "templates/array-sum.json",
+    "operations": [
+      {
+        "op": "remove",
+        "path": "/originalContentSha256"
+      }
+    ],
+    "expectedCode": "SCHEMA",
+    "reason": "元データを固定する内容hashが欠落"
+  },
+  {
+    "id": "original-data-hash-mismatch",
+    "target": "templates/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/originalContentSha256",
+        "value": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    ],
+    "expectedCode": "TEMPLATE_ORIGINAL_HASH",
+    "reason": "バインド前の元データを固定した内容と一致しない"
+  },
+  {
+    "id": "bound-content-declared-unmodified",
+    "target": "instances/array-sum.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/question/origin/isModified",
+        "value": false
+      }
+    ],
+    "expectedCode": "BINDING_MODIFICATION",
+    "reason": "バインド実施した生成済み内容を改変なしと保存"
+  },
+  {
+    "id": "missing-modification-comparison",
+    "target": "questions/original.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/origin/modificationBasis",
+        "value": "base_question"
+      }
+    ],
+    "expectedCode": "MODIFICATION_REF",
+    "reason": "指定した比較対象の問題参照がない"
+  },
+  {
+    "id": "unknown-binding-mode",
+    "target": "sessions/original-data-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/bindingMode",
+        "value": "auto"
+      }
+    ],
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "id": "missing-binding-performed",
+    "target": "sessions/generated-study.json",
+    "operations": [
+      {
+        "op": "remove",
+        "path": "/entries/0/issuedContent/bindingPerformed"
+      }
+    ],
+    "expectedCode": "SCHEMA"
+  },
+  {
+    "id": "original-data-marked-bound",
+    "target": "sessions/original-data-study.json",
+    "operations": [
+      {
+        "op": "replace",
+        "path": "/entries/0/issuedContent/bindingPerformed",
+        "value": true
+      }
+    ],
+    "expectedCode": "BINDING_RECORD"
+  }
+]

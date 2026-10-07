@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2025-b-3",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-12e70f5eb9261c7e",
+      "parameterized",
+      "template-source-2025-b-3"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問3",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2025-b-3",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 位置変数の基準差=0、スタックの容量=4、最初の値=4、二つ目の値=3。",
+        "affectsAnswer": true,
+        "answerDetails": "物理的な添字はstackPosから基準差0を引いた値。pushは次の空きへ格納し、popは先に位置変数を1戻してから読む。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問3",
+            "page": 8,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "空欄a・bへ入る正しい組合せを選べ。pushは格納に成功するとtrue、満杯ならfalseを返す。popは最後に格納した値を取り出し、空なら未定義の値を返す。配列の添字は1から始まる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "stackPosには次の空き位置に0を加えた値を保持する。図は初期状態で、網掛けは未定義の要素。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図　スタックの初期状態",
+        "alt": "原資料の形式に基づく改変図。添字1・2に4・3を格納し、3から4は網掛けで未定義。次の空き位置は3、stackPos=3。位置変数の基準差は0。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "stack",
+          "values": [
+            0,
+            4,
+            4,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "code",
+        "text": "大域: 整数型: stackPos ← 3\n大域: 整数型の配列: stack ← {4, 3, 2個の未定義の値}\n○論理型: push(整数型: inputData)\n    if (stackPos ≦ stackの要素数)\n        stack[【a】] ← inputData\n        stackPos ← stackPos + 1\n        return true\n    endif\n    return false\n○整数型: pop()\n    整数型: popData ← 未定義の値\n    if (stackPos > 1)\n        stackPos ← 【b】\n        popData ← stack[stackPos]\n        stack[stackPos] ← 未定義の値\n    endif\n    return popData",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "stackPos",
+                "stackPos − 1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "stackPos",
+                "stackPos ＋ 1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "stackPos − 1",
+                "stackPos − 1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 8,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "stackPos − 1",
+                "stackPos ＋ 1"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "物理的な添字はstackPosから基準差0を引いた値。pushは次の空きへ格納し、popは先に位置変数を1戻してから読む。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

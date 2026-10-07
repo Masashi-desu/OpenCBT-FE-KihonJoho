@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-retention",
+  "revision": 2,
+  "title": "会員のリテンション率",
+  "baseQuestionRef": {
+    "questionId": "question-template-retention",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-retention",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 12,
+      "minimum": 0,
+      "maximum": 5000
+    },
+    "fields": [
+      {
+        "name": "A前月会員",
+        "minimum": 100,
+        "maximum": 5000
+      },
+      {
+        "name": "A新規会員",
+        "minimum": 0,
+        "maximum": 2000
+      },
+      {
+        "name": "A継続会員",
+        "minimum": 1,
+        "maximum": 5000
+      },
+      {
+        "name": "B前月会員",
+        "minimum": 100,
+        "maximum": 5000
+      },
+      {
+        "name": "B新規会員",
+        "minimum": 0,
+        "maximum": 2000
+      },
+      {
+        "name": "B継続会員",
+        "minimum": 1,
+        "maximum": 5000
+      },
+      {
+        "name": "C前月会員",
+        "minimum": 100,
+        "maximum": 5000
+      },
+      {
+        "name": "C新規会員",
+        "minimum": 0,
+        "maximum": 2000
+      },
+      {
+        "name": "C継続会員",
+        "minimum": 1,
+        "maximum": 5000
+      },
+      {
+        "name": "D前月会員",
+        "minimum": 100,
+        "maximum": 5000
+      },
+      {
+        "name": "D新規会員",
+        "minimum": 0,
+        "maximum": 2000
+      },
+      {
+        "name": "D継続会員",
+        "minimum": 1,
+        "maximum": 5000
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1000,
+      500,
+      300,
+      1000,
+      200,
+      600,
+      1500,
+      500,
+      600,
+      1500,
+      1000,
+      800
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問17",
+          "page": 11,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "17"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "85d2e2bc154ab87ee9f46a84074240a4a65590b267041a56328a3c38c4e45355"
+}

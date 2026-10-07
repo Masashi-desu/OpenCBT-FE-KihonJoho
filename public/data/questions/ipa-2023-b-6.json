@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2023-b-6",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "annual-2023",
+      "family-3c90474bd343a78f"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問6",
+            "page": 12,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2023-b-6-p12",
+        "caption": "原資料 p.12"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2023-b-6-p13",
+        "caption": "原資料 p.13"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問６  A 社は，放送会社や運輸会社向けに広告制作ビジネスを展開している。A            社は，人  \n   事業務の効率化を図るべく，人事業務の委託を検討することにした。A            社が委託する   \n                                                        \n   業務（以下，B業務という）を図1に示す。                                 \n                                                        \n                                                        \n  ・採用予定者から郵送されてくる入社時の誓約書，前職の源泉徴収票などの書類を          PDF フ  \n    ァイルに変換し，ファイルサーバに格納する。                               \n  （省略）                                                  \n                        図1  B業務                         \n                                                        \n                                                        \n    委託先候補のC社は，B業務について，次のようにA社に提案した。                     \n                                                        \n   ・B業務だけに従事する専任の従業員を割り当てる。                             \n   ・B業務では，図2の複合機のスキャン機能を使用する。                           \n                                                        \n                                                        \n  ・スキャン機能を使用する際は，従業員ごとに付与した利用者IDとパスワードをパネルに入            \n   力する。                                                 \n  ・スキャンしたデータをPDFファイルに変換する。                              \n  ・PDFファイルを従業員ごとに異なる鍵で暗号化して，電子メールに添付する。                 \n  ・スキャンを実行した本人宛てに電子メールを送信する。                            \n  ・PDFファイルが大きい場合は，PDFファイルを添付する代わりに，自社の社内ネットワーク          \n   上に設置したサーバ（以下，B    サーバという）1)に自動的に保存し，保存先の    URL を電子メ \n   ールの本文に記載して送信する。                                      \n  注1) Bサーバにアクセスする際は，従業員ごとの利用者IDとパスワードが必要になる。            \n                図2  複合機のスキャン機能（抜粋）                      \n                                                        \n                                                        \n                                                        \n    A社は，C社と業務委託契約を締結する前に，秘密保持契約を締結した。その後，C              \n   社に質問表を送付し，回答を受けて，業務委託での情報セキュリティリスクの評価を               \n                                                        \n   実施した。その結果，図3の発見があった。                                 \n                                                        \n                                                        \n  ・複合機のスキャン機能では，電子メールの差出人アドレス，件名，本文及び添付ファイル             \n   名を初期設定1)の状態で使用しており，誰がスキャンを実行しても同じである。                \n  ・複合機のスキャン機能の初期設定情報はベンダーの       Web サイトで公開されており，誰でも    \n   閲覧できる。                                               \n  注1) 複合機の初期設定はC社の情報システム部だけが変更可能である。                    \n                       図3  発見事項\n\nそこで，A  社では，初期設定の状態のままでは      A 社にとって情報セキュリティリス      \n   クがあり，初期設定から変更するという対策が必要であると評価した。                     \n                                                        \n                                                        \n                                                        \n 設問  対策が必要であるとA社が評価した情報セキュリティリスクはどれか。解答群の               \n    うち，最も適切なものを選べ。                                      \n                                                        \n                                                        \n   解答群                                                  \n                                                        \n    ア  B 業務に従事する従業員が，攻撃者からの電子メールを複合機からのものと信             \n     じて本文中にあるURLをクリックし，フィッシングサイトに誘導される。その結              \n                                                        \n     果，A社の採用予定者の個人情報が漏えいする。                             \n    イ  B 業務に従事する従業員が，複合機から送信される電子メールをスパムメール             \n                                                        \n     と誤認し，電子メールを削除する。その結果，再スキャンが必要となり，B             業務  \n     が遅延する。                                             \n                                                        \n    ウ  攻撃者が，複合機から送信される電子メールを盗聴し，添付ファイルを暗号化              \n     して身代金を要求する。その結果，A       社が復号鍵を受け取るために多額の身代金        \n                                                        \n     を支払うことになる。                                         \n                                                        \n    エ  攻撃者が，複合機から送信される電子メールを盗聴し，本文に記載されている              \n     URL を使って B サーバにアクセスする。その結果，A      社の採用予定者の個人情報     \n                                                        \n     が漏えいする。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-1",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-b-ans",
+          "locator": {
+            "section": "科目B 問6 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2023-b-6-p12",
+    "asset-ipa-2023-b-6-p13"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

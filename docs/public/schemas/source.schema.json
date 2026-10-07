@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/source.schema.json",
+  "title": "出典資料",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一つの資料と確認記録を識別する。sourceRef.sourceIdから資料名・URL・確認範囲を解決し、問題の出典と利用条件の根拠資料の両方に使える。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "原資料を利用者が識別できる正式な資料名。問題の出典帯と原資料リンクの表示に使い、本アプリ独自の問題名とは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "publisher": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "資料を発行した組織又は主体。問題を編集した本プロジェクトの主体とは区別して出典表示に使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "maxLength": 2000,
+      "description": "原資料又はその公開案内へ到達するリンク。sourceRef.locatorと組み合わせて原本を照合するために使い、読込み時の自動取得命令として使わない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "publishedOn": {
+      "type": "string",
+      "format": "date",
+      "description": "発行主体が資料の公開日として明記した日付。調査者が閲覧したcheckedOnや、問題の対象年度とは区別する。",
+      "$comment": "記載を確認できなければ省略し、dateNoteにその事実を記録する。確認日や対象年度で補わない。"
+    },
+    "updatedOn": {
+      "type": "string",
+      "format": "date",
+      "description": "発行主体が資料の更新日として明記した日付。公開後の条件や内容の変更を追跡する手掛かりとし、調査者の編集日とは区別する。",
+      "$comment": "更新日の記載を確認できなければ省略し、dateNoteに記載の有無を記録する。"
+    },
+    "dateNote": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "公開日・更新日の確認範囲を説明する。掲載ページと添付PDFで日付が異なる場合や、日付の記載がない場合の根拠を残す。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "checkedOn": {
+      "type": "string",
+      "format": "date",
+      "description": "本プロジェクトがこの資料を実際に確認した日付。条件の再確認時期を追跡するために使い、発行主体の更新日として表示しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "official_problem",
+        "official_answer",
+        "official_sample",
+        "policy",
+        "ui_guidance",
+        "law",
+        "independent_note"
+      ],
+      "description": "資料をどの根拠として参照できるかを示す区分。公式問題、公式解答、公式サンプル、利用方針、操作案内、法令、独自記録を区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "資料が対象とする試験区分・年度・制度・サービス。汎用CBT案内を現行FE本番の保証へ読み替えないために適用範囲を記録する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "officially_published",
+        "self_authored",
+        "unverified"
+      ],
+      "description": "その資料の公開主体と公開状況を確認した結果。公式公開、独自作成、未確認を区別し、公開確認と再配布の許可を同一視しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500,
+        "description": "「sections」に記録する一つの要素。実際に参照した節・見出し・ページの一覧。原資料のどこからfactsを得たかを追跡し、後の再確認でも同じ箇所を探せるようにする。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 50,
+      "description": "実際に参照した節・見出し・ページの一覧。原資料のどこからfactsを得たかを追跡し、後の再確認でも同じ箇所を探せるようにする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000,
+        "description": "「facts」に記録する一つの要素。この資料から直接確認できた事項の記録。本プロジェクトの設計判断や確認できない推測を混ぜず、scopeの範囲で記載する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 50,
+      "description": "この資料から直接確認できた事項の記録。本プロジェクトの設計判断や確認できない推測を混ぜず、scopeの範囲で記載する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "supports": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200,
+        "description": "「supports」に記録する一つの要素。確認事項を根拠にした仕様ID又は文書ページの一覧。資料から要件への対応を追跡し、資料が更新された場合の影響調査に使う。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 50,
+      "description": "確認事項を根拠にした仕様ID又は文書ページの一覧。資料から要件への対応を追跡し、資料が更新された場合の影響調査に使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "limits": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "description": "この資料だけでは確認できない対象・権利・挙動を説明する。参照していない年度や非公開の本番情報まで確認済みと扱うことを防ぐ。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "確認時に取得した資料のバイト列を識別する照合値。後から同じ資料を照合するための記録で、資料が適法に公開されたことを保証しない。",
+      "$comment": "HTML等で固定バイト列を保存していない場合は省略する。値がない資料はバイト列の一致を保証せず、URL・箇所・確認日から再確認する。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "title",
+    "publisher",
+    "url",
+    "dateNote",
+    "checkedOn",
+    "type",
+    "scope",
+    "availability",
+    "sections",
+    "facts",
+    "supports",
+    "limits"
+  ],
+  "description": "原資料の識別、実際の確認事項、その適用範囲と限界。資料に出典を付ける情報と利用条件の評価を別レコードに分離する。"
+}

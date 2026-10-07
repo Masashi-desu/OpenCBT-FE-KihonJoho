@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/template.schema.json",
+  "title": "生成テンプレート",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "一つの生成契約を識別する永続ID。setの生成枠とinstanceがrevisionと組にして参照し、生成器モジュールのIDとは分ける。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "基準問題、入力域、改変宣言等を固定するテンプレート改訂。契約を変えた場合に増やし、保存済みinstanceの由来を変更しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "問題セットや生成内容の詳細で示すテンプレート名。独自の生成契約と分かる名前を使い、公式に提供された生成問題と表示しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "baseQuestionRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+      "description": "学習目標・部品の出典・条件・基準値を定義した不変の基準問題。生成結果の由来と原本比較を追跡する参照先となる。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "generatorRef": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/moduleRef",
+      "description": "本文・図・選択肢・正答・解説を一体で作る、開発側で登録した生成モジュールのID・版。任意コードや取得URLを指定するものではない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "parameterDomain": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "length": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "一つの生成へ渡す入力列の要素数。fieldsの要素数と一致させ、本文・図・計算の対応を固定する。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "minimum": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000,
+              "description": "各入力値の許可下限。シード選択と域検証で共通に使い、問題の正答の下限を直接指定する値ではない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "maximum": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000,
+              "description": "入力列全体の外側の数値上限。位置別のfieldsの上限を超えた抽選は認めない。",
+              "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            }
+          },
+          "required": [
+            "length",
+            "minimum",
+            "maximum"
+          ],
+          "description": "入力列全体の要素数と数値の外側の限界。fieldsがある場合は位置別の許可域をさらに適用する。",
+          "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "description": "この位置の値が表す問題内の要素名と必要な単位。valuesの同じ添字へ対応し、表示・計算で別の値と取り違えないために使う。",
+                "$comment": "必須：欠落を拒否する。"
+              },
+              "minimum": {
+                "type": "integer",
+                "minimum": -1000000,
+                "maximum": 1000000,
+                "description": "この位置の入力値の許可下限。全体のvalues.minimum以上であり、登録した生成器の契約と一致させる。",
+                "$comment": "必須：欠落を拒否する。"
+              },
+              "maximum": {
+                "type": "integer",
+                "minimum": -1000000,
+                "maximum": 1000000,
+                "description": "この位置の入力値の許可上限。minimum以上かつ全体の上限以下であり、抽選と検証の両方で用いる。",
+                "$comment": "必須：欠落を拒否する。"
+              }
+            },
+            "required": [
+              "name",
+              "minimum",
+              "maximum"
+            ],
+            "description": "valuesの一つの位置に対応する名前と許可域。",
+            "$comment": "要素：nullや穴は拒否する。"
+          },
+          "description": "問題内の異なる単位・範囲を持つ要素をvaluesの順で定義する。要素数はvalues.lengthと同じとし、入力間の条件は登録生成器で別途検査する。",
+          "$comment": "任意：省略時は全位置にvaluesの共通下限・上限を適用する。新しいFE生成器では必須、既存array-sum契約では省略する。"
+        }
+      },
+      "required": [
+        "values"
+      ],
+      "description": "登録生成器が使用する入力域。valuesは全体の要素数と外側の限界、fieldsは位置別の意味と限界を定義する。未登録の範囲へ推測で拡張しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "referenceParameters": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/parameters",
+      "description": "基準問題に記載した入力値。テンプレート作成時の契約照合に使い、生成値との差からisModifiedを判定するためには使わない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "attribution": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/attribution",
+      "description": "テンプレートの作成主体、依存する資料、適用条件。基準問題に含む権利条件を維持し、コード側のライセンスと混同しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "editorIds": {
+      "type": "array",
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+        "description": "「editorIds」に記録する一つの要素。生成内容の変更履歴へ記録する編集主体のcatalog.actors ID。生成器の出力を人が毎回編集したと説明せず、定義した主体を保持する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "description": "生成内容の変更履歴へ記録する編集主体のcatalog.actors ID。生成器の出力を人が毎回編集したと説明せず、定義した主体を保持する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "active",
+        "withdrawn"
+      ],
+      "description": "新規生成へこの改訂を使えるか。撤回されたテンプレートで新たに生成せず、既存instanceも保守規則から影響を確認する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "distribution": {
+      "type": "string",
+      "enum": [
+        "docs_only",
+        "excluded",
+        "included"
+      ],
+      "description": "文書用の契約と本体配布へ含める契約を区別する。配布対象の基準問題・条件確認が揃わないテンプレートはincludedにしない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "originalContentSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "baseQuestionRefが指すバインド前の完全な問題定義を固定する照合値。元データをカタログsnapshotへ保持して原文・図・正答・条件を復元するために使い、内容差分から改変有無を判定しない。",
+      "$comment": "必須：欠落を拒否する。既定値や推定値で補完しない。"
+    },
+    "bindingBasis": {
+      "type": "string",
+      "enum": [
+        "official_source",
+        "base_question"
+      ],
+      "description": "値を生成してバインドした場合の比較対象。公式資料又は保持した基準問題を指定し、生成済みquestionのmodificationBasisへ転記する。元データを使う場合はそのoriginを維持する。",
+      "$comment": "必須：欠落を拒否する。既定値や推定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "title",
+    "baseQuestionRef",
+    "generatorRef",
+    "parameterDomain",
+    "referenceParameters",
+    "attribution",
+    "editorIds",
+    "lifecycle",
+    "distribution",
+    "originalContentSha256",
+    "bindingBasis"
+  ],
+  "description": "バインド前の問題定義を不変参照と内容hashで保持する生成契約。元データの使用又は値の生成・バインドを開始時に選び、元データを上書きしない。"
+}

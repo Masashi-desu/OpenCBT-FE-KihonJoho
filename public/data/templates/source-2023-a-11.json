@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-a-11",
+  "revision": 2,
+  "title": "流れ図の実行経路",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-a-11",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-a-11",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 1,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "初期値比の候補",
+        "minimum": 0,
+        "maximum": 3
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      3
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問11",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "11"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "ba75648672b8c91357350e915330c367e09d635b888ed885741a37e662b1ce11"
+}

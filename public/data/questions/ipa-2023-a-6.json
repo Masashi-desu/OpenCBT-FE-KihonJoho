@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2023-a-6",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "annual-2023",
+      "family-5a4e276453f6f95b"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問6",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問6",
+            "page": 4,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目A",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2023-a-6-p4",
+        "caption": "原資料 p.4"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問６  次の関数従属を満足するとき，成立する推移的関数従属はどれか。ここで，“A→               \n   B”は Bが Aに関数従属していることを表し，“A→｛B，C｝”は，“A→B”かつ“A→         \n                                                        \n   C”が成立することを表す。                                        \n                                                        \n                                                        \n 〔関数従属〕                                                 \n   ｛注文コード，商品コード｝→｛顧客注文数量，注文金額｝                          \n   注文コード  →｛注文日，顧客コード，注文担当者コード｝                         \n   商品コード  →｛商品名，仕入先コード，商品販売価格｝                          \n                                                        \n   仕入先コード   →｛仕入先名，仕入先住所，仕入担当者コード｝                      \n   顧客コード  →｛顧客名，顧客住所｝                                   \n                                                        \n                                                        \n   ア  仕入先コード  →  仕入担当者コード   → 仕入先住所                     \n   イ  商品コード  → 仕入先コード   → 商品販売価格                        \n                                                        \n   ウ  注文コード  → 顧客コード   → 顧客住所                           \n                                                        \n   エ  注文コード  → 商品コード   → 顧客注文数量"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問6",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問6",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問6",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問6",
+                "page": 4,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-3",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-a-ans",
+          "locator": {
+            "section": "科目A 問6 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目A",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2023-a-6-p4"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

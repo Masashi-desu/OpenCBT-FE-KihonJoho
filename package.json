@@ -1,0 +1,47 @@
+{
+  "name": "opencbt-fe-kihonjoho",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "doc": "vitepress dev docs --host 127.0.0.1 --port 5173",
+    "doc:build": "npm run doc:validate && vitepress build docs",
+    "doc:preview": "vitepress preview docs --host 127.0.0.1 --port 4173",
+    "doc:validate": "node docs/scripts/validate.mjs && node docs/scripts/schema-reference.mjs --check && tsx scripts/generation-reference.ts --check && node docs/scripts/check-docs.mjs",
+    "doc:reference": "node docs/scripts/schema-reference.mjs",
+    "dev": "vite",
+    "build": "npm run data:validate && tsc && vite build",
+    "preview": "vite preview",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "npm run test && npm run build && npm run doc:build",
+    "data:validate": "tsx scripts/validate-data.ts",
+    "schema:compile": "node scripts/compile-schemas.mjs",
+    "predev": "npm run schema:compile",
+    "pretest": "npm run schema:compile",
+    "predata:validate": "npm run schema:compile",
+    "doc:generation": "tsx scripts/generation-reference.ts"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "4.7.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "6.4.3",
+    "vitepress": "1.6.4"
+  },
+  "overrides": {
+    "vite": "6.4.3"
+  },
+  "dependencies": {
+    "lucide-react": "1.52.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  }
+}

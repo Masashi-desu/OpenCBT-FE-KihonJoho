@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2023-a-11",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "family-7470ef6cfccc113e",
+      "parameterized",
+      "template-source-2023-a-11"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問11",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "11"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2023-a-11",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 初期値比の候補=3。",
+        "affectsAnswer": true,
+        "answerDetails": "比a:b＝2:3で大小を追跡すると、1→2→3→5→2→3→4→2→6となる。ほかの比は分岐④・⑤の順序又は回数が異なる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2023-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問11",
+            "page": 7,
+            "exam": "基本情報技術者試験",
+            "year": 2023,
+            "subject": "科目A",
+            "questionNumber": "11"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2023-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の流れ図を① → ② → ③ → ⑤ → ② → ③ → ④ → ② → ⑥の順で実行するために、aとbへ与える初期値の関係はどれか。a、bは正の整数である。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "流れ図",
+        "alt": "原資料の形式に基づく改変図。開始→①m=a,n=b→②mとnを比較。等しければ⑥mを印字して終了。異なれば③大小を比較し、m>nなら④m=m−n、m<nなら⑤n=n−m。いずれも②へ戻る。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "euclid-flow",
+          "values": [
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問11",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問11",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "a＝2b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問11",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "2a＝b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問11",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "2a＝3b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2023-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問11",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2023,
+                "subject": "科目A",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2023-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "3a＝2b"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-4",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "比a:b＝2:3で大小を追跡すると、1→2→3→5→2→3→4→2→6となる。ほかの比は分岐④・⑤の順序又は回数が異なる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

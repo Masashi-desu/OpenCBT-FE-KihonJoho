@@ -1,0 +1,6 @@
+interface:
+  display_name: "FE問題の全件生成対応"
+  short_description: "FE問題の取り込み・全問生成・原形式の維持を揃える開発規約"
+  default_prompt: "$fe-question-generation を使い、対象範囲の用意可能なFE問題をすべて生成・出題できる状態にしてください。"
+policy:
+  allow_implicit_invocation: true

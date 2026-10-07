@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/asset.schema.json",
+  "title": "画像アセット",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "画像ファイルとその出典・条件をまとめた素材を識別する。image.assetIdとquestion.assetRefsの参照先となり、画像又は条件を変える場合は別IDを発行する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "path": {
+      "type": "string",
+      "pattern": "^assets/[a-z0-9-]+\\.(png|jpg|webp)$",
+      "description": "この素材の画像を配布物内から読み込むための相対位置。外部画像への通信や任意ファイルへのアクセスを要求するものではない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "mediaType": {
+      "type": "string",
+      "enum": [
+        "image/png",
+        "image/jpeg",
+        "image/webp"
+      ],
+      "description": "画像として許可する形式を示し、拡張子とファイルの署名との照合に使用する。宣言だけで安全な画像と判断しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "取得した画像がカタログに固定した素材と同じバイト列かを確認する照合値。出典の正当性や公式素材からの改変有無を示す値ではない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096,
+      "description": "画像の元の横方向の画素数。サイズ制限の検証と表示領域の準備に使い、画面上の固定表示幅を指定するものではない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096,
+      "description": "画像の元の縦方向の画素数。元ファイルの寸法と照合し、表示前に縦横比を確定するために使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "byteLength": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2097152,
+      "description": "元画像ファイルの容量。取得したバイト数との一致と読込み上限を確認し、過大な素材を表示準備へ進めないために使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "alt": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "description": "画像が見えなくても問題に必要な情報を理解できる代替説明。imageブロックから参照し、問題の解答を意図せず明かさない内容にする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "attribution": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/attribution",
+      "description": "画像そのものの作成主体・出典・条件。問題文や描画コードの条件を代用せず、図の直下と復習画面の素材表示に使用する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "path",
+    "mediaType",
+    "sha256",
+    "width",
+    "height",
+    "byteLength",
+    "alt",
+    "attribution"
+  ],
+  "description": "ローカル画像と代替説明・出典・条件を一つの不変素材として管理する。画像の実体はpathに示す別ファイルとし、問題の本文と条件を分離する。"
+}

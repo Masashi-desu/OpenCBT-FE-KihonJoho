@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-service-gain",
+  "revision": 2,
+  "title": "サービス可用性の改善",
+  "baseQuestionRef": {
+    "questionId": "question-template-service-gain",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-service-gain",
+    "version": "2.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "fields": [
+      {
+        "name": "年間提供時間（時間）",
+        "minimum": 500,
+        "maximum": 10000
+      },
+      {
+        "name": "移行前停止（時間）",
+        "minimum": 10,
+        "maximum": 200
+      },
+      {
+        "name": "移行後停止（分）",
+        "minimum": 1,
+        "maximum": 600
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      5000,
+      100,
+      30
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問14",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "14"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2026-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "5be631ece1bad1223f92aa3fe4fcd88a72e39dbac782e34c67b1ad441995db2e"
+}

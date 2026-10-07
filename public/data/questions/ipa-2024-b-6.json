@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2024-b-6",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "annual-2024",
+      "family-a8bb94ba22bb8610"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 14,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問6",
+            "page": 14,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2024-b-6-p14",
+        "caption": "原資料 p.14"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2024-b-6-p15",
+        "caption": "原資料 p.15"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問６  A 社は従業員  450 名の商社であり，昨年から働き方改革の一環として，在宅でのテ          \n   レワークを推進している。A社のシステム環境を図1に示す。                         \n                                                        \n                                                        \n   ・従業員には，一人に1台デスクトップPC（以下，社内PCという）を貸与している。             \n   ・従業員が利用するシステムには，自社で開発し      A 社に設置している業務システムのほか      \n    に，次の二つの   SaaS（以下，二つの SaaS を A 社利用クラウドサービスという）があ    \n    る。                                                  \n     1. メール機能，チャット機能及びクラウドストレージ機能をもつグループウェア             \n       （以下，A社利用グループウェアという）                              \n     2. オンライン会議サービス                                     \n   ・テレワークでは，従業員の個人所有     PC（以下，私有 PC という）の業務利用（BYOD）を   \n    許可している。                                             \n   ・テレワークでは，社内PC及び私有PC    のそれぞれに専用のアプリケーションソフトウェ        \n    ア（以下，専用アプリという）を導入し，社内      PC のデスクトップから私有PC に画面転    \n    送を行うリモートデスクトップ方式を採用している。                            \n   ・専用アプリには，リモートデスクトップから      PC へのファイルのダウンロード及びファ      \n    イル，文字列，画像などのコピー＆ペーストを禁止する機能（以下，保存禁止機能とい             \n    う）があり，A社では私有PCに対して当該機能を有効にしている。                     \n   ・業務システムには，社内   PC のデスクトップから利用者  ID 及びパスワードを入力してロ     \n    グインしている。                                            \n   ・A 社利用クラウドサービスへのログインは，A     社利用クラウドサービス側の設定によっ       \n    て A 社の社内ネットワークからだけ可能になるように制限している。ログインには利用           \n    者ID及びパスワードを用いている。                                   \n                 図1  A社のシステム環境（抜粋）                      \n                                                        \n                                                        \n    テレワークの定着が進むにつれて，社内        PC からインターネットへの接続が極端に      \n                                                        \n   遅くなり，業務に支障をきたしているので改善できないかと，従業員から問合せがあ               \n   った。A 社の社内ネットワークとインターネットとの間の通信量を調査したところ，              \n                                                        \n   テレワーク導入前に比べ，業務時間帯で顕著に増加していることが判明した。そのた               \n   め，情報システム部では，テレワークでA社利用クラウドサービスに接続する場合に               \n                                                        \n   は，A 社の社内ネットワークも社内      PC も介さずに直接接続することを可能にするネ       \n   ットワークの設定変更を実施することにした。                                \n                                                        \n    設定変更に当たり，情報セキュリティ上の問題がないかをA社の情報セキュリティ               \n   リーダーであるBさんが検討したところ，幾つか問題があることが分かった。その一               \n                                                        \n   つは，A 社利用クラウドサービスへの不正アクセスのリスクが増加することである。              \n   そこでBさんは，リスクを低減するために，情報システム部に対策を依頼することに               \n                                                        \n   した。\n\n設問  次の対策のうち，情報システム部に依頼することにしたものはどれか。解答群の               \n    うち，最も適切なものを選べ。                                      \n                                                        \n                                                        \n                                                        \n   解答群                                                  \n    ア  A社の社内ネットワークからA社利用クラウドサービスへの通信を監視する。              \n                                                        \n    イ  A 社の社内ネットワークと    A 社利用クラウドサービスとの間の通信速度を制限        \n     する。                                                \n                                                        \n    ウ  A 社利用クラウドサービスに    A 社外から接続する際の認証に    2 要素認証を導入   \n     する。                                                \n                                                        \n    エ  A 社利用クラウドサービスのうち，A     社利用グループウェアだけを直接接続の        \n     対象とする。                                             \n                                                        \n    オ  専用アプリの保存禁止機能を無効にする。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問6",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-3",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-b-ans",
+          "locator": {
+            "section": "科目B 問6 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目B",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2024-b-6-p14",
+    "asset-ipa-2024-b-6-p15"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

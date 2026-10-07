@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2026-a-7",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "family-b99066674752f7ff",
+      "parameterized",
+      "template-source-2026-a-7"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2026-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問7",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "year": 2026,
+          "subject": "科目A",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2026-a-7",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 違反する命令の種類=0、商品コードの枝番=0。",
+        "affectsAnswer": true,
+        "answerDetails": "主キーは重複とNULLを認めない。二つの行に同じ新コードを設定するため、選択した命令は失敗する。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2026-a-qs",
+          "locator": {
+            "section": "科目A 公開問題 問7",
+            "page": 7,
+            "exam": "基本情報技術者試験",
+            "year": 2026,
+            "subject": "科目A",
+            "questionNumber": "7"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2026-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の定義と商品表に対し、主キー制約違反で実行エラーになるSQL文はどれか。各選択肢は同じ元の表へ独立して実行する。"
+      },
+      {
+        "type": "code",
+        "text": "CREATE TABLE 商品\n(商品コード CHAR(4) PRIMARY KEY, 商品名 VARCHAR(21),\n 仕入先コード CHAR(4), 仕入単価 INT, 在庫数 INT)",
+        "language": "sql"
+      },
+      {
+        "type": "table",
+        "caption": "商品",
+        "columns": [
+          "商品コード",
+          "商品名",
+          "仕入先コード",
+          "仕入単価",
+          "在庫数"
+        ],
+        "rows": [
+          [
+            "A111",
+            "テレビ",
+            "S001",
+            "75000",
+            "0"
+          ],
+          [
+            "A222",
+            "デジタルカメラ",
+            "S002",
+            "50000",
+            "50"
+          ],
+          [
+            "A333",
+            "DVDプレーヤ",
+            "NULL",
+            "NULL",
+            "NULL"
+          ],
+          [
+            "A444",
+            "洗濯機",
+            "S004",
+            "45000",
+            "20"
+          ]
+        ]
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問7",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "UPDATE 商品 SET 商品コード = 'A777' WHERE 在庫数 >= 20",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問7",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "DELETE FROM 商品 WHERE 仕入先コード IS NULL",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問7",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "INSERT INTO 商品 VALUES ('A555', '空気清浄機', 'S005', 60000, 50)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2026-a-qs",
+              "locator": {
+                "section": "科目A 公開問題 問7",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "year": 2026,
+                "subject": "科目A",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2026-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "UPDATE 商品 SET 商品コード = 'A666' WHERE 商品コード = 'A444'",
+            "language": "sql"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "主キーは重複とNULLを認めない。二つの行に同じ新コードを設定するため、選択した命令は失敗する。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

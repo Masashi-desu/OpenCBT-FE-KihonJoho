@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-b-6",
+  "revision": 3,
+  "title": "業務委託とスキャン情報のリスク",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-b-6",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-b-6",
+    "version": "3.0.1"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "fields": [
+      {
+        "name": "残る情報セキュリティリスク",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "業務の担当人数",
+        "minimum": 2,
+        "maximum": 5
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      2
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問6",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目B",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "032f0215b4a8d083aac734171582911b8c6a293361bbc0283504f04f4f5c5703"
+}

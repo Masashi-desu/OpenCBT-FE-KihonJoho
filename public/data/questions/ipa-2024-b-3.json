@@ -1,0 +1,364 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2024-b-3",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "annual-2024",
+      "family-d482cccd061680cc"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問3",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問3",
+            "page": 6,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目B",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2024-b-3-p6",
+        "caption": "原資料 p.6"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2024-b-3-p7",
+        "caption": "原資料 p.7"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "問３  次のプログラム中の            に入れる正しい答えを，解答群の中から選べ。こ         \n   こで，配列の要素番号は1から始まる。                                   \n                                                        \n                                                        \n    図 1 に示すグラフの頂点には，1    から順に整数で番号が付けられている。グラフは         \n                                                        \n   無向グラフであり，各頂点間には高々一つの辺がある。一つの辺は両端の頂点の番号               \n   を要素にもつ要素数2の整数型の     配列で表現できる。例えば，{1，3}     は頂点  1 と頂 \n                                                        \n   点3を端点とする辺を表す。グラフ全体は，グラフに含まれる辺を表す要素数2の配               \n   列を全て格納した配列（以下，辺の配列という）で表現できる。辺の配列の要素数は               \n                                                        \n   グラフの辺の個数と等しい。図1のグラフは整数型配列の配列{{1,          3}, {1, 4}, {3,\n   4}, {2, 4}, {4, 5}}と表現できる。                           \n                                                        \n                                                        \n                           3                            \n                                                        \n                                                        \n                    1                                   \n                             4                          \n                                                        \n                       2           5                    \n                                                        \n                      図1  グラフの例                         \n                                                        \n                                                        \n    関数edgesToMatrixは，辺の配列を隣接行列に変換する。隣接行列とは，グラフに         \n   含まれる頂点の個数と等しい行数及び列数の正方行列で，i          行j 列の成分は頂点   i と\n                                                        \n   頂点jを結ぶ辺があるときに1となり，それ以外は0となる。行列の対角成分は全て               \n   0 で，無向グラフの場合は対称行列になる。図       1 のグラフを表現する隣接行列を図      2\n                                                        \n   に示す。                                                 \n                                                        \n                                                        \n                        0 0 1 1 0                       \n                        0 0 0 1 0                       \n                        1 0 0 1 0                       \n                        1 1 1 0 1                       \n                        0 0 0 1 0                       \n               図2  図1のグラフを表現する隣接行列\n\n関数 edgesToMatrix は，引数 edgeList で辺の配列を，引数 nodeNum でグラフの頂\n   点の個数をそれぞれ受け取り，隣接行列を表す整数型の二次元配列を返す。                   \n                                                        \n                                                        \n                                                        \n 〔プログラム〕                                                \n     ○整数型の二次元配列:     edgesToMatrix(整数型配列の配列: edgeList,  \n                              整数型:  nodeNum)            \n       整数型の二次元配列:    adjMatrix ← {nodeNum行nodeNum列の 0}  \n       整数型: i, u, v                                     \n       for (i を 1 から edgeListの要素数 まで 1 ずつ増やす)           \n        u ← edgeList[i][1]                              \n        v ← edgeList[i][2]                              \n                                                        \n                                                        \n       endfor                                           \n       return adjMatrix                                 \n                                                        \n                                                        \n   解答群                                                  \n    ア  adjMatrix[u, u] ← 1                              \n                                                        \n    イ  adjMatrix[u, u] ← 1                              \n       adjMatrix[v, v] ← 1                              \n    ウ  adjMatrix[u, v] ← 1                              \n                                                        \n    エ  adjMatrix[u, v] ← 1                              \n       adjMatrix[v, u] ← 1                              \n    オ  adjMatrix[v, u] ← 1                              \n                                                        \n    カ  adjMatrix[v, v] ← 1"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問3",
+                "page": 6,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "カ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-4",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-b-ans",
+          "locator": {
+            "section": "科目B 問3 正解",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目B",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2024-b-3-p6",
+    "asset-ipa-2024-b-3-p7"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-06",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+  }
+}

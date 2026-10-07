@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2023-a-10",
+  "revision": 3,
+  "title": "WAFの設置場所",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2023-a-10",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-source-2023-a-10",
+    "version": "3.0.1"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "TLS復号を行う位置",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "位置記号の配置",
+        "minimum": 0,
+        "maximum": 3
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問10",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "10"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "616565fbff741ffafce57c237333d8b87d978e691484891c705c7d703448f2e6"
+}

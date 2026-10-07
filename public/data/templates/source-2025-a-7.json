@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-a-7",
+  "revision": 2,
+  "title": "回線利用率",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-a-7",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-a-7",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 0,
+      "maximum": 400
+    },
+    "fields": [
+      {
+        "name": "動画のGバイト数",
+        "minimum": 1,
+        "maximum": 5
+      },
+      {
+        "name": "回線速度Mビット毎秒",
+        "minimum": 40,
+        "maximum": 400
+      },
+      {
+        "name": "経過分",
+        "minimum": 3,
+        "maximum": 15
+      },
+      {
+        "name": "制御情報の百分率",
+        "minimum": 0,
+        "maximum": 25
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      40,
+      5,
+      20
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問7",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "1ea050513f6a50a9d5e6e525b12dc802fd49777bfc4760222d9e51ee6709784d"
+}

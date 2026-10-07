@@ -1,0 +1,477 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2024-b-5",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-8b193ec280471b13",
+      "parameterized",
+      "template-source-2024-b-5"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問5",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目B",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2024-b-5",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 求める指標=0、注文の例=0。",
+        "affectsAnswer": true,
+        "answerDetails": "arrayMは同時購入数、arrayKは他商品の購入数。c=ordersの要素数を代入して、提示したリフトの式へ整理する。Nを掛けるのはリフトの場合であり、別の指標では正規化が異なる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2024-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問5",
+            "page": 10,
+            "exam": "基本情報技術者試験",
+            "year": 2024,
+            "subject": "科目B",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2024-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "空欄a〜cに入る正しい組合せを選べ。注文データからリフトを計算する。Mは同時購入数、Nは全注文数、Kx・Kyはそれぞれの商品を含む注文数。計算は実数として行う。"
+      },
+      {
+        "type": "table",
+        "caption": "注文データの例",
+        "columns": [
+          "注文番号",
+          "購入された商品のリスト"
+        ],
+        "rows": [
+          [
+            "1",
+            "A, B, D"
+          ],
+          [
+            "2",
+            "A, D"
+          ],
+          [
+            "3",
+            "A"
+          ],
+          [
+            "4",
+            "A, B, E"
+          ],
+          [
+            "5",
+            "B"
+          ],
+          [
+            "6",
+            "C, E"
+          ]
+        ]
+      },
+      {
+        "type": "formula",
+        "format": "latex",
+        "text": "\\frac{M N}{K_x K_y}",
+        "alt": "指標はリフト。M、N、Kx、Kyの定義に従って計算する。"
+      },
+      {
+        "type": "code",
+        "text": "大域: 文字列型配列の配列: orders ← {{\"A\", \"B\", \"D\"}, {\"A\", \"D\"}, {\"A\"}, {\"A\", \"B\", \"E\"}, {\"B\"}, {\"C\", \"E\"}}\n○putRelatedItem(文字列型: item)\n    文字列型の配列: otherItems ← orders中の異なる商品からitemを除く\n    整数型: itemCount ← 0, i\n    整数型の配列: arrayK ← {otherItemsの要素数個の0}\n    整数型の配列: arrayM ← {otherItemsの要素数個の0}\n    for (orderにordersの要素を順に代入する)\n        if (orderにitemが含まれる)\n            itemCount ← itemCount + 1\n        endif\n        for (iを1からotherItemsの要素数まで増やす)\n            if (orderにotherItems[i]が含まれる)\n                if (orderにitemが含まれる)\n                    【a】の値を1増やす\n                endif\n                【b】の値を1増やす\n            endif\n        endfor\n    endfor\n    for (iを1からotherItemsの要素数まで増やす)\n        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])\n        最大のvalueLと対応する商品を記録する\n    endfor\n    記録した商品とvalueLを出力する",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "arrayM[i]",
+                "arrayK[i]",
+                "ordersの要素数"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "arrayM[i]",
+                "arrayK[i]",
+                "arrayK[i]"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "arrayM[i]",
+                "arrayK[i]",
+                "itemCount"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "arrayK[i]",
+                "arrayM[i]",
+                "ordersの要素数"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "arrayK[i]",
+                "arrayM[i]",
+                "arrayK[i]"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2024-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 10,
+                "exam": "基本情報技術者試験",
+                "year": 2024,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2024-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "arrayK[i]",
+                "arrayM[i]",
+                "itemCount"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "arrayMは同時購入数、arrayKは他商品の購入数。c=ordersの要素数を代入して、提示したリフトの式へ整理する。Nを掛けるのはリフトの場合であり、別の指標では正規化が異なる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

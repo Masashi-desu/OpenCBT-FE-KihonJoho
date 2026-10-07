@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2024-a-19",
+  "revision": 2,
+  "title": "散布図の相関",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2024-a-19",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2024-a-19",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 2
+    },
+    "fields": [
+      {
+        "name": "相関の種類",
+        "minimum": 0,
+        "maximum": 2
+      },
+      {
+        "name": "点の散らばり",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問19",
+          "page": 9,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "19"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "1a4d4b85b3374e5ee31248c3623b6bf6a2f19fc269a3663f8b0213bee321dde9"
+}

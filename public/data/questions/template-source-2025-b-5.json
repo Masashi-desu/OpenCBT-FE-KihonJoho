@@ -1,0 +1,511 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2025-b-5",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "family-a0162eda0d45cdd3",
+      "parameterized",
+      "template-source-2025-b-5"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-b-qs",
+        "locator": {
+          "section": "科目B 公開問題 問5",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目B",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2025-b-5",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-06T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
+        "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-06T15:45:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式を維持する生成用基準問題を定義",
+        "details": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 接種あり・罹患なし=82、接種あり・罹患あり=6、接種なし・罹患なし=58、接種なし・罹患あり=8。",
+        "affectsAnswer": true,
+        "answerDetails": "総数=154。aは接種ありの行合計×非罹患の列合計÷総数=80、bは接種なしの行合計×罹患の列合計÷総数=6。実測の人数とは分けて計算する。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2025-b-qs",
+          "locator": {
+            "section": "科目B 公開問題 問5",
+            "page": 12,
+            "exam": "基本情報技術者試験",
+            "year": 2025,
+            "subject": "科目B",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2025-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "記述中のa・bに入る組合せを選べ。病気にかかるかどうかと予防接種の有無が独立だと仮定した理論度数を計算する。端数は小数第3位を四捨五入する。医学的な予防効果を判定する設問ではない。"
+      },
+      {
+        "type": "table",
+        "caption": "表1　集計結果（人）",
+        "columns": [
+          "",
+          "かからなかった",
+          "かかった"
+        ],
+        "rows": [
+          [
+            "接種あり",
+            "82",
+            "6"
+          ],
+          [
+            "接種なし",
+            "58",
+            "8"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "表2　理論度数（人）",
+        "columns": [
+          "",
+          "かからなかった",
+          "かかった"
+        ],
+        "rows": [
+          [
+            "接種あり",
+            "a",
+            "非表示"
+          ],
+          [
+            "接種なし",
+            "非表示",
+            "b"
+          ]
+        ]
+      },
+      {
+        "type": "code",
+        "text": "○実数型の二次元配列: f(実数型の二次元配列: data)\n    実数型: t ← dataの要素の和\n    実数型の二次元配列: result ← {dataと同じ大きさ}\n    for (rを1からdataの行数まで増やす)\n        for (cを1からdataの列数まで増やす)\n            result[r,c] ← (行rの合計) × (列cの合計) ÷ t\n        endfor\n    endfor\n    return result",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "80",
+                "6"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "78",
+                "5"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "79",
+                "7"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "81",
+                "5"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "82",
+                "7"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "81",
+                "8"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2025-b-qs",
+              "locator": {
+                "section": "科目B 公開問題 問5",
+                "page": 12,
+                "exam": "基本情報技術者試験",
+                "year": 2025,
+                "subject": "科目B",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2025-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "82",
+                "4"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "総数=154。aは接種ありの行合計×非罹患の列合計÷総数=80、bは接種なしの行合計×罹患の列合計÷総数=6。実測の人数とは分けて計算する。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-07",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題と同じ学習対象・文章／表／図／空欄の形式を基に、対象・条件・値を変更する。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

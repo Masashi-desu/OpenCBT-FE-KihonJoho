@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/result.schema.json",
+  "title": "学習結果",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "3.0.0",
+      "description": "このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "id": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "終了時の学習結果を識別するID。元sessionの保存版に結び付け、別のセッションの結果として再利用しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "sessionId": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+      "description": "この結果を生成したsessionのID。問題順・実解答・見直し・正答表示履歴と当時の出題内容を参照するために使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "sessionRevision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "結果を確定したsessionの保存版。後の状態変更や撤回処理で内容が変わった場合に、同じ結果として無断で再解釈しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$",
+      "description": "終了時の結果を確定した時刻。セッション終了時刻とは別に処理時点を記録し、後のレビューや再生成の時刻と混同しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "calculationVersion": {
+      "const": "learning-accuracy-v1",
+      "description": "記録した学習指標の計算規則を識別する版。将来計算方法が変わっても、過去の表示値がどの規則によるか説明できるようにする。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60,
+      "description": "この結果の対象となった出題枠数。正解・不正解・未解答の合計とentries件数に一致させ、公式成績の配点を表す値としない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "correct": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60,
+      "description": "記録したoutcomeがcorrectである枠数。学習正答率の分子に使い、本番のIRT得点や合格判定と表示しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "incorrect": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60,
+      "description": "選択済みでoutcomeがincorrectである枠数。未解答と分けて復習対象を示し、内訳の合計をtotalと照合する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "unanswered": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60,
+      "description": "選択をしないまま終了した枠数。学習正答率の分母に含め、未解答を無かった問題として除外しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "revealedCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 60,
+      "description": "studyで正答・解説を表示したことがある枠数。セッションのrevealed履歴を維持し、正答表示後の学習結果を説明する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "learningAccuracyPercent": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "multipleOf": 0.1,
+      "description": "全枠を等しい重みとしてcorrect÷total×100を小数1桁へ丸めた学習正答率。公式得点、合否、能力推定として表示しない。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "questionRef": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "結果対象の固定問題又は生成基準問題の不変参照。セッションと同じ組にして保存し、最新改訂へ置き換えない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "correct",
+              "incorrect",
+              "unanswered"
+            ],
+            "description": "この枠を正解、不正解、未解答のどれとして記録したか。件数の集計と復習表示に使い、参照検証自体は採点処理を実行しない。",
+            "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "generatedInstanceId": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+            "description": "生成枠の結果が対象としたinstanceのID。sessionの同じ枠と一致させ、実際に出題した正答・図・解説を復習する。",
+            "$comment": "条件付き：対応するsession枠でbindingPerformed=trueなら必須。元データ又は固定問題を使った枠では省略する。"
+          }
+        },
+        "required": [
+          "questionRef",
+          "outcome"
+        ],
+        "description": "「entries」に記録する一つの要素。出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。",
+        "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
+      },
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "validity": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "invalidated"
+      ],
+      "description": "この結果を有効、訂正の説明が必要、又は無効として表示する区分。撤回・訂正時に当時の計算を黙って置き換えないために使う。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "notice": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "訂正・無効等について利用者に示す説明。撤回された本文や非公開情報を再録せず、結果をどう扱うかを伝える。",
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "sessionId",
+    "sessionRevision",
+    "generatedAt",
+    "calculationVersion",
+    "total",
+    "correct",
+    "incorrect",
+    "unanswered",
+    "revealedCount",
+    "learningAccuracyPercent",
+    "entries",
+    "validity",
+    "notice"
+  ],
+  "description": "終了時点のセッション保存版に対応した学習指標と各問の記録。公式IRT得点や合格判定とは区別し、訂正・撤回後の扱いも説明できるようにする。"
+}

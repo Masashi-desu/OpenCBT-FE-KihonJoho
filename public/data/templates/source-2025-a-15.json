@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2025-a-15",
+  "revision": 2,
+  "title": "サーバ室の物理的安全対策",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2025-a-15",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-2025-a-15",
+    "version": "3.0.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "問う対象",
+        "minimum": 0,
+        "maximum": 3
+      },
+      {
+        "name": "設問の方向と判定条件",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2025-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問15",
+          "page": 8,
+          "exam": "基本情報技術者試験",
+          "year": 2025,
+          "subject": "科目A",
+          "questionNumber": "15"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2025-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "f83e3c12acbb165b6b504a9815072aa056614b5f81cbec104a464f0010c95c1a"
+}

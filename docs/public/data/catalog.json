@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "catalog-docs-examples",
+  "revision": 4,
+  "scope": "docs_fixture",
+  "withdrawals": [],
+  "actors": [
+    {
+      "id": "ipa",
+      "name": "独立行政法人情報処理推進機構（IPA）",
+      "kind": "organization"
+    },
+    {
+      "id": "codex",
+      "name": "Codex（本資料を作成・照合したAI）",
+      "kind": "assistant"
+    }
+  ],
+  "files": {
+    "sources": [
+      {
+        "path": "sources/ipa-2025-a.json",
+        "sha256": "ea3ca049196e913e53879f9d50fb2e7c576d706ae66102063b11f54a1106d40d"
+      },
+      {
+        "path": "sources/ipa-2025-answer.json",
+        "sha256": "0004a341526855c91fd3de90a008c13352a75f88101be0d79a41f9e0f0554401"
+      },
+      {
+        "path": "sources/ipa-faq.json",
+        "sha256": "5256a8ae4db989edf081d3d8ebfc5c35e5b1e2575abe66e0eea454b63d40e360"
+      },
+      {
+        "path": "sources/ipa-public.json",
+        "sha256": "a5736913e91755d6edcfcba082c7831bf8f428bc6fc13e9fd4295d8f06104615"
+      }
+    ],
+    "rights": [
+      {
+        "path": "rights/ipa-public.json",
+        "sha256": "b1d1d1071b972f1b88db64cb59728f15f6f97e08d0cc2c3428e4c43d52038da9"
+      },
+      {
+        "path": "rights/original.json",
+        "sha256": "ae033eda29acd5890135f8323ee813068e5c012414d28fc43cff91631c2d1b04"
+      }
+    ],
+    "assets": [
+      {
+        "path": "assets/array-cells.json",
+        "sha256": "957ee751d75eb26e68723b036a12550bba469493cfee55dfe9138dceb8f6040b"
+      }
+    ],
+    "questions": [
+      {
+        "path": "questions/adapted.json",
+        "sha256": "b1dc2ed0ac809a35921ab666d14300d4a7f05867675d842684002b3062a49a19"
+      },
+      {
+        "path": "questions/original.json",
+        "sha256": "afe4fcca22edaed3e3c22c373abe8cf9357e8881f3fe75224f250727d075962b"
+      },
+      {
+        "path": "questions/reprint.json",
+        "sha256": "9fa8b864a2774f66587505947c6f9e0dce5939679a9f057953871de543b97887"
+      },
+      {
+        "path": "questions/subject-b.json",
+        "sha256": "48f51036bb5e8d909816cdecaf14254c57740ca16fb5248efe9ea0a751836bff"
+      },
+      {
+        "path": "questions/diagram-base.json",
+        "sha256": "875a24b01ced06493be771a024301f4d124bf1fd3c0b4fd725b54e0262319ed1"
+      }
+    ],
+    "sets": [
+      {
+        "path": "sets/a-study.json",
+        "sha256": "7a78df753b37209c58bb309fd6734d8aec76e23529032e844793de24c951eded"
+      },
+      {
+        "path": "sets/adapted.json",
+        "sha256": "959b394b379c5f6c91acc5bbe5dffe5eb70c6549e0267baca92090e5e609d1df"
+      },
+      {
+        "path": "sets/b-study.json",
+        "sha256": "4ffaccd7a0870fe3c763d68f8bcbbf53b1743e8008f9c9742af48a00bad2b2de"
+      },
+      {
+        "path": "sets/b-generated.json",
+        "sha256": "b2b5b3f260efd86070f0068eca85b46938a4b1bf8a623d3f65da9af899a663aa"
+      }
+    ],
+    "exams": [
+      {
+        "path": "exams/a-practice.json",
+        "sha256": "0abf5038e06d36033d42ec0a17247c665d7e7f530848048632f9a0f2bcbd0666"
+      },
+      {
+        "path": "exams/a-study-single.json",
+        "sha256": "485f1401eccbef71cf6f23c5b59be372df1e8ef96da77a71746f4dc60e326e91"
+      },
+      {
+        "path": "exams/a-study.json",
+        "sha256": "a0c79f33df4c7eda7369fc3f220d32c9bc929e96ffcdf80557171f7d81549032"
+      },
+      {
+        "path": "exams/b-practice.json",
+        "sha256": "ece0c4249cbb27114922df8864a48769ec87ef741b5665f20ccddb6de0ce3c32"
+      },
+      {
+        "path": "exams/b-study.json",
+        "sha256": "d53f3e3f9a8739950ed2dd3a20af45d05a468420b0caf9131d9e35b282282b67"
+      }
+    ],
+    "templates": [
+      {
+        "path": "templates/array-sum.json",
+        "sha256": "0ccde292144cb36ff9ca36e091ffe4b7e1fa12d820ceab671734546b9451f3e0"
+      }
+    ]
+  }
+}
