@@ -9,6 +9,8 @@
 | 本体独自コード・独自文書・Schema・検証コード | MIT。ルートLICENSEとpublic/notices/PROJECT-LICENSE.txtに範囲と全文を保持 |
 | 管理された図描画器・生成器 | 本体独自コードとしてMIT。図のscene・テンプレート記述・生成された原表現はそれぞれのコンテンツ条件 |
 | 数式描画KaTeX 0.19.0 | MIT。CDN取得でもKaTeXの著作権表示・MIT全文を保持し、独自文章や問題へこの許諾を拡張しない |
+| ロゴ生成用Archivo Black 1.006 | OFL-1.1。フォントと可変文字の派生資産の通知を保持。[ロゴ生成と出典](/brand-icons)を参照 |
+| OpenGraph用Noto Sans JP Bold 2.004 | OFL-1.1。著作権表示・原文通知・固定版フォントのhashを保持。[共有資産と出典](/sharing-assets)を参照 |
 | docs/scripts・docs/.vitepressの独自コード | MIT。下記の許諾文はこの独自コードだけへ適用 |
 | 独立作成の問題・独自解説・独自図データ・改変追加記述 | CC0-1.0の再利用方針。公式・第三者の原表現を除く |
 | 公式の問題文・選択肢・正答 | LicenseRef-IPA-Public-Questions。IPAの公表問題利用条件と各確認記録に従う。CC0・MITへ変更しない |

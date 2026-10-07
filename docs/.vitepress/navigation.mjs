@@ -29,6 +29,8 @@ export const sidebar = [
   ] },
   { text: 'ドキュメントの運用', items: [
     { text: '起動・編集・検証方法', link: '/contributing' },
+    { text: 'ロゴ・ファビコンの生成', link: '/brand-icons' },
+    { text: 'OpenGraph・共有資産の管理', link: '/sharing-assets' },
     { text: '今回の検証記録', link: '/verification' },
     { text: '公開前査読・修正', link: '/review' },
     { text: 'ライセンスの適用範囲', link: '/licenses' }

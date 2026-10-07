@@ -3,4 +3,8 @@
 
 # Preserve original notice bytes, including upstream final blank lines.
 public/notices/*.txt -text whitespace=-blank-at-eof
+# Archivo Black's upstream notice includes CRLF and a trailing space; retain its bytes.
+public/notices/ArchivoBlack-1.006-OFL.txt whitespace=-blank-at-eof,-blank-at-eol
+scripts/brand/OFL.txt -text whitespace=-blank-at-eof,-blank-at-eol
+scripts/brand/NotoSansJP-LICENSE.txt -text whitespace=-blank-at-eof
 LICENSE -text

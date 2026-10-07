@@ -39,6 +39,10 @@ npm run devで本体を127.0.0.1:5175に起動する。使用中なら別ポー�
 | npm run data:validate | 配布カタログ・全JSON・画像・出典／権利の参照検証 |
 | npm run build | 配布検証・TypeScript確認・distの生成 |
 | npm run preview | distを127.0.0.1:4175で確認 |
+| npm run icons:generate | ロゴ・ファビコンを再生成。[資格コード等の指定方法](/brand-icons) |
+| npm run fonts:prepare | 生成用の固定版フォントをCDNから取得・hash検査してキャッシュ。通常は資産生成時に自動実行 |
+| npm run assets:generate | OpenGraph・共有メタ情報・manifest・アイコンをまとめて再生成。[設定と出力](/sharing-assets) |
+| npm run assets:check | 描画コード・設定と配布資産の一致を読取り専用で確認 |
 | npm run check | 本体テスト・本体ビルド・文書ビルド |
 
 Schemaの正本はdocs/public/schemas。npm run dev・test・data:validateの前処理で固定検証関数をsrc/generatedへ生成する。生成物を手編集しない。本体データはpublic/data、ライセンス原文はpublic/noticesを編集し、カタログのファイルhashと検証を更新する。リリースの具体的な収録数・除外・検証限界は[実装範囲](/implementation)へ記録する。

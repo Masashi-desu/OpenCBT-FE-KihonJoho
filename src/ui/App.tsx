@@ -126,6 +126,37 @@ const statusLabel: Record<string, string> = {
   invalidated: "無効",
 };
 
+function ThemeToggle({
+  theme,
+  onChange,
+}: {
+  theme: Theme;
+  onChange: (theme: Theme) => void;
+}) {
+  return (
+    <div className="theme-toggle" role="group" aria-label="表示モード">
+      <button
+        type="button"
+        aria-label="ライトモード"
+        title="ライトモード"
+        aria-pressed={theme === "light"}
+        onClick={() => onChange("light")}
+      >
+        <Sun size={19} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        aria-label="ダークモード"
+        title="ダークモード"
+        aria-pressed={theme === "dark"}
+        onClick={() => onChange("dark")}
+      >
+        <Moon size={19} aria-hidden="true" />
+      </button>
+    </div>
+  );
+}
+
 export function App() {
   const [theme, setTheme] = useState<Theme>(readTheme),
     [bundle, setBundle] = useState<Bundle>(),
@@ -678,19 +709,18 @@ export function App() {
               goMenu();
             }}
           >
-            <span className="brand-icon">
-              <BookOpen size={23} />
-            </span>
+            <span className="brand-icon" aria-hidden="true" />
             <span>
-              OpenCBT<small>FE · KihonJoho</small>
+              OpenCBT<small>基本情報技術者試験</small>
             </span>
           </a>
-          <div className="sidebar-caption">LEARNING WORKSPACE</div>
           <nav aria-label="メインメニュー">
             {navItems.map((n) => (
               <button
                 key={n.id}
                 className={view === n.id ? "nav-item active" : "nav-item"}
+                aria-label={n.label}
+                title={n.label}
                 onClick={() =>
                   n.id === "history"
                     ? void showHistory()
@@ -699,51 +729,24 @@ export function App() {
                       : navigate(n.id)
                 }
               >
-                <n.icon size={19} />
-                {n.label}
-                {view === n.id && <ChevronRight size={15} />}
+                <n.icon size={19} aria-hidden="true" />
+                <span className="nav-label">{n.label}</span>
+                {view === n.id && (
+                  <ChevronRight
+                    className="nav-chevron"
+                    size={15}
+                    aria-hidden="true"
+                  />
+                )}
               </button>
             ))}
           </nav>
           <div className="sidebar-theme">
-            <div className="theme-caption">
-              <span>表示モード</span>
-              <span>{theme === "light" ? "ライト" : "ダーク"}</span>
-            </div>
-            <div className="theme-toggle" role="group" aria-label="表示モード">
-              <button
-                type="button"
-                aria-label="ライトモード"
-                title="ライトモード"
-                aria-pressed={theme === "light"}
-                onClick={() => setTheme("light")}
-              >
-                <Sun size={19} aria-hidden="true" />
-              </button>
-              <button
-                type="button"
-                aria-label="ダークモード"
-                title="ダークモード"
-                aria-pressed={theme === "dark"}
-                onClick={() => setTheme("dark")}
-              >
-                <Moon size={19} aria-hidden="true" />
-              </button>
-            </div>
+            <ThemeToggle theme={theme} onChange={setTheme} />
           </div>
         </aside>
       )}
       <div className="workspace">
-        {!isExam && !isReview && (
-          <header className="workspace-header">
-            <div>
-              基本情報技術者試験 <span>学習・操作練習</span>
-            </div>
-            <span className="local-label">
-              <Square size={12} /> 学習記録はこのブラウザに保存
-            </span>
-          </header>
-        )}
         {error && (
           <div className="error-banner" role="alert">
             <AlertCircle size={21} />
@@ -1904,6 +1907,9 @@ export function App() {
           <footer className="page-footer">
             <span>OpenCBT-FE-KihonJoho</span>
             <span>{screenNotice}</span>
+            <div className="footer-theme">
+              <ThemeToggle theme={theme} onChange={setTheme} />
+            </div>
           </footer>
         )}
       </div>
@@ -2400,7 +2406,7 @@ function LicensePage({ bundle }: { bundle?: Bundle }) {
       <section>
         <h2>数式描画・アイコン・ライブラリ</h2>
         <p>
-          アイコンはLucide。数式はKaTeX
+          ブランドロゴは独自のベクタ、操作アイコンはLucide。数式はKaTeX
           0.19.0を固定URL・SRI付きでjsDelivrから読み込みます。数式を使うセットの準備時に外部CDNへ通信し、IPアドレス等が送信されます。学習記録・解答は送信しません。
         </p>
         <p>
@@ -2435,7 +2441,9 @@ function LicensePage({ bundle }: { bundle?: Bundle }) {
             <p>{n.scope}</p>
             <p>
               {n.licenseId}
-              {n.version ? ` · ${n.packageName} ${n.version}` : ""} · 確認日：
+              {n.version
+                ? ` · ${n.packageName ? `${n.packageName} ` : ""}${n.version}`
+                : ""} · 確認日：
               {n.checkedOn}
             </p>
             <p>

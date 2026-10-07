@@ -205,22 +205,15 @@ small {
   margin-top: 5px;
 }
 .brand-icon {
-  background: var(--accent);
-  color: var(--on-accent, white);
-  display: grid;
-  place-items: center;
+  background: currentColor;
+  display: block;
+  flex-shrink: 0;
   width: 40px;
-  height: 43px;
-  border-radius: 11px;
-}
-.sidebar-caption {
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  color: var(--text-secondary, #8d9699);
-  font-weight: 650;
-  margin: 46px 12px 14px;
+  height: 40px;
+  mask: url("/brand-icon.svg") center / contain no-repeat;
 }
 .sidebar nav {
+  margin-top: 32px;
   display: grid;
   gap: 7px;
 }
@@ -236,7 +229,7 @@ small {
   color: var(--text-accent, #096b62);
   background: var(--selected-surface, #e8f4ef);
 }
-.nav-item.active svg:last-child {
+.nav-chevron {
   margin-left: auto;
 }
 .sidebar-theme {
@@ -244,13 +237,8 @@ small {
   padding: 18px 10px 0;
   border-top: 1px solid var(--line);
 }
-.theme-caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  color: var(--muted);
-  font-size: 10px;
-  margin-bottom: 9px;
+.footer-theme {
+  display: none;
 }
 .theme-toggle {
   display: flex;
@@ -281,36 +269,6 @@ small {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-.workspace-header {
-  min-height: 68px;
-  background: var(--surface, #fff);
-  border-bottom: 1px solid var(--line);
-  padding: 0 39px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 12px;
-  font-weight: 600;
-}
-.workspace-header div span {
-  font-weight: 400;
-  color: var(--text-secondary, #88928e);
-  margin-left: 15px;
-}
-.local-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-secondary, #77857e);
-  font-size: 10px;
-  font-weight: 400;
-}
-.local-label svg {
-  fill: var(--indicator, #62a68b);
-  stroke: var(--indicator, #62a68b);
-  width: 7px;
-  height: 7px;
 }
 .page-main {
   width: 100%;
@@ -2270,9 +2228,6 @@ dialog details {
   .page-main {
     padding: 34px 30px;
   }
-  .workspace-header {
-    padding: 0 27px;
-  }
   .set-options {
     gap: 10px;
   }
@@ -2312,9 +2267,6 @@ dialog details {
   .answer-content {
     padding: 23px;
   }
-  .local-label {
-    display: none;
-  }
 }
 @media (max-width: 800px) {
   .application {
@@ -2331,60 +2283,47 @@ dialog details {
     flex-direction: row;
     align-items: center;
     gap: 23px;
+    flex-wrap: nowrap;
   }
   .brand {
     font-size: 19px;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
   .brand-icon {
     width: 33px;
-    height: 36px;
-    border-radius: 8px;
+    height: 33px;
   }
   .brand small {
     font-size: 9px;
   }
-  .sidebar-caption {
+  .sidebar-theme {
     display: none;
   }
-  .sidebar {
-    flex-wrap: wrap;
-  }
-  .sidebar-theme {
-    flex-basis: 100%;
-    margin-top: 0;
-    padding: 12px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-  }
-  .theme-caption {
-    margin: 0;
-    gap: 8px;
+  .footer-theme {
+    display: block;
+    margin-left: auto;
   }
   .theme-toggle {
     width: 98px;
   }
   .sidebar nav {
     display: flex;
+    margin-top: 0;
     margin-left: auto;
     gap: 5px;
   }
   .nav-item {
-    font-size: 0;
-    padding: 11px;
-    min-height: 39px;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0;
+    gap: 0;
   }
-  .nav-item.active > svg:last-child {
+  .nav-label,
+  .nav-chevron {
     display: none;
-  }
-  .workspace-header {
-    min-height: 47px;
-    padding: 0 24px;
-    font-size: 11px;
-  }
-  .workspace-header div span {
-    font-size: 10px;
   }
   .page-main {
     padding: 29px 24px 38px;
@@ -2527,9 +2466,6 @@ dialog details {
   .sidebar nav {
     gap: 2px;
   }
-  .nav-item {
-    padding: 9px;
-  }
   .brand {
     gap: 8px;
     font-size: 18px;
@@ -2537,17 +2473,10 @@ dialog details {
   }
   .brand-icon {
     width: 31px;
+    height: 31px;
   }
   .brand small {
     font-size: 8px;
-  }
-  .workspace-header {
-    padding: 0 19px;
-    font-size: 10px;
-  }
-  .workspace-header div span {
-    margin-left: 10px;
-    font-size: 9px;
   }
   .page-main {
     padding: 27px 18px 30px;
@@ -2653,6 +2582,9 @@ dialog details {
     gap: 10px;
     flex-direction: column;
     font-size: 8px;
+  }
+  .footer-theme {
+    align-self: flex-end;
   }
   .instruction-card {
     padding: 20px 17px;
@@ -3026,6 +2958,28 @@ dialog details {
   background: var(--surface, #fff);
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   z-index: -1;
+}
+@media (max-width: 380px) {
+  .sidebar {
+    padding: 14px 12px;
+    gap: 8px;
+  }
+  .brand {
+    gap: 6px;
+    font-size: 16px;
+  }
+  .brand-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .brand small {
+    font-size: 7px;
+  }
+  .nav-item {
+    width: 36px;
+    height: 40px;
+    min-height: 40px;
+  }
 }
 /* Scale reading text once; keep mobile controls from covering the answer text. */
 .reading-content {
