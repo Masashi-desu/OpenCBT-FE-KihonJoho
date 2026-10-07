@@ -2,6 +2,8 @@
 
 基本情報技術者試験（FE）の学習とCBT形式の操作練習を行う、非公式のフロントエンドアプリです。IPA・プロメトリック・試験運営事業者とは関係ありません。
 
+**公開アプリ：[OpenCBT FEを開く](https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/)**
+
 公開情報をもとにCBTの画面・操作を再現しています。実際の試験画面・動作とは異なる場合があります。解答・復習画面のフッターには出典、改変区分と必要な権利文言を表示し、展開すると素材別の条件や改変概要を読めます。「出典・改変詳細」と「ライセンス表記」は展開部分から同じ画面で開いて閉じられます。
 
 2023〜2026年度のIPA公開問題103問と、それらの画像・記述を基に作図・バインド・正答生成を行う103種類の改変テンプレートを収録しています。2025年度科目B問6はJIS文言の利用条件未確認のため除外しています。公開問題は本番の全問題ではありません。原問題の詳細解説は未収録です。
@@ -51,7 +53,9 @@ npm run check          # 本体テスト・ビルド・文書ビルドをまと�
 
 静的ビルドとハッシュ形式の画面遷移を使い、リポジトリのサブディレクトリから配信できます。バックエンド、認証、課金はありません。
 
-GitHubへ配置した後、Settings → Pages → Sourceで **GitHub Actions** を選び、Actions → **Deploy OpenCBT to GitHub Pages** → **Run workflow** を実行します。[ワークフロー](.github/workflows/pages.yml)は手動起動のみで、test・build成功後にdistを配信します。リポジトリのpublish／pushと、Pagesでのアプリ配信は別の操作です。pushだけではPagesへデプロイしません。
+公開先は [https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/](https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/) です。**mainへのpushで自動デプロイ**します。[ワークフロー](.github/workflows/pages.yml)がNode.js 24で依存を導入し、test・配布検証・型確認・buildが成功した後にdistを配信します。実行結果は[GitHub Actions](https://github.com/Masashi-desu/OpenCBT-FE-KihonJoho/actions/workflows/pages.yml)で確認できます。
+
+GitHub側の初期設定はSettings → Pages → Sourceの **GitHub Actions** です。再デプロイする場合はActions → **Deploy OpenCBT to GitHub Pages** → **Run workflow**でmainを選びます。main以外のブランチでは配信しません。`npm run build`はローカルの静的ビルドです。
 
 ## 仕様・出典・利用条件
 

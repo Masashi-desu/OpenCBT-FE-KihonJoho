@@ -35,7 +35,7 @@
 
 ## 今回の成果物と配信範囲
 
-資料確認後の明示的な指示に基づき、srcの本体、配布カタログ、検証、静的ビルド、手動のGitHub Pagesワークフローを作成する。実際の公開、リモート作成、pushは今回行わない。文書へCBTを埋め込まず、npm run docとnpm run devを分ける。[構成](/architecture)と[起動方法](/contributing)に従う。
+資料確認後の明示的な指示に基づき、srcの本体、配布カタログ、検証、静的ビルド、GitHub Pagesワークフローを作成した。2026年10月7日の公開指示に基づき、mainへのpushで[本体アプリ](https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/)を自動配信する。文書の閲覧環境はnpm run doc、本体の開発環境はnpm run devで起動する。[構成](/architecture)と[起動方法](/contributing)に従う。
 
 ## 用語
 

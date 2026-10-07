@@ -25,7 +25,7 @@ npm run doc
 | `npm run doc:build` | 検証後、docs/.vitepress/distへ静的サイトを生成 |
 | `npm run doc:preview` | ビルド結果を127.0.0.1:4173で確認 |
 
-本体のGitHub Pages配信は手動ワークフローを用意する。[配信手順](/implementation#github-pages)に従う。文書サイトの公開ワークフローは追加せず、ローカルで仕様を読める構成を維持する。ローカルビルドだけでは外部へ公開しない。
+本体はmainへのpushでGitHub Pagesへ自動配信する。[配信手順](/implementation#github-pages)に従う。文書サイトはローカルで仕様を読める構成を維持する。ローカルビルドだけでは外部へ公開しない。
 
 ## 本体の起動と検証
 

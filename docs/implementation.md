@@ -2,7 +2,7 @@
 
 ## 現在の成果物
 
-2026年10月6日の明示的な実装開始指示を受け、OpenCBT-FE-KihonJohoのフロントエンドを実装した。npm run devで本体、npm run docで仕様書を起動する。静的ファイルだけで動作し、アカウント・API・課金・解析サービスを持たない。リポジトリのpublish／pushは利用者の指示に従って行い、アプリのPages配信は別の手動操作とする。
+2026年10月6日の明示的な実装開始指示を受け、OpenCBT-FE-KihonJohoのフロントエンドを実装した。npm run devで本体、npm run docで仕様書を起動する。静的ファイルだけで動作し、アカウント・API・課金・解析サービスを持たない。2026年10月7日の公開指示に基づき、mainへのpushでアプリをGitHub Pagesへ自動配信する。
 
 Lucideを操作アイコンに使用する。プロメトリックの公開汎用画面は資料・解答・操作領域の関係を参照したが、配色・文言・アイコン・コードは独自に作成した。担当分離のあるクリーンルームを実施したとは称さない。現在のFE本番画面を保証する資料とも扱わない。
 
@@ -66,14 +66,14 @@ Aは20問又は60問、Bは6問又は20問を、登録テンプレートから�
 
 本体は相対資産URLと#/exam等のハッシュ経路を使う。リポジトリ配下のURLから起動・再読み込みしても、GitHub PagesにSPAのサーバルーティングを要求しない。
 
-配信する場合は次の手順とする。
+公開先は[OpenCBT FE](https://masashi-desu.github.io/OpenCBT-FE-KihonJoho/)。配信手順は次のとおり。
 
-1. リポジトリをGitHubへ配置する。リポジトリ作成とpushだけではPages配信を開始しない。
-2. Settings → Pages → SourceでGitHub Actionsを選ぶ。
-3. Actions → Deploy OpenCBT to GitHub Pages → Run workflowを実行する。
-4. テスト・配布検証・型確認・ビルド成功後、distをPages artifactとして配信する。
+1. 初期設定としてSettings → Pages → SourceでGitHub Actionsを選ぶ。
+2. mainへpushするとDeploy OpenCBT to GitHub Pagesが自動起動する。
+3. テスト・配布検証・型確認・ビルド成功後、distをPages artifactとして配信する。
+4. [Actionsの実行結果](https://github.com/Masashi-desu/OpenCBT-FE-KihonJoho/actions/workflows/pages.yml)と公開URLを確認する。
 
-ワークフローはworkflow_dispatchのみで、pushだけでは配信しない。npm run buildはローカル生成だけを行う。GitHub側の権限・Pages設定・実際の配信URLは、ローカル配信の確認だけでは検証済みとしない。[R23](/references#r23--github-pages)を参照する。
+再デプロイにはActions → Deploy OpenCBT to GitHub Pages → Run workflowでmainを選ぶ。main以外では手動起動しても配信しない。同時配信を防ぐためconcurrency groupをpagesに固定する。npm run buildはローカル生成だけを行う。GitHub側の権限・Pages設定・実際の配信URLは、ローカル配信の確認だけでは検証済みとしない。[R23](/references#r23--github-pages)を参照する。
 
 旧4系列の基準問題改訂2はanswer_correctionで通知する。旧版を含むsnapshot・セッション・結果・生成済み問題は更新確認時に削除し、黙って再採点しない。[修正内容と査読の限界](/review)を参照する。
 
