@@ -53,6 +53,8 @@ npm run check
 
 このスクリプトは現在の初期配布データを作る開発用の手順であり、利用者が実行する開始処理には組み込まない。追加90系列の未公開初期データの再構築には--refresh-additionalを付ける。全問対応一覧は手編集せずdoc:generationで更新する。指定系列だけの更新には--refresh-sources=年度-科目-問番号を使う。更新対象のquestion／template・set／exam・catalogの改訂を上げ、コードの変更に対応したgenerator versionと取り下げ通知も確認する。引数なしでは既存定義を上書きしない。新しい入力域や計算規則は独立した正答計算・誤答の一意性テストと描画確認を追加して検証する。
 
+問題・生成器・入力域・選択肢・正答・解説の追加又は変更では、[生成内容と正答の必須テスト](/acceptance#生成内容と正答の必須テスト)を同じ変更で用意する。計算・アルゴリズムは独立した参照解法、知識選択は査読・固定した対応資料を使い、全選択肢の成立条件と正答IDを検証する。新しい系列も自動テストへ登録し、未登録又はskipのまま完了しない。生成器の出力を期待値へコピーしてテストを通す更新を行わない。
+
 ## 閲覧環境
 
 文書サイトはVitePress **1.6.4**を使用する。編集時の参照先は[公式v1ガイド](https://vuejs.github.io/vitepress/v1/guide/getting-started)と[コードファイルの掲載方法](https://vuejs.github.io/vitepress/v1/guide/markdown)。設定ファイルは次の表に示す。依存関係のバージョンはルートのpackage.jsonとpackage-lock.jsonで管理する。
