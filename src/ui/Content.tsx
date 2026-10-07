@@ -438,11 +438,13 @@ export function Content({
   bundle,
   assetUrls,
   credit = false,
+  showAttribution = true,
 }: {
   content: ContentData;
   bundle: Bundle;
   assetUrls: Record<string, string>;
   credit?: boolean;
+  showAttribution?: boolean;
 }) {
   return (
     <div className="content-blocks">
@@ -538,7 +540,9 @@ export function Content({
             </details>
           ) : (
             <div className="code-block" key={i}>
-              <span>{b.language === "sql" ? "SQL" : "疑似言語"} · 表示のみ</span>
+              <span>
+                {b.language === "sql" ? "SQL" : "疑似言語"} · 表示のみ
+              </span>
               {code}
             </div>
           );
@@ -553,10 +557,12 @@ export function Content({
                 caption={b.caption}
                 rendererRef={b.rendererRef}
               />
-              <AttributionLine
-                content={{ attribution: b.attribution, blocks: [] }}
-                bundle={bundle}
-              />
+              {showAttribution && (
+                <AttributionLine
+                  content={{ attribution: b.attribution, blocks: [] }}
+                  bundle={bundle}
+                />
+              )}
             </div>
           );
         if (b.type === "image") {
@@ -573,16 +579,20 @@ export function Content({
                 }
               />
               <figcaption>{b.caption}</figcaption>
-              <AttributionLine
-                content={{ attribution: asset.attribution, blocks: [] }}
-                bundle={bundle}
-              />
+              {showAttribution && (
+                <AttributionLine
+                  content={{ attribution: asset.attribution, blocks: [] }}
+                  bundle={bundle}
+                />
+              )}
             </figure>
           );
         }
         return null;
       })}
-      {credit && <AttributionLine content={content} bundle={bundle} />}
+      {credit && showAttribution && (
+        <AttributionLine content={content} bundle={bundle} />
+      )}
     </div>
   );
 }

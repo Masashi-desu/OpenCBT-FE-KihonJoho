@@ -72,6 +72,8 @@ import {
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { Dialog } from "./Dialog";
+import { QuestionFooter, screenNotice } from "./QuestionFooter";
+import { QuestionRail } from "./QuestionRail";
 import { ensureMath } from "./math";
 import type { LicenseNotice } from "../../scripts/licenses";
 import {
@@ -129,7 +131,7 @@ export function App() {
     [busy, setBusy] = useState("公開問題を読み込んでいます"),
     [error, setError] = useState(""),
     [dialog, setDialog] = useState<
-      "list" | "finish" | "source" | "delete" | "leave" | null
+      "list" | "finish" | "source" | "licenses" | "delete" | "leave" | null
     >(null),
     [deleteId, setDeleteId] = useState<string | undefined>(),
     [zoom, setZoom] = useState(100),
@@ -427,8 +429,20 @@ export function App() {
   };
   const move = (index: number) => {
     const r = current.current;
-    if (!r || r.session.status !== "running" || saveFailed.current) return;
+    if (
+      !r ||
+      !["running", "paused"].includes(r.session.status) ||
+      saveFailed.current ||
+      index < 0 ||
+      index >= r.session.entries.length
+    )
+      return;
     const next = { ...r, session: structuredClone(r.session) };
+    if (next.session.status === "paused") {
+      next.session.status = "running";
+      delete next.session.pausedAt;
+      lastTime.current = { wall: Date.now(), mono: performance.now() };
+    }
     next.session.currentIndex = index;
     commit(touch(next));
     setDialog(null);
@@ -522,6 +536,13 @@ export function App() {
       run?.session.status === "running" && isExam && !error && !busy,
     );
   const active = run && ["running", "paused"].includes(run.session.status);
+  const canNavigate = Boolean(
+    (isReview || (isExam && active)) && !error && !busy,
+  );
+  useLayoutEffect(() => {
+    if (isExam || isReview)
+      document.querySelector(".answer-content")?.scrollTo(0, 0);
+  }, [currentIndex, isExam, isReview]);
   const navItems = [
     { id: "menu" as View, label: "学習をはじめる", icon: BookOpen },
     { id: "history" as View, label: "履歴・復習", icon: History },
@@ -912,7 +933,7 @@ export function App() {
                 <p>
                   2023〜2026年度のIPA公開問題を収録。公開部分は本番の全問題ではありません。
                   <br />
-                  本番の画面・IRT評価点や合否を再現するサービスではありません。
+                  公開情報をもとにCBTの画面・操作を再現しています。公式IRT評価点や合否は算出しません。
                   <br />
                   数式を含む問題の準備時は、KaTeX資産を外部CDNから取得します。
                 </p>
@@ -968,7 +989,7 @@ export function App() {
                 </div>
                 <ul className="instruction-list">
                   <li>
-                    解答は選択・変更・解除できます。問題一覧から移動し、見直しの印を付けられます。
+                    選択済みの選択肢をもう一度押すと解答を解除できます。問題一覧から移動し、見直しの印を付けられます。
                   </li>
                   <li>
                     {selection.mode === "practice"
@@ -1054,7 +1075,11 @@ export function App() {
                   </strong>
                   <small>{run.set.title}</small>
                 </div>
-                <div className="toolbar-zoom">
+                <div
+                  className="toolbar-zoom"
+                  role="group"
+                  aria-label="表示倍率"
+                >
                   <button
                     className="icon-button"
                     aria-label="文字と画像を縮小"
@@ -1072,6 +1097,38 @@ export function App() {
                   >
                     <ZoomIn size={19} />
                   </button>
+                </div>
+                <div
+                  className="toolbar-tools"
+                  role="group"
+                  aria-label="学習・操作補助"
+                >
+                  <div className="toolbar-study-actions">
+                    {!isReview && run.exam.mode === "study" && (
+                      <>
+                        <button
+                          disabled={Boolean(error || busy)}
+                          onClick={() => pause()}
+                        >
+                          <Pause size={16} />
+                          {run.session.status === "paused"
+                            ? "再開"
+                            : "一時停止"}
+                        </button>
+                        <button
+                          disabled={!canAnswer || entry.revealed}
+                          onClick={reveal}
+                        >
+                          <Eye size={16} />
+                          正答を見る
+                        </button>
+                      </>
+                    )}
+                    <button onClick={() => setDialog("list")}>
+                      <ListChecks size={18} />
+                      問題一覧
+                    </button>
+                  </div>
                 </div>
                 <div className="exam-time">
                   <Clock size={19} />
@@ -1102,37 +1159,6 @@ export function App() {
                   {isReview ? "結果へ" : "終了"}
                 </button>
               </header>
-              <div className="exam-status-bar">
-                <span>
-                  問題 <strong>{currentIndex + 1}</strong> / {run.issued.length}
-                </span>
-                <span>
-                  {entry.selectedChoiceId ? (
-                    <>
-                      <CheckCircle2 size={14} />
-                      解答済み
-                    </>
-                  ) : (
-                    <>
-                      <Square size={14} />
-                      未解答
-                    </>
-                  )}
-                  {entry.reviewFlag && (
-                    <>
-                      <Flag size={14} />
-                      見直し
-                    </>
-                  )}
-                </span>
-                <small>
-                  {isReview
-                    ? "保存した出題内容を表示"
-                    : saved
-                      ? "解答を保存済み"
-                      : "保存中"}
-                </small>
-              </div>
               <div
                 className="exam-split"
                 style={
@@ -1167,14 +1193,11 @@ export function App() {
                                   content={context.content}
                                   bundle={run.bundle}
                                   assetUrls={assetUrls}
+                                  showAttribution={false}
                                 />
                               </div>
                               <figcaption>{context.title}</figcaption>
                             </figure>
-                            <AttributionLine
-                              content={context.content}
-                              bundle={run.bundle}
-                            />
                           </div>
                         );
                       return (
@@ -1184,7 +1207,7 @@ export function App() {
                             content={context.content}
                             bundle={run.bundle}
                             assetUrls={assetUrls}
-                            credit
+                            showAttribution={false}
                           />
                         </section>
                       );
@@ -1193,249 +1216,221 @@ export function App() {
                       content={q.prompt}
                       bundle={run.bundle}
                       assetUrls={assetUrls}
-                      credit
+                      showAttribution={false}
                     />
                   </div>
                 </section>
                 <section className="answer-pane" aria-label="解答領域">
-                  <div className="question-attribution">
-                    <span
-                      className={
-                        entry.issuedContent.isModified
-                          ? "origin-pill modified"
-                          : "origin-pill"
+                  <div className="answer-workspace">
+                    <QuestionRail
+                      entries={run.session.entries}
+                      currentIndex={currentIndex}
+                      disabled={!canNavigate}
+                      onSelect={(index) =>
+                        isReview ? setReviewIndex(index) : move(index)
                       }
-                    >
-                      {q.origin.kind === "official_reprint"
-                        ? "公式公開問題"
-                        : q.origin.kind === "official_adaptation"
-                          ? "公式問題を基にした問題"
-                          : "独自問題"}{" "}
-                      · 改変{entry.issuedContent.isModified ? "あり" : "なし"}
-                    </span>
-                    <button onClick={() => setDialog("source")}>
-                      <ExternalLink size={14} /> 出典・改変詳細
-                    </button>
-                    <small className="source-summary">
-                      {q.origin.sourceRefs.length ? (
-                        <>
-                          出典：{questionName(q)} ·{" "}
-                          {q.origin.sourceRefs.map((r, i) => (
-                            <a
-                              key={i}
-                              href={
-                                safeUrl(
-                                  run.bundle.sources.find(
-                                    (s) => s.id === r.sourceId,
-                                  )!.url,
-                                ) + `#page=${r.locator.page ?? 1}`
-                              }
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              原資料 p.{r.locator.page ?? 1}
-                            </a>
-                          ))}
-                        </>
-                      ) : (
-                        "本プロジェクトが独立に作成した問題"
-                      )}
-                    </small>
-                  </div>
-                  <div className="answer-content">
-                    <div className="question-number">
-                      QUESTION {String(currentIndex + 1).padStart(2, "0")}
-                      <span>{areas[q.learning.area]}</span>
-                    </div>
-                    <h1 ref={h1} tabIndex={-1}>
-                      問題 {currentIndex + 1}
-                    </h1>
-                    <p className="question-direction">
-                      {q.origin.kind === "official_reprint"
-                        ? "左の原文の問題と解答群を読み、答えを一つ選択してください。"
-                        : "問題資料を読み、答えを一つ選択してください。"}
-                    </p>
-                    <fieldset className="answer-choices" disabled={!canAnswer}>
-                      <legend className="sr-only">解答を選択</legend>
-                      {entry.choiceOrder.map((id, i) => {
-                        const c = q.choices.find((c) => c.id === id)!;
-                        const selected = entry.selectedChoiceId === id,
-                          correct = revealed && id === q.correctAnswer.choiceId;
-                        return (
-                          <label
-                            key={id}
-                            className={`answer-choice ${selected ? "selected" : ""} ${correct ? "correct" : ""}`}
+                    />
+                    <div className="answer-content">
+                      <div className="answer-question">
+                        <div className="answer-question-heading">
+                          <h1
+                            ref={h1}
+                            tabIndex={-1}
+                            aria-describedby="answer-question-state"
                           >
-                            <input
-                              type="radio"
-                              name="answer"
-                              value={id}
-                              checked={selected}
-                              onChange={() => answer(id)}
-                            />
-                            <span className="choice-label">{labels[i]}</span>
-                            <span className="choice-body">
-                              {q.origin.kind === "official_reprint" ? (
-                                `原文の「${c.content.blocks[0].type === "paragraph" ? c.content.blocks[0].text : labels[i]}」`
+                            問題 {currentIndex + 1}
+                            <small> / {run.issued.length}</small>
+                          </h1>
+                          <div
+                            className="answer-question-state"
+                            id="answer-question-state"
+                          >
+                            <span>
+                              {entry.selectedChoiceId ? (
+                                <CheckCircle2 size={14} />
                               ) : (
-                                <Content
-                                  content={c.content}
-                                  bundle={run.bundle}
-                                  assetUrls={assetUrls}
-                                />
+                                <Square size={14} />
                               )}
+                              {entry.selectedChoiceId ? "解答済み" : "未解答"}
                             </span>
-                            {correct ? (
-                              <CheckCircle2 size={19} aria-label="正答" />
-                            ) : selected ? (
-                              <Check size={19} aria-label="選択済み" />
-                            ) : null}
-                          </label>
-                        );
-                      })}
-                    </fieldset>
-                    {!isReview && (
-                      <div className="answer-actions">
-                        <button
-                          className="text-button"
-                          disabled={!canAnswer || !entry.selectedChoiceId}
-                          onClick={() => answer(undefined)}
-                        >
-                          <X size={15} /> 選択を解除
-                        </button>
+                            {entry.reviewFlag && (
+                              <span>
+                                <Flag size={14} />
+                                見直し
+                              </span>
+                            )}
+                            <small>
+                              {isReview
+                                ? "保存した出題内容を表示"
+                                : saved
+                                  ? "解答を保存済み"
+                                  : "保存中"}
+                            </small>
+                          </div>
+                        </div>
+                        {q.origin.kind === "official_reprint" ? (
+                          <p>
+                            問題資料の原文と解答群を読み、答えを一つ選択してください。
+                          </p>
+                        ) : (
+                          <Content
+                            content={q.prompt}
+                            bundle={run.bundle}
+                            assetUrls={assetUrls}
+                            showAttribution={false}
+                          />
+                        )}
+                      </div>
+                      <fieldset
+                        className="answer-choices"
+                        disabled={!canAnswer}
+                      >
+                        <legend className="sr-only">解答を選択</legend>
+                        {entry.choiceOrder.map((id, i) => {
+                          const c = q.choices.find((c) => c.id === id)!;
+                          const selected = entry.selectedChoiceId === id,
+                            correct =
+                              revealed && id === q.correctAnswer.choiceId;
+                          return (
+                            <label
+                              key={id}
+                              className={`answer-choice ${selected ? "selected" : ""} ${correct ? "correct" : ""}`}
+                            >
+                              <input
+                                type="radio"
+                                name="answer"
+                                value={id}
+                                checked={selected}
+                                onChange={() => answer(id)}
+                                onClick={() => {
+                                  if (selected) answer(undefined);
+                                }}
+                                onKeyDown={(event) => {
+                                  if (event.key === " ") {
+                                    event.preventDefault();
+                                    if (!event.repeat)
+                                      answer(selected ? undefined : id);
+                                  }
+                                }}
+                              />
+                              <span className="choice-label">{labels[i]}</span>
+                              <span className="choice-body">
+                                {q.origin.kind === "official_reprint" ? (
+                                  `原文の「${c.content.blocks[0].type === "paragraph" ? c.content.blocks[0].text : labels[i]}」`
+                                ) : (
+                                  <Content
+                                    content={c.content}
+                                    bundle={run.bundle}
+                                    assetUrls={assetUrls}
+                                    showAttribution={false}
+                                  />
+                                )}
+                              </span>
+                              {correct ? (
+                                <CheckCircle2 size={19} aria-label="正答" />
+                              ) : selected ? (
+                                <Check size={19} aria-label="選択済み" />
+                              ) : null}
+                            </label>
+                          );
+                        })}
+                      </fieldset>
+                      {(revealed || isReview) && (
+                        <section className="explanation">
+                          <div className="explanation-title">
+                            <CheckCircle2 size={20} />
+                            <h2>
+                              正答：
+                              {
+                                labels[
+                                  entry.choiceOrder.indexOf(
+                                    q.correctAnswer.choiceId,
+                                  )
+                                ]
+                              }
+                            </h2>
+                          </div>
+                          {isReview && (
+                            <p>
+                              あなたの解答：
+                              {entry.selectedChoiceId
+                                ? labels[
+                                    entry.choiceOrder.indexOf(
+                                      entry.selectedChoiceId,
+                                    )
+                                  ]
+                                : "未解答"}{" "}
+                              ·{" "}
+                              {entry.selectedChoiceId ===
+                              q.correctAnswer.choiceId
+                                ? "正解"
+                                : entry.selectedChoiceId
+                                  ? "不正解"
+                                  : "未解答"}
+                            </p>
+                          )}
+                          <h3>
+                            {q.explanation.attribution.origin === "original"
+                              ? "独自解説・復習案内"
+                              : "解説"}
+                          </h3>
+                          <Content
+                            content={q.explanation}
+                            bundle={run.bundle}
+                            assetUrls={assetUrls}
+                            showAttribution={false}
+                          />
+                          {entry.revealed && (
+                            <small>学習中に正答を表示した問題です。</small>
+                          )}
+                        </section>
+                      )}
+                      {run.session.status === "paused" && (
+                        <div className="pause-cover">
+                          <Pause size={26} />
+                          <h2>一時停止中</h2>
+                          <p>
+                            保存済みの解答から再開できます。予期しない終了では、保存前の操作が失われた可能性があります。
+                          </p>
+                          <button className="primary" onClick={() => pause()}>
+                            <Play size={17} /> 再開
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <footer className="exam-footer">
+                    <div className="exam-navigation">
+                      {!isReview && (
                         <button
                           className={
                             entry.reviewFlag
                               ? "review-toggle marked"
                               : "review-toggle"
                           }
+                          aria-label={
+                            entry.reviewFlag
+                              ? "見直しの印を外す"
+                              : "あとで見直す"
+                          }
+                          title={
+                            entry.reviewFlag
+                              ? "見直しの印を外す"
+                              : "あとで見直す"
+                          }
                           aria-pressed={entry.reviewFlag}
                           disabled={!canAnswer}
                           onClick={flag}
                         >
-                          <Flag size={16} />{" "}
-                          {entry.reviewFlag
-                            ? "見直しに追加済み"
-                            : "あとで見直す"}
+                          <Flag
+                            size={18}
+                            aria-hidden="true"
+                            fill={entry.reviewFlag ? "currentColor" : "none"}
+                          />
                         </button>
-                      </div>
-                    )}
-                    <small className="binding-note">
-                      {entry.issuedContent.bindingPerformed
-                        ? "入力値を生成・バインドして出題"
-                        : "元データを使用"}
-                      {entry.issuedContent.bindingPerformed
-                        ? " · 元データも保存しています"
-                        : ""}
-                    </small>
-                    {q.origin.changes
-                      .filter(
-                        (c) => !["transcription", "layout"].includes(c.kind),
-                      )
-                      .map((c, i) => (
-                        <p key={i} className="change-summary">
-                          改変：{c.summary}
-                        </p>
-                      ))}
-                    {(revealed || isReview) && (
-                      <section className="explanation">
-                        <div className="explanation-title">
-                          <CheckCircle2 size={20} />
-                          <h2>
-                            正答：
-                            {
-                              labels[
-                                entry.choiceOrder.indexOf(
-                                  q.correctAnswer.choiceId,
-                                )
-                              ]
-                            }
-                          </h2>
-                        </div>
-                        {isReview && (
-                          <p>
-                            あなたの解答：
-                            {entry.selectedChoiceId
-                              ? labels[
-                                  entry.choiceOrder.indexOf(
-                                    entry.selectedChoiceId,
-                                  )
-                                ]
-                              : "未解答"}{" "}
-                            ·{" "}
-                            {entry.selectedChoiceId === q.correctAnswer.choiceId
-                              ? "正解"
-                              : entry.selectedChoiceId
-                                ? "不正解"
-                                : "未解答"}
-                          </p>
-                        )}
-                        <AttributionLine
-                          content={{
-                            attribution: q.correctAnswer.attribution,
-                            blocks: [],
-                          }}
-                          bundle={run.bundle}
-                        />
-                        <h3>
-                          {q.explanation.attribution.origin === "original"
-                            ? "独自解説・復習案内"
-                            : "解説"}
-                        </h3>
-                        <Content
-                          content={q.explanation}
-                          bundle={run.bundle}
-                          assetUrls={assetUrls}
-                          credit
-                        />
-                        {entry.revealed && (
-                          <small>学習中に正答を表示した問題です。</small>
-                        )}
-                      </section>
-                    )}
-                    {run.session.status === "paused" && (
-                      <div className="pause-cover">
-                        <Pause size={26} />
-                        <h2>一時停止中</h2>
-                        <p>
-                          保存済みの解答から再開できます。予期しない終了では、保存前の操作が失われた可能性があります。
-                        </p>
-                        <button className="primary" onClick={() => pause()}>
-                          <Play size={17} /> 再開
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                  <footer className="exam-footer">
-                    <div>
-                      {!isReview && run.exam.mode === "study" && (
-                        <>
-                          <button
-                            disabled={Boolean(error || busy)}
-                            onClick={() => pause()}
-                          >
-                            <Pause size={16} />
-                            {run.session.status === "paused"
-                              ? "再開"
-                              : "一時停止"}
-                          </button>
-                          <button
-                            disabled={!canAnswer || entry.revealed}
-                            onClick={reveal}
-                          >
-                            <Eye size={16} />
-                            正答を見る
-                          </button>
-                        </>
                       )}
-                      <button onClick={() => setDialog("list")}>
-                        <ListChecks size={18} />
-                        問題一覧
-                      </button>
-                    </div>
-                    <div>
                       <button
-                        disabled={currentIndex === 0}
+                        disabled={!canNavigate || currentIndex === 0}
                         onClick={() =>
                           isReview
                             ? setReviewIndex((i) => i - 1)
@@ -1447,7 +1442,10 @@ export function App() {
                       </button>
                       <button
                         className="primary"
-                        disabled={currentIndex === run.issued.length - 1}
+                        disabled={
+                          !canNavigate ||
+                          currentIndex === run.issued.length - 1
+                        }
                         onClick={() =>
                           isReview
                             ? setReviewIndex((i) => i + 1)
@@ -1461,9 +1459,15 @@ export function App() {
                   </footer>
                 </section>
               </div>
-              <div className="exam-disclaimer">
-                非公式の学習・操作練習 · 本番画面を再現したものではありません
-              </div>
+              <QuestionFooter
+                key={`${run.session.id}:${currentIndex}`}
+                question={q}
+                bundle={run.bundle}
+                entry={entry}
+                revealed={revealed}
+                onSource={() => setDialog("source")}
+                onLicenses={() => setDialog("licenses")}
+              />
             </>
           )}
           {view === "result" && run?.result && (
@@ -1723,10 +1727,15 @@ export function App() {
         {!isExam && !isReview && (
           <footer className="page-footer">
             <span>OpenCBT-FE-KihonJoho</span>
-            <span>非公式 · 学習と操作練習のためのオープンソース</span>
+            <span>{screenNotice}</span>
           </footer>
         )}
       </div>
+      {dialog === "licenses" && run && (
+        <Dialog title="ライセンス表記" onClose={() => setDialog(null)}>
+          <LicensePage bundle={run.bundle} />
+        </Dialog>
+      )}
       {dialog === "finish" && run && (
         <Dialog title="解答を終了しますか" onClose={() => setDialog(null)}>
           <p>終了すると解答を確定し、学習結果を表示します。</p>
@@ -1844,6 +1853,7 @@ export function App() {
               (listFilter === "flagged" && !e.reviewFlag) ? null : (
                 <button
                   key={i}
+                  disabled={!canNavigate}
                   className={`${currentIndex === i ? "current " : ""}${e.selectedChoiceId ? "answered " : ""}${e.reviewFlag ? "marked" : ""}`}
                   aria-current={currentIndex === i ? "true" : undefined}
                   onClick={() => {
