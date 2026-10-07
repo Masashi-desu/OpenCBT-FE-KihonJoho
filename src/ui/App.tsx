@@ -8,6 +8,7 @@ import {
 } from "react";
 import {
   BookOpen,
+  Bookmark as BookmarkIcon,
   CalendarDays,
   Shuffle,
   Play,
@@ -25,8 +26,6 @@ import {
   RotateCcw,
   Pause,
   ArrowLeft,
-  ZoomIn,
-  ZoomOut,
   ShieldCheck,
   AlertCircle,
   LoaderCircle,
@@ -68,12 +67,17 @@ import {
   storeOriginalSnapshot,
   acquireRunLock,
   recentGeneration,
+  listBookmarks,
+  saveBookmark,
+  deleteBookmark,
 } from "../core/storage";
+import { makeBookmark, bookmarkPreview, type Bookmark } from "../core/bookmarks";
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { Dialog } from "./Dialog";
 import { QuestionFooter, screenNotice } from "./QuestionFooter";
 import { QuestionRail } from "./QuestionRail";
+import { MaterialPane, MaterialToolbar, useMaterialViewer } from "./MaterialViewer";
 import { ensureMath } from "./math";
 import type { LicenseNotice } from "../../scripts/licenses";
 import {
@@ -91,6 +95,7 @@ type View =
   | "result"
   | "review"
   | "history"
+  | "bookmarks"
   | "licenses";
 type HistoryItem = Awaited<ReturnType<typeof history>>[number];
 const defaults: Selection = {
@@ -128,13 +133,16 @@ export function App() {
     [selection, setSelection] = useState<Selection>(defaults),
     [run, setRun] = useState<Run>(),
     [items, setItems] = useState<HistoryItem[]>([]),
+    [bookmarks, setBookmarks] = useState<Bookmark[]>([]),
+    [bookmarkPending, setBookmarkPending] = useState(false),
+    [bookmarkMessage, setBookmarkMessage] = useState(""),
+    [bookmarkError, setBookmarkError] = useState(""),
     [busy, setBusy] = useState("公開問題を読み込んでいます"),
     [error, setError] = useState(""),
     [dialog, setDialog] = useState<
       "list" | "finish" | "source" | "licenses" | "delete" | "leave" | null
     >(null),
     [deleteId, setDeleteId] = useState<string | undefined>(),
-    [zoom, setZoom] = useState(100),
     [tick, setTick] = useState(Date.now()),
     [reviewIndex, setReviewIndex] = useState(0),
     [reviewFilter, setReviewFilter] = useState("all"),
@@ -284,11 +292,12 @@ export function App() {
       await maintainStorage(b);
       setBundle(b);
       setItems(await history());
+      setBookmarks(await listBookmarks());
       const hash = location.hash.split("/");
       if (["exam", "result", "review"].includes(hash[1]) && hash[2])
         await reopen(hash[2], hash[1] as View);
-      else if (hash[1] === "history" || hash[1] === "licenses")
-        navigate(hash[1]);
+      else if (["history", "licenses", "bookmarks"].includes(hash[1]))
+        navigate(hash[1] as View);
     } catch (e) {
       setError(
         `起動に必要なデータを確認できません。${e instanceof Error ? e.message : String(e)}`,
@@ -304,6 +313,11 @@ export function App() {
   useEffect(() => {
     h1.current?.focus();
   }, [view]);
+  useEffect(() => {
+    if (!bookmarkMessage) return;
+    const timer = window.setTimeout(() => setBookmarkMessage(""), 4000);
+    return () => window.clearTimeout(timer);
+  }, [bookmarkMessage]);
   useEffect(() => {
     const handler = () => {
       const r = current.current;
@@ -373,13 +387,14 @@ export function App() {
   }
   const patch = (value: Partial<Selection>) =>
     setSelection((old) => ({ ...old, ...value }));
-  const begin = async () => {
+  const begin = async (launchSelection = selection) => {
     if (!bundle) return;
     setBusy("出題する問題を固定しています");
     setError("");
     saveFailed.current = false;
     try {
-      const prepared = selectQuestions(bundle, selection);
+      await queue.current;
+      const prepared = selectQuestions(bundle, launchSelection);
       setBusy("問題画像と数式を準備しています");
       const assets: Record<string, Blob> = {};
       await Promise.all(
@@ -395,7 +410,7 @@ export function App() {
       setBusy("元データと出題内容を保存しています");
       const ready = await prepareRun(
         bundle,
-        selection,
+        launchSelection,
         assets,
         Date.now(),
         async (id, b, a) => {
@@ -446,7 +461,7 @@ export function App() {
     next.session.currentIndex = index;
     commit(touch(next));
     setDialog(null);
-    document.querySelector(".reading-pane")?.scrollTo(0, 0);
+    document.querySelector(".reading-scroll")?.scrollTo(0, 0);
     h1.current?.focus();
   };
   const answer = (id: string | undefined) => {
@@ -506,6 +521,57 @@ export function App() {
       setError(e instanceof Error ? e.message : String(e));
     }
   };
+  const showBookmarks = async () => {
+    try {
+      setBookmarks(await listBookmarks());
+      setBookmarkMessage("");
+      setBookmarkError("");
+      navigate("bookmarks");
+    } catch (e) {
+      setBookmarkError(
+        `ブックマークを読み込めませんでした。${e instanceof Error ? e.message : String(e)}`,
+      );
+    }
+  };
+  const removeBookmark = async (bookmark: Bookmark) => {
+    setBookmarkPending(true);
+    setBookmarkError("");
+    try {
+      await deleteBookmark(bookmark.id);
+      setBookmarks(await listBookmarks());
+      setBookmarkMessage(`${bookmark.title}をブックマークから削除しました。`);
+    } catch (e) {
+      setBookmarkError(
+        `ブックマークを削除できませんでした。${e instanceof Error ? e.message : String(e)}`,
+      );
+    } finally {
+      setBookmarkPending(false);
+    }
+  };
+  const beginBookmark = (bookmark: Bookmark) =>
+    begin({
+      subject: bookmark.subject,
+      kind: "bookmark",
+      year: selection.year,
+      mode: "study",
+      size: "public",
+      bindingMode: "generated_values",
+      bookmarkQuestionRef: bookmark.questionRef,
+    });
+  const nextBookmarkQuestion = async () => {
+    const r = current.current;
+    if (
+      !r ||
+      r.selection.kind !== "bookmark" ||
+      !["running", "paused"].includes(r.session.status)
+    )
+      return;
+    commit(finishRun(r, "completed"));
+    await queue.current;
+    if (saveFailed.current) return;
+    await begin(r.selection);
+    if (current.current?.session.id === r.session.id) navigate("result");
+  };
   const remove = async () => {
     setBusy("履歴と保存した問題を削除しています");
     try {
@@ -539,12 +605,45 @@ export function App() {
   const canNavigate = Boolean(
     (isReview || (isExam && active)) && !error && !busy,
   );
+  let currentBookmark: Bookmark | undefined;
+  if (bundle && entry) {
+    try {
+      currentBookmark = makeBookmark(bundle, entry.questionRef);
+    } catch {
+      // Old or withdrawn saved questions remain reviewable only under their saved rules.
+    }
+  }
+  const bookmarked = bookmarks.some((b) => b.id === currentBookmark?.id);
+  const toggleBookmark = async () => {
+    if (!currentBookmark || bookmarkPending) return;
+    if (bookmarked) return removeBookmark(currentBookmark);
+    setBookmarkPending(true);
+    setBookmarkError("");
+    try {
+      await saveBookmark(currentBookmark);
+      setBookmarks(await listBookmarks());
+      setBookmarkMessage(
+        `${currentBookmark.title}をブックマークに追加しました。`,
+      );
+    } catch (e) {
+      setBookmarkError(
+        `ブックマークに追加できませんでした。${e instanceof Error ? e.message : String(e)}`,
+      );
+    } finally {
+      setBookmarkPending(false);
+    }
+  };
   useLayoutEffect(() => {
     if (isExam || isReview)
       document.querySelector(".answer-content")?.scrollTo(0, 0);
   }, [currentIndex, isExam, isReview]);
+  const materialViewer = useMaterialViewer(
+    isExam || isReview ? q : undefined,
+    `${run?.session.id}:${currentIndex}:${view}`,
+  );
   const navItems = [
     { id: "menu" as View, label: "学習をはじめる", icon: BookOpen },
+    { id: "bookmarks" as View, label: "ブックマーク", icon: BookmarkIcon },
     { id: "history" as View, label: "履歴・復習", icon: History },
     { id: "licenses" as View, label: "ライセンス表記", icon: Scale },
   ];
@@ -593,7 +692,11 @@ export function App() {
                 key={n.id}
                 className={view === n.id ? "nav-item active" : "nav-item"}
                 onClick={() =>
-                  n.id === "history" ? void showHistory() : navigate(n.id)
+                  n.id === "history"
+                    ? void showHistory()
+                    : n.id === "bookmarks"
+                      ? void showBookmarks()
+                      : navigate(n.id)
                 }
               >
                 <n.icon size={19} />
@@ -678,6 +781,24 @@ export function App() {
           <div className="loading-bar" role="status">
             <LoaderCircle size={17} className="spinning" />
             {busy}
+          </div>
+        )}
+        {(bookmarkError || bookmarkMessage) && (
+          <div
+            className="bookmark-feedback"
+            role={bookmarkError ? "alert" : "status"}
+          >
+            {bookmarkError || bookmarkMessage}
+            <button
+              className="icon-button"
+              aria-label="ブックマークの通知を閉じる"
+              onClick={() => {
+                setBookmarkError("");
+                setBookmarkMessage("");
+              }}
+            >
+              <X size={16} />
+            </button>
           </div>
         )}
         {mathRetry && (view === "result" || view === "review") && (
@@ -1055,171 +1176,130 @@ export function App() {
           {(isExam || isReview) && run && q && entry && (
             <>
               <header className="exam-toolbar">
-                <button
-                  className="exam-brand"
-                  onClick={() => (isReview ? navigate("result") : goMenu())}
-                >
-                  <BookOpen size={21} />
-                  <span>
-                    OpenCBT <small>FE</small>
-                  </span>
-                </button>
-                <div className="toolbar-set">
-                  <strong>
-                    科目{q.subject} ·{" "}
-                    {isReview
-                      ? "復習"
-                      : run.exam.mode === "study"
-                        ? "学習"
-                        : "時間付き練習"}
-                  </strong>
-                  <small>{run.set.title}</small>
-                </div>
-                <div
-                  className="toolbar-zoom"
-                  role="group"
-                  aria-label="表示倍率"
-                >
+                <div className="exam-app-toolbar">
                   <button
-                    className="icon-button"
-                    aria-label="文字と画像を縮小"
-                    disabled={zoom === 80}
-                    onClick={() => setZoom((z) => Math.max(80, z - 20))}
+                    className="exam-brand"
+                    onClick={() => (isReview ? navigate("result") : goMenu())}
                   >
-                    <ZoomOut size={19} />
+                    <BookOpen size={21} />
+                    <span>
+                      OpenCBT <small>FE</small>
+                    </span>
                   </button>
-                  <span>{zoom}%</span>
-                  <button
-                    className="icon-button"
-                    aria-label="文字と画像を拡大"
-                    disabled={zoom === 200}
-                    onClick={() => setZoom((z) => Math.min(200, z + 20))}
+                  <div className="toolbar-set">
+                    <strong>
+                      科目{q.subject} ·{" "}
+                      {isReview
+                        ? "復習"
+                        : run.exam.mode === "study"
+                          ? "学習"
+                          : "時間付き練習"}
+                    </strong>
+                    <small>{run.set.title}</small>
+                  </div>
+                  <div
+                    className="toolbar-tools"
+                    role="group"
+                    aria-label="学習・操作補助"
                   >
-                    <ZoomIn size={19} />
-                  </button>
+                    <div className="toolbar-study-actions">
+                      <button
+                        aria-label={
+                          bookmarked
+                            ? "ブックマークから削除"
+                            : "ブックマークに追加"
+                        }
+                        aria-pressed={bookmarked}
+                        disabled={
+                          !currentBookmark ||
+                          bookmarkPending ||
+                          Boolean(busy || error)
+                        }
+                        onClick={() => void toggleBookmark()}
+                      >
+                        <BookmarkIcon
+                          size={16}
+                          fill={bookmarked ? "currentColor" : "none"}
+                        />
+                        {bookmarked ? "保存済み" : "ブックマーク"}
+                      </button>
+                      {!isReview && run.exam.mode === "study" && (
+                        <>
+                          <button
+                            disabled={Boolean(error || busy)}
+                            onClick={() => pause()}
+                          >
+                            <Pause size={16} />
+                            {run.session.status === "paused"
+                              ? "再開"
+                              : "一時停止"}
+                          </button>
+                          <button
+                            disabled={!canAnswer || entry.revealed}
+                            onClick={reveal}
+                          >
+                            <Eye size={16} />
+                            正答を見る
+                          </button>
+                        </>
+                      )}
+                      <button onClick={() => setDialog("list")}>
+                        <ListChecks size={18} />
+                        問題一覧
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  className="toolbar-tools"
-                  role="group"
-                  aria-label="学習・操作補助"
-                >
-                  <div className="toolbar-study-actions">
-                    {!isReview && run.exam.mode === "study" && (
-                      <>
-                        <button
-                          disabled={Boolean(error || busy)}
-                          onClick={() => pause()}
-                        >
-                          <Pause size={16} />
-                          {run.session.status === "paused"
-                            ? "再開"
-                            : "一時停止"}
-                        </button>
-                        <button
-                          disabled={!canAnswer || entry.revealed}
-                          onClick={reveal}
-                        >
-                          <Eye size={16} />
-                          正答を見る
-                        </button>
-                      </>
-                    )}
-                    <button onClick={() => setDialog("list")}>
-                      <ListChecks size={18} />
-                      問題一覧
+                <div className="exam-cbt-toolbar">
+                  <div className="exam-material-toolbar">
+                    <MaterialToolbar viewer={materialViewer} />
+                  </div>
+                  <div className="exam-answer-toolbar">
+                    <div className="exam-time">
+                      <Clock size={19} />
+                      <span>
+                        {isReview
+                          ? "終了した練習"
+                          : run.session.status === "paused"
+                            ? "一時停止"
+                            : run.exam.mode === "study"
+                              ? "経過時間"
+                              : "残り時間"}
+                        <strong>
+                          {isReview
+                            ? time(run.session.activeElapsedSeconds)
+                            : run.exam.mode === "study"
+                              ? time(run.session.activeElapsedSeconds)
+                              : time(remaining(run, tick))}
+                        </strong>
+                      </span>
+                    </div>
+                    <button
+                      className="finish-button"
+                      onClick={() =>
+                        isReview ? navigate("result") : setDialog("finish")
+                      }
+                    >
+                      {isReview ? <ArrowLeft size={17} /> : <Square size={15} />}{" "}
+                      {isReview ? "結果へ" : "終了"}
                     </button>
                   </div>
                 </div>
-                <div className="exam-time">
-                  <Clock size={19} />
-                  <span>
-                    {isReview
-                      ? "終了した練習"
-                      : run.session.status === "paused"
-                        ? "一時停止"
-                        : run.exam.mode === "study"
-                          ? "経過時間"
-                          : "残り時間"}
-                    <strong>
-                      {isReview
-                        ? time(run.session.activeElapsedSeconds)
-                        : run.exam.mode === "study"
-                          ? time(run.session.activeElapsedSeconds)
-                          : time(remaining(run, tick))}
-                    </strong>
-                  </span>
-                </div>
-                <button
-                  className="finish-button"
-                  onClick={() =>
-                    isReview ? navigate("result") : setDialog("finish")
-                  }
-                >
-                  {isReview ? <ArrowLeft size={17} /> : <Square size={15} />}{" "}
-                  {isReview ? "結果へ" : "終了"}
-                </button>
               </header>
               <div
                 className="exam-split"
                 style={
                   {
-                    "--question-font": `${zoom}%`,
-                    "--image-scale": zoom / 100,
+                    "--question-font": "100%",
+                    "--image-scale": 1,
                   } as React.CSSProperties
                 }
               >
-                <section className="reading-pane" aria-label="問題資料">
-                  <div className="pane-heading">
-                    <FileText size={17} />
-                    <h2>問題資料</h2>
-                    <span>
-                      {entry.issuedContent.bindingPerformed
-                        ? "生成した問題・図表"
-                        : "原文・図表"}
-                    </span>
-                  </div>
-                  <div className="reading-content">
-                    {q.contextRefs.map((id) => {
-                      const context = q.contexts.find((c) => c.id === id)!;
-                      if (context.presentation === "text_figure")
-                        return (
-                          <div key={id} className="text-figure-material">
-                            <figure
-                              className="text-figure"
-                              aria-label={context.title}
-                            >
-                              <div className="text-figure-body">
-                                <Content
-                                  content={context.content}
-                                  bundle={run.bundle}
-                                  assetUrls={assetUrls}
-                                  showAttribution={false}
-                                />
-                              </div>
-                              <figcaption>{context.title}</figcaption>
-                            </figure>
-                          </div>
-                        );
-                      return (
-                        <section key={id}>
-                          <h3>{context.title}</h3>
-                          <Content
-                            content={context.content}
-                            bundle={run.bundle}
-                            assetUrls={assetUrls}
-                            showAttribution={false}
-                          />
-                        </section>
-                      );
-                    })}
-                    <Content
-                      content={q.prompt}
-                      bundle={run.bundle}
-                      assetUrls={assetUrls}
-                      showAttribution={false}
-                    />
-                  </div>
-                </section>
+                <MaterialPane
+                  viewer={materialViewer}
+                  bundle={run.bundle}
+                  assetUrls={assetUrls}
+                />
                 <section className="answer-pane" aria-label="解答領域">
                   <div className="answer-workspace">
                     <QuestionRail
@@ -1268,18 +1348,6 @@ export function App() {
                             </small>
                           </div>
                         </div>
-                        {q.origin.kind === "official_reprint" ? (
-                          <p>
-                            問題資料の原文と解答群を読み、答えを一つ選択してください。
-                          </p>
-                        ) : (
-                          <Content
-                            content={q.prompt}
-                            bundle={run.bundle}
-                            assetUrls={assetUrls}
-                            showAttribution={false}
-                          />
-                        )}
                       </div>
                       <fieldset
                         className="answer-choices"
@@ -1297,6 +1365,7 @@ export function App() {
                               className={`answer-choice ${selected ? "selected" : ""} ${correct ? "correct" : ""}`}
                             >
                               <input
+                                className="sr-only"
                                 type="radio"
                                 name="answer"
                                 value={id}
@@ -1326,11 +1395,7 @@ export function App() {
                                   />
                                 )}
                               </span>
-                              {correct ? (
-                                <CheckCircle2 size={19} aria-label="正答" />
-                              ) : selected ? (
-                                <Check size={19} aria-label="選択済み" />
-                              ) : null}
+                              {correct && <span className="sr-only">正答</span>}
                             </label>
                           );
                         })}
@@ -1444,15 +1509,20 @@ export function App() {
                         className="primary"
                         disabled={
                           !canNavigate ||
-                          currentIndex === run.issued.length - 1
+                          (currentIndex === run.issued.length - 1 &&
+                            (isReview || run.selection.kind !== "bookmark"))
                         }
                         onClick={() =>
                           isReview
                             ? setReviewIndex((i) => i + 1)
-                            : move(currentIndex + 1)
+                            : run.selection.kind === "bookmark"
+                              ? void nextBookmarkQuestion()
+                              : move(currentIndex + 1)
                         }
                       >
-                        次へ
+                        {!isReview && run.selection.kind === "bookmark"
+                          ? "次の類題"
+                          : "次へ"}
                         <ChevronRight size={17} />
                       </button>
                     </div>
@@ -1524,6 +1594,15 @@ export function App() {
                   </p>
                 )}
                 <div className="result-actions">
+                  {run.selection.kind === "bookmark" && (
+                    <button
+                      className="primary"
+                      disabled={Boolean(busy || error)}
+                      onClick={() => void begin(run.selection)}
+                    >
+                      <Play size={18} /> 同じ問題で続けて練習
+                    </button>
+                  )}
                   <button
                     className="primary"
                     onClick={() => {
@@ -1604,6 +1683,103 @@ export function App() {
                   ),
                 )}
               </section>
+            </>
+          )}
+          {view === "bookmarks" && (
+            <>
+              <div className="eyebrow">YOUR BOOKMARKS</div>
+              <h1 ref={h1} tabIndex={-1}>
+                ブックマーク
+              </h1>
+              <p className="page-intro">
+                保存した問題の類題を練習できます。「次の類題」で条件を変えた問題を続けて解きましょう。
+              </p>
+              {bookmarks.length === 0 ? (
+                <div className="empty-state">
+                  <BookmarkIcon size={42} />
+                  <h2>まだブックマークがありません</h2>
+                  <p>
+                    解答画面のヘッダーから、繰り返し練習したい問題を追加できます。
+                  </p>
+                  <button className="primary" onClick={() => navigate("menu")}>
+                    問題を選ぶ <ArrowRight size={17} />
+                  </button>
+                </div>
+              ) : (
+                <div className="history-list">
+                  {bookmarks.map((bookmark) => (
+                    <article
+                      key={bookmark.id}
+                      className="history-card bookmark-card"
+                    >
+                      <span className="subject-letter">{bookmark.subject}</span>
+                      <div className="history-info">
+                        <h2>{bookmark.title}</h2>
+                        <div className="bookmark-meta">
+                          <span className="bookmark-genre">
+                            {areas[bookmark.area] ?? bookmark.area}
+                          </span>
+                          <span>時間制限なし</span>
+                        </div>
+                        <p className="bookmark-preview">
+                          {bundle &&
+                            bookmarkPreview(bundle, bookmark.questionRef)}
+                        </p>
+                      </div>
+                      <div className="history-actions">
+                        <button
+                          className="primary"
+                          aria-label={`${bookmark.title}の類題を練習`}
+                          disabled={Boolean(busy || error)}
+                          onClick={() => void beginBookmark(bookmark)}
+                        >
+                          <Play size={16} /> 類題を練習
+                        </button>
+                        <button
+                          className="icon-button"
+                          aria-label={`${bookmark.title}のブックマークを削除`}
+                          disabled={bookmarkPending}
+                          onClick={() => void removeBookmark(bookmark)}
+                        >
+                          <Trash2 size={17} />
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+              {bundle && bookmarks.length > 0 && (
+                <details className="bookmark-sources">
+                  <summary>問題文の出典・利用条件</summary>
+                  <p>問題文はIPA公開問題の冒頭から抜粋しています。</p>
+                  {bookmarks.map((bookmark) => {
+                    const source = bundle.questions.find(
+                      (q) =>
+                        q.id === bookmark.questionRef.questionId &&
+                        q.revision === bookmark.questionRef.revision,
+                    );
+                    return source ? (
+                      <article key={bookmark.id}>
+                        <h2>{bookmark.title}</h2>
+                        <AttributionLine
+                          content={source.prompt}
+                          bundle={bundle}
+                        />
+                      </article>
+                    ) : null;
+                  })}
+                  <button
+                    className="text-button"
+                    onClick={() => navigate("licenses")}
+                  >
+                    ライセンス表記 <ChevronRight size={15} />
+                  </button>
+                </details>
+              )}
+              <p className="storage-note">
+                <ShieldCheck size={16} />
+                ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
+              </p>
             </>
           )}
           {view === "history" && (

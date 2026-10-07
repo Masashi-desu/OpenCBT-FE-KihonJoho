@@ -38,7 +38,7 @@ export async function prepareRun(
   const issued = structuredClone(questions),
     instances: Instance[] = [];
   const bindingMode =
-    selection.kind === "mix" ? "generated_values" : "original_data";
+    selection.kind !== "annual" ? "generated_values" : "original_data";
   const lastAnswer = new Map<string, string>();
   const latestSessions = new Map<string, string>(),
     usedParameters = new Set<string>();
@@ -64,10 +64,10 @@ export async function prepareRun(
           g.questionRef.revision === base.revision,
       );
     let instance: Instance | undefined;
-    if (selection.kind === "mix" && !binding)
+    if (selection.kind !== "annual" && !binding)
       throw new DataError(
         "BINDING_REF",
-        "ランダムミックスに生成できない固定問題が含まれています",
+        "生成練習に生成できない固定問題が含まれています",
       );
     if (binding && bindingMode === "generated_values") {
       const t = bundle.templates.find(
@@ -152,7 +152,7 @@ export async function prepareRun(
         contentSha256: await contentHash(q),
       },
       choiceOrder:
-        selection.kind === "mix" && q.choiceShuffleAllowed
+        selection.kind !== "annual" && q.choiceShuffleAllowed
           ? shuffle(q.choices.map((c) => c.id))
           : q.choices.map((c) => c.id),
       reviewFlag: false,

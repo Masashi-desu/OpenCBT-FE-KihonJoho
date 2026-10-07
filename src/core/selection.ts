@@ -9,6 +9,11 @@ import {
 } from "./types";
 import { shuffle, newId } from "./hash";
 import { DataError } from "./validation";
+import {
+  bookmarkTemplate,
+  makeBookmark,
+  BOOKMARK_PRACTICE_COUNT,
+} from "./bookmarks";
 export function familyOf(
   q: Question,
   b: Bundle,
@@ -54,6 +59,52 @@ export function selectQuestions(
   set: SetRecord;
   quota: Record<string, number>;
 } {
+  if (s.kind === "bookmark") {
+    if (!s.bookmarkQuestionRef || s.mode !== "study")
+      throw new DataError(
+        "BOOKMARK_REF",
+        "ブックマークの問題を選んでください。",
+      );
+    const { template, base } = bookmarkTemplate(b, s.bookmarkQuestionRef);
+    if (s.subject !== base.subject)
+      throw new DataError("BOOKMARK_REF", "選択した問題の科目が一致しません。");
+    const title = `ブックマーク練習 · ${makeBookmark(b, s.bookmarkQuestionRef).title}`;
+    const exam: Exam = {
+      schemaVersion: "3.0.0",
+      id: newId("exam-bookmark"),
+      revision: 1,
+      title,
+      subject: base.subject,
+      mode: "study",
+      questionCount: BOOKMARK_PRACTICE_COUNT,
+      questionOrder: "set",
+      choiceOrder: "shuffle",
+      duplicatePolicy: "instance_unique",
+      shortagePolicy: "block",
+    };
+    const set: SetRecord = {
+      schemaVersion: "3.0.0",
+      id: newId("set-bookmark"),
+      revision: 1,
+      title,
+      subject: base.subject,
+      distribution: "included",
+      questionRefs: [refOf(base)],
+      examConfigRefs: [{ id: exam.id, revision: exam.revision }],
+      generationBindings: [
+        {
+          questionRef: refOf(base),
+          templateRef: { id: template.id, revision: template.revision },
+        },
+      ],
+    };
+    return {
+      questions: Array.from({ length: BOOKMARK_PRACTICE_COUNT }, () => base),
+      exam,
+      set,
+      quota: {},
+    };
+  }
   let candidates: Question[],
     quota: Record<string, number> = {},
     title: string,

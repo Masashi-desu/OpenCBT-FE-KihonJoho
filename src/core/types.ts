@@ -318,11 +318,12 @@ export type Run = {
 };
 export type Selection = {
   subject: "A" | "B";
-  kind: "annual" | "mix";
+  kind: "annual" | "mix" | "bookmark";
   year: number;
   mode: "practice" | "study";
   size: "public" | "full";
   bindingMode: "original_data" | "generated_values";
+  bookmarkQuestionRef?: Ref;
 };
 export const labels = [..."アイウエオカキクケコ"];
 export const areas: Record<string, string> = {

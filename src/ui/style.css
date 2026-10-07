@@ -749,10 +749,39 @@ select {
   padding: 10px;
   background: var(--soft-surface, #e9f4ed);
 }
+.bookmark-feedback {
+  position: fixed;
+  z-index: 80;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: min(460px, calc(100vw - 32px));
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 4px 16px var(--shadow-color);
+  font-size: 12px;
+}
+.bookmark-feedback[role="alert"] {
+  border-color: var(--danger-border);
+  color: var(--text-danger);
+}
+.bookmark-feedback .icon-button {
+  flex-shrink: 0;
+}
+.toolbar-study-actions button[aria-pressed="true"] {
+  color: var(--toolbar-text);
+  background: var(--toolbar-hover);
+}
 .exam-application {
   background: var(--soft-surface, #edf1f2);
 }
 .exam-main {
+  --exam-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   width: 100%;
   height: 100dvh;
   min-height: 0;
@@ -761,12 +790,39 @@ select {
 }
 .exam-toolbar {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
   background: var(--toolbar-surface, #173b3e);
   color: var(--toolbar-text, #fff);
-  padding: 12px 21px;
+}
+.exam-app-toolbar,
+.exam-material-toolbar,
+.exam-answer-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 6px 21px;
   gap: 23px;
-  min-height: 76px;
+  min-width: 0;
+}
+.exam-app-toolbar {
+  min-height: 52px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--toolbar-border);
+}
+.exam-cbt-toolbar {
+  display: grid;
+  grid-template-columns: var(--exam-columns);
+  align-items: stretch;
+  min-height: 50px;
+  border-bottom: 1px solid var(--toolbar-border);
+}
+.exam-material-toolbar,
+.exam-answer-toolbar {
+  min-height: 50px;
+}
+.exam-material-toolbar {
+  border-right: 1px solid var(--toolbar-border);
 }
 .exam-brand {
   padding: 0;
@@ -831,36 +887,69 @@ select {
   background: var(--toolbar-hover, #295052);
   color: var(--toolbar-text, white);
 }
-.toolbar-zoom {
+.material-toolbar {
   display: flex;
   align-items: center;
-  font-size: 10px;
-  color: var(--toolbar-muted, #bfd2ce);
-  gap: 3px;
-  border-left: 1px solid var(--toolbar-border, #496364);
-  padding-left: 14px;
+  gap: 5px;
+  min-width: 0;
 }
-.toolbar-zoom button {
-  color: var(--toolbar-muted, #bfd2ce);
+.material-toolbar button,
+.material-toolbar select {
+  height: 30px;
+  min-height: 30px;
+  margin: 0;
 }
-.toolbar-zoom button:hover:not(:disabled) {
-  background: var(--toolbar-hover, #295052);
-  color: var(--toolbar-text, white);
+.material-toolbar button {
+  flex-shrink: 0;
+  width: 30px;
+  padding: 4px;
+  border-radius: 3px;
+  border: 0;
+  color: var(--toolbar-text);
+  background: var(--toolbar-hover);
+}
+.material-toolbar button:first-child {
+  background: transparent;
+}
+.material-toolbar button[aria-pressed] {
+  transition: none;
+}
+.material-toolbar button:hover:not(:disabled) {
+  background: var(--selected-surface);
+  color: var(--text-primary);
+}
+.material-toolbar button[aria-pressed="true"],
+.material-toolbar button[aria-pressed="true"]:hover:not(:disabled) {
+  background: var(--toolbar-text);
+  color: var(--toolbar-hover);
+}
+.material-toolbar select {
+  width: 190px;
+  min-width: 0;
+  padding: 3px 8px;
+  border: 0;
+  border-radius: 3px;
+  font-size: 12px;
+  background: var(--toolbar-hover);
+  color: var(--toolbar-text);
+  cursor: pointer;
 }
 .exam-time {
   display: flex;
   align-items: center;
   gap: 10px;
-  border-left: 1px solid var(--toolbar-border, #496364);
-  padding-left: 20px;
+  margin-left: auto;
 }
 .exam-time > span {
-  font-size: 9px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
   color: var(--toolbar-muted, #aec6c1);
-  line-height: 1.45;
+  line-height: 1.2;
 }
 .exam-time strong {
-  font-size: 20px;
+  font-size: 18px;
   font-family: ui-monospace, monospace;
   display: block;
   font-weight: 550;
@@ -872,7 +961,7 @@ select {
   border-color: var(--toolbar-border, #7b9390);
   color: var(--toolbar-text, #fff);
   background: var(--toolbar-hover, #24494c);
-  padding: 8px 15px;
+  padding: 6px 13px;
   font-size: 12px;
 }
 .finish-button:hover:not(:disabled) {
@@ -881,43 +970,100 @@ select {
 }
 .exam-split {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  grid-template-columns: var(--exam-columns);
   gap: 0;
   flex: 1;
   min-height: 0;
   font-size: var(--question-font);
 }
 .reading-pane {
+  position: relative;
+  display: flex;
   background: var(--surface, #fff);
   border-right: 1px solid var(--soft-border, #cdd8d4);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.reading-scroll {
   overflow: auto;
   scrollbar-gutter: stable;
+  flex: 1;
+  min-width: 0;
   min-height: 0;
+  scroll-behavior: auto;
 }
-.pane-heading {
-  padding: 15px 22px;
-  border-bottom: 1px solid var(--soft-border, #e7eeea);
+.reading-scroll:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+.reading-scroll.hand-scroll {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.reading-scroll.hand-scroll * {
+  cursor: inherit;
+}
+.reading-scroll.dragging {
+  cursor: grabbing;
+}
+.reading-scroll.hand-scroll a,
+.reading-scroll.hand-scroll summary {
+  cursor: pointer;
+}
+.material-page-list {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(150px, 40%);
+  overflow: auto;
+  padding: 16px 12px;
+  background: var(--translucent-surface);
+  border-right: 1px solid var(--soft-border);
+  z-index: 2;
+}
+.material-page-list[hidden] {
+  display: none;
+}
+.material-page-list button {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-secondary, #768c80);
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+  padding: 7px;
+  margin-bottom: 12px;
+  border-radius: 3px;
+  background: transparent;
   font-size: 11px;
-  position: sticky;
-  top: 0;
-  background: var(--translucent-surface, #ffffffef);
-  z-index: 1;
 }
-.pane-heading h2 {
-  font-size: 12px;
-  color: var(--text-primary, #52695e);
+.material-page-list button[aria-current="page"] {
+  border: 2px solid var(--selected-border);
+  background: var(--selected-surface);
+  padding: 6px;
 }
-.pane-heading > span {
-  margin-left: auto;
-  font-size: 9px;
-  color: var(--text-secondary, #95a39c);
+.material-thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.414;
+  background: var(--surface);
+  overflow: hidden;
+}
+.material-thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.material-thumbnail > span {
+  display: block;
+  padding: 10px 7px;
+  font-size: 7px;
+  font-weight: 400;
+  text-align: left;
+  overflow-wrap: anywhere;
 }
 .reading-content {
   padding: 22px 25px 45px;
+  margin-inline: auto;
 }
 .reading-content .content-blocks {
   font-size: calc(1rem * 0.92);
@@ -926,7 +1072,7 @@ select {
 .reading-content {
   font-size: var(--question-font);
 }
-.reading-content > .content-blocks {
+.reading-content > .material-page:not(.material-context) > .content-blocks {
   font-size: inherit;
 }
 .content-blocks p {
@@ -1076,7 +1222,6 @@ select {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px 14px;
-  margin-bottom: 12px;
 }
 .answer-question h1 {
   font-size: 1em;
@@ -1105,15 +1250,6 @@ select {
 .answer-question-state small {
   font-size: inherit;
 }
-.answer-question > p,
-.answer-question .content-blocks > :last-child {
-  margin-bottom: 0;
-}
-.answer-question > p,
-.answer-question .content-blocks {
-  font-size: 0.95em;
-  line-height: 1.8;
-}
 .answer-choices {
   min-width: 0;
   border: 0;
@@ -1123,6 +1259,7 @@ select {
   gap: 8px;
 }
 .answer-choice {
+  position: relative;
   min-width: 0;
   display: flex;
   align-items: center;
@@ -1142,14 +1279,6 @@ select {
 .answer-choice:focus-within {
   outline: 3px solid var(--focus, #d58c18);
   outline-offset: 3px;
-}
-.answer-choice input {
-  width: 17px;
-  height: 17px;
-  accent-color: var(--accent);
-  flex-shrink: 0;
-  cursor: pointer;
-  margin: 0;
 }
 .choice-label {
   font-size: 0.86em;
@@ -1172,20 +1301,14 @@ select {
 .answer-choice.selected {
   border-color: var(--selected-border, #348b6a);
   background: var(--selected-surface, #eff9f3);
-  box-shadow: 0 0 0 1px var(--shadow-color, #348b6a33);
+  box-shadow: inset 0 0 0 2px var(--selected-border, #348b6a);
 }
 .answer-choice.selected .choice-label {
   color: var(--text-accent, #136b4f);
 }
-.answer-choice.selected > svg {
-  color: var(--text-accent, #278c61);
-}
 .answer-choice.correct {
   border-color: var(--positive-border, #3c8956);
   background: var(--positive-surface, #edf7ef);
-}
-.answer-choice.correct > svg {
-  color: var(--text-positive, #268054);
 }
 .answer-choices:disabled label {
   cursor: default;
@@ -1863,6 +1986,45 @@ td.omitted-cell {
   font-size: 10px;
   color: var(--text-secondary, #8b9d8f);
 }
+.bookmark-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+.bookmark-genre {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--soft-surface);
+  color: var(--ink);
+  font-weight: 600;
+}
+.bookmark-card .bookmark-preview {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  overflow-wrap: anywhere;
+}
+.bookmark-sources {
+  margin-top: 20px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.bookmark-sources summary {
+  cursor: pointer;
+}
+.bookmark-sources p,
+.bookmark-sources article {
+  margin-top: 10px;
+}
+.bookmark-sources h2 {
+  font-size: 11px;
+}
 .history-score {
   font-size: 22px;
   color: var(--ink);
@@ -2129,16 +2291,13 @@ dialog details {
   .selection-card {
     padding: 23px;
   }
-  .exam-toolbar {
+  .exam-app-toolbar,
+  .exam-material-toolbar,
+  .exam-answer-toolbar {
     gap: 14px;
-    flex-wrap: wrap;
   }
-  .toolbar-tools,
-  .toolbar-zoom {
+  .toolbar-tools {
     padding-left: 8px;
-  }
-  .exam-time {
-    padding-left: 12px;
   }
   .exam-footer {
     padding: 12px 9px;
@@ -2236,11 +2395,14 @@ dialog details {
   .page-footer {
     padding: 16px 24px;
   }
-  .exam-toolbar {
-    padding: 12px 15px;
-    gap: 14px;
+  .exam-app-toolbar,
+  .exam-material-toolbar,
+  .exam-answer-toolbar {
+    padding: 6px 15px;
+    gap: 10px 14px;
+  }
+  .exam-app-toolbar {
     flex-wrap: wrap;
-    min-height: 85px;
   }
   .exam-brand {
     font-size: 17px;
@@ -2249,14 +2411,9 @@ dialog details {
     flex: 1;
   }
   .toolbar-tools {
-    order: 4;
     flex-basis: 100%;
     justify-content: flex-end;
     margin-left: auto;
-    border-left: 0;
-    padding-left: 0;
-  }
-  .toolbar-zoom {
     border-left: 0;
     padding-left: 0;
   }
@@ -2267,13 +2424,14 @@ dialog details {
   .exam-time strong {
     font-size: 18px;
   }
-  .toolbar-zoom .icon-button {
-    min-width: 31px;
-    min-height: 29px;
-    padding: 6px;
+  .exam-main {
+    --exam-columns: minmax(0, 1fr);
+  }
+  .exam-material-toolbar {
+    border-right: 0;
+    border-bottom: 1px solid var(--toolbar-border);
   }
   .exam-split {
-    grid-template-columns: 1fr;
     max-height: none;
   }
   .reading-pane {
@@ -2281,7 +2439,7 @@ dialog details {
     border-right: 0;
     border-bottom: 1px solid var(--line);
     max-height: 60vh;
-    overflow: auto;
+    overflow: hidden;
   }
   .reading-content {
     padding: 20px 28px;
@@ -2302,9 +2460,6 @@ dialog details {
   }
   .answer-choice {
     padding: 16px;
-  }
-  .pane-heading {
-    padding: 13px 28px;
   }
   .exam-main {
     height: auto;
@@ -2341,9 +2496,11 @@ dialog details {
   .exam-main {
     height: auto;
     min-height: 100dvh;
+    --exam-columns: minmax(0, 1fr);
   }
-  .exam-split {
-    grid-template-columns: 1fr;
+  .exam-material-toolbar {
+    border-right: 0;
+    border-bottom: 1px solid var(--toolbar-border);
   }
   .reading-pane {
     max-height: 60dvh;
@@ -2521,9 +2678,11 @@ dialog details {
   .instruction-footer .text-button {
     align-self: flex-start;
   }
-  .exam-toolbar {
-    padding: 11px 13px;
-    gap: 10px;
+  .exam-app-toolbar,
+  .exam-material-toolbar,
+  .exam-answer-toolbar {
+    padding: 6px 13px;
+    gap: 8px 10px;
   }
   .exam-brand {
     font-size: 16px;
@@ -2533,8 +2692,7 @@ dialog details {
     font-size: 10px;
   }
   .toolbar-set {
-    flex-basis: 55%;
-    order: 2;
+    flex: 1;
   }
   .toolbar-set strong {
     font-size: 10px;
@@ -2543,32 +2701,46 @@ dialog details {
     font-size: 9px;
   }
   .exam-time {
-    order: 3;
-    flex: 1;
+    flex-shrink: 0;
+    gap: 6px;
   }
-  .toolbar-zoom {
-    order: 4;
-    gap: 1px;
+  .exam-time > span {
+    display: block;
+    font-size: 9px;
+  }
+  .exam-time strong {
+    font-size: 16px;
+  }
+  .exam-time > svg {
+    width: 16px;
+  }
+  .material-toolbar {
+    gap: 4px;
+    width: 100%;
+  }
+  .material-toolbar select {
+    flex: 1;
+    width: 0;
+    min-width: 110px;
   }
   .toolbar-tools {
-    order: 6;
     justify-content: flex-start;
+  }
+  .toolbar-study-actions {
+    gap: 2px;
   }
   .toolbar-study-actions button {
     font-size: 10px;
-    padding: 6px;
+    padding: 6px 4px;
+    gap: 4px;
   }
   .finish-button {
-    order: 5;
-    padding: 6px 11px;
+    padding: 6px 9px;
     font-size: 11px;
     min-height: 33px;
   }
   .reading-content {
     padding: 17px 16px;
-  }
-  .pane-heading {
-    padding: 11px 17px;
   }
   .origin-pill {
     font-size: 9px;
@@ -2585,10 +2757,6 @@ dialog details {
     width: 25px;
     height: 26px;
     font-size: 11px;
-  }
-  .answer-choice input {
-    width: 16px;
-    height: 16px;
   }
   .answer-question {
     padding: 12px;
@@ -2694,6 +2862,34 @@ dialog details {
   .history-card {
     gap: 11px;
     padding: 16px;
+  }
+  .bookmark-card {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 0 11px;
+  }
+  .bookmark-card .subject-letter {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+  .bookmark-card .history-info {
+    display: contents;
+  }
+  .bookmark-card h2,
+  .bookmark-card .bookmark-meta {
+    grid-column: 2;
+  }
+  .bookmark-card .bookmark-meta {
+    margin: 5px 0 0;
+  }
+  .bookmark-card .bookmark-preview {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+  }
+  .bookmark-card .history-actions {
+    grid-column: 1 / -1;
+    margin-top: 15px;
   }
   .empty-state {
     padding: 44px 20px;

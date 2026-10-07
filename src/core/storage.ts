@@ -3,6 +3,7 @@ import { refOf, refKey } from "./types";
 import { validateRun, RETENTION_MS } from "./session";
 import { DataError, validateBundle } from "./validation";
 import { validateAssetBlob } from "./catalog";
+import { bookmarkSource, type Bookmark } from "./bookmarks";
 type Saved = {
   id: string;
   session: Session;
@@ -22,13 +23,14 @@ const request = <T>(req: IDBRequest<T>) =>
 let opening: Promise<IDBDatabase> | undefined;
 const open = () =>
   (opening ??= new Promise((res, rej) => {
-    const req = indexedDB.open("opencbt-fe-kihonjoho-v2", 2);
+    const req = indexedDB.open("opencbt-fe-kihonjoho-v2", 3);
     req.onupgradeneeded = () => {
       for (const name of [
         "catalogSnapshots",
         "generatedInstances",
         "sessions",
         "results",
+        "bookmarks",
       ])
         if (!req.result.objectStoreNames.contains(name))
           req.result.createObjectStore(name, { keyPath: "id" });
@@ -56,6 +58,29 @@ const done = (tx: IDBTransaction) =>
     tx.onabort = () =>
       rej(tx.error || new DataError("STORAGE", "保存が中断されました"));
   });
+export async function listBookmarks(): Promise<Bookmark[]> {
+  const db = await open();
+  const records = await request<Bookmark[]>(
+    db.transaction("bookmarks").objectStore("bookmarks").getAll(),
+  );
+  return records.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+export async function saveBookmark(bookmark: Bookmark) {
+  const db = await open(),
+    tx = db.transaction("bookmarks", "readwrite"),
+    complete = done(tx),
+    store = tx.objectStore("bookmarks");
+  const existing = await request(store.get(bookmark.id));
+  if (!existing) store.put(bookmark);
+  await complete;
+}
+export async function deleteBookmark(id: string) {
+  const db = await open(),
+    tx = db.transaction("bookmarks", "readwrite"),
+    complete = done(tx);
+  tx.objectStore("bookmarks").delete(id);
+  await complete;
+}
 export async function storeOriginalSnapshot(
   id: string,
   bundle: Bundle,
@@ -197,6 +222,14 @@ export async function deleteRuns(ids?: string[]) {
   await complete;
 }
 export async function maintainStorage(bundle: Bundle) {
+  for (const bookmark of await listBookmarks()) {
+    try {
+      bookmarkSource(bundle, bookmark.questionRef);
+    } catch (e) {
+      if (!(e instanceof DataError) || e.code !== "BOOKMARK_REF") throw e;
+      await deleteBookmark(bookmark.id);
+    }
+  }
   const records = await history();
   const expired = records
     .filter((r) => Date.now() - Date.parse(r.session.updatedAt) > RETENTION_MS)
