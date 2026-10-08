@@ -59,11 +59,11 @@ test("result bookmarks separate incorrect answers from unanswered and correct qu
   assert.equal(run.result!.incorrect, 1);
   assert.equal(run.result!.unanswered, 18);
   assert.deepEqual(
-    resultBookmarks(b, run.result!, "incorrect", 0).map((bookmark) => bookmark.id),
+    resultBookmarks(b, run, "incorrect", 0).map((bookmark) => bookmark.id),
     [run.issued[1].id],
   );
   assert.deepEqual(
-    resultBookmarks(b, run.result!, "unanswered", 0).map((bookmark) => bookmark.id),
+    resultBookmarks(b, run, "unanswered", 0).map((bookmark) => bookmark.id),
     run.issued.slice(2).map((question) => question.id),
   );
   assert.deepEqual(run, saved);
@@ -86,15 +86,17 @@ test("result bookmarks deduplicate generated sources and omit unavailable refere
     ...b.catalog.withdrawals[0],
     questionRef: refOf(third.original),
   });
+  const run = { result, session: { entries: result.entries } };
   const saved = structuredClone({ bundle: b, result });
-  assert.deepEqual(resultBookmarks(b, result, "unanswered", 0), [
+  assert.deepEqual(resultBookmarks(b, run, "unanswered", 0), [
     makeBookmark(b, refOf(first.original), 0),
   ]);
-  assert.deepEqual(resultBookmarks(b, result, "incorrect", 0), [
+  assert.deepEqual(resultBookmarks(b, run, "incorrect", 0), [
     makeBookmark(b, refOf(first.original), 0),
   ]);
-  assert.deepEqual(resultBookmarks(b, { entries: [] }, "unanswered"), []);
-  assert.deepEqual(resultBookmarks(b, { entries: [] }, "incorrect"), []);
+  const empty = { result: { entries: [] }, session: { entries: [] } };
+  assert.deepEqual(resultBookmarks(b, empty, "unanswered"), []);
+  assert.deepEqual(resultBookmarks(b, empty, "incorrect"), []);
   assert.deepEqual({ bundle: b, result }, saved);
 });
 
@@ -155,6 +157,23 @@ test("all bookmarked sources generate consecutive fresh practice runs without ch
       );
     for (const run of [previous, next]) {
       await validateRun(run);
+      const completed = finishRun(startRun(run), "completed");
+      assert.notDeepEqual(
+        completed.result!.entries[0].questionRef,
+        completed.session.entries[0].questionRef,
+      );
+      assert.deepEqual(resultBookmarks(b, completed, "unanswered", 0), [
+        makeBookmark(b, refOf(row.original), 0),
+      ], row.original.id);
+      const incorrect = finishRun(updateAnswer(
+        startRun(run),
+        run.issued[0].choices.find(
+          (choice) => choice.id !== run.issued[0].correctAnswer.choiceId,
+        )!.id,
+      ), "completed");
+      assert.deepEqual(resultBookmarks(b, incorrect, "incorrect", 0), [
+        makeBookmark(b, refOf(row.original), 0),
+      ], row.original.id);
       assert.equal(run.issued.length, BOOKMARK_PRACTICE_COUNT);
       assert.equal(run.instances.length, run.issued.length);
       assert(

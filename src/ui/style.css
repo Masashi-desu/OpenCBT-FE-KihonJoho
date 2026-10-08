@@ -434,12 +434,22 @@ small {
   min-width: 0;
 }
 select {
+  -webkit-appearance: none;
+  appearance: none;
   display: block;
   width: 100%;
-  background: var(--surface, #fff);
+  background-color: var(--surface, #fff);
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    right 16px center,
+    right 11px center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 9px 11px;
+  padding: 9px 34px 9px 11px;
   color: var(--ink);
   min-height: 42px;
   margin-top: 7px;
@@ -896,11 +906,11 @@ select {
 .material-toolbar select {
   width: 190px;
   min-width: 0;
-  padding: 3px 8px;
+  padding: 3px 30px 3px 8px;
   border: 0;
   border-radius: 3px;
   font-size: 12px;
-  background: var(--toolbar-hover);
+  background-color: var(--toolbar-hover);
   color: var(--toolbar-text);
   cursor: pointer;
 }
@@ -1738,6 +1748,9 @@ td.omitted-cell {
 .pause-cover button svg {
   color: var(--on-accent, #fff);
 }
+.result-card > .notice-inline {
+  margin: 0 0 24px;
+}
 .accuracy {
   display: flex;
   align-items: center;
@@ -1808,11 +1821,16 @@ td.omitted-cell {
   border-top: 1px solid var(--line);
 }
 .result-bookmark-actions,
+.result-back-actions,
 .result-navigation {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
+}
+.result-bookmark-actions {
+  justify-content: center;
+  margin-bottom: 20px;
 }
 .result-bookmark-actions button {
   font-size: 12px;
@@ -1833,13 +1851,23 @@ td.omitted-cell {
   margin-bottom: 15px;
   gap: 12px;
 }
-.section-heading select {
+.section-heading select,
+.history-filter select {
   width: auto;
   min-width: 135px;
   font-size: 11px;
   min-height: 35px;
-  padding: 6px 10px;
+  padding: 6px 30px 6px 10px;
   margin: 0;
+}
+.history-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 .result-row {
   display: flex;
@@ -1851,11 +1879,13 @@ td.omitted-cell {
   gap: 16px;
 }
 .result-row:first-of-type {
-  border-radius: 8px 8px 0 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .result-row:last-child {
   border-bottom: 1px solid var(--line);
-  border-radius: 0 0 8px 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .row-number {
   width: 29px;
@@ -2739,18 +2769,24 @@ dialog details {
     gap: 10px;
   }
   .result-bookmark-actions,
+  .result-back-actions,
   .result-navigation {
     width: 100%;
     gap: 10px;
   }
   .result-bookmark-actions button,
+  .result-back-actions button,
   .result-navigation button {
-    flex: 1;
     font-size: 11px;
     white-space: nowrap;
   }
-  .result-bookmark-actions button,
-  .result-navigation > .text-button {
+  .result-navigation button {
+    padding: 10px 12px;
+  }
+  .result-navigation {
+    order: -1;
+  }
+  .result-bookmark-actions button {
     flex-basis: 100%;
   }
   .result-row {

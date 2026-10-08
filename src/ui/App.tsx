@@ -106,6 +106,7 @@ type View =
   | "bookmarks"
   | "licenses";
 type HistoryItem = Awaited<ReturnType<typeof history>>[number];
+type HistoryFilter = "all" | Selection["kind"];
 const defaults: Selection = {
   subject: "A",
   kind: "annual",
@@ -183,6 +184,7 @@ export function App() {
     [selection, setSelection] = useState<Selection>(defaults),
     [run, setRun] = useState<Run>(),
     [items, setItems] = useState<HistoryItem[]>([]),
+    [historyFilter, setHistoryFilter] = useState<HistoryFilter>("all"),
     [bookmarks, setBookmarks] = useState<Bookmark[]>([]),
     [bookmarkPending, setBookmarkPending] = useState(false),
     [bookmarkMessage, setBookmarkMessage] = useState(""),
@@ -209,6 +211,12 @@ export function App() {
     pendingSnapshot = useRef<string | undefined>(undefined),
     h1 = useRef<HTMLHeadingElement>(null);
   latestBusy.current = busy;
+  const filteredHistoryItems = useMemo(
+    () => items.filter(
+      (item) => historyFilter === "all" || item.selection?.kind === historyFilter,
+    ),
+    [items, historyFilter],
+  );
   useLayoutEffect(() => {
     applyTheme(theme);
     saveTheme(theme);
@@ -662,11 +670,11 @@ export function App() {
     () => ({
       unanswered:
         bundle && run?.result
-          ? resultBookmarks(bundle, run.result, "unanswered")
+          ? resultBookmarks(bundle, run, "unanswered")
           : [],
       incorrect:
         bundle && run?.result
-          ? resultBookmarks(bundle, run.result, "incorrect")
+          ? resultBookmarks(bundle, run, "incorrect")
           : [],
     }),
     [bundle, run?.result],
@@ -1578,6 +1586,12 @@ export function App() {
                 {run.set.title} · 科目{run.exam.subject}
               </p>
               <section className="result-card">
+                {run.result.revealedCount > 0 && (
+                  <p className="notice-inline">
+                    学習中に正答を表示した問題：{run.result.revealedCount}
+                    問。正答表示後の解答も集計に含みます。
+                  </p>
+                )}
                 <div className="accuracy">
                   <div className="accuracy-ring">
                     <strong>
@@ -1613,39 +1627,46 @@ export function App() {
                     label="経過時間"
                   />
                 </div>
-                {run.result.revealedCount > 0 && (
-                  <p className="notice-inline">
-                    学習中に正答を表示した問題：{run.result.revealedCount}
-                    問。正答表示後の解答も集計に含みます。
-                  </p>
-                )}
-                <div className="result-actions">
-                  <div
-                    className="result-bookmark-actions"
-                    role="group"
-                    aria-label="ブックマークにまとめて追加"
+                <div
+                  className="result-bookmark-actions"
+                  role="group"
+                  aria-label="ブックマークにまとめて追加"
+                >
+                  <button
+                    disabled={
+                      Boolean(busy) ||
+                      bookmarkPending ||
+                      !canBookmarkResult("unanswered")
+                    }
+                    onClick={() => void bookmarkResult("unanswered")}
                   >
-                    <button
-                      disabled={
-                        Boolean(busy) ||
-                        bookmarkPending ||
-                        !canBookmarkResult("unanswered")
-                      }
-                      onClick={() => void bookmarkResult("unanswered")}
-                    >
-                      <BookmarkIcon size={16} />
-                      未解答をブックマークに追加
+                    <BookmarkIcon size={16} />
+                    未解答をブックマークに追加
+                  </button>
+                  <button
+                    disabled={
+                      Boolean(busy) ||
+                      bookmarkPending ||
+                      !canBookmarkResult("incorrect")
+                    }
+                    onClick={() => void bookmarkResult("incorrect")}
+                  >
+                    <BookmarkIcon size={16} />
+                    不正解をブックマークに追加
+                  </button>
+                </div>
+                <div className="result-actions">
+                  <div className="result-back-actions">
+                    <button onClick={() => void showHistory()}>
+                      <History size={18} />
+                      履歴へ
                     </button>
                     <button
-                      disabled={
-                        Boolean(busy) ||
-                        bookmarkPending ||
-                        !canBookmarkResult("incorrect")
-                      }
-                      onClick={() => void bookmarkResult("incorrect")}
+                      className="text-button"
+                      onClick={() => navigate("menu")}
                     >
-                      <BookmarkIcon size={16} />
-                      不正解をブックマークに追加
+                      <Home size={17} />
+                      メニューへ
                     </button>
                   </div>
                   <div className="result-navigation">
@@ -1667,17 +1688,6 @@ export function App() {
                     >
                       <BookOpen size={18} />
                       問題を復習する
-                    </button>
-                    <button onClick={() => void showHistory()}>
-                      <History size={18} />
-                      履歴へ
-                    </button>
-                    <button
-                      className="text-button"
-                      onClick={() => navigate("menu")}
-                    >
-                      <Home size={17} />
-                      メニューへ
                     </button>
                   </div>
                 </div>
@@ -1855,6 +1865,19 @@ export function App() {
               <p className="page-intro">
                 学習履歴はこのブラウザに保存し、最終更新から180日で削除します。ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。
               </p>
+              <label className="history-filter">
+                練習の種類
+                <select
+                  aria-label="履歴の絞り込み"
+                  value={historyFilter}
+                  onChange={(e) => setHistoryFilter(e.target.value as HistoryFilter)}
+                >
+                  <option value="all">すべて</option>
+                  <option value="annual">年度別問題</option>
+                  <option value="mix">ランダムミックス</option>
+                  <option value="bookmark">ブックマーク練習</option>
+                </select>
+              </label>
               {items.length === 0 ? (
                 <div className="empty-state">
                   <History size={42} />
@@ -1864,9 +1887,17 @@ export function App() {
                     問題を選ぶ <ArrowRight size={17} />
                   </button>
                 </div>
+              ) : filteredHistoryItems.length === 0 ? (
+                <div className="empty-state">
+                  <History size={42} />
+                  <h2>この種類の学習履歴はありません</h2>
+                  <button onClick={() => setHistoryFilter("all")}>
+                    すべての履歴を表示
+                  </button>
+                </div>
               ) : (
                 <div className="history-list">
-                  {items.map((item) => (
+                  {filteredHistoryItems.map((item) => (
                     <article key={item.id} className="history-card">
                       <span className="subject-letter">
                         {item.exam.subject}

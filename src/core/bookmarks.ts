@@ -53,15 +53,19 @@ export type BookmarkOutcome = "unanswered" | "incorrect";
 
 export function resultBookmarks(
   bundle: Bundle,
-  result: Pick<Result, "entries">,
+  run: {
+    result?: Pick<Result, "entries">;
+    session: { entries: readonly { questionRef: Ref }[] };
+  },
   outcome: BookmarkOutcome,
   at = Date.now(),
 ): Bookmark[] {
   const bookmarks = new Map<string, Bookmark>();
-  for (const entry of result.entries) {
+  for (const [index, entry] of (run.result?.entries ?? []).entries()) {
     if (entry.outcome !== outcome) continue;
     try {
-      const bookmark = makeBookmark(bundle, entry.questionRef, at);
+      // Result references identify issued instances; session references identify sources.
+      const bookmark = makeBookmark(bundle, run.session.entries[index].questionRef, at);
       bookmarks.set(bookmark.id, bookmark);
     } catch (error) {
       if (!(error instanceof DataError) || error.code !== "BOOKMARK_REF")
