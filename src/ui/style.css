@@ -184,7 +184,8 @@ small {
   top: 0;
   height: 100vh;
 }
-.brand {
+.brand,
+.exam-brand {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -194,9 +195,12 @@ small {
   line-height: 1.25;
   font-weight: 750;
   letter-spacing: -0.03em;
+}
+.brand {
   margin-left: 10px;
 }
-.brand small {
+.brand small,
+.exam-brand small {
   display: block;
   font-size: 11px;
   color: var(--text-secondary, #718079);
@@ -710,11 +714,13 @@ select {
 .bookmark-feedback {
   position: fixed;
   z-index: 80;
-  right: 16px;
-  bottom: 16px;
+  top: max(16px, env(safe-area-inset-top));
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 12px;
+  width: max-content;
   max-width: min(460px, calc(100vw - 32px));
   padding: 10px 14px;
   border: 1px solid var(--line);
@@ -723,6 +729,20 @@ select {
   color: var(--ink);
   box-shadow: 0 4px 16px var(--shadow-color);
   font-size: 12px;
+  text-align: center;
+}
+.bookmark-feedback[role="status"] {
+  animation: bookmark-feedback-fade 4s ease-in-out forwards;
+}
+@keyframes bookmark-feedback-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  6%,
+  90% {
+    opacity: 1;
+  }
 }
 .bookmark-feedback[role="alert"] {
   border-color: var(--danger-border);
@@ -786,15 +806,7 @@ select {
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--toolbar-text, #fff);
-  font-size: 19px;
   white-space: nowrap;
-}
-.exam-brand small {
-  font-size: 12px;
-  opacity: 0.65;
-  font-weight: 400;
-  margin-left: 5px;
 }
 .exam-brand:hover:not(:disabled) {
   background: transparent;
@@ -1190,23 +1202,6 @@ select {
   font-size: 0.8em;
   font-weight: 400;
   color: var(--text-secondary, #596f62);
-}
-.answer-question-state {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 5px 12px;
-  color: var(--text-secondary, #596f62);
-  font-size: 11px;
-}
-.answer-question-state span {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-.answer-question-state small {
-  font-size: inherit;
 }
 .answer-choices {
   min-width: 0;
@@ -1805,10 +1800,28 @@ td.omitted-cell {
 }
 .result-actions {
   display: flex;
-  gap: 13px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 20px;
   flex-wrap: wrap;
   padding-top: 17px;
   border-top: 1px solid var(--line);
+}
+.result-bookmark-actions,
+.result-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.result-bookmark-actions button {
+  font-size: 12px;
+  padding: 10px 12px;
+}
+.result-navigation {
+  justify-content: flex-end;
+  gap: 13px;
+  margin-left: auto;
 }
 .question-results {
   margin-top: 32px;
@@ -2002,14 +2015,6 @@ td.omitted-cell {
 }
 .history-actions .icon-button {
   color: var(--text-secondary, #8fa091);
-}
-.storage-note {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-  margin-top: 22px;
-  font-size: 11px;
-  color: var(--text-secondary, #8ca191);
 }
 .license-sections {
   display: grid;
@@ -2220,10 +2225,13 @@ dialog details {
     padding-left: 13px;
     padding-right: 13px;
   }
-  .brand {
+  .brand,
+  .exam-brand {
     font-size: 20px;
-    margin-left: 4px;
     gap: 9px;
+  }
+  .brand {
+    margin-left: 4px;
   }
   .page-main {
     padding: 34px 30px;
@@ -2285,7 +2293,8 @@ dialog details {
     gap: 23px;
     flex-wrap: nowrap;
   }
-  .brand {
+  .brand,
+  .exam-brand {
     font-size: 19px;
     flex-shrink: 0;
     white-space: nowrap;
@@ -2294,7 +2303,8 @@ dialog details {
     width: 33px;
     height: 33px;
   }
-  .brand small {
+  .brand small,
+  .exam-brand small {
     font-size: 9px;
   }
   .sidebar-theme {
@@ -2342,9 +2352,6 @@ dialog details {
   }
   .exam-app-toolbar {
     flex-wrap: wrap;
-  }
-  .exam-brand {
-    font-size: 17px;
   }
   .toolbar-set {
     flex: 1;
@@ -2466,16 +2473,20 @@ dialog details {
   .sidebar nav {
     gap: 2px;
   }
-  .brand {
+  .brand,
+  .exam-brand {
     gap: 8px;
     font-size: 18px;
+  }
+  .brand {
     margin: 0;
   }
   .brand-icon {
     width: 31px;
     height: 31px;
   }
-  .brand small {
+  .brand small,
+  .exam-brand small {
     font-size: 8px;
   }
   .page-main {
@@ -2616,13 +2627,6 @@ dialog details {
     padding: 6px 13px;
     gap: 8px 10px;
   }
-  .exam-brand {
-    font-size: 16px;
-    gap: 5px;
-  }
-  .exam-brand small {
-    font-size: 10px;
-  }
   .toolbar-set {
     flex: 1;
   }
@@ -2693,9 +2697,6 @@ dialog details {
   .answer-question {
     padding: 12px;
   }
-  .answer-question-state {
-    justify-content: flex-start;
-  }
   .exam-footer {
     padding: 11px 9px;
     gap: 7px;
@@ -2737,12 +2738,19 @@ dialog details {
   .result-actions {
     gap: 10px;
   }
-  .result-actions > button {
+  .result-bookmark-actions,
+  .result-navigation {
+    width: 100%;
+    gap: 10px;
+  }
+  .result-bookmark-actions button,
+  .result-navigation button {
     flex: 1;
     font-size: 11px;
     white-space: nowrap;
   }
-  .result-actions > .text-button {
+  .result-bookmark-actions button,
+  .result-navigation > .text-button {
     flex-basis: 100%;
   }
   .result-row {
@@ -2964,7 +2972,8 @@ dialog details {
     padding: 14px 12px;
     gap: 8px;
   }
-  .brand {
+  .brand,
+  .exam-brand {
     gap: 6px;
     font-size: 16px;
   }
@@ -2972,7 +2981,8 @@ dialog details {
     width: 28px;
     height: 28px;
   }
-  .brand small {
+  .brand small,
+  .exam-brand small {
     font-size: 7px;
   }
   .nav-item {

@@ -2,6 +2,7 @@ import {
   useCallback,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   type ReactNode,
@@ -69,9 +70,16 @@ import {
   recentGeneration,
   listBookmarks,
   saveBookmark,
+  saveBookmarks,
   deleteBookmark,
 } from "../core/storage";
-import { makeBookmark, bookmarkPreview, type Bookmark } from "../core/bookmarks";
+import {
+  makeBookmark,
+  bookmarkPreview,
+  resultBookmarks,
+  type Bookmark,
+  type BookmarkOutcome,
+} from "../core/bookmarks";
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { Dialog } from "./Dialog";
@@ -126,6 +134,17 @@ const statusLabel: Record<string, string> = {
   invalidated: "無効",
 };
 
+function BrandMark() {
+  return (
+    <>
+      <span className="brand-icon" aria-hidden="true" />
+      <span>
+        OpenCBT<small>基本情報技術者試験</small>
+      </span>
+    </>
+  );
+}
+
 function ThemeToggle({
   theme,
   onChange,
@@ -177,7 +196,6 @@ export function App() {
     [tick, setTick] = useState(Date.now()),
     [reviewIndex, setReviewIndex] = useState(0),
     [reviewFilter, setReviewFilter] = useState("all"),
-    [saved, setSaved] = useState(true),
     [mathRetry, setMathRetry] = useState(false),
     [listFilter, setListFilter] = useState("all");
   const current = useRef<Run | undefined>(undefined),
@@ -218,13 +236,10 @@ export function App() {
     if (saveFailed.current) return;
     current.current = next;
     setRun(next);
-    setSaved(false);
     queue.current = queue.current
       .then(async () => {
         if (saveFailed.current) return;
         await saveRun(next);
-        if (current.current?.session.revision === next.session.revision)
-          setSaved(true);
       })
       .catch((e) => {
         saveFailed.current = true;
@@ -294,7 +309,6 @@ export function App() {
         lock(id);
         current.current = next;
         setRun(next);
-        setSaved(true);
         lastTime.current = { wall: Date.now(), mono: performance.now() };
         studyFraction.current = 0;
         if (next.session.status === "invalidated")
@@ -459,7 +473,6 @@ export function App() {
       lock(next.session.id);
       current.current = next;
       setRun(next);
-      setSaved(true);
       lastTime.current = { wall: Date.now(), mono: performance.now() };
       studyFraction.current = 0;
       navigate("exam");
@@ -645,6 +658,51 @@ export function App() {
     }
   }
   const bookmarked = bookmarks.some((b) => b.id === currentBookmark?.id);
+  const resultBookmarkGroups = useMemo(
+    () => ({
+      unanswered:
+        bundle && run?.result
+          ? resultBookmarks(bundle, run.result, "unanswered")
+          : [],
+      incorrect:
+        bundle && run?.result
+          ? resultBookmarks(bundle, run.result, "incorrect")
+          : [],
+    }),
+    [bundle, run?.result],
+  );
+  const canBookmarkResult = (outcome: BookmarkOutcome) =>
+    resultBookmarkGroups[outcome].some(
+      (candidate) => !bookmarks.some((bookmark) => bookmark.id === candidate.id),
+    );
+  const bookmarkResult = async (outcome: BookmarkOutcome) => {
+    if (!run?.result || bookmarkPending || !canBookmarkResult(outcome)) return;
+    const label = outcome === "unanswered" ? "未解答" : "不正解";
+    setBookmarkPending(true);
+    setBookmarkMessage("");
+    setBookmarkError("");
+    try {
+      const createdAt = new Date().toISOString();
+      const added = await saveBookmarks(
+        resultBookmarkGroups[outcome].map((bookmark) => ({
+          ...bookmark,
+          createdAt,
+        })),
+      );
+      setBookmarks(await listBookmarks());
+      setBookmarkMessage(
+        added
+          ? `${label}の問題を${added}件ブックマークに追加しました。`
+          : `${label}の問題はすべてブックマークに追加済みです。`,
+      );
+    } catch (e) {
+      setBookmarkError(
+        `${label}の問題をブックマークに追加できませんでした。${e instanceof Error ? e.message : String(e)}`,
+      );
+    } finally {
+      setBookmarkPending(false);
+    }
+  };
   const toggleBookmark = async () => {
     if (!currentBookmark || bookmarkPending) return;
     if (bookmarked) return removeBookmark(currentBookmark);
@@ -709,10 +767,7 @@ export function App() {
               goMenu();
             }}
           >
-            <span className="brand-icon" aria-hidden="true" />
-            <span>
-              OpenCBT<small>基本情報技術者試験</small>
-            </span>
+            <BrandMark />
           </a>
           <nav aria-label="メインメニュー">
             {navItems.map((n) => (
@@ -788,10 +843,11 @@ export function App() {
         )}
         {(bookmarkError || bookmarkMessage) && (
           <div
+            key={bookmarkError || bookmarkMessage}
             className="bookmark-feedback"
             role={bookmarkError ? "alert" : "status"}
           >
-            {bookmarkError || bookmarkMessage}
+            <span>{bookmarkError || bookmarkMessage}</span>
             <button
               className="icon-button"
               aria-label="ブックマークの通知を閉じる"
@@ -1184,10 +1240,7 @@ export function App() {
                     className="exam-brand"
                     onClick={() => (isReview ? navigate("result") : goMenu())}
                   >
-                    <BookOpen size={21} />
-                    <span>
-                      OpenCBT <small>FE</small>
-                    </span>
+                    <BrandMark />
                   </button>
                   <div className="toolbar-set">
                     <strong>
@@ -1316,40 +1369,10 @@ export function App() {
                     <div className="answer-content">
                       <div className="answer-question">
                         <div className="answer-question-heading">
-                          <h1
-                            ref={h1}
-                            tabIndex={-1}
-                            aria-describedby="answer-question-state"
-                          >
+                          <h1 ref={h1} tabIndex={-1}>
                             問題 {currentIndex + 1}
                             <small> / {run.issued.length}</small>
                           </h1>
-                          <div
-                            className="answer-question-state"
-                            id="answer-question-state"
-                          >
-                            <span>
-                              {entry.selectedChoiceId ? (
-                                <CheckCircle2 size={14} />
-                              ) : (
-                                <Square size={14} />
-                              )}
-                              {entry.selectedChoiceId ? "解答済み" : "未解答"}
-                            </span>
-                            {entry.reviewFlag && (
-                              <span>
-                                <Flag size={14} />
-                                見直し
-                              </span>
-                            )}
-                            <small>
-                              {isReview
-                                ? "保存した出題内容を表示"
-                                : saved
-                                  ? "解答を保存済み"
-                                  : "保存中"}
-                            </small>
-                          </div>
                         </div>
                       </div>
                       <fieldset
@@ -1597,36 +1620,66 @@ export function App() {
                   </p>
                 )}
                 <div className="result-actions">
-                  {run.selection.kind === "bookmark" && (
+                  <div
+                    className="result-bookmark-actions"
+                    role="group"
+                    aria-label="ブックマークにまとめて追加"
+                  >
+                    <button
+                      disabled={
+                        Boolean(busy) ||
+                        bookmarkPending ||
+                        !canBookmarkResult("unanswered")
+                      }
+                      onClick={() => void bookmarkResult("unanswered")}
+                    >
+                      <BookmarkIcon size={16} />
+                      未解答をブックマークに追加
+                    </button>
+                    <button
+                      disabled={
+                        Boolean(busy) ||
+                        bookmarkPending ||
+                        !canBookmarkResult("incorrect")
+                      }
+                      onClick={() => void bookmarkResult("incorrect")}
+                    >
+                      <BookmarkIcon size={16} />
+                      不正解をブックマークに追加
+                    </button>
+                  </div>
+                  <div className="result-navigation">
+                    {run.selection.kind === "bookmark" && (
+                      <button
+                        className="primary"
+                        disabled={Boolean(busy || error)}
+                        onClick={() => void begin(run.selection)}
+                      >
+                        <Play size={18} /> 同じ問題で続けて練習
+                      </button>
+                    )}
                     <button
                       className="primary"
-                      disabled={Boolean(busy || error)}
-                      onClick={() => void begin(run.selection)}
+                      onClick={() => {
+                        setReviewIndex(0);
+                        navigate("review");
+                      }}
                     >
-                      <Play size={18} /> 同じ問題で続けて練習
+                      <BookOpen size={18} />
+                      問題を復習する
                     </button>
-                  )}
-                  <button
-                    className="primary"
-                    onClick={() => {
-                      setReviewIndex(0);
-                      navigate("review");
-                    }}
-                  >
-                    <BookOpen size={18} />
-                    問題を復習する
-                  </button>
-                  <button onClick={() => void showHistory()}>
-                    <History size={18} />
-                    履歴へ
-                  </button>
-                  <button
-                    className="text-button"
-                    onClick={() => navigate("menu")}
-                  >
-                    <Home size={17} />
-                    メニューへ
-                  </button>
+                    <button onClick={() => void showHistory()}>
+                      <History size={18} />
+                      履歴へ
+                    </button>
+                    <button
+                      className="text-button"
+                      onClick={() => navigate("menu")}
+                    >
+                      <Home size={17} />
+                      メニューへ
+                    </button>
+                  </div>
                 </div>
               </section>
               <section className="question-results">
@@ -1695,7 +1748,7 @@ export function App() {
                 ブックマーク
               </h1>
               <p className="page-intro">
-                保存した問題の類題を練習できます。「次の類題」で条件を変えた問題を続けて解きましょう。
+                保存した問題の類題を練習できます。「次の類題」で条件を変えた問題を続けて解けます。ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
               </p>
               {bookmarks.length === 0 ? (
                 <div className="empty-state">
@@ -1779,10 +1832,6 @@ export function App() {
                   </button>
                 </details>
               )}
-              <p className="storage-note">
-                <ShieldCheck size={16} />
-                ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
-              </p>
             </>
           )}
           {view === "history" && (
@@ -1804,7 +1853,7 @@ export function App() {
                 </button>
               </div>
               <p className="page-intro">
-                このブラウザに保存した学習。最終更新から180日で削除します。
+                学習履歴はこのブラウザに保存し、最終更新から180日で削除します。ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。
               </p>
               {items.length === 0 ? (
                 <div className="empty-state">
@@ -1877,10 +1926,6 @@ export function App() {
                   ))}
                 </div>
               )}
-              <p className="storage-note">
-                <ShieldCheck size={16} />
-                ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。
-              </p>
             </>
           )}
           {view === "licenses" && (

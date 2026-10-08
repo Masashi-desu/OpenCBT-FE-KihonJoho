@@ -1,4 +1,4 @@
-import type { Bundle, Ref } from "./types";
+import type { Bundle, Ref, Result } from "./types";
 import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
 import { DataError } from "./errors";
@@ -47,6 +47,28 @@ export function makeBookmark(
     area: original.learning.area,
     createdAt: new Date(at).toISOString(),
   };
+}
+
+export type BookmarkOutcome = "unanswered" | "incorrect";
+
+export function resultBookmarks(
+  bundle: Bundle,
+  result: Pick<Result, "entries">,
+  outcome: BookmarkOutcome,
+  at = Date.now(),
+): Bookmark[] {
+  const bookmarks = new Map<string, Bookmark>();
+  for (const entry of result.entries) {
+    if (entry.outcome !== outcome) continue;
+    try {
+      const bookmark = makeBookmark(bundle, entry.questionRef, at);
+      bookmarks.set(bookmark.id, bookmark);
+    } catch (error) {
+      if (!(error instanceof DataError) || error.code !== "BOOKMARK_REF")
+        throw error;
+    }
+  }
+  return [...bookmarks.values()];
 }
 
 export function bookmarkPreview(bundle: Bundle, ref: Ref): string {

@@ -4,6 +4,7 @@ import { validateRun, RETENTION_MS } from "./session";
 import { DataError, validateBundle } from "./validation";
 import { validateAssetBlob } from "./catalog";
 import { bookmarkSource, type Bookmark } from "./bookmarks";
+import { saveBookmarkBatch } from "./bookmark-storage";
 type Saved = {
   id: string;
   session: Session;
@@ -66,13 +67,11 @@ export async function listBookmarks(): Promise<Bookmark[]> {
   return records.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 export async function saveBookmark(bookmark: Bookmark) {
-  const db = await open(),
-    tx = db.transaction("bookmarks", "readwrite"),
-    complete = done(tx),
-    store = tx.objectStore("bookmarks");
-  const existing = await request(store.get(bookmark.id));
-  if (!existing) store.put(bookmark);
-  await complete;
+  await saveBookmarks([bookmark]);
+}
+export async function saveBookmarks(bookmarks: readonly Bookmark[]) {
+  if (!bookmarks.length) return 0;
+  return saveBookmarkBatch(await open(), bookmarks);
 }
 export async function deleteBookmark(id: string) {
   const db = await open(),
