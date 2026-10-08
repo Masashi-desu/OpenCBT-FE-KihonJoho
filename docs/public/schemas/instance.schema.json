@@ -23,7 +23,6 @@
     "entryIndex": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 59,
       "description": "所有セッションのどの出題枠に結び付くかを示すentriesの位置。generatedInstanceIdと相互に対応させ、問題IDの代用にはしない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },

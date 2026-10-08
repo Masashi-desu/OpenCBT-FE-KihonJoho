@@ -86,8 +86,10 @@ diagramは画像ファイルではないためassetRefsへ入れず、diagram.at
 
 ## 全問対応宣言と図プロファイル
 
+無限周回ではexam.duplicatePolicy=cycle_unique、mode=studyとし、questionCountを省略する。set.questionRefsの候補数を1周の長さとして、entryIndexから周回を判定する。同じ周回の同じ基準問題を拒否し、別の周回では過去と同じ条件を許可する。各枠には別のinstance IDを発行し、直前の同系列の入力・可変な正答を避ける。既存のinstance_uniqueでは同じセッションの同入力を引き続き拒否する。
+
 catalog.generationCoverageは任意でcomplete又はpartialを持つ。completeは配布に含まれる公式再録の全問に、直接派生した基準問題の有効なテンプレートと科目別ミックス枠が一つずつ対応するという宣言である。省略時は旧データとして部分対応を許可する。completeでも非公開問題・除外資源の対応、法的適合、正答の真実性を保証しない。
 
 diagram.scene.kind=source_figureではprofileと整数valuesを持ち、登録renderer-source-figures@1.0.0の位置別契約に解決する。ノードID・任意座標・コードをこの型に混ぜない。登録域はsrc/core/source-figure-domains.jsonを正本とし、本体・文書検証・対応一覧で同じファイルを使う。汎用sceneのノード・辺参照とは別の検査である。
 
-setのquestionRefs・generationBindingsは候補の集合であり、現在A80・B23の全系列を持つ。generationBindingsの最大500は候補数の上限で、exam.questionCountの科目別60／20上限や各開始設定の件数を引き上げない。
+setのquestionRefs・generationBindingsは候補の集合であり、現在A80・B23の全系列を持つ。generationBindingsの最大500は候補数の上限で、exam.questionCountを指定する場合の科目別60／20上限や各開始設定の件数を引き上げない。studyでquestionCountを省略した場合は問数を制限せず、同じsessionへ問題を追加する。session.entries・currentIndex、instance.entryIndex、resultの件数には60問の上限を設けず、指定問数との一致・現在位置・生成instanceの所有者・全結果の集計を検証する。[共通追加仕様](/sessions#問題数を制限しない学習の共通仕様)に従う。

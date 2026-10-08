@@ -338,11 +338,11 @@
 | `subject` | この設定で扱う本アプリのFE科目。セットの科目と一致させ、科目Aと科目Bを一つのセッションへ混在させない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B"] |
 | `title` | モード選択と開始前説明に表示する設定名。公式の試験実施名と誤認させず、本アプリの練習又は学習用設定と分かる名前にする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=200 |
 | `mode` | 制限時間付きで正答を終了後に示すpracticeか、時間制限なく正答表示・一時停止を扱うstudyかを選ぶ。FE本番の追加機能とは説明しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["practice","study"] |
-| `questionCount` | 一つのセッションへ固定する出題枠数。年度別では同数の独立系列を必要とする。生成ミックスでは登録テンプレートから同系列の別入力を含めて全枠を生成するため、基準問題の候補数と同じとは限らない。必要な枠数・分野を確保できなければ開始しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=60 |
+| `questionCount` | 問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。 | 任意 | practiceでは必須。studyで省略時は問題数の制限なし。0やnullを無制限の代用にしない。 | integer | minimum=1 / maximum=60 |
 | `timeLimitSeconds` | practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。 | 条件付き | 条件付き：practiceでは必須で欠落を拒否する。studyでは省略し、時間制限を設けない。 | integer | minimum=1 / maximum=7200 |
 | `questionOrder` | セットに記録した順序で選ぶか、開始時に順序を抽選するか。確定した出題順をsession.entriesへ保存し、再開時に再抽選しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["set","shuffle"] |
 | `choiceOrder` | 元のchoices順を使うか、開始時に順序を抽選するか。choiceShuffleAllowedを尊重し、実際の順序はchoiceOrder配列へ固定する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["fixed","shuffle"] |
-| `duplicatePolicy` | 年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力と表示内容は同じセッションへ重複させない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["lineage_unique","instance_unique"] |
+| `duplicatePolicy` | 年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のcycle_uniqueはセットの全候補を一巡する間の系列重複を拒否し、別の周回では同条件の再出題を許可する。生成時は直前の同条件・可変な正答を避ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["lineage_unique","instance_unique","cycle_unique"] |
 | `shortagePolicy` | 必要な問題数又は分野内訳を満たせない場合の処理。初期版では開始を拒否し、不足したまま短縮して形式練習を始めない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="block" |
 | `quotas` | 科目Bのpracticeで必要な分野別枠数。出題候補と確定したセッションの両方でalgorithm／securityの内訳を確認する。 | 条件付き | 条件付き：Bのfull_examでは必須で欠落を拒否する。他の設定では省略し、ミックスの公開部分の内訳は選択時の分野構成で検証する。 | object | additionalProperties=false |
 | `quotas.algorithm` | Bの形式練習で必要なアルゴリズム・プログラミング分野の枠数。生成枠も一つの基準問題として数える。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=60 |
@@ -369,7 +369,8 @@
     },
     "then": {
       "required": [
-        "timeLimitSeconds"
+        "timeLimitSeconds",
+        "questionCount"
       ],
       "type": "object"
     },
@@ -505,6 +506,33 @@
         }
       }
     }
+  },
+  {
+    "if": {
+      "properties": {
+        "duplicatePolicy": {
+          "const": "cycle_unique"
+        }
+      },
+      "required": [
+        "duplicatePolicy"
+      ],
+      "type": "object"
+    },
+    "then": {
+      "properties": {
+        "mode": {
+          "const": "study"
+        }
+      },
+      "not": {
+        "required": [
+          "questionCount"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    }
   }
 ]
 ```
@@ -574,7 +602,7 @@
 | `schemaVersion` | このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="3.0.0" |
 | `id` | 一度確定した生成済み内容を識別するID。所有セッションの生成枠と結果から参照し、生成し直して同じIDの内容を置き換えない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `sessionId` | このinstanceを所有するsessionのID。削除・保存期限・再開を同じ単位で扱い、他のセッションへ所有内容を流用しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
-| `entryIndex` | 所有セッションのどの出題枠に結び付くかを示すentriesの位置。generatedInstanceIdと相互に対応させ、問題IDの代用にはしない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=59 |
+| `entryIndex` | 所有セッションのどの出題枠に結び付くかを示すentriesの位置。generatedInstanceIdと相互に対応させ、問題IDの代用にはしない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
 | `createdAt` | 生成済み内容を確定した時刻。所有セッションの準備中に保存したことを確認し、タイマー開始後に内容を入れ替えないために使う。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | format="date-time" / pattern="Z$" |
 | `templateRef` | この出題内容を作る契約を定義したテンプレートのID・改訂。入力域・作成時の改変宣言と由来を再確認するために固定する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/entityRef | additionalProperties=false |
 | `baseQuestionRef` | 生成の基となった不変問題のID・改訂。テンプレートの基準問題と一致させ、instance.questionの派生元からも追跡できるようにする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
@@ -848,13 +876,13 @@
 | `sessionRevision` | 結果を確定したsessionの保存版。後の状態変更や撤回処理で内容が変わった場合に、同じ結果として無断で再解釈しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=100000 |
 | `generatedAt` | 終了時の結果を確定した時刻。セッション終了時刻とは別に処理時点を記録し、後のレビューや再生成の時刻と混同しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | format="date-time" / pattern="Z$" |
 | `calculationVersion` | 記録した学習指標の計算規則を識別する版。将来計算方法が変わっても、過去の表示値がどの規則によるか説明できるようにする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="learning-accuracy-v1" |
-| `total` | この結果の対象となった出題枠数。正解・不正解・未解答の合計とentries件数に一致させ、公式成績の配点を表す値としない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=60 |
-| `correct` | 記録したoutcomeがcorrectである枠数。学習正答率の分子に使い、本番のIRT得点や合格判定と表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=60 |
-| `incorrect` | 選択済みでoutcomeがincorrectである枠数。未解答と分けて復習対象を示し、内訳の合計をtotalと照合する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=60 |
-| `unanswered` | 選択をしないまま終了した枠数。学習正答率の分母に含め、未解答を無かった問題として除外しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=60 |
-| `revealedCount` | studyで正答・解説を表示したことがある枠数。セッションのrevealed履歴を維持し、正答表示後の学習結果を説明する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=60 |
+| `total` | この結果の対象となった出題枠数。正解・不正解・未解答の合計とentries件数に一致させ、公式成績の配点を表す値としない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 |
+| `correct` | 記録したoutcomeがcorrectである枠数。学習正答率の分子に使い、本番のIRT得点や合格判定と表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
+| `incorrect` | 選択済みでoutcomeがincorrectである枠数。未解答と分けて復習対象を示し、内訳の合計をtotalと照合する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
+| `unanswered` | 選択をしないまま終了した枠数。学習正答率の分母に含め、未解答を無かった問題として除外しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
+| `revealedCount` | studyで正答・解説を表示したことがある枠数。セッションのrevealed履歴を維持し、正答表示後の学習結果を説明する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
 | `learningAccuracyPercent` | 全枠を等しい重みとしてcorrect÷total×100を小数1桁へ丸めた学習正答率。公式得点、合否、能力推定として表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | number | minimum=0 / maximum=100 / multipleOf=0.1 |
-| `entries` | 出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=60 |
+| `entries` | 出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 |
 | `entries[]` | 「entries」に記録する一つの要素。出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `entries[].questionRef` | 結果対象の固定問題又は生成基準問題の不変参照。セッションと同じ組にして保存し、最新改訂へ置き換えない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
 | `entries[].outcome` | この枠を正解、不正解、未解答のどれとして記録したか。件数の集計と復習表示に使い、参照検証自体は採点処理を実行しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["correct","incorrect","unanswered"] |
@@ -982,8 +1010,8 @@
 | `pausedAt` | studyを明示的に一時停止した時刻。停止期間を稼働時間へ含めず、再開時の状態確認に使う。 | 条件付き | 条件付き：pausedでは必須で欠落を拒否する。それ以外の状態では省略する。 | string | format="date-time" / pattern="Z$" |
 | `endedAt` | 終端状態へ遷移して解答受付を止めた時刻。時間切れではdeadlineAtに一致させ、以後の解答変更を結果へ反映しない。 | 条件付き | 条件付き：completed／expired／abandoned／invalidatedでは必須。それ以外では省略する。 | string | format="date-time" / pattern="Z$" |
 | `activeElapsedSeconds` | studyの停止期間を除いた稼働時間、又はpracticeの開始からの経過時間。表示と保存に使い、practiceの期限をこの値だけで延長しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=31536000 |
-| `currentIndex` | 現在表示しているentries内の位置。問題間移動・再開時の表示先を保存し、元資料の問番号や問題の永続IDとは分ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=59 |
-| `entries` | 開始時に固定した問題順と各問のユーザー状態。回答・見直し・正答表示履歴を問題定義から分離し、再開時に出題順を抽選し直さない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=60 |
+| `currentIndex` | 現在表示しているentries内の位置。問題間移動・再開時の表示先を保存し、元資料の問番号や問題の永続IDとは分ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
+| `entries` | 出題順と各問のユーザー状態。問題数が指定されている場合は開始時に全枠を固定し、無制限のstudyでは末尾へ追加する。追加済みの回答・見直し・正答表示履歴と出題順を再開時に保持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 |
 | `entries[]` | 「entries」に記録する一つの要素。開始時に固定した問題順と各問のユーザー状態。回答・見直し・正答表示履歴を問題定義から分離し、再開時に出題順を抽選し直さない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `entries[].questionRef` | この枠の固定問題又は生成の基準問題の不変参照。生成枠の実際の内容はgeneratedInstanceIdからinstance.questionへ解決する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
 | `entries[].choiceOrder` | 実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=2 / maxItems=200 / uniqueItems=true |

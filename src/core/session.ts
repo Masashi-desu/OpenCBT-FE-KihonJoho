@@ -1,5 +1,5 @@
-import type { Bundle, Run, Selection, Instance, Result } from "./types";
-import { refOf } from "./types";
+import type { Bundle, Run, Selection, Instance, Result, Question, Ref } from "./types";
+import { refOf, refKey } from "./types";
 import { newId, randomSeed, contentHash, shuffle } from "./hash";
 import { schema, DataError } from "./validation";
 import {
@@ -9,43 +9,45 @@ import {
   answerCanVary,
   checkParameters,
 } from "./generation";
-import { selectQuestions } from "./selection";
+import { selectQuestions, familyOf, nextQuestionRef } from "./selection";
 import { validateSourceFormat } from "./generation-formats";
 export const RETENTION_MS = 180 * 24 * 60 * 60 * 1000;
 export const expires = (at: number) =>
   new Date(at + RETENTION_MS).toISOString();
-export async function prepareRun(
+async function prepareQuestions(
   bundle: Bundle,
-  selection: Selection,
-  assets: Record<string, Blob>,
-  at = Date.now(),
-  beforeBinding?: (
-    id: string,
-    bundle: Bundle,
-    assets: Record<string, Blob>,
-  ) => Promise<void>,
-  prepared = selectQuestions(bundle, selection),
-  recentInstances: Instance[] = [],
-): Promise<Run> {
-  const { questions, exam, set } = prepared,
-    now = new Date(at).toISOString(),
-    id = newId("session");
-  schema("exam", exam);
-  schema("set", set);
-  const originals = structuredClone(bundle);
-  if (beforeBinding) await beforeBinding(id, originals, assets);
-  // The unbound source lives in this independent, complete snapshot. Binding never writes to it.
+  set: Run["set"],
+  exam: Run["exam"],
+  bindingMode: Run["session"]["bindingMode"],
+  questions: Question[],
+  id: string,
+  now: string,
+  offset: number,
+  recentInstances: Instance[],
+) {
   const issued = structuredClone(questions),
     instances: Instance[] = [];
-  const bindingMode =
-    selection.kind !== "annual" ? "generated_values" : "original_data";
   const lastAnswer = new Map<string, string>();
   const latestSessions = new Map<string, string>(),
     usedParameters = new Set<string>();
-  for (const previous of [...recentInstances].sort(
+  const history = [...recentInstances].sort(
     (a, b) =>
       b.createdAt.localeCompare(a.createdAt) || b.entryIndex - a.entryIndex,
-  )) {
+  );
+  // A resumed endless run must avoid its own preceding condition and answer.
+  const latestByTemplate = new Map<string, Instance>();
+  if (exam.duplicatePolicy === "cycle_unique")
+    for (const previous of history) {
+      const key = `${previous.templateRef.id}@${previous.templateRef.revision}`,
+        remembered = latestByTemplate.get(key);
+      if (!remembered ||
+        (previous.sessionId === id && remembered.sessionId !== id))
+        latestByTemplate.set(key, previous);
+    }
+  const generationHistory = exam.duplicatePolicy === "cycle_unique"
+    ? [...latestByTemplate.values()]
+    : history;
+  for (const previous of generationHistory) {
     const key = `${previous.templateRef.id}@${previous.templateRef.revision}`;
     if (!lastAnswer.has(key))
       lastAnswer.set(key, answerSignature(previous.question));
@@ -55,6 +57,11 @@ export async function prepareRun(
         `${key}:${JSON.stringify(previous.parameters.values)}`,
       );
   }
+  // Fixed-length and bookmark runs exclude every owned input; endless runs retain the last one.
+  for (const previous of generationHistory.filter((i) => i.sessionId === id))
+    usedParameters.add(
+      `${previous.templateRef.id}@${previous.templateRef.revision}:${JSON.stringify(previous.parameters.values)}`,
+    );
   const entries = [];
   for (let i = 0; i < questions.length; i++) {
     const base = questions[i],
@@ -64,7 +71,7 @@ export async function prepareRun(
           g.questionRef.revision === base.revision,
       );
     let instance: Instance | undefined;
-    if (selection.kind !== "annual" && !binding)
+    if (bindingMode === "generated_values" && !binding)
       throw new DataError(
         "BINDING_REF",
         "生成練習に生成できない固定問題が含まれています",
@@ -127,7 +134,7 @@ export async function prepareRun(
         schemaVersion: "3.0.0",
         id: instanceId,
         sessionId: id,
-        entryIndex: i,
+        entryIndex: offset + i,
         createdAt: now,
         templateRef: { id: t.id, revision: t.revision },
         baseQuestionRef: refOf(base),
@@ -152,7 +159,7 @@ export async function prepareRun(
         contentSha256: await contentHash(q),
       },
       choiceOrder:
-        selection.kind !== "annual" && q.choiceShuffleAllowed
+        exam.choiceOrder === "shuffle" && q.choiceShuffleAllowed
           ? shuffle(q.choices.map((c) => c.id))
           : q.choices.map((c) => c.id),
       reviewFlag: false,
@@ -160,6 +167,42 @@ export async function prepareRun(
       ...(instance ? { generatedInstanceId: instance.id } : {}),
     });
   }
+  return { issued, instances, entries };
+}
+export async function prepareRun(
+  bundle: Bundle,
+  selection: Selection,
+  assets: Record<string, Blob>,
+  at = Date.now(),
+  beforeBinding?: (
+    id: string,
+    bundle: Bundle,
+    assets: Record<string, Blob>,
+  ) => Promise<void>,
+  prepared = selectQuestions(bundle, selection),
+  recentInstances: Instance[] = [],
+): Promise<Run> {
+  const { questions, exam, set } = prepared,
+    now = new Date(at).toISOString(),
+    id = newId("session");
+  schema("exam", exam);
+  schema("set", set);
+  const originals = structuredClone(bundle);
+  if (beforeBinding) await beforeBinding(id, originals, assets);
+  // The unbound source lives in this independent, complete snapshot. Binding never writes to it.
+  const bindingMode =
+    selection.kind !== "annual" ? "generated_values" : "original_data";
+  const { issued, instances, entries } = await prepareQuestions(
+    originals,
+    set,
+    exam,
+    bindingMode,
+    questions,
+    id,
+    now,
+    0,
+    recentInstances,
+  );
   const run: Run = {
     session: {
       schemaVersion: "3.0.0",
@@ -190,6 +233,10 @@ export async function prepareRun(
     assets,
     selection: { ...structuredClone(selection), bindingMode },
   };
+  if (selection.mode === "endless") {
+    delete run.selection.year;
+    delete run.selection.size;
+  }
   schema("session", run.session);
   return run;
 }
@@ -209,6 +256,64 @@ export function touch(run: Run, at = Date.now()): Run {
   run.session.updatedAt = new Date(at).toISOString();
   run.session.expiresAt = expires(at);
   return run;
+}
+export function isOpenEnded(run: Run): boolean {
+  return run.exam.mode === "study" && run.exam.questionCount === undefined;
+}
+export async function appendRunQuestion(
+  run: Run,
+  questionRef?: Ref,
+  at = Date.now(),
+  recentInstances: Instance[] = [],
+): Promise<Run> {
+  if (!isOpenEnded(run))
+    throw new DataError("QUESTION_LIMIT", "問題数が決まっている練習には追加できません");
+  if (run.session.status !== "running")
+    throw new DataError("STATE", "解答中の練習にだけ問題を追加できます");
+  questionRef ??= nextQuestionRef(run);
+  if (
+    !run.set.questionRefs.some(
+      (r) => r.questionId === questionRef.questionId && r.revision === questionRef.revision,
+    )
+  )
+    throw new DataError("REFERENCE", "選択したセットにない問題です");
+  const base = run.bundle.questions.find(
+    (q) => q.id === questionRef.questionId && q.revision === questionRef.revision,
+  );
+  if (!base || base.subject !== run.exam.subject || base.lifecycle !== "active")
+    throw new DataError("REFERENCE", "追加する問題を利用できません");
+  if (run.exam.duplicatePolicy === "lineage_unique") {
+    const family = new Set(familyOf(base, run.bundle));
+    if (
+      run.session.entries.some((e) => {
+        const previous = run.bundle.questions.find(
+          (q) => q.id === e.questionRef.questionId && q.revision === e.questionRef.revision,
+        );
+        return previous && familyOf(previous, run.bundle).some((key) => family.has(key));
+      })
+    )
+      throw new DataError("SESSION_DUPLICATE", "同じ系列の問題は追加できません");
+  }
+  const next = structuredClone(run),
+    offset = next.session.entries.length,
+    prepared = await prepareQuestions(
+      next.bundle,
+      next.set,
+      next.exam,
+      next.session.bindingMode,
+      [base],
+      next.session.id,
+      new Date(at).toISOString(),
+      offset,
+      [...recentInstances.filter((i) => i.sessionId !== run.session.id), ...next.instances],
+    );
+  next.issued.push(...prepared.issued);
+  next.instances.push(...prepared.instances);
+  next.session.entries.push(...prepared.entries);
+  next.session.currentIndex = offset;
+  touch(next, at);
+  await validateRun(next);
+  return next;
 }
 export function remaining(run: Run, at = Date.now()): number {
   return run.session.deadlineAt
@@ -300,6 +405,17 @@ export function updateAnswer(
 }
 export async function validateRun(run: Run) {
   if (
+    run.selection.mode === "endless" &&
+    (run.selection.kind !== "mix" ||
+      run.selection.year !== undefined ||
+      run.selection.size !== undefined ||
+      run.exam.mode !== "study" ||
+      run.exam.questionCount !== undefined ||
+      run.exam.duplicatePolicy !== "cycle_unique" ||
+      run.session.bindingMode !== "generated_values")
+  )
+    throw new DataError("SESSION_CONFIG", "無限周回の保存設定が一致しません");
+  if (
     run.session.setRef.id !== run.set.id ||
     run.session.setRef.revision !== run.set.revision ||
     run.session.examConfigRef.id !== run.exam.id ||
@@ -311,7 +427,7 @@ export async function validateRun(run: Run) {
   schema("set", run.set);
   if (
     run.issued.length !== run.session.entries.length ||
-    run.issued.length !== run.exam.questionCount
+    (run.exam.questionCount !== undefined && run.issued.length !== run.exam.questionCount)
   )
     throw new DataError("SESSION_COUNT", "問題数が一致しません");
   for (let i = 0; i < run.issued.length; i++) {
@@ -390,7 +506,9 @@ export async function validateRun(run: Run) {
       Date.parse(run.session.startedAt) + run.exam.timeLimitSeconds! * 1000
   )
     throw new DataError("DEADLINE", "保存した期限が不正です");
-  if (run.exam.duplicatePolicy === "instance_unique") {
+  if (run.exam.duplicatePolicy === "cycle_unique" && !isOpenEnded(run))
+    throw new DataError("SESSION_CONFIG", "周回する練習の設定が一致しません");
+  if (run.exam.duplicatePolicy !== "lineage_unique") {
     if (
       run.instances.length !== run.issued.length ||
       run.session.entries.some((e) => !e.issuedContent.bindingPerformed)
@@ -399,14 +517,13 @@ export async function validateRun(run: Run) {
         "BINDING_RECORD",
         "生成ミックスに未生成の枠があります",
       );
-    const keys = run.instances.map(
-      (i) =>
-        `${i.templateRef.id}@${i.templateRef.revision}:${JSON.stringify(i.parameters.values)}`,
-    );
+    const keys = run.instances.map((i) => run.exam.duplicatePolicy === "cycle_unique"
+      ? `${Math.floor(i.entryIndex / run.set.questionRefs.length)}:${refKey(i.baseQuestionRef)}`
+      : `${i.templateRef.id}@${i.templateRef.revision}:${JSON.stringify(i.parameters.values)}`);
     if (new Set(keys).size !== keys.length)
       throw new DataError(
         "SESSION_DUPLICATE",
-        "同じ入力の生成問題が重複しています",
+        "同じ入力の生成問題又は同じ周回の系列が重複しています",
       );
   }
   if (

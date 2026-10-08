@@ -12,6 +12,7 @@ import {
   Bookmark as BookmarkIcon,
   CalendarDays,
   Shuffle,
+  Infinity as InfinityIcon,
   Play,
   Clock,
   History,
@@ -49,8 +50,11 @@ import {
 } from "../core/types";
 import { loadCatalog, loadAsset } from "../core/catalog";
 import { selectQuestions } from "../core/selection";
+import { StudyClock } from "../core/study-clock";
 import {
   prepareRun,
+  appendRunQuestion,
+  isOpenEnded,
   startRun,
   finishRun,
   updateAnswer,
@@ -205,7 +209,7 @@ export function App() {
     releaseLock = useRef<(() => void) | undefined>(undefined),
     lockedId = useRef<string | undefined>(undefined),
     saveFailed = useRef(false),
-    studyFraction = useRef(0),
+    studyClock = useRef(new StudyClock(performance.now())),
     latestBusy = useRef(busy),
     lastTime = useRef({ wall: Date.now(), mono: performance.now() }),
     pendingSnapshot = useRef<string | undefined>(undefined),
@@ -318,7 +322,7 @@ export function App() {
         current.current = next;
         setRun(next);
         lastTime.current = { wall: Date.now(), mono: performance.now() };
-        studyFraction.current = 0;
+        studyClock.current.reset(performance.now(), true);
         if (next.session.status === "invalidated")
           setError(
             `この解答は無効として停止しています（${next.session.invalidationReason}）。新しい練習を選んでください。`,
@@ -417,10 +421,7 @@ export function App() {
         return;
       }
       if (r.exam.mode === "study") {
-        studyFraction.current += Math.max(0, (mono - previous.mono) / 1000);
-        const seconds = Math.floor(studyFraction.current);
-        studyFraction.current -= seconds;
-        r.session.activeElapsedSeconds += seconds;
+        r.session.activeElapsedSeconds += studyClock.current.collect(mono);
       }
       if (at - Date.parse(r.session.updatedAt) >= 5000) {
         const next = { ...r, session: structuredClone(r.session) };
@@ -438,8 +439,17 @@ export function App() {
   } catch (e) {
     selectionError = e instanceof Error ? e.message : String(e);
   }
+  const finiteSelection = useRef<Selection>(defaults);
   const patch = (value: Partial<Selection>) =>
-    setSelection((old) => ({ ...old, ...value }));
+    setSelection((old) => {
+      if (value.mode === "endless") {
+        if (old.mode !== "endless") finiteSelection.current = old;
+        return { ...old, ...value, kind: "mix", bindingMode: "generated_values" };
+      }
+      if (old.mode === "endless" && value.mode)
+        return { ...finiteSelection.current, subject: old.subject, ...value };
+      return { ...old, ...value };
+    });
   const begin = async (launchSelection = selection) => {
     if (!bundle) return;
     setBusy("出題する問題を固定しています");
@@ -482,7 +492,7 @@ export function App() {
       current.current = next;
       setRun(next);
       lastTime.current = { wall: Date.now(), mono: performance.now() };
-      studyFraction.current = 0;
+      studyClock.current.reset(performance.now(), true);
       navigate("exam");
     } catch (e) {
       if (pendingSnapshot.current) {
@@ -499,6 +509,7 @@ export function App() {
     if (
       !r ||
       !["running", "paused"].includes(r.session.status) ||
+      latestBusy.current ||
       saveFailed.current ||
       index < 0 ||
       index >= r.session.entries.length
@@ -509,6 +520,7 @@ export function App() {
       next.session.status = "running";
       delete next.session.pausedAt;
       lastTime.current = { wall: Date.now(), mono: performance.now() };
+      studyClock.current.reset(performance.now());
     }
     next.session.currentIndex = index;
     commit(touch(next));
@@ -518,14 +530,14 @@ export function App() {
   };
   const answer = (id: string | undefined) => {
     const r = current.current;
-    if (!r) return;
+    if (!r || latestBusy.current || saveFailed.current) return;
     const next = updateAnswer(r, id);
     commit(next);
     if (next.result) navigate("result");
   };
   const flag = () => {
     const r = current.current;
-    if (!r || r.session.status !== "running") return;
+    if (!r || r.session.status !== "running" || latestBusy.current) return;
     const next = { ...r, session: structuredClone(r.session) };
     next.session.entries[next.session.currentIndex].reviewFlag =
       !next.session.entries[next.session.currentIndex].reviewFlag;
@@ -533,14 +545,16 @@ export function App() {
   };
   const reveal = () => {
     const r = current.current;
-    if (!r || r.exam.mode !== "study" || r.session.status !== "running") return;
+    if (!r || r.exam.mode !== "study" || r.session.status !== "running" || latestBusy.current) return;
     const next = { ...r, session: structuredClone(r.session) };
     next.session.entries[next.session.currentIndex].revealed = true;
     commit(touch(next));
   };
   const pause = (goHome = false) => {
     const r = current.current;
-    if (!r || r.exam.mode !== "study") return;
+    if (!r || r.exam.mode !== "study" || latestBusy.current) return;
+    if (r.session.status === "running")
+      r.session.activeElapsedSeconds += studyClock.current.collect(performance.now());
     const next = { ...r, session: structuredClone(r.session) };
     if (next.session.status === "running") {
       next.session.status = "paused";
@@ -549,13 +563,16 @@ export function App() {
       next.session.status = "running";
       delete next.session.pausedAt;
       lastTime.current = { wall: Date.now(), mono: performance.now() };
+      studyClock.current.reset(performance.now());
     }
     commit(touch(next));
     if (goHome) navigate("menu");
   };
   const finish = () => {
     const r = current.current;
-    if (!r) return;
+    if (!r || latestBusy.current) return;
+    if (r.exam.mode === "study" && r.session.status === "running")
+      r.session.activeElapsedSeconds += studyClock.current.collect(performance.now());
     const next = finishRun(
       r,
       r.session.deadlineAt && remaining(r) === 0 ? "expired" : "completed",
@@ -610,19 +627,50 @@ export function App() {
       bindingMode: "generated_values",
       bookmarkQuestionRef: bookmark.questionRef,
     });
-  const nextBookmarkQuestion = async () => {
+  const nextQuestion = async () => {
     const r = current.current;
     if (
       !r ||
-      r.selection.kind !== "bookmark" ||
+      latestBusy.current ||
+      saveFailed.current ||
       !["running", "paused"].includes(r.session.status)
     )
       return;
-    commit(finishRun(r, "completed"));
-    await queue.current;
-    if (saveFailed.current) return;
-    await begin(r.selection);
-    if (current.current?.session.id === r.session.id) navigate("result");
+    if (r.session.currentIndex < r.issued.length - 1) {
+      move(r.session.currentIndex + 1);
+      return;
+    }
+    if (!isOpenEnded(r) || r.session.status !== "running") return;
+    latestBusy.current = "次の問題を準備しています";
+    setBusy(latestBusy.current);
+    try {
+      await queue.current;
+      if (saveFailed.current) return;
+      const saved = current.current!,
+        next = await appendRunQuestion(
+          saved,
+          undefined,
+          Date.now(),
+          await recentGeneration(),
+        );
+      await ensureMath(next.issued.slice(-1));
+      next.session.activeElapsedSeconds += studyClock.current.collect(performance.now());
+      try {
+        await saveRun(next);
+      } catch (e) {
+        saveFailed.current = true;
+        throw e;
+      }
+      current.current = next;
+      setRun(next);
+      document.querySelector(".reading-scroll")?.scrollTo(0, 0);
+      h1.current?.focus();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      latestBusy.current = "";
+      setBusy("");
+    }
   };
   const remove = async () => {
     setBusy("履歴と保存した問題を削除しています");
@@ -745,6 +793,7 @@ export function App() {
     { id: "licenses" as View, label: "ライセンス表記", icon: Scale },
   ];
   const goMenu = () => {
+    if (latestBusy.current) return;
     if (isExam && active) setDialog("leave");
     else navigate("menu");
   };
@@ -932,6 +981,29 @@ export function App() {
               <section className="selection-card">
                 <div className="section-title">
                   <span className="step-dot">1</span>
+                  <h2>学習モードを選択</h2>
+                </div>
+                <fieldset className="mode-field mode-selector">
+                  <legend className="sr-only">学習モード</legend>
+                  <div className="segmented">
+                    {([
+                      { mode: "study", label: "学習・復習", icon: BookOpen },
+                      { mode: "practice", label: "時間付き練習", icon: Clock },
+                      { mode: "endless", label: "無限周回", icon: InfinityIcon },
+                    ] as const).map(({ mode, label, icon: Icon }) => (
+                      <button
+                        key={mode}
+                        aria-pressed={selection.mode === mode}
+                        className={selection.mode === mode ? "selected" : ""}
+                        onClick={() => patch({ mode })}
+                      >
+                        <Icon size={16} /> {label}
+                      </button>
+                    ))}
+                  </div>
+                </fieldset>
+                <div className="section-title">
+                  <span className="step-dot">2</span>
                   <h2>科目を選択</h2>
                 </div>
                 <div className="subject-tabs" role="group" aria-label="科目">
@@ -955,116 +1027,100 @@ export function App() {
                     </button>
                   ))}
                 </div>
-                <div className="section-title">
-                  <span className="step-dot">2</span>
-                  <h2>出題セットを選択</h2>
-                </div>
-                <div
-                  className="set-options"
-                  role="group"
-                  aria-label="出題セット"
-                >
-                  {[
-                    {
-                      kind: "annual" as const,
-                      title: "年度別オリジナル",
-                      text: "公開年度の問題を、原文・元の値・順序のまま。",
-                      icon: CalendarDays,
-                    },
-                    {
-                      kind: "mix" as const,
-                      title: "ランダムミックス",
-                      text: "原問題を基に対象・条件・数値と正答を毎回生成。分野ごとの問数を維持。",
-                      icon: Shuffle,
-                    },
-                  ].map((v) => (
-                    <button
-                      key={v.kind}
-                      className={
-                        selection.kind === v.kind
-                          ? "set-option selected"
-                          : "set-option"
-                      }
-                      aria-pressed={selection.kind === v.kind}
-                      onClick={() =>
-                        patch({
-                          kind: v.kind,
-                          size: "public",
-                          bindingMode:
-                            v.kind === "mix"
-                              ? "generated_values"
-                              : "original_data",
-                        })
-                      }
+                {selection.mode !== "endless" && (
+                  <>
+                    <div className="section-title">
+                      <span className="step-dot">3</span>
+                      <h2>出題セットを選択</h2>
+                    </div>
+                    <div
+                      className="set-options"
+                      role="group"
+                      aria-label="出題セット"
                     >
-                      <v.icon size={23} />
-                      <strong>{v.title}</strong>
-                      <span>{v.text}</span>
-                      <span className="radio-dot" aria-hidden="true">
-                        {selection.kind === v.kind && <Check size={12} />}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-                <div className="config-grid">
-                  {
+                      {[
+                        {
+                          kind: "annual" as const,
+                          title: "年度別オリジナル",
+                          text: "公開年度の問題を、原文・元の値・順序のまま。",
+                          icon: CalendarDays,
+                        },
+                        {
+                          kind: "mix" as const,
+                          title: "ランダムミックス",
+                          text: "原問題を基に対象・条件・数値と正答を毎回生成。分野ごとの問数を維持。",
+                          icon: Shuffle,
+                        },
+                      ].map((v) => (
+                        <button
+                          key={v.kind}
+                          className={
+                            selection.kind === v.kind
+                              ? "set-option selected"
+                              : "set-option"
+                          }
+                          aria-pressed={selection.kind === v.kind}
+                          onClick={() =>
+                            patch({
+                              kind: v.kind,
+                              size: "public",
+                              bindingMode:
+                                v.kind === "mix"
+                                  ? "generated_values"
+                                  : "original_data",
+                            })
+                          }
+                        >
+                          <v.icon size={23} />
+                          <strong>{v.title}</strong>
+                          <span>{v.text}</span>
+                          <span className="radio-dot" aria-hidden="true">
+                            {selection.kind === v.kind && <Check size={12} />}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {selection.mode !== "endless" && (
+                  <div className="config-grid">
                     <label className="field-label">
-                      {selection.kind === "mix"
-                        ? "分野構成の基準年度"
-                        : "公開年度"}
+                      {selection.kind === "mix" ? "分野構成の基準年度" : "公開年度"}
                       <select
                         value={selection.year}
-                        onChange={(e) =>
-                          patch({ year: Number(e.target.value) })
-                        }
+                        onChange={(e) => patch({ year: Number(e.target.value) })}
                       >
-                        {[2026, 2025, 2024, 2023].map((y) => (
-                          <option key={y} value={y}>
-                            {y}年度（令和{y - 2018}年度）
+                        {[2026, 2025, 2024, 2023].map((year) => (
+                          <option key={year} value={year}>
+                            {year}年度（令和{year - 2018}年度）
                           </option>
                         ))}
                       </select>
                     </label>
-                  }
-                  <fieldset className="mode-field">
-                    <legend>学習モード</legend>
-                    <div className="segmented">
-                      {(["study", "practice"] as const).map((m) => (
-                        <button
-                          key={m}
-                          aria-pressed={selection.mode === m}
-                          className={selection.mode === m ? "selected" : ""}
-                          onClick={() => patch({ mode: m })}
-                        >
-                          {m === "study" ? (
-                            <BookOpen size={16} />
-                          ) : (
-                            <Clock size={16} />
-                          )}{" "}
-                          {m === "study" ? "学習・復習" : "時間付き練習"}
-                        </button>
-                      ))}
-                    </div>
-                  </fieldset>
-                  {selection.kind === "mix" && (
-                    <label className="field-label">
-                      出題数
-                      <select
-                        value={selection.size}
-                        onChange={(e) =>
-                          patch({ size: e.target.value as Selection["size"] })
-                        }
-                      >
-                        <option value="public">
-                          短い練習（{selection.subject === "A" ? 20 : 6}問）
-                        </option>
-                        <option value="full">
-                          本番の問数（{selection.subject === "A" ? 60 : 20}問）
-                        </option>
-                      </select>
-                    </label>
-                  )}
-                </div>
+                    <fieldset className="mode-field">
+                      <legend>出題数</legend>
+                      {selection.kind === "mix" ? (
+                        <div className="segmented">
+                          {(["public", "full"] as const).map((size) => (
+                            <button
+                              key={size}
+                              aria-pressed={selection.size === size}
+                              className={selection.size === size ? "selected" : ""}
+                              onClick={() => patch({ size })}
+                            >
+                              {size === "public" ? "短い練習" : "本番の問数"}
+                              （{selection.subject === "A"
+                                ? size === "public" ? 20 : 60
+                                : size === "public" ? 6 : 20}問）
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="field-value">公開問題（{chosen?.questions.length ?? "―"}問）</div>
+                      )}
+                    </fieldset>
+                  </div>
+                )}
                 {selection.kind === "annual" &&
                   selection.subject === "B" &&
                   selection.year === 2025 && (
@@ -1087,15 +1143,15 @@ export function App() {
                     {chosen ? (
                       <>
                         <strong>
-                          {chosen.questions.length}
-                          <small>問</small>
+                          {selection.mode === "endless" ? "∞" : chosen.questions.length}
+                          <small>{selection.mode === "endless" ? "無限周回" : "問"}</small>
                         </strong>
                         <div>
-                          {selection.mode === "study"
+                          {selection.mode !== "practice"
                             ? "時間制限なし"
                             : `${Math.round(chosen.exam.timeLimitSeconds! / 60)}分`}
                           <small>
-                            {selection.mode === "study"
+                            {selection.mode !== "practice"
                               ? "正答の表示・一時停止ができます"
                               : "正答は終了後に表示します"}
                           </small>
@@ -1153,18 +1209,18 @@ export function App() {
                 <div className="instruction-stats">
                   <div>
                     <ListChecks size={20} />
-                    <strong>{chosen.questions.length}問</strong>
+                    <strong>{selection.mode === "endless" ? "無限周回" : `${chosen.questions.length}問`}</strong>
                     <span>出題数</span>
                   </div>
                   <div>
                     <Clock size={20} />
                     <strong>
-                      {selection.mode === "study"
+                      {selection.mode !== "practice"
                         ? "制限なし"
                         : `${Math.round(chosen.exam.timeLimitSeconds! / 60)}分`}
                     </strong>
                     <span>
-                      {selection.mode === "study"
+                      {selection.mode !== "practice"
                         ? "学習モード"
                         : "時間付き練習"}
                     </span>
@@ -1185,7 +1241,9 @@ export function App() {
                       : "正答・独自解説を必要なときに表示し、一時停止できます。正答を見た記録は残ります。"}
                   </li>
                   <li>
-                    {selection.bindingMode === "generated_values"
+                    {selection.mode === "endless"
+                      ? "収録問題を巡回して出題します。「次へ」で新しい条件の問題を追加し、終了時に全問をまとめて集計します。"
+                      : selection.bindingMode === "generated_values"
                       ? "登録テンプレートの入力値を開始時に一度だけ生成・バインドします。バインドした問題は「改変あり」と表示し、元データも保持します。"
                       : "元データの数値・図・本文を維持します。元から改変済みの問題は、その改変表示を維持します。"}
                   </li>
@@ -1196,7 +1254,9 @@ export function App() {
                     電卓・メモ・ヒント・疑似言語の実行機能はありません。公式問題の詳細解説は一部を除き未収録です。
                   </li>
                   <li>
-                    {selection.kind === "mix" && selection.size === "full"
+                    {selection.mode === "endless"
+                      ? "出題数と時間に制限はありません。年度を指定せず、選んだ科目の問題を続けて練習できます。"
+                      : selection.kind === "mix" && selection.size === "full"
                       ? "本番の問数・制限時間を使います。収録問題を分野比率で選ぶ学習練習で、実際の本番の問題分布を保証しません。"
                       : "制限時間はAを1問90秒、Bを1問300秒として算出した本アプリの設定です。公開部分を本番1回分とは扱いません。"}
                   </li>
@@ -1246,6 +1306,7 @@ export function App() {
                 <div className="exam-app-toolbar">
                   <button
                     className="exam-brand"
+                    disabled={Boolean(busy)}
                     onClick={() => (isReview ? navigate("result") : goMenu())}
                   >
                     <BrandMark />
@@ -1255,6 +1316,8 @@ export function App() {
                       科目{q.subject} ·{" "}
                       {isReview
                         ? "復習"
+                        : run.selection.mode === "endless"
+                          ? "無限周回"
                         : run.exam.mode === "study"
                           ? "学習"
                           : "時間付き練習"}
@@ -1307,7 +1370,7 @@ export function App() {
                           </button>
                         </>
                       )}
-                      <button onClick={() => setDialog("list")}>
+                      <button disabled={Boolean(busy)} onClick={() => setDialog("list")}>
                         <ListChecks size={18} />
                         問題一覧
                       </button>
@@ -1370,6 +1433,7 @@ export function App() {
                       entries={run.session.entries}
                       currentIndex={currentIndex}
                       disabled={!canNavigate}
+                      expandable={isOpenEnded(run)}
                       onSelect={(index) =>
                         isReview ? setReviewIndex(index) : move(index)
                       }
@@ -1544,14 +1608,14 @@ export function App() {
                         disabled={
                           !canNavigate ||
                           (currentIndex === run.issued.length - 1 &&
-                            (isReview || run.selection.kind !== "bookmark"))
+                            (isReview ||
+                              !isOpenEnded(run) ||
+                              run.session.status !== "running"))
                         }
                         onClick={() =>
                           isReview
                             ? setReviewIndex((i) => i + 1)
-                            : run.selection.kind === "bookmark"
-                              ? void nextBookmarkQuestion()
-                              : move(currentIndex + 1)
+                            : void nextQuestion()
                         }
                       >
                         {!isReview && run.selection.kind === "bookmark"
@@ -1670,13 +1734,13 @@ export function App() {
                     </button>
                   </div>
                   <div className="result-navigation">
-                    {run.selection.kind === "bookmark" && (
+                    {(run.selection.kind === "bookmark" || run.selection.mode === "endless") && (
                       <button
                         className="primary"
                         disabled={Boolean(busy || error)}
                         onClick={() => void begin(run.selection)}
                       >
-                        <Play size={18} /> 同じ問題で続けて練習
+                        <Play size={18} /> {run.selection.mode === "endless" ? "もう一度練習" : "同じ問題で続けて練習"}
                       </button>
                     )}
                     <button
@@ -1910,7 +1974,7 @@ export function App() {
                         <h2>{item.title}</h2>
                         <p>
                           {item.session.entries.length}問 ·{" "}
-                          {item.exam.mode === "study" ? "学習" : "時間付き練習"}{" "}
+                          {item.selection.mode === "endless" ? "無限周回" : item.exam.mode === "study" ? "学習" : "時間付き練習"}{" "}
                           ·{" "}
                           {item.session.bindingMode === "generated_values"
                             ? "生成値を使用"

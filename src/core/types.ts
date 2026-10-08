@@ -181,11 +181,11 @@ export type Exam = {
   title: string;
   subject: "A" | "B";
   mode: "study" | "practice";
-  questionCount: number;
+  questionCount?: number;
   timeLimitSeconds?: number;
   questionOrder: "set" | "shuffle";
   choiceOrder: "fixed" | "shuffle";
-  duplicatePolicy: "lineage_unique" | "instance_unique";
+  duplicatePolicy: "lineage_unique" | "instance_unique" | "cycle_unique";
   shortagePolicy: "block";
   practiceScope?: "full_exam" | "public_subset" | "learning_set";
   quotas?: { algorithm: number; security: number };
@@ -319,9 +319,9 @@ export type Run = {
 export type Selection = {
   subject: "A" | "B";
   kind: "annual" | "mix" | "bookmark";
-  year: number;
-  mode: "practice" | "study";
-  size: "public" | "full";
+  year?: number;
+  mode: "practice" | "study" | "endless";
+  size?: "public" | "full";
   bindingMode: "original_data" | "generated_values";
   bookmarkQuestionRef?: Ref;
 };

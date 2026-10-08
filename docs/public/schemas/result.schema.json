@@ -42,35 +42,30 @@
     "total": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 60,
       "description": "この結果の対象となった出題枠数。正解・不正解・未解答の合計とentries件数に一致させ、公式成績の配点を表す値としない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "correct": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 60,
       "description": "記録したoutcomeがcorrectである枠数。学習正答率の分子に使い、本番のIRT得点や合格判定と表示しない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "incorrect": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 60,
       "description": "選択済みでoutcomeがincorrectである枠数。未解答と分けて復習対象を示し、内訳の合計をtotalと照合する。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "unanswered": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 60,
       "description": "選択をしないまま終了した枠数。学習正答率の分母に含め、未解答を無かった問題として除外しない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "revealedCount": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 60,
       "description": "studyで正答・解説を表示したことがある枠数。セッションのrevealed履歴を維持し、正答表示後の学習結果を説明する。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
@@ -117,7 +112,6 @@
         "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
       },
       "minItems": 1,
-      "maxItems": 60,
       "description": "出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },

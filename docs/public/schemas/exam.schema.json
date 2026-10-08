@@ -51,8 +51,8 @@
       "type": "integer",
       "minimum": 1,
       "maximum": 60,
-      "description": "一つのセッションへ固定する出題枠数。年度別では同数の独立系列を必要とする。生成ミックスでは登録テンプレートから同系列の別入力を含めて全枠を生成するため、基準問題の候補数と同じとは限らない。必要な枠数・分野を確保できなければ開始しない。",
-      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+      "description": "問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。",
+      "$comment": "practiceでは必須。studyで省略時は問題数の制限なし。0やnullを無制限の代用にしない。"
     },
     "timeLimitSeconds": {
       "type": "integer",
@@ -80,11 +80,12 @@
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "duplicatePolicy": {
-      "description": "年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力と表示内容は同じセッションへ重複させない。",
+      "description": "年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のcycle_uniqueはセットの全候補を一巡する間の系列重複を拒否し、別の周回では同条件の再出題を許可する。生成時は直前の同条件・可変な正答を避ける。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。",
       "enum": [
         "lineage_unique",
-        "instance_unique"
+        "instance_unique",
+        "cycle_unique"
       ]
     },
     "shortagePolicy": {
@@ -136,7 +137,6 @@
     "subject",
     "title",
     "mode",
-    "questionCount",
     "questionOrder",
     "choiceOrder",
     "duplicatePolicy",
@@ -158,7 +158,8 @@
       },
       "then": {
         "required": [
-          "timeLimitSeconds"
+          "timeLimitSeconds",
+          "questionCount"
         ],
         "type": "object"
       },
@@ -293,6 +294,33 @@
             "maximum": 20
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "duplicatePolicy": {
+            "const": "cycle_unique"
+          }
+        },
+        "required": [
+          "duplicatePolicy"
+        ],
+        "type": "object"
+      },
+      "then": {
+        "properties": {
+          "mode": {
+            "const": "study"
+          }
+        },
+        "not": {
+          "required": [
+            "questionCount"
+          ],
+          "type": "object"
+        },
+        "type": "object"
       }
     }
   ]

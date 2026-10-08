@@ -12,7 +12,6 @@ export type Bookmark = {
   area: string;
   createdAt: string;
 };
-export const BOOKMARK_PRACTICE_COUNT = 1;
 
 export function bookmarkSource(bundle: Bundle, ref: Ref) {
   const row = generationCoverage(bundle).rows.find(

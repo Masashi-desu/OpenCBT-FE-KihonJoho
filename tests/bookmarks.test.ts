@@ -6,7 +6,6 @@ import {
   bookmarkPreview,
   bookmarkTemplate,
   resultBookmarks,
-  BOOKMARK_PRACTICE_COUNT,
 } from "../src/core/bookmarks";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { refOf, type Selection } from "../src/core/types";
@@ -174,7 +173,7 @@ test("all bookmarked sources generate consecutive fresh practice runs without ch
       assert.deepEqual(resultBookmarks(b, incorrect, "incorrect", 0), [
         makeBookmark(b, refOf(row.original), 0),
       ], row.original.id);
-      assert.equal(run.issued.length, BOOKMARK_PRACTICE_COUNT);
+      assert.equal(run.issued.length, 1);
       assert.equal(run.instances.length, run.issued.length);
       assert(
         run.session.entries.every((e) => e.issuedContent.bindingPerformed),

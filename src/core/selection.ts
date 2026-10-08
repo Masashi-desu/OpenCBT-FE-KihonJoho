@@ -4,6 +4,8 @@ import {
   type Question,
   type Exam,
   type SetRecord,
+  type Run,
+  type Ref,
   refOf,
   refKey,
 } from "./types";
@@ -12,7 +14,6 @@ import { DataError } from "./validation";
 import {
   bookmarkTemplate,
   makeBookmark,
-  BOOKMARK_PRACTICE_COUNT,
 } from "./bookmarks";
 export function familyOf(
   q: Question,
@@ -49,6 +50,25 @@ export function quotasFor(b: Bundle, s: Selection): Record<string, number> {
     ]),
   );
 }
+export function nextQuestionRef(
+  run: Run,
+  order: <T>(a: T[]) => T[] = shuffle,
+): Ref {
+  if (run.selection.mode !== "endless")
+    return run.session.entries[run.session.currentIndex].questionRef;
+  const counts = new Map<string, number>();
+  for (const entry of run.session.entries) {
+    const key = refKey(entry.questionRef);
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  const leastUsed = Math.min(...run.set.questionRefs.map((ref) => counts.get(refKey(ref)) ?? 0));
+  const candidates = run.set.questionRefs.filter(
+    (ref) => (counts.get(refKey(ref)) ?? 0) === leastUsed,
+  );
+  if (!candidates.length)
+    throw new DataError("SHORTAGE", "次に出題する問題がありません");
+  return order(candidates)[0];
+}
 export function selectQuestions(
   b: Bundle,
   s: Selection,
@@ -59,6 +79,11 @@ export function selectQuestions(
   set: SetRecord;
   quota: Record<string, number>;
 } {
+  if (s.mode === "endless" && s.kind !== "mix")
+    throw new DataError("SELECTION", "無限周回は生成問題を使います");
+  if (s.mode !== "endless" && s.kind !== "bookmark" &&
+    (!s.year || !s.size))
+    throw new DataError("SELECTION", "年度と出題数を選んでください");
   if (s.kind === "bookmark") {
     if (!s.bookmarkQuestionRef || s.mode !== "study")
       throw new DataError(
@@ -76,7 +101,6 @@ export function selectQuestions(
       title,
       subject: base.subject,
       mode: "study",
-      questionCount: BOOKMARK_PRACTICE_COUNT,
       questionOrder: "set",
       choiceOrder: "shuffle",
       duplicatePolicy: "instance_unique",
@@ -99,7 +123,7 @@ export function selectQuestions(
       ],
     };
     return {
-      questions: Array.from({ length: BOOKMARK_PRACTICE_COUNT }, () => base),
+      questions: [base],
       exam,
       set,
       quota: {},
@@ -135,8 +159,10 @@ export function selectQuestions(
             t.distribution === "included",
         ),
     );
-    quota = quotasFor(b, s);
-    title = `ランダムミックス・生成問題（${s.subject === "A" ? s.year + "年度の分野構成" : "アルゴリズム・情報セキュリティ"}）`;
+    quota = s.mode === "endless" ? {} : quotasFor(b, s);
+    title = s.mode === "endless"
+      ? "無限周回・生成問題"
+      : `ランダムミックス・生成問題（${s.subject === "A" ? s.year + "年度の分野構成" : "アルゴリズム・情報セキュリティ"}）`;
     id = `mix-${s.subject.toLowerCase()}`;
   }
   if (!candidates.length)
@@ -148,7 +174,9 @@ export function selectQuestions(
     chosen.push(q);
     familyOf(q, b).forEach((k) => families.add(k));
   };
-  if (s.kind === "mix") {
+  if (s.mode === "endless") {
+    chosen = order(candidates).slice(0, 1);
+  } else if (s.kind === "mix") {
     for (const [area, count] of Object.entries(quota)) {
       if (count === 0) continue;
       const pool = order(candidates.filter((q) => q.learning.area === area));
@@ -190,11 +218,11 @@ export function selectQuestions(
     revision: 1,
     title,
     subject: s.subject,
-    mode: s.mode,
-    questionCount: chosen.length,
+    mode: s.mode === "endless" ? "study" : s.mode,
+    ...(s.mode === "endless" ? {} : { questionCount: chosen.length }),
     questionOrder: s.kind === "mix" ? "shuffle" : "set",
     choiceOrder: s.kind === "mix" ? "shuffle" : "fixed",
-    duplicatePolicy: s.kind === "mix" ? "instance_unique" : "lineage_unique",
+    duplicatePolicy: s.mode === "endless" ? "cycle_unique" : s.kind === "mix" ? "instance_unique" : "lineage_unique",
     shortagePolicy: "block",
   };
   if (s.mode === "practice") {
