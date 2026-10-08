@@ -11,6 +11,7 @@
 | 目的と実装範囲 | [目的・範囲・機能](/overview) |
 | 公式に確認した事実と限界 | [調査結果](/research)・[参照資料](/references) |
 | 収録可能な問題と工程 | [問題取り込み](/ingestion)・[UI参照方針](/ui-reference) |
+| 作問の品質と公開問題の追加 | [問題作成・可変問題の品質規約](/question-authoring) |
 | JSONの意味と制約 | [データモデル](/data-model)・[本文形式](/content-format)・[図描画・問題生成](/diagram-generation)・[Schema](/schemas)・[全フィールド辞書](/schema-reference) |
 | 具体的なレコード | [サンプル](/samples) |
 | アプリの振る舞い | [出題・セッション](/sessions)・[画面](/screens)・[出典表示](/attribution) |

@@ -299,8 +299,10 @@ export async function appendRunQuestion(
   }
   const next = structuredClone(run),
     offset = next.session.entries.length;
-  // Keep issued content intact, and give older cycling runs new local settings for random draws.
-  if (next.selection.mode === "endless" && next.exam.duplicatePolicy === "cycle_unique") {
+  // Preserve issued content while allowing finite parameter pools to keep
+  // serving open-ended practice. Only the preceding condition is excluded.
+  if ((next.selection.mode === "endless" && next.exam.duplicatePolicy === "cycle_unique") ||
+    (next.selection.kind === "bookmark" && next.exam.duplicatePolicy === "instance_unique")) {
     await validateRun(run);
     next.exam = { ...next.exam, id: newId("exam-selected"), revision: 1, duplicatePolicy: "random_reuse" };
     next.set = {

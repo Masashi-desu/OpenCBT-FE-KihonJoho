@@ -3,6 +3,13 @@ import { DataError } from "./errors";
 import { preserveSourceFormat } from "./generation-formats";
 import { sha256 } from "./hash";
 import {
+  calculationChoices,
+  calculationNotes,
+  calculationSources,
+  checkCalculationInputs,
+  sampleCalculationInputs,
+} from "./generators/calculation-options";
+import {
   additionalContract,
   definitionForVersion,
   bindAdditionalQuestion,
@@ -289,49 +296,86 @@ const legacyContracts: Contract[] = [
       "原問題のログ管理ルールを基に、担当人数・アクセス・日時・保存期間をパラメータ化し、ルール3違反の組合せを計算する。",
   },
 ];
-// Previous generator contracts remain valid for stored sessions.
-export const generationContracts: Contract[] = legacyContracts.map((legacy) => {
-  const c = { ...structuredClone(legacy), version: "2.1.0" };
-  if (c.id === "logic-table")
-    c.notes =
-      "原問題と同じ合成演算の表から、未知の演算の真理値表を選ぶ形式を維持する。";
-  if (c.id === "count-multiples")
-    c.notes =
-      "原問題と同じ二つの空欄と6組の解答群を維持し、除数へ値をバインドする。n・mの値は独自解説の動作確認例に用いる。";
-  if (c.id === "coin-change") {
-    c.fields.push(field("残額変数のオフセット", 0, 20));
-    c.reference.push(0);
-    c.notes =
-      "原問題と同じwhile条件の空欄補充と6択を維持する。残額変数をオフセット付きで表し、条件の閾値と計算式を整合して変更する。金額は説明用の例へバインドする。";
-  }
-  if (c.id === "complement") {
-    c.fields.push(field("ビット幅", 4, 8));
-    c.reference.push(8);
-    c.notes =
-      "原問題と同じ式の空欄補充と6択を維持し、ビット幅を4〜8へバインドする。xは独自解説の動作確認例であり、原問題の固定入力ではない。";
-  }
-  if (c.id === "recurrence") {
-    c.fields[1].minimum = 2;
-    c.notes =
-      "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。";
-  }
-  if (c.id === "security-log") {
-    c.fields[3] = field("過去ログの上書き", 0, 1);
-    c.reference = [1, 1, 0, 1];
-    c.notes =
-      "原問題と同じ長文・枠で囲った図1のルール・表1・10択を維持する。担当人数・アクセス・日時・ログ上書きをパラメータ化し、ルール3違反を判定する。";
-  }
-  return c;
-});
+// Published 2.1.0 contracts remain registered for saved runs.
+const publishedGenerationContracts: Contract[] = legacyContracts.map(
+  (legacy) => {
+    const c = { ...structuredClone(legacy), version: "2.1.0" };
+    if (c.id === "logic-table")
+      c.notes =
+        "原問題と同じ合成演算の表から、未知の演算の真理値表を選ぶ形式を維持する。";
+    if (c.id === "count-multiples")
+      c.notes =
+        "原問題と同じ二つの空欄と6組の解答群を維持し、除数へ値をバインドする。n・mの値は独自解説の動作確認例に用いる。";
+    if (c.id === "coin-change") {
+      c.fields.push(field("残額変数のオフセット", 0, 20));
+      c.reference.push(0);
+      c.notes =
+        "原問題と同じwhile条件の空欄補充と6択を維持する。残額変数をオフセット付きで表し、条件の閾値と計算式を整合して変更する。金額は説明用の例へバインドする。";
+    }
+    if (c.id === "complement") {
+      c.fields.push(field("ビット幅", 4, 8));
+      c.reference.push(8);
+      c.notes =
+        "原問題と同じ式の空欄補充と6択を維持し、ビット幅を4〜8へバインドする。xは独自解説の動作確認例であり、原問題の固定入力ではない。";
+    }
+    if (c.id === "recurrence") {
+      c.fields[1].minimum = 2;
+      c.notes =
+        "原問題と同じ再帰関数・配列による関数の空欄補充と8択を維持する。係数は2〜4、nは独自解説の動作確認例へバインドする。";
+    }
+    if (c.id === "security-log") {
+      c.fields[3] = field("過去ログの上書き", 0, 1);
+      c.reference = [1, 1, 0, 1];
+      c.notes =
+        "原問題と同じ長文・枠で囲った図1のルール・表1・10択を維持する。担当人数・アクセス・日時・ログ上書きをパラメータ化し、ルール3違反を判定する。";
+    }
+    return c;
+  },
+);
+export const generationContracts: Contract[] = publishedGenerationContracts.map(
+  (previous) => {
+    const c = structuredClone(previous);
+    if (calculationSources.includes(c.source)) {
+      c.version = "2.2.0";
+      c.notes += calculationNotes;
+    }
+    if (c.id === "hex-fraction") {
+      c.fields = [field("16進小数の値", 2, 14), field("16進小数の桁数", 1, 1)];
+      c.notes =
+        "原問題と同じ1桁の16進小数を使い、小数第3位までで正確に変換できる偶数の入力を抽選する。" +
+        calculationNotes;
+    }
+    if (c.id === "cafe-profit")
+      c.notes =
+        "原問題と同じ月の利益から必要客数を求める。必要人数が0.25人刻みで正確に求まる入力を使用し、追加の切上げを要求しない。" +
+        calculationNotes;
+    if (c.id === "retention")
+      c.notes =
+        "原問題と同じ会員数の表とサービスA〜Dの選択肢を保持する。前月人数は500人刻み、新規人数は100人刻みで抽選し、継続率が10％刻みで求まる入力を使う。四つの率が異なる条件を検査する。";
+    return c;
+  },
+);
 export function contractFor(t: Template) {
-  if (["3.2.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
   return (
-    t.generatorRef.version === "2.1.0" ? generationContracts : legacyContracts
-  ).find((c) => `generator-${c.id}` === t.generatorRef.id);
+    t.generatorRef.version === "1.0.0"
+      ? legacyContracts
+      : t.generatorRef.version === "2.1.0"
+        ? publishedGenerationContracts
+        : generationContracts
+  ).find(
+    (c) =>
+      `generator-${c.id}` === t.generatorRef.id &&
+      (c.version ?? "1.0.0") === t.generatorRef.version,
+  );
 }
 export function validateTemplateContract(t: Template) {
-  if (!["1.0.0", "2.1.0", "3.2.0"].includes(t.generatorRef.version))
+  if (
+    !["1.0.0", "2.1.0", "2.2.0", "3.2.0", "3.3.0"].includes(
+      t.generatorRef.version,
+    )
+  )
     throw new DataError("GENERATOR_REF", "未対応の生成器の版です");
   if (t.generatorRef.id === "generator-array-sum") {
     if (
@@ -380,11 +424,21 @@ export function checkParameters(t: Template, v: number[]) {
     )
   )
     throw new DataError("PARAMETER_DOMAIN", "生成値が許可域を外れています");
-  if (["3.2.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version)) {
     checkAdditionalParameters(t, v);
     return;
   }
   const id = contractFor(t)?.id;
+  if (t.generatorRef.version === "2.2.0") {
+    try {
+      checkCalculationInputs(contractFor(t)!.source, v);
+    } catch {
+      throw new DataError(
+        "PARAMETER_CONSTRAINT",
+        "原問題と同等の計算精度で解ける入力ではありません",
+      );
+    }
+  }
   if (
     (id === "hex-fraction" && v[1] === 1 && v[0] > 15) ||
     (id === "hash-collision" &&
@@ -425,8 +479,16 @@ async function sampleParameters(seed: string, t: Template) {
     throw new DataError("SEED", "入力の抽選上限に達しました");
   };
   for (let attempt = 0; attempt < 256; attempt++) {
-    const values = [];
-    for (const f of c.fields) values.push(await integer(f.minimum, f.maximum));
+    const values = !["2.2.0", "3.3.0"].includes(t.generatorRef.version)
+      ? []
+      : ((await sampleCalculationInputs(c.source, integer)) ?? []);
+    if (!values.length)
+      for (const f of c.fields)
+        values.push(await integer(f.minimum, f.maximum));
+    if (
+      values.some((n, i) => n < c.fields[i].minimum || n > c.fields[i].maximum)
+    )
+      continue;
     try {
       checkParameters(t, values);
       return { values };
@@ -529,6 +591,8 @@ function bindLegacyQuestion(
       ),
     ];
     answers = [n, n + 1, n - 1, n + 2].map((x) => (x / den).toFixed(8));
+    if (t.generatorRef.version === "2.2.0")
+      answers = calculationChoices(c.source, a);
     explanation = `${digits}桁の16進小数は、桁列を整数として読んだ値を16の${digits}乗で割る。${hex}は10進数の${n}なので、${n}÷${den}＝${a}。`;
   } else if (c.id === "logic-table") {
     const funcs = [
@@ -609,6 +673,8 @@ function bindLegacyQuestion(
       ),
     ];
     answers = numericChoices(rate, "％");
+    if (t.generatorRef.version === "2.2.0")
+      answers = calculationChoices(c.source, rate, [], "％");
     explanation = `翌年度MTBF=${b}、MTTR=${tr}。稼働率=MTBF÷(MTBF+MTTR)×100=${((100 * b) / (b + tr)).toFixed(4)}％。四捨五入して${rate}％。`;
     explanationMath = [
       {
@@ -685,6 +751,8 @@ function bindLegacyQuestion(
       ),
     ];
     answers = numericChoices(times[6], "日");
+    if (t.generatorRef.version === "2.2.0")
+      answers = calculationChoices(c.source, times[6], [], "日");
     explanation = `各結合点の最早時刻は、流入する各作業の終了時刻の最大値である。結合点1=${times[1]}、2=${times[2]}、3=max(A+C,A+B)=${times[3]}、4=max(A+D,結合点3)=${times[4]}、5=max(結合点2+E,結合点3+F,結合点4+G)=${times[5]}。Hを加え、完了は${times[6]}日。`;
   } else if (c.id === "service-gain") {
     const [hours, before, minutes] = v,
@@ -706,22 +774,33 @@ function bindLegacyQuestion(
       ),
     ];
     answers = numericChoices(gain, "ポイント", 2);
+    if (t.generatorRef.version === "2.2.0")
+      answers = calculationChoices(c.source, gain, [], "ポイント");
     explanation = `可用性=(提供時間−停止時間)÷提供時間×100。移行前${(prior / 100).toFixed(2)}％、移行後${(after / 100).toFixed(2)}％。差は${gain.toFixed(2)}パーセントポイント。`;
   } else if (c.id === "cafe-profit") {
     const [price, cost, fixed, profit, days, seats] = v,
       den = (price - cost) * days * seats,
-      a = Math.ceil(((fixed + profit) * 100) / den) / 100;
+      a =
+        t.generatorRef.version === "2.2.0"
+          ? (fixed + profit) / den
+          : Math.ceil(((fixed + profit) * 100) / den) / 100;
+    const money = (n: number) =>
+      t.generatorRef.version === "2.2.0"
+        ? n.toLocaleString("ja-JP")
+        : String(n);
     blocks = [
       p(
-        `月${profit}円以上の利益を確保するため、1客席当たり1日平均何人以上の客が必要か。人数は小数第2位まで切り上げる。`,
+        t.generatorRef.version === "2.2.0"
+          ? `表の条件で喫茶店を開業したい。月${profit.toLocaleString("ja-JP")}円の利益を出すためには、1客席当たり1日平均何人の客が必要か。`
+          : `月${profit}円以上の利益を確保するため、1客席当たり1日平均何人以上の客が必要か。人数は小数第2位まで切り上げる。`,
       ),
       table(
         "喫茶店の条件",
         ["項目", "値"],
         [
-          ["1人当たり売上", `${price}円`],
-          ["1人当たり変動費", `${cost}円`],
-          ["月の固定費", `${fixed}円`],
+          ["1人当たり売上", `${money(price)}円`],
+          ["1人当たり変動費", `${money(cost)}円`],
+          ["月の固定費", `${money(fixed)}円`],
           ["月の営業日", String(days)],
           ["客席数", String(seats)],
         ],
@@ -729,6 +808,15 @@ function bindLegacyQuestion(
     ];
     answers = numericChoices(a, "人", 2);
     explanation = `1人当たり限界利益は${price - cost}円。必要客数は(${fixed}+${profit})÷${price - cost}。さらに${days}日×${seats}席で割ると${((fixed + profit) / den).toFixed(6)}人であり、小数第2位まで切り上げて${a.toFixed(2)}人。`;
+    if (t.generatorRef.version === "2.2.0") {
+      answers = calculationChoices(
+        c.source,
+        a,
+        [fixed / den, (fixed + profit) / (price * days * seats)],
+        "人",
+      );
+      explanation = `1人当たり限界利益は${price - cost}円。月に必要な客数は(${fixed}+${profit})÷${price - cost}＝${(fixed + profit) / (price - cost)}人。${days}日×${seats}席で割ると1客席当たり1日平均${a}人となる。${a}×${days}×${seats}×${price - cost}−${fixed}＝${profit}円で、目標利益と一致する。`;
+    }
   } else if (c.id === "retention") {
     const rates = [0, 1, 2, 3].map((i) => v[i * 3 + 2] / v[i * 3]),
       best = rates.indexOf(Math.max(...rates));
@@ -934,9 +1022,9 @@ export function bindQuestion(
 ): Question {
   validateTemplateContract(t);
   checkParameters(t, v);
-  if (["3.2.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
-  if (t.generatorRef.version !== "2.1.0")
+  if (!["2.1.0", "2.2.0"].includes(t.generatorRef.version))
     return bindLegacyQuestion(base, t, v, instanceId, at);
   const id = contractFor(t)!.id;
   const changedAlgorithm = [

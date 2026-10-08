@@ -4,11 +4,17 @@ import { knowledgeDefinitions } from "./knowledge";
 import { subjectADefinitions } from "./subject-a";
 import { subjectBDefinitions } from "./subject-b";
 import { securityDefinitions } from "./security";
-import { ownContexts, p } from "./definition";
+import { ownContexts, p, type GenerationDefinition } from "./definition";
 import { sourceFigureAlt, validateSourceFigure } from "../source-figures";
 import { withCorrections } from "./corrections";
 import { knowledgeForms } from "./knowledge-formats";
 import { subjectAFormatDefinitions } from "./subject-a-formats";
+import { publishedCalculationDefinitions } from "./published-calculations";
+import {
+  calculationSources,
+  calculationNotes,
+  checkCalculationInputs,
+} from "./calculation-options";
 
 export const additionalDefinitions = [
   ...knowledgeDefinitions,
@@ -18,13 +24,25 @@ export const additionalDefinitions = [
   ...securityDefinitions,
 ]
   .map(withCorrections)
-  .map((d) => ({ ...d, version: "3.2.0" as const }));
+  .map((d) =>
+    calculationSources.includes(d.source)
+      ? {
+          ...d,
+          version: "3.3.0" as const,
+          notes: d.notes + calculationNotes,
+          build(values: number[]) {
+            checkCalculationInputs(d.source, values);
+            return d.build(values);
+          },
+        }
+      : { ...d, version: "3.2.0" as const },
+  );
 if (
   new Set(additionalDefinitions.map((d) => d.source)).size !==
   additionalDefinitions.length
 )
   throw Error("Duplicate source generator");
-const asContract = (d: (typeof additionalDefinitions)[number]) => ({
+const asContract = (d: GenerationDefinition) => ({
   id: `source-${d.source}`,
   source: d.source,
   title: d.title,
@@ -47,6 +65,10 @@ export function definitionForVersion(id: string, version: string) {
   const d = additionalDefinition(id);
   if (!d) return undefined;
   if (version === (d.version ?? "3.2.0")) return d;
+  if (version === "3.2.0")
+    return publishedCalculationDefinitions.find(
+      (previous) => previous.source === d.source,
+    );
   return undefined;
 }
 export function checkAdditionalParameters(t: Template, values: number[]) {

@@ -212,7 +212,7 @@ test("source numeric baselines independently match the public examples", () => {
     answerSignature(
       b.questions.find((q) => q.id === `question-template-source-${source}`)!,
     );
-  assert.equal(signature("2024-a-3"), "0.9");
+  assert.equal(signature("2024-a-3"), "0.90");
   assert.equal(signature("2025-a-4"), "0.92");
   assert.equal(signature("2025-a-7"), "80");
   assert.equal(signature("2025-a-14"), "31");

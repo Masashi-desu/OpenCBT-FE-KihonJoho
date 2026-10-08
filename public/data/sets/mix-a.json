@@ -1,13 +1,13 @@
 {
   "schemaVersion": "3.0.0",
   "id": "set-mix-a",
-  "revision": 11,
+  "revision": 12,
   "title": "科目A ランダムミックス（値・図・正答を生成）",
   "subject": "A",
   "questionRefs": [
     {
       "questionId": "question-template-hex-fraction",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-logic-table",
@@ -19,23 +19,23 @@
     },
     {
       "questionId": "question-template-availability",
-      "revision": 4
-    },
-    {
-      "questionId": "question-template-critical-path",
       "revision": 5
     },
     {
+      "questionId": "question-template-critical-path",
+      "revision": 6
+    },
+    {
       "questionId": "question-template-service-gain",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-cafe-profit",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-retention",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-source-2023-a-3",
@@ -271,7 +271,7 @@
     },
     {
       "questionId": "question-template-source-2024-a-3",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-source-2024-a-19",
@@ -283,7 +283,7 @@
     },
     {
       "questionId": "question-template-source-2025-a-4",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-source-2025-a-6",
@@ -291,11 +291,11 @@
     },
     {
       "questionId": "question-template-source-2025-a-7",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-source-2025-a-14",
-      "revision": 4
+      "revision": 5
     },
     {
       "questionId": "question-template-source-2026-a-1",
@@ -329,11 +329,11 @@
   "examConfigRefs": [
     {
       "id": "exam-mix-a-study",
-      "revision": 11
+      "revision": 12
     },
     {
       "id": "exam-mix-a-practice",
-      "revision": 11
+      "revision": 12
     }
   ],
   "distribution": "included",
@@ -341,11 +341,11 @@
     {
       "questionRef": {
         "questionId": "question-template-hex-fraction",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-hex-fraction",
-        "revision": 4
+        "revision": 5
       }
     },
     {
@@ -371,51 +371,51 @@
     {
       "questionRef": {
         "questionId": "question-template-availability",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-availability",
-        "revision": 4
+        "revision": 5
       }
     },
     {
       "questionRef": {
         "questionId": "question-template-critical-path",
-        "revision": 5
+        "revision": 6
       },
       "templateRef": {
         "id": "template-critical-path",
-        "revision": 5
+        "revision": 6
       }
     },
     {
       "questionRef": {
         "questionId": "question-template-service-gain",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-service-gain",
-        "revision": 4
+        "revision": 5
       }
     },
     {
       "questionRef": {
         "questionId": "question-template-cafe-profit",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-cafe-profit",
-        "revision": 4
+        "revision": 5
       }
     },
     {
       "questionRef": {
         "questionId": "question-template-retention",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-retention",
-        "revision": 4
+        "revision": 5
       }
     },
     {
@@ -1001,11 +1001,11 @@
     {
       "questionRef": {
         "questionId": "question-template-source-2024-a-3",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-source-2024-a-3",
-        "revision": 4
+        "revision": 5
       }
     },
     {
@@ -1031,11 +1031,11 @@
     {
       "questionRef": {
         "questionId": "question-template-source-2025-a-4",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-source-2025-a-4",
-        "revision": 4
+        "revision": 5
       }
     },
     {
@@ -1051,21 +1051,21 @@
     {
       "questionRef": {
         "questionId": "question-template-source-2025-a-7",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-source-2025-a-7",
-        "revision": 4
+        "revision": 5
       }
     },
     {
       "questionRef": {
         "questionId": "question-template-source-2025-a-14",
-        "revision": 4
+        "revision": 5
       },
       "templateRef": {
         "id": "template-source-2025-a-14",
-        "revision": 4
+        "revision": 5
       }
     },
     {

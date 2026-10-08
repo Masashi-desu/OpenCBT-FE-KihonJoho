@@ -418,11 +418,11 @@ export function preserveSourceFormat(
 }
 
 export function validateSourceFormat(q: Question, t: Template) {
-  if (["3.2.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;
   }
-  if (t.generatorRef.version !== "2.1.0") return;
+  if (!["2.1.0", "2.2.0"].includes(t.generatorRef.version)) return;
   const formats: Record<string, [string[], number, string]> = {
     "hex-fraction": [["paragraph"], 4, "paragraph"],
     "logic-table": [["paragraph", "table"], 4, "table"],

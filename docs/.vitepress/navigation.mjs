@@ -8,6 +8,7 @@ export const sidebar = [
     { text: '公式情報の調査結果', link: '/research' },
     { text: '参照資料と調査限界', link: '/references' },
     { text: '問題取り込み・利用条件', link: '/ingestion' },
+    { text: '問題作成・可変問題の品質規約', link: '/question-authoring' },
     { text: 'UI資料の参照方針', link: '/ui-reference' }
   ] },
   { text: 'データの仕様', items: [

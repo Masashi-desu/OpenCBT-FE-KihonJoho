@@ -143,7 +143,7 @@ test("all 103 sources display their required premises, notation, units and comme
       );
     // Small conceptual subjects and form branches are exhaustively covered.
     if (
-      t.generatorRef.version === "3.2.0" &&
+      ["3.2.0", "3.3.0"].includes(t.generatorRef.version) &&
       t.parameterDomain.fields![0].maximum <= 15
     )
       for (
@@ -233,10 +233,9 @@ test("missing notes cannot be supplied only by an explanation or diagram alterna
 test("unpublished obsolete versions are rejected for new generation", () => {
   const b = fixture();
   for (const t of b.templates) {
-    const previous =
-      t.generatorRef.version === "2.1.0"
-        ? ["2.0.0"]
-        : ["3.0.0", "3.0.1", "3.1.0"];
+    const previous = ["2.1.0", "2.2.0"].includes(t.generatorRef.version)
+      ? ["2.0.0"]
+      : ["3.0.0", "3.0.1", "3.1.0"];
     for (const version of previous) {
       const old: Template = structuredClone(t);
       old.generatorRef.version = version;

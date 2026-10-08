@@ -8,9 +8,9 @@ import {
   figure,
   strings,
   alternatives,
-  numbers,
   variableNotes,
 } from "./definition";
+import { calculationChoices } from "./calculation-options";
 
 function def(
   source: string,
@@ -105,20 +105,6 @@ export function signalValues(mask: number, phase: number) {
     b = signalInputs[1].map((_, i) => signalInputs[1][(i + phase) % 7]);
   return [...a, ...b, ...a.map((x, i) => circuitValue(mask, x, b[i]))];
 }
-const ratioChoices = (answer: number) =>
-  alternatives(
-    answer.toFixed(4).replace(/0+$/, ""),
-    [
-      answer + 0.01,
-      answer - 0.01,
-      answer + 0.05,
-      answer - 0.05,
-      answer + 0.1,
-      answer - 0.1,
-    ]
-      .filter((x) => x >= 0 && x <= 1)
-      .map((x) => x.toFixed(4).replace(/0+$/, "")),
-  );
 
 export const subjectADefinitions: GenerationDefinition[] = [
   def(
@@ -371,7 +357,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
             ],
           ),
         ],
-        choices: strings(ratioChoices(h)),
+        choices: strings(calculationChoices("2024-a-3", h)),
         explanation: `ヒット率をhとすると${cx}h+${mx}(1−h)＝${cy}h+${my}(1−h)。従ってh＝(${my}−${mx})／(${cx}−${cy}+${my}−${mx})＝${h}。`,
       };
     },
@@ -457,11 +443,19 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `MTBFが${mtbf}時間、MTTRが${mttr}時間の装置である。今後${years}年間、MTBFは毎年${delta}時間増加し、MTTRは毎年${delta}時間減少する。${years}年後の稼働率は幾らか。小数第5位を四捨五入する。`,
+            `MTBFが${mtbf}時間、MTTRが${mttr}時間の装置である。今後${years}年間、MTBFは毎年${delta}時間増加し、MTTRは毎年${delta}時間減少する。${years}年後の稼働率は幾らか。`,
           ),
         ],
-        choices: strings(ratioChoices(rate)),
-        explanation: `改善後はMTBF=${b}、MTTR=${r}時間。稼働率=${b}／(${b}+${r})=${rate.toFixed(4)}。毎年の増減を年数分だけ積み重ねる。`,
+        choices: strings(
+          calculationChoices(
+            "2025-a-4",
+            rate,
+            [years - 2, years - 1, years + 1].map(
+              (y) => (mtbf + delta * y) / (mtbf + mttr),
+            ),
+          ),
+        ),
+        explanation: `改善後はMTBF=${b}、MTTR=${r}時間。稼働率=${b}／(${b}+${r})=${rate.toFixed(2)}。毎年の増減を年数分だけ積み重ねる。`,
       };
     },
   ),
@@ -538,7 +532,13 @@ export const subjectADefinitions: GenerationDefinition[] = [
             `${gb}Gバイトの動画を${mbps}Mビット／秒の回線でダウンロードし、${minutes}分かかった。動画には${overhead}％の制御情報が付加される。回線利用率はおよそ何％か。ここではG=10の9乗、M=10の6乗とし、整数％へ四捨五入する。`,
           ),
         ],
-        choices: strings(numbers(rounded)),
+        choices: strings(
+          calculationChoices("2025-a-7", rounded, [
+            rate / 8,
+            (rate * (100 - overhead)) / (100 + overhead),
+            (rate * 100) / (100 + overhead),
+          ]),
+        ),
         explanation: `データ量を8倍してビットへ変換し、制御情報を加える。利用率は${gb}×8000×${1 + overhead / 100}／(${mbps}×${minutes}×60)×100=${rounded}％。`,
       };
     },
@@ -561,7 +561,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
           "A後にBとEとFが分岐。E完了後にB終点へダミー、B終点からC・G・Hへ進む。G後にC終点へダミー。CとFとGが合流してD、DとHが合流してI。",
         ),
       ],
-      choices: strings(numbers(projectDuration(v))),
+      choices: strings(calculationChoices("2025-a-14", projectDuration(v))),
       explanation: `BとEが合流する時刻は${v[0] + Math.max(v[1], v[4])}。C・F・Gの合流、DとHの合流で流入時刻の最大を採用し、Iを加える。最少日数は${projectDuration(v)}日。ダミーの依存関係も含める。`,
     }),
   ),

@@ -22,7 +22,6 @@ import { validateSourceFormat } from "../src/core/generation-formats";
 
 const baseFor = (t: Template, b = fixture()) =>
   b.questions.find((q) => q.id === t.baseQuestionRef.questionId)!;
-const ceil = (a: bigint, b: bigint) => (a + b - 1n) / b;
 function longestPath(v: number[]) {
   const graph = [
     [[1, v[0]]],
@@ -52,7 +51,7 @@ function longestPath(v: number[]) {
 function oracle(id: string, v: number[]): string {
   switch (id) {
     case "hex-fraction":
-      return (v[0] / 16 ** v[1]).toFixed(8);
+      return String(v[0] / 16 ** v[1]);
     case "logic-table":
       return ["0001", "0111", "0110", "1110", "1000", "1001", "1101"][v[0] - 1];
     case "hash-collision":
@@ -68,7 +67,7 @@ function oracle(id: string, v: number[]): string {
       return `${(Number(after - before) / 100).toFixed(2)}ポイント`;
     }
     case "cafe-profit":
-      return `${(Number(ceil(BigInt(v[2] + v[3]) * 100n, BigInt(v[0] - v[1]) * BigInt(v[4]) * BigInt(v[5]))) / 100).toFixed(2)}人`;
+      return `${Number((BigInt(v[2] + v[3]) * 100n) / (BigInt(v[0] - v[1]) * BigInt(v[4]) * BigInt(v[5]))) / 100}人`;
     case "retention": {
       let max = 0;
       for (let i = 1; i < 4; i++)
@@ -487,7 +486,9 @@ function answerText(block: Question["prompt"]["blocks"][number]) {
 
 test("version 1 saved runs retain their older tables and numeric questions after version 2 is added", async () => {
   const b = fixture();
-  b.templates = b.templates.filter((t) => t.generatorRef.version === "2.1.0");
+  b.templates = b.templates.filter((t) =>
+    ["2.1.0", "2.2.0"].includes(t.generatorRef.version),
+  );
   b.catalog.generationCoverage = "partial";
   b.sets = b.sets.map((s) => ({
     ...s,

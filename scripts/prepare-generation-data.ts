@@ -136,7 +136,12 @@ for (const c of [...generationContracts, ...additionalContracts]) {
     `template-${c.id}`,
   ];
   q.review.notes = `${c.notes} 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。`;
-  q.review.checkedOn = "2026-10-07";
+  q.review.checkedOn = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(q.origin.changes[q.origin.changes.length - 1].at));
   q.origin.changes[q.origin.changes.length - 1].summary =
     "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義";
   t.baseQuestionRef = refOf(q);

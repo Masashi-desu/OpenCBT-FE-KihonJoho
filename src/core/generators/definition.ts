@@ -18,7 +18,7 @@ export type GenerationDefinition = {
   reference: number[];
   sourceAnswer: string;
   notes: string;
-  version?: "3.2.0";
+  version?: "3.2.0" | "3.3.0";
   answerVariation?: "fixed";
   build: (values: number[]) => GeneratedBody;
 };
@@ -76,17 +76,6 @@ export function alternatives(
   if (unique.length < count)
     throw new Error("Insufficient distinct distractors");
   return unique.slice(0, count);
-}
-export function numbers(correct: number, count = 4, digits = 0): string[] {
-  const format = (n: number) => (digits ? n.toFixed(digits) : String(n));
-  const step = 10 ** -digits;
-  return alternatives(
-    format(correct),
-    Array.from({ length: count * 3 }, (_, i) =>
-      format(correct + (i % 2 ? -1 : 1) * (Math.floor(i / 2) + 1) * step),
-    ),
-    count,
-  );
 }
 export const variableNotes =
   "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。";

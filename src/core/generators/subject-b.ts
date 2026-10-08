@@ -10,10 +10,10 @@ import {
   programs,
   pairs,
   alternatives,
-  numbers,
   variableNotes,
 } from "./definition";
 import { permutations } from "./subject-a";
+import { theoreticalCountChoices } from "./calculation-options";
 
 function def(
   source: string,
@@ -128,7 +128,6 @@ export function expectedCounts(data: number[]) {
     total = a + b + c + d;
   return [((a + b) * (a + c)) / total, ((c + d) * (b + d)) / total];
 }
-const clean = (n: number) => Number(n.toFixed(2)).toString();
 
 export const subjectBDefinitions: GenerationDefinition[] = [
   def(
@@ -658,7 +657,9 @@ export const subjectBDefinitions: GenerationDefinition[] = [
         choices: strings(
           alternatives(
             String(answer),
-            Array.from({ length: 19 }, (_, i) => String(i)),
+            Array.from({ length: 10 }, (_, i) =>
+              String(Math.max(0, answer - 7) + i),
+            ),
             10,
           ),
         ),
@@ -680,22 +681,12 @@ export const subjectBDefinitions: GenerationDefinition[] = [
     (v) => {
       const [a, b, c, d] = v,
         answer = expectedCounts(v),
-        correct = answer.map(clean);
-      const choices = [
-        correct,
-        ...[
-          [-2, -1],
-          [-1, 1],
-          [1, -1],
-          [2, 1],
-          [1, 2],
-          [2, -2],
-        ].map(([x, y]) => [clean(answer[0] + x), clean(answer[1] + y)]),
-      ];
+        correct = answer.map(String);
+      const choices = theoreticalCountChoices(v, answer);
       return {
         prompt: [
           p(
-            "記述中のa・bに入る組合せを選べ。病気にかかるかどうかと予防接種の有無が独立だと仮定した理論度数を計算する。配列の要素番号は1から始まる。関数fの引数と戻り値は二次元配列で、行と列は表の行と列に対応する。表2の『非表示』は値を表示していない部分を示す。端数は小数第3位を四捨五入する。",
+            "記述中のa・bに入る組合せを選べ。病気にかかるかどうかと予防接種の有無が独立だと仮定した理論度数を計算する。配列の要素番号は1から始まる。関数fの引数と戻り値は二次元配列で、行と列は表の行と列に対応する。表2の『非表示』は値を表示していない部分を示す。",
           ),
           table(
             "表1　集計結果（人）",

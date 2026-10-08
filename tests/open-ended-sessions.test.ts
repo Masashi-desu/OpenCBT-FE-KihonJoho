@@ -62,7 +62,7 @@ test("all bookmarked series append to one session and aggregate every answer wit
       assert.equal(next.session.entries[index].selectedChoiceId, undefined);
       assert.equal(next.session.entries[index].revealed, false);
       assert.equal(next.session.entries[index].reviewFlag, false);
-      assert.equal(new Set(next.instances.map((i) => JSON.stringify(i.parameters))).size, index + 1);
+      assert.notDeepEqual(next.instances[index].parameters, run.instances[index - 1].parameters);
       if (answerCanVary(row.linked[0]))
         assert.notEqual(answerSignature(next.issued[index]), answerSignature(run.issued[index - 1]));
       run = next;
@@ -140,6 +140,7 @@ test("append rejects limited sessions, unavailable references and inactive state
   await assert.rejects(appendRunQuestion(inactive, baseRef), { code: "REFERENCE" });
   const limited = structuredClone(run);
   limited.exam.questionCount = 1;
+  limited.exam.duplicatePolicy = "instance_unique";
   await assert.rejects(appendRunQuestion(limited, baseRef), { code: "QUESTION_LIMIT" });
   limited.issued.push(structuredClone(limited.issued[0]));
   limited.session.entries.push(structuredClone(limited.session.entries[0]));
@@ -148,6 +149,7 @@ test("append rejects limited sessions, unavailable references and inactive state
   const practice = { ...run.exam, mode: "practice", timeLimitSeconds: 5400 };
   assert.throws(() => schema("exam", practice), { code: "SCHEMA" });
   assert.throws(() => schema("exam", { ...run.exam, questionCount: 0 }), { code: "SCHEMA" });
+  assert.throws(() => schema("exam", { ...run.exam, questionCount: 1 }), { code: "SCHEMA" });
 });
 
 test("generation failure preserves all previously answered entries", async () => {

@@ -168,7 +168,7 @@ export function selectQuestions(
       mode: "study",
       questionOrder: "set",
       choiceOrder: "shuffle",
-      duplicatePolicy: "instance_unique",
+      duplicatePolicy: "random_reuse",
       shortagePolicy: "block",
     };
     const set: SetRecord = {
