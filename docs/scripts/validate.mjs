@@ -331,15 +331,16 @@ function validateBundle(input) {
       if(!set.questionRefs.some(r=>same(r,binding.questionRef))||t&&!same(t.baseQuestionRef,binding.questionRef))err('GENERATION_BINDING',where,'生成枠と基準問題が不一致');
       if(set.distribution==='included'&&t?.distribution!=='included')err('RELEASE_GATE',where,'配布セットに配布不可テンプレート');
     }
-    for(const r of set.questionRefs){const q=get('question',qkey(r),where,'SET_REF');if(q&&q.subject!==set.subject)err('SET_SUBJECT',where,q.id);if(set.distribution==='included'&&q?.distribution!=='included')err('RELEASE_GATE',where,'配布セットに配布不可問題');}
+    for(const r of set.questionRefs){const q=get('question',qkey(r),where,'SET_REF');if(q&&set.subject!=='mixed'&&q.subject!==set.subject)err('SET_SUBJECT',where,q.id);if(set.distribution==='included'&&q?.distribution!=='included')err('RELEASE_GATE',where,'配布セットに配布不可問題');}
+    if(set.subject==='mixed'&&new Set(set.questionRefs.map(r=>byKind.question?.get(qkey(r))?.subject).filter(Boolean)).size!==2)err('SET_SUBJECT',where,'mixedは科目A・Bを含む問題群');
     if(cat.scope==='distribution'&&set.distribution!=='included')err('RELEASE_GATE',where,'配布カタログへ除外セット');
     for(const r of set.examConfigRefs){
       const e=get('exam',ekey(r),where,'EXAM_REF');
       if(!e)continue;
       if(e.subject!==set.subject)err('SET_SUBJECT',where,e.id);
       const seen=new Set();const available=[];
-      for(const ref of set.questionRefs){const q=byKind.question?.get(qkey(ref));if(!q||q.lifecycle!=='active')continue;if(['instance_unique','cycle_unique'].includes(e.duplicatePolicy)){available.push(q);continue;}const family=lineage(qkey(ref));if([...family].some(id=>seen.has(id)))continue;available.push(q);family.forEach(id=>seen.add(id));}
-      if(['instance_unique','cycle_unique'].includes(e.duplicatePolicy)) {
+      for(const ref of set.questionRefs){const q=byKind.question?.get(qkey(ref));if(!q||q.lifecycle!=='active')continue;if(['instance_unique','cycle_unique','random_reuse'].includes(e.duplicatePolicy)){available.push(q);continue;}const family=lineage(qkey(ref));if([...family].some(id=>seen.has(id)))continue;available.push(q);family.forEach(id=>seen.add(id));}
+      if(['instance_unique','cycle_unique','random_reuse'].includes(e.duplicatePolicy)) {
         const generated=available.filter(q=>set.generationBindings.some(b=>same(b.questionRef,{questionId:q.id,revision:q.revision})));
         if(!generated.length||generated.length!==available.length)err('SET_CAPACITY',where,'全候補に登録済み生成枠が必要');
         if(e.quotas)for(const [area,count]of Object.entries(e.quotas))if(count>0&&!generated.some(q=>q.learning.area===area))err('SET_CAPACITY',where,area+'の生成枠がない');
@@ -366,7 +367,7 @@ function validateBundle(input) {
     if(exam?.questionCount!==undefined&&s.entries.length!==exam.questionCount)err('SESSION_COUNT',s.id,'出題数不一致');
     if(s.bindingMode==='generated_values'&&!set?.generationBindings.length)err('BINDING_RECORD',s.id,'生成対象のないセットで値の生成を選択');
     if(s.currentIndex>=s.entries.length)err('SESSION_POSITION',s.id,'現在位置が範囲外');
-    if(!['instance_unique','cycle_unique'].includes(exam?.duplicatePolicy))unique(s.entries.map(e=>e.questionRef.questionId),s.id,'SESSION_DUPLICATE');
+    if(!['instance_unique','cycle_unique','random_reuse'].includes(exam?.duplicatePolicy))unique(s.entries.map(e=>e.questionRef.questionId),s.id,'SESSION_DUPLICATE');
     const seen=new Set();
     for(const entry of s.entries) {
       if(exam?.duplicatePolicy==='cycle_unique'&&set&&s.entries.indexOf(entry)%set.questionRefs.length===0)seen.clear();
@@ -387,9 +388,9 @@ function validateBundle(input) {
       if(entry.selectedChoiceId&&!ids.includes(entry.selectedChoiceId))err('SESSION_ANSWER',s.id,entry.selectedChoiceId);
       if(exam?.choiceOrder==='fixed'&&!same(entry.choiceOrder,ids))err('SESSION_CHOICE_ORDER',s.id,'固定順の不一致');
       if(exam?.choiceOrder==='shuffle'&&!q.choiceShuffleAllowed)err('SESSION_CHOICE_ORDER',s.id,'シャッフル禁止問題');
-      if(['instance_unique','cycle_unique'].includes(exam?.duplicatePolicy)) {
+      if(['instance_unique','cycle_unique','random_reuse'].includes(exam?.duplicatePolicy)) {
         if(!shouldBind||!instance)err('BINDING_RECORD',s.id,'生成ミックスに未生成枠');
-        if(instance){const key=exam?.duplicatePolicy==='cycle_unique'?qkey(entry.questionRef):ekey(instance.templateRef)+':'+JSON.stringify(instance.parameters.values);if(seen.has(key))err('SESSION_DUPLICATE',s.id,'同テンプレートの同じ入力');seen.add(key);}
+        if(instance){const key=exam?.duplicatePolicy==='cycle_unique'?qkey(entry.questionRef):exam?.duplicatePolicy==='random_reuse'?instance.id:ekey(instance.templateRef)+':'+JSON.stringify(instance.parameters.values);if(seen.has(key))err('SESSION_DUPLICATE',s.id,'同テンプレートの同じ入力');seen.add(key);}
       } else {
         const family=lineage(qkey(entry.questionRef));
         if([...family].some(id=>seen.has(id)))err('SESSION_DUPLICATE',s.id,'派生系列の重複');

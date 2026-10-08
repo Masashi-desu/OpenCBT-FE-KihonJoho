@@ -1,4 +1,4 @@
-import type { Bundle, Ref, Result } from "./types";
+import type { Bundle, Ref, Result, Selection } from "./types";
 import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
 import { DataError } from "./errors";
@@ -13,8 +13,22 @@ export type Bookmark = {
   createdAt: string;
 };
 
-export function bookmarkSource(bundle: Bundle, ref: Ref) {
-  const row = generationCoverage(bundle).rows.find(
+export function bookmarkGroupSelection(bookmarks: readonly Bookmark[]): Selection {
+  if (!bookmarks.length)
+    throw new DataError("BOOKMARK_REF", "練習するブックマークがありません。");
+  return {
+    subject: bookmarks.every((bookmark) => bookmark.subject === bookmarks[0].subject)
+      ? bookmarks[0].subject
+      : "mixed",
+    kind: "bookmark",
+    mode: "endless",
+    bindingMode: "generated_values",
+    questionRefs: bookmarks.map((bookmark) => ({ ...bookmark.questionRef })),
+  };
+}
+
+export function bookmarkSource(bundle: Bundle, ref: Ref, coverage = generationCoverage(bundle)) {
+  const row = coverage.rows.find(
     (r) =>
       refKey(refOf(r.original)) === refKey(ref) ||
       r.linked.some((t) => refKey(t.baseQuestionRef) === refKey(ref)),
@@ -107,9 +121,14 @@ export function bookmarkPreview(bundle: Bundle, ref: Ref): string {
     : opening;
 }
 
-export function bookmarkTemplate(bundle: Bundle, ref: Ref) {
-  const original = bookmarkSource(bundle, ref),
-    row = generationCoverage(bundle).rows.find(
+export function bookmarkTemplates(bundle: Bundle, refs: readonly Ref[]) {
+  const coverage = generationCoverage(bundle);
+  return refs.map((ref) => bookmarkTemplate(bundle, ref, coverage));
+}
+
+export function bookmarkTemplate(bundle: Bundle, ref: Ref, coverage = generationCoverage(bundle)) {
+  const original = bookmarkSource(bundle, ref, coverage),
+    row = coverage.rows.find(
       (r) => refKey(refOf(r.original)) === refKey(refOf(original)),
     )!;
   if (row.linked.length !== 1)

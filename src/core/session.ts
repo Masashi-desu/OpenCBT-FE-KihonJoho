@@ -11,6 +11,7 @@ import {
 } from "./generation";
 import { selectQuestions, familyOf, nextQuestionRef } from "./selection";
 import { validateSourceFormat } from "./generation-formats";
+import { bookmarkTemplates } from "./bookmarks";
 export const RETENTION_MS = 180 * 24 * 60 * 60 * 1000;
 export const expires = (at: number) =>
   new Date(at + RETENTION_MS).toISOString();
@@ -36,7 +37,8 @@ async function prepareQuestions(
   );
   // A resumed endless run must avoid its own preceding condition and answer.
   const latestByTemplate = new Map<string, Instance>();
-  if (exam.duplicatePolicy === "cycle_unique")
+  const reusable = exam.duplicatePolicy === "cycle_unique" || exam.duplicatePolicy === "random_reuse";
+  if (reusable)
     for (const previous of history) {
       const key = `${previous.templateRef.id}@${previous.templateRef.revision}`,
         remembered = latestByTemplate.get(key);
@@ -44,7 +46,7 @@ async function prepareQuestions(
         (previous.sessionId === id && remembered.sessionId !== id))
         latestByTemplate.set(key, previous);
     }
-  const generationHistory = exam.duplicatePolicy === "cycle_unique"
+  const generationHistory = reusable
     ? [...latestByTemplate.values()]
     : history;
   for (const previous of generationHistory) {
@@ -57,7 +59,7 @@ async function prepareQuestions(
         `${key}:${JSON.stringify(previous.parameters.values)}`,
       );
   }
-  // Fixed-length and bookmark runs exclude every owned input; endless runs retain the last one.
+  // Fixed-length and individual bookmark runs exclude every owned input; endless runs retain the last one.
   for (const previous of generationHistory.filter((i) => i.sessionId === id))
     usedParameters.add(
       `${previous.templateRef.id}@${previous.templateRef.revision}:${JSON.stringify(previous.parameters.values)}`,
@@ -280,7 +282,8 @@ export async function appendRunQuestion(
   const base = run.bundle.questions.find(
     (q) => q.id === questionRef.questionId && q.revision === questionRef.revision,
   );
-  if (!base || base.subject !== run.exam.subject || base.lifecycle !== "active")
+  if (!base || (run.exam.subject !== "mixed" && base.subject !== run.exam.subject) ||
+    base.lifecycle !== "active" || base.distribution !== "included")
     throw new DataError("REFERENCE", "追加する問題を利用できません");
   if (run.exam.duplicatePolicy === "lineage_unique") {
     const family = new Set(familyOf(base, run.bundle));
@@ -295,18 +298,29 @@ export async function appendRunQuestion(
       throw new DataError("SESSION_DUPLICATE", "同じ系列の問題は追加できません");
   }
   const next = structuredClone(run),
-    offset = next.session.entries.length,
-    prepared = await prepareQuestions(
-      next.bundle,
-      next.set,
-      next.exam,
-      next.session.bindingMode,
-      [base],
-      next.session.id,
-      new Date(at).toISOString(),
-      offset,
-      [...recentInstances.filter((i) => i.sessionId !== run.session.id), ...next.instances],
-    );
+    offset = next.session.entries.length;
+  // Keep issued content intact, and give older cycling runs new local settings for random draws.
+  if (next.selection.mode === "endless" && next.exam.duplicatePolicy === "cycle_unique") {
+    await validateRun(run);
+    next.exam = { ...next.exam, id: newId("exam-selected"), revision: 1, duplicatePolicy: "random_reuse" };
+    next.set = {
+      ...next.set, id: newId("set-selected"), revision: 1,
+      examConfigRefs: [{ id: next.exam.id, revision: next.exam.revision }],
+    };
+    next.session.examConfigRef = { id: next.exam.id, revision: next.exam.revision };
+    next.session.setRef = { id: next.set.id, revision: next.set.revision };
+  }
+  const prepared = await prepareQuestions(
+    next.bundle,
+    next.set,
+    next.exam,
+    next.session.bindingMode,
+    [base],
+    next.session.id,
+    new Date(at).toISOString(),
+    offset,
+    [...recentInstances.filter((i) => i.sessionId !== run.session.id), ...next.instances],
+  );
   next.issued.push(...prepared.issued);
   next.instances.push(...prepared.instances);
   next.session.entries.push(...prepared.entries);
@@ -406,12 +420,13 @@ export function updateAnswer(
 export async function validateRun(run: Run) {
   if (
     run.selection.mode === "endless" &&
-    (run.selection.kind !== "mix" ||
+    ((run.selection.kind !== "mix" && run.selection.kind !== "bookmark") ||
+      (run.selection.kind === "bookmark" && !run.selection.questionRefs?.length) ||
       run.selection.year !== undefined ||
       run.selection.size !== undefined ||
       run.exam.mode !== "study" ||
       run.exam.questionCount !== undefined ||
-      run.exam.duplicatePolicy !== "cycle_unique" ||
+      !["cycle_unique", "random_reuse"].includes(run.exam.duplicatePolicy) ||
       run.session.bindingMode !== "generated_values")
   )
     throw new DataError("SESSION_CONFIG", "無限周回の保存設定が一致しません");
@@ -425,6 +440,38 @@ export async function validateRun(run: Run) {
   schema("session", run.session);
   schema("exam", run.exam);
   schema("set", run.set);
+  if (run.exam.subject !== run.set.subject || run.selection.subject !== run.exam.subject ||
+    (run.selection.mode !== "endless" && run.selection.questionRefs !== undefined))
+    throw new DataError("SESSION_CONFIG", "保存した問題群の科目・設定が一致しません");
+  if (run.selection.mode === "endless") {
+    const bases = run.set.questionRefs.map((ref) => run.bundle.questions.find(
+      (q) => refKey(refOf(q)) === refKey(ref),
+    ));
+    if (bases.some((base) => !base || base.lifecycle !== "active" || base.distribution !== "included"))
+      throw new DataError("REFERENCE", "周回する元問題を利用できません");
+    const subject = bases.every((base) => base!.subject === bases[0]!.subject)
+      ? bases[0]!.subject : "mixed";
+    if (subject !== run.exam.subject)
+      throw new DataError("SESSION_CONFIG", "周回する問題群の科目が一致しません");
+    if (run.selection.questionRefs !== undefined) {
+      const refs = run.selection.kind === "bookmark"
+        ? bookmarkTemplates(run.bundle, run.selection.questionRefs).map(({ base }) => refOf(base))
+        : run.selection.questionRefs;
+      const expected = [...new Set(refs.map(refKey))].sort(),
+        actual = run.set.questionRefs.map(refKey).sort();
+      if (JSON.stringify(expected) !== JSON.stringify(actual))
+        throw new DataError("SESSION_CONFIG", "保存した周回対象が一致しません");
+    }
+    for (const ref of run.set.questionRefs) {
+      const bindings = run.set.generationBindings.filter((g) => refKey(g.questionRef) === refKey(ref)),
+        template = bindings.length === 1 && run.bundle.templates.find((t) =>
+          t.id === bindings[0].templateRef.id && t.revision === bindings[0].templateRef.revision,
+        );
+      if (!template || refKey(template.baseQuestionRef) !== refKey(ref) ||
+        template.lifecycle !== "active" || template.distribution !== "included")
+        throw new DataError("BINDING_REF", "周回する生成定義が一致しません");
+    }
+  }
   if (
     run.issued.length !== run.session.entries.length ||
     (run.exam.questionCount !== undefined && run.issued.length !== run.exam.questionCount)
@@ -439,7 +486,9 @@ export async function validateRun(run: Run) {
         p.id === e.questionRef.questionId &&
         p.revision === e.questionRef.revision,
     );
-    if (!base) throw new DataError("REFERENCE", "保存した元データがありません");
+    if (!base || !run.set.questionRefs.some((ref) => refKey(ref) === refKey(e.questionRef)) ||
+      (run.exam.subject !== "mixed" && base.subject !== run.exam.subject) || q.subject !== base.subject)
+      throw new DataError("REFERENCE", "保存した問題群の元データが一致しません");
     if (
       (await contentHash(q)) !== e.issuedContent.contentSha256 ||
       q.origin.isModified !== e.issuedContent.isModified ||
@@ -506,7 +555,7 @@ export async function validateRun(run: Run) {
       Date.parse(run.session.startedAt) + run.exam.timeLimitSeconds! * 1000
   )
     throw new DataError("DEADLINE", "保存した期限が不正です");
-  if (run.exam.duplicatePolicy === "cycle_unique" && !isOpenEnded(run))
+  if (["cycle_unique", "random_reuse"].includes(run.exam.duplicatePolicy) && !isOpenEnded(run))
     throw new DataError("SESSION_CONFIG", "周回する練習の設定が一致しません");
   if (run.exam.duplicatePolicy !== "lineage_unique") {
     if (
@@ -519,11 +568,12 @@ export async function validateRun(run: Run) {
       );
     const keys = run.instances.map((i) => run.exam.duplicatePolicy === "cycle_unique"
       ? `${Math.floor(i.entryIndex / run.set.questionRefs.length)}:${refKey(i.baseQuestionRef)}`
+      : run.exam.duplicatePolicy === "random_reuse" ? i.id
       : `${i.templateRef.id}@${i.templateRef.revision}:${JSON.stringify(i.parameters.values)}`);
     if (new Set(keys).size !== keys.length)
       throw new DataError(
         "SESSION_DUPLICATE",
-        "同じ入力の生成問題又は同じ周回の系列が重複しています",
+        "生成記録、同じ入力又は旧周回の系列が重複しています",
       );
   }
   if (

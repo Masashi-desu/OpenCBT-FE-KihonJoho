@@ -21,6 +21,62 @@ const selection: Selection = {
   bindingMode: "generated_values",
 };
 
+test("each endless draw offers all candidates regardless of their past frequency and uses fresh randomness", async (t) => {
+  const run = startRun(await prepareRun(fixture(), selection, {}, 100000), 101000),
+    refs = structuredClone(run.set.questionRefs);
+  // Unequal historical counts must not exclude frequently used definitions.
+  run.session.entries.push(...Array.from({ length: 10 }, () => structuredClone(run.session.entries[0])));
+  const saved = structuredClone(run);
+  for (const index of [0, 0, refs.length - 1]) {
+    const drawn = nextQuestionRef(run, (offered) => {
+      assert.deepEqual(offered, refs);
+      offered.reverse();
+      const [target] = offered.splice(refs.length - 1 - index, 1);
+      return [target, ...offered];
+    });
+    assert.deepEqual(drawn, refs[index]);
+  }
+  const original = crypto.getRandomValues.bind(crypto);
+  let draws = 0;
+  t.mock.method(crypto, "getRandomValues", (array: Uint32Array) => {
+    if (array instanceof Uint32Array) {
+      draws++;
+      array.fill(0);
+      return array;
+    }
+    return original(array);
+  });
+  // Fixed random draws can select the same definition repeatedly; they are not consumed from a lap.
+  assert.deepEqual(nextQuestionRef(run), refs[1]);
+  const previousDraws = draws;
+  assert.deepEqual(nextQuestionRef(run), refs[1]);
+  assert(draws > previousDraws);
+  assert.deepEqual(run, saved);
+});
+
+test("older cycling sessions switch to random draws while retaining issued content and answers", async () => {
+  let old = startRun(await prepareRun(fixture(), selection, {}, 100000), 101000);
+  old.exam.duplicatePolicy = "cycle_unique";
+  old = updateAnswer(old, old.issued[0].correctAnswer.choiceId, 102000);
+  await validateRun(old);
+  const saved = structuredClone(old),
+    next = await appendRunQuestion(old, old.session.entries[0].questionRef, 103000);
+  assert.equal(next.session.id, old.session.id);
+  assert.equal(next.exam.duplicatePolicy, "random_reuse");
+  assert.notEqual(next.exam.id, old.exam.id);
+  assert.notEqual(next.set.id, old.set.id);
+  assert.deepEqual(next.session.entries.slice(0, 1), old.session.entries);
+  assert.deepEqual(next.issued.slice(0, 1), old.issued);
+  assert.deepEqual(next.instances.slice(0, 1), old.instances);
+  assert.deepEqual(next.session.examConfigRef, { id: next.exam.id, revision: next.exam.revision });
+  assert.deepEqual(next.session.setRef, { id: next.set.id, revision: next.set.revision });
+  assert.deepEqual(old, saved);
+  await validateRun(next);
+  const invalid = structuredClone(next);
+  invalid.exam.duplicatePolicy = "cycle_unique";
+  await assert.rejects(appendRunQuestion(invalid, undefined, 104000), { code: "SESSION_DUPLICATE" });
+});
+
 test("endless mode selects every included series independently of hidden year and size settings", () => {
   const bundle = fixture();
   for (const subject of ["A", "B"] as const) {
@@ -33,7 +89,7 @@ test("endless mode selects every included series independently of hidden year an
     assert.equal(clean.exam.questionCount, undefined);
     assert.equal(clean.exam.mode, "study");
     assert.equal(clean.exam.timeLimitSeconds, undefined);
-    assert.equal(clean.exam.duplicatePolicy, "cycle_unique");
+    assert.equal(clean.exam.duplicatePolicy, "random_reuse");
     assert.equal(clean.exam.practiceScope, undefined);
     assert.deepEqual(clean.quota, {});
     for (const year of [2023, 2024, 2025, 2026, 2099])
@@ -47,7 +103,7 @@ test("endless mode selects every included series independently of hidden year an
   }
 });
 
-test("both subjects visit every series before a new lap and keep every issued answer in one session", async () => {
+test("both subjects draw from the whole pool and keep every randomly issued answer in one session", async () => {
   const bundle = fixture();
   for (const subject of ["A", "B"] as const) {
     let run = startRun(await prepareRun(bundle, {
@@ -67,19 +123,21 @@ test("both subjects visit every series before a new lap and keep every issued an
       assert.equal(run.instances[index].entryIndex, index);
       assert.equal(run.session.status, "running");
     }
-    assert.deepEqual(
-      run.session.entries.slice(0, count).map((entry) => refKey(entry.questionRef)).sort(),
-      run.set.questionRefs.map(refKey).sort(),
-    );
-    assert.equal(new Set(run.session.entries.slice(count).map((entry) => refKey(entry.questionRef))).size, 2);
-    assert.equal(new Set(run.instances.map((i) => `${i.templateRef.id}:${JSON.stringify(i.parameters.values)}`)).size, count + 2);
+    assert(run.session.entries.every((entry) => run.set.questionRefs.some((ref) => refKey(ref) === refKey(entry.questionRef))));
+    assert.equal(new Set(run.instances.map((i) => i.id)).size, count + 2);
+    const latest = new Map<string, number[]>();
+    for (const instance of run.instances) {
+      const key = refKey(instance.baseQuestionRef);
+      if (latest.has(key)) assert.notDeepEqual(instance.parameters.values, latest.get(key));
+      latest.set(key, instance.parameters.values);
+    }
     assert.deepEqual(run.issued[0], first);
     const saved = structuredClone(run);
-    // Reopening preserves all used series even if the instances arrive in storage-key order.
+    // Reopening preserves saved questions even if the instances arrive in storage-key order.
     saved.instances.sort((a, b) => a.id.localeCompare(b.id));
     await validateRun(saved);
     const nextRef = nextQuestionRef(saved, (a) => a);
-    assert(!saved.session.entries.slice(count).some((entry) => refKey(entry.questionRef) === refKey(nextRef)));
+    assert.deepEqual(nextRef, saved.set.questionRefs[0]);
     const resumed = await appendRunQuestion(saved, nextRef, 200000);
     assert.deepEqual(resumed.issued.slice(0, saved.issued.length), saved.issued);
     const completed = finishRun(resumed, "completed", 201000);
@@ -102,13 +160,15 @@ test("normal modes retain year, count and deadlines while missing settings and i
         assert.equal(prepared.exam.mode, mode);
         assert.equal(prepared.exam.timeLimitSeconds, mode === "practice" ? count * (subject === "A" ? 90 : 300) : undefined);
       }
-  for (const kind of ["annual", "bookmark"] as const)
-    assert.throws(() => selectQuestions(bundle, { ...selection, kind }), { code: "SELECTION" });
+  assert.throws(() => selectQuestions(bundle, { ...selection, kind: "annual" }), { code: "SELECTION" });
+  assert.throws(() => selectQuestions(bundle, { ...selection, kind: "bookmark" }), { code: "BOOKMARK_REF" });
   assert.throws(() => selectQuestions(bundle, { ...selection, mode: "study" }), { code: "SELECTION" });
   assert.throws(() => selectQuestions(bundle, { ...selection, mode: "practice", year: 2026 }), { code: "SELECTION" });
   const run = startRun(await prepareRun(bundle, selection, {}, 100000), 101000);
   await assert.rejects(appendRunQuestion(finishRun(run, "completed", 102000)), { code: "STATE" });
-  await assert.rejects(appendRunQuestion(run, run.session.entries[0].questionRef, 102000), { code: "SESSION_DUPLICATE" });
+  const repeated = await appendRunQuestion(run, run.session.entries[0].questionRef, 102000);
+  assert.deepEqual(repeated.session.entries[1].questionRef, run.session.entries[0].questionRef);
+  assert.notDeepEqual(repeated.instances[1].parameters, run.instances[0].parameters);
   for (const patch of [{ questionCount: 1 }, { mode: "practice" as const }]) {
     const invalid = structuredClone(run);
     Object.assign(invalid.exam, patch);

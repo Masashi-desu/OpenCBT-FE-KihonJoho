@@ -335,14 +335,14 @@
 | `schemaVersion` | このデータをどの交換仕様で解釈・検証するかを識別する版。未対応版の項目を推測で補完せず、レコードのrevisionとは区別する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="3.0.0" |
 | `id` | 科目・モード・出題数・時間等をまとめた試験設定の永続ID。setとsessionからrevisionと組にして参照し、問題データのIDとは分ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `revision` | この試験設定の不変改訂。制限時間や順序等を変える場合に増やし、過去セッションを最新設定で説明し直さない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=100000 |
-| `subject` | この設定で扱う本アプリのFE科目。セットの科目と一致させ、科目Aと科目Bを一つのセッションへ混在させない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B"] |
+| `subject` | この設定で扱う本アプリのFE科目。A又はBは単一科目、mixedは科目A・Bを含む無限周回の学習用問題群を表す。セットの科目範囲と一致させ、時間付き練習は単一科目に限る。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B","mixed"] |
 | `title` | モード選択と開始前説明に表示する設定名。公式の試験実施名と誤認させず、本アプリの練習又は学習用設定と分かる名前にする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=200 |
 | `mode` | 制限時間付きで正答を終了後に示すpracticeか、時間制限なく正答表示・一時停止を扱うstudyかを選ぶ。FE本番の追加機能とは説明しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["practice","study"] |
 | `questionCount` | 問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。 | 任意 | practiceでは必須。studyで省略時は問題数の制限なし。0やnullを無制限の代用にしない。 | integer | minimum=1 / maximum=60 |
 | `timeLimitSeconds` | practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。 | 条件付き | 条件付き：practiceでは必須で欠落を拒否する。studyでは省略し、時間制限を設けない。 | integer | minimum=1 / maximum=7200 |
 | `questionOrder` | セットに記録した順序で選ぶか、開始時に順序を抽選するか。確定した出題順をsession.entriesへ保存し、再開時に再抽選しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["set","shuffle"] |
 | `choiceOrder` | 元のchoices順を使うか、開始時に順序を抽選するか。choiceShuffleAllowedを尊重し、実際の順序はchoiceOrder配列へ固定する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["fixed","shuffle"] |
-| `duplicatePolicy` | 年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のcycle_uniqueはセットの全候補を一巡する間の系列重複を拒否し、別の周回では同条件の再出題を許可する。生成時は直前の同条件・可変な正答を避ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["lineage_unique","instance_unique","cycle_unique"] |
+| `duplicatePolicy` | 年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のrandom_reuseは全候補から毎回独立に抽選し、同じ系列の連続出題や過去の条件の再利用を許可する。生成時は同系列の直前の条件・可変な正答を避け、各出題を新しい生成記録へ保存する。cycle_uniqueは旧保存設定の互換用で、一巡内の系列重複を拒否する。次問追加時には出題済み内容を保持して新しいrandom_reuse設定へ切り替える。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["lineage_unique","instance_unique","cycle_unique","random_reuse"] |
 | `shortagePolicy` | 必要な問題数又は分野内訳を満たせない場合の処理。初期版では開始を拒否し、不足したまま短縮して形式練習を始めない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="block" |
 | `quotas` | 科目Bのpracticeで必要な分野別枠数。出題候補と確定したセッションの両方でalgorithm／securityの内訳を確認する。 | 条件付き | 条件付き：Bのfull_examでは必須で欠落を拒否する。他の設定では省略し、ミックスの公開部分の内訳は選択時の分野構成で検証する。 | object | additionalProperties=false |
 | `quotas.algorithm` | Bの形式練習で必要なアルゴリズム・プログラミング分野の枠数。生成枠も一つの基準問題として数える。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 / maximum=60 |
@@ -511,7 +511,10 @@
     "if": {
       "properties": {
         "duplicatePolicy": {
-          "const": "cycle_unique"
+          "enum": [
+            "cycle_unique",
+            "random_reuse"
+          ]
         }
       },
       "required": [
@@ -532,6 +535,33 @@
         "type": "object"
       },
       "type": "object"
+    }
+  },
+  {
+    "if": {
+      "type": "object",
+      "properties": {
+        "subject": {
+          "const": "mixed"
+        }
+      },
+      "required": [
+        "subject"
+      ]
+    },
+    "then": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "const": "study"
+        },
+        "duplicatePolicy": {
+          "enum": [
+            "cycle_unique",
+            "random_reuse"
+          ]
+        }
+      }
     }
   }
 ]
@@ -1171,7 +1201,7 @@
 
 ## 問題セット（set）
 
-[元Schema](/schemas/set.schema.json)。同じ科目の問題候補と選択可能な試験設定の組。年度別は必要な独立系列数を確保する。生成ミックスは登録された基準問題・テンプレートから指定の枠を生成し、異なる入力を用意できないときは開始を止める。
+[元Schema](/schemas/set.schema.json)。問題候補と選択可能な試験設定の組。単一科目の通常練習に加え、科目A・Bの無限周回を扱う。年度別は必要な独立系列数を確保する。生成ミックスは登録された基準問題・テンプレートから指定の枠を生成し、異なる入力を用意できないときは開始を止める。
 
 | フィールド | 意味 | 必須／任意 | 欠落時の扱い | 型・参照先 | 制約 |
 | --- | --- | --- | --- | --- | --- |
@@ -1179,7 +1209,7 @@
 | `id` | 一つの学習用問題群を識別する永続ID。session.setRefはrevisionと組にして参照し、同じ名称の別セットと混同しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `revision` | 候補問題と関連試験設定を固定する改訂。問題の追加・差替え・設定の変更時に増やし、過去の出題候補を上書きしない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=100000 |
 | `title` | S01の問題セット選択に表示する名前。内容・学習目的を説明し、公式に提供された試験セットと誤認させない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=200 |
-| `subject` | このセットの問題に共通する本アプリ内の科目。参照するquestionとexamの科目に一致させ、混在したセットを開始しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B"] |
+| `subject` | このセットの科目範囲。A又はBは単一科目、mixedは科目A・Bを含む無限周回の学習用問題群を表す。各questionの科目は維持し、examの科目範囲と一致させる。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B","mixed"] |
 | `questionRefs` | 問題と基準問題の不変参照を持つ候補一覧。年度別では原順序を保つ。候補自体に重複参照を置かず、生成ミックスの枠数・同系列の別入力はexam.duplicatePolicyとsession.entriesで決める。候補数と生成出題数は同一とは限らない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=500 / uniqueItems=true |
 | `questionRefs[]` | 「questionRefs」に記録する一つの出題候補の不変参照。年度別では原順序を保持し、一つの問題を一枠へ選ぶ。生成ミックスでは基準問題を一度だけ候補に登録し、異なる入力を複数のセッション枠へ割り当てられる。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
 | `examConfigRefs` | このセットで開始できる試験設定のID・改訂。問数や分野内訳を満たす設定だけを関連付け、不足するpracticeを選択可能にしない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=20 / uniqueItems=true |

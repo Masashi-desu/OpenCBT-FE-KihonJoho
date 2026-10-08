@@ -333,10 +333,15 @@ export async function validateBundle(b: Bundle) {
       fail("RELEASE_GATE", `${a.id}: 未使用の画像を配布カタログへ残せません`);
   for (const s of b.sets) {
     if (s.distribution !== "included") fail("RELEASE_GATE", s.id);
+    const subjects = new Set<Question["subject"]>();
     for (const r of s.questionRefs) {
-      if (get("question", refKey(r)).subject !== s.subject)
+      const question = get("question", refKey(r));
+      subjects.add(question.subject);
+      if (s.subject !== "mixed" && question.subject !== s.subject)
         fail("SUBJECT", s.id);
     }
+    if (s.subject === "mixed" && subjects.size !== 2)
+      fail("SUBJECT", s.id);
     for (const e of s.examConfigRefs)
       if (get("exam", `${e.id}@${e.revision}`).subject !== s.subject)
         fail("SUBJECT", s.id);

@@ -47,6 +47,7 @@ import {
   type Question,
   labels,
   areas,
+  subjectLabel,
 } from "../core/types";
 import { loadCatalog, loadAsset } from "../core/catalog";
 import { selectQuestions } from "../core/selection";
@@ -80,6 +81,7 @@ import {
 import {
   makeBookmark,
   bookmarkPreview,
+  bookmarkGroupSelection,
   resultBookmarks,
   type Bookmark,
   type BookmarkOutcome,
@@ -1647,7 +1649,7 @@ export function App() {
                   : "おつかれさまでした"}
               </h1>
               <p className="page-intro">
-                {run.set.title} · 科目{run.exam.subject}
+                {run.set.title} · {subjectLabel(run.exam.subject)}
               </p>
               <section className="result-card">
                 {run.result.revealedCount > 0 && (
@@ -1822,8 +1824,17 @@ export function App() {
                 ブックマーク
               </h1>
               <p className="page-intro">
-                保存した問題の類題を練習できます。「次の類題」で条件を変えた問題を続けて解けます。ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
+                保存した問題の類題を練習できます。全件の練習では登録した問題から毎回ランダムに選び、条件を変えた類題を出題します。ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
               </p>
+              <div className="bookmark-toolbar">
+                <button
+                  className="primary"
+                  disabled={!bundle || !bookmarks.length || Boolean(busy || error || bookmarkPending)}
+                  onClick={() => void begin(bookmarkGroupSelection(bookmarks))}
+                >
+                  <Play size={16} /> すべてのブックマークの類題を練習
+                </button>
+              </div>
               {bookmarks.length === 0 ? (
                 <div className="empty-state">
                   <BookmarkIcon size={42} />
@@ -1915,6 +1926,24 @@ export function App() {
                 <h1 ref={h1} tabIndex={-1}>
                   履歴・復習
                 </h1>
+              </div>
+              <p className="page-intro">
+                学習履歴はこのブラウザに保存し、最終更新から180日で削除します。ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。
+              </p>
+              <div className="history-toolbar">
+                <label className="history-filter">
+                  練習の種類
+                  <select
+                    aria-label="履歴の絞り込み"
+                    value={historyFilter}
+                    onChange={(e) => setHistoryFilter(e.target.value as HistoryFilter)}
+                  >
+                    <option value="all">すべて</option>
+                    <option value="annual">年度別問題</option>
+                    <option value="mix">ランダムミックス</option>
+                    <option value="bookmark">ブックマーク練習</option>
+                  </select>
+                </label>
                 <button
                   disabled={!items.length || Boolean(busy)}
                   onClick={() => {
@@ -1926,22 +1955,6 @@ export function App() {
                   すべて削除
                 </button>
               </div>
-              <p className="page-intro">
-                学習履歴はこのブラウザに保存し、最終更新から180日で削除します。ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。
-              </p>
-              <label className="history-filter">
-                練習の種類
-                <select
-                  aria-label="履歴の絞り込み"
-                  value={historyFilter}
-                  onChange={(e) => setHistoryFilter(e.target.value as HistoryFilter)}
-                >
-                  <option value="all">すべて</option>
-                  <option value="annual">年度別問題</option>
-                  <option value="mix">ランダムミックス</option>
-                  <option value="bookmark">ブックマーク練習</option>
-                </select>
-              </label>
               {items.length === 0 ? (
                 <div className="empty-state">
                   <History size={42} />
@@ -1964,7 +1977,7 @@ export function App() {
                   {filteredHistoryItems.map((item) => (
                     <article key={item.id} className="history-card">
                       <span className="subject-letter">
-                        {item.exam.subject}
+                        {item.exam.subject === "mixed" ? "AB" : item.exam.subject}
                       </span>
                       <div className="history-info">
                         <span className="history-status">

@@ -1,4 +1,8 @@
 export type Ref = { questionId: string; revision: number };
+export type Subject = "A" | "B";
+export type SubjectScope = Subject | "mixed";
+export const subjectLabel = (subject: SubjectScope) =>
+  subject === "mixed" ? "科目A・B" : `科目${subject}`;
 export type EntityRef = { id: string; revision: number };
 export type SourceRef = {
   sourceId: string;
@@ -168,7 +172,7 @@ export type SetRecord = {
   id: string;
   revision: number;
   title: string;
-  subject: "A" | "B";
+  subject: SubjectScope;
   questionRefs: Ref[];
   examConfigRefs: EntityRef[];
   distribution: string;
@@ -179,13 +183,13 @@ export type Exam = {
   id: string;
   revision: number;
   title: string;
-  subject: "A" | "B";
+  subject: SubjectScope;
   mode: "study" | "practice";
   questionCount?: number;
   timeLimitSeconds?: number;
   questionOrder: "set" | "shuffle";
   choiceOrder: "fixed" | "shuffle";
-  duplicatePolicy: "lineage_unique" | "instance_unique" | "cycle_unique";
+  duplicatePolicy: "lineage_unique" | "instance_unique" | "cycle_unique" | "random_reuse";
   shortagePolicy: "block";
   practiceScope?: "full_exam" | "public_subset" | "learning_set";
   quotas?: { algorithm: number; security: number };
@@ -317,13 +321,15 @@ export type Run = {
   selection: Selection;
 };
 export type Selection = {
-  subject: "A" | "B";
+  subject: SubjectScope;
   kind: "annual" | "mix" | "bookmark";
   year?: number;
   mode: "practice" | "study" | "endless";
   size?: "public" | "full";
   bindingMode: "original_data" | "generated_values";
   bookmarkQuestionRef?: Ref;
+  // An explicit endless pool: source refs for bookmarks, base refs for other groups.
+  questionRefs?: Ref[];
 };
 export const labels = [..."アイウエオカキクケコ"];
 export const areas: Record<string, string> = {

@@ -13,6 +13,7 @@ import { shuffle, newId } from "./hash";
 import { DataError } from "./validation";
 import {
   bookmarkTemplate,
+  bookmarkTemplates,
   makeBookmark,
 } from "./bookmarks";
 export function familyOf(
@@ -56,19 +57,66 @@ export function nextQuestionRef(
 ): Ref {
   if (run.selection.mode !== "endless")
     return run.session.entries[run.session.currentIndex].questionRef;
-  const counts = new Map<string, number>();
-  for (const entry of run.session.entries) {
-    const key = refKey(entry.questionRef);
-    counts.set(key, (counts.get(key) ?? 0) + 1);
-  }
-  const leastUsed = Math.min(...run.set.questionRefs.map((ref) => counts.get(refKey(ref)) ?? 0));
-  const candidates = run.set.questionRefs.filter(
-    (ref) => (counts.get(refKey(ref)) ?? 0) === leastUsed,
-  );
+  const candidates = [...run.set.questionRefs];
   if (!candidates.length)
     throw new DataError("SHORTAGE", "次に出題する問題がありません");
   return order(candidates)[0];
 }
+
+// Build an immutable random pool independently of the menu or bookmark list.
+export function selectEndlessQuestions(
+  b: Bundle,
+  questionRefs: readonly Ref[],
+  title: string,
+  order: <T>(a: T[]) => T[] = shuffle,
+): ReturnType<typeof selectQuestions> {
+  const refs = [...new Map(questionRefs.map((ref) => [refKey(ref), ref])).values()];
+  if (!refs.length)
+    throw new DataError("SHORTAGE", "周回する問題がありません");
+  const candidates = refs.map((ref) => {
+    const base = b.questions.find((q) => refKey(refOf(q)) === refKey(ref)),
+      templates = b.templates.filter((t) =>
+        refKey(t.baseQuestionRef) === refKey(ref) &&
+        t.lifecycle === "active" && t.distribution === "included",
+      );
+    if (!base || base.lifecycle !== "active" || base.distribution !== "included" ||
+      b.catalog.withdrawals.some((w) => refKey(w.questionRef) === refKey(ref)) ||
+      templates.length !== 1)
+      throw new DataError("BINDING_REF", "周回する問題の生成定義を利用できません");
+    return { base, template: templates[0] };
+  });
+  const subject = candidates.every(({ base }) => base.subject === candidates[0].base.subject)
+    ? candidates[0].base.subject
+    : "mixed";
+  const exam: Exam = {
+    schemaVersion: "3.0.0",
+    id: newId("exam-selected"),
+    revision: 1,
+    title,
+    subject,
+    mode: "study",
+    questionOrder: "shuffle",
+    choiceOrder: "shuffle",
+    duplicatePolicy: "random_reuse",
+    shortagePolicy: "block",
+  };
+  const set: SetRecord = {
+    schemaVersion: "3.0.0",
+    id: newId("set-selected"),
+    revision: 1,
+    title,
+    subject,
+    distribution: "included",
+    questionRefs: candidates.map(({ base }) => refOf(base)),
+    examConfigRefs: [{ id: exam.id, revision: exam.revision }],
+    generationBindings: candidates.map(({ base, template }) => ({
+      questionRef: refOf(base),
+      templateRef: { id: template.id, revision: template.revision },
+    })),
+  };
+  return { questions: order(candidates.map(({ base }) => base)).slice(0, 1), exam, set, quota: {} };
+}
+
 export function selectQuestions(
   b: Bundle,
   s: Selection,
@@ -79,9 +127,26 @@ export function selectQuestions(
   set: SetRecord;
   quota: Record<string, number>;
 } {
-  if (s.mode === "endless" && s.kind !== "mix")
-    throw new DataError("SELECTION", "無限周回は生成問題を使います");
-  if (s.mode !== "endless" && s.kind !== "bookmark" &&
+  if (s.mode === "endless") {
+    if (s.kind !== "mix" && s.kind !== "bookmark")
+      throw new DataError("SELECTION", "無限周回は生成問題を使います");
+    if (s.kind === "bookmark" && !s.questionRefs?.length)
+      throw new DataError("BOOKMARK_REF", "練習するブックマークを選んでください。");
+    const refs = s.kind === "bookmark"
+      ? bookmarkTemplates(b, s.questionRefs!).map(({ base }) => refOf(base))
+      : s.questionRefs ?? b.templates.filter((t) =>
+        t.lifecycle === "active" && t.distribution === "included" &&
+        b.questions.some((q) => q.subject === s.subject && refKey(refOf(q)) === refKey(t.baseQuestionRef)),
+      ).map((t) => t.baseQuestionRef);
+    const prepared = selectEndlessQuestions(b, refs,
+      s.kind === "bookmark" ? "ブックマーク全件・無限周回" : "無限周回・生成問題", order);
+    if (s.subject !== prepared.exam.subject)
+      throw new DataError("SELECTION", "周回する問題群の科目が一致しません。");
+    return prepared;
+  }
+  if (s.subject === "mixed" || s.questionRefs !== undefined)
+    throw new DataError("SELECTION", "問題群の指定は無限周回で使います");
+  if (s.kind !== "bookmark" &&
     (!s.year || !s.size))
     throw new DataError("SELECTION", "年度と出題数を選んでください");
   if (s.kind === "bookmark") {
@@ -159,10 +224,8 @@ export function selectQuestions(
             t.distribution === "included",
         ),
     );
-    quota = s.mode === "endless" ? {} : quotasFor(b, s);
-    title = s.mode === "endless"
-      ? "無限周回・生成問題"
-      : `ランダムミックス・生成問題（${s.subject === "A" ? s.year + "年度の分野構成" : "アルゴリズム・情報セキュリティ"}）`;
+    quota = quotasFor(b, s);
+    title = `ランダムミックス・生成問題（${s.subject === "A" ? s.year + "年度の分野構成" : "アルゴリズム・情報セキュリティ"}）`;
     id = `mix-${s.subject.toLowerCase()}`;
   }
   if (!candidates.length)
@@ -174,9 +237,7 @@ export function selectQuestions(
     chosen.push(q);
     familyOf(q, b).forEach((k) => families.add(k));
   };
-  if (s.mode === "endless") {
-    chosen = order(candidates).slice(0, 1);
-  } else if (s.kind === "mix") {
+  if (s.kind === "mix") {
     for (const [area, count] of Object.entries(quota)) {
       if (count === 0) continue;
       const pool = order(candidates.filter((q) => q.learning.area === area));
@@ -218,11 +279,11 @@ export function selectQuestions(
     revision: 1,
     title,
     subject: s.subject,
-    mode: s.mode === "endless" ? "study" : s.mode,
-    ...(s.mode === "endless" ? {} : { questionCount: chosen.length }),
+    mode: s.mode,
+    questionCount: chosen.length,
     questionOrder: s.kind === "mix" ? "shuffle" : "set",
     choiceOrder: s.kind === "mix" ? "shuffle" : "fixed",
-    duplicatePolicy: s.mode === "endless" ? "cycle_unique" : s.kind === "mix" ? "instance_unique" : "lineage_unique",
+    duplicatePolicy: s.kind === "mix" ? "instance_unique" : "lineage_unique",
     shortagePolicy: "block",
   };
   if (s.mode === "practice") {

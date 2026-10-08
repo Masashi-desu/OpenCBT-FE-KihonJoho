@@ -26,9 +26,10 @@
       "type": "string",
       "enum": [
         "A",
-        "B"
+        "B",
+        "mixed"
       ],
-      "description": "この設定で扱う本アプリのFE科目。セットの科目と一致させ、科目Aと科目Bを一つのセッションへ混在させない。",
+      "description": "この設定で扱う本アプリのFE科目。A又はBは単一科目、mixedは科目A・Bを含む無限周回の学習用問題群を表す。セットの科目範囲と一致させ、時間付き練習は単一科目に限る。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "title": {
@@ -80,12 +81,13 @@
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "duplicatePolicy": {
-      "description": "年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のcycle_uniqueはセットの全候補を一巡する間の系列重複を拒否し、別の周回では同条件の再出題を許可する。生成時は直前の同条件・可変な正答を避ける。",
+      "description": "年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のrandom_reuseは全候補から毎回独立に抽選し、同じ系列の連続出題や過去の条件の再利用を許可する。生成時は同系列の直前の条件・可変な正答を避け、各出題を新しい生成記録へ保存する。cycle_uniqueは旧保存設定の互換用で、一巡内の系列重複を拒否する。次問追加時には出題済み内容を保持して新しいrandom_reuse設定へ切り替える。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。",
       "enum": [
         "lineage_unique",
         "instance_unique",
-        "cycle_unique"
+        "cycle_unique",
+        "random_reuse"
       ]
     },
     "shortagePolicy": {
@@ -300,7 +302,10 @@
       "if": {
         "properties": {
           "duplicatePolicy": {
-            "const": "cycle_unique"
+            "enum": [
+              "cycle_unique",
+              "random_reuse"
+            ]
           }
         },
         "required": [
@@ -321,6 +326,33 @@
           "type": "object"
         },
         "type": "object"
+      }
+    },
+    {
+      "if": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "const": "mixed"
+          }
+        },
+        "required": [
+          "subject"
+        ]
+      },
+      "then": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "const": "study"
+          },
+          "duplicatePolicy": {
+            "enum": [
+              "cycle_unique",
+              "random_reuse"
+            ]
+          }
+        }
       }
     }
   ]
