@@ -59,7 +59,7 @@ async function prepareQuestions(
         `${key}:${JSON.stringify(previous.parameters.values)}`,
       );
   }
-  // Fixed-length and individual bookmark runs exclude every owned input; endless runs retain the last one.
+  // Fixed-length runs exclude every owned input; open-ended runs retain the last one.
   for (const previous of generationHistory.filter((i) => i.sessionId === id))
     usedParameters.add(
       `${previous.templateRef.id}@${previous.templateRef.revision}:${JSON.stringify(previous.parameters.values)}`,
@@ -100,12 +100,9 @@ async function prepareQuestions(
         seed = randomSeed();
         parameters = await parametersForSeed(seed, t);
         const signature = `${key}:${JSON.stringify(parameters.values)}`;
-        if (
-          usedParameters.has(signature) ||
-          JSON.stringify(parameters.values) ===
-            JSON.stringify(t.referenceParameters.values)
-        )
-          continue;
+        // Reference inputs and answers are valid candidates too. Only actual
+        // practice history can exclude them, never their role as the baseline.
+        if (usedParameters.has(signature)) continue;
         try {
           q = bindQuestion(base, t, parameters.values, instanceId, now);
         } catch (e) {
@@ -116,7 +113,7 @@ async function prepareQuestions(
         const answer = answerSignature(q);
         if (
           answerCanVary(t) &&
-          (answer === answerSignature(base) || answer === lastAnswer.get(key))
+          answer === lastAnswer.get(key)
         ) {
           q = undefined;
           continue;

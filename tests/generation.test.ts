@@ -195,12 +195,7 @@ test("full mix generates every slot; originals, values, displayed answer IDs and
       assert.equal(new Set(signatures).size, signatures.length);
       for (const [index, instance] of run.instances.entries()) {
         const t = b.templates.find((t) => t.id === instance.templateRef.id)!;
-        assert.notDeepEqual(instance.parameters, t.referenceParameters);
-        if (answerCanVary(t))
-          assert.notEqual(
-            answerSignature(instance.question),
-            answerSignature(baseFor(t, b)),
-          );
+        checkParameters(t, instance.parameters.values);
         assert.deepEqual(
           run.session.entries[index].choiceOrder.slice().sort(),
           instance.question.choices.map((c) => c.id).sort(),

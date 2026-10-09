@@ -594,7 +594,7 @@ test("individual hexadecimal bookmark practice outlives its finite pool and pres
       assert.equal(run.session.id, sessionId);
     }
     assert(
-      conditions.size <= 6,
+      conditions.size <= 7,
       "the finite pool is reused without adjacent repeats",
     );
     assert.deepEqual(run.issued[0], saved.issued[0]);
