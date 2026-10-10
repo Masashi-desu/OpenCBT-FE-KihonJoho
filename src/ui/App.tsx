@@ -1379,10 +1379,27 @@ export function App() {
                     </div>
                   </div>
                 </div>
-                <div className="exam-cbt-toolbar">
+              </header>
+              <div
+                className="exam-split"
+                style={
+                  {
+                    "--question-font": "100%",
+                    "--image-scale": 1,
+                  } as React.CSSProperties
+                }
+              >
+                <div className="material-workspace">
                   <div className="exam-material-toolbar">
                     <MaterialToolbar viewer={materialViewer} />
                   </div>
+                  <MaterialPane
+                    viewer={materialViewer}
+                    bundle={run.bundle}
+                    assetUrls={assetUrls}
+                  />
+                </div>
+                <section className="answer-pane" aria-label="解答領域">
                   <div className="exam-answer-toolbar">
                     <div className="exam-time">
                       <Clock size={19} />
@@ -1413,23 +1430,6 @@ export function App() {
                       {isReview ? "結果へ" : "終了"}
                     </button>
                   </div>
-                </div>
-              </header>
-              <div
-                className="exam-split"
-                style={
-                  {
-                    "--question-font": "100%",
-                    "--image-scale": 1,
-                  } as React.CSSProperties
-                }
-              >
-                <MaterialPane
-                  viewer={materialViewer}
-                  bundle={run.bundle}
-                  assetUrls={assetUrls}
-                />
-                <section className="answer-pane" aria-label="解答領域">
                   <div className="answer-workspace">
                     <QuestionRail
                       entries={run.session.entries}

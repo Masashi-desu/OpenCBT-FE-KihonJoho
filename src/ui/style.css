@@ -811,16 +811,13 @@ select {
   background: var(--surface);
   border-bottom: 1px solid var(--toolbar-border);
 }
-.exam-cbt-toolbar {
-  display: grid;
-  grid-template-columns: var(--exam-columns);
-  align-items: stretch;
-  min-height: 50px;
-  border-bottom: 1px solid var(--toolbar-border);
-}
 .exam-material-toolbar,
 .exam-answer-toolbar {
   min-height: 50px;
+  flex-shrink: 0;
+  background: var(--toolbar-surface, #173b3e);
+  color: var(--toolbar-text, #fff);
+  border-bottom: 1px solid var(--toolbar-border);
 }
 .exam-material-toolbar {
   border-right: 1px solid var(--toolbar-border);
@@ -977,6 +974,13 @@ select {
   min-width: 0;
   min-height: 0;
   overflow: hidden;
+  flex: 1;
+}
+.material-workspace {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
 }
 .reading-scroll {
   overflow: auto;
@@ -2438,7 +2442,9 @@ dialog details {
   }
   .exam-material-toolbar {
     border-right: 0;
-    border-bottom: 1px solid var(--toolbar-border);
+  }
+  .material-workspace {
+    display: block;
   }
   .exam-split {
     max-height: none;
@@ -2509,7 +2515,9 @@ dialog details {
   }
   .exam-material-toolbar {
     border-right: 0;
-    border-bottom: 1px solid var(--toolbar-border);
+  }
+  .material-workspace {
+    display: block;
   }
   .reading-pane {
     max-height: 60dvh;
@@ -3086,11 +3094,6 @@ dialog details {
   .exam-footer {
     position: static;
     background: var(--footer-surface, #e9eeeb);
-  }
-  .exam-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
   }
 }
 dialog dd {
