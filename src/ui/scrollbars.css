@@ -1,0 +1,65 @@
+/* Native scrolling is retained; only its reserved space and paint are replaced. */
+html[data-overlay-scrollbars],
+html[data-overlay-scrollbars] * {
+  scrollbar-width: none !important;
+  scrollbar-gutter: auto !important;
+}
+html[data-overlay-scrollbars]::-webkit-scrollbar,
+html[data-overlay-scrollbars] *::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.overlay-scrollbar-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+.overlay-scrollbar {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  cursor: default;
+}
+.overlay-scrollbar[hidden] {
+  display: none;
+}
+.overlay-scrollbar-thumb {
+  position: absolute;
+  inset: 0 3px;
+  border-radius: 999px;
+  background: rgb(80 80 80 / 38%);
+  transition: background-color 0.15s;
+}
+.overlay-scrollbar-horizontal .overlay-scrollbar-thumb {
+  inset: 3px 0;
+}
+.overlay-scrollbar:hover .overlay-scrollbar-thumb,
+.overlay-scrollbar.dragging .overlay-scrollbar-thumb {
+  background: rgb(80 80 80 / 62%);
+}
+:root[data-theme="dark"] .overlay-scrollbar-thumb,
+:root.dark .overlay-scrollbar-thumb {
+  background: rgb(210 210 210 / 38%);
+}
+:root[data-theme="dark"] .overlay-scrollbar:hover .overlay-scrollbar-thumb,
+:root[data-theme="dark"] .overlay-scrollbar.dragging .overlay-scrollbar-thumb,
+:root.dark .overlay-scrollbar:hover .overlay-scrollbar-thumb,
+:root.dark .overlay-scrollbar.dragging .overlay-scrollbar-thumb {
+  background: rgb(210 210 210 / 62%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .overlay-scrollbar-thumb {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .overlay-scrollbar-thumb {
+    background: CanvasText !important;
+    forced-color-adjust: none;
+  }
+}
