@@ -88,6 +88,7 @@ import {
 } from "../core/bookmarks";
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
+import { StudyTerms } from "./StudyTerms";
 import { Dialog } from "./Dialog";
 import { QuestionFooter, screenNotice } from "./QuestionFooter";
 import { QuestionRail } from "./QuestionRail";
@@ -1545,6 +1546,7 @@ export function App() {
                             assetUrls={assetUrls}
                             showAttribution={false}
                           />
+                          <StudyTerms question={q} assets={run.bundle.assets} />
                           {entry.revealed && (
                             <small>学習中に正答を表示した問題です。</small>
                           )}

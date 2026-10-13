@@ -1,5 +1,38 @@
 # 検証記録
 
+## 解説欄の略語・関連用語補足（2026-10-13）
+
+年度別・生成問題と保存済みの復習に、正式名称と日本語の意味・役割を示す「用語の補足」を追加した。CIO／CEO／CFO／CTO、GPU／TPM／FPGA、WAF／WPA2／SIEM／UTM、CSIRT／PSIRT／SOC／J-CRATなどは、説明形式の原問題でも関連する用語を確認できる。既存の解説に同じ意味がある場合は、略語の正式名称を除いて重複を抑える。
+
+補足は管理された表示用の辞書であり、当時の問題・解説を再生成しない。public/data、生成器、問題改訂・生成器版・内容hash・保存済みの採点対象は変更していない。正答表示・復習時だけ表示する。略語以外の知識用語は、既存の独立した査読資料tests/fixtures/knowledge-pairs.jsonと照合した独自記述を用い、データベースの独立性を監査の独立性に流用しないよう系列を限定した。分類名ABC、化学式CO2、ブランド名Wi-Fiを英単語の略として展開しない。
+
+### 一次資料と確認範囲
+
+確認日はいずれも2026-10-13。正式名称・用語の対応を確認し、日本語の補足は独自に作成した。資料の本文・規格文言を転載していない。
+
+| 資料 | 主な照合対象・箇所 |
+| --- | --- |
+| [IPA・情報処理技術者試験シラバス用語例集](https://www.ipa.go.jp/shiken/asia/qv6pgp0000002s9q-att/000027072.pdf) | DMA p.30、MTBF／MTTR p.28、CIO p.97、SFA p.114などの名称対応 |
+| [NISTIR 7581・System and Network Security Acronyms and Abbreviations](https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7581.pdf) | ネットワーク・セキュリティの略語一覧。SSID、SSL、SQL、SIEM、UTMなど |
+| [NIST SP 800-145・The NIST Definition of Cloud Computing](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf) | Service ModelsのSaaS／PaaS／IaaSの提供・管理範囲 |
+| [RFC 951・Bootstrap Protocol](https://www.rfc-editor.org/rfc/rfc951)／[RFC 7011・IPFIX](https://www.rfc-editor.org/rfc/rfc7011) | BOOTPの名称と起動時の情報提供、IPFIXの名称とフロー情報の転送 |
+| [IPA・PSIRT体制整備支援](https://www.ipa.go.jp/security/reports/vuln/psirt2025_open_call.html)／[IPA・J-CSIP & J-CRAT](https://www.ipa.go.jp/en/about/activities/jcsip-jcrat.html) | PSIRT／J-CRATの正式名称と対応対象 |
+| [NIST・CSMA/CAの研究報告](https://www.nist.gov/publications/analysis-generalized-cca-errors-and-mitigation-lte-laa-spectrum-sharing-system) | Carrier Sense Multiple Access with Collision Avoidanceの展開 |
+| [資源エネルギー庁・家庭の省エネルギー](https://www.enecho.meti.go.jp/category/saving_and_new/saving/general/what/index.html) | HEMSの名称と家庭のエネルギー管理（検索結果で掲載箇所を確認。本文取得は失敗） |
+| [NI・PID Controller & Theory](https://www.ni.com/en/shop/labview/pid-theory-explained.html) | 比例・積分・微分によるフィードバック制御 |
+
+### 検証
+
+tests/study-terms.test.tsで、固定した略語の正式名称と意味、全知識対象・選択肢配置での補足、別分野・識別子・複合略語の誤検出防止、参照資料と本文形式、原問題・基準問題の不変性、既存の査読資料との用語対応、静的HTMLの表示を検査した。既存の独立解・知識対応テストも成功した。
+
+隔離したheadless Chromiumで2023年度科目A問19の正答表示と保存済み復習を操作し、正答表示前に補足がないこと、正式名称と四つの責任者の役割が表示されることを確認した。デスクトップと390pxの画面幅、ライト／ダークでスクリーンショットを確認し、390pxではページ幅390px、用語の横はみ出し0だった。Safari・実機や全問題の全画面を視覚確認した結果ではない。同じAIによる資料照合・査読であり、第三者による二重校正とは扱わない。
+
+同じ隔離ブラウザで生成ミックス20問を正答表示し、該当した7問でCPU、ERP／SFA、IPv4／DHCP／BOOTP／MIB、GPU／TPM／FPGA／3D、HTTP／TLS／WAF、DMA、EDI／POSの補足を確認した。390pxのダーク表示で、該当した全用語の横はみ出しは0だった。
+
+npm run checkで本体テスト・配布検証・型確認・本体／文書ビルドが成功した。追加の用語テストも個別実行で成功した。ローカル確認であり、公開サイトへは未反映。
+
+push前の差分査読で、SSL/TLSのようにスラッシュで並べた略語が検出されない不具合を修正した。全角・空白付きの区切りも検査し、CSMA/CAを認証局のCAへ分割しない回帰テストを追加した。問題・生成器・保存形式の変更はなく、全チェック成功後にmainへpushして配信ワークフローを起動する。
+
 ## スマホのヘッダー配置・スクロール（2026-10-10）
 
 資料の表示操作を問題資料と同じ領域へ、時計・終了操作を解答領域へ統合した。狭い画面では上段ヘッダー、資料の表示操作、問題資料、時計・終了操作、解答領域の順に並べ、上部への固定を解除した。PCでは各領域の操作の高さと列境界を揃える。問題内容・生成器・保存形式は変更していない。

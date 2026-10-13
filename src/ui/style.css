@@ -1740,6 +1740,24 @@ td.omitted-cell {
 .explanation .content-blocks p {
   font-size: 0.9em;
 }
+.study-terms dl {
+  margin: 0;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+.study-terms dl > div + div {
+  margin-top: 13px;
+}
+.study-terms dt {
+  font-weight: 600;
+}
+.study-terms dt span {
+  font-weight: 400;
+}
+.study-terms dd {
+  margin: 4px 0 0;
+  line-height: 1.65;
+}
 .pause-cover {
   position: absolute;
   inset: 0;
