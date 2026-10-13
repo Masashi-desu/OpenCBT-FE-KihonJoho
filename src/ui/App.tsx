@@ -1709,32 +1709,45 @@ export function App() {
                     label="経過時間"
                   />
                 </div>
-                <div
-                  className="result-bookmark-actions"
-                  role="group"
-                  aria-label="ブックマークにまとめて追加"
-                >
-                  <button
-                    disabled={
-                      Boolean(busy) ||
-                      bookmarkPending ||
-                      !canBookmarkResult("unanswered")
-                    }
-                    onClick={() => void bookmarkResult("unanswered")}
+                <div className="result-answer-actions">
+                  <div
+                    className="result-bookmark-actions"
+                    role="group"
+                    aria-label="ブックマークにまとめて追加"
                   >
-                    <BookmarkIcon size={16} />
-                    未解答をブックマークに追加
-                  </button>
+                    <button
+                      disabled={
+                        Boolean(busy) ||
+                        bookmarkPending ||
+                        !canBookmarkResult("unanswered")
+                      }
+                      onClick={() => void bookmarkResult("unanswered")}
+                    >
+                      <BookmarkIcon size={16} />
+                      未解答をブックマークに追加
+                    </button>
+                    <button
+                      disabled={
+                        Boolean(busy) ||
+                        bookmarkPending ||
+                        !canBookmarkResult("incorrect")
+                      }
+                      onClick={() => void bookmarkResult("incorrect")}
+                    >
+                      <BookmarkIcon size={16} />
+                      不正解をブックマークに追加
+                    </button>
+                  </div>
                   <button
-                    disabled={
-                      Boolean(busy) ||
-                      bookmarkPending ||
-                      !canBookmarkResult("incorrect")
-                    }
-                    onClick={() => void bookmarkResult("incorrect")}
+                    className="primary"
+                    onClick={() => {
+                      setReviewFilter("all");
+                      setReviewIndex(0);
+                      navigate("review");
+                    }}
                   >
-                    <BookmarkIcon size={16} />
-                    不正解をブックマークに追加
+                    <BookOpen size={18} />
+                    回答を順番に確認する
                   </button>
                 </div>
                 <div className="result-actions">
@@ -1743,13 +1756,12 @@ export function App() {
                       <History size={18} />
                       履歴へ
                     </button>
-                    <button
-                      className="text-button"
-                      onClick={() => navigate("menu")}
-                    >
-                      <Home size={17} />
-                      メニューへ
-                    </button>
+                    {run.selection.kind === "bookmark" && (
+                      <button onClick={() => void showBookmarks()}>
+                        <BookmarkIcon size={18} />
+                        ブックマークへ
+                      </button>
+                    )}
                   </div>
                   <div className="result-navigation">
                     {(run.selection.kind === "bookmark" || run.selection.mode === "endless") && (
@@ -1761,16 +1773,6 @@ export function App() {
                         <Play size={18} /> {run.selection.mode === "endless" ? "もう一度練習" : "同じ問題で続けて練習"}
                       </button>
                     )}
-                    <button
-                      className="primary"
-                      onClick={() => {
-                        setReviewIndex(0);
-                        navigate("review");
-                      }}
-                    >
-                      <BookOpen size={18} />
-                      問題を復習する
-                    </button>
                   </div>
                 </div>
               </section>

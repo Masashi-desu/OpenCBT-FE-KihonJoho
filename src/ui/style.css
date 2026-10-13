@@ -1844,12 +1844,19 @@ td.omitted-cell {
   font-size: 11px;
   color: var(--muted);
 }
+.result-answer-actions,
 .result-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px 20px;
   flex-wrap: wrap;
+}
+.result-answer-actions {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.result-actions {
   padding-top: 17px;
   border-top: 1px solid var(--line);
 }
@@ -1863,7 +1870,6 @@ td.omitted-cell {
 }
 .result-bookmark-actions {
   justify-content: center;
-  margin-bottom: 20px;
 }
 .result-bookmark-actions button {
   font-size: 12px;
@@ -2881,6 +2887,7 @@ dialog details {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+  .result-answer-actions,
   .result-actions {
     gap: 10px;
   }
@@ -2890,18 +2897,21 @@ dialog details {
     width: 100%;
     gap: 10px;
   }
+  .result-answer-actions > button,
   .result-bookmark-actions button,
   .result-back-actions button,
   .result-navigation button {
     font-size: 11px;
     white-space: nowrap;
   }
+  .result-answer-actions > button,
   .result-navigation button {
     padding: 10px 12px;
   }
   .result-navigation {
     order: -1;
   }
+  .result-answer-actions > button,
   .result-bookmark-actions button {
     flex-basis: 100%;
   }
