@@ -79,6 +79,11 @@ export function checkAdditionalParameters(t: Template, values: number[]) {
   } catch (e) {
     if (e instanceof Error && e.message === "PARAMETER_CONSTRAINT")
       throw new DataError("PARAMETER_CONSTRAINT", "計算条件を満たしません");
+    if (e instanceof Error && e.message === "Insufficient distinct distractors")
+      throw new DataError(
+        "PARAMETER_CONSTRAINT",
+        "必要な数の異なる選択肢を作れない入力です",
+      );
     throw e;
   }
 }
