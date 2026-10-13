@@ -86,6 +86,11 @@ import {
   type Bookmark,
   type BookmarkOutcome,
 } from "../core/bookmarks";
+import {
+  bookmarkAccuracy,
+  BOOKMARK_ANSWER_LIMIT,
+  type BookmarkAccuracy,
+} from "../core/bookmark-accuracy";
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { StudyTerms } from "./StudyTerms";
@@ -223,6 +228,10 @@ export function App() {
       (item) => historyFilter === "all" || item.selection?.kind === historyFilter,
     ),
     [items, historyFilter],
+  );
+  const bookmarkStatistics = useMemo(
+    () => bundle ? bookmarkAccuracy(bundle, bookmarks, items) : new Map<string, BookmarkAccuracy>(),
+    [bundle, bookmarks, items],
   );
   useLayoutEffect(() => {
     applyTheme(theme);
@@ -595,7 +604,11 @@ export function App() {
   };
   const showBookmarks = async () => {
     try {
-      setBookmarks(await listBookmarks());
+      await queue.current;
+      if (bundle) await maintainStorage(bundle);
+      const [savedBookmarks, savedHistory] = await Promise.all([listBookmarks(), history()]);
+      setBookmarks(savedBookmarks);
+      setItems(savedHistory);
       setBookmarkMessage("");
       setBookmarkError("");
       navigate("bookmarks");
@@ -1837,6 +1850,11 @@ export function App() {
                   <Play size={16} /> すべてのブックマークの類題を練習
                 </button>
               </div>
+              {bookmarks.length > 0 && (
+                <p className="bookmark-accuracy-note">
+                  正答率は、終了した練習で回答した直近{BOOKMARK_ANSWER_LIMIT}件を問題ごとに集計します。年度別問題と類題を含み、未解答は除きます。
+                </p>
+              )}
               {bookmarks.length === 0 ? (
                 <div className="empty-state">
                   <BookmarkIcon size={42} />
@@ -1850,74 +1868,91 @@ export function App() {
                 </div>
               ) : (
                 <div className="history-list">
-                  {bookmarks.map((bookmark) => (
-                    <article
-                      key={bookmark.id}
-                      className="history-card bookmark-card"
-                    >
-                      <span className="subject-letter">{bookmark.subject}</span>
-                      <div className="history-info">
-                        <h2>{bookmark.title}</h2>
-                        <div className="bookmark-meta">
-                          <span className="bookmark-genre">
-                            {areas[bookmark.area] ?? bookmark.area}
-                          </span>
-                          <span>時間制限なし</span>
+                  {bookmarks.map((bookmark) => {
+                    const stats = bookmarkStatistics.get(bookmark.id);
+                    const source = bundle?.questions.find(
+                      (question) =>
+                        question.id === bookmark.questionRef.questionId &&
+                        question.revision === bookmark.questionRef.revision,
+                    );
+                    return (
+                      <article
+                        key={bookmark.id}
+                        className="history-card bookmark-card"
+                      >
+                        <span className="subject-letter">{bookmark.subject}</span>
+                        <div className="history-info">
+                          <h2>{bookmark.title}</h2>
+                          <div className="bookmark-meta">
+                            <span className="bookmark-genre">
+                              {areas[bookmark.area] ?? bookmark.area}
+                            </span>
+                            <span>時間制限なし</span>
+                          </div>
+                          <p className="bookmark-preview">
+                            {bundle &&
+                              bookmarkPreview(bundle, bookmark.questionRef)}
+                          </p>
                         </div>
-                        <p className="bookmark-preview">
-                          {bundle &&
-                            bookmarkPreview(bundle, bookmark.questionRef)}
-                        </p>
-                      </div>
-                      <div className="history-actions">
-                        <button
-                          className="primary"
-                          aria-label={`${bookmark.title}の類題を練習`}
-                          disabled={Boolean(busy || error)}
-                          onClick={() => void beginBookmark(bookmark)}
-                        >
-                          <Play size={16} /> 類題を練習
-                        </button>
-                        <button
-                          className="icon-button"
-                          aria-label={`${bookmark.title}のブックマークを削除`}
-                          disabled={bookmarkPending}
-                          onClick={() => void removeBookmark(bookmark)}
-                        >
-                          <Trash2 size={17} />
-                        </button>
-                      </div>
-                    </article>
-                  ))}
+                        <div className="bookmark-accuracy">
+                          <span className="bookmark-accuracy-label">正答率</span>
+                          {stats?.answered ? (
+                            <>
+                              <strong>{stats.accuracyPercent}<small>%</small></strong>
+                              <span className="bookmark-accuracy-count">
+                                正解{stats.correct}／{stats.answered}件
+                              </span>
+                            </>
+                          ) : (
+                            <span className="bookmark-accuracy-empty">回答履歴なし</span>
+                          )}
+                        </div>
+                        <div className="history-actions">
+                          <button
+                            className="primary"
+                            aria-label={`${bookmark.title}の類題を練習`}
+                            disabled={Boolean(busy || error)}
+                            onClick={() => void beginBookmark(bookmark)}
+                          >
+                            <Play size={16} /> 類題を練習
+                          </button>
+                          <button
+                            className="icon-button"
+                            aria-label={`${bookmark.title}のブックマークを削除`}
+                            disabled={bookmarkPending}
+                            onClick={() => void removeBookmark(bookmark)}
+                          >
+                            <Trash2 size={17} />
+                          </button>
+                        </div>
+                        {bundle && source && (
+                          <footer
+                            className="bookmark-sources"
+                            aria-label={`${bookmark.title}の問題文の出典・利用条件`}
+                          >
+                            <div className="bookmark-source-credit" tabIndex={0}>
+                              <span>問題文の出典（冒頭抜粋）</span>
+                              <AttributionLine
+                                content={source.prompt}
+                                bundle={bundle}
+                              />
+                            </div>
+                          </footer>
+                        )}
+                      </article>
+                    );
+                  })}
                 </div>
               )}
               {bundle && bookmarks.length > 0 && (
-                <details className="bookmark-sources">
-                  <summary>問題文の出典・利用条件</summary>
-                  <p>問題文はIPA公開問題の冒頭から抜粋しています。</p>
-                  {bookmarks.map((bookmark) => {
-                    const source = bundle.questions.find(
-                      (q) =>
-                        q.id === bookmark.questionRef.questionId &&
-                        q.revision === bookmark.questionRef.revision,
-                    );
-                    return source ? (
-                      <article key={bookmark.id}>
-                        <h2>{bookmark.title}</h2>
-                        <AttributionLine
-                          content={source.prompt}
-                          bundle={bundle}
-                        />
-                      </article>
-                    ) : null;
-                  })}
+                <div className="bookmark-licenses">
                   <button
                     className="text-button"
                     onClick={() => navigate("licenses")}
                   >
                     ライセンス表記 <ChevronRight size={15} />
                   </button>
-                </details>
+                </div>
               )}
             </>
           )}

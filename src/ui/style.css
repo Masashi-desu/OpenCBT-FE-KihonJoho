@@ -2046,6 +2046,9 @@ td.omitted-cell {
   font-size: 10px;
   color: var(--text-secondary);
 }
+.bookmark-card {
+  flex-wrap: wrap;
+}
 .bookmark-genre {
   padding: 3px 8px;
   border: 1px solid var(--line);
@@ -2061,20 +2064,63 @@ td.omitted-cell {
   color: var(--text-secondary);
   overflow-wrap: anywhere;
 }
-.bookmark-sources {
-  margin-top: 20px;
+.bookmark-accuracy-note {
+  margin: 0 0 16px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+.bookmark-accuracy {
+  display: grid;
+  gap: 4px;
+  min-width: 125px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bookmark-accuracy-label,
+.bookmark-accuracy-count,
+.bookmark-accuracy-empty {
   font-size: 11px;
   color: var(--text-secondary);
 }
-.bookmark-sources summary {
-  cursor: pointer;
+.bookmark-accuracy strong {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
 }
-.bookmark-sources p,
-.bookmark-sources article {
-  margin-top: 10px;
+.bookmark-accuracy strong small {
+  margin-left: 2px;
+  font-size: 12px;
 }
-.bookmark-sources h2 {
+.bookmark-accuracy-empty {
+  padding: 6px 0;
+}
+.bookmark-sources {
+  flex-basis: 100%;
+  min-width: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
   font-size: 11px;
+  color: var(--text-secondary);
+}
+.bookmark-source-credit {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+  line-height: 1.8;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.bookmark-source-credit > span,
+.bookmark-source-credit .material-credit {
+  flex-shrink: 0;
+}
+.bookmark-source-credit .material-credit {
+  margin: 0;
+}
+.bookmark-licenses {
+  margin-top: 20px;
 }
 .history-score {
   font-size: 22px;
@@ -2925,6 +2971,18 @@ dialog details {
     margin-top: 12px;
   }
   .bookmark-card .history-actions {
+    grid-column: 1 / -1;
+    margin-top: 15px;
+  }
+  .bookmark-card .bookmark-accuracy {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    margin-top: 12px;
+  }
+  .bookmark-card .bookmark-sources {
     grid-column: 1 / -1;
     margin-top: 15px;
   }
