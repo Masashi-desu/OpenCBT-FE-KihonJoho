@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-complement",
-  "revision": 4,
+  "revision": 5,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -10,6 +10,17 @@
       "family-c0e32c36db09ae78",
       "parameterized",
       "template-complement"
+    ],
+    "topics": [
+      "ビット演算",
+      "補数"
+    ],
+    "keywords": [
+      "2の補数",
+      "論理積",
+      "論理和",
+      "排他的論理和",
+      "桁あふれ"
     ]
   },
   "origin": {
@@ -30,7 +41,7 @@
     "derivedFrom": [
       {
         "questionId": "question-ipa-2026-b-2",
-        "revision": 1
+        "revision": 2
       }
     ],
     "changes": [

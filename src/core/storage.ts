@@ -3,7 +3,7 @@ import { refOf, refKey } from "./types";
 import { validateRun, RETENTION_MS } from "./session";
 import { DataError, validateBundle } from "./validation";
 import { validateAssetBlob } from "./catalog";
-import { bookmarkSource, type Bookmark } from "./bookmarks";
+import { refreshBookmark, type Bookmark } from "./bookmarks";
 import { saveBookmarkBatch } from "./bookmark-storage";
 type Saved = {
   id: string;
@@ -223,7 +223,14 @@ export async function deleteRuns(ids?: string[]) {
 export async function maintainStorage(bundle: Bundle) {
   for (const bookmark of await listBookmarks()) {
     try {
-      bookmarkSource(bundle, bookmark.questionRef);
+      const updated = refreshBookmark(bundle, bookmark);
+      if (refKey(updated.questionRef) !== refKey(bookmark.questionRef)) {
+        const db = await open(),
+          tx = db.transaction("bookmarks", "readwrite"),
+          complete = done(tx);
+        tx.objectStore("bookmarks").put(updated);
+        await complete;
+      }
     } catch (e) {
       if (!(e instanceof DataError) || e.code !== "BOOKMARK_REF") throw e;
       await deleteBookmark(bookmark.id);

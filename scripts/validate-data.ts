@@ -39,6 +39,16 @@ console.log(
   `Source inventory ${inventory.included}/${inventory.declared}: ${inventory.excluded} documented rights exclusion`,
 );
 const coverage = generationCoverage(bundle);
+for (const q of bundle.questions)
+  if (!q.learning.topics?.length || !q.learning.keywords?.length)
+    throw Error(`LEARNING_CLASSIFICATION ${q.id}: 新規配布には学習テーマと検索語が必要です`);
+for (const row of coverage.rows) {
+  const base = bundle.questions.find((q) => q.id === row.linked[0]?.baseQuestionRef.questionId);
+  if (
+    JSON.stringify(row.original.learning.topics) !== JSON.stringify(base?.learning.topics) ||
+    JSON.stringify(row.original.learning.keywords) !== JSON.stringify(base?.learning.keywords)
+  ) throw Error(`LEARNING_CLASSIFICATION ${row.original.id}: 原問題と類題の分類が一致しません`);
+}
 if (bundle.catalog.generationCoverage === "complete")
   console.log(
     `Generation coverage ${coverage.covered}/${coverage.total}: every official source has one validated template and mix binding`,

@@ -68,7 +68,13 @@ export type Question = {
   revision: number;
   lifecycle: "active" | "withdrawn";
   subject: "A" | "B";
-  learning: { area: string; tags: string[] };
+  learning: {
+    area: string;
+    tags: string[];
+    // Optional only for snapshots saved before study classification was added.
+    topics?: string[];
+    keywords?: string[];
+  };
   origin: {
     kind: "official_reprint" | "official_adaptation" | "original";
     sourceRefs: SourceRef[];

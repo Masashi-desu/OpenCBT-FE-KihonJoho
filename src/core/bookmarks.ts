@@ -2,6 +2,7 @@ import type { Bundle, Ref, Result, Selection } from "./types";
 import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
 import { DataError } from "./errors";
+import bookmarkRevisions from "./bookmark-revisions.json";
 
 // Store only the source reference; generated content belongs to each saved run.
 export type Bookmark = {
@@ -28,10 +29,16 @@ export function bookmarkGroupSelection(bookmarks: readonly Bookmark[]): Selectio
 }
 
 export function bookmarkSource(bundle: Bundle, ref: Ref, coverage = generationCoverage(bundle)) {
+  // Only the explicitly recorded classification-only revisions may be upgraded.
+  // Other old revisions, future revisions and withdrawn content remain rejected.
+  if (bundle.catalog.withdrawals.some((w) => refKey(w.questionRef) === refKey(ref)))
+    throw new DataError("BOOKMARK_REF", "この問題は現在利用できません。");
+  const currentKey = (bookmarkRevisions as Record<string, string>)[refKey(ref)] ?? refKey(ref);
   const row = coverage.rows.find(
     (r) =>
       refKey(refOf(r.original)) === refKey(ref) ||
-      r.linked.some((t) => refKey(t.baseQuestionRef) === refKey(ref)),
+      refKey(refOf(r.original)) === currentKey ||
+      r.linked.some((t) => [refKey(ref), currentKey].includes(refKey(t.baseQuestionRef))),
   );
   if (
     !row ||
@@ -43,6 +50,11 @@ export function bookmarkSource(bundle: Bundle, ref: Ref, coverage = generationCo
   )
     throw new DataError("BOOKMARK_REF", "この問題は現在利用できません。");
   return row.original;
+}
+
+export function refreshBookmark(bundle: Bundle, bookmark: Bookmark): Bookmark {
+  const updated = makeBookmark(bundle, bookmark.questionRef, Date.parse(bookmark.createdAt));
+  return { ...updated, createdAt: bookmark.createdAt };
 }
 
 export function makeBookmark(

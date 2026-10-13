@@ -50,6 +50,38 @@
           "description": "問題の学習分野。Aの分野選択とBのalgorithm／securityの出題内訳に使い、公式資料の元科目名を置き換えるものではない。",
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^\\S(?:[^\\r\\n]*\\S)?$",
+            "description": "教科書の章・節で探すための学習テーマ名。複数のテーマを持つ問題では、それぞれを一つの文字列として記録する。公式分類や正答を示す項目ではない。",
+            "$comment": "要素：空文字・改行・前後の空白を拒否する。"
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "description": "問題の学習テーマの一覧。新規配布の原問題・生成用基準問題に必須とし、生成問題は基準問題から継承する。ブックマークで分野名の右隣に表示する。",
+          "$comment": "任意：追加前の保存snapshotとの互換のため省略を許す。省略時は表示せず、保存済み内容を補完しない。新規配布では欠落を拒否する。keywordsと一緒に記録する。"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "pattern": "^\\S(?:[^\\r\\n]*\\S)?$",
+            "description": "教科書・参考書の索引で探すための用語や別名。原問題と同系列の類題で扱う概念を対象とし、変数・数値・正答の指定は入れない。",
+            "$comment": "要素：空文字・改行・前後の空白を拒否する。"
+          },
+          "minItems": 1,
+          "maxItems": 16,
+          "uniqueItems": true,
+          "description": "学習テーマに関連する検索語の一覧。ブックマークではテーマに続けて表示し、テーマと同じ語は重複表示しない。内部の抽選・年度タグとは分ける。",
+          "$comment": "任意：追加前の保存snapshotとの互換のため省略を許す。省略時は表示せず、保存済み内容を補完しない。新規配布では欠落を拒否する。topicsと一緒に記録する。"
+        },
         "tags": {
           "type": "array",
           "items": {
@@ -66,6 +98,10 @@
         }
       },
       "required": ["area", "tags"],
+      "dependentRequired": {
+        "topics": ["keywords"],
+        "keywords": ["topics"]
+      },
       "description": "本アプリ内の検索・出題内訳・復習で使用する学習分類。原資料の年度・科目・時間区分から独立して管理する。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },

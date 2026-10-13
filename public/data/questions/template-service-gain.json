@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-service-gain",
-  "revision": 5,
+  "revision": 6,
   "lifecycle": "active",
   "subject": "A",
   "learning": {
@@ -10,6 +10,15 @@
       "family-f054c3fc1c2a68f5",
       "parameterized",
       "template-service-gain"
+    ],
+    "topics": [
+      "サービス可用性"
+    ],
+    "keywords": [
+      "稼働率",
+      "サービス提供時間",
+      "停止時間",
+      "パーセントポイント"
     ]
   },
   "origin": {
@@ -30,7 +39,7 @@
     "derivedFrom": [
       {
         "questionId": "question-ipa-2026-a-14",
-        "revision": 1
+        "revision": 2
       }
     ],
     "changes": [

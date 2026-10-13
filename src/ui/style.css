@@ -2057,6 +2057,15 @@ td.omitted-cell {
   color: var(--ink);
   font-weight: 600;
 }
+.bookmark-topic {
+  color: var(--ink);
+  font-weight: 600;
+}
+.bookmark-topic,
+.bookmark-keyword {
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
 .bookmark-card .bookmark-preview {
   margin: 10px 0 0;
   font-size: 12px;

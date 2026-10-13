@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import { fixture } from "./fixtures";
-import { type Selection } from "../src/core/types";
+import { refOf, type Selection } from "../src/core/types";
 import { validateBundle, validateFormula } from "../src/core/validation";
 import { parametersForSeed, bindArraySum } from "../src/core/generation";
 import { selectQuestions, quotasFor } from "../src/core/selection";
@@ -325,7 +325,7 @@ test("invalidated sessions retain the reason and stop accepting answers", async 
 test("withdrawn content cannot remain in the active distribution", async () => {
   const b = fixture();
   b.catalog.withdrawals.push({
-    questionRef: { questionId: b.questions[0].id, revision: 1 },
+    questionRef: refOf(b.questions[0]),
     category: "rights_request",
     reason: "Fixture removal",
     recordedOn: "2026-10-06",

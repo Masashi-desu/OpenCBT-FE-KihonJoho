@@ -694,6 +694,10 @@
 | `subject` | 本アプリでA又はBのどちらの学習・出題へ使用するか。原資料の科目表記はsourceRef.locatorへ別に保存し、旧制度の表記を書き換えない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B"] |
 | `learning` | 本アプリ内の検索・出題内訳・復習で使用する学習分類。原資料の年度・科目・時間区分から独立して管理する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object | additionalProperties=false |
 | `learning.area` | 問題の学習分野。Aの分野選択とBのalgorithm／securityの出題内訳に使い、公式資料の元科目名を置き換えるものではない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["technology","management","strategy","algorithm","security"] |
+| `learning.topics` | 問題の学習テーマの一覧。新規配布の原問題・生成用基準問題に必須とし、生成問題は基準問題から継承する。ブックマークで分野名の右隣に表示する。 | 任意 | 任意：追加前の保存snapshotとの互換のため省略を許す。省略時は表示せず、保存済み内容を補完しない。新規配布では欠落を拒否する。keywordsと一緒に記録する。 | array | minItems=1 / maxItems=8 / uniqueItems=true |
+| `learning.topics[]` | 教科書の章・節で探すための学習テーマ名。複数のテーマを持つ問題では、それぞれを一つの文字列として記録する。公式分類や正答を示す項目ではない。 | 配列要素 | 要素：空文字・改行・前後の空白を拒否する。 | string | minLength=1 / maxLength=80 / pattern="^\\S(?:[^\\r\\n]*\\S)?$" |
+| `learning.keywords` | 学習テーマに関連する検索語の一覧。ブックマークではテーマに続けて表示し、テーマと同じ語は重複表示しない。内部の抽選・年度タグとは分ける。 | 任意 | 任意：追加前の保存snapshotとの互換のため省略を許す。省略時は表示せず、保存済み内容を補完しない。新規配布では欠落を拒否する。topicsと一緒に記録する。 | array | minItems=1 / maxItems=16 / uniqueItems=true |
+| `learning.keywords[]` | 教科書・参考書の索引で探すための用語や別名。原問題と同系列の類題で扱う概念を対象とし、変数・数値・正答の指定は入れない。 | 配列要素 | 要素：空文字・改行・前後の空白を拒否する。 | string | minLength=1 / maxLength=80 / pattern="^\\S(?:[^\\r\\n]*\\S)?$" |
 | `learning.tags` | 学習テーマを検索・絞込みする補助語の一覧。公式年度・問番号等の出典識別情報を代用せず、不要なら空配列を保持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=30 / uniqueItems=true |
 | `learning.tags[]` | 「learning.tags」に記録する一つの要素。学習テーマを検索・絞込みする補助語の一覧。公式年度・問番号等の出典識別情報を代用せず、不要なら空配列を保持する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | string | pattern="^[a-z][a-z0-9-]{1,49}$" |
 | `origin` | 問題全体の出自、原資料、派生元、変更履歴と作成時の改変宣言。本文・解説・図等の部品単位のattributionとは役割を分ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object | additionalProperties=false |

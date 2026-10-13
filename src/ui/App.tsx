@@ -50,6 +50,7 @@ import {
   subjectLabel,
 } from "../core/types";
 import { loadCatalog, loadAsset } from "../core/catalog";
+import { BookmarkLearning } from "./BookmarkLearning";
 import { selectQuestions } from "../core/selection";
 import { StudyClock } from "../core/study-clock";
 import {
@@ -1883,12 +1884,10 @@ export function App() {
                         <span className="subject-letter">{bookmark.subject}</span>
                         <div className="history-info">
                           <h2>{bookmark.title}</h2>
-                          <div className="bookmark-meta">
-                            <span className="bookmark-genre">
-                              {areas[bookmark.area] ?? bookmark.area}
-                            </span>
-                            <span>時間制限なし</span>
-                          </div>
+                          <BookmarkLearning
+                            areaLabel={areas[bookmark.area] ?? bookmark.area}
+                            learning={source?.learning}
+                          />
                           <p className="bookmark-preview">
                             {bundle &&
                               bookmarkPreview(bundle, bookmark.questionRef)}

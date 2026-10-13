@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-availability",
-  "revision": 5,
+  "revision": 6,
   "lifecycle": "active",
   "subject": "A",
   "learning": {
@@ -10,6 +10,14 @@
       "family-7c042cb55ae6dd91",
       "parameterized",
       "template-availability"
+    ],
+    "topics": [
+      "システムの信頼性"
+    ],
+    "keywords": [
+      "MTBF",
+      "MTTR",
+      "稼働率"
     ]
   },
   "origin": {
@@ -30,7 +38,7 @@
     "derivedFrom": [
       {
         "questionId": "question-ipa-2024-a-4",
-        "revision": 1
+        "revision": 2
       }
     ],
     "changes": [
