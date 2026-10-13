@@ -139,7 +139,7 @@ export function selectQuestions(
         b.questions.some((q) => q.subject === s.subject && refKey(refOf(q)) === refKey(t.baseQuestionRef)),
       ).map((t) => t.baseQuestionRef);
     const prepared = selectEndlessQuestions(b, refs,
-      s.kind === "bookmark" ? "ブックマーク全件・無限周回" : "無限周回・生成問題", order);
+      s.kind === "bookmark" ? "ブックマーク練習・無限周回" : "無限周回・生成問題", order);
     if (s.subject !== prepared.exam.subject)
       throw new DataError("SELECTION", "周回する問題群の科目が一致しません。");
     return prepared;

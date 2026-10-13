@@ -83,8 +83,10 @@ import {
   makeBookmark,
   bookmarkPreview,
   bookmarkGroupSelection,
+  filterBookmarks,
   resultBookmarks,
   type Bookmark,
+  type BookmarkFilter,
   type BookmarkOutcome,
 } from "../core/bookmarks";
 import {
@@ -199,6 +201,7 @@ export function App() {
     [items, setItems] = useState<HistoryItem[]>([]),
     [historyFilter, setHistoryFilter] = useState<HistoryFilter>("all"),
     [bookmarks, setBookmarks] = useState<Bookmark[]>([]),
+    [bookmarkFilter, setBookmarkFilter] = useState<BookmarkFilter>({ subject: "all", area: "all" }),
     [bookmarkPending, setBookmarkPending] = useState(false),
     [bookmarkMessage, setBookmarkMessage] = useState(""),
     [bookmarkError, setBookmarkError] = useState(""),
@@ -233,6 +236,10 @@ export function App() {
   const bookmarkStatistics = useMemo(
     () => bundle ? bookmarkAccuracy(bundle, bookmarks, items) : new Map<string, BookmarkAccuracy>(),
     [bundle, bookmarks, items],
+  );
+  const visibleBookmarks = useMemo(
+    () => filterBookmarks(bookmarks, bookmarkFilter),
+    [bookmarks, bookmarkFilter],
   );
   useLayoutEffect(() => {
     applyTheme(theme);
@@ -1842,15 +1849,44 @@ export function App() {
                 ブックマーク
               </h1>
               <p className="page-intro">
-                保存した問題の類題を練習できます。全件の練習では登録した問題から毎回ランダムに選び、条件を変えた類題を出題します。ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
+                保存した問題の類題を練習できます。科目と分野で絞り込み、表示中の問題から毎回ランダムに選んで、条件を変えた類題を出題します。ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
               </p>
               <div className="bookmark-toolbar">
+                <div className="bookmark-filters" role="group" aria-label="ブックマークの絞り込み">
+                  <label className="bookmark-filter">
+                    科目
+                    <select
+                      value={bookmarkFilter.subject}
+                      onChange={(event) => setBookmarkFilter((filter) => ({
+                        ...filter, subject: event.target.value as BookmarkFilter["subject"],
+                      }))}
+                    >
+                      <option value="all">すべての科目</option>
+                      <option value="A">科目A</option>
+                      <option value="B">科目B</option>
+                    </select>
+                  </label>
+                  <label className="bookmark-filter">
+                    分野
+                    <select
+                      value={bookmarkFilter.area}
+                      onChange={(event) => setBookmarkFilter((filter) => ({
+                        ...filter, area: event.target.value,
+                      }))}
+                    >
+                      <option value="all">すべての分野</option>
+                      {Object.entries(areas).map(([value, label]) => (
+                        <option key={value} value={value}>{label}</option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
                 <button
                   className="primary"
-                  disabled={!bundle || !bookmarks.length || Boolean(busy || error || bookmarkPending)}
-                  onClick={() => void begin(bookmarkGroupSelection(bookmarks))}
+                  disabled={!bundle || !visibleBookmarks.length || Boolean(busy || error || bookmarkPending)}
+                  onClick={() => void begin(bookmarkGroupSelection(visibleBookmarks))}
                 >
-                  <Play size={16} /> すべてのブックマークの類題を練習
+                  <Play size={16} /> 表示中のブックマークの類題を練習
                 </button>
               </div>
               {bookmarks.length > 0 && (
@@ -1869,9 +1905,18 @@ export function App() {
                     問題を選ぶ <ArrowRight size={17} />
                   </button>
                 </div>
+              ) : visibleBookmarks.length === 0 ? (
+                <div className="empty-state">
+                  <BookmarkIcon size={42} />
+                  <h2>条件に一致するブックマークがありません</h2>
+                  <p>科目や分野を変更して、練習する問題を選んでください。</p>
+                  <button onClick={() => setBookmarkFilter({ subject: "all", area: "all" })}>
+                    すべてのブックマークを表示
+                  </button>
+                </div>
               ) : (
                 <div className="history-list">
-                  {bookmarks.map((bookmark) => {
+                  {visibleBookmarks.map((bookmark) => {
                     const stats = bookmarkStatistics.get(bookmark.id);
                     const source = bundle?.questions.find(
                       (question) =>

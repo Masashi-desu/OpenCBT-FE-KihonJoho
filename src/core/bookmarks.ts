@@ -14,6 +14,18 @@ export type Bookmark = {
   createdAt: string;
 };
 
+export type BookmarkFilter = {
+  subject: "all" | Bookmark["subject"];
+  area: string;
+};
+
+export function filterBookmarks(bookmarks: readonly Bookmark[], filter: BookmarkFilter): Bookmark[] {
+  return bookmarks.filter((bookmark) =>
+    (filter.subject === "all" || bookmark.subject === filter.subject) &&
+    (filter.area === "all" || bookmark.area === filter.area),
+  );
+}
+
 export function bookmarkGroupSelection(bookmarks: readonly Bookmark[]): Selection {
   if (!bookmarks.length)
     throw new DataError("BOOKMARK_REF", "練習するブックマークがありません。");
