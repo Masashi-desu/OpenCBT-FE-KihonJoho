@@ -5,6 +5,7 @@ import type { Bundle } from "../src/core/types";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { validateLicenseNotices } from "./licenses";
 import { validateSourceInventory } from "./source-inventory";
+import { validateDetailPackages } from "./validate-detail-packages";
 const base = "public/data",
   raw = fs.readFileSync(`${base}/catalog.json`),
   catalog = JSON.parse(raw.toString());
@@ -34,6 +35,8 @@ for (const [kind, files] of Object.entries(catalog.files) as [
   }
 }
 await validateBundle(bundle);
+const detailedPackages = await validateDetailPackages(bundle);
+console.log(`Optional detailed explanations: ${detailedPackages} validated package references`);
 const inventory = validateSourceInventory(bundle);
 console.log(
   `Source inventory ${inventory.included}/${inventory.declared}: ${inventory.excluded} documented rights exclusion`,

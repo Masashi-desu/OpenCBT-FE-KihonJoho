@@ -272,6 +272,39 @@
 | `parameters.values` | 本文・表・図・正答・解説を整合させるために共通で使う配列入力。テンプレートの許可域を別途検証し、ユーザーの解答から値を変更しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=50 |
 | `parameters.values[]` | 「parameters.values」に記録する一つの要素。本文・表・図・正答・解説を整合させるために共通で使う配列入力。テンプレートの許可域を別途検証し、ユーザーの解答から値を変更しない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | integer | minimum=-1000000 / maximum=1000000 |
 
+## 任意の詳細解説パッケージ（detailed-explanation）
+
+[元Schema](/schemas/detailed-explanation.schema.json)。問題専用ディレクトリのmanifest.json。通常解説から開く任意の詳細解説だけに使用する。
+
+| フィールド | 意味 | 必須／任意 | 欠落時の扱い | 型・参照先 | 制約 |
+| --- | --- | --- | --- | --- | --- |
+| `apiVersion` | 共通基盤との接続仕様の版。未対応版は詳細解説なしとして扱う。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | number | const=1 |
+| `revision` | 問題側の参照と一致させる解説改訂。異なる版へ自動追従しない。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=1 / maximum=100000 |
+| `title` | 詳細解説画面のタイトル。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | minLength=1 / maxLength=120 |
+| `search` | 詳細解説の検索用の文章。動的なUIで表示する学習内容も含め、HTMLやJSを実行せずに検索する。 | 任意 | 任意：省略時はタイトルと対応問題の学習用語で検索する。 | object | additionalProperties=false |
+| `search.summary` | 検索結果で表示する概要。 | 必須 | 必須：searchがある場合は欠落を拒否する。 | string | minLength=1 / maxLength=240 |
+| `search.keywords` | 解説の検索語。 | 必須 | 必須：searchがある場合は欠落を拒否する。空配列を許可する。 | array | maxItems=40 / uniqueItems=true |
+| `search.keywords[]` | 一つの検索語。 | 配列要素 | 要素：空文字は拒否し、コードではなく学習内容の名称を記録する。 | string | minLength=1 / maxLength=80 |
+| `search.text` | 解説中で扱う内容の検索用本文。コードや保存済み解答は含めない。 | 必須 | 必須：searchがある場合は欠落を拒否する。 | string | minLength=1 / maxLength=10000 |
+| `attribution` | 詳細解説の作成主体・出典・権利。問題本文・通常解説の条件と区別する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | object / common.schema.json#/$defs/attribution | additionalProperties=false |
+| `references` | 内容の定義や計算量等を照合した参考資料。転載・改変した素材の出典や権利条件はattributionへ保持し、参考資料へ移して省略しない。 | 任意 | 任意：省略時は参考資料欄を表示しない。旧manifestも受理する。 | object | additionalProperties=false |
+| `references.title` | 参考資料欄の表示名と確認用途。HTMLではなく文字として表示する。 | 必須 | 必須：referencesがある場合は欠落を拒否する。 | string | minLength=1 / maxLength=120 |
+| `references.sourceRefs` | 確認に使った資料と位置。bundle.sourcesの公開・確認済み資料へ解決する。権利情報や転載の利用許諾を代替しない。 | 必須 | 必須：referencesがある場合は欠落を拒否する。空配列・同一参照の重複は拒否する。 | array | minItems=1 / maxItems=64 / uniqueItems=true |
+| `references.sourceRefs[]` | 確認に使用した一つの資料と参照位置。 | 配列要素 | 要素：資料IDと参照位置を記録し、公開・確認済みの資料へ解決する。 | object / common.schema.json#/$defs/sourceRef | additionalProperties=false |
+| `files` | index.htmlを含む同じ専用ディレクトリ内の配布資源。各資源は2MiB以下、合計8MiB以下。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=1 / maxItems=64 |
+| `files[]` | 一覧の一つの配布資源。 | 配列要素 | 要素：ファイルのパス・種別・hashをすべて記録する。 | object | additionalProperties=false |
+| `files[].path` | 専用ディレクトリからの相対パス。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | maxLength=180 / pattern="^[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)*\\.(?:html&#124;css&#124;js&#124;png&#124;jpg&#124;jpeg&#124;webp&#124;woff2)$" |
+| `files[].mediaType` | 許可された資源種別。外部通信や実行依存は追加しない。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | enum=["text/html","text/css","text/javascript","image/png","image/jpeg","image/webp","font/woff2"] |
+| `files[].sha256` | 配布バイト列のSHA-256。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | pattern="^[a-f0-9]{64}$" |
+
+### parameters
+
+**意味：** 初期表示の指定に使う最大32個のスカラー値。問題本文・コード・生成入力の代用には使わない。
+
+**欠落時の扱い：** 共有型：利用する場合は型と上限を満たす。省略時の扱いは参照元に従う。
+
+**型・制約：** object。additionalProperties={"oneOf":[{"type":"string","maxLength":200},{"type":"number","minimum":-1000000000000,"maximum":1000000000000},{"type":"boolean"}]}。
+
 ## 管理された図データ（diagram）
 
 [元Schema](/schemas/diagram.schema.json)。管理された描画器へ渡す表示専用の図構造。図素材の出典・条件を保持し、任意コード、解答操作、経路実行をデータに含めない。
@@ -739,6 +772,10 @@
 | `correctAnswer.choiceId` | 正答となるchoicesのID。表示順・ア等のラベルを変えても同じ選択肢を指し、存在しないIDは参照検証で拒否する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `correctAnswer.attribution` | 正答情報の作成主体・出典・条件。公式解答冊子又は独自の検証記録へ対応させ、設問の出典だけで正答の根拠を代用しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/attribution | additionalProperties=false |
 | `explanation` | 復習で提示する解説とその出典・条件。独自に作成した解説はoriginalを明示し、公式問題に付けても公式解説と表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/content | additionalProperties=false |
+| `detailedExplanationRef` | 任意の詳細解説UIへの参照。通常のexplanationを保持し、参照先を利用できない場合は詳細解説なしと同じ導線にする。 | 任意 | 任意：旧snapshotには補完しない。参照・初期値は内容hashに含む。HTML/CSS/JSそのものは格納しない。 | object | additionalProperties=false |
+| `detailedExplanationRef.directory` | アプリ配布ルートからの問題専用ディレクトリ。manifest.jsonとindex.htmlを入口として使う。外部URL・上位パス・エンコードされたパスを認めない。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | pattern="^explanations/[a-z][a-z0-9-]{2,79}/$" |
+| `detailedExplanationRef.revision` | 詳細解説パッケージの内容を固定する改訂。manifestのrevisionと一致しない場合は利用しない。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=1 / maximum=100000 |
+| `detailedExplanationRef.initialParameters` | 遷移先へ渡す初期表示指定。選択肢ID・内容ID等の意味と、遷移後の内容切替は専用UIが定める。 | 任意 | 任意：省略時は指定しない。保存済み内容へ補完しない。 | object / detailed-explanation.schema.json#/$defs/parameters | additionalProperties={"oneOf":[{"type":"string","maxLength":200},{"type":"number","minimum":-1000000000000,"maximum":1000000000000},{"type":"boolean"}]} |
 | `assetRefs` | 問題の各表示部品に含むimageが参照する素材IDの集合。過不足を検証して必要な画像だけを準備し、構造化diagramはここへ入れない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=200 / uniqueItems=true |
 | `assetRefs[]` | 「assetRefs」に記録する一つの要素。問題の各表示部品に含むimageが参照する素材IDの集合。過不足を検証して必要な画像だけを準備し、構造化diagramはここへ入れない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `choiceShuffleAllowed` | 選択肢順を変えても問題の意味を保てると作成時に確認したか。順序依存の問題ではfalseとし、出題設定がshuffleでも無断で並べ替えない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | boolean | 子構造・種類別定義に従う |

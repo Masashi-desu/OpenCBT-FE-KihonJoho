@@ -39,6 +39,7 @@ import {
   X,
   Sun,
   Moon,
+  Search,
 } from "lucide-react";
 import {
   type Bundle,
@@ -97,6 +98,10 @@ import {
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { StudyTerms } from "./StudyTerms";
+import { SearchPage } from "./SearchPage";
+import { emptySearch, parseSearchRoute, searchRouteHash, type SearchRoute } from "../core/search";
+import { DetailedExplanation, useDetailedExplanation } from "./DetailedExplanation";
+import { canOpenDetail, detailRouteHash, parseDetailRoute, type DetailRoute } from "../core/detailed-explanation";
 import { Dialog } from "./Dialog";
 import { QuestionFooter, screenNotice } from "./QuestionFooter";
 import { QuestionRail } from "./QuestionRail";
@@ -117,8 +122,10 @@ type View =
   | "exam"
   | "result"
   | "review"
+  | "detail"
   | "history"
   | "bookmarks"
+  | "search"
   | "licenses";
 type HistoryItem = Awaited<ReturnType<typeof history>>[number];
 type HistoryFilter = "all" | Selection["kind"];
@@ -213,6 +220,8 @@ export function App() {
     [deleteId, setDeleteId] = useState<string | undefined>(),
     [tick, setTick] = useState(Date.now()),
     [reviewIndex, setReviewIndex] = useState(0),
+    [detailRoute, setDetailRoute] = useState<DetailRoute>(),
+    [searchHash, setSearchHash] = useState("#/search"),
     [reviewFilter, setReviewFilter] = useState("all"),
     [mathRetry, setMathRetry] = useState(false),
     [listFilter, setListFilter] = useState("all");
@@ -226,6 +235,26 @@ export function App() {
     lastTime = useRef({ wall: Date.now(), mono: performance.now() }),
     pendingSnapshot = useRef<string | undefined>(undefined),
     h1 = useRef<HTMLHeadingElement>(null);
+  const routeHash = useRef(location.hash);
+  const searchRoute = useMemo(() => parseSearchRoute(searchHash) ?? emptySearch, [searchHash]);
+  const closingDetail = useRef(false);
+  const detailReturn = useRef<{ from: "exam" | "review"; index: number; hash: string;
+    scroll: [Element, number, number][]; x: number; y: number } | undefined>(undefined);
+  const restoreDetailReturn = useCallback((from: "exam" | "review", index: number) => {
+    closingDetail.current = false;
+    if (from === "review") setReviewIndex(index);
+    setView(from);
+    setDetailRoute(undefined);
+    setDialog(null);
+    const saved = detailReturn.current;
+    requestAnimationFrame(() => {
+      if (saved) {
+        for (const [element, left, top] of saved.scroll) element.scrollTo({ left, top, behavior: "instant" });
+        window.scrollTo({ left: saved.x, top: saved.y, behavior: "instant" });
+      }
+      document.querySelector<HTMLButtonElement>(".detail-link")?.focus({ preventScroll: true });
+    });
+  }, []);
   latestBusy.current = busy;
   const filteredHistoryItems = useMemo(
     () => items.filter(
@@ -256,13 +285,24 @@ export function App() {
   const navigate = useCallback((target: View) => {
     setView(target);
     setDialog(null);
+    if (target === "search") setSearchHash("#/search");
     const path =
       (target === "exam" || target === "result" || target === "review") &&
       current.current
         ? `${target}/${current.current.session.id}`
         : target;
     window.history.replaceState(null, "", `#/${path}`);
+    routeHash.current = location.hash;
     window.scrollTo(0, 0);
+  }, []);
+  const navigateSearch = useCallback((route: SearchRoute, replace = false) => {
+    const hash = searchRouteHash(route);
+    const state = replace ? window.history.state : { searchFrom: location.hash };
+    if (replace) window.history.replaceState(state, "", hash);
+    else window.history.pushState(state, "", hash);
+    routeHash.current = hash;
+    setSearchHash(hash); setView("search"); setDetailRoute(undefined); setDialog(null);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
   const commit = useCallback((next: Run) => {
     if (saveFailed.current) return;
@@ -293,7 +333,7 @@ export function App() {
     });
   }, []);
   const reopen = useCallback(
-    async (id: string, target: View = "exam") => {
+    async (id: string, target: View = "exam", requestedDetail?: DetailRoute) => {
       setBusy("保存した問題と出典を確認しています");
       setError("");
       try {
@@ -347,8 +387,18 @@ export function App() {
           setError(
             `この解答は無効として停止しています（${next.session.invalidationReason}）。新しい練習を選んでください。`,
           );
-        if (target === "review") {
-          setReviewIndex(0);
+        if (requestedDetail && canOpenDetail(next, requestedDetail.entryIndex, requestedDetail.from)) {
+          closingDetail.current = false;
+          if (detailReturn.current && (detailReturn.current.index !== requestedDetail.entryIndex ||
+            detailReturn.current.from !== requestedDetail.from || !detailReturn.current.hash.endsWith(next.session.id)))
+            detailReturn.current = undefined;
+          if (requestedDetail.from === "review") setReviewIndex(requestedDetail.entryIndex);
+          setDetailRoute(requestedDetail);
+          setView("detail");
+          window.history.replaceState(null, "", detailRouteHash(requestedDetail));
+          routeHash.current = location.hash;
+        } else if (target === "review") {
+          setReviewIndex(requestedDetail && next.issued[requestedDetail.entryIndex] ? requestedDetail.entryIndex : 0);
           navigate("review");
         } else navigate(next.result ? "result" : "exam");
       } catch (e) {
@@ -371,7 +421,11 @@ export function App() {
       setItems(await history());
       setBookmarks(await listBookmarks());
       const hash = location.hash.split("/");
-      if (["exam", "result", "review"].includes(hash[1]) && hash[2])
+      const requestedDetail = parseDetailRoute(location.hash);
+      if (/^#\/search(?:[/?]|$)/.test(location.hash)) {
+        setSearchHash(location.hash); setView("search");
+      } else if (requestedDetail) await reopen(requestedDetail.sessionId, requestedDetail.from, requestedDetail);
+      else if (["exam", "result", "review"].includes(hash[1]) && hash[2])
         await reopen(hash[2], hash[1] as View);
       else if (["history", "licenses", "bookmarks"].includes(hash[1]))
         navigate(hash[1] as View);
@@ -388,6 +442,38 @@ export function App() {
     return () => releaseLock.current?.();
   }, [initialize]);
   useEffect(() => {
+    const changed = () => {
+      if (location.hash === routeHash.current) return;
+      routeHash.current = location.hash;
+      if (/^#\/search(?:[/?]|$)/.test(location.hash)) {
+        setSearchHash(location.hash); setView("search"); setDetailRoute(undefined); setDialog(null);
+        return;
+      }
+      const route = parseDetailRoute(location.hash), saved = detailReturn.current, r = current.current;
+      if (route) {
+        if (r?.session.id === route.sessionId && canOpenDetail(r, route.entryIndex, route.from)) {
+          closingDetail.current = false;
+          if (saved && (saved.index !== route.entryIndex || saved.from !== route.from || !saved.hash.endsWith(route.sessionId)))
+            detailReturn.current = undefined;
+          setDetailRoute(route); setView("detail");
+        } else void reopen(route.sessionId, route.from, route);
+      } else if (saved && r && location.hash === saved.hash) {
+        restoreDetailReturn(saved.from, saved.index);
+      } else if (!location.hash.startsWith("#/detail/")) {
+        const [, target, id] = location.hash.split("/");
+        if (["exam", "result", "review"].includes(target) && id && id !== r?.session.id)
+          void reopen(id, target as View);
+        else if (["menu", "history", "bookmarks", "licenses", "exam", "result", "review"].includes(target)) {
+          setDetailRoute(undefined);
+          setView(target as View);
+        }
+      }
+    };
+    window.addEventListener("popstate", changed);
+    window.addEventListener("hashchange", changed);
+    return () => { window.removeEventListener("popstate", changed); window.removeEventListener("hashchange", changed); };
+  }, [reopen, restoreDetailReturn]);
+  useEffect(() => {
     h1.current?.focus();
   }, [view]);
   useEffect(() => {
@@ -397,6 +483,7 @@ export function App() {
   }, [bookmarkMessage]);
   useEffect(() => {
     const handler = () => {
+      if (view === "search") return;
       const r = current.current;
       if (r && r.session.status === "running") {
         const invalid = finishRun(r, "invalidated");
@@ -408,7 +495,7 @@ export function App() {
     };
     window.addEventListener("opencbt-asset-error", handler);
     return () => window.removeEventListener("opencbt-asset-error", handler);
-  }, [commit]);
+  }, [commit, view]);
   useEffect(() => {
     const timer = setInterval(() => {
       const at = Date.now(),
@@ -641,7 +728,7 @@ export function App() {
       setBookmarkPending(false);
     }
   };
-  const beginBookmark = (bookmark: Bookmark) =>
+  const beginBookmark = (bookmark: Pick<Bookmark, "subject" | "questionRef">) =>
     begin({
       subject: bookmark.subject,
       kind: "bookmark",
@@ -715,15 +802,16 @@ export function App() {
       setBusy("");
     }
   };
+  const isDetail = view === "detail" && Boolean(detailRoute);
   const currentIndex =
-      view === "review" ? reviewIndex : (run?.session.currentIndex ?? 0),
+      isDetail ? detailRoute!.entryIndex : view === "review" ? reviewIndex : (run?.session.currentIndex ?? 0),
     q = run?.issued[currentIndex],
     entry = run?.session.entries[currentIndex],
-    isExam = view === "exam",
-    isReview = view === "review",
+    isExam = view === "exam" || (isDetail && detailRoute?.from === "exam"),
+    isReview = view === "review" || (isDetail && detailRoute?.from === "review"),
     revealed = Boolean(isReview || entry?.revealed),
     canAnswer = Boolean(
-      run?.session.status === "running" && isExam && !error && !busy,
+      run?.session.status === "running" && isExam && !isDetail && !error && !busy,
     );
   const active = run && ["running", "paused"].includes(run.session.status);
   const canNavigate = Boolean(
@@ -808,10 +896,37 @@ export function App() {
   }, [currentIndex, isExam, isReview]);
   const materialViewer = useMaterialViewer(
     isExam || isReview ? q : undefined,
-    `${run?.session.id}:${currentIndex}:${view}`,
+    `${run?.session.id}:${currentIndex}:${isDetail ? detailRoute?.from : view}`,
   );
+  const detail = useDetailedExplanation(q?.detailedExplanationRef,
+    Boolean(run && (isExam || isReview) && revealed && canOpenDetail(run, currentIndex, isReview ? "review" : "exam")), run?.bundle);
+  const openDetail = () => {
+    if (!run || !detail.prepared) return;
+    closingDetail.current = false;
+    const from = isReview ? "review" : "exam";
+    const route: DetailRoute = { sessionId: run.session.id, entryIndex: currentIndex, from,
+      initialParameters: q?.detailedExplanationRef?.initialParameters ?? {} };
+    detailReturn.current = { from, index: currentIndex, hash: location.hash,
+      scroll: [...document.querySelectorAll(".reading-scroll, .answer-content")].map((element) =>
+        [element, element.scrollLeft, element.scrollTop]), x: window.scrollX, y: window.scrollY };
+    setDetailRoute(route); setView("detail"); setDialog(null);
+    window.history.pushState(null, "", detailRouteHash(route));
+    routeHash.current = location.hash;
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+  };
+  const closeDetail = () => {
+    if (!run || !detailRoute || closingDetail.current) return;
+    closingDetail.current = true;
+    if (detailReturn.current?.hash && window.history.length > 1) window.history.back();
+    else {
+      window.history.replaceState(null, "", `#/${detailRoute.from}/${run.session.id}`);
+      restoreDetailReturn(detailRoute.from, detailRoute.entryIndex);
+    }
+  };
+  const licenseBundle = view === "search" ? bundle : run?.bundle;
   const navItems = [
-    { id: "menu" as View, label: "学習をはじめる", icon: BookOpen },
+    { id: "menu" as View, label: "模擬試験", icon: BookOpen },
+    { id: "search" as View, label: "検索", icon: Search },
     { id: "bookmarks" as View, label: "ブックマーク", icon: BookmarkIcon },
     { id: "history" as View, label: "履歴・復習", icon: History },
     { id: "licenses" as View, label: "ライセンス表記", icon: Scale },
@@ -833,7 +948,9 @@ export function App() {
         className="skip-link"
         onClick={(e) => {
           e.preventDefault();
-          h1.current?.focus();
+          if (isDetail) document.querySelector<HTMLHeadingElement>(".detail-header h1")?.focus();
+          else if (view === "search") (document.querySelector<HTMLHeadingElement>(".detail-header h1") ?? document.querySelector<HTMLHeadingElement>("#main h1"))?.focus();
+          else h1.current?.focus();
         }}
       >
         本文へ移動
@@ -961,13 +1078,13 @@ export function App() {
         )}
         <main
           id="main"
-          className={isExam || isReview ? "exam-main" : "page-main"}
+          className={isDetail || (view === "search" && searchRoute.view === "detail") ? "page-main detail-main" : isExam || isReview ? "exam-main" : "page-main"}
         >
           {view === "menu" && (
             <>
               <div className="eyebrow">YOUR NEXT PRACTICE</div>
               <h1 ref={h1} tabIndex={-1}>
-                学習をはじめる
+                模擬試験
               </h1>
               <p className="page-intro">
                 原文を読み、考え、解答する。自分のペースで基本情報の理解を深めましょう。
@@ -1325,7 +1442,7 @@ export function App() {
             </>
           )}
           {(isExam || isReview) && run && q && entry && (
-            <>
+            <div className="question-screen" hidden={isDetail}>
               <header className="exam-toolbar">
                 <div className="exam-app-toolbar">
                   <button
@@ -1568,6 +1685,9 @@ export function App() {
                             showAttribution={false}
                           />
                           <StudyTerms question={q} assets={run.bundle.assets} />
+                          {detail.prepared && <button className="text-button detail-link" onClick={openDetail}>
+                            <BookOpen size={17} />詳細解説を見る<ChevronRight size={16} />
+                          </button>}
                           {entry.revealed && (
                             <small>学習中に正答を表示した問題です。</small>
                           )}
@@ -1661,8 +1781,15 @@ export function App() {
                 onSource={() => setDialog("source")}
                 onLicenses={() => setDialog("licenses")}
               />
-            </>
+            </div>
           )}
+          {isDetail && run && detailRoute && <>
+            <DetailedExplanation key={detailRouteHash(detailRoute)} run={run} route={detailRoute}
+              theme={theme} prepared={detail.prepared} loading={detail.loading}
+              onBack={closeDetail} onUnavailable={() => { detail.disable(); closeDetail(); }} />
+            <QuestionFooter question={q!} bundle={run.bundle} entry={entry!} revealed
+              onSource={() => setDialog("source")} onLicenses={() => setDialog("licenses")} />
+          </>}
           {view === "result" && run?.result && (
             <>
               <div className="eyebrow">PRACTICE COMPLETED</div>
@@ -1842,6 +1969,11 @@ export function App() {
               </section>
             </>
           )}
+          {view === "search" && bundle && <SearchPage bundle={bundle} route={searchRoute}
+            theme={theme} onNavigate={navigateSearch} onLicenses={() => setDialog("licenses")}
+            practiceDisabled={Boolean(busy || error)} onPractice={question => void beginBookmark({
+              subject: question.subject, questionRef: { questionId: question.id, revision: question.revision },
+            })} />}
           {view === "bookmarks" && (
             <>
               <div className="eyebrow">YOUR BOOKMARKS</div>
@@ -2149,9 +2281,9 @@ export function App() {
           </footer>
         )}
       </div>
-      {dialog === "licenses" && run && (
+      {dialog === "licenses" && licenseBundle && (
         <Dialog title="ライセンス表記" onClose={() => setDialog(null)}>
-          <LicensePage bundle={run.bundle} />
+          <LicensePage bundle={licenseBundle} />
         </Dialog>
       )}
       {dialog === "finish" && run && (

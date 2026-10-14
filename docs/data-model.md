@@ -31,6 +31,10 @@ source・rights・asset・actorのIDは種類ごとにカタログ内で一意�
 
 質問とセットは複数の改訂を保存できるが、1セッションには同じ永続問題IDを2回出さない。ラベル「ア〜コ」は表示時の順序から生成し、正答と利用者の解答は選択肢IDで保存する。元の選択肢順は `choices[]`、実際の順序は `session.entries[].choiceOrder` に保存する。
 
+## 任意の詳細解説参照
+
+question.detailedExplanationRefは専用ディレクトリ・解説改訂・任意の初期表示指定を保持する。explanationは必須の構造化contentを維持する。詳細解説参照は省略でき、旧snapshotへ補完しない。パッケージは採点・再開に必須のcatalog.filesやassetRefsへ混入させず、存在する場合だけ専用manifestのhash・出典・素材条件を検査する。参照・初期値は内容hashに含む。参照追加時は問題改訂・基準hash・関連するテンプレート参照を更新する。[詳細解説UI](/detailed-explanations)に従う。
+
 ## DATA-02 — 元資料と学習分類
 
 元資料の識別情報は `sourceRef.locator` に置く。`exam`、西暦 `year`、原表記の `period`、`subject`、`timeSlot`、`questionNumber`、PDFの1始まり `page`、`section` を使用する。記載のない期を「春期」等で補わない。

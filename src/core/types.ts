@@ -62,6 +62,12 @@ export type Block =
       scene: Scene;
     };
 export type Content = { attribution: Attribution; blocks: Block[] };
+export type DetailParameters = Record<string, string | number | boolean>;
+export type DetailedExplanationRef = {
+  directory: string;
+  revision: number;
+  initialParameters?: DetailParameters;
+};
 export type Question = {
   schemaVersion: "3.0.0";
   id: string;
@@ -104,6 +110,8 @@ export type Question = {
   choices: { id: string; content: Content }[];
   correctAnswer: { choiceId: string; attribution: Attribution };
   explanation: Content;
+  // Optional supplemental UI. Missing resources never invalidate the saved question.
+  detailedExplanationRef?: DetailedExplanationRef;
   assetRefs: string[];
   choiceShuffleAllowed: boolean;
   distribution: "included" | "docs_only" | "excluded";

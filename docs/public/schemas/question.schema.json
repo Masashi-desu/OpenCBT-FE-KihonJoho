@@ -381,6 +381,36 @@
       "description": "復習で提示する解説とその出典・条件。独自に作成した解説はoriginalを明示し、公式問題に付けても公式解説と表示しない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
+    "detailedExplanationRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "任意の詳細解説UIへの参照。通常のexplanationを保持し、参照先を利用できない場合は詳細解説なしと同じ導線にする。",
+      "$comment": "任意：旧snapshotには補完しない。参照・初期値は内容hashに含む。HTML/CSS/JSそのものは格納しない。",
+      "properties": {
+        "directory": {
+          "type": "string",
+          "pattern": "^explanations/[a-z][a-z0-9-]{2,79}/$",
+          "description": "アプリ配布ルートからの問題専用ディレクトリ。manifest.jsonとindex.htmlを入口として使う。外部URL・上位パス・エンコードされたパスを認めない。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000,
+          "description": "詳細解説パッケージの内容を固定する改訂。manifestのrevisionと一致しない場合は利用しない。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。"
+        },
+        "initialParameters": {
+          "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/detailed-explanation.schema.json#/$defs/parameters",
+          "description": "遷移先へ渡す初期表示指定。選択肢ID・内容ID等の意味と、遷移後の内容切替は専用UIが定める。",
+          "$comment": "任意：省略時は指定しない。保存済み内容へ補完しない。"
+        }
+      },
+      "required": [
+        "directory",
+        "revision"
+      ]
+    },
     "assetRefs": {
       "type": "array",
       "items": {

@@ -103,6 +103,8 @@ export function useMaterialViewer(question: Question | undefined, contentKey: st
     const body = content.current;
     if (!container || !body) return;
     const update = () => {
+      // Optional detail navigation keeps this pane mounted but temporarily hidden.
+      if (!container.getClientRects().length || !container.clientWidth) return;
       const availableWidth = Math.max(1, container.clientWidth);
       const availableHeight = Math.max(1, container.clientHeight - 44);
       const hasOriginalPage = pages.some((page) =>
@@ -141,7 +143,7 @@ export function useMaterialViewer(question: Question | undefined, contentKey: st
     if (zoomMode !== "page") return;
     const container = viewport.current;
     const page = pageElements.current[activePage];
-    if (container && page)
+    if (container && page && container.getClientRects().length)
       container.scrollTo({
         top: page.getBoundingClientRect().top - container.getBoundingClientRect().top +
           container.scrollTop - 22 * scale,
@@ -162,7 +164,7 @@ export function useMaterialViewer(question: Question | undefined, contentKey: st
   };
   const onScroll = () => {
     const container = viewport.current;
-    if (!container) return;
+    if (!container || !container.getClientRects().length) return;
     const top = container.getBoundingClientRect().top;
     setActivePage(visibleMaterialPage(
       pageElements.current.map((page) => page?.getBoundingClientRect() ?? null),

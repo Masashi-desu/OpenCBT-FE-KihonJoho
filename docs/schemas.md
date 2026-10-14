@@ -2,7 +2,7 @@
 
 ## 正本と参照方法
 
-Schemaの正本は `docs/public/schemas/` の14ファイルである。交換仕様は3.0.0、JSON Schema Draft 2020-12を使用し、Ajvの2020実装・format検証で検証する。`$id` の `opencbt-fe-kihonjoho.example` はスキーマ識別用の予約ドメインで、公開されたサーバではない。検証時は全Schemaをローカル登録し、ネットワークから取得しない。
+Schemaの正本は `docs/public/schemas/` の15ファイルである。交換仕様は3.0.0、JSON Schema Draft 2020-12を使用し、Ajvの2020実装・format検証で検証する。`$id` の `opencbt-fe-kihonjoho.example` はスキーマ識別用の予約ドメインで、公開されたサーバではない。検証時は全Schemaをローカル登録し、ネットワークから取得しない。
 
 全フィールドの意味・必須／任意・列挙・制約・参照は[自動生成フィールド辞書](/schema-reference)へ掲載する。各JSONは以下のリンクで閲覧・保存できる。下のコード表示も元ファイルを直接参照し、二重に手書きしない。
 
@@ -16,6 +16,7 @@ Schemaの正本は `docs/public/schemas/` の14ファイルである。交換仕
 | [source.schema.json](/schemas/source.schema.json) | 出典資料と確認範囲 |
 | [rights.schema.json](/schemas/rights.schema.json) | 利用根拠・用途・第三者素材 |
 | [asset.schema.json](/schemas/asset.schema.json) | 画像ファイル・hash・代替文 |
+| [detailed-explanation.schema.json](/schemas/detailed-explanation.schema.json) | 任意の詳細解説manifest・初期表示パラメータ |
 | [question.schema.json](/schemas/question.schema.json) | 問題・改訂・出自・正答・解説 |
 | [set.schema.json](/schemas/set.schema.json) | 問題セット |
 | [exam.schema.json](/schemas/exam.schema.json) | FE設定 |

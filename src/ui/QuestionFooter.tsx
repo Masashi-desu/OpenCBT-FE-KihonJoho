@@ -153,22 +153,25 @@ export function QuestionFooter({
   bundle,
   entry,
   revealed,
+  alwaysExpanded = false,
   onSource,
   onLicenses,
 }: {
   question: Question;
   bundle: Bundle;
-  entry: Entry;
+  entry?: Entry;
   revealed: boolean;
+  alwaysExpanded?: boolean;
   onSource: () => void;
   onLicenses: () => void;
 }) {
-  const [expanded, setExpanded] = useState(false);
+  const [open, setOpen] = useState(false);
+  const expanded = alwaysExpanded || open;
   const detailsId = useId();
   const credits = questionCredits(
     question,
     bundle,
-    entry.choiceOrder,
+    entry?.choiceOrder ?? question.choices.map((choice) => choice.id),
     revealed,
   );
   const rights = [
@@ -198,7 +201,7 @@ export function QuestionFooter({
           <div className="question-footer-heading">
             <span
               className={
-                entry.issuedContent.isModified
+                (entry?.issuedContent.isModified ?? question.origin.isModified)
                   ? "origin-pill modified"
                   : "origin-pill"
               }
@@ -208,7 +211,7 @@ export function QuestionFooter({
                 : question.origin.kind === "official_adaptation"
                   ? "公式問題を基にした問題"
                   : "独自問題"}{" "}
-              · 改変{entry.issuedContent.isModified ? "あり" : "なし"}
+              · 改変{(entry?.issuedContent.isModified ?? question.origin.isModified) ? "あり" : "なし"}
             </span>
             {question.origin.sourceRefs.length > 0 && (
               <div className="footer-sources">
@@ -241,15 +244,15 @@ export function QuestionFooter({
             </div>
           )}
         </div>
-        <button
+        {!alwaysExpanded && <button
           className="footer-expand"
           aria-expanded={expanded}
           aria-controls={detailsId}
-          onClick={() => setExpanded((value) => !value)}
+          onClick={() => setOpen((value) => !value)}
         >
           <ChevronDown size={14} aria-hidden="true" />
           {expanded ? "詳細を閉じる" : "詳細を展開"}
-        </button>
+        </button>}
       </div>
       <div id={detailsId} hidden={!expanded}>
         <div className="question-footer-credits">

@@ -3,6 +3,7 @@ import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
 import { DataError } from "./errors";
 import bookmarkRevisions from "./bookmark-revisions.json";
+import supplementalRevisions from "./supplemental-bookmark-revisions.json";
 
 // Store only the source reference; generated content belongs to each saved run.
 export type Bookmark = {
@@ -41,16 +42,19 @@ export function bookmarkGroupSelection(bookmarks: readonly Bookmark[]): Selectio
 }
 
 export function bookmarkSource(bundle: Bundle, ref: Ref, coverage = generationCoverage(bundle)) {
-  // Only the explicitly recorded classification-only revisions may be upgraded.
+  // Only explicitly reviewed classification and supplementary-UI revisions may be upgraded.
   // Other old revisions, future revisions and withdrawn content remain rejected.
   if (bundle.catalog.withdrawals.some((w) => refKey(w.questionRef) === refKey(ref)))
     throw new DataError("BOOKMARK_REF", "この問題は現在利用できません。");
-  const currentKey = (bookmarkRevisions as Record<string, string>)[refKey(ref)] ?? refKey(ref);
+  const classifiedKey = (bookmarkRevisions as Record<string, string>)[refKey(ref)] ?? refKey(ref);
+  const currentKey = (supplementalRevisions as Record<string, string>)[classifiedKey] ?? classifiedKey;
+  const compatibleKeys = [refKey(ref), classifiedKey, currentKey];
+  if (bundle.catalog.withdrawals.some((w) => compatibleKeys.includes(refKey(w.questionRef))))
+    throw new DataError("BOOKMARK_REF", "この問題は現在利用できません。");
   const row = coverage.rows.find(
     (r) =>
-      refKey(refOf(r.original)) === refKey(ref) ||
-      refKey(refOf(r.original)) === currentKey ||
-      r.linked.some((t) => [refKey(ref), currentKey].includes(refKey(t.baseQuestionRef))),
+      compatibleKeys.includes(refKey(refOf(r.original))) ||
+      r.linked.some((t) => compatibleKeys.includes(refKey(t.baseQuestionRef))),
   );
   if (
     !row ||

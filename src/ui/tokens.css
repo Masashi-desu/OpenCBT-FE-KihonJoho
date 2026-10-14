@@ -1,3 +1,5 @@
+/* Authoritative shared UI colors. Components reference these roles without
+   literal color fallbacks. See AGENTS.md and docs/screens.md. */
 :root {
   --font:
     "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, system-ui,
@@ -34,6 +36,15 @@
   --toolbar-muted: #606060;
   --toolbar-hover: #dedede;
   --toolbar-border: #bcbcbc;
+  --scrollbar-thumb: rgb(80 80 80 / 38%);
+  --scrollbar-thumb-active: rgb(80 80 80 / 62%);
+
+  /* Learning visualization states remain distinct from answer feedback. */
+  --visual-compare: #a76705;
+  --visual-move: #4165b1;
+  --visual-pivot: #8b467b;
+  --visual-sorted: #56817e;
+  --visual-fixed: #2c704e;
 
   /* Color conveys feedback and status, independently of the neutral controls. */
   --text-positive: #207a45;
@@ -47,7 +58,8 @@
   --danger-border: #e9b6b6;
 }
 
-:root[data-theme="dark"] {
+:root[data-theme="dark"],
+:root.dark {
   --color-scheme: dark;
   --ink: #e8e8e8;
   --muted: #b5b5b5;
@@ -80,6 +92,14 @@
   --toolbar-muted: #bdbdbd;
   --toolbar-hover: #353535;
   --toolbar-border: #515151;
+  --scrollbar-thumb: rgb(210 210 210 / 38%);
+  --scrollbar-thumb-active: rgb(210 210 210 / 62%);
+
+  --visual-compare: #eab859;
+  --visual-move: #8faff7;
+  --visual-pivot: #dfa0ce;
+  --visual-sorted: #80beb7;
+  --visual-fixed: #92d0a5;
 
   --text-positive: #92d7ab;
   --positive-surface: #1c3325;

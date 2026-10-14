@@ -1,10 +1,67 @@
-:root {
+@import '../../../src/ui/tokens.css';
+
+:root,
+.dark {
   --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
-  --vp-c-brand-1: #17606c;
-  --vp-c-brand-2: #237586;
-  --vp-c-brand-3: #2b8797;
+  --vp-c-bg: var(--canvas);
+  --vp-c-bg-alt: var(--surface);
+  --vp-c-bg-elv: var(--surface);
+  --vp-c-bg-soft: var(--soft-surface);
+  --vp-c-border: var(--soft-border);
+  --vp-c-divider: var(--line);
+  --vp-c-gutter: var(--line);
+  --vp-c-text-1: var(--ink);
+  --vp-c-text-2: var(--muted);
+  --vp-c-text-3: var(--text-secondary);
+  --vp-c-default-1: var(--selected-surface);
+  --vp-c-default-2: var(--soft-surface);
+  --vp-c-default-3: var(--soft-surface);
+  --vp-c-default-soft: var(--soft-surface);
+  --vp-c-brand-1: var(--accent);
+  --vp-c-brand-2: var(--accent-hover);
+  --vp-c-brand-3: var(--accent);
+  --vp-c-brand-soft: var(--selected-surface);
+  --vp-c-tip-1: var(--accent);
+  --vp-c-tip-2: var(--accent-hover);
+  --vp-c-tip-3: var(--accent);
+  --vp-c-tip-soft: var(--soft-surface);
+  --vp-c-note-1: var(--accent);
+  --vp-c-note-2: var(--accent-hover);
+  --vp-c-note-3: var(--accent);
+  --vp-c-note-soft: var(--soft-surface);
+  --vp-c-success-1: var(--text-positive);
+  --vp-c-success-2: var(--positive-border);
+  --vp-c-success-3: var(--text-positive);
+  --vp-c-success-soft: var(--positive-surface);
+  --vp-c-warning-1: var(--text-warning);
+  --vp-c-warning-2: var(--warning-border);
+  --vp-c-warning-3: var(--text-warning);
+  --vp-c-warning-soft: var(--warning-surface);
+  --vp-c-danger-1: var(--text-danger);
+  --vp-c-danger-2: var(--danger-border);
+  --vp-c-danger-3: var(--text-danger);
+  --vp-c-danger-soft: var(--danger-surface);
+  --vp-c-important-1: var(--text-warning);
+  --vp-c-important-2: var(--warning-border);
+  --vp-c-important-3: var(--text-warning);
+  --vp-c-important-soft: var(--warning-surface);
+  --vp-c-caution-1: var(--text-danger);
+  --vp-c-caution-2: var(--danger-border);
+  --vp-c-caution-3: var(--text-danger);
+  --vp-c-caution-soft: var(--danger-surface);
+  --vp-shadow-1: 0 1px 3px var(--shadow-color);
+  --vp-shadow-2: 0 3px 12px var(--shadow-color);
+  --vp-shadow-3: 0 6px 20px var(--shadow-color);
+  --vp-shadow-4: 0 12px 32px var(--shadow-color);
+  --vp-shadow-5: 0 20px 48px var(--shadow-color);
+  --vp-backdrop-bg-color: var(--backdrop);
+  --vp-button-brand-text: var(--on-accent);
+  --vp-button-brand-hover-text: var(--on-accent);
+  --vp-button-brand-active-text: var(--on-accent);
+  --vp-code-color: var(--ink);
+  --vp-code-bg: var(--soft-surface);
+  --vp-code-block-bg: var(--answer-surface);
 }
-.dark { --vp-c-brand-1: #71ccd9; --vp-c-brand-2: #55b3c5; }
 .vp-doc { line-height: 1.9; overflow-wrap: anywhere; }
 .vp-doc table { display: block; max-width: 100%; overflow-x: auto; }
 .vp-doc th, .vp-doc td { min-width: 7rem; }

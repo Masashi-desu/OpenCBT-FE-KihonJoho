@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/detailed-explanation.schema.json",
+  "title": "任意の詳細解説パッケージ",
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "parameters": {
+      "type": "object",
+      "maxProperties": 32,
+      "propertyNames": {
+        "pattern": "^[a-zA-Z][a-zA-Z0-9_-]{0,39}$"
+      },
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 200
+          },
+          {
+            "type": "number",
+            "minimum": -1000000000000.0,
+            "maximum": 1000000000000.0
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
+      "description": "初期表示の指定に使う最大32個のスカラー値。問題本文・コード・生成入力の代用には使わない。",
+      "$comment": "共有型：利用する場合は型と上限を満たす。省略時の扱いは参照元に従う。"
+    }
+  },
+  "properties": {
+    "apiVersion": {
+      "const": 1,
+      "description": "共通基盤との接続仕様の版。未対応版は詳細解説なしとして扱う。",
+      "$comment": "必須：親項目がある場合は欠落を拒否する。"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100000,
+      "description": "問題側の参照と一致させる解説改訂。異なる版へ自動追従しない。",
+      "$comment": "必須：親項目がある場合は欠落を拒否する。"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "詳細解説画面のタイトル。",
+      "$comment": "必須：親項目がある場合は欠落を拒否する。"
+    },
+    "search": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "詳細解説の検索用の文章。動的なUIで表示する学習内容も含め、HTMLやJSを実行せずに検索する。",
+      "$comment": "任意：省略時はタイトルと対応問題の学習用語で検索する。",
+      "properties": {
+        "summary": { "type": "string", "minLength": 1, "maxLength": 240, "description": "検索結果で表示する概要。", "$comment": "必須：searchがある場合は欠落を拒否する。" },
+        "keywords": { "type": "array", "maxItems": 40, "uniqueItems": true, "items": { "type": "string", "minLength": 1, "maxLength": 80, "description": "一つの検索語。", "$comment": "要素：空文字は拒否し、コードではなく学習内容の名称を記録する。" }, "description": "解説の検索語。", "$comment": "必須：searchがある場合は欠落を拒否する。空配列を許可する。" },
+        "text": { "type": "string", "minLength": 1, "maxLength": 10000, "description": "解説中で扱う内容の検索用本文。コードや保存済み解答は含めない。", "$comment": "必須：searchがある場合は欠落を拒否する。" }
+      },
+      "required": ["summary", "keywords", "text"]
+    },
+    "attribution": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/attribution",
+      "description": "詳細解説の作成主体・出典・権利。問題本文・通常解説の条件と区別する。",
+      "$comment": "必須：親項目がある場合は欠落を拒否する。"
+    },
+    "references": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "内容の定義や計算量等を照合した参考資料。転載・改変した素材の出典や権利条件はattributionへ保持し、参考資料へ移して省略しない。",
+      "$comment": "任意：省略時は参考資料欄を表示しない。旧manifestも受理する。",
+      "properties": {
+        "title": {
+          "type": "string", "minLength": 1, "maxLength": 120,
+          "description": "参考資料欄の表示名と確認用途。HTMLではなく文字として表示する。",
+          "$comment": "必須：referencesがある場合は欠落を拒否する。"
+        },
+        "sourceRefs": {
+          "type": "array", "minItems": 1, "maxItems": 64, "uniqueItems": true,
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceRef",
+            "description": "確認に使用した一つの資料と参照位置。",
+            "$comment": "要素：資料IDと参照位置を記録し、公開・確認済みの資料へ解決する。"
+          },
+          "description": "確認に使った資料と位置。bundle.sourcesの公開・確認済み資料へ解決する。権利情報や転載の利用許諾を代替しない。",
+          "$comment": "必須：referencesがある場合は欠落を拒否する。空配列・同一参照の重複は拒否する。"
+        }
+      },
+      "required": ["title", "sourceRefs"]
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "description": "index.htmlを含む同じ専用ディレクトリ内の配布資源。各資源は2MiB以下、合計8MiB以下。",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "maxLength": 180,
+            "pattern": "^[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)*\\.(?:html|css|js|png|jpg|jpeg|webp|woff2)$",
+            "description": "専用ディレクトリからの相対パス。",
+            "$comment": "必須：親項目がある場合は欠落を拒否する。"
+          },
+          "mediaType": {
+            "enum": [
+              "text/html",
+              "text/css",
+              "text/javascript",
+              "image/png",
+              "image/jpeg",
+              "image/webp",
+              "font/woff2"
+            ],
+            "description": "許可された資源種別。外部通信や実行依存は追加しない。",
+            "$comment": "必須：親項目がある場合は欠落を拒否する。"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "description": "配布バイト列のSHA-256。",
+            "$comment": "必須：親項目がある場合は欠落を拒否する。"
+          }
+        },
+        "required": [
+          "path",
+          "mediaType",
+          "sha256"
+        ],
+        "description": "一覧の一つの配布資源。",
+        "$comment": "要素：ファイルのパス・種別・hashをすべて記録する。"
+      },
+      "$comment": "必須：親項目がある場合は欠落を拒否する。"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "revision",
+    "title",
+    "attribution",
+    "files"
+  ],
+  "description": "問題専用ディレクトリのmanifest.json。通常解説から開く任意の詳細解説だけに使用する。"
+}

@@ -14,7 +14,8 @@ React・TypeScript・Lucideを採用する。JSON SchemaはAjvのstandalone生�
 | FE設定 | 科目、問数、時間、B内訳、mode、採用機能 | 画面の公式コピー、非公開問題、IRT計算 |
 | 問題データ | 共通本文、設問、選択肢ID、正答、解説、派生 | 利用者の解答・保存状態 |
 | 出典・権利 | source、rights、asset、表示条件・確認範囲 | 出典ありを自動許可へ変換する処理 |
-| 表示層 | 許可ブロック、独自UI、状態表示、出典帯 | 任意HTMLの実行、疑似言語の評価 |
+| 表示層 | 許可ブロック、独自UI、状態表示、出典帯 | 問題データ由来の任意HTML実行、疑似言語の評価 |
+| 詳細解説層 | 専用ディレクトリの管理済みHTML/CSS/JS、保存済み条件・初期表示指定、隔離ホスト | 採点・問題再生成・本体保存領域への直接アクセス |
 | 図描画層 | 登録済みHTML/CSS/JS描画器、宣言的scene、原図の凡例、読み上げ用代替説明 | 問題データのコード実行、正答や利用者解答の取得 |
 | 数式描画層 | 制限付きLaTeX、固定版KaTeXのCDN取得、組版・MathML・説明文 | 正答計算、任意HTML・URL・マクロ、解答データの外部送信 |
 | ライセンス案内 | 本体・依存資産の版、原文通知、S01からS11への遷移 | 問題単位の出典・改変表示の代替、CDN依存の全文取得 |
@@ -49,7 +50,7 @@ CDNへ取得するのはライブラリ資産だけで、問題文・パラメ�
 
 オンライン利用を基本とし、オフライン専用機能は初期版へ含めない。CDNの読込み失敗時は[数式の準備・復習の規則](/content-format)に従う。メニューとライセンス一覧はKaTeXに依存させない。
 
-本体配信ではCSPを`default-src 'self'`を基本とする。scriptの外部例外は固定版katex.min.jsのURLだけ、style要素の外部例外は固定版katex.min.cssのURLだけ、fontの外部例外は同版dist/fonts/だけとし、JavaScript・CSSにはSRIを併用する。KaTeXの組版に必要なstyle属性は`style-src-attr 'unsafe-inline'`で許可し、任意HTMLを受け付ける許可とはしない。scriptのunsafe-inline・unsafe-evalを許可せず、connectはself、object・frameはnone、問題画像はselfと検証済みBlobを表示するblobに限定する。開発時だけHMRのためこのmeta CSPを外し、配布ビルドには残す。CSPとKaTeXの実描画を配布ビルドで確認する。
+本体配信ではCSPを`default-src 'self'`を基本とする。scriptの外部例外は固定版katex.min.jsのURLだけ、style要素の外部例外は固定版katex.min.cssのURLだけ、fontの外部例外は同版dist/fonts/だけとし、JavaScript・CSSにはSRIを併用する。KaTeXの組版に必要なstyle属性は`style-src-attr 'unsafe-inline'`で許可し、任意HTMLを受け付ける許可とはしない。scriptのunsafe-inline・unsafe-evalを許可せず、connectはself、objectはnone、frameは同一origin、問題画像はselfと検証済みBlobを表示するblobに限定する。開発時だけHMRのためこのmeta CSPを外し、配布ビルドには残す。CSPとKaTeXの実描画を配布ビルドで確認する。
 
 ## 正答をブラウザへ配布する限界
 
@@ -73,6 +74,7 @@ src/ui/            React画面・ブロック・管理された図・数式・�
 src/generated/     Schemaから生成する検証関数（Git対象外）
 public/data/       配布カタログ・JSON・WebP画像
 public/notices/    本体・依存コード・CC0の原文通知
+public/explanations/ 詳細解説の共通ホストと問2の専用ソート解説
 scripts/           Schemaのコンパイル・配布データ検証
 tests/             出題・生成・期限・不正データの検証
 docs/              仕様・一次資料・文書専用サンプル・文書サイト
@@ -82,6 +84,10 @@ LICENSE / NOTICE.md コードと素材の適用範囲
 ライブラリのライセンス全文は本体配布物に含め、S11はその正本通知から表示する。更新時に採用版・通知・CDN URL・SRIを一緒に変更して検証する。文書サイトの依存一覧を本体の依存一覧として転記しない。
 
 文書サイトの現状は `docs/.vitepress`、Schema・説明用サンプルは `docs/public`、検証は `docs/scripts` である。本体とドキュメントの起動コマンドを分離し、`npm run doc` を本体の起動へ付け替えない。
+
+## 任意の詳細解説の境界
+
+[詳細解説](/detailed-explanations)のHTML/CSS/JSは開発側で管理する配布コードとしてのみ認める。通常のcontentや問題JSONのコードを実行する契約は変更しない。同一originの共通ホストをsandbox=allow-scriptsで開き、宣言済み資源をhash検査してから渡す。本体CSPのframe-srcだけをselfへ拡張し、inline scriptは許可しない。共通ホストのCSPで管理コードのinline実行・データ化した素材を許可し、外部通信・子frame・フォーム送信を制限する。任意資源の失敗を必須の問題資源の失敗として扱わない。
 
 ## 全問題の生成責務
 

@@ -74,12 +74,12 @@ export function SourceFigure({
       width={w}
       height={h}
       rx={rx}
-      fill={fill ?? "var(--surface, #fff)"}
+      fill={fill ?? "var(--surface)"}
     />
   );
   const circle = (x: number, y: number, r = 23, label?: string) => {
     parts.push(
-      <circle key={key++} cx={x} cy={y} r={r} fill="var(--surface, #fff)" />,
+      <circle key={key++} cx={x} cy={y} r={r} fill="var(--surface)" />,
     );
     if (label !== undefined) parts.push(t(x, y, label));
   };
@@ -151,7 +151,7 @@ export function SourceFigure({
           w,
           60,
           0,
-          i >= undefinedFrom ? "var(--soft-border, #c6ccca)" : undefined,
+          i >= undefinedFrom ? "var(--soft-border)" : undefined,
         ),
       );
       if (i < undefinedFrom)
@@ -185,7 +185,7 @@ export function SourceFigure({
         cy="145"
         rx="150"
         ry="35"
-        fill="var(--surface, #fff)"
+        fill="var(--surface)"
       />,
       t(500, 145, "インターネット"),
     );

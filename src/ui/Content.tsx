@@ -17,9 +17,11 @@ import {
 export function AttributionLine({
   content,
   bundle,
+  sourceLabels,
 }: {
   content: ContentData;
   bundle: Bundle;
+  sourceLabels?: Record<string, string>;
 }) {
   const a = content.attribution;
   return (
@@ -43,8 +45,10 @@ export function AttributionLine({
             }
             target="_blank"
             rel="noreferrer"
+            title={s.title}
+            aria-label={s.title + (r.locator.page ? ` p.${r.locator.page}` : "")}
           >
-            原資料{r.locator.page ? ` p.${r.locator.page}` : ""}
+            {sourceLabels?.[r.sourceId] ?? `原資料${r.locator.page ? ` p.${r.locator.page}` : ""}`}
           </a>
         ) : null;
       })}

@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { detailRuntimePlugin } from "./scripts/detail-runtime";
 import {
   packageRootForModule,
   validateLicenseNotices,
@@ -7,6 +8,7 @@ import {
 export default defineConfig(({ command }) => ({
   plugins: [
     react(),
+    detailRuntimePlugin(),
     {
       name: "distribution-license-coverage",
       apply: "build",

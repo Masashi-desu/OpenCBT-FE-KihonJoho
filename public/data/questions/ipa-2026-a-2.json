@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-ipa-2026-a-2",
-  "revision": 2,
+  "revision": 3,
   "lifecycle": "active",
   "subject": "A",
   "learning": {
@@ -43,6 +43,14 @@
         "kind": "layout",
         "summary": "原資料の問題部分を切り出し、補助文字情報を併記",
         "details": "設問、数値、図表、選択肢順と正答を維持。余白とメモ用紙を省略。補助文字情報はPDF抽出順で、図や空欄の形は画像・原本を正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-14T03:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "任意の詳細解説とソート動作シミュレーターへの導線を追加",
+        "details": "問題本文、選択肢、正答と生成器を維持。保存済み問題は書き換えず、新しい問題版から専用解説を参照する。",
         "affectsAnswer": false
       }
     ],
@@ -274,7 +282,7 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+        "text": "正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。各ソート方式の動作は詳細解説で確認できます。"
       }
     ]
   },
@@ -284,7 +292,7 @@
   "choiceShuffleAllowed": false,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-14",
     "reviewerIds": [
       "codex"
     ],
@@ -296,6 +304,13 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。 2026-10-14: 問2の任意の詳細解説を追加。7方式の比較・操作回数・途中状態を独立実装で検算し、全12生成条件の対象と全選択肢の対応を照合。通常解説と独自説明の素材条件を区別。従前の未収録という記録は追加前の状態。"
+  },
+  "detailedExplanationRef": {
+    "directory": "explanations/ipa-2026-a-2/",
+    "revision": 1,
+    "initialParameters": {
+      "algorithm": "quick"
+    }
   }
 }

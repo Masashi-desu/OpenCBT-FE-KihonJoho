@@ -59,6 +59,7 @@ const names = [
   "rights",
   "asset",
   "question",
+  "detailed-explanation",
   "set",
   "exam",
   "template",
@@ -68,7 +69,7 @@ const names = [
 ];
 const exports = Object.fromEntries(
   names.map((n) => [
-    n,
+    n.replaceAll("-", "_"),
     `https://opencbt-fe-kihonjoho.example/schemas/3.0.0/${n}.schema.json`,
   ]),
 );

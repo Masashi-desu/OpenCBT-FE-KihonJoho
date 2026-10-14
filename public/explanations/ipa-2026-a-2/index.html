@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ソートアルゴリズム解説・動作シミュレーター</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="scrollbars.css">
+</head>
+<body>
+<main>
+  <header class="lesson-header">
+    <p class="eyebrow">2026年度 科目A 問2 · 整列アルゴリズム</p>
+    <h1>数列の動きから、<br class="mobile-break">ソートを理解する</h1>
+    <p>同じ数列を7つの方式で整列。比較の理由と、値の動きを1ステップずつ追ってみましょう。</p>
+    <div class="section-tabs" id="section-tabs" role="tablist" aria-label="解説の表示">
+      <button type="button" id="tab-simulator" role="tab" aria-controls="simulator" aria-selected="true" tabindex="0">動作を見る</button>
+      <button type="button" id="tab-question-choices" role="tab" aria-controls="question-choices" aria-selected="false" tabindex="-1">選択肢を確認</button>
+      <button type="button" id="tab-comparison" role="tab" aria-controls="comparison" aria-selected="false" tabindex="-1">7方式を比較</button>
+    </div>
+  </header>
+  <section id="simulator" role="tabpanel" aria-labelledby="tab-simulator" tabindex="0">
+    <div id="input-form" class="input-form" role="group" aria-label="入力数列の変更">
+      <div class="algorithm-field"><label for="algorithm-select">ソートアルゴリズム</label><select id="algorithm-select"></select></div>
+      <div class="input-field"><label for="sequence">入力数列</label><input id="sequence" type="text" inputmode="text" value="8,3,5,1,7,2,6,4" aria-describedby="input-help input-error" autocomplete="off"></div>
+      <button type="button" id="apply-input">数列を適用</button><button type="button" id="default-input" class="secondary">初期数列</button>
+      <small id="input-help">4〜10個 · 0〜99の整数 · 重複可 · カンマ／全角カンマ／読点で区切る</small>
+      <p id="input-error" class="error" role="alert" hidden></p>
+    </div>
+    <article class="overview"><div><p id="algorithm-english" class="eyebrow"></p><h2 id="algorithm-name"></h2></div><p id="overview"></p><p id="principle"></p><p class="focus"><strong>注目する動き</strong> <span id="focus"></span></p></article>
+    <div class="simulator-grid">
+      <section class="visual-panel" aria-labelledby="array-title">
+        <div class="panel-heading"><h3 id="array-title">配列の現在の状態</h3><span id="range-label" class="range-label"></span></div>
+        <div class="chart-scroll" tabindex="0" role="region" aria-label="配列の棒グラフ。各棒を選ぶと値と位置を確認できます。"><div id="bars" class="bars"></div></div>
+        <p id="inspection" class="inspection" aria-live="polite">棒を選ぶと、値・位置・状態を確認できます。</p>
+        <div id="held-view" class="held-view" hidden></div>
+        <div id="groups" class="groups"></div>
+        <ul class="legend" aria-label="棒の状態の凡例">
+          <li><i class="normal"></i>通常</li><li><i class="comparing"></i>比較</li><li><i class="moving"></i>交換・移動</li><li><i class="pivot"></i>ピボット</li><li><i class="sorted"></i>部分整列</li><li><i class="fixed"></i>位置確定</li><li><i class="active"></i>処理範囲</li>
+        </ul>
+        <p class="hint">「部分整列」はその範囲内で昇順。「位置確定」は以後動かない最終位置です。棒の下に位置と状態を表示します。</p>
+        <section id="merge-view" class="specific-view" aria-labelledby="merge-title" hidden><h3 id="merge-title">分割と併合の補助領域</h3><p id="merge-status"></p><div id="merge-groups"></div></section>
+        <section id="heap-view" class="specific-view" aria-labelledby="heap-title" hidden><h3 id="heap-title">配列と同じ状態の完全二分木</h3><p id="heap-status"></p><div class="tree-scroll" tabindex="0" role="region" aria-label="ヒープの木構造"><svg id="heap-tree" viewBox="0 0 640 300" role="img" aria-labelledby="tree-title tree-description"><title id="tree-title">最大ヒープの構造</title><desc id="tree-description"></desc><g id="tree-content"></g></svg></div><p class="hint">位置iの子は2i+1と2i+2。薄い接続先はヒープの対象外です。構築・修復中は、親が子以上の条件を一時的に満たさない場合があります。</p></section>
+      </section>
+      <section class="state-panel" aria-labelledby="state-title"><p class="eyebrow">いま何をしている？</p><h3 id="state-title">開始</h3><p id="step-number"></p><p id="step-description" class="step-description"></p><p id="specific-state" class="specific-state"></p><dl id="counts" class="counts"></dl><details class="count-help"><summary>操作回数の数え方</summary><p>比較は値同士を判定した回数。交換は異なる2位置の入替え1回です。シフトは空き領域への1要素移動、挿入は保持値の配列への書込み。一時保持、併合先への書込み、配列への書戻しも別々に数えます。条件判定の表示を別ステップにしても、同じ比較を二重には数えません。</p></details></section>
+    </div>
+    <section class="playback" aria-label="再生操作">
+      <div class="play-buttons"><button id="first" class="secondary" type="button" aria-label="最初のステップへ戻る">⏮ 最初</button><button id="previous" class="secondary" type="button" aria-label="1ステップ戻る">← 戻る</button><button id="play" type="button" aria-label="自動再生">▶ 再生</button><button id="next" class="secondary" type="button" aria-label="1ステップ進む">進む →</button></div>
+      <label class="speed-label" for="speed">再生速度 <select id="speed"><option value="1600">ゆっくり</option><option value="850" selected>ふつう</option><option value="350">速い</option></select></label>
+      <div class="seek-row"><label for="seek">再生位置</label><input type="range" id="seek" min="0" max="1" value="0" step="1"><output id="seek-position" for="seek"></output></div>
+      <p class="hint">左右キー：1ステップ移動 · Home：最初 · End：最後 · Space：再生／一時停止（入力欄やボタンの操作中を除く）</p>
+    </section>
+    <section class="learning-panel" aria-label="選択中の方式の学習ポイント"><h3>見分けるポイント</h3><p id="exam-point"></p><p id="difference"></p><div class="complexities"><span>平均 <strong id="average"></strong></span><span>最悪 <strong id="worst"></strong></span></div><p id="algorithm-note" class="hint"></p></section>
+  </section>
+  <section id="question-choices" class="learning-section" role="tabpanel" aria-labelledby="tab-question-choices" tabindex="0" hidden><p class="eyebrow">問題とつなげる</p><h2>4つの選択肢は、どの方式？</h2><p id="question-context"></p><div id="choice-links" class="choice-links"></div><p class="hint">各カードでその方式の動作へ切り替えられます。数列は共通のまま、再生は最初から始まります。</p></section>
+  <div id="comparison" role="tabpanel" aria-labelledby="tab-comparison" tabindex="0" hidden><section class="learning-section"><p class="eyebrow">仕組みの違いを整理する</p><h2>7つのソートを比較</h2><div class="table-scroll" tabindex="0" role="region" aria-label="ソートの比較表"><table><caption>代表的な実装の計算量と特徴</caption><thead><tr><th scope="col">方式</th><th scope="col">基本的な仕組み・特徴的な操作</th><th scope="col">平均</th><th scope="col">最悪</th></tr></thead><tbody id="comparison-rows"></tbody></table></div><p class="hint">nは要素数。シェルソートは間隔列によって変わります。本画面の半減間隔列は最悪O(n²)です。</p><div class="differences"><article><h3>バブルと選択</h3><p>バブルは隣の値と比較するたびに交換。選択は範囲内の最小値を調べ終えてから先頭へ配置します。</p></article><article><h3>挿入とシェル</h3><p>挿入は連続する整列済み部分へ追加。シェルは離れた位置を先に挿入整列し、最後に間隔1へ縮めます。</p></article><article><h3>クイックとマージ</h3><p>クイックはピボットとの大小で分割。マージは位置で分割し、整列済みグループの併合時に順序を作ります。</p></article><article><h3>二分探索木と最大ヒープ</h3><p>二分探索木では、各ノードの左の子孫が小さく、右の子孫が大きくなります（重複の扱いは実装の規約による）。最大ヒープでは親が子以上で、左右の兄弟の大小順は不問です。</p></article></div></section>
+  <section class="learning-section"><p class="eyebrow">データが増えたら？</p><h2>O(n²)とO(n log n)</h2><p>計算量は、入力サイズに応じて処理量がどのように増えるかを表します。実行時間の秒数や、この画面の説明ステップ数そのものではありません。定数倍や低次の項を省いて、大きな入力での増加傾向を比べます。</p><div class="table-scroll" tabindex="0" role="region" aria-label="計算量の数値例"><table><caption>増加傾向の例（logの底は2。実際の比較回数ではありません）</caption><thead><tr><th scope="col">要素数n</th><th scope="col">n²</th><th scope="col">n log₂ n</th></tr></thead><tbody><tr><th scope="row">8</th><td>64</td><td>24</td></tr><tr><th scope="row">16</th><td>256</td><td>64</td></tr><tr><th scope="row">1,024</th><td>1,048,576</td><td>10,240</td></tr></tbody></table></div><p>8個から16個に増やすと、n²は4倍、n log₂ nは約2.67倍になります。入力が大きくなるほど、この増え方の差が効いてきます。小さい入力では定数倍や実装の違いも影響します。</p></section>
+  </div>
+  <footer><p>本プロジェクト独自の学習用解説（AI作成）。公式解説ではありません。画面下に問題の出典・ライセンスと「参考資料（定義・計算量の確認）」を分けて表示しています。</p>
+    <div id="standalone-sources" hidden><h3>詳細解説のライセンス</h3><p>独自の解説文章・図はCC0-1.0、実装コードは本リポジトリのMITライセンスです。IPA・NISTの資料には、それぞれの利用条件が適用されます。</p><h3>問題の出典・利用条件</h3><p><a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2026r08.html" target="_blank" rel="noopener noreferrer">IPA：2026年度公開問題・解答例（科目A問2）</a></p><h3>参考資料（定義・計算量の確認）</h3><p>NIST Dictionary of Algorithms and Data Structures：<a href="https://xlinux.nist.gov/dads/HTML/quicksort.html" target="_blank" rel="noopener noreferrer">クイック</a> · <a href="https://xlinux.nist.gov/dads/HTML/bubblesort.html" target="_blank" rel="noopener noreferrer">バブル</a> · <a href="https://xlinux.nist.gov/dads/HTML/selectionSort.html" target="_blank" rel="noopener noreferrer">選択</a> · <a href="https://xlinux.nist.gov/dads/HTML/insertionSort.html" target="_blank" rel="noopener noreferrer">挿入</a> · <a href="https://xlinux.nist.gov/dads/HTML/mergesort.html" target="_blank" rel="noopener noreferrer">マージ</a> · <a href="https://xlinux.nist.gov/dads/HTML/heapSort.html" target="_blank" rel="noopener noreferrer">ヒープソート</a> · <a href="https://xlinux.nist.gov/dads/HTML/shellsort.html" target="_blank" rel="noopener noreferrer">シェル</a> · <a href="https://xlinux.nist.gov/dads/HTML/binarySearchTree.html" target="_blank" rel="noopener noreferrer">二分探索木</a> · <a href="https://xlinux.nist.gov/dads/HTML/heap.html" target="_blank" rel="noopener noreferrer">ヒープ</a></p></div>
+  </footer>
+</main>
+<script src="sort-engine.js"></script><script src="lesson.js"></script><script src="scrollbars.js"></script><script src="main.js"></script>
+</body>
+</html>

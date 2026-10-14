@@ -5,6 +5,8 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { fixture } from "./fixtures";
 import oldHashes from "./fixtures/pre-classification-hashes.json";
 import bookmarkRevisions from "../src/core/bookmark-revisions.json";
+import supplementalRevisions from "../src/core/supplemental-bookmark-revisions.json";
+import preSort from "./fixtures/pre-sort-revisions.json";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { bindQuestion } from "../src/core/generation";
 import { contentHash } from "../src/core/hash";
@@ -18,6 +20,8 @@ import { BookmarkLearning } from "../src/ui/BookmarkLearning";
 
 const migration = bookmarkRevisions as Record<string, string>;
 const previousKey = new Map(Object.entries(migration).map(([from, to]) => [to, from]));
+for (const [before, after] of Object.entries(supplementalRevisions))
+  previousKey.set(after, previousKey.get(before)!);
 function previousRef(ref: Ref): Ref {
   const key = previousKey.get(refKey(ref));
   assert(key, refKey(ref));
@@ -27,6 +31,20 @@ function previousRef(ref: Ref): Ref {
 
 function previousBundle() {
   const b = fixture();
+  // Reconstruct the actual distribution before the later lesson addition, then
+  // undo classification. The fixed historical hash oracle remains unchanged.
+  for (const q of b.questions) {
+    const saved = (preSort.questions as Record<string, unknown>)[q.id];
+    if (saved) { Object.assign(q, structuredClone(saved)); delete q.detailedExplanationRef; }
+  }
+  const template = b.templates.find(t => t.id === preSort.template.id)!;
+  Object.assign(template, structuredClone(preSort.template));
+  for (const s of b.sets) {
+    const revision = (preSort.setRevisions as Record<string, number>)[s.id];
+    if (revision) s.revision = revision;
+    for (const binding of s.generationBindings) if (binding.templateRef.id === template.id) binding.templateRef.revision = template.revision;
+  }
+  b.catalog.revision--;
   for (const q of b.questions) {
     const old = previousRef(refOf(q));
     q.revision = old.revision;

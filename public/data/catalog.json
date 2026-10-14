@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "catalog-fe-public",
-  "revision": 15,
+  "revision": 16,
   "scope": "distribution",
   "withdrawals": [
     {
@@ -142,6 +142,42 @@
       {
         "path": "sources/ipa-public.json",
         "sha256": "d6cf269a2a8df8b80685cf9fb93fd40c2ce41ec5f9b9d7d312928bedab19ffac"
+      },
+      {
+        "path": "sources/nist-sort-quick.json",
+        "sha256": "c6139c444e97d06a2a43e5039e66e8d22797fae5bff78ec908350080501333fc"
+      },
+      {
+        "path": "sources/nist-sort-bubble.json",
+        "sha256": "9f0ef77e2c872eaf32b3de4e4592ba74d6cbcace97f6e6818353f7b0210cb594"
+      },
+      {
+        "path": "sources/nist-sort-selection.json",
+        "sha256": "742796c127fb107d0392bddde8b44fd1264203071a97ece3d3a36ec07aa04acf"
+      },
+      {
+        "path": "sources/nist-sort-insertion.json",
+        "sha256": "d23730fa9ad97947962049aec05e0d99ea7525e882923ae7c510d4f59160e421"
+      },
+      {
+        "path": "sources/nist-sort-merge.json",
+        "sha256": "2a246e1264a2c36ee81ced9e038e00701bcfe2ec2265cff71734e87a4e40af63"
+      },
+      {
+        "path": "sources/nist-sort-heap.json",
+        "sha256": "5a544700a9473fcbeb9eb557234f4e95fb9d2f496a4d4214924ee41f4b9c92cf"
+      },
+      {
+        "path": "sources/nist-sort-shell.json",
+        "sha256": "4e56b92b6278649208b19a7ba222ebc36ee58102dd19a3f18fce0b55f8790276"
+      },
+      {
+        "path": "sources/nist-sort-binary-search-tree.json",
+        "sha256": "da341ab4e93c29d9197c5d7b70cffe74fd966afff93382e70fa4abd32443c244"
+      },
+      {
+        "path": "sources/nist-sort-heap-structure.json",
+        "sha256": "44ee9740140733be0935209347c6338945d9bf42f690608bd001b0cc50a57cdc"
       }
     ],
     "rights": [
@@ -1015,7 +1051,7 @@
       },
       {
         "path": "questions/ipa-2026-a-2.json",
-        "sha256": "9894f161de9120df3ebba90b82aaf8b9d3173a3c14140e74471edcfdb3e41200"
+        "sha256": "b6067ee4c8e421fe0909e80b608345eb62b14c9f60e00db5730a5521c95f6ba0"
       },
       {
         "path": "questions/ipa-2026-a-20.json",
@@ -1291,7 +1327,7 @@
       },
       {
         "path": "questions/template-source-2026-a-2.json",
-        "sha256": "b99fe5257d6d7ea54f258db361ba1d9baa554590343a7a70f6bbb4f2cf2c5141"
+        "sha256": "b9c78ca8c1a8bcba590be7dd6fc11af30558ccd659b9b6c8bf0412414d9ce0cf"
       },
       {
         "path": "questions/template-source-2026-a-3.json",
@@ -1513,7 +1549,7 @@
       },
       {
         "path": "sets/annual-2026-a.json",
-        "sha256": "55ae6c9af5d19bade432ace16f649bdd9607b05c92c251860aa150f652f952c3"
+        "sha256": "14f6dd846757b3e442a6c9102c42ce55289465fb08cbe907e31da6691b8fc2ee"
       },
       {
         "path": "sets/annual-2026-b.json",
@@ -1521,7 +1557,7 @@
       },
       {
         "path": "sets/mix-a.json",
-        "sha256": "9265434b26d70524ec4f3438801e442fd63a4b4ffcd1c5c06cd5bd3bec3f305d"
+        "sha256": "80de345228d5625402eca78ab6c1c4ad3b96ddb772af1fe748b4f95045ab0cbd"
       },
       {
         "path": "sets/mix-b.json",
@@ -1829,7 +1865,7 @@
       },
       {
         "path": "templates/source-2026-a-2.json",
-        "sha256": "0d57f9b195b99a53dff8be82f7a050b9d33cd0164f2de23a17fc670747c50879"
+        "sha256": "7640a9eee0745218db8b6173d2abdad5a0e7aa0618fc97469b0bcf8105f27193"
       },
       {
         "path": "templates/source-2026-a-3.json",

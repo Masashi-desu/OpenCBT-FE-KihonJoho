@@ -14,6 +14,8 @@ export const sidebar = [
   { text: 'データの仕様', items: [
     { text: 'データモデル・整合性', link: '/data-model' },
     { text: '本文・図表・疑似言語', link: '/content-format' },
+    { text: '任意の詳細解説UI', link: '/detailed-explanations' },
+    { text: '問2のソート解説・シミュレーター', link: '/sort-explanation' },
     { text: '図描画・問題生成・改変記録', link: '/diagram-generation' },
     { text: '全問題の生成対応', link: '/generation-coverage' },
     { text: 'JSON Schema', link: '/schemas' },
@@ -23,6 +25,7 @@ export const sidebar = [
   ] },
   { text: '動作と保守', items: [
     { text: '画面・操作・状態遷移', link: '/screens' },
+    { text: '問題・詳細解説の検索', link: '/search' },
     { text: '出典・改変・権利表示', link: '/attribution' },
     { text: 'アーキテクチャ・安全性', link: '/architecture' },
     { text: '更新・訂正・取り下げ', link: '/maintenance' },

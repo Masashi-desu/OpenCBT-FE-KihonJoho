@@ -13,6 +13,8 @@ export function readTheme(): Theme {
 
 export function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme;
+  const canvas = getComputedStyle(document.documentElement).getPropertyValue("--canvas").trim();
+  if (canvas) document.querySelector('meta[name="theme-color"]')?.setAttribute("content", canvas);
 }
 
 export function saveTheme(theme: Theme) {
