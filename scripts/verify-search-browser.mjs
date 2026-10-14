@@ -149,7 +149,7 @@ fs.writeFileSync(`${directory}/verify-question.js`, `async page => {
   await simulator.locator('#algorithm-select').selectOption('heap');
   await simulator.locator('#seek').evaluate(node=>{node.value='7';node.dispatchEvent(new Event('input',{bubbles:true}))});
   const detailLicense=page.locator('main > .question-footer').getByRole('button',{name:'ライセンス表記',exact:true});
-  await page.locator('main > .question-footer').getByRole('button',{name:'詳細を展開',exact:true}).click();
+  check(await page.locator('main > .question-footer .footer-expand').count()===0,'detail credits stay expanded');
   await detailLicense.scrollIntoViewIfNeeded();await detailLicense.focus();
   const detailUrl=page.url(), detailScroll=await page.evaluate(()=>scrollY);
   await detailLicense.click();await page.getByRole('dialog',{name:'ライセンス表記',exact:true}).waitFor();

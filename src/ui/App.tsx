@@ -1787,7 +1787,7 @@ export function App() {
             <DetailedExplanation key={detailRouteHash(detailRoute)} run={run} route={detailRoute}
               theme={theme} prepared={detail.prepared} loading={detail.loading}
               onBack={closeDetail} onUnavailable={() => { detail.disable(); closeDetail(); }} />
-            <QuestionFooter question={q!} bundle={run.bundle} entry={entry!} revealed
+            <QuestionFooter question={q!} bundle={run.bundle} entry={entry!} revealed alwaysExpanded
               onSource={() => setDialog("source")} onLicenses={() => setDialog("licenses")} />
           </>}
           {view === "result" && run?.result && (

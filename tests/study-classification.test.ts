@@ -7,6 +7,7 @@ import oldHashes from "./fixtures/pre-classification-hashes.json";
 import bookmarkRevisions from "../src/core/bookmark-revisions.json";
 import supplementalRevisions from "../src/core/supplemental-bookmark-revisions.json";
 import preSort from "./fixtures/pre-sort-revisions.json";
+import preArrow from "./fixtures/pre-arrow-revisions.json";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { bindQuestion } from "../src/core/generation";
 import { contentHash } from "../src/core/hash";
@@ -31,6 +32,15 @@ function previousRef(ref: Ref): Ref {
 
 function previousBundle() {
   const b = fixture();
+  for (const q of b.questions) {
+    const saved = (preArrow.questions as Record<string, unknown>)[q.id];
+    if (saved) { Object.assign(q, structuredClone(saved)); delete q.detailedExplanationRef; }
+  }
+  Object.assign(b.templates.find(t => t.id === preArrow.template.id)!, structuredClone(preArrow.template));
+  for (const s of b.sets) {
+    const saved = (preArrow.sets as Record<string, unknown>)[s.id];
+    if (saved) Object.assign(s, structuredClone(saved));
+  }
   // Reconstruct the actual distribution before the later lesson addition, then
   // undo classification. The fixed historical hash oracle remains unchanged.
   for (const q of b.questions) {

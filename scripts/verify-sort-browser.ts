@@ -27,7 +27,7 @@ fs.writeFileSync(output + "/references.js", `async page => {
   const handle=await page.locator('.detail-frame').elementHandle(), f=await handle.contentFrame();
   check(await f.locator('#standalone-sources').isHidden(),'no duplicated embedded bibliography');
   check(await f.locator('.bar-button').count()===8&&await f.locator('#algorithm-select option').count()===7,'working simulator retained');
-  await footer.getByRole('button',{name:'詳細を展開',exact:true}).click();
+  check(await footer.locator('.footer-expand').count()===0,'detail credits stay expanded');
   check(await footer.getByRole('button',{name:'ライセンス表記',exact:true}).isVisible(),'license action retained');
   for(const width of [1252,390,320]) {
     await page.setViewportSize({width,height:width===1252?1313:844});

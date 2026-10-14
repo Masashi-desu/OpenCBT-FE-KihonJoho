@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>アローダイアグラム・操作で学ぶクリティカルパス</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="scrollbars.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="lesson">
+  <section class="workspace" aria-label="アローダイアグラムの操作">
+    <div id="scene" class="scene">
+      <div class="diagram-area">
+        <div class="view-controls" aria-label="図の表示">
+          <label><input id="show-critical" type="checkbox">クリティカルパス</label>
+          <label><input id="show-times" type="checkbox">最早時刻</label>
+          <label><input id="show-dummies" type="checkbox">ダミーを強調</label>
+          <div class="zoom"><button id="zoom-out" type="button" aria-label="図を縮小">−</button><output id="zoom-value">100%</output><button id="zoom-in" type="button" aria-label="図を拡大">＋</button></div>
+        </div>
+        <div id="diagram-viewport" class="diagram-viewport" tabindex="0" role="region" aria-label="作業の依存関係図。狭い画面では左右にスクロールできます">
+          <div id="diagram-canvas" class="diagram-canvas">
+            <svg id="diagram" viewBox="0 0 1000 470" aria-labelledby="diagram-title diagram-description">
+              <title id="diagram-title">作業AからHのアローダイアグラム</title>
+              <desc id="diagram-description">Aの後でB・C・Dが並行し、Bの後でE、Cと上側ダミーの後でF、Dと中央ダミーの後でGが開始可能。E・F・Gすべての完了後にHを開始します。矢印と結合点はEnterまたはSpaceでも選択できます。</desc>
+              <defs><marker id="arrow-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" /></marker></defs>
+              <g id="edge-layer"></g><g id="node-layer"></g>
+            </svg>
+          </div>
+        </div>
+        <div class="diagram-actions">
+          <div class="playback" aria-label="計算を順番に確認">
+            <div class="playback-status"><span class="playback-title">計算をたどる</span><output id="step-label" aria-live="polite">未開始</output></div>
+            <div class="playback-buttons">
+              <button id="first" type="button" aria-label="計算の最初に戻る">最初</button>
+              <button id="previous" type="button" aria-label="前の計算ステップ">前へ</button>
+              <button id="next" type="button" aria-label="次の計算ステップ">次へ</button>
+              <button id="play" type="button" aria-pressed="false">自動再生</button>
+            </div>
+          </div>
+          <button id="reset" type="button">初期値に戻す</button>
+        </div>
+        <p id="diagram-status" class="sr-only" role="status" aria-atomic="true"></p>
+      </div>
+      <div id="inspection-reservation" class="inspection-reservation">
+        <div id="path-summary" class="path-summary" hidden></div>
+        <p id="inspection-placeholder" class="inspection-placeholder">図の作業・結合点・破線を選択すると、ここで編集・計算を確認できます。</p>
+        <section id="inspection-panel" class="inspection-panel" aria-labelledby="inspection-title" hidden>
+          <div class="inspection-heading"><h2 id="inspection-title"></h2><button id="close-inspection" type="button" aria-label="選択内容の表示を閉じる">×</button></div>
+          <div id="inspection-content" class="inspection-content"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <p id="standalone-credit" class="standalone-credit" hidden>IPA「2024年度 科目A 公開問題」問13の作業構成を基にした改変図です。©2024 独立行政法人情報処理推進機構（IPA）。数値の変更・操作UI・計算説明は本プロジェクトが独自に追加しています。</p>
+</main>
+<script src="arrow-engine.js"></script>
+<script src="scrollbars.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
