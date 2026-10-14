@@ -9,7 +9,7 @@ const html = fs.readFileSync(root + "index.html", "utf8");
 // Minimal non-browser DOM adapter for exercising the actual entry script and its
 // event handlers. It checks rendering/state, not CSS layout or browser file access.
 class Node {
-  id = ""; className = ""; value = ""; max = ""; hidden = false; disabled = false;
+  id = ""; className = ""; value = ""; max = ""; hidden = false; disabled = false; open = false; scrollTop = 0;
   type = ""; scope = ""; offsetLeft = 0; tabIndex = -1; focused = false;
   children: Node[] = [];
   parentElement: Node | null = null;
@@ -118,7 +118,8 @@ test("direct document entry renders eight bars and all seven working algorithm s
     assert.equal(ui.$("count-comparisons").textContent, "0");
     assert.equal(ui.$("algorithm-select").value, kind);
     assert.equal(ui.$("merge-view").hidden, kind !== "merge");
-    assert.equal(ui.$("heap-view").hidden, kind !== "heap");
+    assert.equal(ui.$("heap-view").hidden, true);
+    assert.equal(ui.$("toggle-tree").hidden, kind !== "heap");
     if (kind === "heap") assert.equal(ui.$("tree-content").children.filter(node => node.tagName === "g").length, 8);
     ui.seek(Number(ui.$("seek").max));
     assert.deepEqual(ui.values(), [1, 2, 3, 4, 5, 6, 7, 8]);
@@ -126,6 +127,47 @@ test("direct document entry renders eight bars and all seven working algorithm s
     ui.$("first").click();
     assert.deepEqual(ui.values(), [8, 3, 5, 1, 7, 2, 6, 4]);
   }
+});
+
+test("context follows start, selected element, playback and completion without stale element details", () => {
+  const ui = boot();
+  assert.equal(ui.$("start-guide").hidden, false);
+  assert.equal(ui.$("step-description").hidden, true);
+  assert.equal(ui.$("completion-guide").hidden, true);
+  const bar = ui.$("bars").children[0].querySelector("button");
+  ui.$("play").click(); ui.tick(); ui.$("context-pane").scrollTop = 120; bar.click();
+  assert.equal(ui.$("context-pane").scrollTop, 0);
+  assert.equal(ui.timers.size, 0);
+  assert.equal(ui.$("inspection-view").hidden, false);
+  assert.equal(ui.$("step-view").hidden, true);
+  assert.match(ui.$("inspection").textContent, /位置0：値8/);
+  assert.equal(bar.getAttribute("aria-pressed"), "true");
+  bar.click(); assert.equal(ui.$("inspection-view").hidden, true);
+  bar.click(); ui.$("close-inspection").click();
+  assert.equal(bar.focused, true); assert.equal(bar.getAttribute("aria-pressed"), "false");
+  bar.click(); ui.$("next").click();
+  assert.equal(ui.$("inspection-view").hidden, true); assert.equal(ui.$("step-description").hidden, false);
+  bar.click(); ui.$("play").click(); assert.equal(ui.$("inspection-view").hidden, true);
+  ui.seek(Number(ui.$("seek").max));
+  assert.equal(ui.$("completion-guide").hidden, false); assert.equal(ui.$("start-guide").hidden, true);
+  ui.$("first").click(); assert.equal(ui.$("start-guide").hidden, false); assert.equal(ui.$("completion-guide").hidden, true);
+});
+
+test("tree display and supplementary disclosures preserve the selected snapshot and update hidden counts", () => {
+  const ui = boot(); ui.choose("heap"); ui.seek(15);
+  const values = ui.values(), description = ui.$("step-description").textContent;
+  ui.$("toggle-tree").click();
+  assert.equal(ui.$("heap-view").hidden, false); assert.equal(ui.$("array-view").hidden, true);
+  assert.equal(ui.$("toggle-tree").getAttribute("aria-pressed"), "true");
+  assert.deepEqual(ui.values(), values); assert.equal(ui.$("step-description").textContent, description);
+  assert.deepEqual(ui.$("tree-content").children.filter(node => node.tagName === "g").map(node => Number(node.getAttribute("data-value"))), values);
+  ui.$("toggle-counts-help").click();
+  ui.$("toggle-algorithm-help").click();
+  assert.equal(ui.$("counts-help").open, false);
+  ui.$("toggle-tree").click(); assert.equal(ui.$("array-view").hidden, false);
+  ui.choose("insertion");
+  assert.equal(ui.$("toggle-tree").hidden, true); assert.equal(ui.$("heap-view").hidden, true);
+  assert.equal(ui.$("algorithm-help").open, false); assert.equal(ui.$("count-comparisons").textContent, "0");
 });
 
 test("direct entry preserves applied values when switching algorithms and synchronizes playback, seeking and validation", () => {

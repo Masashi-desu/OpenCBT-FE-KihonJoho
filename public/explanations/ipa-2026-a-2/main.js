@@ -5,6 +5,7 @@
   const context = api?.context ?? lesson.standaloneContext, $ = id => document.getElementById(id);
   const text = (id, value) => { $(id).textContent = value; };
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
+  document.documentElement.dataset.embedded = String(Boolean(api));
   let disposeStandalone = () => {};
   if (!api) {
     const systemTheme = matchMedia("(prefers-color-scheme: dark)");
@@ -15,7 +16,7 @@
     disposeStandalone = () => { systemTheme.removeEventListener("change", applyTheme); removeScrollbars(); };
   }
   let algorithm = lesson.initialAlgorithm(context), input = [...engine.defaultInput];
-  let trace, position = 0, timer = null, playing = false, selectedIndex = null, previousStep = null, previousPosition = -1;
+  let trace, position = 0, timer = null, playing = false, selectedIndex = null, previousStep = null, previousPosition = -1, showTree = false;
   const durations = () => Number($("speed").value);
   const names = { comparisons: "比較", swaps: "交換", shifts: "シフト", insertions: "挿入", mergeWrites: "併合書込", copyBackWrites: "書戻し", holds: "一時保持" };
   const algorithms = Object.entries(lesson.algorithms);
@@ -61,11 +62,17 @@
       if (position === trace.steps.length - 1) pause(); else schedule();
     }, durations());
   }
-  function play() { if (position >= trace.steps.length - 1) return; playing = true; updatePlayback(); schedule(); }
-  function seek(index) { pause(); position = Math.max(0, Math.min(trace.steps.length - 1, index)); render(); }
+  function play() { if (position >= trace.steps.length - 1) return; if (selectedIndex !== null) $("context-pane").scrollTop = 0; selectedIndex = null; inspect(trace.steps[position]); playing = true; updatePlayback(); schedule(); }
+  function seek(index) { pause(); if (selectedIndex !== null) $("context-pane").scrollTop = 0; selectedIndex = null; position = Math.max(0, Math.min(trace.steps.length - 1, index)); render(); }
   function reset() {
     clearTimeout(timer); timer = null; playing = false; position = 0; previousStep = null; previousPosition = -1; selectedIndex = null;
     trace = engine.generateTrace(algorithm, input); $("seek").max = String(trace.steps.length - 1);
+    showTree = false; $("array-view").hidden = false;
+    $("heap-guide").hidden = algorithm !== "heap";
+    $("context-pane").scrollTop = $("diagram-stage").scrollTop = $("array-support").scrollTop = 0;
+    $("toggle-tree").hidden = algorithm !== "heap"; $("toggle-tree").setAttribute("aria-pressed", "false");
+    $("toggle-tree").textContent = "木構造を見る";
+    for (const id of ["algorithm-help", "counts-help", "diagram-help"]) $(id).open = false;
     const info = lesson.algorithms[algorithm];
     text("algorithm-name", info.name); text("algorithm-english", info.english);
     for (const key of ["overview", "principle", "focus", "average", "worst", "difference"]) text(key, info[key]);
@@ -78,7 +85,7 @@
       const slot = element("div", "bar-slot");
       const button = element("button", "bar-button"); button.type = "button"; button.dataset.index = String(index);
       const column = element("span", "bar-column"), value = element("span", "bar-value"); column.append(value); button.append(column);
-      button.addEventListener("click", () => { selectedIndex = index; inspect(trace.steps[position]); });
+      button.addEventListener("click", () => { pause(); selectedIndex = selectedIndex === index ? null : index; $("context-pane").scrollTop = 0; inspect(trace.steps[position]); });
       slot.append(button, element("span", "position", `位置 ${index}`), element("span", "state-tag"), element("span", "group-tag")); $("bars").append(slot);
     });
     render();
@@ -96,7 +103,9 @@
     }
   }
   function inspect(step) {
-    if (selectedIndex === null) { text("inspection", "棒を選ぶと、値・位置・状態を確認できます。"); return; }
+    $("inspection-view").hidden = selectedIndex === null; $("step-view").hidden = selectedIndex !== null;
+    for (const slot of $("bars").children) slot.querySelector("button").setAttribute("aria-pressed", String(Number(slot.querySelector("button").dataset.index) === selectedIndex));
+    if (selectedIndex === null) { text("inspection", ""); return; }
     const item = step.array[selectedIndex];
     text("inspection", `位置${selectedIndex}：${item ? `値${item.value}（入力時の位置${item.id}）` : "空き領域"}。状態：${labels(step, selectedIndex).join("・")}。`);
   }
@@ -112,7 +121,7 @@
       button.dataset.pivot = String(step.pivot?.index === index);
       button.dataset.value = item ? String(item.value) : "hole";
       button.setAttribute("aria-label", `位置${index}、${item ? `値${item.value}` : "空き領域"}、${labels(step, index).join("・")}`);
-      column.style.height = `${item ? 25 + (item.value / max) * 145 : 40}px`;
+      column.style.height = `${item ? 25 + (item.value / max) * 120 : 40}px`;
       slot.querySelector(".bar-value").textContent = item ? String(item.value) : "空き";
       slot.querySelector(".state-tag").textContent = labels(step, index).join("・");
       const groupIndex = step.groups.findIndex(group => group.indices.includes(index));
@@ -131,6 +140,7 @@
     $("held-view").hidden = !step.held;
     $("held-view").replaceChildren();
     if (step.held) $("held-view").append(element("strong", "", "一時保持"), element("span", "held-number", step.held.value), element("span", "", `元の位置${step.held.from} · 空き領域に挿入します`));
+    $("groups").hidden = algorithm === "merge";
     $("groups").replaceChildren(...step.groups.map((group, index) => group.indices.length ? element("span", `group-chip group-${index % 3}`, `群${index + 1} ${group.label}：位置${group.indices.join("・")}`) : null).filter(Boolean));
     inspect(step);
   }
@@ -163,7 +173,7 @@
     }
   }
   function renderHeap(step) {
-    $("heap-view").hidden = algorithm !== "heap";
+    $("heap-view").hidden = algorithm !== "heap" || !showTree;
     if (algorithm !== "heap") return;
     const h = step.heap, size = h ? h.size : step.operation === "complete" ? 0 : input.length;
     text("heap-status", h ? `${{ building: "構築中（全体のヒープ条件は未保証）", repairing: "修復中（ヒープ条件は未保証）", valid: "最大ヒープ成立" }[h.mode]} · 有効範囲 0〜${size - 1}${h.root !== null ? ` · 調査する親：位置${h.root}` : ""}` : step.operation === "complete" ? "全要素の位置が確定しました。ヒープの対象はありません。" : "初期配列です。これから最大ヒープを構築します。");
@@ -185,8 +195,11 @@
     renderBars(step); renderMerge(step); renderHeap(step);
     text("range-label", `処理範囲：位置${step.range[0]}〜${step.range[1]}`);
     text("state-title", step.phase); text("step-number", `ステップ ${position + 1} / ${trace.steps.length}`);
+    $("start-guide").hidden = position !== 0; $("step-description").hidden = position === 0;
+    $("completion-guide").hidden = step.operation !== "complete";
     text("step-description", step.description);
-    text("specific-state", step.pivot ? `ピボット：${step.pivot.value}（位置${step.pivot.index}） · 再帰の深さ${step.depth}` : step.gap ? `現在の比較間隔：${step.gap}${step.gap === 1 ? "（通常の挿入ソートと同じ）" : ""}` : step.held ? `保持値：${step.held.value} · 空き位置：${step.array.indexOf(null)}` : step.candidate !== null ? `候補の位置：${step.candidate}` : step.merge ? `分割・併合の深さ：${step.depth}` : step.heap ? `ヒープの有効要素数：${step.heap.size}` : step.operation === "complete" ? "全要素の位置が確定" : "色とラベルで、操作対象を確認できます。");
+    text("specific-state", step.pivot ? `ピボット：${step.pivot.value}（位置${step.pivot.index}）` : step.gap ? `現在の比較間隔：${step.gap}${step.gap === 1 ? "（通常の挿入ソートと同じ）" : ""}` : step.held ? `保持値：${step.held.value} · 空き位置：${step.array.indexOf(null)}` : step.candidate !== null ? `候補の位置：${step.candidate}` : step.heap ? `ヒープの有効要素数：${step.heap.size}` : "");
+    $("specific-state").hidden = position === 0 || !$("specific-state").textContent;
     for (const key of Object.keys(names)) $(`count-${key}`).textContent = String(step.counts[key]);
     $("seek").value = String(position); $("seek").setAttribute("aria-valuetext", `ステップ${position + 1}、${step.phase}`);
     text("seek-position", `${position + 1} / ${trace.steps.length}`); updatePlayback();
@@ -211,8 +224,8 @@
   Object.entries(names).forEach(([key, name]) => { const div = element("div"); const value = element("dd", "", "0"); value.id = `count-${key}`; div.append(element("dt", "", name), value); $("counts").append(div); });
   function applyInput() {
     pause();
-    try { input = engine.parseInput($("sequence").value); $("sequence").setAttribute("aria-invalid", "false"); $("input-error").hidden = true; reset(); }
-    catch (error) { text("input-error", error.message); $("input-error").hidden = false; $("sequence").setAttribute("aria-invalid", "true"); }
+    try { input = engine.parseInput($("sequence").value); $("sequence").setAttribute("aria-invalid", "false"); $("input-error").hidden = true; $("input-help").hidden = false; reset(); }
+    catch (error) { text("input-error", error.message); $("input-error").hidden = false; $("input-help").hidden = true; $("sequence").setAttribute("aria-invalid", "true"); }
   }
   $("apply-input").addEventListener("click", applyInput);
   $("algorithm-select").addEventListener("change", () => choose($("algorithm-select").value));
@@ -227,7 +240,19 @@
     });
   });
   $("sequence").addEventListener("keydown", event => { if (event.key === "Enter") { event.preventDefault(); applyInput(); } });
-  $("default-input").addEventListener("click", () => { input = [...engine.defaultInput]; $("sequence").value = input.join(","); $("sequence").setAttribute("aria-invalid", "false"); $("input-error").hidden = true; reset(); });
+  $("default-input").addEventListener("click", () => { input = [...engine.defaultInput]; $("sequence").value = input.join(","); $("sequence").setAttribute("aria-invalid", "false"); $("input-error").hidden = true; $("input-help").hidden = false; reset(); });
+  $("toggle-tree").addEventListener("click", () => {
+    showTree = !showTree; $("array-view").hidden = showTree;
+    $("toggle-tree").setAttribute("aria-pressed", String(showTree)); $("toggle-tree").textContent = showTree ? "配列を見る" : "木構造を見る";
+    selectedIndex = null; inspect(trace.steps[position]); renderHeap(trace.steps[position]);
+  });
+  $("close-inspection").addEventListener("click", () => { const index = selectedIndex; selectedIndex = null; $("context-pane").scrollTop = 0; inspect(trace.steps[position]); if (index !== null) $("bars").children[index].querySelector("button").focus({ preventScroll: true }); });
+  for (const id of ["algorithm-help", "counts-help", "diagram-help"]) $(`toggle-${id}`).addEventListener("click", event => {
+    event.preventDefault();
+    const open = !$(id).open;
+    for (const other of ["algorithm-help", "counts-help", "diagram-help"]) $(other).open = other === id && open;
+  });
+  document.addEventListener("keydown", event => { if (section === "simulator" && event.key === "Escape" && selectedIndex !== null) { event.preventDefault(); $("close-inspection").click(); } });
   $("first").addEventListener("click", () => seek(0)); $("previous").addEventListener("click", () => seek(position - 1)); $("next").addEventListener("click", () => seek(position + 1));
   $("play").addEventListener("click", () => playing ? pause() : play());
   $("seek").addEventListener("input", () => seek(Number($("seek").value)));
