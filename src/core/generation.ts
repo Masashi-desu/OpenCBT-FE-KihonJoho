@@ -332,7 +332,7 @@ const publishedGenerationContracts: Contract[] = legacyContracts.map(
     return c;
   },
 );
-export const generationContracts: Contract[] = publishedGenerationContracts.map(
+const calculationGenerationContracts: Contract[] = publishedGenerationContracts.map(
   (previous) => {
     const c = structuredClone(previous);
     if (calculationSources.includes(c.source)) {
@@ -355,6 +355,13 @@ export const generationContracts: Contract[] = publishedGenerationContracts.map(
     return c;
   },
 );
+export const generationContracts: Contract[] = calculationGenerationContracts.map(
+  (previous) => {
+    const c = structuredClone(previous);
+    if (c.id === "hex-fraction") c.version = "2.2.1";
+    return c;
+  },
+);
 export function contractFor(t: Template) {
   if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
@@ -363,7 +370,9 @@ export function contractFor(t: Template) {
       ? legacyContracts
       : t.generatorRef.version === "2.1.0"
         ? publishedGenerationContracts
-        : generationContracts
+        : t.generatorRef.version === "2.2.0"
+          ? calculationGenerationContracts
+          : generationContracts
   ).find(
     (c) =>
       `generator-${c.id}` === t.generatorRef.id &&
@@ -372,7 +381,7 @@ export function contractFor(t: Template) {
 }
 export function validateTemplateContract(t: Template) {
   if (
-    !["1.0.0", "2.1.0", "2.2.0", "3.2.0", "3.3.0"].includes(
+    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "3.2.0", "3.3.0"].includes(
       t.generatorRef.version,
     )
   )
@@ -429,7 +438,7 @@ export function checkParameters(t: Template, v: number[]) {
     return;
   }
   const id = contractFor(t)?.id;
-  if (t.generatorRef.version === "2.2.0") {
+  if (["2.2.0", "2.2.1"].includes(t.generatorRef.version)) {
     try {
       checkCalculationInputs(contractFor(t)!.source, v);
     } catch {
@@ -479,7 +488,7 @@ async function sampleParameters(seed: string, t: Template) {
     throw new DataError("SEED", "入力の抽選上限に達しました");
   };
   for (let attempt = 0; attempt < 256; attempt++) {
-    const values = !["2.2.0", "3.3.0"].includes(t.generatorRef.version)
+    const values = !["2.2.0", "2.2.1", "3.3.0"].includes(t.generatorRef.version)
       ? []
       : ((await sampleCalculationInputs(c.source, integer)) ?? []);
     if (!values.length)
@@ -583,7 +592,11 @@ function bindLegacyQuestion(
       hex = n.toString(16).toUpperCase().padStart(digits, "0"),
       a = n / den;
     blocks = [
-      p(`16進小数0.${hex}を10進小数へ変換した値を選ぶ。`),
+      p(
+        t.generatorRef.version === "2.2.1"
+          ? `16進小数0.${hex}を10進小数に変換したものはどれか。`
+          : `16進小数0.${hex}を10進小数へ変換した値を選ぶ。`,
+      ),
       table(
         "位の値",
         ["桁列", "桁列を整数として読んだ値に掛ける重み"],
@@ -591,7 +604,7 @@ function bindLegacyQuestion(
       ),
     ];
     answers = [n, n + 1, n - 1, n + 2].map((x) => (x / den).toFixed(8));
-    if (t.generatorRef.version === "2.2.0")
+    if (["2.2.0", "2.2.1"].includes(t.generatorRef.version))
       answers = calculationChoices(c.source, a);
     explanation = `${digits}桁の16進小数は、桁列を整数として読んだ値を16の${digits}乗で割る。${hex}は10進数の${n}なので、${n}÷${den}＝${a}。`;
   } else if (c.id === "logic-table") {
@@ -1024,7 +1037,7 @@ export function bindQuestion(
   checkParameters(t, v);
   if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
-  if (!["2.1.0", "2.2.0"].includes(t.generatorRef.version))
+  if (!["2.1.0", "2.2.0", "2.2.1"].includes(t.generatorRef.version))
     return bindLegacyQuestion(base, t, v, instanceId, at);
   const id = contractFor(t)!.id;
   const changedAlgorithm = [

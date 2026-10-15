@@ -132,10 +132,13 @@ test("optional lesson registration preserves saved bodies and all generated init
   assert(original.explanation.blocks.some((block: any) => block.text.includes("12/16＝0.75")));
   for (const q of Object.values(previous.questions)) {
     const current = b.questions.find(p => p.id === q.id)!;
-    assert.deepEqual(current.prompt, q.prompt); assert.deepEqual(current.choices, q.choices); assert.deepEqual(current.correctAnswer, q.correctAnswer);
+    // The optional lesson preserves the official prompt; generated prompts have
+    // a separately versioned wording correction from generator 2.2.1 onward.
+    if (q.origin.kind === "official_reprint") assert.deepEqual(current.prompt, q.prompt);
+    assert.deepEqual(current.choices, q.choices); assert.deepEqual(current.correctAnswer, q.correctAnswer);
     assert.equal(makeBookmark(b, { questionId: q.id, revision: q.revision }, 0).questionRef.revision, original.revision);
   }
-  for (const version of ["2.1.0", "2.2.0"]) for (let n = 1; n < 16; n++) {
+  for (const version of ["2.1.0", "2.2.0", "2.2.1"]) for (let n = 1; n < 16; n++) {
     const context = { generation: { generatorRef: { id: "generator-hex-fraction", version }, parameters: { values: [n, 1] } } }, before = JSON.stringify(context);
     const initial = E.initialState(context); assert(initial.saved); same(E.parse(initial.raw, 16).value, { n: BigInt(n), d: 16n }); assert.equal(JSON.stringify(context), before);
     if (n % 2 === 0) { const question = bindQuestion(base, template, [n, 1], "radix-test", "2026-10-15T00:00:00Z"); assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef); }

@@ -4,6 +4,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { fixture } from "./fixtures";
 import { calculationReviews } from "./fixtures/calculation-options";
+import preRadix from "./fixtures/pre-radix-revisions.json";
 import {
   bindQuestion,
   checkParameters,
@@ -12,6 +13,7 @@ import {
   answerSignature,
 } from "../src/core/generation";
 import { contentHash } from "../src/core/hash";
+import { makeBookmark } from "../src/core/bookmarks";
 import {
   prepareRun,
   startRun,
@@ -21,7 +23,7 @@ import {
   finishRun,
 } from "../src/core/session";
 import { Content } from "../src/ui/Content";
-import { refOf, type Question, type Block } from "../src/core/types";
+import { refOf, type Question, type Block, type Template } from "../src/core/types";
 
 const bundle = fixture();
 const text = (block: Block) =>
@@ -260,7 +262,7 @@ for (const review of calculationReviews)
   test(`${review.source}: source options, display precision and 256 seeds retain the reviewed calculation level`, async () => {
     const t = template(review.source),
       baseline = base(review.source);
-    assert(["2.2.0", "3.3.0"].includes(t.generatorRef.version));
+    assert(["2.2.0", "2.2.1", "3.3.0"].includes(t.generatorRef.version));
     verify(review.source, t.referenceParameters.values, baseline);
     assert.deepEqual(
       options(baseline)
@@ -291,6 +293,48 @@ for (const review of calculationReviews)
       }
     }
   });
+
+test("hexadecimal fractions ask which decimal fraction is equivalent for every input and preserve released wording", () => {
+  const source = "2023-a-1", t = template(source);
+  const oldTemplate = structuredClone(preRadix.template) as Template;
+  const oldBase = structuredClone(preRadix.questions["question-template-hex-fraction"]) as Question;
+  assert.equal(t.generatorRef.version, "2.2.1");
+  assert.equal(oldTemplate.generatorRef.version, "2.2.0");
+  assert.equal(cleanText(base(source)), "16進小数0.Cを10進小数に変換したものはどれか。");
+  const original = bundle.questions.find(q => q.id === "question-ipa-2023-a-1")!;
+  for (const revision of [5, 6, 7, 8])
+    assert.deepEqual(
+      makeBookmark(bundle, { questionId: base(source).id, revision }, 0),
+      makeBookmark(bundle, refOf(original), 0),
+    );
+  for (const n of [2, 4, 6, 8, 10, 12, 14]) {
+    const q = verify(source, [n, 1]);
+    const match = /^(\d+)進小数(0\.[\dA-F]+)を(\d+)進小数に変換したものはどれか。$/.exec(cleanText(q));
+    assert(match);
+    const [, from, raw, to] = match;
+    assert.equal(Number(from), 16);
+    assert.equal(Number(to), 10);
+    const fraction = raw.split(".")[1];
+    const expected = [...fraction].reduce((sum, digit, i) =>
+      sum + "0123456789ABCDEF".indexOf(digit) * Number(from) ** -(i + 1), 0);
+    assert.equal(expected, n / 16);
+    const correct = q.choices.filter(c => Number(c.content.blocks.map(text).join("")) === expected);
+    assert.equal(correct.length, 1);
+    assert.equal(correct[0].id, q.correctAnswer.choiceId);
+    const html = renderToStaticMarkup(createElement(Content, {
+      content: q.prompt, bundle, assetUrls: {}, credit: false,
+    }));
+    assert(html.includes(cleanText(q)), "the question wording must be visible before answering");
+
+    const old = bindQuestion(oldBase, oldTemplate, [n, 1], "hex-wording-history", "2026-10-15T00:00:00Z");
+    assert.equal(cleanText(old), `16進小数${raw}を10進小数へ変換した値を選ぶ。`);
+    assert.deepEqual(q.choices, old.choices);
+    assert.deepEqual(q.correctAnswer, old.correctAnswer);
+    assert.deepEqual(q.explanation, old.explanation);
+  }
+  for (const invalid of [[1, 1], [3, 1], [15, 1], [12, 2]])
+    assert.throws(() => checkParameters(t, invalid));
+});
 
 test("exact cafe calculations cover every candidate in the finite clean-input sampler", (ctx) => {
   let count = 0;

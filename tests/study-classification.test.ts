@@ -22,8 +22,12 @@ import { BookmarkLearning } from "../src/ui/BookmarkLearning";
 
 const migration = bookmarkRevisions as Record<string, string>;
 const previousKey = new Map(Object.entries(migration).map(([from, to]) => [to, from]));
-for (const [before, after] of Object.entries(supplementalRevisions))
-  previousKey.set(after, previousKey.get(before)!);
+for (const [before, after] of Object.entries(supplementalRevisions)) {
+  const classified = previousKey.get(before);
+  // Several compatible revisions may lead to the same current revision.
+  // A later alias without a classification entry must not erase its ancestor.
+  if (classified) previousKey.set(after, classified);
+}
 function previousRef(ref: Ref): Ref {
   const key = previousKey.get(refKey(ref));
   assert(key, refKey(ref));

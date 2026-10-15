@@ -117,7 +117,7 @@
   }
   function initialState(context) {
     const g = context?.generation, values = g?.parameters?.values;
-    if (g?.generatorRef?.id === "generator-hex-fraction" && ["2.1.0", "2.2.0"].includes(g.generatorRef.version) &&
+    if (g?.generatorRef?.id === "generator-hex-fraction" && ["2.1.0", "2.2.0", "2.2.1"].includes(g.generatorRef.version) &&
       Array.isArray(values) && Number.isInteger(values[0]) && Number.isInteger(values[1]) && values[0] > 0 && values[0] < 16 ** values[1] && values[1] >= 1 && values[1] <= 2)
       return { raw: "0." + values[0].toString(16).toUpperCase().padStart(values[1], "0"), from: 16, to: 10, saved: true };
     return { raw: "0.C", from: 16, to: 10, saved: false };

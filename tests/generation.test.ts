@@ -482,7 +482,7 @@ function answerText(block: Question["prompt"]["blocks"][number]) {
 test("version 1 saved runs retain their older tables and numeric questions after version 2 is added", async () => {
   const b = fixture();
   b.templates = b.templates.filter((t) =>
-    ["2.1.0", "2.2.0"].includes(t.generatorRef.version),
+    ["2.1.0", "2.2.0", "2.2.1"].includes(t.generatorRef.version),
   );
   b.catalog.generationCoverage = "partial";
   b.sets = b.sets.map((s) => ({
