@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, LoaderCircle, Play, Search } from "lucide-react";
 import type { Bundle, Question } from "../core/types";
 import { areas, labels } from "../core/types";
@@ -19,9 +19,9 @@ import type { Theme } from "./theme";
 
 type Navigate = (route: SearchRoute, replace?: boolean) => void;
 
-export function SearchPage({ bundle, route, theme, onNavigate, onLicenses, onPractice, practiceDisabled }: {
+export function SearchPage({ bundle, route, theme, onNavigate, onLicenses, onPractice, practiceDisabled, notifications }: {
   bundle: Bundle; route: SearchRoute; theme: Theme; onNavigate: Navigate; onLicenses: () => void;
-  onPractice: (question: Question) => void; practiceDisabled: boolean;
+  onPractice: (question: Question) => void; practiceDisabled: boolean; notifications?: ReactNode;
 }) {
   const questions = useMemo(() => questionSearchDocuments(bundle), [bundle]);
   const [details, setDetails] = useState<SearchDocument[]>([]), [loading, setLoading] = useState(true);
@@ -58,7 +58,7 @@ export function SearchPage({ bundle, route, theme, onNavigate, onLicenses, onPra
 
   if (route.view !== "results") return question ? (
     <SearchQuestion key={question.id} question={question} bundle={bundle} route={route} theme={theme}
-      onNavigate={onNavigate} onLicenses={onLicenses} onPractice={onPractice} practiceDisabled={practiceDisabled} onDetailUnavailable={() => {
+      notifications={notifications} onNavigate={onNavigate} onLicenses={onLicenses} onPractice={onPractice} practiceDisabled={practiceDisabled} onDetailUnavailable={() => {
         const ref = question.detailedExplanationRef;
         if (ref) unavailableDetails.current.add(`detail:${ref.directory}:${ref.revision}`);
         setDetails(documents => documents.filter(document => !unavailableDetails.current.has(document.id)));
@@ -148,9 +148,9 @@ function useSearchAssets(question: Question, bundle: Bundle, attempt: number) {
   return state;
 }
 
-function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses, onPractice, practiceDisabled, onDetailUnavailable }: {
+function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses, onPractice, practiceDisabled, onDetailUnavailable, notifications }: {
   question: Question; bundle: Bundle; route: SearchRoute; theme: Theme; onNavigate: Navigate; onLicenses: () => void; onDetailUnavailable: () => void;
-  onPractice: (question: Question) => void; practiceDisabled: boolean;
+  onPractice: (question: Question) => void; practiceDisabled: boolean; notifications?: ReactNode;
 }) {
   const [revealed, setRevealed] = useState(route.view === "detail"), [source, setSource] = useState(false), [attempt, setAttempt] = useState(0);
   const heading = useRef<HTMLHeadingElement>(null), detailScroll = useRef(0), previousView = useRef(route.view);
@@ -208,7 +208,7 @@ function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses
       <QuestionFooter question={question} bundle={bundle} revealed={revealed} alwaysExpanded onSource={() => setSource(true)} onLicenses={onLicenses} />
     </section>
     {route.view === "detail" && <>
-      <DetailViewer key={question.id} context={context} bundle={bundle} theme={theme} prepared={detail.prepared} loading={detail.loading}
+      <DetailViewer key={question.id} context={context} notifications={notifications} bundle={bundle} theme={theme} prepared={detail.prepared} loading={detail.loading}
         onBack={ordinary} onUnavailable={() => { onDetailUnavailable(); detail.disable(); setRevealed(true); onNavigate({ ...route, view: "question" }, true); }} />
       <QuestionFooter question={question} bundle={bundle} revealed alwaysExpanded onSource={() => setSource(true)} onLicenses={onLicenses} />
     </>}

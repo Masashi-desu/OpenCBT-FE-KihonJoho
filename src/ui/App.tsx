@@ -69,6 +69,7 @@ import {
 import {
   history,
   loadRun,
+  linkLatestRun,
   saveRun,
   deleteRuns,
   maintainStorage,
@@ -98,6 +99,7 @@ import {
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { StudyTerms } from "./StudyTerms";
+import { latestLearningSelection, outdatedQuestionIndexes, QUESTION_UPDATE_NOTICE } from "../core/question-updates";
 import { SearchPage } from "./SearchPage";
 import { emptySearch, parseSearchRoute, searchRouteHash, type SearchRoute } from "../core/search";
 import { DetailedExplanation, useDetailedExplanation } from "./DetailedExplanation";
@@ -333,13 +335,38 @@ export function App() {
     });
   }, []);
   const reopen = useCallback(
-    async (id: string, target: View = "exam", requestedDetail?: DetailRoute) => {
+    async (id: string, target: View = "exam", requestedDetail?: DetailRoute, loadedBundle?: Bundle) => {
       setBusy("保存した問題と出典を確認しています");
       setError("");
       try {
         await queue.current;
         saveFailed.current = false;
-        let next = await loadRun(id);
+        const latest = loadedBundle ?? await loadCatalog();
+        setBundle(latest);
+        const records = await history(), saved = records.find(item => item.id === id);
+        let next: Run, replacementCreated = false;
+        if (saved && outdatedQuestionIndexes(saved, latest).length) {
+          const linked = records.find(item => item.id === saved.replacementSessionId);
+          if (linked && !linked.purged && !outdatedQuestionIndexes(linked, latest).length) {
+            next = await loadRun(linked.id);
+          } else {
+            const selection = latestLearningSelection(saved, latest);
+            const prepared = selectQuestions(latest, selection), assets: Record<string, Blob> = {};
+            await Promise.all([...new Set(prepared.questions.flatMap(q => q.assetRefs))].map(async assetId => {
+              const asset = latest.assets.find(item => item.id === assetId);
+              if (!asset) throw new DataError("ASSET_REF", assetId);
+              assets[assetId] = await loadAsset(asset);
+            }));
+            next = await prepareRun(latest, selection, assets, Date.now(), undefined, prepared);
+            next.replacementFor = id;
+            await saveRun(next);
+            await linkLatestRun(id, next.session.id);
+            replacementCreated = true;
+          }
+          target = "exam";
+          requestedDetail = undefined;
+          setItems(await history());
+        } else next = await loadRun(id);
         if (
           next.exam.mode === "practice" &&
           next.session.status === "running" &&
@@ -376,9 +403,14 @@ export function App() {
         }
         if (next.session.status === "ready") {
           next = startRun(next);
+          if (replacementCreated) {
+            next.session.status = "paused";
+            next.session.pausedAt = new Date().toISOString();
+            touch(next);
+          }
           await saveRun(next);
         }
-        lock(id);
+        lock(next.session.id);
         current.current = next;
         setRun(next);
         lastTime.current = { wall: Date.now(), mono: performance.now() };
@@ -424,9 +456,9 @@ export function App() {
       const requestedDetail = parseDetailRoute(location.hash);
       if (/^#\/search(?:[/?]|$)/.test(location.hash)) {
         setSearchHash(location.hash); setView("search");
-      } else if (requestedDetail) await reopen(requestedDetail.sessionId, requestedDetail.from, requestedDetail);
+      } else if (requestedDetail) await reopen(requestedDetail.sessionId, requestedDetail.from, requestedDetail, b);
       else if (["exam", "result", "review"].includes(hash[1]) && hash[2])
-        await reopen(hash[2], hash[1] as View);
+        await reopen(hash[2], hash[1] as View, undefined, b);
       else if (["history", "licenses", "bookmarks"].includes(hash[1]))
         navigate(hash[1] as View);
     } catch (e) {
@@ -822,7 +854,7 @@ export function App() {
     try {
       currentBookmark = makeBookmark(bundle, entry.questionRef);
     } catch {
-      // Old or withdrawn saved questions remain reviewable only under their saved rules.
+      // Unavailable sources cannot be bookmarked.
     }
   }
   const bookmarked = bookmarks.some((b) => b.id === currentBookmark?.id);
@@ -937,69 +969,8 @@ export function App() {
     else navigate("menu");
   };
 
-  return (
-    <div
-      className={
-        isExam || isReview ? "application exam-application" : "application"
-      }
-    >
-      <a
-        href="#main"
-        className="skip-link"
-        onClick={(e) => {
-          e.preventDefault();
-          if (isDetail) document.querySelector<HTMLHeadingElement>(".detail-header h1")?.focus();
-          else if (view === "search") (document.querySelector<HTMLHeadingElement>(".detail-header h1") ?? document.querySelector<HTMLHeadingElement>("#main h1"))?.focus();
-          else h1.current?.focus();
-        }}
-      >
-        本文へ移動
-      </a>
-      {!isExam && !isReview && (
-        <aside className="sidebar">
-          <a
-            className="brand"
-            href="#/menu"
-            onClick={(e) => {
-              e.preventDefault();
-              goMenu();
-            }}
-          >
-            <BrandMark />
-          </a>
-          <nav aria-label="メインメニュー">
-            {navItems.map((n) => (
-              <button
-                key={n.id}
-                className={view === n.id ? "nav-item active" : "nav-item"}
-                aria-label={n.label}
-                title={n.label}
-                onClick={() =>
-                  n.id === "history"
-                    ? void showHistory()
-                    : n.id === "bookmarks"
-                      ? void showBookmarks()
-                      : navigate(n.id)
-                }
-              >
-                <n.icon size={19} aria-hidden="true" />
-                <span className="nav-label">{n.label}</span>
-                {view === n.id && (
-                  <ChevronRight
-                    className="nav-chevron"
-                    size={15}
-                    aria-hidden="true"
-                  />
-                )}
-              </button>
-            ))}
-          </nav>
-          <div className="sidebar-theme">
-            <ThemeToggle theme={theme} onChange={setTheme} />
-          </div>
-        </aside>
-      )}
-      <div className="workspace">
+  const notifications = (
+    <div className="header-messages">
         {error && (
           <div className="error-banner" role="alert">
             <AlertCircle size={21} />
@@ -1076,6 +1047,79 @@ export function App() {
             </p>
           </div>
         )}
+        {run?.replacementFor && (isExam || isReview || isDetail || view === "result") && (
+          <div className="notice-inline" role="status">
+            <AlertCircle size={17} />
+            <p>{QUESTION_UPDATE_NOTICE}</p>
+          </div>
+        )}
+    </div>
+  );
+
+  return (
+    <div
+      className={
+        isExam || isReview ? "application exam-application" : "application"
+      }
+    >
+      <a
+        href="#main"
+        className="skip-link"
+        onClick={(e) => {
+          e.preventDefault();
+          if (isDetail) document.querySelector<HTMLHeadingElement>(".detail-header h1")?.focus();
+          else if (view === "search") (document.querySelector<HTMLHeadingElement>(".detail-header h1") ?? document.querySelector<HTMLHeadingElement>("#main h1"))?.focus();
+          else h1.current?.focus();
+        }}
+      >
+        本文へ移動
+      </a>
+      {!isExam && !isReview && (
+        <aside className="sidebar">
+          <a
+            className="brand"
+            href="#/menu"
+            onClick={(e) => {
+              e.preventDefault();
+              goMenu();
+            }}
+          >
+            <BrandMark />
+          </a>
+          <nav aria-label="メインメニュー">
+            {navItems.map((n) => (
+              <button
+                key={n.id}
+                className={view === n.id ? "nav-item active" : "nav-item"}
+                aria-label={n.label}
+                title={n.label}
+                onClick={() =>
+                  n.id === "history"
+                    ? void showHistory()
+                    : n.id === "bookmarks"
+                      ? void showBookmarks()
+                      : navigate(n.id)
+                }
+              >
+                <n.icon size={19} aria-hidden="true" />
+                <span className="nav-label">{n.label}</span>
+                {view === n.id && (
+                  <ChevronRight
+                    className="nav-chevron"
+                    size={15}
+                    aria-hidden="true"
+                  />
+                )}
+              </button>
+            ))}
+          </nav>
+          <div className="sidebar-theme">
+            <ThemeToggle theme={theme} onChange={setTheme} />
+          </div>
+        </aside>
+      )}
+      <div className="workspace">
+        {!isExam && !isReview && !isDetail && !(view === "search" && searchRoute.view === "detail") && <header className="workspace-notices">{notifications}</header>}
         <main
           id="main"
           className={isDetail || (view === "search" && searchRoute.view === "detail") ? "page-main detail-main" : isExam || isReview ? "exam-main" : "page-main"}
@@ -1518,6 +1562,7 @@ export function App() {
                     </div>
                   </div>
                 </div>
+                {notifications}
               </header>
               <div
                 className="exam-split"
@@ -1785,7 +1830,7 @@ export function App() {
           )}
           {isDetail && run && detailRoute && <>
             <DetailedExplanation key={detailRouteHash(detailRoute)} run={run} route={detailRoute}
-              theme={theme} prepared={detail.prepared} loading={detail.loading}
+              theme={theme} notifications={notifications} prepared={detail.prepared} loading={detail.loading}
               onBack={closeDetail} onUnavailable={() => { detail.disable(); closeDetail(); }} />
             <QuestionFooter question={q!} bundle={run.bundle} entry={entry!} revealed alwaysExpanded
               onSource={() => setDialog("source")} onLicenses={() => setDialog("licenses")} />
@@ -1969,7 +2014,7 @@ export function App() {
               </section>
             </>
           )}
-          {view === "search" && bundle && <SearchPage bundle={bundle} route={searchRoute}
+          {view === "search" && bundle && <SearchPage bundle={bundle} route={searchRoute} notifications={notifications}
             theme={theme} onNavigate={navigateSearch} onLicenses={() => setDialog("licenses")}
             practiceDisabled={Boolean(busy || error)} onPractice={question => void beginBookmark({
               subject: question.subject, questionRef: { questionId: question.id, revision: question.revision },
@@ -2198,6 +2243,7 @@ export function App() {
                         <span className="history-status">
                           {statusLabel[item.session.status]} ·{" "}
                           {date(item.session.updatedAt)}
+                          {bundle && outdatedQuestionIndexes(item, bundle).length > 0 && " · 旧版・互換性なし"}
                         </span>
                         <h2>{item.title}</h2>
                         <p>
@@ -2226,7 +2272,9 @@ export function App() {
                             )
                           }
                         >
-                          {item.result
+                          {bundle && outdatedQuestionIndexes(item, bundle).length > 0
+                            ? "最新問題を表示"
+                            : item.result
                             ? "結果・復習"
                             : item.session.status === "running" ||
                                 item.session.status === "paused"

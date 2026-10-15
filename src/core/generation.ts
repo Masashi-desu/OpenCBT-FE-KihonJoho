@@ -296,7 +296,7 @@ const legacyContracts: Contract[] = [
       "原問題のログ管理ルールを基に、担当人数・アクセス・日時・保存期間をパラメータ化し、ルール3違反の組合せを計算する。",
   },
 ];
-// Published 2.1.0 contracts remain registered for saved runs.
+// Assemble current contracts from the shared source-form configuration.
 const publishedGenerationContracts: Contract[] = legacyContracts.map(
   (legacy) => {
     const c = { ...structuredClone(legacy), version: "2.1.0" };
@@ -365,15 +365,7 @@ export const generationContracts: Contract[] = calculationGenerationContracts.ma
 export function contractFor(t: Template) {
   if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
-  return (
-    t.generatorRef.version === "1.0.0"
-      ? legacyContracts
-      : t.generatorRef.version === "2.1.0"
-        ? publishedGenerationContracts
-        : t.generatorRef.version === "2.2.0"
-          ? calculationGenerationContracts
-          : generationContracts
-  ).find(
+  return generationContracts.find(
     (c) =>
       `generator-${c.id}` === t.generatorRef.id &&
       (c.version ?? "1.0.0") === t.generatorRef.version,
@@ -592,11 +584,7 @@ function bindLegacyQuestion(
       hex = n.toString(16).toUpperCase().padStart(digits, "0"),
       a = n / den;
     blocks = [
-      p(
-        t.generatorRef.version === "2.2.1"
-          ? `16進小数0.${hex}を10進小数に変換したものはどれか。`
-          : `16進小数0.${hex}を10進小数へ変換した値を選ぶ。`,
-      ),
+      p(`16進小数0.${hex}を10進小数に変換したものはどれか。`),
       table(
         "位の値",
         ["桁列", "桁列を整数として読んだ値に掛ける重み"],

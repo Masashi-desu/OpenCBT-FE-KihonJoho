@@ -4,7 +4,6 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { fixture } from "./fixtures";
 import { calculationReviews } from "./fixtures/calculation-options";
-import preRadix from "./fixtures/pre-radix-revisions.json";
 import {
   bindQuestion,
   checkParameters,
@@ -294,12 +293,9 @@ for (const review of calculationReviews)
     }
   });
 
-test("hexadecimal fractions ask which decimal fraction is equivalent for every input and preserve released wording", () => {
+test("hexadecimal fractions ask which decimal fraction is equivalent for every current input", () => {
   const source = "2023-a-1", t = template(source);
-  const oldTemplate = structuredClone(preRadix.template) as Template;
-  const oldBase = structuredClone(preRadix.questions["question-template-hex-fraction"]) as Question;
   assert.equal(t.generatorRef.version, "2.2.1");
-  assert.equal(oldTemplate.generatorRef.version, "2.2.0");
   assert.equal(cleanText(base(source)), "16進小数0.Cを10進小数に変換したものはどれか。");
   const original = bundle.questions.find(q => q.id === "question-ipa-2023-a-1")!;
   for (const revision of [5, 6, 7, 8])
@@ -326,11 +322,7 @@ test("hexadecimal fractions ask which decimal fraction is equivalent for every i
     }));
     assert(html.includes(cleanText(q)), "the question wording must be visible before answering");
 
-    const old = bindQuestion(oldBase, oldTemplate, [n, 1], "hex-wording-history", "2026-10-15T00:00:00Z");
-    assert.equal(cleanText(old), `16進小数${raw}を10進小数へ変換した値を選ぶ。`);
-    assert.deepEqual(q.choices, old.choices);
-    assert.deepEqual(q.correctAnswer, old.correctAnswer);
-    assert.deepEqual(q.explanation, old.explanation);
+
   }
   for (const invalid of [[1, 1], [3, 1], [15, 1], [12, 2]])
     assert.throws(() => checkParameters(t, invalid));
@@ -496,97 +488,6 @@ test("retention keeps its service choices and generates clean member counts with
       cs[q.choices.findIndex((c) => c.id === q.correctAnswer.choiceId)],
       `サービス${"ABCD"[best]}`,
     );
-  }
-});
-
-test("published calculation versions preserve stored content, answers and continuation", async () => {
-  const previous = fixture();
-  for (const source of [
-    ...calculationReviews.map((r) => r.source),
-    "2026-a-17",
-  ]) {
-    const t = previous.templates.find((t) => t.id === template(source).id)!;
-    t.generatorRef.version = t.generatorRef.id.startsWith("generator-source-")
-      ? "3.2.0"
-      : "2.1.0";
-    const c = contractFor(t)!;
-    assert(c);
-    t.parameterDomain = {
-      values: {
-        length: c.fields.length,
-        minimum: Math.min(...c.fields.map((f) => f.minimum)),
-        maximum: Math.max(...c.fields.map((f) => f.maximum)),
-      },
-      fields: structuredClone(c.fields),
-    };
-    const original = previous.questions.find(
-      (q) => q.id === `question-ipa-${source}`,
-    )!;
-    const old = bindQuestion(
-      original,
-      t,
-      c.reference,
-      t.baseQuestionRef.questionId.replace("question-", ""),
-      "2026-10-07T00:00:00Z",
-    );
-    old.revision = t.baseQuestionRef.revision;
-    previous.questions[previous.questions.findIndex((q) => q.id === old.id)] =
-      old;
-    t.originalContentSha256 = await contentHash(old);
-    if (source === "2025-a-19") {
-      const screenshot = bindQuestion(
-        old,
-        t,
-        [1471, 402, 478596, 252540, 17, 7],
-        "instance-published",
-        "2026-10-07T00:00:00Z",
-      );
-      assert.equal(answerSignature(screenshot), "5.75人");
-      assert.deepEqual(options(screenshot), [[5.75], [5.74], [5.76], [5.78]]);
-    }
-    if (source === "2025-a-4") {
-      const rounded = bindQuestion(
-        old,
-        t,
-        [4001, 1000, 100, 6],
-        "instance-published-rate",
-        "2026-10-07T00:00:00Z",
-      );
-      assert.equal(answerSignature(rounded), "0.92");
-      assert(cleanText(rounded).includes("小数第5位を四捨五入"));
-    }
-  }
-  for (const subject of ["A", "B"] as const) {
-    const saved = startRun(
-      await prepareRun(
-        previous,
-        {
-          subject,
-          kind: "mix",
-          mode: "endless",
-          bindingMode: "generated_values",
-        },
-        {},
-        100000,
-      ),
-      101000,
-    );
-    const before = JSON.stringify(saved);
-    await validateRun(saved);
-    assert.equal(JSON.stringify(saved), before);
-    let next = saved,
-      at = 102000;
-    for (const source of [
-      ...calculationReviews.map((r) => r.source),
-      "2026-a-17",
-    ].filter((source) => source.split("-")[1] === subject.toLowerCase()))
-      next = await appendRunQuestion(
-        next,
-        template(source).baseQuestionRef,
-        (at += 1000),
-      );
-    await validateRun(next);
-    assert.deepEqual(next.issued.slice(0, saved.issued.length), saved.issued);
   }
 });
 

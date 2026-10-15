@@ -5,10 +5,7 @@ import vm from "node:vm";
 import { fixture } from "./fixtures";
 import { loadDetailPackage, validateDetailAttribution } from "../src/core/detailed-explanation";
 import { prepareRun, startRun, updateAnswer, finishRun, validateRun, appendRunQuestion } from "../src/core/session";
-import release from "./fixtures/pre-flow-revisions.json";
-import { restorePreFlow } from "./flow-history";
 import { makeBookmark } from "../src/core/bookmarks";
-const previous = release.questions["question-ipa-2023-a-11"];
 
 const root = "public/explanations/ipa-2023-a-11/", sandbox: any = vm.createContext({});
 vm.runInContext(fs.readFileSync(root + "flow-engine.js", "utf8"), sandbox);
@@ -234,30 +231,14 @@ test("reviewed package, resource hashes, provenance and shared theme load throug
   for (const [file, source] of [["theme.css", "tokens.css"], ["scrollbars.css", "scrollbars.css"]]) assert.equal(new TextDecoder().decode(pkg.files[file].bytes), fs.readFileSync("src/ui/" + source, "utf8"));
 });
 
-test("normal released question content and an already saved annual answer remain unchanged", async () => {
-  const b = fixture(), current = b.questions.find(q => q.id === previous.id)!;
-  for (const field of ["prompt", "choices", "correctAnswer", "assetRefs"] as const) assert.deepEqual(current[field], previous[field]);
-  for (const old of Object.values(release.questions))
-    assert.equal(makeBookmark(b, { questionId: old.id, revision: old.revision }, 0).questionRef.revision, current.revision);
-  const legacy = restorePreFlow(fixture());
-  let run = startRun(await prepareRun(legacy, { subject: "A", kind: "annual", year: 2023, mode: "study", size: "public", bindingMode: "original_data" }, {}, 100000), 100001);
-  const index = run.issued.findIndex(q => q.id === previous.id), issued = structuredClone(run.issued);
-  run.session.currentIndex = index;
-  run = updateAnswer(run, previous.correctAnswer.choiceId, 100002);
-  const completed = finishRun(run, "completed", 100003); await validateRun(completed);
-  assert.deepEqual(completed.issued, issued); assert(!completed.issued[index].detailedExplanationRef);
-  assert.equal(completed.session.entries[index].selectedChoiceId, previous.correctAnswer.choiceId);
-});
-
-test("the released generator 3.2.0 and baseline 5 still resume, append and review their saved content", async () => {
-  const legacy = restorePreFlow(fixture());
-  let run = startRun(await prepareRun(legacy, { subject: "A", kind: "mix", year: 2023, mode: "endless", size: "public", bindingMode: "generated_values", questionRefs: [release.template.baseQuestionRef] }, {}, 100000), 100001);
-  const issued = structuredClone(run.issued);
-  assert.equal(run.instances[0].generatorRef.version, "3.2.0");
-  assert.equal(run.instances[0].baseQuestionRef.revision, 5);
-  run = updateAnswer(run, run.issued[0].correctAnswer.choiceId, 100002);
-  await validateRun(run); run = await appendRunQuestion(run, undefined, 100003);
-  const completed = finishRun(run, "completed", 100004); await validateRun(completed);
-  assert.deepEqual(completed.issued.slice(0, issued.length), issued);
-  assert.equal(completed.issued.length, 2); assert(issued.every(q => !q.detailedExplanationRef));
+test("current annual answers retain their issued content and bookmarks resolve the latest flow source", async () => {
+  const b = fixture(), q = b.questions.find(q => q.id === "question-ipa-2023-a-11")!;
+  assert.equal(makeBookmark(b, { questionId: q.id, revision: 1 }, 0).questionRef.revision, q.revision);
+  let saved = startRun(await prepareRun(b, { subject: "A", kind: "annual", year: 2023, mode: "study", size: "public", bindingMode: "original_data" }, {}, 100000), 100001);
+  saved.session.currentIndex = saved.issued.findIndex(item => item.id === q.id);
+  const content = structuredClone(saved.issued);
+  saved = updateAnswer(saved, q.correctAnswer.choiceId, 100002);
+  const completed = finishRun(saved, "completed", 100003); await validateRun(completed);
+  assert.deepEqual(completed.issued, content);
+  assert.equal(completed.session.entries[saved.session.currentIndex].selectedChoiceId, q.correctAnswer.choiceId);
 });

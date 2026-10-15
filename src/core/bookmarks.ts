@@ -2,8 +2,6 @@ import type { Bundle, Ref, Result, Selection } from "./types";
 import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
 import { DataError } from "./errors";
-import bookmarkRevisions from "./bookmark-revisions.json";
-import supplementalRevisions from "./supplemental-bookmark-revisions.json";
 
 // Store only the source reference; generated content belongs to each saved run.
 export type Bookmark = {
@@ -42,22 +40,16 @@ export function bookmarkGroupSelection(bookmarks: readonly Bookmark[]): Selectio
 }
 
 export function bookmarkSource(bundle: Bundle, ref: Ref, coverage = generationCoverage(bundle)) {
-  // Only explicitly reviewed classification and supplementary-UI revisions may be upgraded.
-  // Other old revisions, future revisions and withdrawn content remain rejected.
-  if (bundle.catalog.withdrawals.some((w) => refKey(w.questionRef) === refKey(ref)))
-    throw new DataError("BOOKMARK_REF", "この問題は現在利用できません。");
-  const classifiedKey = (bookmarkRevisions as Record<string, string>)[refKey(ref)] ?? refKey(ref);
-  const currentKey = (supplementalRevisions as Record<string, string>)[classifiedKey] ?? classifiedKey;
-  const compatibleKeys = [refKey(ref), classifiedKey, currentKey];
-  if (bundle.catalog.withdrawals.some((w) => compatibleKeys.includes(refKey(w.questionRef))))
-    throw new DataError("BOOKMARK_REF", "この問題は現在利用できません。");
+  // A bookmark identifies a source, not an immutable copy of an old question.
+  // Resolve every past revision to the active source and its current template.
   const row = coverage.rows.find(
     (r) =>
-      compatibleKeys.includes(refKey(refOf(r.original))) ||
-      r.linked.some((t) => compatibleKeys.includes(refKey(t.baseQuestionRef))),
+      (r.original.id === ref.questionId && ref.revision > 0 && ref.revision <= r.original.revision) ||
+      r.linked.some((t) => t.baseQuestionRef.questionId === ref.questionId &&
+        ref.revision > 0 && ref.revision <= t.baseQuestionRef.revision),
   );
   if (
-    !row ||
+    !row || !Number.isInteger(ref.revision) ||
     row.original.lifecycle !== "active" ||
     row.original.distribution !== "included" ||
     bundle.catalog.withdrawals.some(

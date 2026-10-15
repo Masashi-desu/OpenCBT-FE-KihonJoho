@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, LoaderCircle } from "lucide-react";
 import type { Bundle, DetailedExplanationRef, Run } from "../core/types";
 import {
@@ -37,18 +37,18 @@ export function useDetailedExplanation(ref: DetailedExplanationRef | undefined, 
   return { ...result, disable: () => setState({ key, loading: false }) };
 }
 
-export function DetailedExplanation({ run, route, theme, prepared, loading, onBack, onUnavailable }: {
+export function DetailedExplanation({ run, route, theme, prepared, loading, onBack, onUnavailable, notifications }: {
   run: Run; route: DetailRoute; theme: Theme; prepared?: PreparedDetail; loading: boolean;
-  onBack: () => void; onUnavailable: () => void;
+  onBack: () => void; onUnavailable: () => void; notifications?: ReactNode;
 }) {
   const [context] = useState(() => detailContext(run, route, theme));
   return <DetailViewer bundle={run.bundle} context={context} theme={theme} prepared={prepared}
-    loading={loading} onBack={onBack} onUnavailable={onUnavailable} />;
+    loading={loading} notifications={notifications} onBack={onBack} onUnavailable={onUnavailable} />;
 }
 
-export function DetailViewer({ bundle, context, theme, prepared, loading, onBack, onUnavailable, backLabel = "通常解説へ戻る" }: {
+export function DetailViewer({ bundle, context, theme, prepared, loading, onBack, onUnavailable, backLabel = "通常解説へ戻る", notifications }: {
   bundle: Bundle; context: DetailContext; theme: Theme; prepared?: PreparedDetail; loading: boolean;
-  onBack: () => void; onUnavailable: () => void; backLabel?: string;
+  onBack: () => void; onUnavailable: () => void; backLabel?: string; notifications?: ReactNode;
 }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -115,6 +115,7 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
         <h1 tabIndex={-1} ref={heading}>
           {prepared?.pkg.manifest.title ?? "詳細解説"}
         </h1>
+        {notifications}
       </header>
       {!ready && <p className="detail-loading" role="status"><LoaderCircle size={18} className="spinning" />詳細解説を読み込んでいます</p>}
       {prepared && <>

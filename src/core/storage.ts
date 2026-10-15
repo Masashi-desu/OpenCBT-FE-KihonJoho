@@ -15,6 +15,8 @@ type Saved = {
   title: string;
   result?: Run["result"];
   purged?: boolean;
+  replacementFor?: string;
+  replacementSessionId?: string;
 };
 const request = <T>(req: IDBRequest<T>) =>
   new Promise<T>((res, rej) => {
@@ -108,6 +110,7 @@ export async function saveRun(run: Run) {
     issued: run.issued,
     title: run.set.title,
     ...(run.result ? { result: run.result } : {}),
+    ...(run.replacementFor ? { replacementFor: run.replacementFor } : {}),
   };
   const existing = (await request(tx.objectStore("sessions").get(saved.id))) as
     | Saved
@@ -120,6 +123,8 @@ export async function saveRun(run: Run) {
       "別のタブで更新されました。再読込みしてください。",
     );
   }
+  if (existing?.replacementSessionId)
+    saved.replacementSessionId = existing.replacementSessionId;
   tx.objectStore("catalogSnapshots").put({
     id: run.session.id,
     bundle: run.bundle,
@@ -137,6 +142,13 @@ export async function history(): Promise<Saved[]> {
       db.transaction("sessions").objectStore("sessions").getAll(),
     )) as Saved[]
   ).sort((a, b) => b.session.updatedAt.localeCompare(a.session.updatedAt));
+}
+export async function linkLatestRun(previousId: string, replacementId: string) {
+  const db = await open(), tx = db.transaction("sessions", "readwrite"),
+    complete = done(tx), store = tx.objectStore("sessions");
+  const saved = await request<Saved | undefined>(store.get(previousId));
+  if (saved) store.put({ ...saved, replacementSessionId: replacementId });
+  await complete;
 }
 export async function recentGeneration(): Promise<Run["instances"]> {
   const db = await open();
@@ -175,8 +187,13 @@ export async function loadRun(id: string): Promise<Run> {
     assets: snapshot.assets,
     instances: all.filter((i) => i.sessionId === id),
     ...(saved.result ? { result: saved.result } : {}),
+    ...(saved.replacementFor ? { replacementFor: saved.replacementFor } : {}),
   };
-  await validateBundle(run.bundle);
+  const executableTemplates = new Set(run.instances.map(i => `${i.templateRef.id}@${i.templateRef.revision}`));
+  if (run.selection.mode === "endless")
+    for (const binding of run.set.generationBindings)
+      executableTemplates.add(`${binding.templateRef.id}@${binding.templateRef.revision}`);
+  await validateBundle(run.bundle, executableTemplates);
   await validateRun(run);
   await Promise.all(
     [...new Set(run.issued.flatMap((q) => q.assetRefs))].map(async (id) => {
@@ -224,7 +241,7 @@ export async function maintainStorage(bundle: Bundle) {
   for (const bookmark of await listBookmarks()) {
     try {
       const updated = refreshBookmark(bundle, bookmark);
-      if (refKey(updated.questionRef) !== refKey(bookmark.questionRef)) {
+      if (JSON.stringify(updated) !== JSON.stringify(bookmark)) {
         const db = await open(),
           tx = db.transaction("bookmarks", "readwrite"),
           complete = done(tx);
@@ -248,9 +265,14 @@ export async function maintainStorage(bundle: Bundle) {
     // Conservative purge of every old snapshot containing affected content, including unissued originals.
     for (const r of records) {
       if (expired.includes(r.id) || r.purged) continue;
-      const run = await loadRun(r.id);
+      // Retired generator implementations need not remain executable. Check
+      // withdrawal identities in the snapshot without rendering or binding it.
+      const db = await open();
+      const snapshot = await request<{ bundle: Bundle } | undefined>(
+        db.transaction("catalogSnapshots").objectStore("catalogSnapshots").get(r.id),
+      );
       if (
-        run.bundle.questions.some(
+        snapshot?.bundle.questions.some(
           (q) =>
             ids.has(refKey(refOf(q))) ||
             q.origin.derivedFrom.some((p) => ids.has(refKey(p))),

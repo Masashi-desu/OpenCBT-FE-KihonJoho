@@ -9,7 +9,6 @@ import { sourceFigureAlt, validateSourceFigure } from "../source-figures";
 import { withCorrections } from "./corrections";
 import { knowledgeForms } from "./knowledge-formats";
 import { subjectAFormatDefinitions } from "./subject-a-formats";
-import { publishedCalculationDefinitions } from "./published-calculations";
 import {
   calculationSources,
   calculationNotes,
@@ -65,10 +64,6 @@ export function definitionForVersion(id: string, version: string) {
   const d = additionalDefinition(id);
   if (!d) return undefined;
   if (version === (d.version ?? "3.2.0")) return d;
-  if (version === "3.2.0")
-    return publishedCalculationDefinitions.find(
-      (previous) => previous.source === d.source,
-    );
   return undefined;
 }
 export function checkAdditionalParameters(t: Template, values: number[]) {

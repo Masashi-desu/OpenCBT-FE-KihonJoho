@@ -798,6 +798,15 @@ select {
   background: var(--toolbar-surface);
   color: var(--toolbar-text);
 }
+.header-messages:empty { display: none; }
+.header-messages > .notice-inline,
+.header-messages > .error-banner { margin: 0; border-radius: 0; }
+.header-messages > .bookmark-feedback {
+  position: static;
+  transform: none;
+  width: auto;
+  max-width: none;
+}
 .exam-app-toolbar,
 .exam-material-toolbar,
 .exam-answer-toolbar {

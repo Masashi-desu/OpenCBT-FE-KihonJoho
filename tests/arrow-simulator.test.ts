@@ -9,8 +9,6 @@ import { bindQuestion } from "../src/core/generation";
 import { makeBookmark } from "../src/core/bookmarks";
 import { prepareRun, startRun, updateAnswer, finishRun, validateRun, appendRunQuestion } from "../src/core/session";
 import type { Bundle, Question, Template, SetRecord } from "../src/core/types";
-import previous from "./fixtures/pre-arrow-revisions.json";
-import { restorePreRadix } from "./radix-history";
 
 const root = "public/explanations/ipa-2024-a-13/", sandbox: any = vm.createContext({ window: {} });
 vm.runInContext(fs.readFileSync(root + "arrow-engine.js", "utf8"), sandbox);
@@ -118,7 +116,7 @@ test("step trace follows the active dependencies after duration changes and togg
   }
 });
 
-test("generated detail uses saved inputs and the new references preserve older snapshots and bookmark resolution", async () => {
+test("current generated detail uses its issued inputs and bookmarks resolve the latest source", async () => {
   const b = fixture(), t = b.templates.find(t => t.id === "template-critical-path")!, base = b.questions.find(q => q.id === t.baseQuestionRef.questionId)!;
   assert.equal(t.originalContentSha256, await contentHash(base));
   for (const version of ["2.1.0", "2.2.0"]) {
@@ -136,36 +134,10 @@ test("generated detail uses saved inputs and the new references preserve older s
       assert.deepEqual(generated.detailedExplanationRef, base.detailedExplanationRef);
     }
   }
-  for (const q of Object.values(previous.questions)) {
-    const current = b.questions.find(p => p.id === q.id)!;
-    assert.deepEqual(current.prompt, q.prompt); assert.deepEqual(current.choices, q.choices); assert.deepEqual(current.correctAnswer, q.correctAnswer);
-    assert.equal("detailedExplanationRef" in q, false);
-    assert.equal(makeBookmark(b, { questionId: q.id, revision: q.revision }, 0).questionRef.revision, b.questions.find(q => q.id === "question-ipa-2024-a-13")!.revision);
-  }
-});
+  const original = b.questions.find(q => q.id === "question-ipa-2024-a-13")!;
+  for (const q of [original, base])
+    assert.equal(makeBookmark(b, { questionId: q.id, revision: 1 }, 0).questionRef.revision, original.revision);
 
-test("historical annual and generated runs still validate, resume, append and review without replacing their content", async () => {
-  const historical: Bundle = restorePreRadix(fixture());
-  for (const [id, q] of Object.entries(previous.questions)) historical.questions[historical.questions.findIndex(q => q.id === id)] = structuredClone(q) as Question;
-  historical.templates[historical.templates.findIndex(t => t.id === previous.template.id)] = structuredClone(previous.template) as Template;
-  for (const [id, set] of Object.entries(previous.sets)) historical.sets[historical.sets.findIndex(s => s.id === id)] = structuredClone(set) as SetRecord;
-  for (const kind of ["annual", "mix"] as const) {
-    const targeted = structuredClone(historical);
-    if (kind === "mix") {
-      const set = targeted.sets.find(s => s.id === "set-mix-a")!;
-      set.questionRefs = set.questionRefs.filter(q => q.questionId === "question-template-critical-path");
-      set.generationBindings = set.generationBindings.filter(g => g.questionRef.questionId === "question-template-critical-path");
-    }
-    let run = startRun(await prepareRun(targeted, { subject: "A", kind, year: 2024, mode: kind === "annual" ? "study" : "endless", size: "public", bindingMode: kind === "annual" ? "original_data" : "generated_values",
-      ...(kind === "mix" ? { questionRefs: [previous.template.baseQuestionRef] } : {}) }, {}, 100000), 100001);
-    const before = structuredClone(run.issued);
-    await validateRun(run); run = updateAnswer(run, run.issued[0].correctAnswer.choiceId, 100002);
-    if (kind === "mix") { run = await appendRunQuestion(run, undefined, 100003); assert.equal(run.issued.length, before.length + 1); }
-    await validateRun(run);
-    assert.deepEqual(run.issued.slice(0, before.length), before);
-    const ended = finishRun(run, "completed", 100004); await validateRun(ended);
-    for (const q of ended.issued) if (q.origin.sourceRefs[0]?.locator.questionNumber === "13") assert.equal(q.detailedExplanationRef, undefined);
-  }
 });
 
 test("package assets, source rights, shared themes and overlay scrollbar copies are validated", async () => {

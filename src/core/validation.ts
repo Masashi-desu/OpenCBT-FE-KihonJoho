@@ -84,7 +84,7 @@ export function validateFormula(text: string) {
   }
   if (depth !== 0 || env) fail("MATH_STRUCTURE", "数式が閉じられていません");
 }
-export async function validateBundle(b: Bundle) {
+export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySet<string>) {
   schema("catalog", b.catalog);
   if (b.catalog.scope !== "distribution")
     fail("RELEASE_GATE", "文書用カタログは配布対象にできません");
@@ -322,8 +322,13 @@ export async function validateBundle(b: Bundle) {
     attribute(t.attribution);
     if (t.distribution !== "included" || t.lifecycle !== "active")
       fail("RELEASE_GATE", t.id);
-    validateTemplateContract(t);
-    validateSourceFormat(q, t);
+    // Distribution always validates every registered generator. A saved
+    // snapshot may contain unissued, retired templates; only the templates it
+    // can actually execute need an implementation in the current application.
+    if (!executableTemplates || executableTemplates.has(`${t.id}@${t.revision}`)) {
+      validateTemplateContract(t);
+      validateSourceFormat(q, t);
+    }
     if ((await contentHash(q)) !== t.originalContentSha256)
       fail("TEMPLATE_ORIGINAL_HASH", t.id);
   }

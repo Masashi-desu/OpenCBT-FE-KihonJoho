@@ -333,6 +333,8 @@ export type Run = {
   assets: Record<string, Blob>;
   result?: Result;
   selection: Selection;
+  // Saved UI metadata; the new run has its own questions, answers and result.
+  replacementFor?: string;
 };
 export type Selection = {
   subject: SubjectScope;

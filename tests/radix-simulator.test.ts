@@ -3,8 +3,6 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
 import { fixture } from "./fixtures";
-import { restorePreRadix } from "./radix-history";
-import previous from "./fixtures/pre-radix-revisions.json";
 import { contentHash } from "../src/core/hash";
 import { loadDetailPackage } from "../src/core/detailed-explanation";
 import { bindQuestion } from "../src/core/generation";
@@ -126,34 +124,17 @@ test("malformed punctuation, unsupported digits, signs and bases give concrete e
   for (const raw of ["+1", "1.", ".1", "-.1"]) verify(raw, 10, 2);
 });
 
-test("optional lesson registration preserves saved bodies and all generated initial values without mutating context", async () => {
+test("current lesson registration uses every generated input without mutating context", async () => {
   const b = fixture(), original = b.questions.find(q => q.id === "question-ipa-2023-a-1")!, template = b.templates.find(t => t.id === "template-hex-fraction")!, base = b.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
   assert.equal(await contentHash(base), template.originalContentSha256);
   assert(original.explanation.blocks.some((block: any) => block.text.includes("12/16＝0.75")));
-  for (const q of Object.values(previous.questions)) {
-    const current = b.questions.find(p => p.id === q.id)!;
-    // The optional lesson preserves the official prompt; generated prompts have
-    // a separately versioned wording correction from generator 2.2.1 onward.
-    if (q.origin.kind === "official_reprint") assert.deepEqual(current.prompt, q.prompt);
-    assert.deepEqual(current.choices, q.choices); assert.deepEqual(current.correctAnswer, q.correctAnswer);
-    assert.equal(makeBookmark(b, { questionId: q.id, revision: q.revision }, 0).questionRef.revision, original.revision);
-  }
   for (const version of ["2.1.0", "2.2.0", "2.2.1"]) for (let n = 1; n < 16; n++) {
     const context = { generation: { generatorRef: { id: "generator-hex-fraction", version }, parameters: { values: [n, 1] } } }, before = JSON.stringify(context);
     const initial = E.initialState(context); assert(initial.saved); same(E.parse(initial.raw, 16).value, { n: BigInt(n), d: 16n }); assert.equal(JSON.stringify(context), before);
     if (n % 2 === 0) { const question = bindQuestion(base, template, [n, 1], "radix-test", "2026-10-15T00:00:00Z"); assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef); }
   }
   assert.equal(E.initialState(null).raw, "0.C");
-  for (const kind of ["annual", "mix"] as const) {
-    const historical = restorePreRadix(fixture());
-    let run = startRun(await prepareRun(historical, { subject: "A", kind, year: 2023, mode: kind === "annual" ? "study" : "endless", size: "public", bindingMode: kind === "annual" ? "original_data" : "generated_values", ...(kind === "mix" ? { questionRefs: [previous.template.baseQuestionRef] } : {}) }, {}, 100000), 100001);
-    const issued = structuredClone(run.issued); await validateRun(run);
-    run = updateAnswer(run, run.issued[0].correctAnswer.choiceId, 100002);
-    if (kind === "mix") run = await appendRunQuestion(run, undefined, 100003);
-    const completed = finishRun(run, "completed", 100004); await validateRun(completed);
-    assert.deepEqual(completed.issued.slice(0, issued.length), issued);
-    assert(issued.every(q => !q.detailedExplanationRef));
-  }
+
 });
 
 test("managed package hashes, original attribution, official references, theme and scrollbar copies load", async () => {
