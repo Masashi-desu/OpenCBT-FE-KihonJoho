@@ -57,8 +57,8 @@ test("verified detailed content is searchable, deduplicated and linked to its or
   const bundle = fixture(), calls: string[] = [], before = JSON.stringify(bundle);
   const counting = (async (url: any) => { calls.push(String(url)); return files(url); }) as typeof fetch;
   const docs = await detailSearchDocuments(bundle, base, undefined, counting);
-  assert.equal(docs.length, 3); assert(docs.some(doc => doc.question.id === "question-ipa-2026-a-2"));
-  assert.equal(calls.filter(url => url.endsWith("manifest.json")).length, 3);
+  assert.equal(docs.length, 4); assert(docs.some(doc => doc.question.id === "question-ipa-2026-a-2"));
+  assert.equal(calls.filter(url => url.endsWith("manifest.json")).length, 4);
   assert(calls.every(url => url.startsWith("https://search.invalid/opencbt/explanations/")));
   for (const query of ["ヒープ", "Quick Sort", "ピボット", "安定", "最悪", "シェル", "全角カンマ", "1,024"]) assert.equal(findSearchDocuments(docs, { ...emptySearch, query }).length, 1);
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "ヒープ", subject: "B" }).length, 0);
@@ -66,6 +66,7 @@ test("verified detailed content is searchable, deduplicated and linked to its or
   assert(searchSnippet(docs.find(doc => doc.question.id === "question-ipa-2026-a-2")!, "安定").includes("安定"));
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "トータルフロート" })[0].question.id, "question-ipa-2024-a-13");
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "循環小数" })[0].question.id, "question-ipa-2023-a-1");
+  assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "3a＝2b" })[0].question.id, "question-ipa-2023-a-11");
   assert.equal(JSON.stringify(bundle), before);
 });
 

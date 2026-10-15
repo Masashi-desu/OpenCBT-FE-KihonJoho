@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-ipa-2023-a-11",
-  "revision": 2,
+  "revision": 3,
   "lifecycle": "active",
   "subject": "A",
   "learning": {
@@ -274,7 +274,7 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+        "text": "①の後はm＝a、n＝b。指定経路の⑤でn＝b−a、続く④でm＝a−(b−a)＝2a−bとなる。最後の②から⑥へ進むには2a−b＝b−aであるから、3a＝2b。正の整数でこの関係を満たすと指定された分岐順になり、正解はエ。数値例a＝6、b＝9では(6,9)→(6,3)→(3,3)となり3を印字する。"
       }
     ]
   },
@@ -284,7 +284,7 @@
   "choiceShuffleAllowed": false,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-15",
     "reviewerIds": [
       "codex"
     ],
@@ -296,6 +296,10 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+    "notes": "2026-10-15に公式問題冊子p.7（問11の流れ図・指定経路・正の整数の注記・全選択肢）と解答例p.1（エ）を再照合。原問題の本文・画像・選択肢・正答は保持し、通常解説と任意の詳細解説を追加。数値例6・9は解説用で原問の固定値ではない。正の整数a＝2k、b＝3kで全分岐と式を検算。図の配置・比較条件を変更できる改変解説であり、IPAの公式解説ではない。tests/flow-simulator.test.tsで独立したBigInt状態追跡、剰余法GCD、全36条件、境界・循環・精度・保存互換を検査。同一AIによる照合で第三者査読ではない。"
+  },
+  "detailedExplanationRef": {
+    "directory": "explanations/ipa-2023-a-11/",
+    "revision": 1
   }
 }

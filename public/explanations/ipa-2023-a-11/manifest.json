@@ -1,0 +1,120 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "流れ図・分岐と文字式の追跡",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問11",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2023-a-ans",
+        "locator": {
+          "section": "科目A 問11 正解",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "11"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2023-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問11",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2023-a-ans",
+        "locator": {
+          "section": "科目A 問11 正解",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "11"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "公開問題の4選択肢の関係と任意の初期値を試し、分岐・減算・文字式・印字結果を追跡します。終了条件の式を実際の経路から整理できます。",
+    "keywords": [
+      "流れ図",
+      "条件分岐",
+      "繰返し",
+      "ユークリッドの互除法",
+      "文字式",
+      "a＝2b",
+      "2a＝b",
+      "2a＝3b",
+      "3a＝2b",
+      "初期値",
+      "実行履歴"
+    ],
+    "text": "基準問題は①②③⑤②③④②⑥の順に実行する初期値の関係を問う。a、bは正の整数。①はm←a、n←b。⑤の後はn＝b−a、④の後はm＝a−(b−a)＝2a−b。最後の②の等値条件2a−b＝b−aから3a＝2bとなる。正解はエ。解説用の例a＝6、b＝9では(6,9)→(6,3)→(3,3)となり3を印字。a＝3、b＝6は①②③⑤②⑥。②の終了条件を≠に変えると①②⑥で6を印字する。比較条件は図中の分岐ラベルのドロップダウンで＝≠＜≦＞≧から選び、③には②で絞った比較結果と到達不能を表示する。初期値と比較条件は変更時に即座に反映する。次へ・戻る・最初から。数値と文字式を実際に更新する。循環検出、512段階の上限、整数精度の超過で停止。 公開問題の4選択肢ア：a＝2b、イ：2a＝b、ウ：2a＝3b、エ：3a＝2bを選び、条件を満たす数値例を即時反映できる。ウの例a＝9、b＝6では①②③④②③⑤②⑥となり、m＝a−b、n＝b−(a−b)＝2b−a。終了条件a−b＝2b−aから2a＝3bを導き、3を印字する。各選択肢の終了経路と原問題の指定経路を区別する。任意の初期値と比較条件にも、実行中の文字式を移項・約分して得る関係式を表示する。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "da7144ebd1f020d1bcd281ce23bc0bc77345ba0a6c6d0a0df8c157c01c8fde2f"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "be6375075e52fb75c1d17b4d3393dcdfdf3c29cae24abb6477fafdfcf92aa778"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "flow-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "a750b66a7add779f1c1e3d1cd2dd5989f270b0a61c3fa8d9506959bacb4f6c7c"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "785a5024bcae6fd9fcf548ebf281471ddbdc28b25f82869068acac25110967a7"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "c0e4b4b49c1f34211bccd697eb9a1e66f5dfbd997833422ff00d2878196b0680"
+    }
+  ]
+}

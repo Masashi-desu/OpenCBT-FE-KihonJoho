@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>流れ図・分岐と文字式の追跡</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="scrollbars.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="lesson">
+  <h1 id="standalone-title" hidden>流れ図・分岐と文字式の追跡</h1>
+  <section class="workspace" aria-label="流れ図を1処理ずつ実行する">
+    <section id="settings" aria-label="初期値の設定">
+      <div class="settings-viewport">
+        <div class="settings-row">
+          <select id="initial-pattern" aria-label="公開問題の選択肢から初期値の関係を選ぶ" aria-describedby="pattern-help"><option value="" disabled>任意の値</option></select>
+          <label class="initial-input" for="initial-a">a<input id="initial-a" type="text" inputmode="numeric" value="6" autocomplete="off" aria-label="初期値 a" aria-describedby="input-help input-error"></label>
+          <label class="initial-input" for="initial-b">b<input id="initial-b" type="text" inputmode="numeric" value="9" autocomplete="off" aria-label="初期値 b" aria-describedby="input-help input-error"></label>
+        </div>
+      </div>
+      <p id="input-help" class="sr-only">a・bは1〜9,007,199,254,740,991の整数。有効な値へ変更すると直ちに反映し、履歴を初期化します。</p>
+      <p id="pattern-help" class="sr-only">公開問題の4つの選択肢を満たす数値例に切り替えます。比較条件は現在の設定を保ちます。a・bの直接入力もできます。</p>
+      <p id="condition-help" class="sr-only">左辺はm、右辺はnです。比較演算子を変更すると直ちに反映し、履歴を初期化します。</p>
+    </section>
+    <div class="diagram-stage">
+      <section class="history" aria-labelledby="history-title">
+        <div class="history-heading"><h2 id="history-title">実行履歴</h2><output id="position" aria-live="polite"></output></div>
+        <ol id="history" aria-label="実行履歴。処理番号を選ぶと、その時点へ戻ります"></ol>
+      </section>
+    <div class="diagram-viewport" tabindex="0" role="region" aria-label="流れ図。狭い画面では左右にスクロールできます">
+      <div class="diagram-canvas">
+      <svg id="flowchart" viewBox="0 0 920 570" role="group" aria-labelledby="chart-title chart-description">
+        <title id="chart-title">減算と条件分岐の流れ図</title>
+        <desc id="chart-description"></desc>
+        <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="arrow-head" d="M0 0 L10 5 L0 10 Z"/></marker></defs>
+        <g id="edges" class="edges">
+          <path id="edge-start-1" d="M160 68 V105"/>
+          <path id="edge-1-2" d="M160 173 V222"/>
+          <path id="edge-2-3" d="M235 268 H415"/>
+          <path id="edge-2-6" d="M160 314 V395"/>
+          <path id="edge-3-5" d="M565 268 H740 V395"/>
+          <path id="edge-3-4" d="M490 314 V395"/>
+          <path id="edge-4-2" d="M490 455 V490 H880 V200 H160 V222"/>
+          <path id="edge-5-2" d="M740 455 V490 H880 V200 H160 V222"/>
+          <path id="edge-6-end" d="M160 455 V505"/>
+        </g>
+        <g id="trail" class="edges trail" aria-hidden="true"></g>
+        <g class="terminal"><rect x="100" y="24" width="120" height="44" rx="22"/><text x="160" y="52">開始</text></g>
+        <g class="node" data-node="1" role="button" tabindex="0" aria-label="① 初期値の代入" aria-pressed="false">
+          <rect x="80" y="105" width="160" height="68"/><text x="160" y="133">m ← a</text><text x="160" y="159">n ← b</text><text class="node-number" x="51" y="145">①</text><text class="current-marker" x="22" y="145">▶</text>
+        </g>
+        <g class="node" data-node="2" role="button" tabindex="0" aria-label="② mとnの比較" aria-pressed="false">
+          <polygon points="160,222 235,268 160,314 85,268"/><text x="160" y="274">m : n</text><text class="node-number" x="57" y="274">②</text><text class="current-marker" x="28" y="274">▶</text>
+        </g>
+        <g class="node" data-node="3" role="button" tabindex="0" aria-label="③ mとnの大小比較" aria-pressed="false">
+          <polygon points="490,222 565,268 490,314 415,268"/><text x="490" y="274">m : n</text><text class="node-number" x="392" y="235">③</text><text class="current-marker" x="365" y="235">▶</text>
+        </g>
+        <g class="node" data-node="4" role="button" tabindex="0" aria-label="④ mからnを引く" aria-pressed="false">
+          <rect x="400" y="395" width="180" height="60"/><text x="490" y="431">m ← (m − n)</text><text class="node-number" x="374" y="431">④</text><text class="current-marker" x="346" y="431">▶</text>
+        </g>
+        <g class="node" data-node="5" role="button" tabindex="0" aria-label="⑤ nからmを引く" aria-pressed="false">
+          <rect x="650" y="395" width="180" height="60"/><text x="740" y="431">n ← (n − m)</text><text class="node-number" x="624" y="431">⑤</text><text class="current-marker" x="596" y="431">▶</text>
+        </g>
+        <g class="node" data-node="6" role="button" tabindex="0" aria-label="⑥ mの値を印字" aria-pressed="false">
+          <polygon points="90,395 250,395 230,455 70,455"/><text x="160" y="431">mの値を印字</text><text class="node-number" x="47" y="431">⑥</text><text class="current-marker" x="20" y="431">▶</text>
+        </g>
+        <g class="terminal" id="end-node"><rect x="100" y="505" width="120" height="44" rx="22"/><text x="160" y="533">終了</text></g>
+        <g class="branch-labels">
+          <text id="label-2-3" x="325" y="250"></text><text id="label-3-4" x="552" y="360"></text>
+        </g>
+      </svg>
+        <label class="branch-control exit-condition" data-edge="2-6">
+          <select id="exit-op" aria-label="②から⑥へ進む比較演算子" aria-describedby="condition-help label-2-6 input-error"></select>
+          <output id="label-2-6" class="sr-only"></output>
+        </label>
+        <label class="branch-control subtract-condition" data-edge="3-5">
+          <select id="subtract-op" aria-label="③から⑤へ進む比較演算子" aria-describedby="condition-help label-3-5 input-error"></select>
+          <output id="label-3-5" class="effective-condition" hidden></output>
+        </label>
+      </div>
+    </div>
+      <p class="legend"><span>▶ 現在　太線：通過済み　破線：到達不能</span><span>図形を選ぶと説明を表示</span></p>
+    </div>
+    <div class="playback" aria-label="実行操作">
+      <div class="buttons"><button id="previous" type="button">戻る</button><button id="next" type="button">次へ</button><button id="reset" type="button">最初から</button></div>
+    </div>
+    <p id="input-error" class="input-error" role="alert" hidden></p>
+    <section class="state" aria-labelledby="current-title" aria-live="polite" aria-atomic="true">
+      <h2 id="current-title"></h2>
+      <div class="variables"><p><strong id="m-value"></strong><span id="m-expression"></span></p><p><strong id="n-value"></strong><span id="n-expression"></span></p></div>
+      <p id="comparison"></p><p id="printed"></p><p id="stop-reason" class="stop-reason" hidden></p>
+    </section>
+    <section id="inspection" class="inspection" aria-labelledby="inspection-title" hidden><h2 id="inspection-title"></h2><p id="inspection-text"></p><button id="close-inspection" type="button">説明を閉じる</button></section>
+    <section class="explanation" aria-labelledby="explanation-title"><h2 id="explanation-title">実行の解説</h2><div id="explanation"></div></section>
+    <details id="baseline"><summary>基準問題の解き方と適用条件</summary>
+      <p>ここでの基準問題は2023年度 科目A 問11です。a・bは正の整数、②の終了条件は m＝n、③の⑤へ進む条件は m＜n とし、① → ② → ③ → ⑤ → ② → ③ → ④ → ② → ⑥ の順に実行する場合を考えます。比較条件や経路を変えた場合には、そのまま適用できません。</p>
+      <ol><li>①の後は m＝a、n＝b。</li><li>⑤の後は m＝a、n＝b−a。</li><li>④の後は m＝a−(b−a)＝2a−b、n＝b−a。</li><li>最後の②から⑥へ進む条件は 2a−b＝b−a。</li><li>整理すると 3a＝2b。基準問題の正解は「エ」。正の整数では a＝2k、b＝3k（kは正の整数）となり、この経路の大小条件も満たします。</li></ol>
+      <p>数値例 a＝6、b＝9 は原問題の固定入力ではなく、解説用の例です。(m,n)＝(6,9) → (6,3) → (3,3) と変化し、3を印字します。</p>
+    </details>
+    <p class="muted">原問題の流れ図を基に、配置・比較条件の変更と操作機能を加えた解説です。比較条件を変えると負数や0になる場合や、終了しない場合があります。同じ処理番号・m・nの再出現、512段階の上限、整数精度の超過で停止します。停止後も戻る・最初から・設定変更を使えます。</p>
+  </section>
+  <p id="standalone-credit" class="muted" hidden>2023年度 基本情報技術者試験 科目A 公開問題 問11の流れ図を基に、配置・比較条件の変更と操作機能を加えた解説です。問題・正答の出典：独立行政法人情報処理推進機構（IPA）。©2023 独立行政法人情報処理推進機構（IPA）。独自の解説文・プログラムは本プロジェクトが作成（CC0-1.0／コードはMIT）。<a href="../../data/sources/ipa-2023-a-qs.json">問題の出典情報</a>・<a href="../../data/sources/ipa-2023-a-ans.json">解答例の出典情報</a></p>
+</main>
+<script src="flow-engine.js"></script><script src="scrollbars.js"></script><script src="main.js"></script>
+</body>
+</html>

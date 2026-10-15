@@ -1,0 +1,90 @@
+* { box-sizing: border-box; }
+:root { font-family: var(--font); color: var(--ink); background: var(--surface); color-scheme: var(--color-scheme); }
+body { margin: 0; }
+.lesson { width: 100%; max-width: 1120px; margin: auto; padding: 16px; }
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.1rem; margin: 0 0 12px; }
+p { line-height: 1.8; margin: 8px 0; overflow-wrap: anywhere; }
+button, input, select, summary { font: inherit; }
+button, input, select { min-height: 44px; border: 1px solid var(--soft-border); border-radius: 6px; background: var(--surface); color: var(--ink); padding: 9px 14px; }
+button, select, summary { cursor: pointer; }
+button:hover:not(:disabled), summary:hover { background: var(--soft-surface); }
+button:disabled { opacity: .45; cursor: default; }
+button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible, .diagram-viewport:focus-visible, .settings-viewport:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+input[aria-invalid="true"] { border-color: var(--text-danger); }
+a { color: var(--text-accent); }
+.workspace { border: 1px solid var(--line); border-radius: 10px; overflow: clip; }
+#settings { border-bottom: 1px solid var(--line); }
+.settings-viewport { padding: 8px 12px; overflow-x: auto; }
+.settings-row { display: flex; align-items: center; gap: 14px; width: max-content; min-width: 100%; white-space: nowrap; font-size: .875rem; }
+.settings-row label { display: flex; flex: none; align-items: center; gap: 6px; }
+.settings-row input { width: 6ch; min-width: 44px; padding: 8px; font-variant-numeric: tabular-nums; }
+#initial-pattern { width: 9em; flex: none; padding: 8px; }
+.diagram-stage { position: relative; background: var(--diagram-surface); }
+.diagram-canvas { position: relative; width: 100%; min-width: 760px; }
+.branch-control { position: absolute; transform: translate(-50%, -50%); }
+.exit-condition { left: 24.347826%; top: 61.403509%; }
+.subtract-condition { left: 72.065217%; top: 41.052632%; }
+.branch-control select { display: block; width: 3.7rem; min-width: 44px; padding: 4px 6px; font-size: 1.125rem; line-height: 1.2; }
+.branch-control select:focus-visible { outline-offset: -3px; }
+.branch-control.unreachable select { border-style: dashed; color: var(--muted); }
+.effective-condition { position: absolute; left: calc(100% + 6px); top: 50%; transform: translateY(-50%); padding: 2px; background: var(--diagram-surface); color: var(--muted); white-space: nowrap; font-size: .72rem; }
+.effective-condition:not(.unreachable)::after { content: "のみ"; }
+.history { position: absolute; z-index: 1; top: 12px; right: 16px; width: max-content; max-width: 64%; }
+.history-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 4px; }
+.history-heading h2 { margin: 0; font-size: .75rem; font-weight: 500; color: var(--muted); }
+.diagram-stage .legend { display: flex; justify-content: flex-end; flex-wrap: wrap; column-gap: 12px; margin: 0; padding: 4px 16px 10px; color: var(--muted); font-size: .72rem; line-height: 1.6; text-align: right; }
+.diagram-viewport { overflow-x: auto; background: var(--diagram-surface); }
+#flowchart { display: block; width: 100%; min-width: 760px; font-family: var(--font); font-size: 18px; }
+#flowchart text { text-anchor: middle; fill: var(--diagram-ink); }
+.terminal rect, .node rect, .node polygon { fill: var(--surface); stroke: var(--diagram-border); stroke-width: 1.8; }
+.edges path { fill: none; stroke: var(--diagram-border); stroke-width: 1.6; marker-end: url(#arrow); }
+.arrow-head { fill: var(--diagram-ink); }
+.edges .unreachable { stroke-dasharray: 5 5; opacity: .45; }
+.trail path { stroke: var(--visual-move); stroke-width: 3.8; }
+.node { cursor: pointer; outline: none; }
+.node.current rect, .node.current polygon { fill: var(--selected-surface); stroke: var(--ink); stroke-width: 3.5; }
+.node.selected rect, .node.selected polygon, .node:focus-visible rect, .node:focus-visible polygon { stroke: var(--focus); stroke-width: 3.5; stroke-dasharray: 5 3; }
+.node.unreachable rect, .node.unreachable polygon { stroke-dasharray: 5 5; }
+.node-number { font-weight: 700; }
+.current-marker { visibility: hidden; font-size: 17px; }
+.current .current-marker { visibility: visible; }
+.branch-labels text { paint-order: stroke; stroke: var(--diagram-surface); stroke-width: 7px; stroke-linejoin: round; font-weight: 700; }
+.branch-labels .unreachable { fill: var(--muted); font-size: 16px; }
+#end-node.completed rect { stroke-width: 3; stroke: var(--visual-fixed); }
+.playback { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px; border-top: 1px solid var(--line); }
+.buttons { display: flex; gap: 8px; }
+#next { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+#next:hover:not(:disabled) { background: var(--accent-hover); }
+#position { font-size: .75rem; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted); }
+.state, .inspection, .explanation, #baseline, .workspace > .muted { margin: 0; padding: 16px; border-top: 1px solid var(--line); }
+.variables { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.variables p { display: flex; flex-direction: column; margin: 0; min-width: 0; }
+.variables strong { font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.variables span { overflow-wrap: anywhere; }
+.muted { color: var(--muted); font-size: .9rem; }
+.stop-reason { color: var(--text-warning); background: var(--warning-surface); padding: 10px; border: 1px solid var(--warning-border); border-radius: 6px; }
+.input-error { color: var(--text-danger); margin: 0; padding: 10px 16px; border-top: 1px solid var(--line); }
+#history { display: flex; gap: 2px; list-style: none; padding: 0; margin: 0; width: 100%; overflow-x: auto; }
+#history li { display: flex; flex: none; gap: 2px; align-items: center; }
+#history li:not(:last-child)::after { content: "→"; color: var(--muted); }
+#history button { min-width: 44px; padding: 8px 6px; border-color: transparent; background: transparent; }
+#history button:focus-visible { outline-offset: -3px; }
+#history [aria-current="step"] { border: 2px solid var(--selected-border); background: var(--selected-surface); font-weight: bold; }
+#history .future { opacity: .6; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+summary { min-height: 44px; padding: 8px 0; font-weight: 700; }
+#baseline li { line-height: 1.9; overflow-wrap: anywhere; }
+[hidden] { display: none !important; }
+@media (max-width: 759px) {
+  .diagram-stage { padding-top: 88px; }
+  .history { top: 10px; right: 12px; max-width: calc(100% - 24px); }
+}
+@media (max-width: 540px) {
+  .lesson { padding: 8px; }
+  .playback { display: grid; gap: 10px; }
+  .buttons { display: grid; grid-template-columns: 1fr 1fr 1.25fr; }
+  .buttons button { padding-inline: 10px; }
+  .variables { grid-template-columns: 1fr; gap: 8px; }
+  .settings-row { gap: 10px; }
+}
