@@ -99,3 +99,59 @@ test("text figure retains five numbered headings and their separate bullet condi
   assert(!rules.some((b) => b.type === "table" || b.type === "image"));
   assert.equal(q.choices.length, 10);
 });
+
+test("ユークリッドの流れ図は全入力で接続線を処理枠と重ねず、保存済みの図データを保持する", () => {
+  const q = fixture().questions.find(
+    (q) => q.id === "question-template-source-2023-a-11",
+  )!;
+  const block = q.prompt.blocks.find((b) => b.type === "diagram")!;
+  assert(block.type === "diagram" && block.scene.kind === "source_figure");
+  const attribute = (tag: string, name: string) => {
+    const match = tag.match(new RegExp(`\\b${name}="([^"]+)"`));
+    assert(match, `${name}が必要: ${tag}`);
+    return match[1];
+  };
+  for (let value = 0; value <= 3; value++) {
+    const saved = structuredClone(block);
+    assert(saved.scene.kind === "source_figure");
+    saved.scene.values = [value];
+    const before = JSON.stringify(saved);
+    const html = renderToStaticMarkup(createElement(Diagram, saved));
+    const boxes = [...html.matchAll(/<rect\b[^>]*>/g)].map(([tag]) => {
+      const x = Number(attribute(tag, "x")),
+        y = Number(attribute(tag, "y"));
+      return {
+        x, y,
+        right: x + Number(attribute(tag, "width")),
+        bottom: y + Number(attribute(tag, "height")),
+      };
+    });
+    const routes = [...html.matchAll(/<polyline\b[^>]*>/g)].map(([tag]) =>
+      attribute(tag, "points")
+        .split(/\s+/)
+        .map((p) => p.split(",").map(Number)),
+    );
+    assert(boxes.length > 0 && routes.length > 0);
+    for (const points of routes) {
+      for (let i = 1; i < points.length; i++) {
+        const [a, b] = [points[i - 1], points[i]];
+        assert(a[0] === b[0] || a[1] === b[1], "配線は水平又は垂直");
+        for (const box of boxes) {
+          // 枠への端点接続は許し、内部の横断と辺に沿った重なりを拒否する。
+          const crosses = a[0] === b[0]
+            ? a[0] >= box.x && a[0] <= box.right &&
+              Math.min(Math.max(a[1], b[1]), box.bottom) >
+                Math.max(Math.min(a[1], b[1]), box.y)
+            : a[1] >= box.y && a[1] <= box.bottom &&
+              Math.min(Math.max(a[0], b[0]), box.right) >
+                Math.max(Math.min(a[0], b[0]), box.x);
+          assert(!crosses, `入力${value}: 配線${a}→${b}が処理枠と重なる`);
+        }
+      }
+    }
+    assert.match(html, /④/);
+    assert.match(html, /⑤/);
+    assert.match(html, /いずれも②へ戻る/);
+    assert.equal(JSON.stringify(saved), before);
+  }
+});
