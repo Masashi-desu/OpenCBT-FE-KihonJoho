@@ -821,6 +821,19 @@ select {
   background: var(--surface);
   border-bottom: 1px solid var(--toolbar-border);
 }
+.exam-app-toolbar > .header-messages {
+  flex: 2 1 280px;
+  min-width: 0;
+}
+.exam-app-toolbar > .header-messages > .notice-inline,
+.exam-app-toolbar > .header-messages > .error-banner {
+  padding: 4px 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  text-wrap: pretty;
+  border-radius: 5px;
+}
+.exam-app-toolbar .toolbar-tools { flex-shrink: 0; }
 .exam-material-toolbar,
 .exam-answer-toolbar {
   min-height: 50px;

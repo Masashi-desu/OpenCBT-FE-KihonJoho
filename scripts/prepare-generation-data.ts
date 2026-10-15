@@ -126,7 +126,7 @@ for (const c of [...generationContracts, ...additionalContracts]) {
   );
   if (existingQuestion)
     q.origin.changes = [
-      ...existingQuestion.origin.changes,
+      ...existingQuestion.origin.changes.map(({ answerDetails: _obsoleteAnswerDetails, ...change }) => change),
       q.origin.changes[q.origin.changes.length - 1],
     ];
   q.revision = t.revision;

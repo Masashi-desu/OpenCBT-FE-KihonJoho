@@ -17,11 +17,11 @@ import { Content } from "../src/ui/Content";
 // remaining 53 conceptual questions are fixed in knowledge-pairs.json.
 const originalIntents: Record<string, RegExp> = {
   "2023-a-1": /10進/,
-  "2023-a-2": /変わるポインタ.*全て/,
-  "2023-a-6": /推移的関数従属.*成立/,
+  "2023-a-2": /値が変わるポインタ.*全て/,
+  "2023-a-6": /成立する推移的関数従属/,
   "2023-a-10": /WAFの設置場所/,
-  "2023-a-11": /初期値の関係/,
-  "2023-a-13": /追加費用.*最少.*作業/,
+  "2023-a-11": /m、nに与える初期値a、bの関係/,
+  "2023-a-13": /増加費用を最も少なくするには、どの作業を短縮すべきか/,
   "2024-a-1": /真理値表.*どれ/,
   "2024-a-2": /衝突が起こるキーの組合せ/,
   "2024-a-3": /キャッシュのヒット率/,
@@ -41,30 +41,30 @@ const originalIntents: Record<string, RegExp> = {
   "2026-a-9": /2要素認証/,
   "2026-a-14": /パーセントポイント.*向上/,
   "2026-a-17": /(?:リテンション率|会員の割合)が最も高い/,
-  "2026-a-18": /事例として適切でない/,
+  "2026-a-18": /学習型AIの事例として、適切でない/,
   "2026-a-20": /利用を行う上で生じる制約/,
   "2023-b-1": /空欄.*a.*b.*組合せ/,
   "2023-b-2": /空欄.*順に出力/,
   "2023-b-3": /空欄.*最初に実行.*出力/,
   "2023-b-4": /空欄.*終了直後/,
-  "2023-b-5": /空欄a・b.*組合せ/,
-  "2023-b-6": /残るリスク.*最も適切/,
+  "2023-b-5": /空欄.*a.*b.*組合せ/,
+  "2023-b-6": /対策が必要.*情報セキュリティリスク.*最も適切/,
   "2024-b-1": /空欄.*答え/,
-  "2024-b-2": /空欄に入る式/,
+  "2024-b-2": /プログラム中の空欄に入れる正しい答え/,
   "2024-b-3": /空欄.*答え/,
   "2024-b-4": /空欄.*回実行/,
-  "2024-b-5": /空欄a〜c.*組合せ/,
-  "2024-b-6": /依頼する対策/,
+  "2024-b-5": /空欄.*a.*c.*組合せ/,
+  "2024-b-6": /情報システム部に依頼することにしたもの.*最も適切/,
   "2025-b-1": /空欄.*a.*b.*組合せ/,
   "2025-b-2": /空欄.*総数/,
-  "2025-b-3": /空欄a・b.*組合せ/,
+  "2025-b-3": /空欄.*a.*b.*組合せ/,
   "2025-b-4": /空欄.*真になる回数/,
-  "2025-b-5": /a・b.*組合せ/,
+  "2025-b-5": /空欄.*a.*b.*組合せ/,
   "2026-b-1": /空欄.*答え/,
-  "2026-b-2": /空欄.*式/,
-  "2026-b-3": /空欄.*式/,
-  "2026-b-4": /空欄a・b.*組合せ/,
-  "2026-b-5": /空欄a・b.*組合せ/,
+  "2026-b-2": /プログラム中の空欄に入れる正しい答え/,
+  "2026-b-3": /プログラム中の空欄に入れる正しい答え/,
+  "2026-b-4": /空欄.*a.*b.*組合せ/,
+  "2026-b-5": /空欄.*a.*b.*組合せ/,
   "2026-b-6": /ルール3.*違反/,
 };
 const descriptionIntent: Record<string, RegExp> = {
@@ -76,11 +76,47 @@ const descriptionIntent: Record<string, RegExp> = {
   "2025-a-18": /必要な施策/,
   "2026-a-2": /の処理方法を説明したものはどれか/,
   "2026-a-3": /特徴として、適切/,
-  "2026-a-11": /ための対策として、最も適切/,
+  "2026-a-11": /今後の新規開発プロジェクト.*問題の低減策として、最も適切/,
   "2026-a-12": /使い方として、適切/,
-  "2026-a-15": /ための行為として、適切/,
+  "2026-a-15": /システム監査人の行為として、適切/,
   "2026-a-16": /IT活用事例/,
 };
+// Reviewed from the source stems, including the directive and requested role.
+const revisedCues: Record<string, RegExp> = {
+  "2023-a-2": /追加後の表のポインタa〜f.*値が変わるポインタだけを全て列記したものはどれか。/,
+  "2023-a-6": /成立する推移的関数従属はどれか。/,
+  "2023-a-10": /WAFの設置場所として、最も適切な箇所はどこか。/,
+  "2023-a-11": /m、nに与える初期値a、bの関係で、.*の順に実行されるものはどれか。/,
+  "2023-a-13": /増加費用を最も少なくするには、どの作業を短縮すべきか。/,
+  "2024-a-10": /の対策として、有効なものはどれか。/,
+  "2024-a-19": /この図から読み取れることはどれか。/,
+  "2025-a-13": /スクラムにおいて、.*のは誰か。/,
+  "2025-a-16": /マーケティングにおいて、.*手法はどれか。/,
+  "2025-a-17": /この対応はどのような場合に有効か。/,
+  "2026-a-1": /a、b、c、dの関係はどれか。/,
+  "2026-a-8": /この問題を回避するためのものはどれか。/,
+  "2026-a-9": /2要素認証に該当する組はどれか。/,
+  "2026-a-11": /今後の新規開発プロジェクト.*この問題の低減策として、最も適切なものはどれか。/,
+  "2026-a-15": /システム監査人の行為として、適切なものはどれか。/,
+  "2026-a-18": /学習型AIの事例として、適切でないものはどれか。/,
+};
+const descriptionBlanks = new Set(["2023-b-2", "2023-b-3", "2023-b-4", "2024-b-4", "2025-b-4", "2025-b-5"]);
+const pairedBlanks = new Set(["2023-b-1", "2023-b-5", "2024-b-5", "2025-b-1", "2025-b-3", "2025-b-5", "2026-b-4", "2026-b-5"]);
+function assertSourceDirective(source: string, prompt: string) {
+  if (revisedCues[source]) assert.match(prompt, revisedCues[source], source);
+  if (!source.includes("-b-")) return;
+  if (source === "2023-b-6") {
+    assert.match(prompt, /対策が必要であるとA社が評価した情報セキュリティリスクはどれか。解答群のうち、最も適切なものを選べ。/);
+  } else if (source === "2024-b-6") {
+    assert.match(prompt, /次の対策のうち、.*情報システム部に依頼することにしたものはどれか。解答群のうち、最も適切なものを選べ。/);
+  } else if (source === "2026-b-6") {
+    assert.match(prompt, /表1中の運用のうち、図1のルール3に違反しているものの項番だけを全て挙げた組合せを、解答群の中から選べ。/);
+  } else {
+    const subject = descriptionBlanks.has(source) ? "記述" : "プログラム";
+    const answer = pairedBlanks.has(source) ? "正しい答えの組合せ" : "正しい答え";
+    assert.match(prompt, new RegExp(`次の${subject}中の空欄.*に入れる${answer}を、解答群の中から選べ。`), source);
+  }
+}
 const blockText = (b: Block) =>
   "text" in b ? b.text : b.type === "list" ? b.items.join(" ") : "";
 function assertIntent(source: string, q: Question) {
@@ -90,6 +126,7 @@ function assertIntent(source: string, q: Question) {
   ]
     .map(blockText)
     .join(" ");
+  assertSourceDirective(source, prompt);
   const fact = facts.find((f) => f.source === source);
   const expected = !fact
     ? originalIntents[source]
@@ -100,9 +137,9 @@ function assertIntent(source: string, q: Question) {
         : fact.answerForm === "statements"
           ? /LAN間接続装置に関する記述.*適切/
           : fact.answerForm === "purpose"
-            ? /有効な目的/
+            ? /どのような場合に有効か/
             : fact.answerForm === "term"
-              ? /特性はどれか|ものはどれか|イベントはどれか|手法はどれか|モジュールはどれか|何と呼ぶか|役割.*誰か|分析手法はどれか|何というか/
+              ? /特性はどれか|ものはどれか|イベントはどれか|手法はどれか|モジュールはどれか|何と呼ぶか|誰か|手法はどれか|何というか/
               : (descriptionIntent[source] ?? /説明|記述|該当|特徴/);
   assert(expected, `Missing original intent: ${source}`);
   assert.match(prompt, expected, source);

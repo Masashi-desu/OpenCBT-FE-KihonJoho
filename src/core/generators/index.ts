@@ -15,6 +15,43 @@ import {
   checkCalculationInputs,
 } from "./calculation-options";
 
+const wordingRevisedSources = new Set([
+  "2023-a-2",
+  "2023-a-6",
+  "2023-a-10",
+  "2023-a-11",
+  "2023-a-13",
+  "2024-a-10",
+  "2024-a-19",
+  "2025-a-13",
+  "2025-a-16",
+  "2025-a-17",
+  "2026-a-1",
+  "2026-a-8",
+  "2026-a-9",
+  "2026-a-11",
+  "2026-a-15",
+  "2026-a-18",
+  "2023-b-1",
+  "2023-b-2",
+  "2023-b-3",
+  "2023-b-4",
+  "2023-b-5",
+  "2023-b-6",
+  "2024-b-1",
+  "2024-b-2",
+  "2024-b-3",
+  "2024-b-4",
+  "2024-b-5",
+  "2024-b-6",
+  "2025-b-3",
+  "2025-b-4",
+  "2025-b-5",
+  "2026-b-1",
+  "2026-b-4",
+  "2026-b-5",
+]);
+
 export const additionalDefinitions = [
   ...knowledgeDefinitions,
   ...subjectADefinitions,
@@ -35,7 +72,8 @@ export const additionalDefinitions = [
           },
         }
       : { ...d, version: "3.2.0" as const },
-  );
+  )
+  .map(d => wordingRevisedSources.has(d.source) ? { ...d, version: "3.4.0" as const } : d);
 if (
   new Set(additionalDefinitions.map((d) => d.source)).size !==
   additionalDefinitions.length

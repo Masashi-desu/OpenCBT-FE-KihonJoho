@@ -1,8 +1,8 @@
-import { type GenerationDefinition, p, programs } from "./definition";
+import { type GenerationDefinition, programs } from "./definition";
 
 // Apply reviewed content corrections before issuing the current definitions.
 export function withCorrections(d: GenerationDefinition): GenerationDefinition {
-  if (!["2023-a-10", "2024-b-2", "2023-b-6", "2026-b-1"].includes(d.source))
+  if (!["2024-b-2", "2023-b-6", "2026-b-1"].includes(d.source))
     return d;
   const originalBuild = d.build;
   return {
@@ -10,16 +10,6 @@ export function withCorrections(d: GenerationDefinition): GenerationDefinition {
     version: "3.2.0",
     build(values) {
       const body = originalBuild(values);
-      if (d.source === "2023-a-10") {
-        const first = body.prompt[0];
-        if (first.type !== "paragraph") throw Error("SOURCE_FORMAT");
-        body.prompt[0] = p(
-          first.text.replace(
-            "WAFの設置場所として適切な箇所はどれか。",
-            "復号後のHTTP通信を最初に検査できるWAFの設置場所はどれか。",
-          ),
-        );
-      }
       if (d.source === "2024-b-2" && values[1] === 1) {
         const radix = values[0],
           digit = "int(digitsの(length − i ＋ 1)文字目)";

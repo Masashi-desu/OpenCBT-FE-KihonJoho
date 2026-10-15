@@ -261,7 +261,7 @@ for (const review of calculationReviews)
   test(`${review.source}: source options, display precision and 256 seeds retain the reviewed calculation level`, async () => {
     const t = template(review.source),
       baseline = base(review.source);
-    assert(["2.2.0", "2.2.1", "3.3.0"].includes(t.generatorRef.version));
+    assert(["2.2.0", "2.2.1", "3.3.0", "3.4.0"].includes(t.generatorRef.version));
     verify(review.source, t.referenceParameters.values, baseline);
     assert.deepEqual(
       options(baseline)

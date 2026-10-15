@@ -3,7 +3,7 @@ import { DataError } from "./errors";
 import { bookmarkSource } from "./bookmarks";
 
 export const QUESTION_UPDATE_NOTICE =
-  "この履歴の問題は現在の版と互換性がありません。最新版の問題で新しい学習を用意しました。以前の回答・結果は引き継ぎません。";
+  "この履歴は最新版の問題と互換性がありません。新しい学習を用意しました。以前の回答・結果は引き継ぎません。";
 
 // Compare only the questions actually issued, not every unissued question in
 // the catalog snapshot. An unrelated release does not invalidate a practice.

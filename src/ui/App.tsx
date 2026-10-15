@@ -1509,6 +1509,7 @@ export function App() {
                     </strong>
                     <small>{run.set.title}</small>
                   </div>
+                  {notifications}
                   <div
                     className="toolbar-tools"
                     role="group"
@@ -1562,7 +1563,6 @@ export function App() {
                     </div>
                   </div>
                 </div>
-                {notifications}
               </header>
               <div
                 className="exam-split"

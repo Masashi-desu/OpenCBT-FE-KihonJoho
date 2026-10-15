@@ -77,7 +77,7 @@ export const securityDefinitions: GenerationDefinition[] = [
         ],
         prompt: [
           p(
-            "設問　提示された条件で残るリスクとして最も適切なものを選べ。スキャン処理のログは取得し、提示されていない権限や保護機能は仮定しない。",
+            "設問　対策が必要であるとA社が評価した情報セキュリティリスクはどれか。解答群のうち、最も適切なものを選べ。スキャン処理のログは取得し、提示されていない権限や保護機能は仮定しない。",
           ),
         ],
         choices: strings(answers),
@@ -136,7 +136,7 @@ export const securityDefinitions: GenerationDefinition[] = [
         ],
         prompt: [
           p(
-            `設問　接続変更に伴って${goals[risk]}のリスクが残る。これを直接低減するために情報システム部へ依頼する対策はどれか。`,
+            `設問　接続変更に伴って${goals[risk]}のリスクが残る。次の対策のうち、このリスクを直接低減するために情報システム部に依頼することにしたものはどれか。解答群のうち、最も適切なものを選べ。`,
           ),
         ],
         choices: strings(answers),

@@ -125,7 +125,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `表の双方向リストへ社員Gを${location}に追加する。追加前と比べて変わるポインタa〜fだけを全て列記したものはどれか。0は参照先がないことを示す。`,
+            `双方向のポインタをもつリスト構造のデータを表に示す。この表において新たな社員Gを${location}に追加する。追加後の表のポインタa〜fの中で、追加前と比べて値が変わるポインタだけを全て列記したものはどれか。0は参照先がないことを示す。`,
           ),
           table(
             "追加前",
@@ -184,7 +184,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "次の関数従属が成立するとき、推移的関数従属として成立するものはどれか。ここで、X→YはYがXに関数従属することを表し、X→{Y，Z}はX→YかつX→Zが成立することを表す。記載以外の従属は仮定しない。",
+            "次の関数従属を満足するとき、成立する推移的関数従属はどれか。ここで、X→YはYがXに関数従属することを表し、X→{Y，Z}はX→YかつX→Zが成立することを表す。記載以外の従属は仮定しない。",
           ),
           list([
             "{注文コード，商品コード} → {顧客注文数量，注文金額}",
@@ -221,7 +221,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `図の構成でWebアプリケーションへの攻撃を検査するWAFは、通信の暗号化・復号を行えない。TLSの復号を${location}で行い、復号後はHTTPでWeb要求を伝送する。WAFの設置場所として適切な箇所はどれか。`,
+            `図の構成でWebアプリケーションへの攻撃を検査するWAFは、通信の暗号化・復号を行えない。TLSの復号を${location}で行い、復号後はHTTPでWeb要求を伝送する。復号後のHTTP通信を最初に検査するものとする。WAFの設置場所として、最も適切な箇所はどこか。`,
           ),
           figure(
             "waf-network",
@@ -256,7 +256,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            `次の流れ図を${trace.map((n) => "①②③④⑤⑥"[n - 1]).join(" → ")}の順で実行するために、aとbへ与える初期値の関係はどれか。a、bは正の整数である。`,
+            `次の流れ図において、m、nに与える初期値a、bの関係で、${trace.map((n) => "①②③④⑤⑥"[n - 1]).join(" → ")}の順に実行されるものはどれか。ここで、a、bは正の整数とする。`,
           ),
           figure(
             "euclid-flow",
@@ -302,7 +302,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "図の予定に対し作業Aで1日の遅れが生じた。当初の予定日数で終えるため、1日短縮する追加費用を最少にする作業はどれか。各作業は1日短縮でき、表は1日当たりの増加費用を示す。",
+            "図の予定に対し作業Aで1日の遅れが生じた。当初の予定日数で終えるために、増加費用を最も少なくするには、どの作業を短縮すべきか。各作業は1日短縮でき、表は1日当たりの増加費用を示す。",
           ),
           figure(
             "crash-network",
@@ -371,7 +371,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
     ([sign, noise]) => ({
       prompt: [
         p(
-          "製造上の要因xと品質特性yの関係を散布図に示す。この図から読み取れるものはどれか。",
+          "製造上の要因xと品質特性yの関係を散布図に示す。この図から読み取れることはどれか。",
         ),
         figure(
           "scatter",
@@ -581,7 +581,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "入力ビットが与えられたとき、出力ビットが0又は1となる条件付き確率を表に示す。a、b、c、dの関係として適切なものはどれか。",
+            "入力ビットが与えられたとき、出力ビットが0又は1となる条件付き確率を表に示す。a、b、c、dの関係はどれか。",
           ),
           table(
             "遷移確率",
@@ -713,7 +713,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "知識・所持・生体のうち、異なる二種類の要素を組み合わせた2要素認証に該当するものはどれか。",
+            "知識・所持・生体のうち、異なる二種類の要素を組み合わせた2要素認証に該当する組はどれか。",
           ),
         ],
         choices: strings([
@@ -742,7 +742,7 @@ export const subjectADefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "本問では、データからモデルや方策を学習し、その結果を判断へ利用するものを学習型AIとする。この事例として適切でないものはどれか。",
+            "本問では、データからモデルや方策を学習し、その結果を判断へ利用するものを学習型AIとする。学習型AIの事例として、適切でないものはどれか。",
           ),
         ],
         choices: strings([

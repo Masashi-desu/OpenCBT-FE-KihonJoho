@@ -202,7 +202,7 @@ export function preserveSourceFormat(
       attribution: adapted,
       blocks: [
         paragraph(
-          "次のプログラム中の空欄【a】と【b】に入る正しい答えの組合せを選べ。",
+          "次のプログラム中の空欄【a】と【b】に入れる正しい答えの組合せを、解答群の中から選べ。",
         ),
         paragraph(
           `function1とfunction2に同じ引数を与えると、二つの関数は同じ値を返す。nとmは正の整数で、mはnより10以上大きい。modは整数の余りを表す。`,
@@ -231,7 +231,7 @@ export function preserveSourceFormat(
     q.prompt = {
       attribution: adapted,
       blocks: [
-        paragraph("次のプログラム中の空欄【a】に入る正しい条件を選べ。"),
+        paragraph("次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。"),
         paragraph(
           `関数changeは10より大きい整数nを受け取り、1円玉・5円玉・10円玉でちょうどn円にする枚数の組合せの総数を返す。順序は区別しない。残額を扱う変数restには、実際の残額に${offset}を加えた値を保持する。floorは小数部を切り捨てた整数を表す。`,
         ),
@@ -266,7 +266,7 @@ export function preserveSourceFormat(
     q.prompt = {
       attribution: adapted,
       blocks: [
-        paragraph("次のプログラム中の空欄【a】に入る正しい式を選べ。"),
+        paragraph("次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。"),
         paragraph(
           `関数complementは${width}ビット型のxを受け取り、xに加算すると${"0".repeat(width)}になる値を返す。加算は符号なし2進数として行い、桁あふれは無視する。AND・OR・XORはビットごとの論理積・論理和・排他的論理和である。`,
         ),
@@ -294,7 +294,7 @@ export function preserveSourceFormat(
       attribution: adapted,
       blocks: [
         paragraph(
-          "次のプログラム中の空欄【a】に入る正しい式を選べ。配列の要素番号は1から始まる。",
+          "次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。配列の要素番号は1から始まる。",
         ),
         paragraph(
           "func1とfunc2に同じ正の整数を与えると、二つの関数は同じ値を返す。配列の領域外を参照してはならない。",
@@ -371,7 +371,7 @@ export function preserveSourceFormat(
           ],
         ),
         paragraph(
-          "表1の運用のうち、図1のルール3に違反する項番だけを全て挙げた組合せを選べ。",
+          "表1中の運用のうち、図1のルール3に違反しているものの項番だけを全て挙げた組合せを、解答群の中から選べ。",
         ),
       ],
     };
@@ -418,11 +418,11 @@ export function preserveSourceFormat(
 }
 
 export function validateSourceFormat(q: Question, t: Template) {
-  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;
   }
-  if (!["2.1.0", "2.2.0", "2.2.1"].includes(t.generatorRef.version)) return;
+  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0"].includes(t.generatorRef.version)) return;
   const formats: Record<string, [string[], number, string]> = {
     "hex-fraction": [["paragraph"], 4, "paragraph"],
     "logic-table": [["paragraph", "table"], 4, "table"],

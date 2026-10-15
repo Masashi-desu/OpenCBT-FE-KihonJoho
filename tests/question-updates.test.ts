@@ -5,6 +5,7 @@ import { generationCoverage } from "../src/core/generation-coverage";
 import { makeBookmark, refreshBookmark, bookmarkTemplate } from "../src/core/bookmarks";
 import { latestLearningSelection, outdatedQuestionIndexes, QUESTION_UPDATE_NOTICE } from "../src/core/question-updates";
 import { prepareRun, startRun, updateAnswer, finishRun, validateRun } from "../src/core/session";
+import { validateTemplateContract } from "../src/core/generation";
 import { refOf, type Selection } from "../src/core/types";
 import { validateBundle } from "../src/core/validation";
 
@@ -51,6 +52,14 @@ test("all old bookmark revisions resolve the current source and current generato
   const latest = fixture();
   for (const row of generationCoverage(latest).rows) {
     const current = makeBookmark(latest, refOf(row.original), 0);
+    const template = row.linked[0], base = latest.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
+    for (const change of base.origin.changes.slice(0, -1))
+      assert.equal(change.answerDetails, undefined, "past question text must not remain in change records");
+    if (["2.3.0", "3.4.0"].includes(template.generatorRef.version)) {
+      const retired = structuredClone(template);
+      retired.generatorRef.version = template.generatorRef.version === "2.3.0" ? "2.1.0" : ["2025-b-4", "2025-b-5"].includes(row.original.id.replace("question-ipa-", "")) ? "3.3.0" : "3.2.0";
+      assert.throws(() => validateTemplateContract(retired), { code: "GENERATOR_REF" });
+    }
     for (const questionRef of [refOf(row.original), row.linked[0].baseQuestionRef]) {
       for (let revision = 1; revision <= questionRef.revision; revision++) {
         const ref = { ...questionRef, revision };

@@ -359,11 +359,12 @@ export const generationContracts: Contract[] = calculationGenerationContracts.ma
   (previous) => {
     const c = structuredClone(previous);
     if (c.id === "hex-fraction") c.version = "2.2.1";
+    if (["count-multiples", "coin-change", "complement", "recurrence", "security-log"].includes(c.id)) c.version = "2.3.0";
     return c;
   },
 );
 export function contractFor(t: Template) {
-  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
   return generationContracts.find(
     (c) =>
@@ -373,7 +374,7 @@ export function contractFor(t: Template) {
 }
 export function validateTemplateContract(t: Template) {
   if (
-    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "3.2.0", "3.3.0"].includes(
+    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "3.2.0", "3.3.0", "3.4.0"].includes(
       t.generatorRef.version,
     )
   )
@@ -425,7 +426,7 @@ export function checkParameters(t: Template, v: number[]) {
     )
   )
     throw new DataError("PARAMETER_DOMAIN", "生成値が許可域を外れています");
-  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version)) {
     checkAdditionalParameters(t, v);
     return;
   }
@@ -447,7 +448,7 @@ export function checkParameters(t: Template, v: number[]) {
     (id === "cafe-profit" && v[0] <= v[1]) ||
     (id === "count-multiples" && v[1] < v[0] + 10) ||
     (id === "complement" &&
-      t.generatorRef.version === "2.1.0" &&
+      ["2.1.0", "2.3.0"].includes(t.generatorRef.version) &&
       v[0] >= 2 ** v[1]) ||
     (id === "retention" &&
       (v[2] > v[0] ||
@@ -480,7 +481,7 @@ async function sampleParameters(seed: string, t: Template) {
     throw new DataError("SEED", "入力の抽選上限に達しました");
   };
   for (let attempt = 0; attempt < 256; attempt++) {
-    const values = !["2.2.0", "2.2.1", "3.3.0"].includes(t.generatorRef.version)
+    const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0"].includes(t.generatorRef.version)
       ? []
       : ((await sampleCalculationInputs(c.source, integer)) ?? []);
     if (!values.length)
@@ -506,11 +507,6 @@ const table = (
   columns: string[],
   rows: string[][],
 ): Block => ({ type: "table", caption, columns, rows });
-const code = (text: string): Block => ({
-  type: "code",
-  language: "pseudocode",
-  text,
-});
 function numericChoices(answer: number, unit = "", digits = 0) {
   const step = 10 ** -digits;
   return [answer, answer - step, answer + step, answer + 3 * step].map(
@@ -849,132 +845,6 @@ function bindLegacyQuestion(
             `${"ABCD"[i]}: (当月末−新規)÷前月末=${(rate * 100).toFixed(4)}％`,
         )
         .join("。") + `。最大はサービス${"ABCD"[best]}。`;
-  } else if (c.id === "count-multiples") {
-    const [n, m, d] = v,
-      a = Math.floor(m / d) - Math.floor((n - 1) / d);
-    blocks = [
-      p(
-        `以下のcountMultiples(${n},${m},${d})の戻り値を選ぶ。modは非負整数の余りであり、繰返しは両端を含む。`,
-      ),
-      code(
-        `○整数型: countMultiples(整数型: n, m, divisor)\n    整数型: count ← 0\n    for (i を n から m まで 1 ずつ増やす)\n        if ((i mod divisor) が 0 と等しい)\n            count ← count + 1\n        endif\n    endfor\n    return count`,
-      ),
-    ];
-    answers = numericChoices(a);
-    explanation = `1〜${m}にある${d}の倍数はfloor(${m}/${d})=${Math.floor(m / d)}個。そのうち1〜${n - 1}は${Math.floor((n - 1) / d)}個なので差は${a}個。`;
-  } else if (c.id === "coin-change") {
-    const n = v[0],
-      rows = [];
-    let a = 0;
-    for (let ten = 0; ten * 10 <= n; ten++) {
-      const rest = n - ten * 10,
-        count = Math.floor(rest / 5) + 1;
-      a += count;
-      rows.push([String(ten), String(rest), String(count)]);
-    }
-    blocks = [
-      p(
-        `1円・5円・10円硬貨を何枚でも使える。順序を区別せず、${n}円を支払う硬貨枚数の組合せは何通りか。次の関数change(${n})の戻り値を選ぶ。`,
-      ),
-      code(
-        "○整数型: change(整数型: n)\n    整数型: count ← 0\n    整数型: rest ← n\n    while (rest ≧ 0)\n        count ← count + floor(rest / 5) + 1\n        rest ← rest - 10\n    endwhile\n    return count",
-      ),
-    ];
-    answers = numericChoices(a, "通り");
-    explanation = `10円玉0〜${Math.floor(n / 10)}枚について、残額に使える5円玉は0〜floor(残額/5)枚。これらを足すと${rows.map((r) => r[2]).join("+")}=${a}通り。`;
-  } else if (c.id === "complement") {
-    const x = v[0],
-      a = (256 - x) % 256,
-      bin = (n: number) => n.toString(2).padStart(8, "0");
-    answers = [a, x ^ 255, x, (x + 1) % 256].map(bin);
-    if (new Set(answers).size !== 4)
-      throw new DataError("PARAMETER_CONSTRAINT", "2の補数の誤答が重複します");
-    blocks = [
-      p(
-        `入力xは${bin(x)}（符号なし10進数${x}）である。8ビット加算で桁あふれを無視したとき、x+yが00000000となるyを選ぶ。`,
-      ),
-      code(
-        "○8ビット型: complement(8ビット型: x)\n    8ビット型: y ← x XOR 11111111\n    y ← y + 00000001\n    return y",
-      ),
-    ];
-    explanation = `各ビットを反転すると${bin(x ^ 255)}、1を加えると${bin(a)}。${x}+${a}=256なので8ビットに残る値は0。`;
-  } else if (c.id === "recurrence") {
-    const [n, k] = v,
-      values = [1, 1];
-    for (let i = 2; i < n; i++) values.push(k * values[i - 2] + values[i - 1]);
-    const a = values[n - 1];
-    blocks = [
-      p(`func(${n})の戻り値を選ぶ。係数は${k}とする。引数は正の整数である。`),
-      code(
-        `○整数型: func(整数型: n)\n    if (n ≦ 2)\n        return 1\n    endif\n    return ${k} × func(n - 2) + func(n - 1)`,
-      ),
-      table(
-        "初期条件",
-        ["引数", "戻り値"],
-        [
-          ["1", "1"],
-          ["2", "1"],
-        ],
-      ),
-    ];
-    answers = numericChoices(a);
-    explanation = `引数1〜${n}の戻り値を順に求めると[${values.join(", ")}]。各段階で${k}×2項前+1項前を計算するため、func(${n})=${a}。`;
-  } else if (c.id === "security-log") {
-    const [operators, access, jst, months] = v,
-      violations = [
-        ...(operators < 2 ? ["(二)"] : []),
-        ...(access ? ["(四)"] : []),
-      ],
-      a = violations.join("、") || "該当なし";
-    answers = [
-      a,
-      ...["該当なし", "(二)", "(四)", "(二)、(四)"].filter((x) => x !== a),
-    ];
-    q.contexts = [
-      {
-        id: "context-security",
-        title: "ログ管理のルール",
-        content: {
-          attribution: attr,
-          blocks: [
-            p(
-              "営業部はクラウドサービスを利用し、部署の運用担当者がログを管理している。一般利用者は業務ファイルを編集できるが、ログへのアクセスは別に管理する。以下は本問で定める管理ルールである。",
-            ),
-            {
-              type: "list",
-              ordered: true,
-              items: [
-                "ログインと重要操作の成否を記録する。",
-                "アカウント名・日本標準時の日時・操作内容を記録する。",
-                "ログへアクセスできるのは運用担当者だけとし、担当者は2名以上置く。クラウドから保管先へ移したログも同じアクセス制限を維持する。",
-                "過去12か月以上のログを保存する。",
-                "運用担当者でも過去ログの上書き・消去はできないようにする。",
-              ],
-            },
-          ],
-        },
-      },
-    ];
-    q.contextRefs = ["context-security"];
-    blocks = [
-      p(
-        "次の運用のうち、上記のルール3に違反する項番だけを全て選ぶ。ルール2・4への違反をルール3へ混同しない。",
-      ),
-      table(
-        "現在の運用",
-        ["項番", "運用"],
-        [
-          ["(一)", `過去${months}か月分を保存する。`],
-          ["(二)", `運用担当者は${operators}名である。`],
-          ["(三)", `日時は${jst ? "日本標準時" : "UTC"}で記録する。`],
-          [
-            "(四)",
-            `ログの保管先には${access ? "一般利用者も" : "運用担当者だけが"}アクセスできる。`,
-          ],
-        ],
-      ),
-    ];
-    explanation = `ルール3の人数条件では${operators}名${operators < 2 ? "は2名未満なので違反" : "は2名以上なので適合"}。保管先へのアクセスは${access ? "一般利用者も可能なので違反" : "担当者に限定され適合"}。日時・保存期間は別のルールである。従って${a}。`;
   }
   if (!blocks.length || answers.length !== 4 || new Set(answers).size !== 4)
     throw new DataError(
@@ -996,10 +866,8 @@ function bindLegacyQuestion(
     affectsAnswer: true,
     answerDetails: explanation,
   });
-  if (c.id !== "security-log") {
-    q.contexts = [];
-    q.contextRefs = [];
-  }
+  q.contexts = [];
+  q.contextRefs = [];
   q.prompt = { attribution: attr, blocks };
   q.choices = answers.map((text, i) => ({
     id: `choice-value-${i + 1}`,
@@ -1023,21 +891,22 @@ export function bindQuestion(
 ): Question {
   validateTemplateContract(t);
   checkParameters(t, v);
-  if (["3.2.0", "3.3.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
-  if (!["2.1.0", "2.2.0", "2.2.1"].includes(t.generatorRef.version))
+  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0"].includes(t.generatorRef.version))
     return bindLegacyQuestion(base, t, v, instanceId, at);
   const id = contractFor(t)!.id;
-  const changedAlgorithm = [
+  const builtFromScaffold = [
     "count-multiples",
     "coin-change",
     "complement",
     "recurrence",
+    "security-log",
   ].includes(id);
-  const q = changedAlgorithm
+  const q = builtFromScaffold
     ? structuredClone(base)
     : bindLegacyQuestion(base, t, v, instanceId, at);
-  if (!changedAlgorithm) q.origin.changes.pop();
+  if (!builtFromScaffold) q.origin.changes.pop();
   return preserveSourceFormat(q, t, v, contractFor(t)!.notes, instanceId, at);
 }
 export function answerSignature(q: Question) {

@@ -7,12 +7,12 @@ import { checkParameters, parametersForSeed } from "../src/core/generation";
 import { additionalDefinition } from "../src/core/generators";
 import { prepareRun, validateRun } from "../src/core/session";
 
-// Published 3.2.0 produces rotated arrays as the five choices. A periodic
+// Current 3.4.0 produces rotated arrays as the five choices. A periodic
 // array has too few distinct rotations; it was already rejected by build().
 // Validation must classify this as a retryable input, preserving valid output.
 const source = "generator-source-2023-b-4";
-const failingSeed = "000000000000000000000000000007e6";
-const firstDraw = [6, 3, 16, 16, 25];
+const failingSeed = "000000000000000000000000000006d9";
+const firstDraw = [8, 4, 22, 22, 26];
 
 function hashArray([size, offset, ...values]: number[]): string {
   const slots = new Map<number, number>();
@@ -25,11 +25,11 @@ function hashArray([size, offset, ...values]: number[]): string {
   return `{${Array.from({ length: size }, (_, i) => slots.get(i) ?? -1).join(", ")}}`;
 }
 
-test("periodic hash arrays are rejected as input constraints without changing the published generator", async () => {
+test("periodic hash arrays are rejected as input constraints while preserving the source question form", async () => {
   const bundle = fixture();
   const template = bundle.templates.find((t) => t.generatorRef.id === source)!;
   const generator = additionalDefinition(source)!;
-  assert.equal(template.generatorRef.version, "3.2.0");
+  assert.equal(template.generatorRef.version, "3.4.0");
   for (const values of [firstDraw, [6, 3, 3, 3, 3], [8, 4, 1, 1, 1]]) {
     // Independent placement explains why these inputs cannot supply five choices.
     const result = hashArray(values).slice(1, -1).split(", ");
@@ -94,7 +94,7 @@ test("the failing seed retries inside the sampler and actual bookmark issuance w
   assert.equal(run.instances.length, 1);
   const instance = run.instances[0];
   assert.deepEqual(instance.parameters, parameters);
-  assert.equal(instance.generatorRef.version, "3.2.0");
+  assert.equal(instance.generatorRef.version, "3.4.0");
   const choices = instance.question.choices.map((c) => ({
     id: c.id,
     text: c.content.blocks

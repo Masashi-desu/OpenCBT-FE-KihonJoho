@@ -4,7 +4,7 @@
 // their question roles and concepts are checked by source-question-form and facts.
 export const sourcePrerequisites: Record<string, string[]> = {
   "2023-a-1": ["16進.*10進"],
-  "2023-a-2": ["双方向リスト", "0は参照先がない"],
+  "2023-a-2": ["双方向のポインタをもつリスト構造", "0は参照先がない"],
   "2023-a-3": ["高速化"],
   "2023-a-4": [],
   "2023-a-5": ["3次元グラフィックス"],
@@ -15,7 +15,7 @@ export const sourcePrerequisites: Record<string, string[]> = {
   "2023-a-10": ["WAF.*暗号化・復号を行えない", "復号後はHTTP"],
   "2023-a-11": ["正の整数"],
   "2023-a-12": ["スクラム"],
-  "2023-a-13": ["1日.*短縮.*追加費用|1日.*追加費用.*短縮"],
+  "2023-a-13": ["1日.*短縮.*増加費用"],
   "2023-a-14": ["自宅のPC.*テレワーク", "情報セキュリティ管理基準（平成28年）"],
   "2023-a-15": [],
   "2023-a-16": [],
