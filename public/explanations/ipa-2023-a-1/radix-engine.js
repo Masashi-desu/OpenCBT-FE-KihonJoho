@@ -117,6 +117,9 @@
   }
   function initialState(context) {
     const g = context?.generation, values = g?.parameters?.values;
+    if (g?.generatorRef?.id === "generator-hex-fraction" && g.generatorRef.version === "2.3.0" &&
+      Array.isArray(values) && values.length === 3 && bases.includes(values[0]) && bases.includes(values[1]) && values[0] !== values[1] && Number.isInteger(values[2]) && values[2] >= 1 && values[2] <= 7)
+      return { raw: expand(fraction(BigInt(values[2]), 8n), values[0]).text, from: values[0], to: values[1], saved: true };
     if (g?.generatorRef?.id === "generator-hex-fraction" && ["2.1.0", "2.2.0", "2.2.1"].includes(g.generatorRef.version) &&
       Array.isArray(values) && Number.isInteger(values[0]) && Number.isInteger(values[1]) && values[0] > 0 && values[0] < 16 ** values[1] && values[1] >= 1 && values[1] <= 2)
       return { raw: "0." + values[0].toString(16).toUpperCase().padStart(values[1], "0"), from: 16, to: 10, saved: true };

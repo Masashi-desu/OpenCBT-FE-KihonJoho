@@ -114,7 +114,8 @@ test("replacement learning has independent questions, answers, elapsed time and 
   assert.equal(replacement.session.entries[0].revealed, false);
   assert.equal(replacement.session.entries[0].reviewFlag, false);
   assert.deepEqual(outdatedQuestionIndexes(replacement, latest), []);
-  assert(replacement.issued[0].prompt.blocks.some(b => b.type === "paragraph" && /10進小数に変換したものはどれか。/.test(b.text)));
+  const [from, to] = replacement.instances[0].parameters.values;
+  assert(replacement.issued[0].prompt.blocks.some(b => b.type === "paragraph" && b.text.startsWith(`${from}進小数`) && b.text.endsWith(`を${to}進小数に変換したものはどれか。`)));
   assert.deepEqual(previous, before);
   assert.match(QUESTION_UPDATE_NOTICE, /互換性がありません/);
   assert.match(QUESTION_UPDATE_NOTICE, /回答・結果は引き継ぎません/);

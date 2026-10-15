@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import { viewportHelper } from "./playwright-viewport.mjs";
 import { fixture } from "../tests/fixtures";
-import { prepareRun, startRun, finishRun, validateRun } from "../src/core/session";
+import { prepareRun, startRun, finishRun, validateRun, appendRunQuestion } from "../src/core/session";
 
 const url = process.argv[2] ?? "http://127.0.0.1:5189/", output = "output/playwright/radix";
 fs.mkdirSync(output, { recursive: true });
@@ -275,7 +275,8 @@ fs.writeFileSync(output + "/motion.js", `async page => {
 const b = fixture(), original = b.questions.find(q => q.id === "question-ipa-2023-a-1")!;
 let run = startRun(await prepareRun(b, { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: { questionId: original.id, revision: original.revision } }, {}));
 run.session.entries[0].revealed = true; run = finishRun(run, "completed"); await validateRun(run);
-const value = run.instances[0].parameters.values[0], raw = "0." + value.toString(16).toUpperCase();
+const [fromBase, toBase, numerator] = run.instances[0].parameters.values;
+const raw = (numerator / 8).toString(fromBase).toUpperCase();
 fs.writeFileSync(output + "/generated.js", `async page => {
   ${viewportHelper}
   const check=(ok,message)=>{if(!ok)throw Error(message)};await setViewport({width:1280,height:900});
@@ -286,6 +287,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   await page.goto(${JSON.stringify(url + `#/detail/${run.session.id}/0/review`)});await page.locator('.detail-frame.ready').waitFor();
   const f=await (await page.locator('.detail-frame').elementHandle()).contentFrame();
   check(await f.locator('#number').inputValue()===${JSON.stringify(raw)},'saved generated input');
+  check(await f.locator('#from-base').inputValue()===${JSON.stringify(String(fromBase))}&&await f.locator('#to-base').inputValue()===${JSON.stringify(String(toBase))},'saved generated bases');
   check((await f.locator('#calculation-detail').innerText()).includes('保存済み条件'),'saved condition label');
   await f.locator('#number').fill('1');check(!(await f.locator('#calculation-detail').innerText()).includes('保存済み条件'),'edited input is not labeled as saved');await f.locator('#reset').click();check(await f.locator('#number').inputValue()===${JSON.stringify(raw)},'reset uses saved input');
   const isolation=await f.evaluate(()=>{let blocked=false;try{parent.document.body}catch{blocked=true}return {blocked,frozen:Object.isFrozen(window.OpenCBTDetail.context)}});check(isolation.blocked&&isolation.frozen,'isolated frozen host');
@@ -295,4 +297,49 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   await page.setViewportSize({width:320,height:700});await page.goto(${JSON.stringify(url + "explanations/ipa-2023-a-1/index.html")});check(await page.locator('#standalone-title').isVisible()&&await page.locator('#standalone-credit').isVisible(),'standalone title and provenance');check((await page.locator('#result').innerText()).includes('0.75'),'standalone initial result');await page.locator('#next').click();check((await page.locator('#step-count').innerText()).startsWith('1 /'),'standalone steps');check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'standalone width');
   return {savedInput:${JSON.stringify(raw)},reset:true,immutableContext:true,savedContentRetained:true,standalone:true};
 }`);
-console.log(`Generated ${output}/{verify,layout,generated,breakpoints,motion}.js for the isolated headless Playwright CLI.`);
+let directionsRun = startRun(await prepareRun(b, { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: { questionId: original.id, revision: original.revision } }, {}));
+const directions = new Map<string, number>();
+for (let attempt = 0; attempt < 128 && directions.size < 12; attempt++) {
+  if (attempt) directionsRun = await appendRunQuestion(directionsRun);
+  const index = directionsRun.issued.length - 1;
+  directions.set(directionsRun.instances[index].parameters.values.slice(0, 2).join("→"), index);
+}
+if (directions.size !== 12) throw Error("All 12 fraction directions were not sampled within 128 questions");
+directionsRun = finishRun(directionsRun, "completed"); await validateRun(directionsRun);
+const cases = [...directions.values()].map(index => {
+  const [from, to, numerator] = directionsRun.instances[index].parameters.values;
+  return { index, from, to, raw: (numerator / 8).toString(from).toUpperCase(), answer: (numerator / 8).toString(to).toUpperCase() };
+});
+fs.writeFileSync(output + "/directions.js", `async page => {
+  ${viewportHelper}
+  const check=(ok,message)=>{if(!ok)throw Error(message)}, errors=[];
+  page.on('pageerror',error=>errors.push(error.message));
+  await page.goto(${JSON.stringify(url)});await page.reload();await page.emulateMedia({reducedMotion:'reduce'});
+  await page.evaluate(async run=>{
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
+    const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');tx.objectStore('catalogSnapshots').put({id:run.session.id,bundle:run.bundle,assets:{}});run.instances.forEach(i=>tx.objectStore('generatedInstances').put(i));tx.objectStore('sessions').put({id:run.session.id,session:run.session,exam:run.exam,set:run.set,selection:run.selection,issued:run.issued,title:run.set.title,result:run.result});tx.objectStore('results').put(run.result);await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=reject});
+  },${JSON.stringify(directionsRun)});
+  const cases=${JSON.stringify(cases)};
+  for(const condition of [{width:1427,height:608,theme:'dark'},{width:390,height:844,theme:'light'}]) {
+    await setViewport({width:condition.width,height:condition.height});await page.evaluate(theme=>localStorage.setItem('opencbt-fe-kihonjoho-theme',theme),condition.theme);await page.reload();
+    for(const c of cases) {
+      await page.goto(${JSON.stringify(url + `#/detail/${directionsRun.session.id}/`)}+c.index+'/review');await page.locator('.detail-frame.ready').waitFor();
+      await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();
+      await page.getByRole('button',{name:'詳細解説を見る',exact:true}).waitFor();
+      check(await page.locator('.reading-content').innerText()===c.from+'進小数'+c.raw+'を'+c.to+'進小数に変換したものはどれか。','visible conversion bases and value');
+      check(await page.locator('.question-footer').innerText().then(t=>t.includes('2023')&&t.includes('IPA')),'source attribution');
+      check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'question page width');
+      if(c.from===10&&c.to===2)await page.screenshot({path:'${output}/fraction-question-'+condition.width+'.png',fullPage:true});
+      await page.getByRole('button',{name:'詳細解説を見る',exact:true}).click();await page.locator('.detail-frame.ready').waitFor();
+      const f=await(await page.locator('.detail-frame').elementHandle()).contentFrame();
+      check(await f.locator('#number').inputValue()===c.raw,'saved source number');
+      check(await f.locator('#from-base').inputValue()===String(c.from)&&await f.locator('#to-base').inputValue()===String(c.to),'saved bases');
+      check(await f.locator('#result > span').nth(1).innerText()===c.answer,'exact saved result');
+      await f.locator('#number').fill('1');await f.locator('#reset').click();check(await f.locator('#number').inputValue()===c.raw,'reset saved input');
+      await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();
+    }
+  }
+  check(errors.length===0,'browser exceptions '+errors.join(','));
+  return {directions:cases.length,viewports:2,savedBases:true,reset:true,errors};
+}`);
+console.log(`Generated ${output}/{verify,layout,generated,breakpoints,motion,directions}.js for the isolated headless Playwright CLI.`);

@@ -48,6 +48,7 @@ for (const source of refreshSources)
   )
     throw Error(`Unknown refresh source ${source}`);
 let changed = false;
+const refreshedSubjects = new Set<string>();
 for (const c of [...generationContracts, ...additionalContracts]) {
   // Refresh selected series, preserving unrelated verified content and metadata.
   const existingQuestion = questions.find(
@@ -76,6 +77,7 @@ for (const c of [...generationContracts, ...additionalContracts]) {
   const original = originals.find((q) => q.id === `question-ipa-${c.source}`);
   if (!original) throw new Error(`Missing official source ${c.source}`);
   changed = true;
+  refreshedSubjects.add(original.subject);
   const existingTemplate = existingQuestion
     ? read(`templates/${c.id}.json`)
     : undefined;
@@ -178,6 +180,7 @@ catalog.files.templates = records(
   generated.map((g) => ({ path: g.templatePath })),
 );
 for (const subject of ["A", "B"] as const) {
+  if (!refreshedSubjects.has(subject)) continue;
   const p = `sets/mix-${subject.toLowerCase()}.json`,
     s: SetRecord = read(p),
     subset = generated.filter((g) => g.question.subject === subject);

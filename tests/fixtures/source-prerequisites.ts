@@ -3,7 +3,8 @@
 // Empty entries explicitly record that no separate premise/notation note is given;
 // their question roles and concepts are checked by source-question-form and facts.
 export const sourcePrerequisites: Record<string, string[]> = {
-  "2023-a-1": ["16進.*10進"],
+  // User-requested expansion: both bases remain explicit before answering.
+  "2023-a-1": ["(?:2|8|10|16)進小数0\\.[\\dA-F]+を(?:2|8|10|16)進小数に変換"],
   "2023-a-2": ["双方向のポインタをもつリスト構造", "0は参照先がない"],
   "2023-a-3": ["高速化"],
   "2023-a-4": [],

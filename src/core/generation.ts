@@ -2,6 +2,7 @@ import type { Question, Template, Block, Scene, Attribution } from "./types";
 import { DataError } from "./errors";
 import { preserveSourceFormat } from "./generation-formats";
 import { sha256 } from "./hash";
+import { fractionBases, radixFraction } from "./generators/radix-fraction";
 import {
   calculationChoices,
   calculationNotes,
@@ -358,7 +359,17 @@ const calculationGenerationContracts: Contract[] = publishedGenerationContracts.
 export const generationContracts: Contract[] = calculationGenerationContracts.map(
   (previous) => {
     const c = structuredClone(previous);
-    if (c.id === "hex-fraction") c.version = "2.2.1";
+    if (c.id === "hex-fraction") {
+      c.version = "2.3.0";
+      c.title = "小数の基数変換";
+      c.fields = [
+        field("変換元の基数", 2, 16),
+        field("変換先の基数", 2, 16),
+        field("小数の値（8分の幾つ）", 1, 7),
+      ];
+      c.reference = [16, 10, 6];
+      c.notes = "利用者の指定に基づき、2・8・10・16進小数の異なる基数間の全12方向へ拡張する。原問題の小数を変換した値を選ぶ文章・4択を維持し、補助表・丸め条件は加えない。入力は1/8〜7/8の7候補、全84条件。2・10進数は小数第3位以内、8・16進数は1桁で正確に表す。10進数の誤答は原選択肢の相対間隔から生成し、それ以外は桁の重みの入替え・補数との混同・重みの加除から生成する。選択肢の小数桁数を揃えて表記による手掛かりを避ける。基準値16→10・6/8では原選択肢0.12・0.55・0.75・0.84を保持する。";
+    }
     if (["count-multiples", "coin-change", "complement", "recurrence", "security-log"].includes(c.id)) c.version = "2.3.0";
     return c;
   },
@@ -431,6 +442,14 @@ export function checkParameters(t: Template, v: number[]) {
     return;
   }
   const id = contractFor(t)?.id;
+  if (
+    id === "hex-fraction" &&
+    (!fractionBases.some(base => base === v[0]) ||
+      !fractionBases.some(base => base === v[1]) || v[0] === v[1])
+  )
+    throw new DataError(
+      "PARAMETER_CONSTRAINT", "異なる2・8・10・16進数の組合せを指定してください",
+    );
   if (["2.2.0", "2.2.1"].includes(t.generatorRef.version)) {
     try {
       checkCalculationInputs(contractFor(t)!.source, v);
@@ -442,7 +461,6 @@ export function checkParameters(t: Template, v: number[]) {
     }
   }
   if (
-    (id === "hex-fraction" && v[1] === 1 && v[0] > 15) ||
     (id === "hash-collision" &&
       (v[2] <= v[1] || v[1] % v[0] !== v[2] % v[0])) ||
     (id === "cafe-profit" && v[0] <= v[1]) ||
@@ -480,6 +498,15 @@ async function sampleParameters(seed: string, t: Template) {
     }
     throw new DataError("SEED", "入力の抽選上限に達しました");
   };
+  if (c.id === "hex-fraction") {
+    const from = await integer(0, fractionBases.length - 1);
+    const destinations = fractionBases.filter((_, i) => i !== from);
+    return { values: [
+      fractionBases[from],
+      destinations[await integer(0, destinations.length - 1)],
+      await integer(1, 7),
+    ] };
+  }
   for (let attempt = 0; attempt < 256; attempt++) {
     const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0"].includes(t.generatorRef.version)
       ? []
@@ -574,23 +601,10 @@ function bindLegacyQuestion(
     answers: string[] = [],
     explanation = "";
   if (c.id === "hex-fraction") {
-    const n = v[0],
-      digits = v[1],
-      den = 16 ** digits,
-      hex = n.toString(16).toUpperCase().padStart(digits, "0"),
-      a = n / den;
-    blocks = [
-      p(`16進小数0.${hex}を10進小数に変換したものはどれか。`),
-      table(
-        "位の値",
-        ["桁列", "桁列を整数として読んだ値に掛ける重み"],
-        [[hex, `1/${den}`]],
-      ),
-    ];
-    answers = [n, n + 1, n - 1, n + 2].map((x) => (x / den).toFixed(8));
-    if (["2.2.0", "2.2.1"].includes(t.generatorRef.version))
-      answers = calculationChoices(c.source, a);
-    explanation = `${digits}桁の16進小数は、桁列を整数として読んだ値を16の${digits}乗で割る。${hex}は10進数の${n}なので、${n}÷${den}＝${a}。`;
+    const result = radixFraction(v);
+    blocks = [p(result.prompt)];
+    answers = result.answers;
+    explanation = result.explanation;
   } else if (c.id === "logic-table") {
     const funcs = [
       "X AND Y",
@@ -910,10 +924,32 @@ export function bindQuestion(
   return preserveSourceFormat(q, t, v, contractFor(t)!.notes, instanceId, at);
 }
 export function answerSignature(q: Question) {
-  return q.choices
+  const answer = q.choices
     .find((c) => c.id === q.correctAnswer.choiceId)!
     .content.blocks.map((b) => ("text" in b ? b.text : JSON.stringify(b)))
     .join("\n");
+  // A different target base changes the spelling, not the numeric answer.
+  // Scope normalization to this family so other numeric/text questions retain
+  // their existing comparison semantics. Reduce an exact fraction rather than
+  // accumulating floating-point digit weights (e.g. decimal 0.375).
+  if (q.origin.derivedFrom.some(ref =>
+    ["question-template-hex-fraction", "question-ipa-2023-a-1"].includes(ref.questionId))) {
+    const prompt = q.prompt.blocks.map(b => "text" in b ? b.text : "").join("\n");
+    const match = /^\d+進小数0\.[\dA-F]+を(2|8|10|16)進小数に変換したものはどれか。$/.exec(prompt);
+    const fraction = /^0\.([\dA-F]+)$/.exec(answer);
+    if (match && fraction) {
+      const radix = BigInt(match[1]);
+      let numerator = [...fraction[1]].reduce((n, digit) =>
+        n * radix + BigInt(parseInt(digit, Number(radix))), 0n);
+      let denominator = radix ** BigInt(fraction[1].length);
+      let a = numerator, b = denominator;
+      while (b) [a, b] = [b, a % b];
+      numerator /= a;
+      denominator /= a;
+      return `radix-fraction:${numerator}/${denominator}`;
+    }
+  }
+  return answer;
 }
 export function answerCanVary(t: Template) {
   return (

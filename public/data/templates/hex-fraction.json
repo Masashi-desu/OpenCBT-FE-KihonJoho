@@ -1,39 +1,45 @@
 {
   "schemaVersion": "3.0.0",
   "id": "template-hex-fraction",
-  "revision": 9,
-  "title": "16進小数の変換",
+  "revision": 10,
+  "title": "小数の基数変換",
   "baseQuestionRef": {
     "questionId": "question-template-hex-fraction",
-    "revision": 9
+    "revision": 10
   },
   "generatorRef": {
     "id": "generator-hex-fraction",
-    "version": "2.2.1"
+    "version": "2.3.0"
   },
   "parameterDomain": {
     "values": {
-      "length": 2,
+      "length": 3,
       "minimum": 1,
-      "maximum": 14
+      "maximum": 16
     },
     "fields": [
       {
-        "name": "16進小数の値",
+        "name": "変換元の基数",
         "minimum": 2,
-        "maximum": 14
+        "maximum": 16
       },
       {
-        "name": "16進小数の桁数",
+        "name": "変換先の基数",
+        "minimum": 2,
+        "maximum": 16
+      },
+      {
+        "name": "小数の値（8分の幾つ）",
         "minimum": 1,
-        "maximum": 1
+        "maximum": 7
       }
     ]
   },
   "referenceParameters": {
     "values": [
-      12,
-      1
+      16,
+      10,
+      6
     ]
   },
   "attribution": {
@@ -65,5 +71,5 @@
   "lifecycle": "active",
   "distribution": "included",
   "bindingBasis": "official_source",
-  "originalContentSha256": "29af1b073415d896ebc9f8db21605ccdb66fd7e60aabbb56369597517b1d7f8f"
+  "originalContentSha256": "364d213f9bc02262ea9526585f24002591fef15aa290f90da1b6aac987cfeecf"
 }

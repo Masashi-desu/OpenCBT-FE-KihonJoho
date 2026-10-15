@@ -51,7 +51,7 @@ function longestPath(v: number[]) {
 function oracle(id: string, v: number[]): string {
   switch (id) {
     case "hex-fraction":
-      return String(v[0] / 16 ** v[1]);
+      return String(v[2] / 8);
     case "logic-table":
       return ["0001", "0111", "0110", "1110", "1000", "1001", "1101"][v[0] - 1];
     case "hash-collision":
@@ -97,6 +97,10 @@ function oracle(id: string, v: number[]): string {
 function answerValue(q: Question, id: string) {
   const b = q.choices.find((c) => c.id === q.correctAnswer.choiceId)!.content
     .blocks[0];
+  if (id === "hex-fraction" && b.type === "paragraph") {
+    const radix = Number(/を(\d+)進小数/.exec(q.prompt.blocks.map(b => "text" in b ? b.text : "").join(""))![1]);
+    return String([...b.text.slice(2)].reduce((sum, digit, i) => sum + parseInt(digit, radix) / radix ** (i + 1), 0));
+  }
   if (id === "logic-table") {
     assert.equal(b.type, "table");
     return b.type === "table" ? b.rows.map((r) => r[2]).join("") : "";

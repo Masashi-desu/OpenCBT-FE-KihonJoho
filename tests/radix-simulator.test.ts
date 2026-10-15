@@ -131,7 +131,16 @@ test("current lesson registration uses every generated input without mutating co
   for (const version of ["2.1.0", "2.2.0", "2.2.1"]) for (let n = 1; n < 16; n++) {
     const context = { generation: { generatorRef: { id: "generator-hex-fraction", version }, parameters: { values: [n, 1] } } }, before = JSON.stringify(context);
     const initial = E.initialState(context); assert(initial.saved); same(E.parse(initial.raw, 16).value, { n: BigInt(n), d: 16n }); assert.equal(JSON.stringify(context), before);
-    if (n % 2 === 0) { const question = bindQuestion(base, template, [n, 1], "radix-test", "2026-10-15T00:00:00Z"); assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef); }
+  }
+  for (const from of [2, 8, 10, 16]) for (const to of [2, 8, 10, 16]) for (let n = 1; n <= 7; n++) {
+    if (from === to) continue;
+    const values = [from, to, n], context = { generation: { generatorRef: template.generatorRef, parameters: { values } } }, before = JSON.stringify(context);
+    const initial = E.initialState(context);
+    assert(initial.saved); assert.equal(initial.from, from); assert.equal(initial.to, to);
+    same(E.parse(initial.raw, from).value, { n: BigInt(n), d: 8n });
+    const question = bindQuestion(base, template, values, "radix-test", "2026-10-15T00:00:00Z");
+    assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef);
+    assert.equal(JSON.stringify(context), before);
   }
   assert.equal(E.initialState(null).raw, "0.C");
 
