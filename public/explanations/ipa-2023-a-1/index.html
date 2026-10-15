@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>基数変換・桁の重みと計算過程</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="scrollbars.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="lesson">
+  <h1 id="standalone-title" hidden>基数変換・桁の重みと計算過程</h1>
+  <section class="workspace" aria-label="基数変換の計算を操作する">
+    <div class="conversion-bar">
+      <div class="inputs">
+      <label class="number-input" for="number"><span class="full-label">変換する数値</span><span class="compact-label">数値</span><input id="number" type="text" value="0.C" spellcheck="false" autocomplete="off" autocapitalize="characters" aria-describedby="input-help input-error"></label>
+      <label for="from-base">変換元<select id="from-base"><option value="2">2進数</option><option value="8">8進数</option><option value="10">10進数</option><option value="16" selected>16進数</option></select></label>
+      <span class="direction" aria-hidden="true">→</span>
+      <label for="to-base">変換先<select id="to-base"><option value="2">2進数</option><option value="8">8進数</option><option value="10" selected>10進数</option><option value="16">16進数</option></select></label>
+      </div>
+      <div class="conversion-feedback">
+        <p id="input-help" class="muted">合計512桁まで。循環は 0.(3)、0.E(6) のように入力。A〜Fは大文字・小文字を使えます。</p>
+        <p id="input-error" class="input-error" role="alert" hidden></p>
+        <p id="result-note" class="muted" hidden></p>
+      </div>
+      <div class="conversion-output" role="group" aria-label="変換結果と逆変換">
+        <span id="result-kind" class="eyebrow">正確な変換結果</span>
+        <div class="result-line">
+          <div id="result" class="result" role="status" aria-atomic="true"></div>
+          <button id="reverse" type="button" aria-label="変換結果から逆変換" aria-describedby="result-note">逆変換</button>
+        </div>
+      </div>
+    </div>
+    <div class="playback" aria-label="計算過程の再生">
+      <output id="step-count" aria-live="polite">0 / 0 ステップ・未開始</output>
+      <div class="playback-buttons"><button id="previous" type="button">戻る</button><button id="next" type="button">進む</button><button id="play" type="button" aria-pressed="false">自動再生</button><button id="reset" type="button" aria-label="初期値に戻す"><span class="full-label">初期値に戻す</span><span class="compact-label">初期値</span></button></div>
+    </div>
+    <div id="diagrams" class="diagrams">
+      <section class="digit-diagram" aria-labelledby="source-title">
+        <div class="diagram-heading"><h2 id="source-title">入力の桁と重み</h2><span id="source-base"></span></div>
+        <div id="source-digits" class="digit-viewport" tabindex="0" role="region" aria-label="入力の桁。長い数は左右にスクロールできます"></div>
+      </section>
+      <div class="calculation" id="calculation" aria-live="polite" aria-atomic="true">
+        <h2 id="calculation-title"></h2>
+        <div id="calculation-detail"></div>
+      </div>
+      <section class="digit-diagram" aria-labelledby="target-title">
+        <div class="diagram-heading"><h2 id="target-title">出力の桁と重み</h2><span id="target-base"></span></div>
+        <div id="target-digits" class="digit-viewport" tabindex="0" role="region" aria-label="出力の桁。長い数は左右にスクロールできます"></div>
+      </section>
+    </div>
+    <p class="legend">▶ 現在　✓ 計算済み　○ 未計算（出力は ?）<br>整数部は1の位から左へ、小数部は小数点から右へ。桁を選ぶと、その計算へ移動します。</p>
+    <details id="overview" class="overview"><summary>全体の計算を確認</summary><h2>入力を桁の重みで分解</h2><div id="decomposition"></div><h2>変換先の各桁を求める計算表</h2><div class="table-viewport" tabindex="0" role="region" aria-label="変換先の計算表"><table><thead><tr><th scope="col">計算</th><th scope="col">次に使う値</th><th scope="col">確定する数字と配置先の桁</th></tr></thead><tbody id="calculation-table"></tbody></table></div></details>
+  </section>
+  <p id="standalone-credit" class="muted" hidden>2023年度 基本情報技術者試験 科目A 公開問題 問1に対応する独自解説です。問題・正答の出典：独立行政法人情報処理推進機構（IPA）。解説文・図・プログラムは本プロジェクトが独自に作成しています。<a href="../../data/sources/ipa-2023-a-qs.json">問題の出典情報</a>・<a href="../../data/sources/ipa-2023-a-ans.json">解答例の出典情報</a></p>
+</main>
+<script src="radix-engine.js"></script><script src="scrollbars.js"></script><script src="main.js"></script>
+</body>
+</html>

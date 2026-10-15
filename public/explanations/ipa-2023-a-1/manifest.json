@@ -1,0 +1,95 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "基数変換・桁の重みと計算過程",
+  "attribution": {
+    "origin": "original",
+    "sourceRefs": [],
+    "rightsRefs": [
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2023-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問1",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "1"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2023-a-ans",
+        "locator": {
+          "section": "科目A 問1 正解",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "year": 2023,
+          "subject": "科目A",
+          "questionNumber": "1"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "2・8・10・16進数の整数・小数・負数・循環小数を変換し、桁の重み、加算、割り算、掛け算を図とともに追跡します。",
+    "keywords": [
+      "基数変換",
+      "16進数",
+      "2進数",
+      "8進数",
+      "10進数",
+      "桁の重み",
+      "循環小数",
+      "小数の変換",
+      "逆変換",
+      "BigInt"
+    ],
+    "text": "16進数0.CはC＝12、12×16の−1乗＝12/16＝0.75です。入力の整数部を0乗から左へ、小数部を−1乗から右へ分解して10進数の値を求めます。変換先の整数部は基数で繰り返し割り、余りを0乗から配置。小数部は基数を繰り返し掛け、積の整数部分を−1乗から配置します。入力は512桁まで。分子・分母をBigIntで保持します。循環小数は括弧で示し、循環入力全体の寄与を分数で計算します。同じ残りが現れたら循環を確定します。出力小数64桁で切り捨てる場合は≈と…を付け、逆変換を無効にします。負数は絶対値で計算して符号を戻します。19.625は2進数10011.101、13.625は8進数15.5、0.9は16進数0.E(6)、0.1は2進数0.0(0011)。桁の選択、戻る、進む、自動再生、一時停止、もう一度再生、全体の計算表を使えます。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "57812b087f39eee92975d49b532200df6d3e1f39745e6a3f8bbb7a8d706c8481"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "d51d67a09c8078525295d972fe9899448284edf627ff242ad2fb90f452d3bb97"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "radix-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "4e94f497fddfcbb824983b9f261f0fa389873e3b3924ad41a701d39b0829f760"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "049a8a29cfae83e22b6359ee0522a1cb9bf69da61fc8f07a2df48c01deefc2b8"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "cb0dccdd22f7e3ddc7ddd14ed824ac89a7132c3a6f0493a8fc6b30cc625090dd"
+    }
+  ]
+}

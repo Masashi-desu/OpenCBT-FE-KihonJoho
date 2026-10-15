@@ -8,6 +8,7 @@ import bookmarkRevisions from "../src/core/bookmark-revisions.json";
 import supplementalRevisions from "../src/core/supplemental-bookmark-revisions.json";
 import preSort from "./fixtures/pre-sort-revisions.json";
 import preArrow from "./fixtures/pre-arrow-revisions.json";
+import { restorePreRadix } from "./radix-history";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { bindQuestion } from "../src/core/generation";
 import { contentHash } from "../src/core/hash";
@@ -32,6 +33,7 @@ function previousRef(ref: Ref): Ref {
 
 function previousBundle() {
   const b = fixture();
+  restorePreRadix(b);
   for (const q of b.questions) {
     const saved = (preArrow.questions as Record<string, unknown>)[q.id];
     if (saved) { Object.assign(q, structuredClone(saved)); delete q.detailedExplanationRef; }

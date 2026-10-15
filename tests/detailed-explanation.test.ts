@@ -39,7 +39,7 @@ async function resourceFixture() {
 }
 
 test("optional reference: old question hashes and regular explanation remain intact", async () => {
-  const question = fixture().questions[0], before = await contentHash(question);
+  const question = fixture().questions.find(q => !q.detailedExplanationRef)!, before = await contentHash(question);
   schema("question", question);
   assert.equal(question.detailedExplanationRef, undefined);
   const extended = { ...question, detailedExplanationRef: ref };

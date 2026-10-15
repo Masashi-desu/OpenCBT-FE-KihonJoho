@@ -10,6 +10,7 @@ import { makeBookmark } from "../src/core/bookmarks";
 import { prepareRun, startRun, updateAnswer, finishRun, validateRun, appendRunQuestion } from "../src/core/session";
 import type { Bundle, Question, Template, SetRecord } from "../src/core/types";
 import previous from "./fixtures/pre-arrow-revisions.json";
+import { restorePreRadix } from "./radix-history";
 
 const root = "public/explanations/ipa-2024-a-13/", sandbox: any = vm.createContext({ window: {} });
 vm.runInContext(fs.readFileSync(root + "arrow-engine.js", "utf8"), sandbox);
@@ -144,7 +145,7 @@ test("generated detail uses saved inputs and the new references preserve older s
 });
 
 test("historical annual and generated runs still validate, resume, append and review without replacing their content", async () => {
-  const historical: Bundle = fixture();
+  const historical: Bundle = restorePreRadix(fixture());
   for (const [id, q] of Object.entries(previous.questions)) historical.questions[historical.questions.findIndex(q => q.id === id)] = structuredClone(q) as Question;
   historical.templates[historical.templates.findIndex(t => t.id === previous.template.id)] = structuredClone(previous.template) as Template;
   for (const [id, set] of Object.entries(previous.sets)) historical.sets[historical.sets.findIndex(s => s.id === id)] = structuredClone(set) as SetRecord;

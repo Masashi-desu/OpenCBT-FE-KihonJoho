@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-ipa-2023-a-1",
-  "revision": 2,
+  "revision": 3,
   "lifecycle": "active",
   "subject": "A",
   "learning": {
@@ -273,7 +273,7 @@
     "blocks": [
       {
         "type": "paragraph",
-        "text": "詳細な独自解説は未収録です。正答はIPAの解答例と照合しています。原文の図表・条件を確認して復習してください。"
+        "text": "16進数のCは10進数の12です。小数点のすぐ右の桁の重みは16の−1乗（1/16）なので、0.Cは12×1/16＝12/16＝0.75となります。正答はウです。"
       }
     ]
   },
@@ -283,7 +283,7 @@
   "choiceShuffleAllowed": false,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-06",
+    "checkedOn": "2026-10-15",
     "reviewerIds": [
       "codex"
     ],
@@ -295,6 +295,10 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。"
+    "notes": "公式掲載URL・PDFの各問区切り・全選択肢・解答表を確認。画像は原本の問題領域を無損失切出し。補助テキストは図の代替として完全ではない。詳細解説は未収録で、その旨だけを独自文章として表示。同一AIによる確認で担当を分離した二重確認ではない。 2026-10-15：IPA問題冊子p.2・解答例p.1の問1を再照合。独自作成の基数変換解説を追加。分数・循環・64桁の切り捨て・符号・全16基数組合せは独立参照式と自動テストで検算。詳細はdocs/radix-explanation.md、docs/verification.md。保存済み旧内容は書き換えない。"
+  },
+  "detailedExplanationRef": {
+    "directory": "explanations/ipa-2023-a-1/",
+    "revision": 1
   }
 }

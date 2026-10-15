@@ -17,6 +17,7 @@ export const sidebar = [
     { text: '任意の詳細解説UI', link: '/detailed-explanations' },
     { text: '問2のソート解説・シミュレーター', link: '/sort-explanation' },
     { text: '問13のアローダイアグラム解説', link: '/arrow-explanation' },
+    { text: '問1の基数変換解説', link: '/radix-explanation' },
     { text: '図描画・問題生成・改変記録', link: '/diagram-generation' },
     { text: '全問題の生成対応', link: '/generation-coverage' },
     { text: 'JSON Schema', link: '/schemas' },
