@@ -1,5 +1,6 @@
 // Bundled as a classic script for the sandbox, using the same scrollbar implementation.
 import { installOverlayScrollbars } from "./scrollbars";
+import { observeDetailHeight } from "./detail-layout";
 import type { DetailContext } from "../core/detailed-explanation";
 
 type DetailApi = {
@@ -13,12 +14,16 @@ declare global { interface Window { OpenCBTDetail?: DetailApi } }
 function mountDetailRuntime() {
   let token = "", parentOrigin = "", initialized = false, failed = false;
   let requestedReady = false, rendered = false;
+  let layout: ReturnType<typeof observeDetailHeight> | undefined;
   const themeListeners = new Set<(theme: "light" | "dark") => void>();
   const notify = (type: "ready" | "error") => {
     if (token) window.parent.postMessage({ type: `opencbt:detail:${type}`, apiVersion: 1, token }, parentOrigin);
   };
-  const fail = () => { if (!failed) { failed = true; notify("error"); } };
-  const ready = () => { requestedReady = true; if (rendered && !failed) notify("ready"); };
+  const fail = () => { if (!failed) { failed = true; layout?.dispose(); notify("error"); } };
+  const ready = () => {
+    requestedReady = true;
+    if (rendered && !failed) { layout?.update(); notify("ready"); }
+  };
   const freeze = (value: unknown) => {
     if (value && typeof value === "object") {
       Object.freeze(value);
@@ -29,7 +34,9 @@ function mountDetailRuntime() {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
     themeListeners.forEach((listener) => listener(theme));
+    layout?.update();
   };
+  window.addEventListener("pagehide", (event) => { if (!event.persisted) layout?.dispose(); });
   window.addEventListener("error", fail, true);
   window.addEventListener("unhandledrejection", fail);
   window.addEventListener("securitypolicyviolation", fail);
@@ -49,6 +56,7 @@ function mountDetailRuntime() {
     token = data.token;
     parentOrigin = event.origin;
     try {
+      const documentLayout = data.layout === "document";
       freeze(data.context); freeze(data.assets);
       const api: DetailApi = Object.freeze({
         context: data.context, assets: data.assets, ready,
@@ -74,6 +82,9 @@ function mountDetailRuntime() {
       // The host supplies the authoritative colors after package styles. A
       // package's standalone palette copy cannot drift the embedded UI theme.
       style.textContent = (typeof data.themeCss === "string" ? data.themeCss + "\n" : "") + data.scrollbarCss;
+      // The parent owns page scrolling. Contain body margins and measure its natural
+      // height, without a viewport-based minimum or an independent document scroller.
+      if (documentLayout) style.textContent += "\n:root{height:auto;min-height:0;overflow:clip}body{display:flow-root;height:auto;min-height:0;overflow:visible}";
       document.head.append(style);
       installOverlayScrollbars();
       applyTheme(api.context.theme);
@@ -94,7 +105,12 @@ function mountDetailRuntime() {
         } else markers[i].replaceWith(script);
       }
       rendered = true;
-      if (requestedReady && !failed) notify("ready");
+      if (!failed) {
+        if (documentLayout) layout = observeDetailHeight(document, (height) => {
+          window.parent.postMessage({ type: "opencbt:detail:resize", apiVersion: 1, token, height }, parentOrigin);
+        });
+        if (requestedReady) ready();
+      }
     } catch { fail(); }
   });
 }

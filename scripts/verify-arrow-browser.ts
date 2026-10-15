@@ -1,21 +1,34 @@
 // Generate checks for an isolated, headless Playwright CLI session. The real
 // distributed package is loaded without mocking its resources.
 import fs from "node:fs";
+import { viewportHelper } from './playwright-viewport.mjs';
 import { fixture } from "../tests/fixtures";
 import { prepareRun, startRun, finishRun, validateRun } from "../src/core/session";
 const url = process.argv[2] ?? "http://127.0.0.1:5188/", output = "output/playwright/arrow";
 fs.mkdirSync(output, { recursive: true });
 fs.writeFileSync(output + "/verify.js", `async page => {
+  ${viewportHelper}
   const check = (value, message) => { if (!value) throw Error(message); }, errors = [];
+  await page.emulateMedia({reducedMotion:'reduce'});
   page.on('pageerror', error => errors.push(error.message));
-  await page.setViewportSize({width:1280,height:1000});
+  await setViewport({width:1280,height:1000});
   await page.goto(${JSON.stringify(url + "#/search/detail/question-ipa-2024-a-13")});
   await page.reload();
   await page.locator('.detail-frame.ready').waitFor();
   const frame = await (await page.locator('.detail-frame').elementHandle()).contentFrame();
   const total = async () => (await frame.locator('[data-id="end"]').getAttribute('aria-label')).match(/最早([0-9]+)日/)[1]+'日';
-  const choose = async id => { await frame.locator('[data-id="'+id+'"]').locator('.edge-label-bg, .event-circle').click(); await frame.locator('#inspection-panel:not([hidden])').waitFor(); };
-  const reset = async () => { await frame.locator('#reset').click(); check(await total()==='120日','original reset'); };
+  const settle=async()=>{
+    await frame.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    await frame.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
+  };
+  const choose = async id => {
+    await settle();
+    const target=frame.locator('[data-id="'+id+'"]');
+    if(await target.getAttribute('aria-pressed')!=='true')await target.locator('.edge-label-bg, .event-circle').click();
+    await frame.locator('#inspection-panel:not([hidden])').waitFor().catch(()=>{throw Error('selection did not open: '+id+' '+JSON.stringify(page.viewportSize()))});
+    await settle();
+  };
+  const reset = async () => { await frame.locator('#reset').click(); await settle(); check(await total()==='120日','original reset'); };
   check(await total()==='120日','initial total');
   check(await frame.locator('.edge').count()===10 && await frame.locator('.event-node').count()===7,'graph topology');
   check(await frame.locator('#inspection-panel').isHidden(),'minimal initial state');
@@ -115,17 +128,17 @@ fs.writeFileSync(output + "/verify.js", `async page => {
   check(await frame.locator('#inspection-panel').isHidden()&&await frame.locator('#play').getAttribute('aria-pressed')==='false','same replay object deselects and pauses');
   check(await frame.locator('#step-label').innerText()==='未開始','deselect clears replay step');
   for (const width of [1362,1280,390,320]) {
-    await page.setViewportSize({width,height:width===1362?1313:width===1280?1000:844});
+    await setViewport({width,height:width===1362?1313:width===1280?1000:844});
     for (const theme of ['light','dark']) {
       await page.getByRole('button',{name:theme==='light'?'ライトモード':'ダークモード',exact:true}).click();
       await frame.waitForFunction(theme=>document.documentElement.dataset.theme===theme,theme);
       await reset();
       const layout=()=>frame.evaluate(()=>{
-        const scene=document.querySelector('#scene').getBoundingClientRect(), slot=document.querySelector('#inspection-reservation').getBoundingClientRect(), playback=document.querySelector('.playback').getBoundingClientRect();
+        const scene=document.querySelector('.diagram-area').getBoundingClientRect(), slot=document.querySelector('#inspection-reservation').getBoundingClientRect(), playback=document.querySelector('.playback').getBoundingClientRect();
         return {height:scene.height,slot:slot.top+scrollY,slotHeight:slot.height,playback:playback.top+scrollY};
       });
       const reserved=await layout();let fixed=null;
-      check(reserved.slotHeight===(width<=600?320:280),'compact fixed reservation '+width);
+      check(reserved.slotHeight>=(width<=600?320:280),'compact minimum explanation height '+width);
       const corners=await frame.evaluate(()=>{
         const a=document.querySelector('.diagram-area').getBoundingClientRect(),v=document.querySelector('#diagram-viewport').getBoundingClientRect(),p=document.querySelector('.playback').getBoundingClientRect(),r=document.querySelector('#reset').getBoundingClientRect(),s=document.querySelector('#inspection-reservation').getBoundingClientRect();
         return {left:p.left-a.left,right:a.right-r.right,playBelow:p.top>=v.bottom,resetBelow:r.top>=v.bottom,inside:p.bottom<=a.bottom&&r.bottom<=a.bottom,aboveInspection:p.bottom<=s.top&&r.bottom<=s.top};
@@ -155,6 +168,9 @@ fs.writeFileSync(output + "/verify.js", `async page => {
       check(await frame.locator('#inspection-reservation').evaluate(n=>n.scrollHeight<=n.clientHeight+1),'task editor fits the reserved height '+width);
       await frame.locator('.extra summary').click();
       check(Math.abs((await layout()).playback-reserved.playback)<1,'expanded details do not move playback');
+      check(await frame.locator('#inspection-reservation').evaluate(n=>getComputedStyle(n).overflowY==='visible'&&n.scrollHeight<=n.clientHeight+1),'explanation expands without an inner scrollbar');
+      await frame.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
+      check(await frame.evaluate(()=>scrollY===0&&document.documentElement.scrollHeight<=innerHeight+1),'no nested lesson document scrolling');
       await frame.locator('.extra summary').click();
       await frame.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       await page.screenshot({path:'${output}/inline-edit-'+width+'-'+theme+'.png',fullPage:true});
@@ -183,6 +199,7 @@ run.session.entries[0].revealed = true; run = finishRun(run, "completed"); await
 const values = run.instances[0].parameters.values, [a, bb, c, d, e, f, g, h] = values;
 const days = a + Math.max(bb + e, Math.max(bb, c) + f, Math.max(bb, c, d) + g) + h;
 fs.writeFileSync(output + "/generated.js", `async page => {
+  ${viewportHelper}
   const check=(v,m)=>{if(!v)throw Error(m)};
   await page.goto(${JSON.stringify(url)});
   await page.evaluate(async run=>{
@@ -203,6 +220,8 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   check((await frame.locator('#inspection-placeholder').innerText()).includes('保存済み条件'),'saved initial condition');
   check(await frame.locator('select').count()===0,'no conditions dropdown on generated detail');
   await frame.locator('[data-id="A"] .edge-label-bg').click();
+  await frame.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  await frame.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
   await frame.locator('#duration').fill(${JSON.stringify(String(values[0] + 1))});await frame.locator('#apply-duration').click();
   check(await total()===${JSON.stringify(days + 1 + "日")},'generated edit from diagram');
   await frame.locator('#reset').click();

@@ -54,6 +54,7 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
   const heading = useRef<HTMLHeadingElement>(null);
   const [token] = useState(() => crypto.randomUUID());
   const [ready, setReady] = useState(false);
+  const [height, setHeight] = useState(1);
   const failed = useRef(false);
   const initialized = useRef(false);
   const latestTheme = useRef(theme);
@@ -81,6 +82,8 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
         clearTimeout(timer); fail();
       } else if (message === "ready" && !failed.current) {
         clearTimeout(timer); setReady(true);
+      } else if (typeof message === "object" && !failed.current) {
+        setHeight(message.height);
       }
     };
     window.addEventListener("message", receive);
@@ -100,7 +103,7 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
     }
     initialized.current = true;
     frame.current?.contentWindow?.postMessage({
-      type: "opencbt:detail:init", apiVersion: 1, token,
+      type: "opencbt:detail:init", apiVersion: 1, token, layout: "document",
       context: { ...context, theme: latestTheme.current }, html: prepared.html,
       assets: prepared.assets, scrollbarCss, themeCss,
     }, "*");
@@ -116,7 +119,8 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
       {!ready && <p className="detail-loading" role="status"><LoaderCircle size={18} className="spinning" />詳細解説を読み込んでいます</p>}
       {prepared && <>
         <iframe ref={frame} title={prepared.pkg.manifest.title} className={`detail-frame${ready ? " ready" : ""}`}
-          src={new URL("explanations/host.html", explanationBase()).href}
+          style={{ height }}
+          src={new URL(import.meta.env.DETAIL_HOST_PATH, explanationBase()).href}
           sandbox="allow-scripts" referrerPolicy="no-referrer" onLoad={initialize} />
         <AttributionLine content={{ attribution: prepared.pkg.manifest.attribution, blocks: [] }} bundle={bundle}
           sourceLabels={Object.fromEntries(prepared.pkg.manifest.attribution.sourceRefs.map((ref) => {

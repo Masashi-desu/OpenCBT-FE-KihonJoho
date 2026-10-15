@@ -155,7 +155,7 @@ fs.writeFileSync(output + "/verify.js", `async page => {
   const targets=['クイックソート','挿入ソート','選択ソート','バブルソート'];
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
   page.on('console',message=>{if(message.type()==='error' && /Content Security Policy|Uncaught|Blocked form/.test(message.text()))errors.push(message.text())});
-  const frame=()=>page.frames().find(f=>f.url().includes('/explanations/host.html'));
+  const frame=()=>page.frames().find(f=>f.url().includes('/explanations/host'));
   for(const saved of expected){
     await page.goto(base+'#/review/'+saved.id);
     await page.getByRole('button',{name:'詳細解説を見る'}).click();await page.locator('.detail-frame.ready').waitFor();

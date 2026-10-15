@@ -205,8 +205,7 @@ small,
 }
 .input-message {
   grid-column: 1/-1;
-  height: 24px;
-  overflow: auto;
+  min-height: 24px;
 }
 .panel-heading {
   display: flex;
@@ -410,8 +409,7 @@ small,
   border: 1px solid var(--line);
 }
 .context-pane {
-  height: 240px;
-  overflow: auto;
+  min-height: 240px;
   border-top: 1px solid var(--line);
   padding: 10px 20px;
   overflow-wrap: anywhere;
@@ -722,14 +720,14 @@ footer {
   main { padding-top: 22px; }
   .input-form { grid-template-columns: 1fr 1fr; padding: 12px 16px 0; }
   .algorithm-field, .input-field, .input-message { grid-column: 1/-1; }
-  .input-message { grid-row: auto; height: 64px; }
+  .input-message { grid-row: auto; min-height: 64px; }
   .input-form #default-input { grid-column: auto; grid-row: auto; }
   .visual-panel { padding: 0 16px; }
-  .panel-heading { height: 104px; min-height: 0; align-content: center; overflow: auto; }
+  .panel-heading { min-height: 128px; align-content: center; }
   .range-label { margin-right: auto; }
   .diagram-stage { height: 340px; }
   #heap-tree { height: 240px; }
-  .context-pane { height: 320px; padding: 12px 16px; }
+  .context-pane { min-height: 320px; padding: 12px 16px; }
   .speed-label { margin-left: 0; }
   .playback { padding: 12px 16px; }
   .play-buttons { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; gap: 6px; }

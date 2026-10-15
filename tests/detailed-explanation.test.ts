@@ -241,6 +241,20 @@ test("sandbox replies require the exact frame, opaque origin, protocol and navig
   assert.equal(detailMessage({ ...event, data: { ...event.data, apiVersion: 2 } }, source, token), undefined);
 });
 
+test("sandbox resize accepts only authenticated positive integer content heights", () => {
+  const source = {} as Window, token = "layout-token";
+  const event = { source, origin: "null", data: { type: "opencbt:detail:resize", apiVersion: 1, token, height: 1524 } };
+  assert.deepEqual(detailMessage(event, source, token), { type: "resize", height: 1524 });
+  assert.deepEqual(detailMessage({ ...event, data: { ...event.data, height: 1 } }, source, token), { type: "resize", height: 1 });
+  for (const height of [undefined, null, "1524", 0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1])
+    assert.equal(detailMessage({ ...event, data: { ...event.data, height } }, source, token), undefined);
+  assert.equal(detailMessage({ ...event, origin: "https://example.test" }, source, token), undefined);
+  assert.equal(detailMessage(event, {} as Window, token), undefined);
+  assert.equal(detailMessage(event, null, token), undefined);
+  assert.equal(detailMessage(event, source, "previous-mount"), undefined);
+  assert.equal(detailMessage({ ...event, data: { ...event.data, apiVersion: 2 } }, source, token), undefined);
+});
+
 test("CSS preparation stays inert under main CSP without rewriting script strings or raw text", () => {
   const raw = '<!-- <style>comment</style> --><script>const s="<style>body{color:red}</style>";</script><textarea><style>text</style></textarea><title>literal <style></title>';
   const html = raw + '<STYLE media="screen > print" type="text/css">body{color:red}</STYLE><style>.a{color:green}</style>';

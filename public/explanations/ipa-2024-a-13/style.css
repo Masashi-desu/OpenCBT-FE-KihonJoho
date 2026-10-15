@@ -50,9 +50,9 @@ input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent);
 .edge:hover .edge-label-bg, .edge:focus-visible .edge-label-bg { stroke: var(--focus); stroke-width: 2; }
 .event-node:hover .event-circle, .event-node:focus-visible .event-circle { stroke: var(--focus); stroke-width: 4; }
 .edge:focus-visible, .event-node:focus-visible { outline: none; }
-.inspection-reservation { position: relative; height: 280px; border-top: 1px solid var(--line); overflow: auto; }
+.inspection-reservation { position: relative; min-height: 280px; border-top: 1px solid var(--line); }
 .inspection-placeholder { margin: 0; padding: 16px 20px; font-size: 13px; line-height: 1.8; color: var(--muted); }
-.inspection-panel { width: 100%; min-height: 100%; padding: 12px 20px; overflow-wrap: anywhere; }
+.inspection-panel { width: 100%; padding: 12px 20px; overflow-wrap: anywhere; }
 .inspection-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
 .inspection-heading h2 { font-size: 17px; margin: 0; }
 .inspection-heading button { flex: 0 0 44px; font-size: 22px; line-height: 1; }
@@ -99,7 +99,7 @@ input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent);
   .lesson { padding: 12px 8px; }
   .view-controls { padding: 8px 12px; gap: 0 12px; }
   .diagram-actions { padding: 8px 12px 12px; }
-  .inspection-reservation { height: 320px; }
+  .inspection-reservation { min-height: 320px; }
   .inspection-content > .editor, .inspection-content > .times { grid-column: 1; }
   .inspection-panel, .inspection-placeholder { padding: 10px 12px; }
   .inspection-content { grid-template-columns: 1fr; gap: 6px; }

@@ -1,31 +1,41 @@
 // Generate a regression fixture for a dedicated headless Playwright CLI session.
 import fs from 'node:fs';
+import { viewportHelper } from './playwright-viewport.mjs';
 const url = process.argv[2] ?? 'http://127.0.0.1:5188/';
 const output = 'output/playwright/sort';
 fs.mkdirSync(output, { recursive: true });
 fs.writeFileSync(output + '/workspace.js', `async page => {
+  ${viewportHelper}
   const check=(ok,message)=>{if(!ok)throw Error(message)}, errors=[], results=[];
   page.on('pageerror',error=>errors.push(error.message));
   page.on('console',m=>{if(m.text().startsWith('SORT-'))errors.push(m.text())});
   await page.addInitScript(()=>{window.addEventListener('error',e=>console.log('SORT-ERROR',e.message,e.error?.stack),true);window.addEventListener('securitypolicyviolation',e=>console.log('SORT-CSP',e.violatedDirective,e.blockedURI));});
+  await page.emulateMedia({reducedMotion:'reduce'});
   await page.unroute('**/explanations/ipa-2026-a-2/manifest.json');
   await page.goto(${JSON.stringify(url + '#/search/detail/question-ipa-2026-a-2?type=detail')});
   await page.reload();
   await page.locator('.detail-frame.ready').waitFor();
   const f=await (await page.locator('.detail-frame').elementHandle()).contentFrame();
-  // Keep the opaque iframe below the app's sticky mobile navigation for pointer checks.
-  const frameInView=async()=>page.locator('.detail-frame').evaluate(n=>scrollTo(0,Math.max(0,n.getBoundingClientRect().top+scrollY-150)));
+  // Wait for asynchronous host sizing before pointer checks across viewport changes.
+  const frameInView=async()=>{
+    await f.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
+    await page.locator('.detail-frame').evaluate(n=>scrollTo({top:Math.max(0,n.getBoundingClientRect().top+scrollY-150),behavior:'instant'}));
+  };
   const kinds=['quick','bubble','selection','insertion','merge','heap','shell'];
   const geometry=()=>{
     const box=s=>{const r=document.querySelector(s).getBoundingClientRect();return [r.top+scrollY,r.width,r.height]};
-    return [...box('.playback'),...box('.context-pane'),...box('.diagram-stage')];
+    return [...box('.playback'),...box('.context-pane').slice(0,2),...box('.diagram-stage')];
   };
-  const stable=async expected=>check(JSON.stringify(await f.evaluate(geometry))===JSON.stringify(expected),'operation positions changed');
+  const stable=async expected=>{
+    await f.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    await f.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
+    check(JSON.stringify(await f.evaluate(geometry))===JSON.stringify(expected),'operation positions changed');
+  };
   let state='start';
   try {
   for(const width of [1362,1280,390,320]) {
     state=width+'/viewport';
-    await page.setViewportSize({width,height:width>600?1313:844});
+    await setViewport({width,height:width>600?1313:844});
     await frameInView();
     await f.locator('#default-input').click();
     await f.locator('#algorithm-select').selectOption('quick');
@@ -41,13 +51,15 @@ fs.writeFileSync(output + '/workspace.js', `async page => {
         const seek=document.querySelector('#seek'), failures=[];
         for(let i=0;i<=Number(seek.max);i++) {
           seek.value=String(i);seek.dispatchEvent(new Event('input',{bubbles:true}));
-          const actual=['.playback','.context-pane','.diagram-stage'].flatMap(s=>{const r=document.querySelector(s).getBoundingClientRect();return [r.top+scrollY,r.width,r.height]});
+          const actual=['.playback','.context-pane','.diagram-stage'].flatMap(s=>{const r=document.querySelector(s).getBoundingClientRect();return s==='.context-pane'?[r.top+scrollY,r.width]:[r.top+scrollY,r.width,r.height]});
           if(JSON.stringify(actual)!==JSON.stringify(expected))failures.push(i);
         }
         return {steps:Number(seek.max)+1,failures};
       },baseline);
       check(!tested.failures.length,kind+' moves controls at steps '+tested.failures.join(','));
+      await stable(baseline);
       await f.locator('#first').click();
+      check(await f.locator('#seek').inputValue()==='0','first button resets playback');
       await f.locator('.bar-button').first().click();await stable(baseline);
       check(await f.locator('#inspection-view').isVisible()&&await f.locator('#step-view').isHidden(),'element replaces step explanation');
       await f.locator('.bar-button').first().click();check(await f.locator('#inspection-view').isHidden(),'reselection closes element');
@@ -94,10 +106,13 @@ fs.writeFileSync(output + '/workspace.js', `async page => {
     }
     await f.locator('.context-pane').evaluate(n=>n.style.fontSize='26px');
     await frameInView();await f.locator('#algorithm-help summary').click();await stable(baseline);
+    check(await f.locator('.context-pane').evaluate(n=>getComputedStyle(n).overflowY==='visible'&&n.scrollHeight<=n.clientHeight+1),'enlarged explanation grows in page flow');
+    await f.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
+    check(await f.evaluate(()=>scrollY===0&&document.documentElement.scrollHeight<=innerHeight+1),'no nested lesson document scrolling');
     await f.locator('#algorithm-help').evaluate(n=>n.open=false);
     await f.locator('.context-pane').evaluate(n=>n.style.fontSize='');
   }
-  await page.setViewportSize({width:1362,height:1313});
+  await setViewport({width:1362,height:1313});
   await f.locator('#algorithm-select').selectOption('heap');await f.locator('#next').click();await f.locator('#toggle-tree').click();
   await f.evaluate(()=>scrollTo(0,0));await page.screenshot({path:'${output}/workspace-tree.png',fullPage:true,animations:'disabled'});
   check(!errors.length,'JS errors: '+errors.join(', '));

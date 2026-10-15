@@ -181,9 +181,11 @@ export async function loadDetailPackage(
 }
 
 export function detailMessage(event: Pick<MessageEvent, "source" | "origin" | "data">,
-  source: Window | null, token: string): "ready" | "error" | undefined {
+  source: Window | null, token: string): "ready" | "error" | { type: "resize"; height: number } | undefined {
   if (!source || event.source !== source || event.origin !== "null" ||
     event.data?.apiVersion !== 1 || event.data?.token !== token) return;
   if (event.data.type === "opencbt:detail:ready") return "ready";
   if (event.data.type === "opencbt:detail:error") return "error";
+  if (event.data.type === "opencbt:detail:resize" && Number.isSafeInteger(event.data.height) && event.data.height > 0)
+    return { type: "resize", height: event.data.height };
 }

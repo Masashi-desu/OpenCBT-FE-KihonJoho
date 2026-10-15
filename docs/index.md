@@ -15,6 +15,7 @@
 | JSONの意味と制約 | [データモデル](/data-model)・[本文形式](/content-format)・[図描画・問題生成](/diagram-generation)・[Schema](/schemas)・[全フィールド辞書](/schema-reference) |
 | 具体的なレコード | [サンプル](/samples) |
 | アプリの振る舞い | [出題・セッション](/sessions)・[画面](/screens)・[出典表示](/attribution) |
+| 詳細解説の実装方針と受入条件 | [詳細解説UIの実装規約](/detailed-explanations#詳細解説uiの実装規約)・[詳細解説UIの受入条件](/acceptance#詳細解説uiの受入条件) |
 | 実装の責務と更新 | [構成](/architecture)・[保守](/maintenance) |
 | 検証と運用 | [受入条件](/acceptance)・[編集方法](/contributing)・[検証記録](/verification)・[ライセンス](/licenses) |
 
