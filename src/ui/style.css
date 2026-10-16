@@ -774,6 +774,13 @@ select {
 }
 .bookmark-feedback .icon-button {
   flex-shrink: 0;
+  margin-left: auto;
+}
+.bookmark-feedback > span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: left;
 }
 .toolbar-study-actions button[aria-pressed="true"] {
   color: var(--toolbar-text);
@@ -817,23 +824,51 @@ select {
   min-width: 0;
 }
 .exam-app-toolbar {
+  display: grid;
+  grid-template-columns: auto minmax(100px, 1fr) minmax(0, 2fr) auto;
   min-height: 52px;
   background: var(--surface);
   border-bottom: 1px solid var(--toolbar-border);
 }
+.exam-app-toolbar > .exam-brand { grid-area: 1 / 1; }
+.exam-app-toolbar > .toolbar-set { grid-area: 1 / 2 / 2 / 4; }
+.exam-app-toolbar:has(> .header-messages:not(:empty)) > .toolbar-set {
+  grid-column-end: 3;
+}
 .exam-app-toolbar > .header-messages {
-  flex: 2 1 280px;
+  grid-area: 1 / 3;
+  align-self: stretch;
   min-width: 0;
+  min-height: 0;
+  /* 通知の内容をヘッダの寸法計算から外し、既存の行内で読めるようにする。 */
+  contain: size;
+  overflow: auto;
 }
 .exam-app-toolbar > .header-messages > .notice-inline,
-.exam-app-toolbar > .header-messages > .error-banner {
+.exam-app-toolbar > .header-messages > .error-banner,
+.exam-app-toolbar > .header-messages > .loading-bar,
+.exam-app-toolbar > .header-messages > .bookmark-feedback {
+  min-height: 100%;
   padding: 4px 8px;
   font-size: 11px;
   line-height: 1.5;
   text-wrap: pretty;
   border-radius: 5px;
 }
-.exam-app-toolbar .toolbar-tools { flex-shrink: 0; }
+.exam-app-toolbar > .header-messages > .bookmark-feedback {
+  height: 100%;
+  gap: 8px;
+}
+.exam-app-toolbar .bookmark-feedback > span {
+  max-height: 100%;
+  overflow: auto;
+}
+.exam-app-toolbar .bookmark-feedback .icon-button {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 6px;
+}
+.exam-app-toolbar .toolbar-tools { grid-area: 1 / 4; }
 .exam-material-toolbar,
 .exam-answer-toolbar {
   min-height: 50px;
@@ -881,6 +916,7 @@ select {
   border-left: 1px solid var(--toolbar-border);
   padding-left: 14px;
 }
+.toolbar-menu-toggle { display: none; }
 .toolbar-study-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2442,6 +2478,17 @@ dialog details {
   .exam-answer-toolbar {
     gap: 14px;
   }
+  .exam-app-toolbar {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .exam-app-toolbar > .toolbar-set,
+  .exam-app-toolbar > .header-messages {
+    grid-area: 1 / 2;
+  }
+  .exam-app-toolbar:has(> .header-messages:not(:empty)) > .toolbar-set {
+    visibility: hidden;
+  }
+  .exam-app-toolbar .toolbar-tools { grid-column: 3; }
   .toolbar-tools {
     padding-left: 8px;
   }
@@ -2534,7 +2581,86 @@ dialog details {
     gap: 10px 14px;
   }
   .exam-app-toolbar {
-    flex-wrap: wrap;
+    position: relative;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .exam-app-toolbar:has(> .header-messages:not(:empty)) > .toolbar-set {
+    visibility: visible;
+  }
+  .exam-app-toolbar > .header-messages {
+    position: absolute;
+    grid-area: auto;
+    z-index: 80;
+    inset: 6px 12px auto;
+    max-height: min(50dvh, 320px);
+    contain: none;
+  }
+  .exam-app-toolbar > .header-messages > .notice-inline,
+  .exam-app-toolbar > .header-messages > .error-banner,
+  .exam-app-toolbar > .header-messages > .loading-bar,
+  .exam-app-toolbar > .header-messages > .bookmark-feedback {
+    min-height: 0;
+    padding: 8px 12px;
+    background: var(--translucent-surface);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    backdrop-filter: blur(8px);
+  }
+  .exam-app-toolbar > .header-messages > .bookmark-feedback {
+    height: auto;
+    font-size: 12px;
+  }
+  .exam-app-toolbar .bookmark-feedback > span {
+    max-height: none;
+    overflow: visible;
+  }
+  .exam-app-toolbar .bookmark-feedback .icon-button {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 8px;
+  }
+  .exam-app-toolbar .toolbar-tools {
+    position: relative;
+    grid-area: 1 / 3;
+  }
+  .exam-app-toolbar .toolbar-menu-toggle {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    color: var(--toolbar-text);
+  }
+  .exam-app-toolbar .toolbar-study-actions {
+    display: none;
+    position: absolute;
+    z-index: 60;
+    top: calc(100% + 8px);
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    width: max-content;
+    min-width: 180px;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100dvh - 80px);
+    overflow: auto;
+    padding: 6px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--translucent-surface);
+    box-shadow: 0 4px 16px var(--shadow-color);
+    backdrop-filter: blur(8px);
+  }
+  .exam-app-toolbar .toolbar-tools[data-open="true"] > .toolbar-study-actions {
+    display: flex;
+  }
+  .exam-app-toolbar .toolbar-study-actions button {
+    justify-content: flex-start;
+    min-height: 44px;
+    padding: 10px 12px;
+    font-size: 12px;
+    gap: 8px;
   }
   .toolbar-set {
     flex: 1;

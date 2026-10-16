@@ -99,6 +99,7 @@ import {
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
 import { StudyTerms } from "./StudyTerms";
+import { StudyActions } from "./StudyActions";
 import { latestLearningSelection, outdatedQuestionIndexes, QUESTION_UPDATE_NOTICE } from "../core/question-updates";
 import { SearchPage } from "./SearchPage";
 import { emptySearch, parseSearchRoute, searchRouteHash, type SearchRoute } from "../core/search";
@@ -1510,58 +1511,52 @@ export function App() {
                     <small>{run.set.title}</small>
                   </div>
                   {notifications}
-                  <div
-                    className="toolbar-tools"
-                    role="group"
-                    aria-label="学習・操作補助"
-                  >
-                    <div className="toolbar-study-actions">
-                      <button
-                        aria-label={
-                          bookmarked
-                            ? "ブックマークから削除"
-                            : "ブックマークに追加"
-                        }
-                        aria-pressed={bookmarked}
-                        disabled={
-                          !currentBookmark ||
-                          bookmarkPending ||
-                          Boolean(busy || error)
-                        }
-                        onClick={() => void toggleBookmark()}
-                      >
-                        <BookmarkIcon
-                          size={16}
-                          fill={bookmarked ? "currentColor" : "none"}
-                        />
-                        {bookmarked ? "保存済み" : "ブックマーク"}
-                      </button>
-                      {!isReview && run.exam.mode === "study" && (
-                        <>
-                          <button
-                            disabled={Boolean(error || busy)}
-                            onClick={() => pause()}
-                          >
-                            <Pause size={16} />
-                            {run.session.status === "paused"
-                              ? "再開"
-                              : "一時停止"}
-                          </button>
-                          <button
-                            disabled={!canAnswer || entry.revealed}
-                            onClick={reveal}
-                          >
-                            <Eye size={16} />
-                            正答を見る
-                          </button>
-                        </>
-                      )}
-                      <button disabled={Boolean(busy)} onClick={() => setDialog("list")}>
-                        <ListChecks size={18} />
-                        問題一覧
-                      </button>
-                    </div>
-                  </div>
+                  <StudyActions key={`${run.session.id}:${currentIndex}:${view}`}>
+                    <button
+                      aria-label={
+                        bookmarked
+                          ? "ブックマークから削除"
+                          : "ブックマークに追加"
+                      }
+                      aria-pressed={bookmarked}
+                      disabled={
+                        !currentBookmark ||
+                        bookmarkPending ||
+                        Boolean(busy || error)
+                      }
+                      onClick={() => void toggleBookmark()}
+                    >
+                      <BookmarkIcon
+                        size={16}
+                        fill={bookmarked ? "currentColor" : "none"}
+                      />
+                      {bookmarked ? "保存済み" : "ブックマーク"}
+                    </button>
+                    {!isReview && run.exam.mode === "study" && (
+                      <>
+                        <button
+                          disabled={Boolean(error || busy)}
+                          onClick={() => pause()}
+                        >
+                          <Pause size={16} />
+                          {run.session.status === "paused"
+                            ? "再開"
+                            : "一時停止"}
+                        </button>
+                        <button
+                          disabled={!canAnswer || entry.revealed}
+                          onClick={reveal}
+                        >
+                          <Eye size={16} />
+                          正答を見る
+                        </button>
+                      </>
+                    )}
+                    <button disabled={Boolean(busy)} onClick={() => setDialog("list")}>
+                      <ListChecks size={18} />
+                      問題一覧
+                    </button>
+                  </StudyActions>
                 </div>
               </header>
               <div
