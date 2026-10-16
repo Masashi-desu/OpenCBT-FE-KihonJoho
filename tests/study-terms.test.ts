@@ -12,6 +12,7 @@ import type { Question } from "../src/core/types";
 // Fixed review references, independent of the production glossary. Evidence:
 // IPA syllabus terminology, NISTIR 7581/SP 800-145, IPA PSIRT/J-CRAT, NI PID.
 const acronymFacts: Record<string, [string, string]> = {
+  Ajax: ["Asynchronous JavaScript and XML", "非同期"],
   CPU: ["Central Processing Unit", "中央処理装置"],
   GPU: ["Graphics Processing Unit", "並列"],
   DMA: ["Direct Memory Access", "直接記憶アクセス"],

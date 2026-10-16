@@ -52,6 +52,15 @@ const wordingRevisedSources = new Set([
   "2026-b-5",
 ]);
 
+// These revisions remove answer cues or restore the source's example choices.
+const knowledgeQualityNotes: Record<string, string> = {
+  "2024-a-5": " 定義を前提として具体例を選ぶ原形式を維持し、四つの選択肢を独自のWebサービス利用事例にした。入出力の連結・画面への組込み・データの統合・部分更新を区別する。",
+  "2024-a-10": " 攻撃名から有効な対策を選ぶ。正答の方針を先に示す目的の補足を出題本文から除いた。",
+  "2025-a-1": " 用語から説明を選ぶ。事前学習・強化学習・検索拡張生成の定義や実施段階を前置きせず、ファインチューニングの事前学習済みモデルという原前提だけを保持する。",
+  "2026-a-11": " 発生した問題から対策を選ぶ。問題の状況を維持し、テストやレビューなど解法を先に示す補足目的を除いた。",
+  "2026-a-12": " グラフの使い方を選ぶ。表示量をそのまま読める独自の対象名を累積フロー図・ガントチャートへ置き換え、各グラフの軸・表示方法・用途を区別する。",
+};
+
 export const additionalDefinitions = [
   ...knowledgeDefinitions,
   ...subjectADefinitions,
@@ -73,7 +82,10 @@ export const additionalDefinitions = [
         }
       : { ...d, version: "3.2.0" as const },
   )
-  .map(d => wordingRevisedSources.has(d.source) ? { ...d, version: "3.4.0" as const } : d);
+  .map(d => wordingRevisedSources.has(d.source) ? { ...d, version: "3.4.0" as const } : d)
+  .map(d => knowledgeQualityNotes[d.source]
+    ? { ...d, version: "3.5.0" as const, notes: d.notes + knowledgeQualityNotes[d.source] }
+    : d);
 if (
   new Set(additionalDefinitions.map((d) => d.source)).size !==
   additionalDefinitions.length

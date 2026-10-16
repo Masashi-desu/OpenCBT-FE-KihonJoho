@@ -376,7 +376,7 @@ export const generationContracts: Contract[] = calculationGenerationContracts.ma
   },
 );
 export function contractFor(t: Template) {
-  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
   return generationContracts.find(
     (c) =>
@@ -386,7 +386,7 @@ export function contractFor(t: Template) {
 }
 export function validateTemplateContract(t: Template) {
   if (
-    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "3.2.0", "3.3.0", "3.4.0"].includes(
+    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(
       t.generatorRef.version,
     )
   )
@@ -438,7 +438,7 @@ export function checkParameters(t: Template, v: number[]) {
     )
   )
     throw new DataError("PARAMETER_DOMAIN", "生成値が許可域を外れています");
-  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version)) {
     checkAdditionalParameters(t, v);
     return;
   }
@@ -510,7 +510,7 @@ async function sampleParameters(seed: string, t: Template) {
     ] };
   }
   for (let attempt = 0; attempt < 256; attempt++) {
-    const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0"].includes(t.generatorRef.version)
+    const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version)
       ? []
       : ((await sampleCalculationInputs(c.source, integer)) ?? []);
     if (!values.length)
@@ -907,7 +907,7 @@ export function bindQuestion(
 ): Question {
   validateTemplateContract(t);
   checkParameters(t, v);
-  if (["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
   if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version))
     return bindLegacyQuestion(base, t, v, instanceId, at);

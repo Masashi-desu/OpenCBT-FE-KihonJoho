@@ -226,13 +226,13 @@ test("changing a knowledge subject also changes subject-specific premises", () =
     {
       source: "2024-a-5",
       target: 3,
-      expected: /Webページにおける部分更新による画面操作の例はどれか/,
+      expected: /WebページにおけるAjaxの例はどれか/,
       incorrect: /複数のWebサービスを組み合わせる部分更新/,
     },
     {
       source: "2025-a-1",
       target: 1,
-      expected: /基礎となる表現や規則を学ぶ段階で行う事前学習/,
+      expected: /自然言語処理において、事前学習に関する記述/,
       incorrect: /事前学習済みのモデルに対して行う事前学習/,
     },
     {

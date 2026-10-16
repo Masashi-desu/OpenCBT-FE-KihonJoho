@@ -11,6 +11,12 @@ export type StudyTerm = {
 
 export const studyAcronyms: StudyTerm[] = [
   {
+    term: "Ajax",
+    expansion: "Asynchronous JavaScript and XML",
+    meaning: "非同期の通信でサーバからデータを取得し、Webページ全体を読み直さずに必要な部分を更新する技術。現在はXML以外の形式も利用する。",
+    aliases: ["AJAX"],
+  },
+  {
     term: "CPU",
     expansion: "Central Processing Unit",
     meaning: "中央処理装置。プログラムの命令を解釈し、演算や装置の制御を行う。",

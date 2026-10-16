@@ -53,12 +53,15 @@ function assertNotes(source: string, q: Question, b: Bundle, values: number[]) {
   if (source === "2024-a-5" && values[0] === 0)
     assert.match(visible, /入出力処理を連結.*新たなサービス/);
   if (source === "2025-a-1") {
-    if (values[0] === 0 || values[0] === 2)
+    if (values[0] === 0)
       assert.match(visible, /事前学習済みのモデルに対して行う/);
     else if (values[0] === 1) {
-      assert.match(visible, /基礎となる表現や規則を学ぶ段階で行う事前学習/);
+      assert.match(visible, /自然言語処理において、事前学習に関する記述/);
       assert(!visible.includes("事前学習済みのモデルに対して行う"));
-    } else assert.match(visible, /モデルの利用時に行う検索拡張生成/);
+    } else {
+      assert.match(visible, /自然言語処理において、(?:強化学習|検索拡張生成)に関する記述/);
+      assert(!visible.includes("事前学習済みのモデルに対して行う"));
+    }
   }
   if (source === "2025-a-5")
     assert.match(
@@ -143,7 +146,7 @@ test("all 103 sources display their required premises, notation, units and comme
       );
     // Small conceptual subjects and form branches are exhaustively covered.
     if (
-      ["3.2.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version) &&
+      ["3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version) &&
       t.parameterDomain.fields![0].maximum <= 15
     )
       for (
@@ -230,7 +233,7 @@ test("missing notes cannot be supplied only by an explanation or diagram alterna
   );
 });
 
-test("unpublished obsolete versions are rejected for new generation", () => {
+test("obsolete generator versions are rejected for new generation", () => {
   const b = fixture();
   for (const t of b.templates) {
     const previous = ["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version)
