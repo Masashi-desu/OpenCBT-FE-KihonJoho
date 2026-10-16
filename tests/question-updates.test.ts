@@ -55,9 +55,9 @@ test("all old bookmark revisions resolve the current source and current generato
     const template = row.linked[0], base = latest.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
     for (const change of base.origin.changes.slice(0, -1))
       assert.equal(change.answerDetails, undefined, "past question text must not remain in change records");
-    if (["2.3.0", "3.4.0"].includes(template.generatorRef.version)) {
+    if (["2.3.0", "2.4.0", "3.4.0"].includes(template.generatorRef.version)) {
       const retired = structuredClone(template);
-      retired.generatorRef.version = template.generatorRef.version === "2.3.0" ? "2.1.0" : ["2025-b-4", "2025-b-5"].includes(row.original.id.replace("question-ipa-", "")) ? "3.3.0" : "3.2.0";
+      retired.generatorRef.version = template.generatorRef.version === "2.4.0" ? "2.3.0" : template.generatorRef.version === "2.3.0" ? "2.1.0" : ["2025-b-4", "2025-b-5"].includes(row.original.id.replace("question-ipa-", "")) ? "3.3.0" : "3.2.0";
       assert.throws(() => validateTemplateContract(retired), { code: "GENERATOR_REF" });
     }
     for (const questionRef of [refOf(row.original), row.linked[0].baseQuestionRef]) {

@@ -233,7 +233,7 @@ test("missing notes cannot be supplied only by an explanation or diagram alterna
 test("unpublished obsolete versions are rejected for new generation", () => {
   const b = fixture();
   for (const t of b.templates) {
-    const previous = ["2.1.0", "2.2.0", "2.2.1", "2.3.0"].includes(t.generatorRef.version)
+    const previous = ["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version)
       ? ["2.0.0"]
       : ["3.0.0", "3.0.1", "3.1.0"];
     for (const version of previous) {

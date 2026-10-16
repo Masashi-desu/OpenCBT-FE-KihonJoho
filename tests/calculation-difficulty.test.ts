@@ -32,8 +32,8 @@ const text = (block: Block) =>
       ? block.rows[0].join(":")
       : "";
 const fractionValue = (raw: string, radix: number) => {
-  const digits = raw.split(".")[1];
-  const integer = [...digits].reduce((value, digit) => value * BigInt(radix) + BigInt(parseInt(digit, radix)), 0n);
+  const [whole, digits] = raw.split(".");
+  const integer = [...whole + digits].reduce((value, digit) => value * BigInt(radix) + BigInt(parseInt(digit, radix)), 0n);
   return Number(integer) / Number(BigInt(radix) ** BigInt(digits.length));
 };
 const options = (q: Question) =>
@@ -79,7 +79,7 @@ function reference(source: string, v: number[], q: Question): number[] {
   const n = v.map(BigInt);
   switch (source) {
     case "2023-a-1":
-      return [Number(n[2]) / 8];
+      return [Number(n[3] * 8n + n[2]) / 8];
     case "2024-a-3": {
       const rows = tableRows(q)[0].rows.map((r) => r.slice(1).map(Number));
       assert.deepEqual(rows, [
@@ -218,7 +218,7 @@ function verify(source: string, v: number[], q = generate(source, v)) {
         (n) =>
           Number.isFinite(n) &&
           n >= 0 &&
-          (!review.maximum || n <= review.maximum),
+          (!review.maximum || n <= review.maximum + (source === "2023-a-1" ? v[3] : 0)),
       ),
     );
     assert(
@@ -249,7 +249,7 @@ function verify(source: string, v: number[], q = generate(source, v)) {
       );
       assert(
         Math.abs(row[0] - expected[0]) + 1e-8 >=
-          ((nearest / review.correct[0]) * expected[0]) / 2,
+          ((nearest / review.correct[0]) * (source === "2023-a-1" ? v[2] / 8 : expected[0])) / 2,
       );
     }
   }
@@ -269,7 +269,7 @@ for (const review of calculationReviews)
   test(`${review.source}: source options, display precision and 256 seeds retain the reviewed calculation level`, async () => {
     const t = template(review.source),
       baseline = base(review.source);
-    assert(["2.2.0", "2.3.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version));
+    assert(["2.2.0", "2.3.0", "2.4.0", "3.3.0", "3.4.0"].includes(t.generatorRef.version));
     verify(review.source, t.referenceParameters.values, baseline);
     assert.deepEqual(
       options(baseline)
@@ -301,9 +301,9 @@ for (const review of calculationReviews)
     }
   });
 
-test("fraction conversion covers all 84 inputs in all 12 directions with visible bases and exact unique answers", async () => {
+test("fraction conversion covers all 21504 inputs including multi-digit integers in all 12 directions", async () => {
   const source = "2023-a-1", t = template(source);
-  assert.equal(t.generatorRef.version, "2.3.0");
+  assert.equal(t.generatorRef.version, "2.4.0");
   assert.equal(cleanText(base(source)), "16進小数0.Cを10進小数に変換したものはどれか。");
   const original = bundle.questions.find(q => q.id === "question-ipa-2023-a-1")!;
   for (const revision of [5, 6, 7, 8, 9])
@@ -315,40 +315,50 @@ test("fraction conversion covers all 84 inputs in all 12 directions with visible
   const signatures = new Map<number, string>();
   for (const fromBase of [2, 8, 10, 16]) for (const toBase of [2, 8, 10, 16]) {
     if (fromBase === toBase) continue;
-    for (let n = 1; n <= 7; n++) {
-      const q = verify(source, [fromBase, toBase, n]);
-      const match = /^(\d+)進小数(0\.[\dA-F]+)を(\d+)進小数に変換したものはどれか。$/.exec(cleanText(q));
+    for (let integer = 0; integer <= 255; integer++) for (let n = 1; n <= 7; n++) {
+      const q = verify(source, [fromBase, toBase, n, integer]);
+      const match = /^(\d+)進小数([\dA-F]+\.[\dA-F]+)を(\d+)進小数に変換したものはどれか。$/.exec(cleanText(q));
       assert(match);
       const [, from, raw, to] = match;
       assert.equal(Number(from), fromBase);
       assert.equal(Number(to), toBase);
       const expected = fractionValue(raw, Number(from));
-      assert.equal(expected, n / 8);
+      assert.equal(expected, integer + n / 8);
+      assert.equal(parseInt(raw.split(".")[0], fromBase), integer);
       const strings = q.choices.map(c => c.content.blocks.map(text).join(""));
-      assert.equal(new Set(strings.map(s => s.length)).size, 1, "all choices have the same displayed precision");
+      assert.equal(new Set(strings.map(s => s.split(".")[1].length)).size, 1, "all choices have the same displayed fractional precision");
       const correct = q.choices.filter(c => fractionValue(c.content.blocks.map(text).join(""), Number(to)) === expected);
       assert.equal(correct.length, 1);
       assert.equal(correct[0].id, q.correctAnswer.choiceId);
       const signature = answerSignature(q);
-      if (signatures.has(n)) assert.equal(signature, signatures.get(n), "equal fractions compare equal across target bases");
-      else signatures.set(n, signature);
+      const units = integer * 8 + n;
+      if (signatures.has(units)) assert.equal(signature, signatures.get(units), "equal values compare equal across target bases");
+      else signatures.set(units, signature);
+      const explanation = q.explanation!.blocks.map(text).join("");
+      assert(explanation.endsWith(`${fromBase}進小数${raw}＝${toBase}進小数${correct[0].content.blocks.map(text).join("")}。`));
+      if (integer) {
+        assert(explanation.includes("整数部分の各桁"));
+        if (toBase !== 10) assert(explanation.includes(`${integer}÷${toBase}`));
+        const omitted = parseInt(raw.split(".")[0].slice(1) || "0", fromBase);
+        assert(strings.some(s => fractionValue(s, toBase) === omitted + n / 8), "a distractor omits the source integer's leading digit");
+      }
       const html = renderToStaticMarkup(createElement(Content, {
         content: q.prompt, bundle, assetUrls: {}, credit: false,
       }));
       assert(html.includes(cleanText(q)), "the question wording must be visible before answering");
-      inputs.add(`${fromBase}:${toBase}:${n}`);
+      inputs.add(`${fromBase}:${toBase}:${n}:${integer}`);
     }
   }
-  assert.equal(inputs.size, 84);
-  assert.equal(new Set(signatures.values()).size, 7, "distinct fractions remain distinct even when their digits match across bases");
+  assert.equal(inputs.size, 21504);
+  assert.equal(new Set(signatures.values()).size, 1792, "distinct integer and fractional values retain distinct signatures");
   const sampled = new Set<string>();
-  for (let seed = 0; seed < 1024; seed++) {
+  for (let seed = 0; seed < 262144; seed++) {
     const { values } = await parametersForSeed(seed.toString(16).padStart(32, "0"), t);
     checkParameters(t, values);
     sampled.add(values.join(":"));
   }
   assert.deepEqual(sampled, inputs, "all directions and values are reachable through the real sampler");
-  for (const invalid of [[1, 1], [16, 16, 6], [3, 10, 6], [2, 9, 6], [16, 10, 0], [16, 10, 8], [16, 10, 1.5]])
+  for (const invalid of [[1, 1], [16, 10, 6], [16, 16, 6, 0], [3, 10, 6, 0], [2, 9, 6, 0], [16, 10, 0, 0], [16, 10, 8, 0], [16, 10, 1.5, 0], [16, 10, 6, -1], [16, 10, 6, 256], [16, 10, 6, 0.5]])
     assert.throws(() => checkParameters(t, invalid));
 });
 
@@ -515,7 +525,7 @@ test("retention keeps its service choices and generates clean member counts with
   }
 });
 
-test("individual radix bookmark practice outlives its finite pool and preserves every answer", async () => {
+test("individual radix bookmark practice avoids adjacent numeric repeats and preserves every answer", async () => {
   const original = bundle.questions.find(
     (q) => q.id === "question-ipa-2023-a-1",
   )!;
@@ -554,8 +564,8 @@ test("individual radix bookmark practice outlives its finite pool and preserves 
           answerSignature(before.issued[i - 1]),
         );
         assert.notEqual(
-          run.instances[i].parameters.values[2],
-          before.instances[i - 1].parameters.values[2],
+          run.instances[i].parameters.values[3] * 8 + run.instances[i].parameters.values[2],
+          before.instances[i - 1].parameters.values[3] * 8 + before.instances[i - 1].parameters.values[2],
           "changing bases must not repeat the preceding numeric answer",
         );
         run = updateAnswer(
@@ -568,8 +578,8 @@ test("individual radix bookmark practice outlives its finite pool and preserves 
       assert.equal(run.session.id, sessionId);
     }
     assert(
-      conditions.size <= 84,
-      "the finite pool is reused without adjacent repeats",
+      conditions.size <= 100,
+      "the finite pool remains available without adjacent repeats",
     );
     assert.deepEqual(run.issued[0], saved.issued[0]);
     assert.deepEqual(run.session.entries[0], saved.session.entries[0]);

@@ -4,7 +4,7 @@
 // their question roles and concepts are checked by source-question-form and facts.
 export const sourcePrerequisites: Record<string, string[]> = {
   // User-requested expansion: both bases remain explicit before answering.
-  "2023-a-1": ["(?:2|8|10|16)進小数0\\.[\\dA-F]+を(?:2|8|10|16)進小数に変換"],
+  "2023-a-1": ["(?:2|8|10|16)進小数[\\dA-F]+\\.[\\dA-F]+を(?:2|8|10|16)進小数に変換"],
   "2023-a-2": ["双方向のポインタをもつリスト構造", "0は参照先がない"],
   "2023-a-3": ["高速化"],
   "2023-a-4": [],

@@ -275,8 +275,8 @@ fs.writeFileSync(output + "/motion.js", `async page => {
 const b = fixture(), original = b.questions.find(q => q.id === "question-ipa-2023-a-1")!;
 let run = startRun(await prepareRun(b, { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: { questionId: original.id, revision: original.revision } }, {}));
 run.session.entries[0].revealed = true; run = finishRun(run, "completed"); await validateRun(run);
-const [fromBase, toBase, numerator] = run.instances[0].parameters.values;
-const raw = (numerator / 8).toString(fromBase).toUpperCase();
+const [fromBase, toBase, numerator, integer] = run.instances[0].parameters.values;
+const raw = (integer + numerator / 8).toString(fromBase).toUpperCase();
 fs.writeFileSync(output + "/generated.js", `async page => {
   ${viewportHelper}
   const check=(ok,message)=>{if(!ok)throw Error(message)};await setViewport({width:1280,height:900});
@@ -302,13 +302,15 @@ const directions = new Map<string, number>();
 for (let attempt = 0; attempt < 128 && directions.size < 12; attempt++) {
   if (attempt) directionsRun = await appendRunQuestion(directionsRun);
   const index = directionsRun.issued.length - 1;
-  directions.set(directionsRun.instances[index].parameters.values.slice(0, 2).join("→"), index);
+  // Exercise multiple integer digits in every source and target base.
+  if (directionsRun.instances[index].parameters.values[3] >= 16)
+    directions.set(directionsRun.instances[index].parameters.values.slice(0, 2).join("→"), index);
 }
 if (directions.size !== 12) throw Error("All 12 fraction directions were not sampled within 128 questions");
 directionsRun = finishRun(directionsRun, "completed"); await validateRun(directionsRun);
 const cases = [...directions.values()].map(index => {
-  const [from, to, numerator] = directionsRun.instances[index].parameters.values;
-  return { index, from, to, raw: (numerator / 8).toString(from).toUpperCase(), answer: (numerator / 8).toString(to).toUpperCase() };
+  const [from, to, numerator, integer] = directionsRun.instances[index].parameters.values;
+  return { index, from, to, raw: (integer + numerator / 8).toString(from).toUpperCase(), answer: (integer + numerator / 8).toString(to).toUpperCase() };
 });
 fs.writeFileSync(output + "/directions.js", `async page => {
   ${viewportHelper}

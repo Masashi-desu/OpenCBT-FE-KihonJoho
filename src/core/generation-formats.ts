@@ -422,7 +422,7 @@ export function validateSourceFormat(q: Question, t: Template) {
     validateAdditionalFormat(q, t);
     return;
   }
-  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0"].includes(t.generatorRef.version)) return;
+  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version)) return;
   const formats: Record<string, [string[], number, string]> = {
     "hex-fraction": [["paragraph"], 4, "paragraph"],
     "logic-table": [["paragraph", "table"], 4, "table"],

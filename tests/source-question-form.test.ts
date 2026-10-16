@@ -16,7 +16,7 @@ import { Content } from "../src/ui/Content";
 // Original question intents reviewed independently from the generators. The
 // remaining 53 conceptual questions are fixed in knowledge-pairs.json.
 const originalIntents: Record<string, RegExp> = {
-  "2023-a-1": /(?:2|8|10|16)進小数0\.[\dA-F]+を(?:2|8|10|16)進小数に変換したものはどれか。/,
+  "2023-a-1": /(?:2|8|10|16)進小数[\dA-F]+\.[\dA-F]+を(?:2|8|10|16)進小数に変換したものはどれか。/,
   "2023-a-2": /値が変わるポインタ.*全て/,
   "2023-a-6": /成立する推移的関数従属/,
   "2023-a-10": /WAFの設置場所/,
