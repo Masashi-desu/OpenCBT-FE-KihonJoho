@@ -91,7 +91,12 @@ export async function detailSearchDocuments(bundle: Bundle, base: URL, signal?: 
   const owners = new Map<string, Question>();
   for (const question of searchableQuestions(bundle)) {
     const ref = question.detailedExplanationRef;
-    if (ref) owners.set(`${ref.directory}:${ref.revision}`, owners.get(`${ref.directory}:${ref.revision}`) ?? question);
+    if (ref) {
+      // One managed lesson can open different reviewed diagrams for each source.
+      const initial = ref.initialParameters ? JSON.stringify(Object.entries(ref.initialParameters).sort(([a], [b]) => a.localeCompare(b))) : "";
+      const key = `${ref.directory}:${ref.revision}${initial ? `:${initial}` : ""}`;
+      owners.set(key, owners.get(key) ?? question);
+    }
   }
   const jobs = [...owners.entries()], result: SearchDocument[] = [];
   let next = 0;

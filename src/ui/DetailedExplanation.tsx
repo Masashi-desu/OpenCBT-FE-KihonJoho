@@ -2,11 +2,11 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, LoaderCircle } from "lucide-react";
 import type { Bundle, DetailedExplanationRef, Run } from "../core/types";
 import {
-  DETAIL_TIMEOUT_MS, detailContext, detailMessage, loadDetailPackage, validateDetailAttribution,
-  type DetailContext, type DetailPackage, type DetailRoute,
+  DETAIL_TIMEOUT_MS, detailContext, detailMessage, detailPresentation, loadDetailPackage, validateDetailAttribution,
+  type DetailContext, type DetailPackage, type DetailPresentation, type DetailRoute,
 } from "../core/detailed-explanation";
 import { prepareDetailDocument } from "./detail-document";
-import { AttributionLine } from "./Content";
+import { DetailFooter } from "./DetailFooter";
 import { DetailReferences } from "./DetailReferences";
 import scrollbarCss from "./scrollbars.css?raw";
 import themeCss from "./tokens.css?raw";
@@ -37,24 +37,26 @@ export function useDetailedExplanation(ref: DetailedExplanationRef | undefined, 
   return { ...result, disable: () => setState({ key, loading: false }) };
 }
 
-export function DetailedExplanation({ run, route, theme, prepared, loading, onBack, onUnavailable, notifications }: {
+export function DetailedExplanation({ run, route, theme, prepared, loading, onBack, onUnavailable, notifications, onLicenses }: {
   run: Run; route: DetailRoute; theme: Theme; prepared?: PreparedDetail; loading: boolean;
-  onBack: () => void; onUnavailable: () => void; notifications?: ReactNode;
+  onBack: () => void; onUnavailable: () => void; notifications?: ReactNode; onLicenses: () => void;
 }) {
   const [context] = useState(() => detailContext(run, route, theme));
   return <DetailViewer bundle={run.bundle} context={context} theme={theme} prepared={prepared}
-    loading={loading} notifications={notifications} onBack={onBack} onUnavailable={onUnavailable} />;
+    loading={loading} notifications={notifications} onBack={onBack} onUnavailable={onUnavailable} onLicenses={onLicenses} />;
 }
 
-export function DetailViewer({ bundle, context, theme, prepared, loading, onBack, onUnavailable, backLabel = "通常解説へ戻る", notifications }: {
+export function DetailViewer({ bundle, context, theme, prepared, loading, onBack, onUnavailable, backLabel = "通常解説へ戻る", notifications, onLicenses }: {
   bundle: Bundle; context: DetailContext; theme: Theme; prepared?: PreparedDetail; loading: boolean;
-  onBack: () => void; onUnavailable: () => void; backLabel?: string; notifications?: ReactNode;
+  onBack: () => void; onUnavailable: () => void; backLabel?: string; notifications?: ReactNode; onLicenses: () => void;
 }) {
   const frame = useRef<HTMLIFrameElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const [token] = useState(() => crypto.randomUUID());
   const [ready, setReady] = useState(false);
   const [height, setHeight] = useState(1);
+  const [presentation, setPresentation] = useState<DetailPresentation>();
+  const selectedPresentation = useRef<DetailPresentation | undefined>(undefined);
   const failed = useRef(false);
   const initialized = useRef(false);
   const latestTheme = useRef(theme);
@@ -81,9 +83,15 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
       if (message === "error") {
         clearTimeout(timer); fail();
       } else if (message === "ready" && !failed.current) {
-        clearTimeout(timer); setReady(true);
+        const current = selectedPresentation.current ?? detailPresentation(prepared.pkg.manifest);
+        if (!current) { clearTimeout(timer); fail(); return; }
+        setPresentation(current); clearTimeout(timer); setReady(true);
       } else if (typeof message === "object" && !failed.current) {
-        setHeight(message.height);
+        if (message.type === "resize") setHeight(message.height);
+        else {
+          const current = detailPresentation(prepared.pkg.manifest, message.id);
+          if (current) { selectedPresentation.current = current; setPresentation(current); }
+        }
       }
     };
     window.addEventListener("message", receive);
@@ -123,13 +131,9 @@ export function DetailViewer({ bundle, context, theme, prepared, loading, onBack
           style={{ height }}
           src={new URL(import.meta.env.DETAIL_HOST_PATH, explanationBase()).href}
           sandbox="allow-scripts" referrerPolicy="no-referrer" onLoad={initialize} />
-        <AttributionLine content={{ attribution: prepared.pkg.manifest.attribution, blocks: [] }} bundle={bundle}
-          sourceLabels={Object.fromEntries(prepared.pkg.manifest.attribution.sourceRefs.map((ref) => {
-            const source = bundle.sources.find((s) => s.id === ref.sourceId);
-            return [ref.sourceId, source?.title.split(": ").at(-1) ?? "原資料"];
-          }))} />
         {prepared.pkg.manifest.references && <DetailReferences references={prepared.pkg.manifest.references} bundle={bundle} />}
       </>}
+      {ready && presentation && <DetailFooter presentation={presentation} bundle={bundle} onLicenses={onLicenses} />}
     </section>
   );
 }

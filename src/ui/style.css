@@ -3371,6 +3371,8 @@ dialog dt {
 .detail-main { width: 100%; max-width: none; }
 .detail-main .question-footer { max-height: none; overflow: visible; }
 .detail-page { position: relative; min-width: 0; }
+.detail-page > .question-footer { margin-top: 20px; max-height: none; overflow: visible; }
+.detail-page > .question-footer .question-footer-links button { min-height: 44px; }
 .detail-header { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 1rem; }
 .detail-header h1 { margin: 0; font-size: 1.25rem; }
 .detail-frame { display: block; width: 100%; height: 1px; border: 0; opacity: 0; }

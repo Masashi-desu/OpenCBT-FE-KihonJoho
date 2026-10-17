@@ -296,6 +296,12 @@
 | `files[].path` | 専用ディレクトリからの相対パス。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | maxLength=180 / pattern="^[a-zA-Z0-9_-]+(?:/[a-zA-Z0-9_-]+)*\\.(?:html&#124;css&#124;js&#124;png&#124;jpg&#124;jpeg&#124;webp&#124;woff2)$" |
 | `files[].mediaType` | 許可された資源種別。外部通信や実行依存は追加しない。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | enum=["text/html","text/css","text/javascript","image/png","image/jpeg","image/webp","font/woff2"] |
 | `files[].sha256` | 配布バイト列のSHA-256。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | pattern="^[a-f0-9]{64}$" |
+| `presentations` | 同じ解説内で切り替える表示内容ごとの出典・権利・改変情報。選択中の識別子を共通ホストへ通知し、表示中の内容だけをフッターへ示す。 | 任意 | 任意：省略時はパッケージ全体のattributionを使う。指定時は表示中の識別子の通知を必須とし、未登録の識別子で出典を変更しない。 | array | minItems=1 / maxItems=32 |
+| `presentations[]` | 一つの表示内容と、その表示に適用する出典・権利。 | 配列要素 | 要素：idはパッケージ内で一意にする。 | object | additionalProperties=false |
+| `presentations[].id` | 表示中の内容を共通ホストへ通知する識別子。 | 必須 | 必須：欠落・重複を拒否する。 | string | pattern="^[a-z0-9][a-z0-9-]{0,79}$" |
+| `presentations[].title` | 表示中の内容の名前。フッターと出典詳細で対象を明示する。 | 必須 | 必須：欠落を拒否する。 | string | minLength=1 / maxLength=120 |
+| `presentations[].attribution` | この表示内容に適用する作成主体・出典・権利。全体のattributionと同じ条件で検査する。 | 必須 | 必須：欠落を拒否する。 | object / common.schema.json#/$defs/attribution | additionalProperties=false |
+| `presentations[].modificationSummary` | 表示内容の改変又は独自追加の概要。原資料への改変と追加表現を区別する。 | 任意 | 任意：省略時は独立した改変概要を表示しない。 | string | minLength=1 / maxLength=1000 |
 
 ### parameters
 

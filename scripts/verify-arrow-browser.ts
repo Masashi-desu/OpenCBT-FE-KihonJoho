@@ -33,10 +33,10 @@ fs.writeFileSync(output + "/verify.js", `async page => {
   check(await frame.locator('.edge').count()===10 && await frame.locator('.event-node').count()===7,'graph topology');
   check(await frame.locator('#inspection-panel').isHidden(),'minimal initial state');
   check(await frame.locator('#duration').count()===0,'no permanent editor');
-  check(await frame.locator('select').count()===0,'conditions dropdown removed');
+  check(await frame.locator('select:not(#pattern)').count()===0,'conditions dropdown removed');
   check(await frame.locator('header, .toolbar, #total, #condition-note, .diagram-footer, .path-reservation').count()===0,'internal header and footer removed');
-  check(await page.locator('main > .question-footer.expanded').count()===1,'source credits always expanded');
-  check(await page.locator('main > .question-footer .footer-expand').count()===0,'no collapse action');
+  check(await page.locator('.detail-page > .question-footer.expanded').count()===1,'source credits always expanded');
+  check(await page.locator('.detail-page > .question-footer .footer-expand').count()===0,'no collapse action');
   check(await frame.locator('#inspection-placeholder').isVisible(),'reserved region visible before selection');
   await frame.locator('#show-critical').check();
   check(await frame.locator('.critical').count()===5,'initial continuous path including dummy');
@@ -218,7 +218,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   const inputs=await frame.evaluate(()=>Object.values(window.ArrowEngine.initialState(window.OpenCBTDetail.context).values).map(String));
   check(JSON.stringify(inputs)===${JSON.stringify(JSON.stringify(values.map(String)))},'saved inputs passed exactly');
   check((await frame.locator('#inspection-placeholder').innerText()).includes('保存済み条件'),'saved initial condition');
-  check(await frame.locator('select').count()===0,'no conditions dropdown on generated detail');
+  check(await frame.locator('select:not(#pattern)').count()===0,'no conditions dropdown on generated detail');
   await frame.locator('[data-id="A"] .edge-label-bg').click();
   await frame.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
   await frame.waitForFunction(()=>Math.abs(innerHeight-Math.ceil(document.body.getBoundingClientRect().bottom+scrollY))<=1);
@@ -226,7 +226,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   check(await total()===${JSON.stringify(days + 1 + "日")},'generated edit from diagram');
   await frame.locator('#reset').click();
   check(await total()===${JSON.stringify(days + "日")},'reset uses saved conditions');
-  check(await page.locator('main > .question-footer.expanded').count()===1&&await page.locator('main > .question-footer .footer-expand').count()===0,'review credits always expanded');
+  check(await page.locator('.detail-page > .question-footer.expanded').count()===1&&await page.locator('.detail-page > .question-footer .footer-expand').count()===0,'review credits always expanded');
   const isolation=await frame.evaluate(()=>{let blocked=false;try{parent.document.body}catch{blocked=true}return {blocked,frozen:Object.isFrozen(window.OpenCBTDetail.context)}});
   check(isolation.blocked&&isolation.frozen,'isolated immutable host');
   await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();

@@ -1826,9 +1826,7 @@ export function App() {
           {isDetail && run && detailRoute && <>
             <DetailedExplanation key={detailRouteHash(detailRoute)} run={run} route={detailRoute}
               theme={theme} notifications={notifications} prepared={detail.prepared} loading={detail.loading}
-              onBack={closeDetail} onUnavailable={() => { detail.disable(); closeDetail(); }} />
-            <QuestionFooter question={q!} bundle={run.bundle} entry={entry!} revealed alwaysExpanded
-              onSource={() => setDialog("source")} onLicenses={() => setDialog("licenses")} />
+              onBack={closeDetail} onLicenses={() => setDialog("licenses")} onUnavailable={() => { detail.disable(); closeDetail(); }} />
           </>}
           {view === "result" && run?.result && (
             <>

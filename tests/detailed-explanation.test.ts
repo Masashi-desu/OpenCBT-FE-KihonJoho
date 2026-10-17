@@ -6,6 +6,7 @@ import path from "node:path";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { inertDetailHtml } from "../src/ui/detail-document";
+import { DetailFooter } from "../src/ui/DetailFooter";
 import { DetailReferences } from "../src/ui/DetailReferences";
 import { AttributionLine } from "../src/ui/Content";
 import { QuestionFooter } from "../src/ui/QuestionFooter";
@@ -16,7 +17,7 @@ import { prepareRun, startRun, finishRun } from "../src/core/session";
 import {
   canOpenDetail, detailContext, detailMessage, detailRouteHash, parseDetailRoute,
   loadDetailPackage, validateDetailManifest, validDetailParameters,
-  validateDetailAttribution,
+  validateDetailAttribution, detailPresentation,
   type DetailManifest, type DetailRoute,
 } from "../src/core/detailed-explanation";
 import { validateDetailPackages } from "../scripts/validate-detail-packages";
@@ -264,4 +265,50 @@ test("CSS preparation stays inert under main CSP without rewriting script string
   assert(prepared.includes('media="screen > print"'));
   assert(!prepared.slice(raw.length).match(/<style\b/i));
   assert(prepared.includes(btoa('body{color:red}')));
+});
+
+
+test("visible lesson presentations validate each source and choose only declared metadata", () => {
+  const bundle = fixture(), manifest: DetailManifest = JSON.parse(fs.readFileSync("public/explanations/ipa-2024-a-13/manifest.json", "utf8"));
+  validateDetailManifest(manifest); validateDetailAttribution(manifest, bundle);
+  const before = JSON.stringify(manifest);
+  for (const [id, year, number, page] of [["2024-a-13", 2024, "13", 6], ["2025-a-14", 2025, "14", 8]] as const) {
+    const visible = detailPresentation(manifest, id)!;
+    assert.equal(visible.attribution.sourceRefs.length, 1);
+    assert.equal(visible.attribution.sourceRefs[0].locator.year, year);
+    assert.equal(visible.attribution.sourceRefs[0].locator.questionNumber, number);
+    assert.equal(visible.attribution.sourceRefs[0].locator.page, page);
+    const html = renderToStaticMarkup(createElement(DetailFooter, { presentation: visible, bundle, onLicenses: () => {} }));
+    assert(html.includes(`${year}年度`)); assert(html.includes(`問${number}`)); assert(html.includes(`p.${page}`));
+    assert(html.includes(`©${year}`)); assert(!html.includes(`©${year === 2024 ? 2025 : 2024}`));
+    assert(html.includes("原資料に基づく改変あり")); assert(html.includes("独自解説・追加表現")); assert(html.includes("CC0-1.0"));
+    assert(!html.includes("公式公開問題")); assert(!html.includes("改変なし")); assert(!html.includes("正答："));
+    assert.equal((html.match(/<footer /g) ?? []).length, 1); assert(!html.includes("material-credit"));
+  }
+  for (const id of [undefined, "unregistered", "__proto__", "constructor"]) assert.equal(detailPresentation(manifest, id), undefined);
+  assert.equal(JSON.stringify(manifest), before);
+  const fallback = { ...manifest, presentations: undefined };
+  assert.deepEqual(detailPresentation(fallback), { id: "default", title: manifest.title, attribution: manifest.attribution });
+  const duplicate = structuredClone(manifest); duplicate.presentations!.push(duplicate.presentations![0]);
+  assert.throws(() => validateDetailManifest(duplicate));
+  for (const field of ["id", "title", "attribution"]) {
+    const missing: any = structuredClone(manifest); delete missing.presentations[0][field]; assert.throws(() => validateDetailManifest(missing));
+  }
+  const unknown = structuredClone(manifest); unknown.presentations![0].attribution.sourceRefs[0].sourceId = "source-unregistered";
+  assert.throws(() => validateDetailAttribution(unknown, bundle));
+  const denied = structuredClone(bundle); denied.rights.find(r => r.id === "rights-ipa-2024-a")!.uses.browserDisplay = "not_allowed";
+  assert.throws(() => validateDetailAttribution(manifest, denied));
+});
+
+test("presentation messages require a bounded declared identifier, exact frame, opaque origin and token", () => {
+  const source = {} as Window, token = "presentation-token";
+  const event = { source, origin: "null", data: { type: "opencbt:detail:presentation", apiVersion: 1, token, id: "2024-a-13" } };
+  assert.deepEqual(detailMessage(event, source, token), { type: "presentation", id: "2024-a-13" });
+  for (const id of [undefined, null, 2024, "", "a".repeat(81), "../source", "<script>", "A B"]) {
+    assert.equal(detailMessage({ ...event, data: { ...event.data, id } }, source, token), undefined);
+  }
+  assert.equal(detailMessage({ ...event, origin: "https://example.test" }, source, token), undefined);
+  assert.equal(detailMessage(event, {} as Window, token), undefined);
+  assert.equal(detailMessage(event, source, "previous-mount"), undefined);
+  assert.equal(detailMessage({ ...event, data: { ...event.data, apiVersion: 2 } }, source, token), undefined);
 });

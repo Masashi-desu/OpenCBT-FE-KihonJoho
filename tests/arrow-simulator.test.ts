@@ -4,7 +4,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 import { fixture } from "./fixtures";
 import { contentHash } from "../src/core/hash";
-import { loadDetailPackage } from "../src/core/detailed-explanation";
+import { detailContext, questionDetailContext, loadDetailPackage } from "../src/core/detailed-explanation";
 import { bindQuestion } from "../src/core/generation";
 import { makeBookmark } from "../src/core/bookmarks";
 import { prepareRun, startRun, updateAnswer, finishRun, validateRun, appendRunQuestion } from "../src/core/session";
@@ -22,23 +22,33 @@ const topology = [
   ["E", 2, 5], ["F", 3, 5], ["G", 4, 5], ["H", 5, 6],
   ["dummy-upper", 2, 3], ["dummy-lower", 3, 4],
 ] as const;
-function independent(values: Record<string, bigint | number | string>, mask: number) {
-  const edges = topology.filter(([id]) => id === "dummy-upper" ? mask & 1 : id === "dummy-lower" ? mask & 2 : true)
+// Separately transcribed from IPA 2025 A Q14 p.8, including both dummy directions.
+const topology2025 = [
+  ["A", 0, 1], ["B", 1, 3], ["C", 3, 5], ["D", 5, 6], ["E", 1, 2],
+  ["F", 1, 5], ["G", 3, 4], ["H", 3, 6], ["I", 6, 7],
+  ["dummy-e", 2, 3], ["dummy-g", 4, 5],
+] as const;
+function independent(values: Record<string, bigint | number | string>, mask: number, pattern = "2024-a-13") {
+  const graph = pattern === "2025-a-14" ? topology2025 : topology, end = pattern === "2025-a-14" ? 7 : 6;
+  const edges = graph.filter(([id]) => ["dummy-upper", "dummy-e"].includes(id) ? mask & 1 : ["dummy-lower", "dummy-g"].includes(id) ? mask & 2 : true)
     .map(([id, from, to]) => ({ id, from, to, duration: id.startsWith("dummy") ? 0n : BigInt(values[id]) }));
   function routes(from: number, to: number, ids: string[] = [], duration = 0n): { ids: string[]; duration: bigint }[] {
     if (from === to) return [{ ids, duration }];
     return edges.filter(e => e.from === from).flatMap(e => routes(e.to, to, [...ids, e.id], duration + e.duration));
   }
   const maximum = (paths: { duration: bigint }[]) => paths.reduce((max, p) => p.duration > max ? p.duration : max, 0n);
-  const all = routes(0, 6), total = maximum(all), early = Array.from({ length: 7 }, (_, i) => maximum(routes(0, i))),
-    late = Array.from({ length: 7 }, (_, i) => total - maximum(routes(i, 6)));
+  const terminals = Array.from({ length: end + 1 }, (_, i) => i).filter(n => !edges.some(e => e.from === n));
+  const all = terminals.flatMap(n => routes(0, n)), total = maximum(all), early = Array.from({ length: end + 1 }, (_, i) => maximum(routes(0, i))),
+    late = Array.from({ length: end + 1 }, (_, i) => total - maximum(terminals.flatMap(n => routes(i, n))));
+  early[end] = total;
   return { edges, early, late, total, paths: all.filter(p => p.duration === total).map(p => p.ids) };
 }
-function verify(values: Record<string, bigint | number | string>, mask = 3) {
-  const r = engine.calculate(values, { "dummy-upper": Boolean(mask & 1), "dummy-lower": Boolean(mask & 2) }), expected = independent(values, mask);
+function verify(values: Record<string, bigint | number | string>, mask = 3, pattern = "2024-a-13") {
+  const lesson = engine.forPattern(pattern), dummies = Object.keys(lesson.pattern.dummyNames);
+  const r = lesson.calculate(values, { [dummies[0]]: Boolean(mask & 1), [dummies[1]]: Boolean(mask & 2) }), expected = independent(values, mask, pattern);
   assert.equal(r.total, expected.total);
-  assert.deepEqual(plain(engine.nodes.map((id: string) => r.earliest[id])), expected.early.map(String));
-  assert.deepEqual(plain(engine.nodes.map((id: string) => r.latest[id])), expected.late.map(String));
+  assert.deepEqual(plain(lesson.nodes.map((id: string) => r.earliest[id])), expected.early.map(String));
+  assert.deepEqual(plain(lesson.nodes.map((id: string) => r.latest[id])), expected.late.map(String));
   assert.deepEqual(plain(r.paths).map((p: string[]) => p.join(",")).sort(), expected.paths.map(p => p.join(",")).sort());
   for (const e of expected.edges) {
     const actual = r.edges.find((edge: any) => edge.id === e.id)!;
@@ -145,7 +155,87 @@ test("package assets, source rights, shared themes and overlay scrollbar copies 
   const fetcher = (async (url: any) => new Response(fs.readFileSync("public" + new URL(String(url)).pathname))) as typeof fetch;
   const pkg = await loadDetailPackage(q.detailedExplanationRef!, new URL("https://arrow.invalid/"), undefined, fetcher);
   assert(pkg); assert.equal(pkg.manifest.files.length, 7); assert.equal(pkg.manifest.attribution.origin, "adapted");
-  assert.deepEqual(pkg.manifest.attribution.rightsRefs, ["rights-ipa-2024-a", "rights-original"]);
+  assert.deepEqual(pkg.manifest.attribution.rightsRefs, ["rights-ipa-2024-a", "rights-ipa-2025-a", "rights-original"]);
   for (const [file, source] of [["theme.css", "tokens.css"], ["scrollbars.css", "scrollbars.css"]])
     assert.equal(new TextDecoder().decode(pkg.files[file].bytes), fs.readFileSync("src/ui/" + source, "utf8"));
+});
+
+
+test("2025 Q14 original, all three joins, official answer and regular explanation match independent routes", () => {
+  const lesson = engine.forPattern("2025-a-14"), r = verify(lesson.initial, 3, "2025-a-14");
+  assert.deepEqual(plain(lesson.initial), { A: 3, B: 6, C: 8, D: 6, E: 5, F: 14, G: 11, H: 15, I: 5 });
+  assert.equal(r.total, 31n);
+  assert.deepEqual(plain(r.earliest), { start: "0", branch: "3", lower: "8", join: "9", upper: "20", merge: "20", preend: "26", end: "31" });
+  assert.deepEqual(plain(r.paths), [["A", "B", "G", "dummy-g", "D", "I"]]);
+  assert.equal(lesson.formula(r, "join"), "max(3 + 6, 8 + 0) = 9日");
+  assert.equal(lesson.formula(r, "merge"), "max(9 + 8, 3 + 14, 20 + 0) = 20日");
+  assert.equal(lesson.formula(r, "preend"), "max(20 + 6, 9 + 15) = 26日");
+  const q = fixture().questions.find(q => q.id === "question-ipa-2025-a-14")!;
+  assert.equal(q.correctAnswer.choiceId, "choice-4");
+  assert.equal([27n, 28n, 29n, 31n].filter(v => v === r.total).length, 1);
+  assert(q.explanation.blocks.some((b: any) => b.text.includes("31日（エ）") && b.text.includes("A→B→G→ダミー（0日）→D→I")));
+  assert.equal(engine.initialState(questionDetailContext(q, "light")).pattern, "2025-a-14");
+  assert.equal(engine.initialState({ question: { id: "question-ipa-2024-a-13" } }).pattern, "2024-a-13");
+  for (const pattern of ["unknown", "__proto__", "constructor"]) {
+    assert.equal(engine.initialState({ initialParameters: { pattern } }).pattern, "2024-a-13");
+    assert.throws(() => engine.forPattern(pattern));
+  }
+});
+
+test("2025 Q14 exhausts 3^9 small inputs and four dummy states, plus path switches and exact large days", () => {
+  const lesson = engine.forPattern("2025-a-14"), ids = Object.keys(lesson.initial);
+  for (let code = 0; code < 3 ** 9; code++) {
+    let remaining = code; const values: Record<string, number> = {};
+    for (const id of ids) { values[id] = remaining % 3; remaining = Math.floor(remaining / 3); }
+    for (let mask = 0; mask < 4; mask++) verify(values, mask, "2025-a-14");
+  }
+  for (const [id, value, total, paths] of [["E", 7, 32, 1], ["F", 25, 39, 1], ["H", 17, 31, 2], ["H", 18, 32, 1], ["C", 11, 31, 2]] as const) {
+    const r = verify({ ...lesson.initial, [id]: value }, 3, "2025-a-14");
+    assert.equal(r.total, BigInt(total)); assert.equal(r.paths.length, paths);
+  }
+  assert.equal(verify(lesson.initial, 1, "2025-a-14").total, 29n, "G dummy removed: H determines completion");
+  assert.equal(verify({ ...lesson.initial, E: 7 }, 2, "2025-a-14").total, 31n, "E no longer delays B endpoint");
+  assert.equal(verify({ ...lesson.initial, E: 100 }, 2, "2025-a-14").total, 103n, "detached E must still finish");
+  assert.equal(verify({ ...lesson.initial, G: 100 }, 1, "2025-a-14").total, 109n, "detached G must still finish");
+  const huge = 10n ** 60n + 17n;
+  assert.equal(verify({ ...lesson.initial, I: huge }, 3, "2025-a-14").total, huge + 26n);
+  let seed = 52131;
+  for (let i = 0; i < 100; i++) {
+    const values = Object.fromEntries(ids.map(id => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return [id, seed % 1001]; }));
+    const r = verify(values, i % 4, "2025-a-14"), visited = new Set();
+    for (const step of lesson.steps(r)) if (step.kind === "node") {
+      for (const e of r.incoming[step.node]) assert(visited.has(e.from));
+      visited.add(step.node);
+    }
+    assert.equal(visited.size, 8);
+  }
+  assert.equal(lesson.steps(lesson.calculate(lesson.initial)).length, 12);
+});
+
+test("2025 generated inputs, current references, read-only detail and old revision rejection stay consistent", async () => {
+  const b = fixture(), t = b.templates.find(t => t.id === "template-source-2025-a-14")!, base = b.questions.find(q => q.id === t.baseQuestionRef.questionId)!;
+  assert.equal(await contentHash(base), t.originalContentSha256);
+  for (const input of [[3, 6, 8, 6, 5, 14, 11, 15, 5], Array(9).fill(1), Array(9).fill(20), [20, 1, 15, 2, 20, 1, 3, 20, 10]]) {
+    const q = bindQuestion(base, t, input, "arrow-2025", "2026-10-16T00:00:00Z");
+    const diagram: any = q.prompt.blocks.find(b => b.type === "diagram");
+    assert.deepEqual(diagram.scene.values, input);
+    const context = { question: q, generation: { generatorRef: t.generatorRef, parameters: { values: input } } }, before = JSON.stringify(context);
+    const origin = engine.initialState(context), r = verify(origin.values, 3, origin.pattern);
+    assert.deepEqual(plain(Object.values(origin.values)), input.map(String));
+    assert.equal(q.choices.find(c => c.id === q.correctAnswer.choiceId)!.content.blocks[0].type, "paragraph");
+    assert.equal((q.choices.find(c => c.id === q.correctAnswer.choiceId)!.content.blocks[0] as any).text, String(r.total));
+    assert(q.explanation.blocks.some((b: any) => b.text.includes(`最少日数は${r.total}日`)));
+    assert.equal(JSON.stringify(context), before);
+    assert.equal(engine.initialState(context, "2024-a-13").values.A, 30);
+    assert.deepEqual(q.detailedExplanationRef, base.detailedExplanationRef);
+  }
+  const original = b.questions.find(q => q.id === "question-ipa-2025-a-14")!;
+  let run = startRun(await prepareRun(b, { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: { questionId: original.id, revision: original.revision } }, {}));
+  run.session.entries[0].revealed = true; run = finishRun(run, "completed"); await validateRun(run);
+  const before = JSON.stringify(run), context = detailContext(run, { sessionId: run.session.id, entryIndex: 0, from: "review", initialParameters: {} }, "dark");
+  assert.deepEqual(plain(Object.values(engine.initialState(context).values)), run.instances[0].parameters.values.map(String));
+  assert.equal(JSON.stringify(run), before);
+  const outdated = structuredClone(run); outdated.instances[0].templateRef.revision--;
+  await assert.rejects(validateRun(outdated));
+  assert.equal(makeBookmark(b, { questionId: original.id, revision: 1 }, 0).questionRef.revision, original.revision);
 });

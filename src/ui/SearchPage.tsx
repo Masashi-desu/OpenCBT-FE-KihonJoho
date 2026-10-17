@@ -209,8 +209,7 @@ function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses
     </section>
     {route.view === "detail" && <>
       <DetailViewer key={question.id} context={context} notifications={notifications} bundle={bundle} theme={theme} prepared={detail.prepared} loading={detail.loading}
-        onBack={ordinary} onUnavailable={() => { onDetailUnavailable(); detail.disable(); setRevealed(true); onNavigate({ ...route, view: "question" }, true); }} />
-      <QuestionFooter question={question} bundle={bundle} revealed alwaysExpanded onSource={() => setSource(true)} onLicenses={onLicenses} />
+        onBack={ordinary} onLicenses={onLicenses} onUnavailable={() => { onDetailUnavailable(); detail.disable(); setRevealed(true); onNavigate({ ...route, view: "question" }, true); }} />
     </>}
     {source && <Dialog title="出典・改変の詳細" onClose={() => setSource(false)}>
       <p>{searchQuestionTitle(question)} · 改変{question.origin.isModified ? "あり" : "なし"}</p>

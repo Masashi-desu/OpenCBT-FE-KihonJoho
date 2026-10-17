@@ -127,7 +127,7 @@ fs.writeFileSync(`${output}/verify.js`, `async page => {
       const r=n.getBoundingClientRect(),next=n.nextElementSibling.getBoundingClientRect();
       return next.top>=r.bottom-1&&getComputedStyle(n.nextElementSibling).position==='static';
     }),'attribution follows natural content '+width);
-    check(await page.locator('.detail-main > .question-footer').evaluate(n=>{
+    check(await page.locator('.detail-page > .question-footer').evaluate(n=>{
       const style=getComputedStyle(n);
       return style.position==='static'&&style.maxHeight==='none'&&style.overflowY==='visible'&&n.scrollHeight<=n.clientHeight+1;
     }),'source footer is fully in page flow '+width);
@@ -245,7 +245,7 @@ fs.writeFileSync(`${output}/scroll.js`, `async page => {
       await settle();
       check(await frame.evaluate(()=>scrollY===0&&document.documentElement.scrollHeight<=innerHeight+1),'lesson document scrolls '+name);
       check(await frame.locator(pane).evaluate(n=>getComputedStyle(n).overflowY==='visible'&&n.scrollHeight<=n.clientHeight+1),'explanation scrolls '+name);
-      check(await page.locator('.detail-main > .question-footer').evaluate(n=>getComputedStyle(n).position==='static'&&getComputedStyle(n).overflowY==='visible'&&n.scrollHeight<=n.clientHeight+1),'footer scrolls '+name);
+      check(await page.locator('.detail-page > .question-footer').evaluate(n=>getComputedStyle(n).position==='static'&&getComputedStyle(n).overflowY==='visible'&&n.scrollHeight<=n.clientHeight+1),'footer scrolls '+name);
       check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'parent width overflow '+name);
     };
     for(const width of [1362,390,320]) for(const theme of ['light','dark']) {
@@ -296,8 +296,8 @@ fs.writeFileSync(`${output}/scroll.js`, `async page => {
       await frame.locator(pane).scrollIntoViewIfNeeded();
       await frame.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
       await page.screenshot({path:${JSON.stringify(output)}+'/scroll-'+name+'-explanation-'+width+'-'+theme+'.png'});
-      await page.locator('.detail-main > .question-footer').scrollIntoViewIfNeeded();
-      check(await page.locator('.detail-main > .question-footer').evaluate(n=>n.getBoundingClientRect().bottom<=innerHeight+1),'footer reachable with page scrolling '+name);
+      await page.locator('.detail-page > .question-footer').scrollIntoViewIfNeeded();
+      check(await page.locator('.detail-page > .question-footer').evaluate(n=>n.getBoundingClientRect().bottom<=innerHeight+1),'footer reachable with page scrolling '+name);
       results.push({name,width,theme});
     }
   }

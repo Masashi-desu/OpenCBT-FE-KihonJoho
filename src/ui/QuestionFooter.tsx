@@ -115,7 +115,7 @@ export function questionCredits(
   return [...groups.values()];
 }
 
-function SourceLink({
+export function SourceLink({
   reference,
   bundle,
 }: {

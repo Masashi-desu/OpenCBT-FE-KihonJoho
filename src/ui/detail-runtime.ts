@@ -7,13 +7,14 @@ type DetailApi = {
   readonly context: DetailContext;
   readonly assets: Readonly<Record<string, string>>;
   ready: () => void;
+  setPresentation: (id: string) => void;
   onThemeChange: (listener: (theme: "light" | "dark") => void) => () => void;
 };
 declare global { interface Window { OpenCBTDetail?: DetailApi } }
 
 function mountDetailRuntime() {
   let token = "", parentOrigin = "", initialized = false, failed = false;
-  let requestedReady = false, rendered = false;
+  let requestedReady = false, rendered = false, presentationId = "";
   let layout: ReturnType<typeof observeDetailHeight> | undefined;
   const themeListeners = new Set<(theme: "light" | "dark") => void>();
   const notify = (type: "ready" | "error") => {
@@ -60,6 +61,11 @@ function mountDetailRuntime() {
       freeze(data.context); freeze(data.assets);
       const api: DetailApi = Object.freeze({
         context: data.context, assets: data.assets, ready,
+        setPresentation(id) {
+          if (typeof id !== "string" || !/^[a-z0-9][a-z0-9-]{0,79}$/.test(id) || id === presentationId || failed) return;
+          presentationId = id;
+          window.parent.postMessage({ type: "opencbt:detail:presentation", apiVersion: 1, token, id }, parentOrigin);
+        },
         onThemeChange(listener) { themeListeners.add(listener); return () => { themeListeners.delete(listener); }; },
       });
       Object.defineProperty(window, "OpenCBTDetail", { value: api, writable: false, configurable: false });

@@ -3,12 +3,19 @@ import { labels } from "./types";
 import { sha256 } from "./hash";
 import { schema } from "./validation";
 
+export type DetailPresentation = {
+  id: string;
+  title: string;
+  attribution: Attribution;
+  modificationSummary?: string;
+};
 export type DetailManifest = {
   apiVersion: 1;
   revision: number;
   title: string;
   search?: { summary: string; keywords: string[]; text: string };
   attribution: Attribution;
+  presentations?: DetailPresentation[];
   references?: { title: string; sourceRefs: SourceRef[] };
   files: { path: string; mediaType: string; sha256: string }[];
 };
@@ -98,6 +105,8 @@ export function questionDetailContext(question: Question, theme: "light" | "dark
 export function validateDetailManifest(value: unknown): asserts value is DetailManifest {
   schema("detailed_explanation", value);
   const manifest = value as DetailManifest;
+  if (manifest.presentations && new Set(manifest.presentations.map(p => p.id)).size !== manifest.presentations.length)
+    throw Error("詳細解説の表示識別子が重複しています");
   if (new Set(manifest.files.map((f) => f.path)).size !== manifest.files.length ||
     !manifest.files.some((f) => f.path === "index.html" && f.mediaType === "text/html") ||
     manifest.files.some((f) => mediaTypes[f.path.split(".").at(-1)!] !== f.mediaType))
@@ -105,6 +114,8 @@ export function validateDetailManifest(value: unknown): asserts value is DetailM
 }
 
 export function validateDetailAttribution(manifest: DetailManifest, bundle: Bundle) {
+  for (const presentation of manifest.presentations ?? [])
+    validateDetailAttribution({ ...manifest, attribution: presentation.attribution, presentations: undefined }, bundle);
   const attr = manifest.attribution;
   if (manifest.references?.sourceRefs.some((ref) => !bundle.sources.some((source) =>
     source.id === ref.sourceId && source.availability === "officially_published")))
@@ -181,11 +192,19 @@ export async function loadDetailPackage(
 }
 
 export function detailMessage(event: Pick<MessageEvent, "source" | "origin" | "data">,
-  source: Window | null, token: string): "ready" | "error" | { type: "resize"; height: number } | undefined {
+  source: Window | null, token: string): "ready" | "error" | { type: "resize"; height: number } | { type: "presentation"; id: string } | undefined {
   if (!source || event.source !== source || event.origin !== "null" ||
     event.data?.apiVersion !== 1 || event.data?.token !== token) return;
+  if (event.data.type === "opencbt:detail:presentation" && typeof event.data.id === "string" && /^[a-z0-9][a-z0-9-]{0,79}$/.test(event.data.id))
+    return { type: "presentation", id: event.data.id };
   if (event.data.type === "opencbt:detail:ready") return "ready";
   if (event.data.type === "opencbt:detail:error") return "error";
   if (event.data.type === "opencbt:detail:resize" && Number.isSafeInteger(event.data.height) && event.data.height > 0)
     return { type: "resize", height: event.data.height };
+}
+
+/** The sandbox selects a declared view; it cannot supply arbitrary rights or source data. */
+export function detailPresentation(manifest: DetailManifest, id?: string): DetailPresentation | undefined {
+  return manifest.presentations ? manifest.presentations.find(p => p.id === id)
+    : { id: "default", title: manifest.title, attribution: manifest.attribution };
 }

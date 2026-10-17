@@ -60,7 +60,7 @@ sort-engine.jsは描画に依存せず、実際の整列から全ステップを
 
 確認日は2026-10-14。[IPAの2026年度公開問題](https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2026r08.html)の科目A問2（問題冊子p.4）と解答例（問2はウ）から全4選択肢の対応を照合した。[公開問題の利用案内](https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/index.html)と[FAQ](https://www.ipa.go.jp/shiken/faq.html)の出典・改変・第三者権利の留意点を再確認。公式画像や本文の新しい転載・変更は行わず、専用解説は独自文章・コード・図で作成した。
 
-定義と基本計算量はNISTのDictionary of Algorithms and Data Structuresから照合した。本文・図・公開実装コードをコピーしていない。9件の資料をsource-nist-sort-*として登録し、manifestのreferencesから参照する。「参考資料（定義・計算量の確認）」として専用欄に表示し、詳細解説自身の独自作成・権利表示と、IPA問題の出典・ライセンスフッターから分ける。単独表示でも詳細解説のライセンス、問題の出典・利用条件、参考資料を別の見出しにする。同じAIによる照合・査読であり、人による独立した二重校正ではない。
+定義と基本計算量はNISTのDictionary of Algorithms and Data Structuresから照合した。本文・図・公開実装コードをコピーしていない。9件の資料をsource-nist-sort-*として登録し、manifestのreferencesから参照する。「参考資料（定義・計算量の確認）」として専用欄に表示し、表示中の詳細解説の出典・ライセンスをまとめる単一フッターから分ける。IPA問題の出典は通常の問題画面で表示する。単独表示でも詳細解説のライセンス、問題の出典・利用条件、参考資料を別の見出しにする。同じAIによる照合・査読であり、人による独立した二重校正ではない。
 
 NISTのquicksortの定義はピボットによる分割と再帰処理であり、末尾ピボットを必須としない。末尾を選ぶのは本シミュレーターで採用した変種として説明し、資料のfactsへ一般定義と混同して記録しない。
 
