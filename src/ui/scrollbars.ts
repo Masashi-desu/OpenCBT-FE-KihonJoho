@@ -204,7 +204,9 @@ export function installOverlayScrollbars() {
       const host = dialog ?? document.body;
       if (x.track.parentElement !== layers.get(host)) layer(host).append(x.track, y.track);
       const style = getComputedStyle(element);
-      if (!element.getClientRects().length || style.visibility !== "visible" ||
+      // Closed details and content-visibility:hidden ancestors can retain layout
+      // rectangles. Only paint overlays for content the browser actually renders.
+      if (!element.checkVisibility() || style.visibility !== "visible" ||
           style.opacity === "0" || (modal && !modal.contains(element))) {
         x.track.hidden = y.track.hidden = true;
         continue;
