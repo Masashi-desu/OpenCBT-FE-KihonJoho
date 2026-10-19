@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>キャッシュヒット率・表から方程式へ</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="scrollbars.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="lesson" id="memory-lab">
+  <h1 id="standalone-title" hidden>キャッシュヒット率・表から方程式へ</h1>
+  <section class="workspace" aria-label="キャッシュヒット率を10段階で求める">
+    <div class="section-heading"><h2>図：構成</h2><button type="button" id="reset">問題の初期値に戻す</button></div>
+    <div class="architecture">
+      <div class="cpu-selector" role="group" aria-label="構成図に表示するCPU">
+        <button type="button" data-cpu="x" aria-pressed="true">CPU X</button><button type="button" data-cpu="y" aria-pressed="false">CPU Y</button>
+      </div>
+      <div class="topology" role="group" aria-label="CPU内部のキャッシュメモリと、外部の主記憶の構成">
+        <div class="cpu-case"><strong>CPU <span id="arch-cpu">X</span></strong>
+          <div class="cache-case memory-part" data-memory="cache"><strong class="memory-heading"><span class="memory-name">キャッシュメモリ</span><span class="access-kind">ヒット時</span></strong>
+            <label class="capacity-editor"><input id="cache" inputmode="numeric" type="text" value="256" aria-label="キャッシュメモリの容量（kバイト）" aria-describedby="input-help input-error"><span>kバイト</span></label>
+            <button type="button" class="time-link" id="arch-cache-time" data-focus="xh"></button>
+          </div>
+        </div>
+        <div class="connector" aria-hidden="true"></div>
+        <div class="ram-case memory-part" data-memory="main"><strong class="memory-heading"><span class="memory-name">主記憶</span><span class="access-kind">ミス時</span></strong>
+          <label class="capacity-editor"><input id="main" inputmode="numeric" type="text" value="256" aria-label="主記憶の容量（Mバイト）" aria-describedby="input-help input-error"><span>Mバイト</span></label>
+          <button type="button" class="time-link" id="arch-main-time" data-focus="xm"></button>
+        </div>
+      </div>
+      <p class="muted">容量は構成の情報です。この問題では、ヒット率の計算にアクセス時間を使います。</p>
+    </div>
+    <div class="stage-heading"><div><span id="counter" class="muted"></span><h2 id="step-title"></h2></div>
+      <select id="step-select" aria-label="計算ステップを選択"></select>
+    </div>
+    <div class="flow" id="flow">
+      <section class="source" aria-labelledby="source-title"><h2 id="source-title">表：アクセス時間</h2><p class="muted">数字を直接編集できます。単位：ns（ナノ秒）</p>
+        <table class="matrix"><thead><tr><th scope="col">アクセス先</th><th scope="col">CPU X</th><th scope="col">CPU Y</th></tr></thead><tbody>
+          <tr><th scope="row" class="memory-name" data-memory="cache">キャッシュ<br>メモリ</th><td data-cell="xh" data-key="xh"><label><span class="key-label">X・ヒット</span><input id="xh" inputmode="numeric" type="text" value="40" aria-label="CPU Xのキャッシュアクセス時間（ns）" aria-describedby="input-help input-error"></label></td><td data-cell="yh" data-key="yh"><label><span class="key-label">Y・ヒット</span><input id="yh" inputmode="numeric" type="text" value="20" aria-label="CPU Yのキャッシュアクセス時間（ns）" aria-describedby="input-help input-error"></label></td></tr>
+          <tr><th scope="row" class="memory-name" data-memory="main">主記憶</th><td data-cell="xm" data-key="xm"><label><span class="key-label">X・ミス</span><input id="xm" inputmode="numeric" type="text" value="400" aria-label="CPU Xの主記憶アクセス時間（ns）" aria-describedby="input-help input-error"></label></td><td data-cell="ym" data-key="ym"><label><span class="key-label">Y・ミス</span><input id="ym" inputmode="numeric" type="text" value="580" aria-label="CPU Yの主記憶アクセス時間（ns）" aria-describedby="input-help input-error"></label></td></tr>
+        </tbody></table>
+      </section>
+      <section class="calculation" aria-label="ステップごとの計算" aria-live="polite" aria-atomic="true"><p id="phase" class="muted"></p><div id="formula-box"></div></section>
+    </div>
+    <div class="navigation" aria-label="ステップ操作"><button type="button" id="prev">戻る</button><input type="range" id="seek" min="0" max="9" step="1" value="0" aria-label="計算ステップの位置"><button type="button" id="next" class="primary">次へ</button></div>
+    <p id="input-help" class="sr-only">アクセス時間は0〜100000000、容量は1〜100000000の整数。有効な入力は直ちに反映します。計算ステップは保持し、問題・回答・結果は変更しません。</p>
+    <p id="input-error" class="input-error" role="alert" hidden></p>
+    <section class="explainer" aria-live="polite"><h2 id="ex-title"></h2><p id="explain"></p></section>
+    <section id="choice-check" hidden aria-labelledby="choice-title"><h2 id="choice-title">問題の選択肢を代入して比較</h2><p id="choice-note" class="muted"></p><div class="table-viewport" role="region" tabindex="0" aria-label="全選択肢の平均アクセス時間。狭い画面では左右にスクロールできます"><table class="choice-table"><thead><tr><th scope="col">選択肢・h</th><th scope="col">CPU X（ns）</th><th scope="col">CPU Y（ns）</th><th scope="col">比較</th></tr></thead><tbody id="choice-rows"></tbody></table></div></section>
+    <details><summary>この計算の前提・用語・操作</summary><p>両CPUのヒット率hは共通で、CPU以外の処理の影響はなく、アクセス時間以外の条件は同じです。ヒット時はキャッシュメモリ、ミス時は主記憶のアクセス時間を使います。この問題の主記憶時間へキャッシュ時間を重ねて足しません。容量だけを変えても、ここで与えたヒット率の方程式は変わりません。</p><p>CPU（Central Processing Unit）は中央処理装置です。キャッシュメモリは主記憶のデータの一部を保持し、ヒット率は必要なデータがキャッシュに存在する割合です。1nsは10億分の1秒です。</p><p>図中の時間を押すと対応する表の入力欄へ移動します。戻る・次へ、スライダー、ステップ選択で計算を移動できます。入力欄やボタン以外では左右矢印キーも使えます。小数点以下6桁で正確に表せない結果は、分数で表示します。</p></details>
+  </section>
+  <p id="standalone-credit" class="muted" hidden>2024年度 基本情報技術者試験 科目A 公開問題 問3の構成図・表を基に、編集と段階表示を加えた改変ありの解説です。問題・正答：独立行政法人情報処理推進機構（IPA）。©2024 独立行政法人情報処理推進機構（IPA）。独自解説はCC0-1.0、コードはMIT。<a href="../../data/sources/ipa-2024-a-qs.json">問題の出典情報</a>・<a href="../../data/sources/ipa-2024-a-ans.json">解答例の出典情報</a></p>
+</main>
+<script src="cache-engine.js"></script><script src="scrollbars.js"></script><script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "キャッシュヒット率・表から方程式へ",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問3",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2024-a-ans",
+        "locator": {
+          "section": "科目A 問3 正解",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2024-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2024-a-qs",
+        "locator": {
+          "section": "科目A 公開問題 問3",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2024-a-ans",
+        "locator": {
+          "section": "科目A 問3 正解",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "year": 2024,
+          "subject": "科目A",
+          "questionNumber": "3"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "構成図とアクセス時間表を編集し、平均アクセス時間の方程式を10段階で解きます。全選択肢の代入比較もできます。",
+    "keywords": [
+      "キャッシュメモリ",
+      "ヒット率",
+      "ミス率",
+      "平均アクセス時間",
+      "CPU",
+      "主記憶",
+      "重み付き平均",
+      "方程式",
+      "検算"
+    ],
+    "text": "CPU XとCPU Yのヒット率hは共通。ヒット時はキャッシュ時間、ミス時は主記憶時間を使う。hと1−hで重み付けし40h＋400(1−h)＝20h＋580(1−h)を立てる。400−360h＝580−560hから200h＝180、h＝0.90（90%）。両者は76nsで一致し、正解はイ。容量256kバイト・256Mバイトは方程式に使わない。読取り、確率、CPU X、CPU Y、等式、展開、同類項、移項、解、代入の10段階。戻る・次へ・シーク・ステップ選択。数値変更後は式と説明を更新し、解なし・範囲外・すべてのヒット率で一致を区別する。CPUはCentral Processing Unit（中央処理装置）。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "72ed18f3884c0e5e1a63ef1a70385baad3a2dcf0ddc11c54125608730fde49c8"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "56c7702c9a4fd05f9c39a4d4aab2285fac6885dd1a062e7dce48e239567a43c8"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "cache-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "95c268fba7b42bc06c6c7aa6d7d8b459197f6d74fd63a6322d9fdb87d824bea5"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "5dd99371fce8e64ded176e94e16e5e5739f9344a5adddb4204664b04f1df668e"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "56cead1ee7e58d9050803bc081a351fc31e441a94678106424ac831687ecfe6a"
+    }
+  ]
+}
