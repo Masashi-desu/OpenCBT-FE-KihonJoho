@@ -15,6 +15,14 @@ import {
   checkCalculationInputs,
 } from "./calculation-options";
 
+const restoredDeclarations = new Set([
+  "2023-b-5",
+  "2024-b-5",
+  "2025-b-4",
+  "2025-b-5",
+  "2026-b-1",
+  "2026-b-5",
+]);
 const wordingRevisedSources = new Set([
   "2023-a-2",
   "2023-a-6",
@@ -85,6 +93,13 @@ export const additionalDefinitions = [
   .map(d => wordingRevisedSources.has(d.source) ? { ...d, version: "3.4.0" as const } : d)
   .map(d => knowledgeQualityNotes[d.source]
     ? { ...d, version: "3.5.0" as const, notes: d.notes + knowledgeQualityNotes[d.source] }
+    : d)
+  .map(d => restoredDeclarations.has(d.source)
+    ? {
+        ...d,
+        version: "3.6.0" as const,
+        notes: d.notes + " 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。",
+      }
     : d);
 if (
   new Set(additionalDefinitions.map((d) => d.source)).size !==

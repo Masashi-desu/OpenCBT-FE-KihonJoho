@@ -151,6 +151,8 @@ export const sourcePrerequisites: Record<string, string[]> = {
     "配列の添字は1から始まる",
     "vector1の各要素をa₁〜aₙ、vector2の各要素をb₁〜bₙ",
     "sqrtは正の平方根",
+    "実数型: similarity",
+    "return similarity",
   ],
   "2023-b-6": [
     "専任の担当者.*秘密保持契約",
@@ -186,6 +188,9 @@ export const sourcePrerequisites: Record<string, string[]> = {
     "2種類以上の商品",
     "引数itemはその中にある商品",
     "関連度が最も大きい商品のうちの一つ",
+    "allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列",
+    "maxL ← −∞",
+    "relatedItemの値とmaxLの値",
   ],
   "2024-b-6": [
     "1人1台",
@@ -218,7 +223,9 @@ export const sourcePrerequisites: Record<string, string[]> = {
     "配列の要素番号は1から始まる",
     "keyは要素数1以上",
     "見つからなければ要素数0の配列",
-    "dataの要素数 − keyの要素数 \\+ 1が0以下.*繰返し処理を実行しない",
+    "lenData ← dataの要素数",
+    "lenKey ← keyの要素数",
+    "\\(lenData − lenKey \\+ 1\\)が0以下のときは、繰返し処理を実行しない",
   ],
   "2025-b-5": [
     "独立だと仮定した理論度数",
@@ -227,10 +234,14 @@ export const sourcePrerequisites: Record<string, string[]> = {
     "行と列は表の行と列に対応",
     "非表示.*値を表示していない",
     "（人）",
+    "整数型: row ← dataの行数",
+    "整数型: col ← dataの列数",
+    "整数型: r, c",
   ],
   "2026-b-1": [
     "末尾.*先頭.*後ろへ移動",
     "添字は1から始まり、領域外を参照しない",
+    "整数型: len ← dataの要素数",
   ],
   "2026-b-2": [
     "加算は符号なし2進数",
@@ -255,6 +266,7 @@ export const sourcePrerequisites: Record<string, string[]> = {
     "要素数1以上の文字列型の配列",
     "整数型配列の配列として返す",
     "配列の添字は1から始まる",
+    "整数型の配列: tempVector",
   ],
   "2026-b-6": [
     "一般利用者.*Yサーバ.*編集でき",

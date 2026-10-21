@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-source-2023-b-5",
-  "revision": 6,
+  "revision": 7,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -81,6 +81,14 @@
         "kind": "wording",
         "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
         "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 走査添字の基準差=0、分母の保持方式=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-21T06:35:43.129Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。 走査添字の基準差=0、分母の保持方式=0。",
         "affectsAnswer": true,
         "answerDetails": "aでは実際の添字i−0の要素の積を足す。最初のdenominatorは第1ベクトルの長さなので、bはdenominator × sqrt(temp)。最後の除算で、提示した式と同じ値になる。"
       }
@@ -145,7 +153,7 @@
       },
       {
         "type": "code",
-        "text": "○実数型: calcCosineSimilarity(実数型の配列: vector1, vector2)\n    実数型: numerator ← 0, denominator, temp ← 0\n    整数型: i\n    for (iを1からvector1の要素数 + 0まで増やす)\n        numerator ← numerator + 【a】\n    endfor\n    for (iを1からvector1の要素数まで増やす)\n        temp ← temp + vector1[i]の2乗\n    endfor\n    denominator ← sqrt(temp)\n    temp ← 0\n    for (iを1からvector2の要素数まで増やす)\n        temp ← temp + vector2[i]の2乗\n    endfor\n    denominator ← 【b】\n    return numerator ÷ denominator",
+        "text": "○実数型: calcCosineSimilarity(実数型の配列: vector1, vector2)\n    実数型: similarity, numerator ← 0, denominator, temp ← 0\n    整数型: i\n    for (iを1からvector1の要素数 + 0まで増やす)\n        numerator ← numerator + 【a】\n    endfor\n    for (iを1からvector1の要素数まで増やす)\n        temp ← temp + vector1[i]の2乗\n    endfor\n    denominator ← sqrt(temp)\n    temp ← 0\n    for (iを1からvector2の要素数まで増やす)\n        temp ← temp + vector2[i]の2乗\n    endfor\n    denominator ← 【b】\n    similarity ← numerator ÷ denominator\n    return similarity",
         "language": "pseudocode"
       }
     ]
@@ -583,7 +591,7 @@
   "choiceShuffleAllowed": true,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-15",
+    "checkedOn": "2026-10-21",
     "reviewerIds": [
       "codex"
     ],
@@ -595,6 +603,6 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。 2026-10-15：公式の問い方・判定条件・解答主体・注意書きを再照合。問いの文型を修正し、入力・選択肢の役割と独立検算を確認。"
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
   }
 }

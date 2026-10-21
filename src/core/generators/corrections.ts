@@ -23,9 +23,9 @@ export function withCorrections(d: GenerationDefinition): GenerationDefinition {
       if (d.source === "2026-b-1") {
         // Ascending copies are also correct when source and destination do not
         // overlap. A range missing its first destination is always incorrect.
-        const [shift, length] = values;
+        const [shift] = values;
         body.choices[1] = programs([
-          `${length}から${shift + 2}まで1ずつ減らす`,
+          `lenから${shift + 2}まで1ずつ減らす`,
         ])[0];
       }
       if (d.source === "2023-b-6") {

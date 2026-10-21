@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-source-2026-b-5",
-  "revision": 6,
+  "revision": 7,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -82,6 +82,14 @@
         "kind": "wording",
         "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
         "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 走査添字の基準差=0、色の並び=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-21T06:35:43.167Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。 走査添字の基準差=0、色の並び=0。",
         "affectsAnswer": true,
         "answerDetails": "aで現在の名前を記録し、bで現在変換する一つの色と一覧のk番目を比較する。入力{Red, Green, Blue, Red}の結果は{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}, {1, 0, 0}}。全体のどこかに色があるかを調べる条件では全ての位置が1になる。"
       }
@@ -180,7 +188,7 @@
       },
       {
         "type": "code",
-        "text": "○整数型配列の配列: oneHotEncoding(文字列型の配列: colors)\n    文字列型の配列: colorVector ← {}\n    整数型配列の配列: oneHotVector ← {}\n    整数型: i, j, k\n    for (iを1からcolorsの要素数 + 0まで増やす)\n        if (colorVectorにcolors[i]が含まれない)\n            colorVectorの末尾に【a】を追加する\n        endif\n    endfor\n    for (jを1からcolorsの要素数 + 0まで増やす)\n        tempVector ← {}\n        for (kを1からcolorVectorの要素数まで増やす)\n            if (【b】)\n                tempVectorの末尾に1を追加する\n            else\n                tempVectorの末尾に0を追加する\n            endif\n        endfor\n        oneHotVectorの末尾にtempVectorを追加する\n    endfor\n    return oneHotVector",
+        "text": "○整数型配列の配列: oneHotEncoding(文字列型の配列: colors)\n    文字列型の配列: colorVector ← {}\n    整数型配列の配列: oneHotVector ← {}\n    整数型: i, j, k\n    整数型の配列: tempVector\n    for (iを1からcolorsの要素数 + 0まで増やす)\n        if (colorVectorにcolors[i]が含まれない)\n            colorVectorの末尾に【a】を追加する\n        endif\n    endfor\n    for (jを1からcolorsの要素数 + 0まで増やす)\n        tempVector ← {}\n        for (kを1からcolorVectorの要素数まで増やす)\n            if (【b】)\n                tempVectorの末尾に1を追加する\n            else\n                tempVectorの末尾に0を追加する\n            endif\n        endfor\n        oneHotVectorの末尾にtempVectorを追加する\n    endfor\n    return oneHotVector",
         "language": "pseudocode"
       }
     ]
@@ -398,7 +406,7 @@
   "choiceShuffleAllowed": true,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-15",
+    "checkedOn": "2026-10-21",
     "reviewerIds": [
       "codex"
     ],
@@ -410,6 +418,6 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。 2026-10-15：公式の問い方・判定条件・解答主体・注意書きを再照合。問いの文型を修正し、入力・選択肢の役割と独立検算を確認。"
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
   }
 }

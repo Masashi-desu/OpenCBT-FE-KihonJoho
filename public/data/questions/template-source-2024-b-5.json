@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "question-template-source-2024-b-5",
-  "revision": 6,
+  "revision": 7,
   "lifecycle": "active",
   "subject": "B",
   "learning": {
@@ -82,6 +82,14 @@
         "kind": "wording",
         "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
         "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 求める指標=0、注文の例=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-21T06:35:43.164Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。 求める指標=0、注文の例=0。",
         "affectsAnswer": true,
         "answerDetails": "arrayMは同時購入数、arrayKは他商品の購入数。c=ordersの要素数を代入して、提示したリフトの式へ整理する。Nを掛けるのはリフトの場合であり、別の指標では正規化が異なる。"
       }
@@ -176,7 +184,7 @@
       },
       {
         "type": "code",
-        "text": "大域: 文字列型配列の配列: orders ← {{\"A\", \"B\", \"D\"}, {\"A\", \"D\"}, {\"A\"}, {\"A\", \"B\", \"E\"}, {\"B\"}, {\"C\", \"E\"}}\n○putRelatedItem(文字列型: item)\n    文字列型の配列: otherItems ← orders中の異なる商品からitemを除く\n    整数型: itemCount ← 0, i\n    整数型の配列: arrayK ← {otherItemsの要素数個の0}\n    整数型の配列: arrayM ← {otherItemsの要素数個の0}\n    for (orderにordersの要素を順に代入する)\n        if (orderにitemが含まれる)\n            itemCount ← itemCount + 1\n        endif\n        for (iを1からotherItemsの要素数まで増やす)\n            if (orderにotherItems[i]が含まれる)\n                if (orderにitemが含まれる)\n                    【a】の値を1増やす\n                endif\n                【b】の値を1増やす\n            endif\n        endfor\n    endfor\n    for (iを1からotherItemsの要素数まで増やす)\n        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])\n        最大のvalueLと対応する商品を記録する\n    endfor\n    記録した商品とvalueLを出力する",
+        "text": "大域: 文字列型配列の配列: orders ← {{\"A\", \"B\", \"D\"}, {\"A\", \"D\"}, {\"A\"}, {\"A\", \"B\", \"E\"}, {\"B\"}, {\"C\", \"E\"}}\n○putRelatedItem(文字列型: item)\n    文字列型の配列: allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列\n    文字列型の配列: otherItems ← allItemsの複製から値がitemである要素を除いた配列\n    整数型: i, itemCount ← 0\n    整数型の配列: arrayK ← {otherItemsの要素数個の0}\n    整数型の配列: arrayM ← {otherItemsの要素数個の0}\n    実数型: valueL, maxL ← −∞\n    文字列型の配列: order\n    文字列型: relatedItem\n    for (orderにordersの要素を順に代入する)\n        if (orderにitemが含まれる)\n            itemCount ← itemCount + 1\n        endif\n        for (iを1からotherItemsの要素数まで増やす)\n            if (orderにotherItems[i]が含まれる)\n                if (orderにitemが含まれる)\n                    【a】の値を1増やす\n                endif\n                【b】の値を1増やす\n            endif\n        endfor\n    endfor\n    for (iを1からotherItemsの要素数まで増やす)\n        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])\n        if (valueLがmaxLより大きい)\n            maxL ← valueL\n            relatedItem ← otherItems[i]\n        endif\n    endfor\n    relatedItemの値とmaxLの値をこの順にコンマ区切りで出力する",
         "language": "pseudocode"
       }
     ]
@@ -494,7 +502,7 @@
   "choiceShuffleAllowed": true,
   "distribution": "included",
   "review": {
-    "checkedOn": "2026-10-15",
+    "checkedOn": "2026-10-21",
     "reviewerIds": [
       "codex"
     ],
@@ -506,6 +514,6 @@
       "answer": "pass",
       "explanation": "pass"
     },
-    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。 2026-10-15：公式の問い方・判定条件・解答主体・注意書きを再照合。問いの文型を修正し、入力・選択肢の役割と独立検算を確認。"
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
   }
 }

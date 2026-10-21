@@ -418,7 +418,7 @@ export function preserveSourceFormat(
 }
 
 export function validateSourceFormat(q: Question, t: Template) {
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;
   }

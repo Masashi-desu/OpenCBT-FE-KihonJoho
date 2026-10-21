@@ -306,7 +306,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
           },
           p(`走査用のiは配列添字に${offset}を加えた値である。`),
           code(
-            `○実数型: calcCosineSimilarity(実数型の配列: vector1, vector2)\n    実数型: numerator ← 0, denominator, temp ← 0\n    整数型: i\n    for (iを${1 + offset}からvector1の要素数 + ${offset}まで増やす)\n        numerator ← numerator + 【a】\n    endfor\n    for (iを1からvector1の要素数まで増やす)\n        temp ← temp + vector1[i]の2乗\n    endfor\n    denominator ← ${reciprocal ? "1 / sqrt(temp)" : "sqrt(temp)"}\n    temp ← 0\n    for (iを1からvector2の要素数まで増やす)\n        temp ← temp + vector2[i]の2乗\n    endfor\n    denominator ← 【b】\n    return numerator ${reciprocal ? "×" : "÷"} denominator`,
+            `○実数型: calcCosineSimilarity(実数型の配列: vector1, vector2)\n    実数型: similarity, numerator ← 0, denominator, temp ← 0\n    整数型: i\n    for (iを${1 + offset}からvector1の要素数 + ${offset}まで増やす)\n        numerator ← numerator + 【a】\n    endfor\n    for (iを1からvector1の要素数まで増やす)\n        temp ← temp + vector1[i]の2乗\n    endfor\n    denominator ← ${reciprocal ? "1 / sqrt(temp)" : "sqrt(temp)"}\n    temp ← 0\n    for (iを1からvector2の要素数まで増やす)\n        temp ← temp + vector2[i]の2乗\n    endfor\n    denominator ← 【b】\n    similarity ← numerator ${reciprocal ? "×" : "÷"} denominator\n    return similarity`,
           ),
         ],
         choices: pairs([
@@ -569,7 +569,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
             alt: `指標は${names[metric]}。M、N、Kx、Kyの定義に従って計算する。`,
           },
           code(
-            `大域: 文字列型配列の配列: orders ← {${orders.map((a) => `{${a.map((s) => `"${s}"`).join(", ")}}`).join(", ")}}\n○putRelatedItem(文字列型: item)\n    文字列型の配列: otherItems ← orders中の異なる商品からitemを除く\n    整数型: itemCount ← 0, i\n    整数型の配列: arrayK ← {otherItemsの要素数個の0}\n    整数型の配列: arrayM ← {otherItemsの要素数個の0}\n    for (orderにordersの要素を順に代入する)\n        if (orderにitemが含まれる)\n            itemCount ← itemCount + 1\n        endif\n        for (iを1からotherItemsの要素数まで増やす)\n            if (orderにotherItems[i]が含まれる)\n                if (orderにitemが含まれる)\n                    【a】の値を1増やす\n                endif\n                【b】の値を1増やす\n            endif\n        endfor\n    endfor\n    for (iを1からotherItemsの要素数まで増やす)\n        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])\n        最大のvalueLと対応する商品を記録する\n    endfor\n    記録した商品とvalueLを出力する`,
+            `大域: 文字列型配列の配列: orders ← {${orders.map((a) => `{${a.map((s) => `"${s}"`).join(", ")}}`).join(", ")}}\n○putRelatedItem(文字列型: item)\n    文字列型の配列: allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列\n    文字列型の配列: otherItems ← allItemsの複製から値がitemである要素を除いた配列\n    整数型: i, itemCount ← 0\n    整数型の配列: arrayK ← {otherItemsの要素数個の0}\n    整数型の配列: arrayM ← {otherItemsの要素数個の0}\n    実数型: valueL, maxL ← −∞\n    文字列型の配列: order\n    文字列型: relatedItem\n    for (orderにordersの要素を順に代入する)\n        if (orderにitemが含まれる)\n            itemCount ← itemCount + 1\n        endif\n        for (iを1からotherItemsの要素数まで増やす)\n            if (orderにotherItems[i]が含まれる)\n                if (orderにitemが含まれる)\n                    【a】の値を1増やす\n                endif\n                【b】の値を1増やす\n            endif\n        endfor\n    endfor\n    for (iを1からotherItemsの要素数まで増やす)\n        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])\n        if (valueLがmaxLより大きい)\n            maxL ← valueL\n            relatedItem ← otherItems[i]\n        endif\n    endfor\n    relatedItemの値とmaxLの値をこの順にコンマ区切りで出力する`,
           ),
         ],
         choices: pairs(
@@ -651,7 +651,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
             `次の記述中の空欄に入れる正しい答えを、解答群の中から選べ。配列の要素番号は1から始まる。keyは要素数1以上の文字型の配列である。searchはdataにあるkeyと同じ並びの先頭の要素番号を全て返し、見つからなければ要素数0の配列を返す。search({${[...data].map((s) => `"${s}"`).join(", ")}}, {${[...key].map((s) => `"${s}"`).join(", ")}})では、βの条件式が真になる回数は【空欄】回である。`,
           ),
           code(
-            `○整数型の配列: search(文字型の配列: data, key)\n    整数型の配列: result ← {}\n    整数型: i, j\n    /* dataの要素数 − keyの要素数 + 1が0以下のときは、繰返し処理を実行しない */\n    for (iを1からdataの要素数 − keyの要素数 + 1まで増やす)\n        for (jを1からkeyの要素数まで増やす) // α\n            if (data[i + j - 1] = key[j]) /*** β ***/\n                if (j = keyの要素数)\n                    resultの末尾にiを追加する\n                endif\n            else\n                αから始まる繰返しを終了する\n            endif\n        endfor\n    endfor\n    return result`,
+            `○整数型の配列: search(文字型の配列: data, key)\n    整数型: i, j, lenData, lenKey\n    整数型の配列: result ← {}\n    lenData ← dataの要素数\n    lenKey ← keyの要素数\n    /* (lenData − lenKey + 1)が0以下のときは、繰返し処理を実行しない */\n    for (iを1から(lenData − lenKey + 1)まで増やす)\n        for (jを1からlenKeyまで増やす) // α\n            if (data[i + j - 1] = key[j]) /*** β ***/\n                if (j = lenKey)\n                    resultの末尾にiを追加する\n                endif\n            else\n                αから始まる繰返しを終了する\n            endif\n        endfor\n    endfor\n    return result`,
           ),
         ],
         choices: strings(
@@ -705,7 +705,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
             ],
           ),
           code(
-            "○実数型の二次元配列: f(実数型の二次元配列: data)\n    実数型: t ← dataの要素の和\n    実数型の二次元配列: result ← {dataと同じ大きさ}\n    for (rを1からdataの行数まで増やす)\n        for (cを1からdataの列数まで増やす)\n            result[r,c] ← (行rの合計) × (列cの合計) ÷ t\n        endfor\n    endfor\n    return result",
+            "○実数型の二次元配列: f(実数型の二次元配列: data)\n    実数型: t ← dataの要素の和\n    整数型: row ← dataの行数\n    整数型: col ← dataの列数\n    実数型の二次元配列: result ← {row行col列の未定義の値}\n    整数型: r, c\n    for (rを1からrowまで増やす)\n        for (cを1からcolまで増やす)\n            result[r,c] ← (行rの合計) × (列cの合計) ÷ t\n        endfor\n    endfor\n    return result",
           ),
         ],
         choices: pairs(choices),
@@ -720,24 +720,32 @@ export const subjectBDefinitions: GenerationDefinition[] = [
     [field("右へ移動する要素数", 1, 4), field("配列の要素数", 6, 12)],
     [1, 9],
     ([shift, len]) => {
-      const correct = `${len}から${shift + 1}まで1ずつ減らす`,
-        input = Array.from({ length: len }, (_, i) => i + 1);
+      const correct = `lenから${shift + 1}まで1ずつ減らす`,
+        input = Array.from({ length: len }, (_, i) => i + 1),
+        saved =
+          shift === 1
+            ? "整数型: top, i\n整数型: len ← dataの要素数\ntop ← data[len]"
+            : `整数型: len ← dataの要素数\n整数型の配列: top ← dataの末尾${shift}個の複製\n整数型: i`,
+        restore =
+          shift === 1
+            ? "data[1] ← top"
+            : `for (iを1から${shift}まで増やす)\n    data[i] ← top[i]\nendfor`;
       return {
         prompt: [
           p(
             `次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。末尾${shift}個の要素を先頭へ移し、残りを${shift}要素分だけ後ろへ移動する。添字は1から始まり、領域外を参照しない。`,
           ),
           code(
-            `整数型の配列: data ← {${input.join(", ")}}\n${shift === 1 ? `整数型: top ← data[${len}]` : `整数型の配列: top ← dataの末尾${shift}個の複製`}\n整数型: i\nfor (iを【空欄】)\n    data[i] ← data[i − ${shift}]\nendfor\n${shift === 1 ? "data[1] ← top" : `for (iを1から${shift}まで増やす)\n    data[i] ← top[i]\nendfor`}`,
+            `整数型の配列: data ← {${input.join(", ")}}\n${saved}\nfor (iを【空欄】)\n    data[i] ← data[i − ${shift}]\nendfor\n${restore}`,
           ),
         ],
         choices: programs([
           correct,
-          `${shift + 1}から${len}まで1ずつ増やす`,
-          `${len - 1}から${shift + 1}まで1ずつ減らす`,
-          `${shift + 1}から${len - 1}まで1ずつ増やす`,
+          `${shift + 1}からlenまで1ずつ増やす`,
+          `len − 1から${shift + 1}まで1ずつ減らす`,
+          `${shift + 1}からlen − 1まで1ずつ増やす`,
         ]),
-        explanation: `後ろからコピーすることで、まだ使う元の値を上書きしない。正しい範囲は${len}〜${shift + 1}の降順。結果は{${[...input.slice(-shift), ...input.slice(0, -shift)].join(", ")}}。移動個数を増やす版では一時保存も同じ個数へ改変している。`,
+        explanation: `後ろからコピーすることで、まだ使う元の値を上書きしない。正しい範囲はlen〜${shift + 1}の降順。結果は{${[...input.slice(-shift), ...input.slice(0, -shift)].join(", ")}}。移動個数を増やす版では一時保存も同じ個数へ改変している。`,
       };
     },
   ),
@@ -809,7 +817,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
             "初出順の色の一覧に対応して各色をOne-Hotベクトルへ変換する。",
           ),
           code(
-            `○整数型配列の配列: oneHotEncoding(文字列型の配列: colors)\n    文字列型の配列: colorVector ← {}\n    整数型配列の配列: oneHotVector ← {}\n    整数型: i, j, k\n    for (iを${offset + 1}からcolorsの要素数 + ${offset}まで増やす)\n        if (colorVectorにcolors[${indexOf("i", offset)}]が含まれない)\n            colorVectorの末尾に【a】を追加する\n        endif\n    endfor\n    for (jを${offset + 1}からcolorsの要素数 + ${offset}まで増やす)\n        tempVector ← {}\n        for (kを1からcolorVectorの要素数まで増やす)\n            if (【b】)\n                tempVectorの末尾に1を追加する\n            else\n                tempVectorの末尾に0を追加する\n            endif\n        endfor\n        oneHotVectorの末尾にtempVectorを追加する\n    endfor\n    return oneHotVector`,
+            `○整数型配列の配列: oneHotEncoding(文字列型の配列: colors)\n    文字列型の配列: colorVector ← {}\n    整数型配列の配列: oneHotVector ← {}\n    整数型: i, j, k\n    整数型の配列: tempVector\n    for (iを${offset + 1}からcolorsの要素数 + ${offset}まで増やす)\n        if (colorVectorにcolors[${indexOf("i", offset)}]が含まれない)\n            colorVectorの末尾に【a】を追加する\n        endif\n    endfor\n    for (jを${offset + 1}からcolorsの要素数 + ${offset}まで増やす)\n        tempVector ← {}\n        for (kを1からcolorVectorの要素数まで増やす)\n            if (【b】)\n                tempVectorの末尾に1を追加する\n            else\n                tempVectorの末尾に0を追加する\n            endif\n        endfor\n        oneHotVectorの末尾にtempVectorを追加する\n    endfor\n    return oneHotVector`,
           ),
         ],
         choices: pairs([

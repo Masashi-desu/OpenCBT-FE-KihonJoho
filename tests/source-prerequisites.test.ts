@@ -146,7 +146,7 @@ test("all 103 sources display their required premises, notation, units and comme
       );
     // Small conceptual subjects and form branches are exhaustively covered.
     if (
-      ["3.2.0", "3.3.0", "3.4.0", "3.5.0"].includes(t.generatorRef.version) &&
+      ["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version) &&
       t.parameterDomain.fields![0].maximum <= 15
     )
       for (

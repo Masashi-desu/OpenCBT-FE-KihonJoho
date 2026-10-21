@@ -489,6 +489,8 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       return;
     }
     case "2023-b-5":
+      assert.match(code(b), /実数型: similarity, numerator ← 0, denominator, temp ← 0/);
+      assert.match(code(b), /similarity ← numerator [×÷] denominator\n {4}return similarity/);
       unique(b, (c) => {
         const [a, d] = c.split("｜");
         const index = v[0] ? `i − ${v[0]}` : "i";
@@ -574,6 +576,10 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       return;
     }
     case "2024-b-5": {
+      assert.match(code(b), /allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列/);
+      assert.match(code(b), /otherItems ← allItemsの複製から値がitemである要素を除いた配列/);
+      assert.match(code(b), /実数型: valueL, maxL ← −∞/);
+      assert.match(code(b), /relatedItem ← otherItems\[i\]/);
       const orders = t[0].rows.map((r) => r[1].split(", "));
       unique(b, (c) => {
         const [a, d, scale] = c.split("｜");
@@ -624,6 +630,11 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       });
       return;
     case "2025-b-4": {
+      assert.match(code(b), /整数型: i, j, lenData, lenKey/);
+      assert.match(code(b), /lenData ← dataの要素数/);
+      assert.match(code(b), /lenKey ← keyの要素数/);
+      assert.match(code(b), /\(lenData − lenKey \+ 1\)が0以下のときは、繰返し処理を実行しない/);
+      assert.doesNotMatch(code(b), /1からdataの要素数/);
       const match = /search\(\{([^}]+)\}, \{([^}]+)\}\)/.exec(prompt)!;
       const strings = match
         .slice(1)
@@ -639,6 +650,11 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       return;
     }
     case "2025-b-5": {
+      assert.match(code(b), /整数型: row ← dataの行数/);
+      assert.match(code(b), /整数型: col ← dataの列数/);
+      assert.match(code(b), /整数型: r, c/);
+      assert.match(code(b), /1からrowまで/);
+      assert.match(code(b), /1からcolまで/);
       const rows = t[0].rows.map((r) => r.slice(1).map(Number)),
         total = rows.flat().reduce((a, d) => a + d, 0);
       const expected = rows.map((row, i) =>
@@ -659,14 +675,28 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       return;
     }
     case "2026-b-1": {
+      assert.match(code(b), /整数型: len ← dataの要素数/);
+      if (v[0] === 1) assert.match(code(b), /top ← data\[len\]/);
+      const bound = (raw: string) => {
+        const s = raw.replace(/\s/g, "");
+        if (s === "len") return v[1];
+        const minus = /^len−(\d+)$/.exec(s);
+        if (minus) return v[1] - Number(minus[1]);
+        assert.match(s, /^\d+$/);
+        return Number(s);
+      };
       unique(b, (c) => {
-        const match = /(\d+)から(\d+)まで1ずつ(減らす|増やす)/.exec(c)!;
-        const a = Array.from({ length: v[1] }, (_, i) => i + 1),
-          top = a.slice(-v[0]);
-        const step = match[3] === "減らす" ? -1 : 1;
+        assert.match(c, /len/);
+        const match = /^(.+)から(.+)まで1ずつ(減らす|増やす)$/.exec(c);
+        assert.ok(match);
+        const start = bound(match[1]),
+          end = bound(match[2]),
+          a = Array.from({ length: v[1] }, (_, i) => i + 1),
+          top = a.slice(-v[0]),
+          step = match[3] === "減らす" ? -1 : 1;
         for (
-          let i = Number(match[1]);
-          step < 0 ? i >= Number(match[2]) : i <= Number(match[2]);
+          let i = start;
+          step < 0 ? i >= end : i <= end;
           i += step
         )
           a[i - 1] = a[i - v[0] - 1];
@@ -688,6 +718,7 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       });
       return;
     case "2026-b-5":
+      assert.match(code(b), /整数型の配列: tempVector\n/);
       unique(b, (c) => {
         const [a, d] = c.split("｜");
         const i = v[0] ? `i − ${v[0]}` : "i",
@@ -774,7 +805,7 @@ for (const d of additionalDefinitions.filter(
 test("reviewed corrections are included in current definitions", () => {
   for (const source of ["2023-a-10", "2024-b-2", "2023-b-6", "2026-b-1"]) {
     const d = additionalDefinitions.find((d) => d.source === source)!;
-    assert.equal(d.version, ["2024-a-10", "2025-a-13", "2025-a-16", "2025-a-17", "2026-a-8", "2026-a-11", "2026-a-15"].includes(d.source) || d.source.includes("-b-") || d.source === "2023-a-10" ? "3.4.0" : "3.2.0");
+    assert.equal(d.version, d.source === "2026-b-1" ? "3.6.0" : ["2024-a-10", "2025-a-13", "2025-a-16", "2025-a-17", "2026-a-8", "2026-a-11", "2026-a-15"].includes(d.source) || d.source.includes("-b-") || d.source === "2023-a-10" ? "3.4.0" : "3.2.0");
     assert.equal("legacyBuild" in d, false);
   }
 });
