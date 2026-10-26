@@ -71,8 +71,8 @@ export type AdmissionChange = {
 export class AfternoonStageError extends Error {
     constructor(public issues: string[]) { super(issues.join('\n')); this.name = 'AfternoonStageError'; }
 }
-export async function checkFile(pin: FilePin) {
-    if (!pin || !path.isAbsolute(pin.path) || !Number.isSafeInteger(pin.byteLength) || pin.byteLength < 1 || !/^[a-f0-9]{64}$/.test(pin.sha256))
+export async function checkFile(pin: FilePin, options: { allowEmpty?: boolean } = {}) {
+    if (!pin || !path.isAbsolute(pin.path) || !Number.isSafeInteger(pin.byteLength) || pin.byteLength < (options.allowEmpty ? 0 : 1) || !/^[a-f0-9]{64}$/.test(pin.sha256))
         throw new AfternoonStageError(['invalid_file_pin']);
     const b = fs.readFileSync(pin.path);
     if (b.byteLength !== pin.byteLength || await sha256(b) !== pin.sha256)
@@ -382,7 +382,9 @@ export async function check2017SpringAfternoonRelease(candidate: BookletCandidat
         issues.push('release_code_changed_or_incomplete');
     for (const pin of receipt.codePins)
         try {
-            await checkFile(pin);
+            // Code inventories include the empty GitHub Pages .nojekyll marker.
+            // Source papers, assets and review evidence keep the nonempty gate.
+            await checkFile(pin, { allowEmpty: true });
         }
         catch (error) {
             issues.push('release_code_changed:' + String(error));

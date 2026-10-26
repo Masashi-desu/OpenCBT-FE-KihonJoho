@@ -44,3 +44,16 @@ test('releaseでもp74全面又は未承認cropを拒否しcandidate gateの迂�
     const receipt = { candidateSHA256: await contentHash(candidate), checks: {}, codePins: [], assetsRoot: '/unused' } as unknown as ReleaseReceipt;
     await assert.rejects(check2017SpringAfternoonRelease(candidate, receipt), error => error instanceof AfternoonStageError && error.issues.includes('release_unapproved_jis_page74_material:' + asset.id));
 });
+
+test('空のPagesマーカーもコードpinでは長さとhashを照合し素材・証拠としては拒否する', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'pm-empty-code-pin-'));
+    try {
+        const file = path.join(dir, '.nojekyll'); fs.writeFileSync(file, '');
+        const pin = { path: file, sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', byteLength: 0 };
+        await assert.rejects(checkFile(pin), /invalid_file_pin/);
+        assert.equal((await checkFile(pin, { allowEmpty: true })).byteLength, 0);
+        fs.writeFileSync(file, 'changed');
+        await assert.rejects(checkFile(pin, { allowEmpty: true }), /file_hash_mismatch/);
+        await assert.rejects(checkFile({ ...pin, byteLength: -1 }, { allowEmpty: true }), /invalid_file_pin/);
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+});
