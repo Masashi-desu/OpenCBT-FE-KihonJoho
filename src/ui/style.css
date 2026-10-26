@@ -344,7 +344,7 @@ small {
 .subject-tabs.single-subject {
   grid-template-columns: 1fr;
 }
-.subject-tabs .subject-time-slot {
+.subject-tabs .subject-letter.subject-time-slot {
   width: 46px;
   font-size: 15px;
 }
@@ -377,6 +377,11 @@ small {
   font-family: system-ui;
   font-weight: 650;
   flex-shrink: 0;
+}
+.subject-letter.subject-time-slot {
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 .subject-tabs .selected {
   background: var(--selected-surface);
