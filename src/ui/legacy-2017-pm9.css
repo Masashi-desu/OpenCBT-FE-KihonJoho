@@ -1,0 +1,25 @@
+.legacy-pm9-figure { max-width:100%; overflow-x:auto; color:var(--ink); }
+.legacy-pm9-figure table { border-collapse:collapse; width:100%; font-size:inherit; }
+.legacy-pm9-figure th,.legacy-pm9-figure td { border:1px solid var(--ink); padding:.4em; text-align:left; vertical-align:middle; }
+.legacy-pm9-figure th { font-weight:600; }
+.legacy-pm9-figure code { white-space:nowrap; font-size:inherit; }
+.legacy-pm9-marks { display:inline-flex; gap:.3em; white-space:nowrap; }
+.legacy-pm9-mark { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--ink); border-radius:50%; width:1.2em; height:1.2em; }
+.legacy-pm9-mark-selected { background:var(--ink); color:var(--surface); }
+.legacy-pm9-result-options { display:grid; grid-template-columns:repeat(6,minmax(3.3em,1fr)); gap:1em; min-width:27em; }
+.legacy-pm9-result-options > div { display:flex; align-items:flex-start; gap:.5em; }
+.legacy-pm9-result-options table { width:2.3em; }
+.legacy-pm9-result-options td { text-align:center; }
+.legacy-pm9-bank { display:grid; grid-template-columns:repeat(2,minmax(20em,1fr)); gap:.7em 1.4em; min-width:42em; }
+.legacy-pm9-bank > div { display:flex; gap:.8em; white-space:pre; }
+.legacy-pm9-bank-prose { grid-template-columns:1fr; min-width:0; }
+.legacy-pm9-bank-prose > div { white-space:normal; }
+.legacy-pm9-bit-layout { width:100%; min-width:50em; height:auto; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:20px; fill:var(--ink); }
+.legacy-pm9-bit-box,.legacy-pm9-bit-mark { fill:var(--surface); stroke:var(--ink); stroke-width:1.5; }
+.legacy-pm9-bit-mark-selected { fill:var(--ink); stroke:var(--ink); stroke-width:1.5; }
+.legacy-pm9-bit-connection { fill:none; stroke:var(--ink); stroke-width:1.3; stroke-dasharray:1 4; }
+.legacy-pm9-trace { width:100%; min-width:60em; height:auto; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:19px; fill:var(--ink); }
+.legacy-pm9-trace-divider { stroke:var(--ink); stroke-width:1.5; }
+.legacy-pm9-f-rect { fill:var(--surface); stroke:var(--ink); stroke-width:2; }
+.legacy-pm9-source-heading { margin:.4em 0 .7em; text-align:left; }
+.legacy-pm9-source-caption { margin:.6em 0 .3em; text-align:center; }

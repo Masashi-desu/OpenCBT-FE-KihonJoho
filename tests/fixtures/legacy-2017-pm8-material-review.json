@@ -1,0 +1,140 @@
+{
+  "checkedOn": "2026-10-20",
+  "status": "bounded_material_review_not_annual_or_release_admission",
+  "source": "2017h29h-fe-pm-8",
+  "pagesReadAsImages": [
+    1,
+    2,
+    3,
+    4,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "answerPagesReadAsImages": [
+    1
+  ],
+  "questionSha256": "7d976c989149a8027c45cce63e420af0b4da8967e563146220dfa1e50eba43c8",
+  "answerSha256": "7d83ed5839b533c1a2bc804698e08eb6bb55865ef1aef3f74e15c42faad7772b",
+  "transcription": "全6頁の本文/6引数行/49行列セル/7地点9辺/48行/6繰返し/5分岐/全34固有択/7公式解答を原画像と照合。p36→37のpDist説明及びp39→40の設問2 pRoute初期値の改頁継続も保持。",
+  "materials": [
+    {
+      "scope": "p35–40 問8",
+      "finding": "具体的な第三者本文/図/規格内容の引用転載を特定しなかった。一般的な最短路手法と、第三者の表現を転載する許諾を区別。",
+      "included": [
+        "本文と定義/注記",
+        "IPA作問グラフ図1",
+        "引数/距離行列/追跡表",
+        "ShortestPath全48行と全コメント",
+        "34固有択/7欄の解答例"
+      ],
+      "excluded": [
+        "隣接問7/9",
+        "他大問の図/規格引用",
+        "JIS/CASL/API付録"
+      ]
+    },
+    {
+      "scope": "p3–4 共通に使用される擬似言語の記述形式",
+      "finding": "宣言/注釈/8処理形式/6演算優先階層/整数商と剰余/truefalseを目視し、具体的な第三者転載素材を特定しなかった。",
+      "symbolCorrection": "後判定も開始■/条件式側終端■。前判定/変数型も上下■。後判定は処理の後に条件式を記す。原programの6loopは前判定/変数型で変更なし。",
+      "excluded": [
+        "CASL II/JIS符号表",
+        "Java/API説明",
+        "未読の別共通付録"
+      ]
+    }
+  ],
+  "policy": {
+    "url": "https://www.ipa.go.jp/shiken/faq.html",
+    "section": "その他／試験の過去問題の使用方法／留意点",
+    "readMethod": "web抽出は当該節を欠落させていたため直接HTTP取得した公式HTMLの916–951行を読み、教育目的・出典/改変表示・著作権保持を確認。検索cacheのみで全文閲覧としない。",
+    "localCache": "output/source-import/legacy-2017/pm8-ipa-faq-read.html",
+    "cacheSha256": "38bbf2df383d1d8ddd69479178fb6959b58166e176e0d3399527bc6ddc75cc87",
+    "uses": {
+      "repositoryRedistribution": "allowed_project_assessment",
+      "browserDisplay": "allowed_project_assessment",
+      "adaptation": "allowed_project_assessment"
+    },
+    "limits": "教育目的利用条件を教材Git同梱/ブラウザ表示/改変明記の学習用生成へ適用するプロジェクト判断。第三者部分の包括許諾や個別媒体の許諾回答を取得した意味ではない。問い合わせ送信なし。",
+    "updatedOn": "2026-09-02",
+    "publishedOn": "not_verified"
+  },
+  "imageEvidence": [
+    {
+      "page": 1,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-001.png",
+      "sha256": "a485eceefd5c0eb25da933303a16e28555d3bf27c90bad6dc6f5ddc1903ece87"
+    },
+    {
+      "page": 2,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-002.png",
+      "sha256": "b8fcfe518c2c331bf3aef0e037886ff3bd0048828b45ba7e335278a1ac2b0b2d"
+    },
+    {
+      "page": 3,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-003.png",
+      "sha256": "9251f959deca5de4e23d65cd9a580e8718d7ca73ac27ba1ea30c56a66d46b9a2"
+    },
+    {
+      "page": 4,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-004.png",
+      "sha256": "22e95816939c4f28a6f9d7b7e262572932614a215841bc90230f85189907a3d3"
+    },
+    {
+      "page": 35,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-035.png",
+      "sha256": "8b0854e305eba430f76da858cfb38714c9f799a458b44da856aaad6bd8e9abdc"
+    },
+    {
+      "page": 36,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-036.png",
+      "sha256": "c1f02f7b93f28623669fea264268cff462f2c8a070f9d5b8c3898299490f5e54"
+    },
+    {
+      "page": 37,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-037.png",
+      "sha256": "0c42cf9e8998fd6d045c8c2cdf6fc6b9a646c68b43127249980658867004834a"
+    },
+    {
+      "page": 38,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-038.png",
+      "sha256": "73c6c63da1e690f1204a5e7a3db51c24b6927248dc501d3748a22b1614bed7f2"
+    },
+    {
+      "page": 39,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-039.png",
+      "sha256": "8879e6b80bbd4b7a5fe70b08b0e8908bcf6c2c1405c347823b2b74a692403aef"
+    },
+    {
+      "page": 40,
+      "path": "output/source-import/legacy-2017/2017h29h-fe-pm/qs-page-040.png",
+      "sha256": "f459ebccd931f056ea51cdd528f6507fc9612b47bcb634f04a8aab644787a504"
+    }
+  ],
+  "pending": [
+    "shared_profile_registration",
+    "real_App_Run",
+    "year_selection",
+    "whole_scope_release"
+  ],
+  "answerImage": {
+    "path": "output/source-import/legacy-2017/2017h29h-fe-pm/ans-page-001.png",
+    "sha256": "336c2ccc34c173efad78389380953dae5c5be9480646eae6466b8bab83991166"
+  },
+  "individualPdfDateNote": "年度ページの公開2017-10-15/更新2018-01-12を、個別添付PDFの公開/更新日へ転用しない。添付別の明記は未確認。",
+  "symbolRecheck": {
+    "checkedOn": "2026-10-20",
+    "sourcePhysicalPage": 3,
+    "sourcePaperSha256": "7d976c989149a8027c45cce63e420af0b4da8967e563146220dfa1e50eba43c8",
+    "finding": "後判定の上下端はともに黒い四角。単岐/双岐選択の三角形とは異なる。",
+    "method": "Hash-verified originalPDF physicalp3 at8x, cropfractions[.10,.597,.90,.668]. Original contains1432x2026 grayscaleJPEG, no vector drawing.",
+    "localImage": "output/source-import/legacy-2017/pm8-notation-recheck/2017-spring-p3-posttest-8x.png",
+    "imageSha256": "9e3595f11536e51e17ac333903a80800fc6a9bffaffca759b37060eab368905b",
+    "priorFinding": "以前のローカル査読で終端を三角形と読み誤った。現行SVG/代替説明/独立資料を原の四角へ訂正。",
+    "scope": "2017春午後p3の当該行だけ。別年度へこの形状を未確認で流用しない。原asset/48code/7正答/8距離条件は変更しない。"
+  }
+}

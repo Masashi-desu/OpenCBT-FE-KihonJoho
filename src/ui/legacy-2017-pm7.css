@@ -1,0 +1,18 @@
+/* Geometry for source-owned PM7 tables; colors use the common token source. */
+.pm7-document { color:var(--ink); min-width:0; }
+.pm7-document table,.pm7-choice-table { border-collapse:collapse; color:var(--ink); background:var(--surface); }
+.pm7-document table { width:100%; table-layout:fixed; }
+.pm7-document th,.pm7-document td,.pm7-choice-table td { border:1px solid var(--ink); padding:.3em .4em; text-align:center; overflow-wrap:anywhere; }
+.pm7-document caption { margin-bottom:.6em; font-weight:600; }
+.pm7-document caption span { display:block; text-align:right; font-weight:normal; }
+.pm7-decision { min-width:620px; }
+.pm7-decision col:first-child { width:39%; }
+.pm7-decision th { text-align:left; font-weight:normal; }
+.pm7-inventory { min-width:620px; }
+.pm7-choice-table { min-width:6em; width:max-content; }
+.pm7-choice-table td { min-width:2.2em; }
+.pm7-blank { display:inline-block; min-width:4em; text-align:center; border:2px solid var(--ink); padding:0 .3em; }
+.pm7-selection { border:3px double var(--ink); padding:.8em; }
+.pm7-circled { display:inline-flex; border:1px solid var(--ink); border-radius:50%; line-height:1.2; }
+.pm7-choice-bank { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1em; min-width:460px; }
+.pm7-choice-bank > div { display:flex; align-items:flex-start; }

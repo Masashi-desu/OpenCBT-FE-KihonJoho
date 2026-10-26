@@ -1,3 +1,4 @@
+import {validateQuestionSelection} from "./question-selection";
 import * as validators from "../generated/validators.js";
 import mathSchema from "../../docs/public/schemas/formula.schema.json";
 import {
@@ -338,6 +339,7 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
       fail("RELEASE_GATE", `${a.id}: 未使用の画像を配布カタログへ残せません`);
   for (const s of b.sets) {
     if (s.distribution !== "included") fail("RELEASE_GATE", s.id);
+    validateQuestionSelection(b,s);
     const subjects = new Set<Question["subject"]>();
     for (const r of s.questionRefs) {
       const question = get("question", refKey(r));

@@ -13,6 +13,7 @@ import { shuffle, newId } from "./hash";
 import { DataError } from "./validation";
 import { selectedSourceCollection, sourceCollectionTitle, isLegacyQuestion, isCurrentSubjectMixQuestion } from "./source-collections";
 import { mixProfile } from "./mix-profile";
+import { selectedCollectionQuestions } from "./question-selection";
 import {
   bookmarkTemplate,
   bookmarkTemplates,
@@ -120,6 +121,8 @@ export function selectQuestions(
     typeof s.mixProfileCollectionId !== "string" || !s.mixProfileCollectionId.length))
     throw new DataError("SELECTION", "基準問題集の指定は問数を決めたランダムミックスで使います");
   if (s.mode === "endless") {
+    if (s.selectedQuestionRefs !== undefined)
+      throw new DataError("QUESTION_SELECTION", "選択問題の指定は旧午後の時間付き練習で使います。");
     if (s.kind !== "mix" && s.kind !== "bookmark")
       throw new DataError("SELECTION", "無限周回は生成問題を使います");
     if (s.kind === "bookmark" && !s.questionRefs?.length)
@@ -142,6 +145,8 @@ export function selectQuestions(
     ((!s.year && !s.sourceCollectionId && !s.mixProfileCollectionId) || !s.size))
     throw new DataError("SELECTION", "年度と出題数を選んでください");
   if (s.kind === "bookmark") {
+    if (s.selectedQuestionRefs !== undefined)
+      throw new DataError("QUESTION_SELECTION", "選択問題の指定は旧午後の時間付き練習で使います。");
     if (!s.bookmarkQuestionRef || s.mode !== "study")
       throw new DataError(
         "BOOKMARK_REF",
@@ -193,12 +198,12 @@ export function selectQuestions(
     id: string;
   if (s.kind === "annual") {
     const collection = selectedSourceCollection(b, s)!;
-    candidates = collection.questionRefs.map(ref => b.questions.find(q => refKey(refOf(q)) === refKey(ref))!);
+    candidates = selectedCollectionQuestions(b, collection, s);
     title = sourceCollectionTitle(b, collection);
     id = collection.id;
   } else {
     profile = mixProfile(b, s);
-    const owned = new Set(profile.collection.questionRefs.map(refKey));
+    const owned = new Set(profile.questions.map(q => refKey(refOf(q))));
     candidates = b.questions.filter(
       (q) =>
         q.subject === s.subject &&
@@ -224,7 +229,16 @@ export function selectQuestions(
     chosen.push(q);
     familyOf(q, b).forEach((k) => families.add(k));
   };
-  if (s.kind === "mix") {
+  if (s.kind === "mix" && profile?.collection.questionSelection) {
+    // Select one bound variant for each chosen major, in the source's order.
+    // Matching area counts alone would let another language replace it.
+    chosen = profile.questions.map(original => {
+      const matching = candidates.filter(q => q.origin.derivedFrom.some(ref => refKey(ref) === refKey(refOf(original))));
+      if (matching.length !== 1)
+        throw new DataError("BINDING_REF", "選択した大問の基準問題が一意に対応しません。");
+      return matching[0];
+    });
+  } else if (s.kind === "mix") {
     for (const [area, count] of Object.entries(quota)) {
       if (count === 0) continue;
       const pool = order(candidates.filter((q) => q.learning.area === area));
@@ -258,8 +272,9 @@ export function selectQuestions(
     id: newId("set-selected"),
     revision: 1,
     title,
-    questionRefs: candidates.map(refOf),
+    questionRefs: (profile?.collection.questionSelection ? chosen : candidates).map(refOf),
   };
+  delete set.questionSelection; // The full policy stays in the source snapshot.
   if (profile?.legacy) set.generationBindings = candidates.map(q => {
     const templates = b.templates.filter(t => refKey(t.baseQuestionRef) === refKey(refOf(q)) &&
       t.lifecycle === "active" && t.distribution === "included");
@@ -274,7 +289,7 @@ export function selectQuestions(
     subject: s.subject,
     mode: s.mode,
     questionCount: chosen.length,
-    questionOrder: s.kind === "mix" ? "shuffle" : "set",
+    questionOrder: s.kind === "mix" && !profile?.collection.questionSelection ? "shuffle" : "set",
     choiceOrder: s.kind === "mix" ? "shuffle" : "fixed",
     duplicatePolicy: s.kind === "mix" ? "instance_unique" : "lineage_unique",
     shortagePolicy: "block",

@@ -1,3 +1,4 @@
+import { validateLegacyMaterial } from "./generators/legacy-material-contracts";
 import type { Attribution, Block, Question, Template } from "./types";
 import { DataError } from "./errors";
 import { validateAdditionalFormat } from "./generators";
@@ -418,6 +419,7 @@ export function preserveSourceFormat(
 }
 
 export function validateSourceFormat(q: Question, t: Template) {
+  validateLegacyMaterial(q, t);
   if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;

@@ -1,3 +1,4 @@
+import { answerRun } from "./fixtures/answer-run";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
@@ -164,12 +165,7 @@ test("all bookmarked sources generate consecutive fresh practice runs without ch
       assert.deepEqual(resultBookmarks(b, completed, "unanswered", 0), [
         makeBookmark(b, refOf(row.original), 0),
       ], row.original.id);
-      const incorrect = finishRun(updateAnswer(
-        startRun(run),
-        run.issued[0].choices.find(
-          (choice) => choice.id !== run.issued[0].correctAnswer.choiceId,
-        )!.id,
-      ), "completed");
+      const incorrect = finishRun(answerRun(startRun(run), false), "completed");
       assert.deepEqual(resultBookmarks(b, incorrect, "incorrect", 0), [
         makeBookmark(b, refOf(row.original), 0),
       ], row.original.id);

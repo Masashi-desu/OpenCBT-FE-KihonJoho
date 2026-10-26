@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "asset-ipa-2017h29h-fe-pm-p38",
+  "path": "assets/2017h29h-fe-pm-page-038.webp",
+  "mediaType": "image/webp",
+  "sha256": "9f8360d51a254c579523aca55d4adc34eecd2d73e05350060ca39a38161cf7b2",
+  "width": 928,
+  "height": 1313,
+  "byteLength": 182600,
+  "alt": "原資料p38、プログラム1〜39行。αは28行、βは39行。繰返し範囲は6〜10、12〜39、14〜19、23〜27、30〜38、条件分岐は15〜17、20〜22、24〜26、31〜37、33〜36。1行 ○副プログラム: ShortestPath(整数型: Distance[][], 整数型: nPoint, 整数型: sp, 整数型: dp, 整数型: sRoute[], 整数型: sDist)\n2行 ○整数型: pDist[nPoint], pRoute[nPoint]\n3行 ○論理型: pFixed[nPoint]\n4行 ○整数型: sPoint, i, j, newDist\n5行 ・sDist ← ∞ /* 出発地から目的地までの最短距離に初期値を格納する */\n6行 ■i: 0, i < nPoint, 1\n7行 ・sRoute[i] ← −1 /* 最短経路上の地点の地点番号に初期値を格納する */\n8行 ・pDist[i] ← ∞ /* 出発地から各地点までの最短距離に初期値を格納する */\n9行 ・pFixed[i] ← false /* 各地点の最短距離の確定状態に初期値を格納する */\n10行 ■\n11行 ・pDist[sp] ← 0 /* 出発地から出発地自体への最短距離に0を設定する */\n12行 ■true /* 最短経路探索処理 */\n13行 ・i ← 0\n14行 ■i < nPoint /* 未確定の地点を一つ探す */\n15行 ▲not(pFixed[i])\n16行 ・break /* 最内側の繰返しから抜ける */\n17行 ▼\n18行 ・i ← i + 1\n19行 ■\n20行 ▲i = nPoint /* 出発地から全ての地点までの最短距離が確定 */\n21行 ・break /* していれば、最短経路探索処理を抜ける */\n22行 ▼\n23行 ■j: i + 1, j < nPoint, 1 /* 最短距離がより短い地点を探す */\n24行 ▲［a］ and pDist[j] < pDist[i]\n25行 ・i ← j\n26行 ▼\n27行 ■\n28行 ・sPoint ← i\n29行 ・pFixed[［b］] ← true /* 出発地からの最短距離を確定する */\n30行 ■j: 0, j < nPoint, 1\n31行 ▲Distance[sPoint][j] > 0 and not(pFixed[j])\n32行 ・newDist ← pDist[sPoint] + Distance[sPoint][j]\n33行 ▲newDist < pDist[j]\n34行 ・pDist[j] ← newDist\n35行 ・pRoute[j] ← sPoint\n36行 ▼\n37行 ▼\n38行 ■\n39行 ■",
+  "attribution": {
+    "origin": "official",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問8",
+          "page": 38,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2017h29h-fe-pm-8"
+    ],
+    "creatorIds": [
+      "ipa"
+    ]
+  }
+}

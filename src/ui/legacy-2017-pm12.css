@@ -1,0 +1,12 @@
+/* Original big-endian word order; no semantic colors beyond shared tokens. */
+.legacy-pm12-figure { max-width:100%; overflow-x:auto; color:var(--ink); }
+.legacy-pm12-figure table { width:100%; border-collapse:collapse; table-layout:fixed; min-width:33em; margin-bottom:.8em; }
+.legacy-pm12-figure td { border:1px solid var(--ink); padding:.5em; text-align:center; white-space:nowrap; }
+.legacy-pm12-figure th { padding:.3em; text-align:center; font-weight:normal; white-space:nowrap; }
+.legacy-pm12-bank { display:grid; grid-template-columns:repeat(3,minmax(13em,1fr)); gap:.8em 1em; min-width:41em; }
+.legacy-pm12-bank > div { display:flex; gap:.8em; white-space:pre; }
+.legacy-pm12-program { width:100%; min-width:48em; height:auto; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:21px; fill:var(--ink); }
+.legacy-pm12-program-hole { fill:var(--surface); stroke:var(--ink); stroke-width:2; }
+.legacy-pm12-note-brace { fill:none; stroke:var(--ink); stroke-width:1.5; }
+.legacy-pm12-source-heading { margin:.4em 0 .7em; text-align:left; }
+.legacy-pm12-source-caption { margin:.6em 0 .3em; text-align:center; }

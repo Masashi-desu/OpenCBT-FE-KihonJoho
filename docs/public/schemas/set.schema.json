@@ -103,6 +103,106 @@
       "maxItems": 32000,
       "description": "このセットの出題候補に対する基準問題と生成テンプレートの対応。候補数は一回の出題数と分離し、実際に出題する枠は試験設定で選ぶ。全問対応では各対象の原問題を候補へ含める。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "questionSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "旧午後の完全な原問題集に保持する必須・選択区分。時間付き練習では開始前に合法な問題数を選び、学習・復習では全大問を扱う。選択超過時の公式規定も原資料と対応付けて記録する。",
+      "properties": {
+        "requiredQuestionRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+            "description": "選択規則に属する一つの原問題参照、資料参照又は選択区分。親の用途と参照先の型に従う。",
+            "$comment": "要素：記録する場合は型と必須フィールドを満たす。重複・欠落・範囲外は拒否する。"
+          },
+          "uniqueItems": true,
+          "minItems": 1,
+          "maxItems": 32000,
+          "description": "必ず解答する大問の原問題参照。選択区分とは重複しない。",
+          "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+        },
+        "optionalGroups": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "description": "同じ冊子内で選択区分を識別するID。表示名と分離して重複を拒否する。",
+                "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200,
+                "description": "選択画面で区分と選び方を説明する名称。",
+                "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+              },
+              "questionRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/questionRef",
+                  "description": "選択規則に属する一つの原問題参照、資料参照又は選択区分。親の用途と参照先の型に従う。",
+                  "$comment": "要素：記録する場合は型と必須フィールドを満たす。重複・欠落・範囲外は拒否する。"
+                },
+                "uniqueItems": true,
+                "minItems": 1,
+                "maxItems": 32000,
+                "description": "この選択区分に属する原大問の改訂固定参照。別区分や必須との重複を拒否する。",
+                "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+              },
+              "choose": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 32000,
+                "description": "この区分から解答する大問数。区分に含まれる大問数以下でなければならない。",
+                "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "questionRefs",
+              "choose"
+            ],
+            "description": "選択規則に属する一つの原問題参照、資料参照又は選択区分。親の用途と参照先の型に従う。",
+            "$comment": "要素：記録する場合は型と必須フィールドを満たす。重複・欠落・範囲外は拒否する。"
+          },
+          "description": "各区分の原問題参照と解答する大問数。必須と合わせて問題集全体を重複なく覆う。",
+          "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+        },
+        "sourceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 20,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceRef",
+            "description": "選択規則に属する一つの原問題参照、資料参照又は選択区分。親の用途と参照先の型に従う。",
+            "$comment": "要素：記録する場合は型と必須フィールドを満たす。重複・欠落・範囲外は拒否する。"
+          },
+          "description": "選択規則を確認した公式表紙などの資料と位置。",
+          "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+        },
+        "excessPolicy": {
+          "const": "paper_order",
+          "description": "公式の選択超過時規則は問題冊子の順で先頭から指定数を採点する方式。アプリでは超過を許可せず、開始前に規定数の選択を求める。",
+          "$comment": "必須：親の選択規則又は区分を記録する場合は欠落を拒否する。推測して補完しない。"
+        }
+      },
+      "required": [
+        "requiredQuestionRefs",
+        "optionalGroups",
+        "sourceRefs",
+        "excessPolicy"
+      ],
+      "$comment": "任意：省略時は必須・選択大問の区分を持たない従来の問題集として扱う。この規則を必要とする旧午後の配布登録では省略しない。"
     }
   },
   "required": [

@@ -1,0 +1,24 @@
+/* Source worksheet coordinates, merged cells, source omissions and macro frames. */
+.legacy-pm13-figure { max-width:100%; overflow-x:auto; color:var(--ink); }
+.legacy-pm13-figure table { width:max-content; min-width:49em; border-collapse:collapse; font-size:inherit; }
+.legacy-pm13-figure .legacy-pm13-product { min-width:18em; }
+.legacy-pm13-figure td,.legacy-pm13-figure th { border:1px solid var(--ink); padding:.3em .5em; text-align:center; white-space:nowrap; }
+.legacy-pm13-figure th { background:var(--soft-surface); font-weight:normal; }
+.legacy-pm13-figure .legacy-pm13-vertical { writing-mode:vertical-rl; text-orientation:upright; }
+.legacy-pm13-figure .legacy-pm13-outside { border:none; background:var(--surface); text-align:left; }
+.legacy-pm13-omitted td { border:none; }
+.legacy-pm13-diagonal { position:relative; }
+.legacy-pm13-diagonal svg { position:absolute; inset:0; width:100%; height:100%; }
+.legacy-pm13-diagonal line { stroke:var(--ink); stroke-width:1.5; }
+.legacy-pm13-bank { display:grid; gap:.8em; min-width:max-content; }
+.legacy-pm13-bank > div { display:flex; gap:1em; white-space:pre; }
+.legacy-pm13-macro { width:100%; min-width:56em; height:auto; fill:var(--ink); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:21px; }
+.legacy-pm13-macro line { stroke:var(--ink); stroke-width:1.4; }
+.legacy-pm13-hole { fill:var(--surface); stroke:var(--ink); stroke-width:2; }
+.legacy-pm13-source-heading { margin:.4em 0 .7em; text-align:left; }
+.legacy-pm13-source-caption { margin:.6em 0 .3em; text-align:center; }
+.legacy-pm13-equation { display:block; height:auto; max-width:none; fill:var(--ink); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:inherit; }
+.legacy-pm13-equation text { font-size:22px; }
+.legacy-pm13-equation-a { width:50em; }
+.legacy-pm13-equation-b { width:31.25em; }
+.legacy-pm13-equation-cd { width:38.125em; }

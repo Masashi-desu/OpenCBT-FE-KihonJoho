@@ -30,6 +30,7 @@ export function latestLearningSelection(
   const selection = structuredClone(saved.selection);
   // Opening incompatible history must not start another timed exam silently.
   if (selection.mode !== "endless") selection.mode = "study";
+  delete selection.selectedQuestionRefs;
   if (selection.bookmarkQuestionRef) {
     const source = bookmarkSource(latest, selection.bookmarkQuestionRef);
     selection.bookmarkQuestionRef = { questionId: source.id, revision: source.revision };

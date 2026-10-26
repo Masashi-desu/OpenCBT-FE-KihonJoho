@@ -196,6 +196,12 @@ export type Template = {
   bindingBasis: "official_source" | "base_question";
   originalContentSha256: string;
 };
+export type QuestionSelectionPolicy = {
+  requiredQuestionRefs: Ref[];
+  optionalGroups: { id: string; label: string; questionRefs: Ref[]; choose: number }[];
+  sourceRefs: SourceRef[];
+  excessPolicy: "paper_order";
+};
 export type SetRecord = {
   schemaVersion: string;
   id: string;
@@ -206,6 +212,7 @@ export type SetRecord = {
   examConfigRefs: EntityRef[];
   distribution: string;
   generationBindings: { questionRef: Ref; templateRef: EntityRef }[];
+  questionSelection?: QuestionSelectionPolicy;
 };
 export type Exam = {
   schemaVersion: string;
@@ -364,6 +371,8 @@ export type Selection = {
   sourceCollectionId?: string;
   // The original collection defining a finite mix's count and area profile.
   mixProfileCollectionId?: string;
+  // Original major-question refs chosen before a timed, selective booklet.
+  selectedQuestionRefs?: Ref[];
   mode: "practice" | "study" | "endless";
   size?: "public" | "full";
   bindingMode: "original_data" | "generated_values";

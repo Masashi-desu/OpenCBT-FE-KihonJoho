@@ -3,6 +3,8 @@ import { labels } from "../core/types";
 import { gradeAnswer, partAnswerLabels, selectedPartChoice } from "../core/answers";
 import { Content } from "./Content";
 import { tableChoiceName, diagramChoiceName } from "./tableChoiceName";
+import { legacyAfternoonSourceChoices } from "../core/generators/legacy-afternoon-definitions";
+import { isLegacy2017Pm4OriginalTable } from "./Legacy2017Pm4Text";
 
 export const outcomeLabels = { correct: "正解", incorrect: "不正解", unanswered: "未解答", unscored: "採点対象外" } as const;
 export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled, revealed, showResponse = false, onAnswer, onPartAnswer }: {
@@ -22,7 +24,7 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
       {order.map((id, index) => {
         const choice = q.choices.find(c => c.id === id)!, selected = selectedId === id, correct = revealed && correctIds.includes(id);
         const label = labels[index] ?? String(index + 1);
-        const explicitName = q.origin.kind === "official_reprint" ? undefined
+        const explicitName = q.origin.kind === "official_reprint" && !isLegacy2017Pm4OriginalTable(q, id) ? undefined
           : tableChoiceName(choice.content, bundle) ?? diagramChoiceName(choice.content, bundle);
         return <label key={id} className={`answer-choice ${selected ? "selected" : ""} ${correct ? "correct" : ""}`}>
           <input className="sr-only" type="radio" name={part ? `answer-${part.id}` : "answer"} value={id} checked={selected}
@@ -30,7 +32,8 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
             onChange={() => choose(id)} onClick={() => { if (selected) choose(undefined); }}
             onKeyDown={event => { if (event.key === " ") { event.preventDefault(); if (!event.repeat) choose(selected ? undefined : id); } }} />
           <span className="choice-label">{label}</span>
-          <span className="choice-body">{q.origin.kind === "official_reprint"
+          <span className="choice-body">{legacyAfternoonSourceChoices(q) ? `本文の「${label}」`
+            : q.origin.kind === "official_reprint" && !isLegacy2017Pm4OriginalTable(q, id)
             ? `原文の「${choice.content.blocks[0].type === "paragraph" ? choice.content.blocks[0].text : label}」`
             : <Content content={choice.content} bundle={bundle} assetUrls={assetUrls} showAttribution={false} />}</span>
           {correct && <span className="sr-only">正答</span>}

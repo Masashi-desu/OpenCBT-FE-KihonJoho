@@ -58,6 +58,7 @@ import { sourceQuestionLabel, questionSubjectLabel } from "../core/source-label"
 import { isLegacyQuestion } from "../core/source-collections";
 import { menuSourceGroups, menuSourceGroup, chooseMenuSourceGroup, menuSubjectOptions, menuSubjectNotice, patchMenuSelection } from "../core/menu-selection";
 import { AnswerChoices, outcomeLabels } from "./AnswerChoices";
+import { QuestionSelection } from "./QuestionSelection";
 import { answerLabels, hasCompleteAnswer } from "../core/answers";
 import { StudyClock } from "../core/study-clock";
 import {
@@ -139,6 +140,12 @@ type View =
   | "search"
   | "licenses";
 type HistoryItem = Awaited<ReturnType<typeof history>>[number];
+const countUnit = (questions: readonly Question[]) => questions.length && questions.every(q => q.answerParts?.length)
+  ? "大問" : questions.some(q => q.answerParts?.length) ? "件" : "問";
+const historySubjectBadge = (item: HistoryItem) => {
+  const slots = new Set(item.issued.map(q => q.origin.sourceRefs.find(ref => ref.locator.timeSlot)?.locator.timeSlot));
+  return slots.size === 1 && !slots.has(undefined) ? [...slots][0] : item.exam.subject === "mixed" ? "AB" : item.exam.subject;
+};
 type HistoryFilter = "all" | Selection["kind"];
 const defaults: Selection = {
   subject: "A",
@@ -587,12 +594,14 @@ export function App() {
   const collectionSubjects = selection.mode !== "endless";
   const subjects = menuSubjectOptions(activeSourceGroup, collectionSubjects);
   const subjectNotice = menuSubjectNotice(activeSourceGroup, collectionSubjects);
+  const activeCollection = collectionSubjects ? activeSourceGroup?.collections.find(collection => collection.subject === selection.subject) : undefined;
   let chosen: ReturnType<typeof selectQuestions> | undefined,
     mixSizing: ReturnType<typeof mixProfile> | undefined,
     selectionError = "";
   try {
     if (bundle) {
-      if (selection.kind === "mix" && collectionSubjects) mixSizing = mixProfile(bundle, { ...selection, size: "public" });
+      if (selection.kind === "mix" && collectionSubjects) mixSizing = mixProfile(bundle,
+        { ...selection, mode: "study", size: "public", selectedQuestionRefs: undefined });
       chosen = selectQuestions(bundle, selection, (a) => a);
     }
   } catch (e) {
@@ -1301,6 +1310,9 @@ export function App() {
                     </button>
                   ))}
                 </div>
+                {bundle && activeCollection?.questionSelection && <QuestionSelection bundle={bundle}
+                  collection={activeCollection} selection={selection}
+                  onChange={selectedQuestionRefs => patch({ selectedQuestionRefs })} />}
                 {selection.mode !== "endless" && (
                   <div className="config-grid config-grid-single">
                     <fieldset className="mode-field">
@@ -1314,13 +1326,17 @@ export function App() {
                               className={selection.size === size ? "selected" : ""}
                               onClick={() => patch({ size })}
                             >
-                              {size === "public" ? "問題集の問数" : "本番の問数"}
-                              （{(size === "public" ? mixSizing?.publicCount : mixSizing?.fullCount) ?? "―"}問）
+                              {activeCollection?.questionSelection && selection.mode === "practice"
+                                ? `選択した大問（${chosen?.questions.length ?? "―"}大問）`
+                                : <>{size === "public" ? "問題集の問数" : "本番の問数"}
+                                  （{(size === "public" ? mixSizing?.publicCount : mixSizing?.fullCount) ?? "―"}{activeCollection?.questionSelection ? "大問" : "問"}）</>}
                             </button>
                           ))}
                         </div>
                       ) : (
-                        <div className="field-value">公開問題（{chosen?.questions.length ?? "―"}問）</div>
+                        <div className="field-value">{activeCollection?.questionSelection && selection.mode === "practice"
+                          ? `選択した大問（${chosen?.questions.length ?? "―"}大問）`
+                          : <>公開問題（{activeCollection?.questionRefs.length ?? chosen?.questions.length ?? "―"}{activeCollection?.questionSelection ? "大問" : "問"}）</>}</div>
                       )}
                     </fieldset>
                   </div>
@@ -1348,7 +1364,7 @@ export function App() {
                       <>
                         <strong>
                           {selection.mode === "endless" ? "∞" : chosen.questions.length}
-                          <small>{selection.mode === "endless" ? "無限周回" : "問"}</small>
+                          <small>{selection.mode === "endless" ? "無限周回" : activeCollection?.questionSelection ? "大問" : "問"}</small>
                         </strong>
                         <div>
                           {selection.mode !== "practice"
@@ -1379,7 +1395,7 @@ export function App() {
               <div className="home-notes">
                 <FileText size={19} />
                 <p>
-                  2023〜2026年度のIPA公開問題と2022年4月・12月公表サンプルを収録。公開部分は本番の全問題ではありません。
+                  IPAの公式公開資料を教材にしています。現行CBTの公開問題は本番の一部です。
                   <br />
                   公開情報をもとにCBTの画面・操作を再現しています。公式IRT評価点や合否は算出しません。
                   <br />
@@ -1413,7 +1429,7 @@ export function App() {
                 <div className="instruction-stats">
                   <div>
                     <ListChecks size={20} />
-                    <strong>{selection.mode === "endless" ? "無限周回" : `${chosen.questions.length}問`}</strong>
+                    <strong>{selection.mode === "endless" ? "無限周回" : `${chosen.questions.length}${countUnit(chosen.questions)}`}</strong>
                     <span>出題数</span>
                   </div>
                   <div>
@@ -1436,6 +1452,10 @@ export function App() {
                   </div>
                 </div>
                 <ul className="instruction-list">
+                  {activeCollection?.questionSelection && selection.mode === "practice" && <li>
+                    前の画面で選んだ大問を出題します。紙の答案用紙の選択欄をマークする操作は不要です。
+                    選ばなかった大問は採点に含めず、終了後は大問・解答欄ごとの学習正答率を表示します。
+                  </li>}
                   <li>
                     選択済みの選択肢をもう一度押すと解答を解除できます。問題一覧から移動し、見直しの印を付けられます。
                   </li>
@@ -1997,8 +2017,8 @@ export function App() {
                       }))}
                     >
                       <option value="all">すべての科目</option>
-                      <option value="A">科目A</option>
-                      <option value="B">科目B</option>
+                      <option value="A">{bundle?.questions.some(q => q.subject === "A" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前")) ? "科目A・旧午前" : "科目A"}</option>
+                      <option value="B">{bundle?.questions.some(q => q.subject === "B" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")) ? "科目B・旧午後" : "科目B"}</option>
                     </select>
                   </label>
                   <label className="bookmark-filter">
@@ -2058,12 +2078,13 @@ export function App() {
                         question.id === bookmark.questionRef.questionId &&
                         question.revision === bookmark.questionRef.revision,
                     );
+                    const slot = source?.origin.sourceRefs.find(ref => ref.locator.timeSlot)?.locator.timeSlot;
                     return (
                       <article
                         key={bookmark.id}
                         className="history-card bookmark-card"
                       >
-                        <span className="subject-letter">{bookmark.subject}</span>
+                        <span className={`subject-letter${slot ? " subject-time-slot" : ""}`}>{slot ?? bookmark.subject}</span>
                         <div className="history-info">
                           <h2>{bookmark.title}</h2>
                           <BookmarkLearning
@@ -2194,8 +2215,8 @@ export function App() {
                 <div className="history-list">
                   {filteredHistoryItems.map((item) => (
                     <article key={item.id} className="history-card">
-                      <span className="subject-letter">
-                        {item.exam.subject === "mixed" ? "AB" : item.exam.subject}
+                      <span className={`subject-letter${["午前", "午後"].includes(historySubjectBadge(item) ?? "") ? " subject-time-slot" : ""}`}>
+                        {historySubjectBadge(item)}
                       </span>
                       <div className="history-info">
                         <span className="history-status">
@@ -2205,7 +2226,7 @@ export function App() {
                         </span>
                         <h2>{item.title}</h2>
                         <p>
-                          {item.session.entries.length}問 ·{" "}
+                          {item.session.entries.length}{countUnit(item.issued)} ·{" "}
                           {item.selection.mode === "endless" ? "無限周回" : item.exam.mode === "study" ? "学習" : "時間付き練習"}{" "}
                           ·{" "}
                           {item.session.bindingMode === "generated_values"

@@ -97,6 +97,27 @@ test("all reviewed finite precision pools are reachable by the actual seeded sam
   }
 });
 
+function isAfternoon(original: Question) {
+  const slots = new Set(original.origin.sourceRefs.flatMap(ref => ref.locator.timeSlot ? [ref.locator.timeSlot] : []));
+  return original.subject === "B" && slots.size === 1 && slots.has("午後");
+}
+
+function legalAfternoonSelections(collection: Bundle["sets"][number]) {
+  // Independently enumerate the source cover's omitted pair and language;
+  // neither the production group counter nor shuffled question order is used.
+  const refs = collection.questionRefs, policy = collection.questionSelection;
+  assert.equal(refs.length, 13); assert(policy);
+  assert.deepEqual(policy.requiredQuestionRefs, [refs[0], refs[7]]);
+  assert.deepEqual(policy.optionalGroups.map(group => ({ refs: group.questionRefs, choose: group.choose })),
+    [{ refs: refs.slice(1, 7), choose: 4 }, { refs: refs.slice(8), choose: 1 }]);
+  const selections = [];
+  for (let first = 1; first <= 6; first++) for (let second = first + 1; second <= 6; second++)
+    for (let language = 8; language <= 12; language++)
+      selections.push([refs[0], ...refs.slice(1, 7).filter((_, i) => i + 1 !== first && i + 1 !== second), refs[7], refs[language]]);
+  assert.equal(selections.length, 75);
+  return selections;
+}
+
 function routesFor(bundle: Bundle, original: Question, template: Template) {
   const base = bundle.questions.find((q) => refKey(refOf(q)) === refKey(template.baseQuestionRef))!,
     individual: Selection = {
@@ -112,16 +133,29 @@ function routesFor(bundle: Bundle, original: Question, template: Template) {
       subject: original.subject, kind: "mix", mode: "study", year: 2026,
       size: "public", bindingMode: "generated_values",
     };
-  return [individual, group, endless, mix, { ...mix, mode: "practice" as const }].map((selection) => {
+  // Old afternoon is excluded from the current B pool. Its individual,
+  // explicit bookmark group and explicit endless pool are real one-major
+  // issuance routes. Booklet study/practice retain paper order and all selected
+  // majors, and are tested below without shrinking a legal seven-major run.
+  const routes = isAfternoon(original)
+    ? [individual, group, { ...endless, questionRefs: [refOf(base)] }]
+    : [individual, group, endless, mix, { ...mix, mode: "practice" as const }];
+  assert.equal(routes.length, isAfternoon(original) ? 3 : 5);
+  return routes.map((selection) => {
     const prepared = selectQuestions(bundle, selection, <T>(items: T[]) => [
       ...items.filter((q) => (q as Question).id === base.id),
       ...items.filter((q) => (q as Question).id !== base.id),
     ]);
     assert.equal(prepared.questions[0].id, base.id);
-    // Keep the actual menu's candidate pool and policies, isolating one issued
-    // slot to exhaust its bindings without unrelated random parameter draws.
-    prepared.questions = [base];
-    if (prepared.exam.questionCount !== undefined) prepared.exam.questionCount = 1;
+    if (isAfternoon(original)) {
+      assert.equal(prepared.questions.length, 1);
+      assert.deepEqual(prepared.set.questionRefs, [template.baseQuestionRef]);
+    } else {
+      // Preserve the existing189 routes and actual candidate pools, isolating
+      // their issued slot from unrelated parameter draws as before.
+      prepared.questions = [base];
+      if (prepared.exam.questionCount !== undefined) prepared.exam.questionCount = 1;
+    }
     return { selection, prepared };
   });
 }
@@ -141,6 +175,39 @@ test("all registered series remain in every applicable publication pool and draw
       const owned = new Set(collection.questionRefs.map(refKey));
       const collectionRows = subjectRows.filter(row => owned.has(refKey(refOf(row.original))));
       const legacy = collectionRows.some(row => row.original.origin.sourceRefs.some(r => r.locator.timeSlot));
+      if (collectionRows.some(row => isAfternoon(row.original))) {
+        assert(collectionRows.every(row => isAfternoon(row.original)));
+        const cases = [{ mode: "study" as const, refs: collection.questionRefs },
+          ...legalAfternoonSelections(collection).map(refs => ({ mode: "practice" as const, refs }))];
+        for (const item of cases) {
+          const ownedSelection = new Set(item.refs.map(refKey));
+          const selectedRows = collection.questionRefs.filter(ref => ownedSelection.has(refKey(ref)))
+            .map(ref => collectionRows.find(row => refKey(refOf(row.original)) === refKey(ref))!);
+          const expectedBases = selectedRows.map(row => row.linked[0].baseQuestionRef);
+          const config: Selection = { subject, kind: "mix", mode: item.mode, mixProfileCollectionId: collection.id,
+            size: "public", bindingMode: "generated_values",
+            ...(item.mode === "practice" ? { selectedQuestionRefs: [...item.refs].reverse() } : {}) };
+          const prepared = selectQuestions(bundle, config, items => [...items].reverse());
+          assert.deepEqual(prepared.questions.map(refOf), expectedBases);
+          assert.deepEqual(prepared.set.questionRefs, expectedBases);
+          assert.equal(prepared.exam.questionOrder, "set");
+          assert.equal(prepared.exam.questionCount, item.mode === "practice" ? 7 : 13);
+          assert.equal(prepared.exam.timeLimitSeconds, item.mode === "practice" ? 9000 : undefined);
+          const quota: Record<string, number> = {};
+          selectedRows.forEach(row => { quota[row.original.learning.area] = (quota[row.original.learning.area] ?? 0) + 1; });
+          assert.deepEqual(prepared.quota, quota);
+          // Annual and generated routes must retain exactly the same chosen
+          // major families in paper order, never replace a language by area.
+          const annual = selectQuestions(bundle, { ...config, kind: "annual", sourceCollectionId: collection.id,
+            mixProfileCollectionId: undefined, bindingMode: "original_data" });
+          assert.deepEqual(annual.questions.map(refOf), selectedRows.map(row => refOf(row.original)));
+          assert.equal(annual.exam.questionCount, prepared.exam.questionCount);
+          assert.equal(annual.exam.timeLimitSeconds, prepared.exam.timeLimitSeconds);
+          expectedBases.forEach(ref => visited.add(refKey(ref)));
+        }
+        ctx.diagnostic(`${collection.id}: all13 study and all75 legal seven-major paper-order mixes retained.`);
+        continue;
+      }
       const poolRows = legacy ? collectionRows : currentRows;
       const pool = poolRows.map(row => refKey(row.linked[0].baseQuestionRef)).sort();
       for (const mode of ["study", "practice"] as const)
@@ -185,6 +252,18 @@ test("all registered series remain in every applicable publication pool and draw
     }
     mock.mock.restore();
     assert.deepEqual(run.set.questionRefs, refs);
+    const afternoonRows = subjectRows.filter(row => isAfternoon(row.original));
+    if (afternoonRows.length) {
+      const explicitRefs = afternoonRows.map(row => row.linked[0].baseQuestionRef);
+      assert(explicitRefs.every(ref => !refs.some(current => refKey(current) === refKey(ref))), "old PM must stay out of the current endless pool");
+      for (const target of explicitRefs) {
+        const explicit = selectQuestions(bundle, { subject, kind: "mix", mode: "endless", bindingMode: "generated_values",
+          questionRefs: explicitRefs }, <T>(items: T[]) => [...items.filter(q => refKey(refOf(q as Question)) === refKey(target)),
+            ...items.filter(q => refKey(refOf(q as Question)) !== refKey(target))]);
+        assert.deepEqual(explicit.set.questionRefs, explicitRefs);
+        assert.deepEqual(refOf(explicit.questions[0]), target);
+      }
+    }
   }
 });
 
@@ -254,12 +333,18 @@ test("GPU and every reference/rotated binding can be issued on all four random p
   assert.deepEqual(bundle, original);
 });
 
-test("every small-domain binding survives all five issuance paths and endless history, including baseline answers", async (ctx) => {
+test("every small-domain binding survives every applicable issuance path and endless history, including all old afternoon inputs", async (ctx) => {
   const bundle = fixture(), control = seedControl(ctx);
   let templates = 0, inputs = 0, initialDraws = 0, appendedDraws = 0;
+  let afternoonInputs = 0, afternoonInitialDraws = 0, afternoonAppendedDraws = 0;
+  const afternoonTemplates: string[] = [];
   for (const row of generationCoverage(bundle).rows) {
     const template = row.linked[0], fields = contractFor(template)!.fields;
-    if (fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1) > 256) continue;
+    const capacity = fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1), afternoon = isAfternoon(row.original);
+    // All current PM domains are explicitly enumerable. A later enlargement
+    // must fail here for review, never silently fall into the64-seed sample.
+    if (afternoon) assert(capacity <= 256, `${template.id}: all finite afternoon inputs require exhaustive coverage`);
+    if (capacity > 256) continue;
     const candidates = fields.reduce<number[][]>((rows, f) => rows.flatMap((v) =>
       Array.from({ length: f.maximum - f.minimum + 1 }, (_, i) => [...v, f.minimum + i]),
     ), [[]]).filter((v) => {
@@ -285,6 +370,7 @@ test("every small-domain binding survives all five issuance paths and endless hi
         assert.deepEqual(run.instances[0].parameters.values, values, template.id);
         await validateRun(run);
         initialDraws++;
+        if (afternoon) afternoonInitialDraws++;
         if (selection.kind === "mix" && selection.mode === "endless") {
           history.push(run.instances[0]);
           if (!precedents.length || (precedents.length === 1 &&
@@ -311,11 +397,17 @@ test("every small-domain binding survives all five issuance paths and endless hi
       assert.deepEqual(appended.instances[1].parameters.values, values);
       assert.deepEqual(appended.issued[0], preceding.issued[0]);
       appendedDraws++;
+      if (afternoon) afternoonAppendedDraws++;
     }
     templates++;
     inputs += candidates.length;
+    if (afternoon) { afternoonTemplates.push(template.id); afternoonInputs += candidates.length; }
   }
-  ctx.diagnostic(`${templates} domains, ${inputs} valid inputs, ${initialDraws} initial draws across five paths, ${appendedDraws} draws with complete prior history.`);
+  assert.deepEqual(afternoonTemplates.sort(), generationCoverage(bundle).rows.filter(row => isAfternoon(row.original)).map(row => row.linked[0].id).sort());
+  assert.equal(afternoonInitialDraws, afternoonInputs * 3); assert.equal(afternoonAppendedDraws, afternoonInputs);
+  assert.equal(initialDraws - afternoonInitialDraws, (inputs - afternoonInputs) * 5);
+  ctx.diagnostic(`${templates} domains, ${inputs} valid inputs, ${initialDraws} initial draws, ${appendedDraws} draws with complete prior history; current-format domains retain all five paths.`);
+  ctx.diagnostic(`Old afternoon: ${afternoonTemplates.length} domains, all ${afternoonInputs} finite inputs, ${afternoonInitialDraws} initial draws on three applicable explicit routes, ${afternoonAppendedDraws} history draws; all75 booklet selections separately retained.`);
 });
 
 test("all larger domains retain 64 seeded bindings on every issuance path and after endless history", async (ctx) => {

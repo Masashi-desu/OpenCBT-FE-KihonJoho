@@ -1,7 +1,7 @@
 import type { Bundle, Selection } from "./types";
-import { refKey, refOf } from "./types";
 import { DataError } from "./errors";
 import { isLegacyQuestion, selectedMixProfileCollection, sourceCollectionTitle } from "./source-collections";
+import { collectionQuestions, selectedCollectionQuestions } from "./question-selection";
 
 const areaOrder = ["technology", "management", "strategy", "algorithm", "security"];
 
@@ -25,8 +25,8 @@ export function scaleAreaCounts(counts: Record<string, number>, total: number): 
 
 export function mixProfile(bundle: Bundle, selection: Selection) {
   const collection = selectedMixProfileCollection(bundle, selection);
-  const originals = new Map(bundle.questions.map(q => [refKey(refOf(q)), q]));
-  const questions = collection.questionRefs.map(ref => originals.get(refKey(ref))!);
+  const allQuestions = collectionQuestions(bundle, collection);
+  const questions = selectedCollectionQuestions(bundle, collection, selection);
   const legacy = questions.some(isLegacyQuestion);
   const slots = new Set(questions.flatMap(q => q.origin.sourceRefs.flatMap(r => r.locator.timeSlot ? [r.locator.timeSlot] : [])));
   if (legacy && (slots.size !== 1 || !questions.every(isLegacyQuestion)))
@@ -42,7 +42,7 @@ export function mixProfile(bundle: Bundle, selection: Selection) {
     e.id === ref.id && e.revision === ref.revision && e.mode === "practice"))
     .find(e => e?.timeLimitSeconds !== undefined);
   if (legacy && !practice) throw new DataError("EXAM_REF", "旧制度の試験時間が設定されていません。");
-  return { collection, questions, legacy, quota, publicCount: questions.length, fullCount,
+  return { collection, questions, legacy, quota, publicCount: allQuestions.length, fullCount,
     questionCount: Object.values(quota).reduce((sum, n) => sum + n, 0),
     timeLimitSeconds: selection.size === "full" ? (selection.subject === "A" ? 5400 : 6000)
       : practice?.timeLimitSeconds ?? questions.length * (selection.subject === "A" ? 90 : 300),

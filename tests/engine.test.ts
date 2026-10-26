@@ -1,3 +1,4 @@
+import { currentSourceOriginals } from "./fixtures/current-source-scope";
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -34,10 +35,10 @@ const legacyTemplate = () => ({
 test("distribution gate: real sources, official answer keys, JIS exclusion and Schema", async () => {
   const b = fixture();
   await validateBundle(b);
-  assert.equal(b.questions.length, 378);
+  assert.equal(b.questions.length, 404);
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
-    189,
+    202,
   );
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {
@@ -46,9 +47,7 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
     2025: { A: "エイイウアウエエウアウエエエウエイエエイ", B: "カアイクオク" },
     2026: { A: "イウイイイイエアウウアウアエウアイアアイ", B: "エカアエイケ" },
   };
-  for (const q of b.questions.filter(
-    (q) => q.origin.kind === "official_reprint",
-  )) {
+  for (const q of currentSourceOriginals(b)) {
     const r = q.origin.sourceRefs[0],
       year = r.locator.year as keyof typeof keys,
       n = Number(r.locator.questionNumber);

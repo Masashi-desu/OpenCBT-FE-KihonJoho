@@ -3,8 +3,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
-import { generationContracts, bindQuestion } from "../src/core/generation";
+import { generationContracts, bindQuestion, validateTemplateContract } from "../src/core/generation";
 import { additionalContracts } from "../src/core/generators";
+import { legacyAfternoonDefinition } from "../src/core/generators/legacy-afternoon-definitions";
+import { validateSourceFormat } from "../src/core/generation-formats";
 import { readDistributionBundle, compactDistribution } from "./distribution-files";
 import { contentHash } from "../src/core/hash";
 import {
@@ -156,6 +158,25 @@ for (const c of [...generationContracts, ...additionalContracts]) {
     questionPath: `questions/template-${c.id}.json`,
     templatePath: `templates/${c.id}.json`,
   });
+}
+// Booklet-managed bases have source-owned appendices, per-material rights and
+// their own admission review. They are not generic single-answer rebuilds.
+// Preserve every such registered record when refreshing an unrelated source;
+// an explicit bulk refresh must fail before writing rather than silently drop
+// them or reconstruct them from an original image question.
+const handledTemplates = new Set(generated.map(g => g.template.id));
+for (const template of inputBundle.templates.filter(t => !handledTemplates.has(t.id))) {
+  const definition = legacyAfternoonDefinition(template.generatorRef.id);
+  const question = inputBundle.questions.find(q => q.id === template.baseQuestionRef.questionId && q.revision === template.baseQuestionRef.revision);
+  if (!definition || !question) throw Error(`Unmanaged existing template ${template.id}`);
+  if (process.argv.includes("--refresh-all") || process.argv.includes("--refresh-additional") || refreshSources.has(definition.source))
+    throw Error(`BOOKLET_REVIEW_REQUIRED: ${definition.source}; use its complete reviewed booklet staging workflow`);
+  validateTemplateContract(template);
+  if (template.originalContentSha256 !== await contentHash(question)) throw Error(`BASE_CONTENT ${template.id}`);
+  validateSourceFormat(question, template);
+  generated.push({ question, template,
+    questionPath: `questions/${question.id.replace(/^question-/, "")}.json`,
+    templatePath: `templates/${template.id.replace(/^template-/, "")}.json` });
 }
 if (!changed) {
   console.log("Managed generation data is unchanged; revisions preserved.");

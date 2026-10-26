@@ -1,0 +1,390 @@
+{
+  "status": "12 proposals completely mapped, not registered or actual rendered",
+  "reviewedProposals": 12,
+  "proposedDisplayedTerms": 12,
+  "inheritedRuntimeTermImports": 0,
+  "sourceScopeChangesToOldTerms": 0,
+  "terms": [
+    {
+      "proposalIndex": 0,
+      "term": "ウォータフォールモデル",
+      "proposedOwnMeaning": "開発を外部設計，内部設計，プログラム開発，結合テスト，総合テストという工程で進めるという本問の開発方式。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "ウォータフォールモデルは名称。Waterfall modelという英語名の補足は可能だが頭字語expansionを捏造しない。",
+      "confusableFalseClaimRejected": "全開発方式が本問の五工程に固定されるという普遍命題を足さない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u06"
+      },
+      "canonicalComparison": null,
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 1,
+      "term": "外部設計",
+      "proposedOwnMeaning": "利用者や外部システムから見える機能・入出力を具体化する工程。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "外部設計は利用者側の入出力/機能を定める工程。",
+      "confusableFalseClaimRejected": "プログラム内部の詳細だけを定めるものではない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u06"
+      },
+      "canonicalComparison": {
+        "path": "src/core/generators/legacy-2017-development-study-terms.ts",
+        "atGitCommit": "0ba6b16520e5cb5e6d7fa42d30b80a309a65494e",
+        "bytes": 11199,
+        "sha256": "9506c1ed02bfa88f900165c5695d8fb4d3375c58e7a470fd97b2de8990ed654a",
+        "current": {
+          "path": "src/core/generators/legacy-2017-development-study-terms.ts",
+          "bytes": 11199,
+          "sha256": "9506c1ed02bfa88f900165c5695d8fb4d3375c58e7a470fd97b2de8990ed654a"
+        }
+      },
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 2,
+      "term": "内部設計",
+      "proposedOwnMeaning": "外部から求められる機能を内部のデータや処理でどのように実現するか定める工程。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "内部設計は外部機能の内部データ/処理での実現。",
+      "confusableFalseClaimRejected": "画面や帳票だけを決める外部設計と入れ替えない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u06"
+      },
+      "canonicalComparison": {
+        "path": "src/core/generators/legacy-2017-development-study-terms.ts",
+        "atGitCommit": "0ba6b16520e5cb5e6d7fa42d30b80a309a65494e",
+        "bytes": 11199,
+        "sha256": "9506c1ed02bfa88f900165c5695d8fb4d3375c58e7a470fd97b2de8990ed654a",
+        "current": {
+          "path": "src/core/generators/legacy-2017-development-study-terms.ts",
+          "bytes": 11199,
+          "sha256": "9506c1ed02bfa88f900165c5695d8fb4d3375c58e7a470fd97b2de8990ed654a"
+        }
+      },
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 3,
+      "term": "プログラム開発（単体テストを含む）",
+      "proposedOwnMeaning": "プログラムを作成し個々のプログラムの動作を確かめる工程。本問では単体テストをこの工程に含める。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "本問は単体テストをプログラム開発へ含む。",
+      "confusableFalseClaimRejected": "独立した第6工程にして配分期間/カレンダーを増やさない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u06"
+      },
+      "canonicalComparison": null,
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 4,
+      "term": "結合テスト",
+      "proposedOwnMeaning": "組み合わせたプログラムの連携を確かめる工程。原問の工程区分を，別システム間のインタフェースだけの試験へ狭めない。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "原語は結合テスト。プログラム/構成要素の連携を確認。",
+      "confusableFalseClaimRejected": "canonicalシステム間結合テストは範囲が狭いため意味全体を流用しない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u06"
+      },
+      "canonicalComparison": null,
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 5,
+      "term": "総合テスト",
+      "proposedOwnMeaning": "構築したシステム全体について必要な機能や動作を確かめる工程。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "原語総合テストとcanonical総合試験は概念比較のみ。全体の必要機能/動作を確認。",
+      "confusableFalseClaimRejected": "前提にない性能値/納期条件を補足から追加しない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u06"
+      },
+      "canonicalComparison": {
+        "path": "src/core/generators/legacy-2019-pm-change-study-terms.ts",
+        "atGitCommit": "0ba6b16520e5cb5e6d7fa42d30b80a309a65494e",
+        "bytes": 3345,
+        "sha256": "cbd87358c49bcf38388e8d3929ed7a10916e4b87e894fb1d9551ffd12f171713",
+        "current": {
+          "path": "src/core/generators/legacy-2019-pm-change-study-terms.ts",
+          "bytes": 3345,
+          "sha256": "cbd87358c49bcf38388e8d3929ed7a10916e4b87e894fb1d9551ffd12f171713"
+        }
+      },
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 6,
+      "term": "工数",
+      "proposedOwnMeaning": "作業に必要な労力の量。人数と作業期間の積などで表し，期間だけや人数だけとは区別する。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "人の作業量を表す工数で人数/期間と別。",
+      "confusableFalseClaimRejected": "人月を人数だけ又は経過月だけに読み替えない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u16/table1/u20"
+      },
+      "canonicalComparison": {
+        "path": "src/core/generators/legacy-2019-pm-change-study-terms.ts",
+        "atGitCommit": "0ba6b16520e5cb5e6d7fa42d30b80a309a65494e",
+        "bytes": 3345,
+        "sha256": "cbd87358c49bcf38388e8d3929ed7a10916e4b87e894fb1d9551ffd12f171713",
+        "current": {
+          "path": "src/core/generators/legacy-2019-pm-change-study-terms.ts",
+          "bytes": 3345,
+          "sha256": "cbd87358c49bcf38388e8d3929ed7a10916e4b87e894fb1d9551ffd12f171713"
+        }
+      },
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 7,
+      "term": "人月",
+      "proposedOwnMeaning": "1人が1か月作業する量を表す工数の単位。配置人数（人）と期間（月）を掛けた量で，月当たり人数そのものではない。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "1人1か月の工数単位。人数（人）×月数（月）。",
+      "confusableFalseClaimRejected": "2019問の1か月4週を持ち込まない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "table1/u20"
+      },
+      "canonicalComparison": {
+        "path": "src/core/generators/legacy-2017-study-terms.ts",
+        "atGitCommit": "0ba6b16520e5cb5e6d7fa42d30b80a309a65494e",
+        "bytes": 16748,
+        "sha256": "d14fecbdcd1fbbbe74e9a60c81efca59ede9cd75788ca270a9c2825fb5b6cd75",
+        "current": {
+          "path": "src/core/generators/legacy-2017-study-terms.ts",
+          "bytes": 16748,
+          "sha256": "d14fecbdcd1fbbbe74e9a60c81efca59ede9cd75788ca270a9c2825fb5b6cd75"
+        }
+      },
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 8,
+      "term": "配分月数",
+      "proposedOwnMeaning": "あらかじめ各工程へ配分した開発期間（月数）。本問では工程ごとに工数をこの月数で割る。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "原で定義済みの工程へ配分した開発期間（月）。",
+      "confusableFalseClaimRejected": "休業日/労働時間/週換算や新締切を推定しない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u16/u20"
+      },
+      "canonicalComparison": null,
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 9,
+      "term": "切上げ",
+      "proposedOwnMeaning": "端数があるとき必要量を満たす次の整数へ上げること。割り切れる人数へ余分な1を加えない。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "人数割算の端数を上へ。割り切れる値へ+1しない。",
+      "confusableFalseClaimRejected": "浮動小数点仮数の切上げ/共通擬似言語整数除算とは別。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u19"
+      },
+      "canonicalComparison": {
+        "path": "src/core/generators/legacy-2019-pm-change-study-terms.ts",
+        "atGitCommit": "0ba6b16520e5cb5e6d7fa42d30b80a309a65494e",
+        "bytes": 3345,
+        "sha256": "cbd87358c49bcf38388e8d3929ed7a10916e4b87e894fb1d9551ffd12f171713",
+        "current": {
+          "path": "src/core/generators/legacy-2019-pm-change-study-terms.ts",
+          "bytes": 3345,
+          "sha256": "cbd87358c49bcf38388e8d3929ed7a10916e4b87e894fb1d9551ffd12f171713"
+        }
+      },
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 10,
+      "term": "平準化",
+      "proposedOwnMeaning": "必要人数の月ごとのばらつきを小さくすること。本問の後半は作業量を保って特定の3か月の人数を等しくする。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source term/name; not acronym",
+      "correctMeaningFact": "元の3か月のB総要員数を同じにし、対応作業の人月を保つ。",
+      "confusableFalseClaimRejected": "全期間最大40を保証する言葉へ広げない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u21/u32"
+      },
+      "canonicalComparison": null,
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    },
+    {
+      "proposalIndex": 11,
+      "term": "A社・B社，一期・二期，a〜f",
+      "proposedOwnMeaning": "問題内の会社・開発段階・解答欄の識別子であり，英字略語の展開対象ではない。",
+      "englishAcronymExpansion": null,
+      "formalNameClassification": "source identifiers; not acronym",
+      "correctMeaningFact": "会社A/B、一期/二期、解答欄a〜fはラベル。",
+      "confusableFalseClaimRejected": "PM/PERT/CIAなど未使用の略語や英語正式名を捏造しない。",
+      "sourceLocator": {
+        "source": "2017h29h-fe-pm-6",
+        "physicalPages": [
+          27,
+          28,
+          29,
+          30
+        ],
+        "unit": "u03/u05/u09..u14/u21/u22/u32"
+      },
+      "canonicalComparison": null,
+      "decision": "new source-scoped independent wording; semantic reuse only",
+      "display": "after reveal/review only",
+      "scope": [
+        "2017h29h-fe-pm-6"
+      ],
+      "modifyCanonicalSources": false
+    }
+  ],
+  "wordingRights": "独自日本語説明。原の必要定義はsourceを保持し第三者研究本文を転載しない。canonical比較は現行source別の意味照合で、別問の固有前提を継承しない。",
+  "lookup": "原/base/derived/JSON snapshotのorigin.sourceRefsの2017/春/午後/問6とsourceIDを厳密照合。AM6/秋6/他年PM6は拒否。base/derived assetRefs=[]でも引ける。private StudyTerms hookのみ。",
+  "negativeCoverage": [
+    "12 each semantic wrong claim",
+    "AM6/autumn6/year2018 source false positives",
+    "before-reveal term absence and no numeric answer hints",
+    "old2017 whole terms ownkeys/order/meaning/source scope unchanged",
+    "no 4weeks/day assumptions or generalized waterfall requirements"
+  ]
+}

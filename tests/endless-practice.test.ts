@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { nextQuestionRef, selectQuestions } from "../src/core/selection";
-import { refKey, type Selection } from "../src/core/types";
+import { refKey, refOf, type Selection } from "../src/core/types";
 import {
   appendRunQuestion,
   finishRun,
@@ -77,14 +77,27 @@ test("older cycling sessions switch to random draws while retaining issued conte
   await assert.rejects(appendRunQuestion(invalid, undefined, 104000), { code: "SESSION_DUPLICATE" });
 });
 
-test("endless mode selects every included series independently of hidden year and size settings", () => {
+test("endless current-subject pools retain all applicable series and explicit bookmark pools retain all old-PM series", () => {
   const bundle = fixture();
   for (const subject of ["A", "B"] as const) {
     const clean = selectQuestions(bundle, { ...selection, subject }, (a) => a);
     const expected = generationCoverage(bundle).rows
-      .filter((row) => row.original.subject === subject)
+      .filter((row) => row.original.subject === subject &&
+        !row.original.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"))
       .map((row) => refKey(row.linked[0].baseQuestionRef)).sort();
     assert.deepEqual(clean.set.questionRefs.map(refKey).sort(), expected);
+    assert.equal(expected.length, subject === "A" ? 140 : 49);
+    assert(clean.set.questionRefs.every(ref => !ref.questionId.includes("2017h29h-fe-pm")));
+    if (subject === "B") {
+      // A deliberate bookmark pool uses the old majors instead of silently
+      // inserting them into the current-format subject-B pool.
+      const pm = generationCoverage(bundle).rows.filter(row => row.original.origin.sourceRefs
+        .some(ref => ref.locator.year === 2017 && ref.locator.period === "春期" && ref.locator.timeSlot === "午後"));
+      assert.equal(pm.length, 13);
+      const explicit = selectQuestions(bundle, { ...selection, subject, kind: "bookmark", questionRefs: pm.map(row => refOf(row.original)) }, a => a);
+      assert.deepEqual(explicit.set.questionRefs.map(refKey).sort(), pm.map(row => refKey(row.linked[0].baseQuestionRef)).sort());
+      assert.equal(explicit.questions.length, 1);
+    }
     assert.equal(clean.questions.length, 1);
     assert.equal(clean.exam.questionCount, undefined);
     assert.equal(clean.exam.mode, "study");

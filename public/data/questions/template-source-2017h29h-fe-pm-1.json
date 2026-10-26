@@ -1,0 +1,1291 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29h-fe-pm-1",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "ファイルの安全な受渡し",
+      "公開鍵",
+      "費用の比較"
+    ],
+    "keywords": [
+      "VPN",
+      "TLS",
+      "共通鍵暗号",
+      "機密度"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+          "page": 5,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "1"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+          "page": 6,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "1"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+          "page": 7,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "1"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+          "page": 8,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29h-fe-pm-1",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-23T01:40:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "必須問1全4頁と全5欄を保持して独立した解答欄へ対応",
+        "details": "原画像は下線①・6指示・2表・全解答群を保持。全19内容/22参照、b/c共通3IDを維持し重複選択禁止を追加しない。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-23T01:40:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "ファイルの受渡し方法に関する原の文章、表、空欄、解答群を保ち、利用人数・期間・機密度の条件と、それに対応する費用を変更しています。",
+        "affectsAnswer": true,
+        "answerDetails": "設問1：暗号ファイルと復号鍵を別々のメールにしても、両方のメールが盗聴される可能性が残る。圧縮と暗号化の順序だけで解読の容易さは決まらず、共通鍵という分類だけで他の全方式より解読が容易ともいえない。ファイル名の保護は形式や設定により異なり、本文にはそれを特定する条件がない。別送鍵の秘匿が保証されないことを直接指摘する理由を選ぶ。\n設問2 a：送信者が暗号化に使うのは受信者の公開鍵で、対応する秘密鍵は受信者が秘匿する。相手のものであることを確認しないと、別人の公開鍵へ差し替えられるおそれがある。共通鍵、パスワード、ディジタル署名は暗号化のため取得する公開鍵そのものではない。\n設問3：協力会社ごとに方式を選べ、協力会社間の受渡しはない。各社の全参加者について、初期費用と全期間の運用費用を計上する。X社社員のオンライン運用費用とメール初期費用はこのプロジェクトに含めない。\nP社：“低”だけなのでオンラインストレージも候補。VPNは100,000＋50,000×12＝700,000円、オンラインは10×500×12＝60,000円、メールは10×30,000＝300,000円。適合する方式のうち最小はオンラインストレージサービスで60,000円。\nQ社：“低”と“高”を扱うためオンラインストレージは利用禁止。VPNは100,000＋50,000×12＝700,000円、オンラインは5×500×12＝30,000円、メールは5×30,000＝150,000円。適合する方式のうち最小は暗号化機能付きメールソフトで150,000円。\nR社：“低”だけなのでオンラインストレージも候補。VPNは100,000＋50,000×12＝700,000円、オンラインは50×500×12＝300,000円、メールは50×30,000＝1,500,000円。適合する方式のうち最小はオンラインストレージサービスで300,000円。\nS社：“低”と“高”を扱うためオンラインストレージは利用禁止。VPNは100,000＋50,000×12＝700,000円、オンラインは25×500×12＝150,000円、メールは25×30,000＝750,000円。適合する方式のうち最小はVPNとファイルサーバで700,000円。\nbは暗号化機能付きメールソフト、cはVPNとファイルサーバ、dは700,000円。S社の三方式の数値はVPNとファイルサーバは700,000円、オンラインストレージサービスは150,000円、暗号化機能付きメールソフトは750,000円だが、料金だけでなく機密度の条件も満たす必要がある。\n30,000円はメール導入・研修の1人分だけを数えた値。 60,000円はP社のオンライン費用という別の行の値。 150,000円はS社のオンライン費用だが、機密度“高”を扱うので採用できない。 300,000円はR社のオンライン費用という別の行の値。 S社のVPN 700,000円とメール 750,000円を比較し、適合する最小費用を選ぶ。 1,500,000円はR社全員のメール導入・研修費で、S社の費用ではない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+            "page": 5,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "1"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+            "page": 6,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "1"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+            "page": 7,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "1"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+            "page": 8,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "1"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29h-fe-pm-1",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の問1は必須問題です。必ず解答してください。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問1 ファイルの安全な受渡しに関する次の記述を読んで，設問1～3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "情報システム会社のX社では，プロジェクトを遂行する際，協力会社との間で機密情報を含むファイルの受渡しを手渡しで行っていた。X社は，効率化のために，次期プロジェクトからは，インターネットを経由してファイルを受け渡すことにした。"
+      },
+      {
+        "type": "paragraph",
+        "text": "X社で働くAさんは，ファイルを受け渡す方式について検討するように，情報セキュリティリーダであるEさんから指示された。Aさんは，ファイルを圧縮し，圧縮したファイルを共通鍵暗号方式で暗号化した上で電子メール（以下，メールという）に添付して送信し，別のメールで復号用の鍵を送付する方式をEさんに提案した。しかし，Eさんから“①Aさんの方式は安全とはいえない”との指摘を受けた。"
+      },
+      {
+        "type": "paragraph",
+        "text": "Aさんは，暗号化について再検討し，圧縮したファイルを公開鍵暗号方式で暗号化してメールに添付する方式をEさんに提案したところ，“その方式で問題はないが，相手の［a］を入手する際には，それが相手のものであると確認できる方法で入手する必要がある点に注意するように”と言われた。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 本文中の下線①でEさんから指摘を受けた理由として，最も適切な答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　圧縮してから暗号化する方式は，暗号化してから圧縮する方式よりも解読が容易である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　圧縮ファイルを暗号化してもファイル名は暗号化されない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　共通鍵暗号方式は，他の暗号方式よりも解読が容易である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　ファイルを添付したメールと，鍵を送付するメールの両方が盗聴される可能性がある。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 本文中の[a]に入れる適切な答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　共通鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　公開鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　ディジタル署名"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　パスワード"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　秘密鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3 次の記述中の[ ]に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "次期プロジェクトでは，協力会社であるP社，Q社，R社及びS社と協業する。プロジェクトの期間は12か月である。Aさんは，各協力会社との間でファイルを受け渡す方式について，Eさんから次のように指示されたので，更に検討を進めることにした。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［ファイルを受け渡す方式に関するEさんからの指示］"
+      },
+      {
+        "type": "list",
+        "items": [
+          "メールを使用する方式以外も検討すること。",
+          "ファイルを受け渡す方式は，協力会社ごとに異なっていてもよい。",
+          "協力会社間ではファイルを受け渡さない。",
+          "ある協力会社との間で，ファイルを受け渡すためにアカウントを登録する必要があるシステムを使う場合，その会社からプロジェクトに参加する社員全員のアカウントを登録すること。",
+          "受け渡すファイルの機密度に合った方式を選択すること。機密度は“低”と“高”の2種類がある。X社のセキュリティポリシでは，機密度が“高”のファイルを，オンラインストレージサービスを利用して受け渡すことを禁止している。",
+          "費用（初期費用とプロジェクト期間中の運用費用の合計）が最も安い方式を選択すること。"
+        ],
+        "ordered": true
+      },
+      {
+        "type": "paragraph",
+        "text": "各協力会社の参加人数及び受け渡すファイルの機密度は，表1のとおりである。"
+      },
+      {
+        "type": "table",
+        "caption": "表1 協力会社の参加人数及び受け渡すファイルの機密度",
+        "columns": [
+          "協力会社",
+          "参加人数（人）",
+          "受け渡すファイルの機密度"
+        ],
+        "rows": [
+          [
+            "P社",
+            "10",
+            "“低”だけ"
+          ],
+          [
+            "Q社",
+            "5",
+            "“低”と“高”"
+          ],
+          [
+            "R社",
+            "50",
+            "“低”だけ"
+          ],
+          [
+            "S社",
+            "25",
+            "“低”と“高”"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Aさんは，ファイルを受け渡す方式として，次の三つの候補を検討した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［ファイルを受け渡す方式の候補］"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) VPNとファイルサーバ"
+      },
+      {
+        "type": "paragraph",
+        "text": "X社の拠点と協力会社の拠点との間でVPN環境を構築し，ファイルを受け渡すためのファイルサーバをX社に設置する。協力会社ごとに，異なるVPN環境の構築と異なるファイルサーバの設置を行う。この方式では，一つの協力会社につき，初期費用としてVPN環境の構築とファイルサーバの設置に100,000円，運用費用としてファイルサーバの運用及びVPN利用に，合わせて月額50,000円が掛かる。初期費用，運用費用ともに利用者数の多寡による影響はない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) オンラインストレージサービス"
+      },
+      {
+        "type": "paragraph",
+        "text": "インターネット上で提供されているオンラインストレージサービスを利用してファイルを受け渡す。このサービスは，利用者にHTTP over TLSでのアクセスを提供しており，ファイルを安全に受け渡せる。この方式では，初期費用は掛からないが，運用費用として利用者1人当たり月額500円が掛かる。X社では，全社員がこのサービスを利用することにしたので，X社の社員についての運用費用はこのプロジェクトの費用には含めない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 暗号化機能付きメールソフト"
+      },
+      {
+        "type": "paragraph",
+        "text": "公開鍵暗号方式を使った暗号化機能付きメールソフトを導入し，メールにファイルを添付して受け渡す。この方式を安全に運用するためには，導入時にプロジェクトの参加者全員に対して，メールソフトの利用方法などに関する研修が必要である。この方式では，初期費用として，メールソフトの導入及び研修に，利用者1人当たり30,000円が掛かるが，運用費用は掛からない。X社では，全社員がこのメールソフトを利用することにしたので，X社の社員についての初期費用はこのプロジェクトの費用には含めない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "Aさんは，各協力会社との間でファイルを受け渡す方式について，Eさんからの指示に基づき協力会社ごとに選択すべき方式を検討した。その結果と，費用（初期費用とプロジェクト期間中の運用費用の合計）を，表2に示す。"
+      },
+      {
+        "type": "table",
+        "caption": "表2 選択すべき方式とその費用",
+        "columns": [
+          "協力会社",
+          "選択すべき方式",
+          "費用（円）"
+        ],
+        "rows": [
+          [
+            "P社",
+            "オンラインストレージサービス",
+            "60,000"
+          ],
+          [
+            "Q社",
+            "［b］",
+            "非表示"
+          ],
+          [
+            "R社",
+            "非表示",
+            "非表示"
+          ],
+          [
+            "S社",
+            "［c］",
+            "［d］"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "注記 網掛けの部分は表示していない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "b，cに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　VPNとファイルサーバ"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　オンラインストレージサービス"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　暗号化機能付きメールソフト"
+      },
+      {
+        "type": "paragraph",
+        "text": "dに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　30,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　60,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　150,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　300,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　700,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "カ　750,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "キ　1,500,000"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 5,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "圧縮してから暗号化する方式は，暗号化してから圧縮する方式よりも解読が容易である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 5,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "圧縮ファイルを暗号化してもファイル名は暗号化されない。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 5,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "共通鍵暗号方式は，他の暗号方式よりも解読が容易である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 5,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ファイルを添付したメールと，鍵を送付するメールの両方が盗聴される可能性がある。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 6,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "共通鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 6,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "公開鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 6,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ディジタル署名"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 6,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "パスワード"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 6,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "秘密鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "VPNとファイルサーバ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オンラインストレージサービス"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "暗号化機能付きメールソフト"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "30,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "60,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "150,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "300,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "700,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "750,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "1,500,000"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-q1",
+      "label": "設問1",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-a",
+      "label": "設問2 a",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問3 b",
+      "choiceIds": [
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問3 c",
+      "choiceIds": [
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問3 d",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-q1",
+        "choiceId": "choice-value-4"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-17"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1：暗号ファイルと復号鍵を別々のメールにしても、両方のメールが盗聴される可能性が残る。圧縮と暗号化の順序だけで解読の容易さは決まらず、共通鍵という分類だけで他の全方式より解読が容易ともいえない。ファイル名の保護は形式や設定により異なり、本文にはそれを特定する条件がない。別送鍵の秘匿が保証されないことを直接指摘する理由を選ぶ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 a：送信者が暗号化に使うのは受信者の公開鍵で、対応する秘密鍵は受信者が秘匿する。相手のものであることを確認しないと、別人の公開鍵へ差し替えられるおそれがある。共通鍵、パスワード、ディジタル署名は暗号化のため取得する公開鍵そのものではない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3：協力会社ごとに方式を選べ、協力会社間の受渡しはない。各社の全参加者について、初期費用と全期間の運用費用を計上する。X社社員のオンライン運用費用とメール初期費用はこのプロジェクトに含めない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "P社：“低”だけなのでオンラインストレージも候補。VPNは100,000＋50,000×12＝700,000円、オンラインは10×500×12＝60,000円、メールは10×30,000＝300,000円。適合する方式のうち最小はオンラインストレージサービスで60,000円。"
+      },
+      {
+        "type": "paragraph",
+        "text": "Q社：“低”と“高”を扱うためオンラインストレージは利用禁止。VPNは100,000＋50,000×12＝700,000円、オンラインは5×500×12＝30,000円、メールは5×30,000＝150,000円。適合する方式のうち最小は暗号化機能付きメールソフトで150,000円。"
+      },
+      {
+        "type": "paragraph",
+        "text": "R社：“低”だけなのでオンラインストレージも候補。VPNは100,000＋50,000×12＝700,000円、オンラインは50×500×12＝300,000円、メールは50×30,000＝1,500,000円。適合する方式のうち最小はオンラインストレージサービスで300,000円。"
+      },
+      {
+        "type": "paragraph",
+        "text": "S社：“低”と“高”を扱うためオンラインストレージは利用禁止。VPNは100,000＋50,000×12＝700,000円、オンラインは25×500×12＝150,000円、メールは25×30,000＝750,000円。適合する方式のうち最小はVPNとファイルサーバで700,000円。"
+      },
+      {
+        "type": "paragraph",
+        "text": "bは暗号化機能付きメールソフト、cはVPNとファイルサーバ、dは700,000円。S社の三方式の数値はVPNとファイルサーバは700,000円、オンラインストレージサービスは150,000円、暗号化機能付きメールソフトは750,000円だが、料金だけでなく機密度の条件も満たす必要がある。"
+      },
+      {
+        "type": "paragraph",
+        "text": "30,000円はメール導入・研修の1人分だけを数えた値。 60,000円はP社のオンライン費用という別の行の値。 150,000円はS社のオンライン費用だが、機密度“高”を扱うので採用できない。 300,000円はR社のオンライン費用という別の行の値。 S社のVPN 700,000円とメール 750,000円を比較し、適合する最小費用を選ぶ。 1,500,000円はR社全員のメール導入・研修費で、S社の費用ではない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-23",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度春期・旧午後問1。原資料と公式解答の全5解答欄を照合し、条件別の内容検証を記録している。本文・図表の利用条件は素材ごとの権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

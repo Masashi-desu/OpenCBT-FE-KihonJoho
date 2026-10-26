@@ -128,9 +128,13 @@ export function bookmarkPreview(bundle: Bundle, ref: Ref): string {
   // Image-only originals keep their complete reading in the approved Asset.
   // Reuse only its opening prose; choices and figure descriptions remain in
   // the original material rather than becoming a bookmark answer hint.
-  const imageBlock = original.prompt.blocks.length === 1 ? original.prompt.blocks[0] : undefined;
+  const imageBlock = original.prompt.blocks.find(block => block.type === "image");
   const image = imageBlock?.type === "image" ? bundle.assets.find(a => a.id === imageBlock.assetId) : undefined;
-  const text = (prose || image?.alt || "")
+  // A multi-page legacy booklet starts with administrative paper instructions.
+  // Its reviewed topic identifies the bookmarked major without quoting answer
+  // banks or appendix descriptions. Native opening prose still takes priority.
+  const legacyTopic = original.answerParts?.length ? original.learning.topics?.[0] : undefined;
+  const text = (prose || legacyTopic || image?.alt || "")
     .split(/\n\s*(?:ア\s+|〔プログラム〕)|選択肢[：:]/u)[0]
     .replace(/^[\s\S]*?問\s*[0-9０-９]+(?:\s*[。．.:：])?\s*/u, "")
     .replace(

@@ -20,6 +20,8 @@ test("generation preparation reads packed inputs, revises only the requested ser
     fs.cpSync(path.resolve("public/data"), root, { recursive: true });
     compactDistribution(root, 0);
     const before = readDistributionBundle(root);
+    const oldPM = before.templates.filter(t => t.generatorRef.id.startsWith("generator-source-2017h29h-fe-pm-"));
+    assert.equal(oldPM.length, 13, "selective refresh must include the complete new booklet in its preservation domain");
     assert(before.catalog.files.sources.every(f => f.recordCount));
     execFileSync(path.resolve("node_modules/.bin/tsx"), [path.resolve("scripts/prepare-generation-data.ts"), "--refresh-sources=sample-2022-apr-b-1"], { cwd: temporary, stdio: "pipe" });
     const after = readDistributionBundle(root);
@@ -28,6 +30,18 @@ test("generation preparation reads packed inputs, revises only the requested ser
     assert.equal(after.templates.length, before.templates.length);
     assert.deepEqual(after.catalog.files.sources, before.catalog.files.sources);
     assert.deepEqual(after.catalog.files.assets, before.catalog.files.assets);
+    for (const template of oldPM) {
+      const preserved = after.templates.find(row => row.id === template.id)!;
+      assert(preserved);
+      assert.equal(await contentHash(preserved), await contentHash(template), template.id);
+    }
+    const pmBindings = (bundle: typeof before) => bundle.sets.find(set => set.id === "set-mix-b")!.generationBindings
+      .filter(binding => binding.templateRef.id.startsWith("template-source-2017h29h-fe-pm-"))
+      .sort((a, b) => a.templateRef.id.localeCompare(b.templateRef.id));
+    assert.equal(pmBindings(before).length, 13);
+    assert.deepEqual(pmBindings(after), pmBindings(before), "the current-B refresh retains old-PM coverage links");
+    for (const id of ["set-annual-2017-spring-pm", "set-mix-2017-spring-pm"])
+      assert.deepEqual(after.sets.find(set => set.id === id), before.sets.find(set => set.id === id));
     for (const q of before.questions) {
       const revised = after.questions.find(n => n.id === q.id)!;
       if (q.id === "question-template-source-sample-2022-apr-b-1") {
@@ -39,6 +53,36 @@ test("generation preparation reads packed inputs, revises only the requested ser
         assert.equal(revised.revision, q.revision);
         assert.equal(await contentHash(revised), await contentHash(q));
       }
+    }
+  } finally { fs.rmSync(temporary, { recursive: true, force: true }); }
+});
+test("generic generation refresh refuses explicit and bulk old-PM rebuilds before changing any packed input byte", () => {
+  const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "opencbt-booklet-refresh-refusal-"));
+  const root = path.join(temporary, "public/data");
+  const snapshot = (directory: string): unknown[] => fs.readdirSync(directory, { withFileTypes: true })
+    .sort((a, b) => a.name.localeCompare(b.name)).map(entry => {
+      const file = path.join(directory, entry.name);
+      return entry.isDirectory() ? { name: entry.name, directory: snapshot(file) }
+        : { name: entry.name, bytes: fs.statSync(file).size, sha256: digest(fs.readFileSync(file)) };
+    });
+  try {
+    fs.cpSync(path.resolve("public/data"), root, { recursive: true });
+    compactDistribution(root, 0);
+    const before = snapshot(root);
+    for (const [argument, message] of [
+      ["--refresh-sources=2017h29h-fe-pm-1", /Unknown refresh source 2017h29h-fe-pm-1/],
+      ["--refresh-all", /BOOKLET_REVIEW_REQUIRED: 2017h29h-fe-pm-/],
+      ["--refresh-additional", /BOOKLET_REVIEW_REQUIRED: 2017h29h-fe-pm-/],
+    ] as const) {
+      assert.throws(() => execFileSync(path.resolve("node_modules/.bin/tsx"),
+        [path.resolve("scripts/prepare-generation-data.ts"), argument], { cwd: temporary, stdio: "pipe" }),
+      error => {
+        const failure = error as Error & { status?: number; stderr?: Buffer };
+        assert.equal(failure.status, 1);
+        assert.match(String(failure.stderr), message);
+        return true;
+      });
+      assert.deepEqual(snapshot(root), before, argument + " must leave all files and directories unchanged");
     }
   } finally { fs.rmSync(temporary, { recursive: true, force: true }); }
 });

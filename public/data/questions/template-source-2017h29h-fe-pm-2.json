@@ -1,0 +1,1631 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29h-fe-pm-2",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "温度モニタ",
+      "A/D変換",
+      "7セグメントLED"
+    ],
+    "keywords": [
+      "I/O",
+      "GR",
+      "タイマ割込み",
+      "ポーリング"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+          "page": 9,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+          "page": 10,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+          "page": 11,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+          "page": 12,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "timeSlot": "午後",
+          "subject": "旧制度・午後",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29h-fe-pm-2",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-23T05:12:47Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原4頁/5欄/24択を独立解答欄へ対応",
+        "details": "原画像は選択注意/配線/量子化規則/3図3表/全注記/解答群を維持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-23T05:12:47Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "温度モニタの原の配線、I/O動作、量子化の前提とプログラムを保ち、LEDの表示条件と対応する形状データ・温度範囲を変更しています。図表は原資料に基づいて描き直しています。",
+        "affectsAnswer": true,
+        "answerDetails": "設問1 a：図2の点灯位置を図1の配線へ対応させると、ビット7、5、4、3、2、1が1で、小数点のビット0は0となる。8ビットを上位と下位の4ビットずつに分けると、形状データはBE。66は数字4、BEは6、DAは2、F2は3、FEは8という異なる字形に対応する。\n設問1 b：図2はレベル6を表示している。表1のレベルはA/D変換器出力値に1を足した値なので、出力値は5、3ビット表記は101。表示数字そのものをコードにせず、他のコードが示すレベルと区別する。\n設問1 c：対応する温度基準値は50℃。隣接基準値との中点は45℃と55℃で、中点は高い側へ近似される。したがって全範囲は45℃以上55℃未満。下端を含み、上端は次のレベルへ移るため含まない。他の範囲は上下端を5℃低く又は高く取る、一つ高いレベルへずらす、15℃高く取る誤りであり、全部の逆像ではない。追加の丸めは行わない。\n設問2 d：ポート2を読んだ値が0の間は変換中なので、GR＝0をYesとしてINPUT 2を繰り返す。非0になった後だけINPUT 3へ進む。GR＜0、GR＝1、GR＞1はいずれも変換中0で偽となり、完了を待たずに進んでしまう。GRの符号解釈や完了値が1だけという前提は不要。\n設問2 e：変換処理で求めた形状データαをGRへ設定し、LEDに接続したポート1へOUTPUT 1で書き込む。INPUT 1/2/3は読込みなので方向が違い、OUTPUT 2はA/D側への書込みで宛先が違う。αが1以外のときにOUTPUT 2が何をするかは規定されておらず、再変換開始と断定しない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+            "page": 9,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+            "page": 10,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+            "page": 11,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+            "page": 12,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "timeSlot": "午後",
+            "subject": "旧制度・午後",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29h-fe-pm-2",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm2-temperature-monitor",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問2～問7の選択について",
+        "alt": "次の問2から問7までの6問については，この中から4問を選択し，選択した問題については，答案用紙の選択欄の選をマークして解答してください。なお，5問以上マークした場合には，はじめの4問について採点します。 選は丸で囲まれている。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm2-temperature-monitor",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 9,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "問2 温度モニタに関する次の記述を読んで，設問1，2に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "図1に，ある温度モニタのシステム構成図の一部を示す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "タイマ割込み発生時に起動される割込みプログラムが，温度検出器の出力値をA/D変換器を介して取り込み，対応した値を7セグメントLED（以下，LEDという）に表示するシステムである。温度の検出範囲は0～70℃とし，検出された温度（以下，検出温度という）を8段階のレベルに対応させて，“1”～“8”の数字で表示する。割込みプログラムが起動されてから表示処理の完了までの時間は，タイマ割込み間隔に比べて十分に短いものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "LEDの各セグメントは，対応する出力ポートのビットの値が1のとき点灯し，0のとき消灯する。LEDに“1”～“8”の数字を表示するために，数字の字形に合わせて，対応する8ビットのデータを出力ポートのビット0～7に設定する。このデータを形状データといい，出力ポートのビット7を最上位ビットとする2桁の16進数で表記する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm2-temperature-monitor",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 温度モニタのシステム構成図の一部",
+        "alt": "図1。CPU、一定間隔で割り込むタイマ、A/D変換器、出力ポートがバスへ接続。温度検出器からA/D変換器へ矢印。出力ポートのビット15から0を縦に表示。LEDの上横はビット7、右上は6、右下は5、下横は4、左下は3、左上は2、中横は1、小数点は0へ接続。上横、右上、中横、左下、下横が点灯、左上、右下、小数点は消灯。凡例は塗りつぶしが点灯、輪郭だけが消灯。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm2-temperature-monitor",
+          "values": [
+            0,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 9,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記 “2”を表示した例である。ここで，出力ポートのビット0には常に0が設定され，小数点を表示するセグメントは消灯している。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 次の記述中の空欄に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "検出温度は，A/D変換器によって，表1に示す10℃ごとの温度基準値の中の最も近い値に近似される。温度基準値の刻み幅の中央の値は高い側の温度基準値に近似される。例えば，検出温度14℃は10℃に，15℃は20℃に，16℃は20℃に近似される。温度基準値，A/D変換器出力，レベルの関係を，表1に示す。"
+      },
+      {
+        "type": "table",
+        "caption": "表1 温度基準値，A/D変換器出力，レベルの関係",
+        "columns": [
+          "温度基準値（℃）",
+          "A/D変換器出力（2進表記）",
+          "レベル"
+        ],
+        "rows": [
+          [
+            "0",
+            "000",
+            "1"
+          ],
+          [
+            "10",
+            "001",
+            "2"
+          ],
+          [
+            "⋮",
+            "⋮",
+            "⋮"
+          ],
+          [
+            "70",
+            "111",
+            "8"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "LEDの表示が図2のとき，出力ポートに設定されている形状データは［a］，A/D変換器出力（2進表記）は［b］，検出温度の範囲は［c］である。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm2-temperature-monitor",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 LEDの表示",
+        "alt": "図2。LEDの小数点は消灯、中横は点灯、左上は点灯、左下は点灯、下横は点灯、右下は点灯、右上は消灯、上横は点灯。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm2-temperature-monitor",
+          "values": [
+            0,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　66"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　BE"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　DA"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　F2"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　FE"
+      },
+      {
+        "type": "paragraph",
+        "text": "bに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　010"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　011"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　100"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　101"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　110"
+      },
+      {
+        "type": "paragraph",
+        "text": "cに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　40℃以上50℃未満"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　45℃以上55℃未満"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　50℃以上60℃未満"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　55℃以上65℃未満"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　60℃以上70℃未満"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 タイマ割込み発生時に起動される割込みプログラムについて，その処理の流れを，図3に示す。図3中の空欄に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "各機器にはI/Oポート番号が割り当てられており，割込みプログラムは，各機器に対する制御，データの読込み及び書込みを，I/Oポート番号を指定して行う。LEDに接続されている出力ポートにはI/Oポート番号1が，A/D変換器にはI/Oポート番号2と3が，それぞれ割り当てられている。表2にLEDとA/D変換器の動作概要を示す。また，図3で使用している擬似命令の形式と動作は，表3のとおりとする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm2-temperature-monitor",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表2 LEDとA/D変換器の動作概要",
+        "alt": "表2。列は機器、I/Oポート番号、動作概要。LED：1：番号1のI/Oポートに形状データを書き込むと，出力ポートの各ビットに値が設定され，LEDの各セグメントの点灯と消灯が行われる。 A/D変換器：2：番号2のI/Oポートに値1を書き込むと，A/D変換が開始される。 A/D変換器：2：番号2のI/Oポートから読み込んだ値が0ならば，変換中を示す。 A/D変換器：2：番号2のI/Oポートから読み込んだ値が0以外ならば，A/D変換が完了して出力値が確定していることを示す。 A/D変換器：3：A/D変換完了後に番号3のI/Oポートから読み込むと，A/D変換器の出力値（0～7）が得られる。 A/D変換器の機器セルは4行結合、ポート2セルは3行結合。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm2-temperature-monitor",
+          "values": [
+            0,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "table",
+        "caption": "表3 擬似命令の形式と動作",
+        "columns": [
+          "命令の形式",
+          "命令の動作"
+        ],
+        "rows": [
+          [
+            "INPUT I/Oポート番号",
+            "番号で指定したI/Oポートに接続されている機器からデータを読み込み，GRに設定する。"
+          ],
+          [
+            "OUTPUT I/Oポート番号",
+            "GRに設定したデータを，番号で指定したI/Oポートに接続されている機器に書き込む。"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "注記 GRはCPUの8ビットのレジスタ"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm2-temperature-monitor",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3 割込みプログラムの処理の流れ",
+        "alt": "図3。開始、GR←1、OUTPUT 2（コメント：A/D変換開始）、INPUT 2、条件の空欄dの順。dがYesなら左へ戻りINPUT 2の直前へ、Noなら下のINPUT 3へ。続いて変換処理（コメント：A/D変換器の出力値を形状データαに変換）、GR←α、命令の空欄e、終了。2コメントは右の破線と括弧による注釈。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm2-temperature-monitor",
+          "values": [
+            0,
+            4
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "dに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　GR＜0"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　GR＝0"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　GR＝1"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　GR＞1"
+      },
+      {
+        "type": "paragraph",
+        "text": "eに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　INPUT 1"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　INPUT 2"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　INPUT 3"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　OUTPUT 1"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　OUTPUT 2"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "66"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "BE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "DA"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "F2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "FE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "010"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "100"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "101"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "110"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "40℃以上50℃未満"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "45℃以上55℃未満"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "50℃以上60℃未満"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "55℃以上65℃未満"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "60℃以上70℃未満"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "GR＜0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "GR＝0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "GR＝1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "GR＞1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "INPUT 1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "INPUT 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "INPUT 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "OUTPUT 1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "timeSlot": "午後",
+                "subject": "旧制度・午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "OUTPUT 2"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-9"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-17"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-23"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1 a：図2の点灯位置を図1の配線へ対応させると、ビット7、5、4、3、2、1が1で、小数点のビット0は0となる。8ビットを上位と下位の4ビットずつに分けると、形状データはBE。66は数字4、BEは6、DAは2、F2は3、FEは8という異なる字形に対応する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 b：図2はレベル6を表示している。表1のレベルはA/D変換器出力値に1を足した値なので、出力値は5、3ビット表記は101。表示数字そのものをコードにせず、他のコードが示すレベルと区別する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 c：対応する温度基準値は50℃。隣接基準値との中点は45℃と55℃で、中点は高い側へ近似される。したがって全範囲は45℃以上55℃未満。下端を含み、上端は次のレベルへ移るため含まない。他の範囲は上下端を5℃低く又は高く取る、一つ高いレベルへずらす、15℃高く取る誤りであり、全部の逆像ではない。追加の丸めは行わない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 d：ポート2を読んだ値が0の間は変換中なので、GR＝0をYesとしてINPUT 2を繰り返す。非0になった後だけINPUT 3へ進む。GR＜0、GR＝1、GR＞1はいずれも変換中0で偽となり、完了を待たずに進んでしまう。GRの符号解釈や完了値が1だけという前提は不要。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 e：変換処理で求めた形状データαをGRへ設定し、LEDに接続したポート1へOUTPUT 1で書き込む。INPUT 1/2/3は読込みなので方向が違い、OUTPUT 2はA/D側への書込みで宛先が違う。αが1以外のときにOUTPUT 2が何をするかは規定されておらず、再変換開始と断定しない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-23",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度春期・旧午後問2。原資料と公式解答の全5解答欄を照合し、条件別の内容検証を記録している。本文・図表の利用条件は素材ごとの権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

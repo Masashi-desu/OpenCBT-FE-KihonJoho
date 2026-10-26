@@ -1,3 +1,4 @@
+import { currentSourceOriginals, currentSourceTemplates } from "./fixtures/current-source-scope";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createElement } from "react";
@@ -121,9 +122,7 @@ const sourceOf = (base: Question) =>
 
 test("every eligible original has a reviewed premise and notation record", () => {
   const b = fixture();
-  const originals = b.questions.filter(
-    (q) => q.origin.kind === "official_reprint",
-  );
+  const originals = currentSourceOriginals(b);
   assert.equal(originals.length, 189);
   assert.deepEqual(
     Object.keys(sourcePrerequisites).sort(),
@@ -135,7 +134,7 @@ test("every eligible original has a reviewed premise and notation record", () =>
 test("all 189 sources display their required premises, notation, units and comments at baseline and changed inputs", async (ctx) => {
   const b = fixture();
   let checked = 0;
-  for (const t of b.templates) {
+  for (const t of currentSourceTemplates(b)) {
     const base = b.questions.find(
       (q) => q.id === t.baseQuestionRef.questionId,
     )!;

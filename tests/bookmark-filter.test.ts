@@ -24,7 +24,8 @@ test("subject and area filters intersect across every bookmarked source and pres
     }
   }
   assert.deepEqual(filterBookmarks([], { subject: "all", area: "all" }), []);
-  assert.deepEqual(filterBookmarks(bookmarks, { subject: "B", area: "management" }), []);
+  assert.deepEqual(filterBookmarks(bookmarks, { subject: "B", area: "management" }).map(bookmark => bookmark.id),
+    ["question-ipa-2017h29h-fe-pm-6"]);
   assert.deepEqual(filterBookmarks(bookmarks, { subject: "all", area: "unavailable" }), []);
   assert.deepEqual(bookmarks, saved);
 });

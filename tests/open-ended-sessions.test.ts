@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
-import { refOf, type Selection } from "../src/core/types";
+import { refOf, type Run, type Selection } from "../src/core/types";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { answerCanVary, answerSignature } from "../src/core/generation";
 import { selectQuestions } from "../src/core/selection";
@@ -13,6 +13,7 @@ import {
   prepareRun,
   startRun,
   updateAnswer,
+  updatePartAnswer,
   validateRun,
 } from "../src/core/session";
 
@@ -26,9 +27,28 @@ const selection: Selection = {
   bookmarkQuestionRef: { questionId: "question-ipa-2026-a-1", revision: 1 },
 };
 
+/** Answer the real issued form. Old-PM fields are independent ordinary
+ * single-choice slots; one wrong field makes that major incorrect. */
+function answerCurrent(run: Run, correct: boolean, at: number) {
+  const question = run.issued[run.session.currentIndex];
+  if (!question.answerParts) return updateAnswer(run, correct ? question.correctAnswer.choiceId
+    : question.choices.find(choice => choice.id !== question.correctAnswer.choiceId)!.id, at);
+  for (const [index, part] of question.answerParts.entries()) {
+    const answer = question.correctAnswer.parts!.find(answer => answer.kind === "choice" && answer.partId === part.id);
+    assert(answer?.kind === "choice");
+    const choiceId = correct || index > 0 ? answer.choiceId : part.choiceIds.find(id => id !== answer.choiceId)!;
+    assert(choiceId);
+    run = updatePartAnswer(run, part.id, choiceId, at);
+  }
+  return run;
+}
+
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
-  for (const row of generationCoverage(bundle).rows) {
+  const rows = generationCoverage(bundle).rows;
+  assert.equal(rows.length, 202);
+  assert.equal(rows.filter(row => row.original.answerParts).length, 13);
+  for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {
       ...selection,
       subject: row.original.subject,
@@ -36,7 +56,7 @@ test("all bookmarked series append to one session and aggregate every answer wit
     }, {}, 100000), 101000);
     assert(isOpenEnded(run));
     const baseRef = run.session.entries[0].questionRef;
-    run = updateAnswer(run, run.issued[0].correctAnswer.choiceId, 102000);
+    run = answerCurrent(run, true, 102000);
     run.session.entries[0].revealed = true;
     run.session.entries[0].reviewFlag = true;
     run.session.activeElapsedSeconds = 12;
@@ -60,6 +80,7 @@ test("all bookmarked series append to one session and aggregate every answer wit
       assert.equal(next.instances[index].sessionId, run.session.id);
       assert.equal(next.instances[index].entryIndex, index);
       assert.equal(next.session.entries[index].selectedChoiceId, undefined);
+      assert.equal(next.session.entries[index].selectedPartChoices, undefined);
       assert.equal(next.session.entries[index].revealed, false);
       assert.equal(next.session.entries[index].reviewFlag, false);
       assert.notDeepEqual(next.instances[index].parameters, run.instances[index - 1].parameters);
@@ -67,9 +88,7 @@ test("all bookmarked series append to one session and aggregate every answer wit
         assert.notEqual(answerSignature(next.issued[index]), answerSignature(run.issued[index - 1]));
       run = next;
       if (index === 1)
-        run = updateAnswer(run, run.issued[index].choices.find(
-          (choice) => choice.id !== run.issued[index].correctAnswer.choiceId,
-        )!.id, 105000);
+        run = answerCurrent(run, false, 105000);
     }
     const completed = finishRun(run, "completed", 108000);
     await validateRun(completed);
@@ -80,6 +99,13 @@ test("all bookmarked series append to one session and aggregate every answer wit
     assert.equal(completed.result!.unanswered, 1);
     assert.equal(completed.result!.revealedCount, 1);
     assert.equal(completed.result!.learningAccuracyPercent, 33.3);
+    if (row.original.answerParts) {
+      const fields = row.original.answerParts.length;
+      assert.deepEqual(completed.result!.entries.map(entry => entry.parts!.length), [fields, fields, fields]);
+      assert.deepEqual(completed.result!.partSummary, { total: fields * 3, correct: fields * 2 - 1,
+        incorrect: 1, unanswered: fields, unscored: 0,
+        learningAccuracyPercent: Math.round((fields * 2 - 1) / (fields * 3) * 1000) / 10 });
+    }
   }
 });
 

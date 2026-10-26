@@ -1,0 +1,22 @@
+/* Source-owned geometry. All shared colors come from tokens.css. */
+.pm6-owned { color:var(--ink); min-width:0; margin:1em 0; }
+.pm6-owned p { line-height:1.9; }
+.pm6-selection { border:3px double var(--ink); padding:.8em; }
+.pm6-circled { display:inline-flex; border:1px solid var(--ink); border-radius:50%; line-height:1.2; }
+.pm6-blank { display:inline-block; border:2px solid var(--ink); min-width:4.5em; padding:0 .25em; line-height:1.4; text-align:center; vertical-align:baseline; }
+.pm6-equation { display:flex; align-items:center; flex-wrap:wrap; justify-content:center; gap:.25em; }
+.pm6-fraction { display:inline-grid; text-align:center; }
+.pm6-fraction > span:first-child { border-bottom:1px solid var(--ink); padding:0 .3em; }
+.pm6-fraction > span:last-child { padding:0 .3em; }
+.pm6-bank { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0 .8em; }
+.pm6-bank p { margin:.2em 0; }
+.pm6-bank-prose { grid-template-columns:minmax(0,1fr); }
+.pm6-owned table { border-collapse:collapse; table-layout:fixed; width:100%; min-width:700px; font-size:.9em; }
+.pm6-owned caption { text-align:center; margin-bottom:.4em; font-weight:600; }
+.pm6-owned th,.pm6-owned td { border:1px solid var(--ink); padding:.2em; text-align:center; overflow-wrap:anywhere; color:var(--ink); background:var(--surface); }
+.pm6-owned .pm6-hidden { background:var(--soft-border); }
+.pm6-owned .pm6-calendar { min-width:1000px; }
+.pm6-calendar col:nth-child(-n+3) { width:5%; }
+.pm6-owned .pm6-diagonal { position:relative; padding:0; }
+.pm6-diagonal svg { position:absolute; inset:0; width:100%; height:100%; }
+.pm6-diagonal line { stroke:var(--ink); stroke-width:1; vector-effect:non-scaling-stroke; }

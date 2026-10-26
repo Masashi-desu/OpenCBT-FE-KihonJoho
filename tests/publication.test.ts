@@ -16,14 +16,14 @@ import { validateBundle } from "../src/core/validation";
 test("declared scope cannot be reduced by deleting an original and its generator", () => {
   const b = fixture();
   assert.deepEqual(validateSourceInventory(b), {
-    declared: 190,
-    included: 189,
+    declared: 203,
+    included: 202,
     excluded: 1,
   });
   b.questions = b.questions.filter((q) => q.id !== "question-ipa-2026-a-1");
   assert.throws(() => validateSourceInventory(b), /SOURCE_INVENTORY/);
 });
-test("all distributed original answers match independently extracted official answer keys", () => {
+test("current-subject original answers match independently extracted official answer keys (legacy PM uses per-major keys)", () => {
   const b = fixture();
   let checked = 0;
   for (const key of answerKeys) {

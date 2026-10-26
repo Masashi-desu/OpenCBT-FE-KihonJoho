@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "asset-ipa-2017h29h-fe-pm-3-p15",
+  "path": "assets/ipa-2017h29h-fe-pm-3-p15.webp",
+  "mediaType": "image/webp",
+  "sha256": "6c861c0f1994dcd5462e74d263b207cfd77ab6ca9856a2dbc78bcb391d3a190e",
+  "width": 1032,
+  "height": 1459,
+  "byteLength": 120348,
+  "alt": "原資料2017春午後問3 p15。非NULL。NULL。UNIQUE。参照。検査。主キー\n非NULL制約は適用できない。UNIQUE制約を適用する。更新操作を行うことはできない。主キー制約を適用する\n設問3 ルール表作成用DDLの見直しについて，次の記述中の□に入れる適切な答えを，解答群の中から選べ。\n図2に示す，ルールIDの項目と登録状態の項目追加後のルール表作成用DDLのレビュー時に，［c］は削除すべきとの指摘を受けた。また，登録状態の項目に対する制約が不足しているとの指摘もあり，［d］を追加することになった。\nCREATE TABLE ルール (\n  ルールID CHAR(6) PRIMARY KEY,\n  区分ID CHAR(5) NOT NULL,\n  対象物ID CHAR(5) NOT NULL,\n  登録状態 VARCHAR(10) NOT NULL,\n  更新日 DATE NOT NULL,\n  出し方のルール VARCHAR(2048),\n  FOREIGN KEY (区分ID) REFERENCES 区分(区分ID),\n  FOREIGN KEY (対象物ID) REFERENCES 対象物(対象物ID),\n  UNIQUE (区分ID, 対象物ID)\n)",
+  "attribution": {
+    "origin": "official",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-3-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問3",
+          "page": 15,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2017h29h-fe-pm-3"
+    ],
+    "creatorIds": [
+      "ipa"
+    ]
+  }
+}

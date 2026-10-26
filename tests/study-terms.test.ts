@@ -1,3 +1,4 @@
+import { currentSourceOriginals } from "./fixtures/current-source-scope";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -282,9 +283,10 @@ test("other-choice concept definitions match independently frozen knowledge refe
     FIN: "TCPヘッダの制御フラグ名",
   };
   let checked = 0;
-  for (const q of bundle.questions.filter(
-    (q) => q.origin.kind === "official_reprint",
-  )) {
+  // These frozen word-for-word references cover the existing current189.
+  // Source-specific legacy definitions are checked against independently
+  // reviewed per-major term facts in legacy-2017-pm*-study-terms tests.
+  for (const q of currentSourceOriginals(bundle)) {
     for (const term of questionStudyTerms(q, bundle.assets))
       if (!term.expansion) {
         if (extraRoles[term.term])

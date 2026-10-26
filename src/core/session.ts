@@ -11,6 +11,7 @@ import {
 } from "./generation";
 import { selectQuestions, familyOf, nextQuestionRef } from "./selection";
 import { mixProfile } from "./mix-profile";
+import { selectedCollectionQuestions, sameQuestionRefs } from "./question-selection";
 import { isLegacyQuestion, isCurrentSubjectMixQuestion, sourceCollections } from "./source-collections";
 import { validateSourceFormat } from "./generation-formats";
 import { bookmarkTemplates } from "./bookmarks";
@@ -448,9 +449,9 @@ export async function validateRun(run: Run) {
     // issued settings without being reinterpreted as today's collection.
     const collection = sourceCollections(run.bundle, run.selection.subject)
       .find(set => set.id === run.selection.sourceCollectionId);
-    const expected = collection?.questionRefs.map(refKey);
+    const expected = collection ? selectedCollectionQuestions(run.bundle, collection, run.selection).map(refOf) : undefined;
     const sameRefs = (refs: readonly Ref[]) => expected !== undefined &&
-      refs.length === expected.length && refs.every((ref, i) => refKey(ref) === expected[i]);
+      sameQuestionRefs(refs, expected);
     const configured = collection?.examConfigRefs.map(ref => run.bundle.exams.find(e =>
       e.id === ref.id && e.revision === ref.revision && e.mode === "practice"))
       .find(e => e?.timeLimitSeconds !== undefined);
@@ -482,7 +483,23 @@ export async function validateRun(run: Run) {
           ? !isLegacyQuestion(q) || !q.origin.derivedFrom.some(parent => owned.has(refKey(parent)))
           : !isCurrentSubjectMixQuestion(q));
       })) throw new DataError("SESSION_CONFIG", "保存した基準問題集・問数・分野構成が一致しません");
+    if (profile.collection.questionSelection) {
+      const expectedBases = profile.questions.map(original => {
+        const bases = run.bundle.questions.filter(q => q.origin.derivedFrom.some(ref => refKey(ref) === refKey(refOf(original))) &&
+          run.set.questionRefs.some(ref => refKey(ref) === refKey(refOf(q))));
+        if (bases.length !== 1) throw new DataError("SESSION_CONFIG", "選択した大問と生成枠が一致しません");
+        return refOf(bases[0]);
+      });
+      if (!sameQuestionRefs(run.set.questionRefs, expectedBases) ||
+        !sameQuestionRefs(run.session.entries.map(entry => entry.questionRef), expectedBases) ||
+        run.exam.questionOrder !== "set")
+        throw new DataError("SESSION_CONFIG", "選択した大問の順序・生成枠が一致しません");
+    }
   }
+  if (run.selection.selectedQuestionRefs !== undefined &&
+    (run.selection.mode !== "practice" || ![run.selection.sourceCollectionId, run.selection.mixProfileCollectionId]
+      .some(id => run.bundle.sets.some(set => set.id === id && set.questionSelection))))
+    throw new DataError("SESSION_CONFIG", "選択問題の保存設定が一致しません");
   if (
     run.selection.mode === "endless" &&
     ((run.selection.kind !== "mix" && run.selection.kind !== "bookmark") ||

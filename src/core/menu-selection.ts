@@ -75,6 +75,7 @@ export function chooseMenuSourceGroup(
   const next: Selection = { ...selection, kind, subject: collection.subject,
     size: kind === "annual" || group.timeSlot ? "public" : selection.size ?? "public",
     bindingMode: kind === "annual" ? "original_data" : "generated_values" };
+  delete next.selectedQuestionRefs;
   delete next.sourceCollectionId;
   delete next.mixProfileCollectionId;
   if (kind === "annual") next.sourceCollectionId = collection.id;
@@ -115,15 +116,19 @@ export function patchMenuSelection(
     const next: Selection = { ...old, ...value, kind: "mix", bindingMode: "generated_values" };
     delete next.sourceCollectionId;
     delete next.mixProfileCollectionId;
+    delete next.selectedQuestionRefs;
     return { selection: next, finite: old.mode === "endless" ? finite : old };
   }
   const restoring = old.mode === "endless" && value.mode !== undefined;
   const restored = restoring ? { ...finite, subject: old.subject } : old;
   let next: Selection = { ...restored, ...value };
+  if (value.mode !== undefined && value.mode !== restored.mode) delete next.selectedQuestionRefs;
   if (next.kind === "mix") { delete next.sourceCollectionId; next.bindingMode = "generated_values"; }
   else delete next.mixProfileCollectionId;
   if (bundle && next.kind !== "bookmark" &&
-    (value.subject !== undefined || value.kind !== undefined || value.year !== undefined || restoring)) {
+    ((value.subject !== undefined && value.subject !== restored.subject) ||
+      (value.kind !== undefined && value.kind !== restored.kind) ||
+      (value.year !== undefined && value.year !== restored.year) || restoring)) {
     const groups = menuSourceGroups(bundle);
     // An explicit missing set remains an error instead of becoming another book.
     const group = value.year !== undefined && value.year !== restored.year

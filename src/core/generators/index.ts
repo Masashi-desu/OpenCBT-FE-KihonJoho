@@ -1,3 +1,6 @@
+import {legacyAfternoonDefinition} from "./legacy-afternoon-definitions";
+import {bindLegacyAfternoonQuestion,validateLegacyAfternoonFormat} from "./legacy-afternoon-binding";
+import {legacyMaterialCredit, validateLegacyMaterial} from "./legacy-material-contracts";
 import type { Question, Template, Block } from "../types";
 import { DataError } from "../errors";
 import { knowledgeDefinitions } from "./knowledge";
@@ -129,7 +132,7 @@ export function additionalContract(id: string, version: string) {
   return d ? asContract(d) : undefined;
 }
 export function additionalDefinition(id: string) {
-  return additionalDefinitions.find(
+  return legacyAfternoonDefinition(id) ?? additionalDefinitions.find(
     (d) => `generator-source-${d.source}` === id,
   );
 }
@@ -162,8 +165,10 @@ export function bindAdditionalQuestion(
   instanceId: string,
   at: string,
 ): Question {
+  legacyMaterialCredit(base,t);
   const d = definitionForVersion(t.generatorRef.id, t.generatorRef.version);
   if (!d) throw new DataError("GENERATOR_REF", "未登録の生成器");
+  if (legacyAfternoonDefinition(t.generatorRef.id)) return bindLegacyAfternoonQuestion(base,t,d,values,instanceId,at);
   const body = d.build(values),
     q = structuredClone(base),
     attr = t.attribution;
@@ -219,8 +224,10 @@ export function bindAdditionalQuestion(
   return q;
 }
 export function validateAdditionalFormat(q: Question, t: Template) {
+  validateLegacyMaterial(q,t);
   const d = definitionForVersion(t.generatorRef.id, t.generatorRef.version);
   if (!d) throw new DataError("GENERATOR_REF", "生成形式の未登録");
+  if (legacyAfternoonDefinition(t.generatorRef.id)) { validateLegacyAfternoonFormat(q,d); return; }
   const reference = d.build(d.reference),
     types = (blocks: Block[]) => blocks.map((b) => b.type).join(",");
   if (

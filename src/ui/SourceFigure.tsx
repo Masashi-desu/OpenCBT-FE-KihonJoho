@@ -1,3 +1,9 @@
+import {DataError} from "../core/errors";
+import {LegacyAfternoonFigure} from "./LegacyAfternoonFigure";
+import {isLegacyAfternoonFigure} from "../core/legacy-afternoon-figures";
+import {Legacy2017Pm3Figure} from "./Legacy2017Pm3Figure";
+import {managedLegacyFigure} from "../core/managed-legacy-figures";
+import type {Attribution} from "../core/types";
 import { useId, type ReactNode } from "react";
 import { DecemberAFigure } from "./DecemberAFigure";
 import type { Scene } from "../core/types";
@@ -19,11 +25,14 @@ export function SourceFigure({
 }: {
   scene: Extract<Scene, { kind: "source_figure" }>;
   caption: string;
+  materialAttribution?: Attribution;
 }) {
   validateSourceFigure(scene);
   const id = useId().replace(/:/g, ""),
     v = scene.values,
     profile = scene.profile;
+  if(isLegacyAfternoonFigure(profile))return <LegacyAfternoonFigure profile={profile} values={v} caption={caption}/>;
+  if(profile===managedLegacyFigure.profile){if(caption!==managedLegacyFigure.caption)throw new DataError("SOURCE_MATERIAL","登録図の見出しと一致しません");return <Legacy2017Pm3Figure profile={profile} values={v} caption={caption}/>;}
   if (profile.startsWith("dec-a-")) return <DecemberAFigure profile={profile} values={v} caption={caption}/>;
   let key = 0,
     height = 450;

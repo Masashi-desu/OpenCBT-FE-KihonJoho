@@ -1,0 +1,75 @@
+{
+  "schema": "reviewed-legacy-booklet/v1",
+  "collectionId": "2017h29h-fe-pm",
+  "checkedOn": "2026-10-26",
+  "questionPaperSHA256": "7d976c989149a8027c45cce63e420af0b4da8967e563146220dfa1e50eba43c8",
+  "answerPaperSHA256": "7d83ed5839b533c1a2bc804698e08eb6bb55865ef1aef3f74e15c42faad7772b",
+  "candidateContentSHA256": "7938f8f4987a4be7adb5cbdcc8f3ac58cb7cecf4e7887d72f5db8409680ea3f6",
+  "scope": "Only the thirteen 2017 spring afternoon majors. This does not approve another booklet, the held JIS table, or historical discovery boundaries. Normal-App release checks are a separate gate.",
+  "majorNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "answerFieldCounts": [
+    5,
+    5,
+    5,
+    4,
+    5,
+    6,
+    8,
+    7,
+    7,
+    7,
+    7,
+    6,
+    6
+  ],
+  "reviewers": [
+    "codex-source-and-independent-content-review",
+    "codex-root-integration-review"
+  ],
+  "sourceAndMaterialReview": {
+    "fullQuestionPaperPages": 88,
+    "officialAnswerFields": 78,
+    "distributedAssets": 83,
+    "jisPage74": "Only independently approved top instruction crop 1432x1240; table excluded",
+    "q13References": "Own appendix 78–83 and required common notation 3–4"
+  },
+  "independentEvidence": [
+    {
+      "path": "stage2-s2-01-rights-rules-20261026-v1/MANIFEST.sha256",
+      "sha256": "40c5cbdd9fc5d64d9aded98a1277c0aabba7b63a4c141bbcde6f137d474fadc1"
+    },
+    {
+      "path": "stage2-s2-01-rights-rules-correction-20261026-v2/MANIFEST.sha256",
+      "sha256": "43557fe1a335a05bda3c7464951f33372ffc8b5c2c357832b76ca0877772a0cd"
+    },
+    {
+      "path": "stage2-s2-01-q9-q12-display-audit-20261026-v1/MANIFEST.json",
+      "sha256": "7bc69bced36b3795c759615129a9fae8df3b087de7ded14219dd35bcef5634f4"
+    },
+    {
+      "path": "stage2-s2-01-q13-independent-audit-20261026-v1/MANIFEST.json",
+      "sha256": "79cd521a96a707e7e54bfbb5038acd161ae25f456bbfed9a93e97cfdeba9b879"
+    }
+  ],
+  "checks": {
+    "transcription": "pass",
+    "rights": "pass",
+    "originalSemantics": "pass",
+    "generatorSemantics": "pass",
+    "rendering": "pass"
+  }
+}

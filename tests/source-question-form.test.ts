@@ -1,3 +1,4 @@
+import { currentSourceTemplates } from "./fixtures/current-source-scope";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
@@ -188,7 +189,7 @@ function assertIntent(source: string, q: Question) {
 test("all 189 original question intents survive abstraction at baseline and changed inputs", async () => {
   const b = fixture();
   assert.equal(Object.keys(originalIntents).length + facts.length, 189);
-  for (const t of b.templates) {
+  for (const t of currentSourceTemplates(b)) {
     const base = b.questions.find(
       (q) => q.id === t.baseQuestionRef.questionId,
     )!;

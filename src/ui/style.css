@@ -1,3 +1,10 @@
+@import "./legacy-2017-pm6.css";
+@import "./legacy-2017-pm7.css";
+@import "./legacy-2017-pm9.css";
+@import "./legacy-2017-pm10.css";
+@import "./legacy-2017-pm11.css";
+@import "./legacy-2017-pm12.css";
+@import "./legacy-2017-pm13.css";
 @import url("./tokens.css");
 @import url("./scrollbars.css");
 * {
@@ -445,6 +452,38 @@ small {
 }
 .collection-field {
   margin-bottom: 29px;
+}
+.question-selection {
+  margin-bottom: 29px;
+}
+.question-selection .mode-field {
+  margin: 16px 0;
+}
+.question-selection-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+.question-selection-options label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+}
+.question-selection-options input {
+  accent-color: var(--accent);
+}
+.source-code-blank {
+  display: inline-block;
+  min-width: 3ch;
+  padding-inline: 0.4ch;
+  text-align: center;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: var(--surface);
+  line-height: 1.2;
+  vertical-align: baseline;
 }
 .field-label,
 .mode-field {
@@ -2175,10 +2214,12 @@ td.omitted-cell {
 }
 .history-list {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 13px;
 }
 .history-card {
   display: flex;
+  min-width: 0;
   gap: 16px;
   align-items: center;
   background: var(--surface);

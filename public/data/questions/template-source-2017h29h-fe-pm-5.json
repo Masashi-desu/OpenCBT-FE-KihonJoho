@@ -1,0 +1,1372 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29h-fe-pm-5",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "ソフトウェア設計",
+      "プログラムのテスト"
+    ],
+    "keywords": [
+      "購買システム",
+      "出力ワーク領域",
+      "ホワイトボックステスト",
+      "ブラックボックステスト"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+          "page": 21,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+          "page": 22,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+          "page": 23,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+          "page": 24,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+          "page": 25,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+          "page": 26,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29h-fe-pm-5",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-24T00:40:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原6頁と5独立欄を対応",
+        "details": "原画像は未改変。a/b同7選択肢を同順IDで参照し、aの2空欄は1回答とする。全6図/注記/18選択肢を保持。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-24T00:40:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "購買システムの原の業務手順、流れ図、空欄とテストの形式を保ち、ページの出力容量とグループ別の件数を変更しています。画面・注文書・テストデータの図表も同じ条件に対応させています。",
+        "affectsAnswer": true,
+        "answerDetails": "設問1 a：ページ内の添字は1から始まるため，どちらのリセットも1にする。b：1ページ最大5件なので，出力件数が5より小さい間は同じページの次の位置へ進む。\n設問2 c：3グループの件数は[3, 2, 1]で，各グループが1ページ未満なので，満杯になったときの③は実行されない。d：Bグループの既存2件へ3件を加えると5件となり③も実行できる。追加後も入力は指定の4キーで昇順に整列する。\n設問3：与えた入力に対し，出力ワーク領域の内容が仕様どおりかを確認する。分岐の実行を確かめることや入力だけの確認とは区別する。\n満杯終了直後の内部ページ変数が未書込の次ページを指す場合でも，実際に注文情報を書き込んだページとは分けて追跡する。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+            "page": 21,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+            "page": 22,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+            "page": 23,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+            "page": 24,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+            "page": 25,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+            "page": 26,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29h-fe-pm-5",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問5 購買システムにおける注文書出力処理に関する次の記述を読んで，設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "電気製品を製造しているJ社では，製造部門が要求する電子部品（以下，商品という）を購買部門が発注する際に利用する購買システムの構築が進行中である。購買システムを利用するには，Webブラウザを使用する。J社の購買部門の社員（以下，購買担当者という）は社内ネットワーク経由で，仕入先の営業員はインターネット経由で，それぞれ購買システムを利用する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［購買システムを利用した発注業務の説明］"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "発注する全ての商品は，商品ごとに一意になる商品番号で管理する。商品ごとに，仕入先は1社に定まっている。",
+          "購買部門は三つのグループ（以下，購買グループという）に分かれており，購買グループごとに取り扱う商品が異なる。",
+          "各購買担当者は，自グループが取り扱う商品について，製造部門からの要求を取りまとめ，仕入先ごとに分類し，発注登録を行う。このとき，仕入先ごとに，一意の注文番号が割り当てられ，商品ごとに001から始まる注文枝番が連番で割り当てられる。"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "購買担当者の発注登録，仕入先の営業員の注文書出力及び購買システムの関係は，図1のとおりである。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-2017-pm5-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 購買担当者の発注登録，仕入先の営業員の注文書出力及び購買システムの関係",
+        "alt": "図1 購買担当者の発注登録，仕入先の営業員の注文書出力及び購買システムの関係。購買担当者の発注登録から購買システムの発注登録処理へ，仕入先の営業員の注文書出力から注文書出力処理へ，注文書出力処理から営業員の注文書へ矢印がある。注文書出力処理が開発担当範囲として破線で囲まれている。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm5-relations",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 22,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "購買システムの構築プロジェクトのメンバK君は，図1の破線で囲まれた注文書出力処理の開発を担当することになった。注文書出力処理は，仕入先の営業員が購買システムからJ社の注文書を出力するための処理である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［注文書出力処理の説明］"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 仕入先の営業員が注文書を出力する操作の流れを，図2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-2017-pm5-2",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 注文書を出力する操作の流れ",
+        "alt": "図2 注文書を出力する操作の流れ。右向きの矢印で，開始，次に出力していない注文情報の一覧を，注文書出力画面に表示する，次に表示された注文情報の一覧から，自分が担当する商品の注文情報を選択する，次に注文書出力ボタンをクリックして注文書を出力する，次に終了と進む。開始と終了は端子，間の三つは処理枠である。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm5-operation",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 22,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 仕入先の端末の注文書出力画面には，まだ注文書として出力していない注文情報だけが，図3に示すように注文番号ごとの注文枝番ごとに一覧で表示される。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 購買システムから出力される注文書は，購買グループごとに作成され，注文情報が希望納期，注文番号，注文枝番の昇順に並んでいる。注文書の各ページには，最大5件の注文情報が含まれる。注文情報は，購買グループ名，希望納期，注文番号，注文枝番，商品番号，数量，納品場所，購買担当者などを要素としてもつ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "注文書出力画面と注文書の例を，それぞれ図3と図4に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-2017-pm5-3",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3 注文書出力画面の例",
+        "alt": "図3 注文書出力画面の例。注文書出力ボタンと，選択，注文番号，注文枝番，商品番号，商品名，数量，希望納期，購買グループ名，購買担当者の9列がある。□，A20170427001，001，X01SS001，XXXXXX，3，2017-04-27，Aグループ，情報太郎。□，A20170427001，002，Y01ZZ002，YYYYYY，1，2017-04-27，Aグループ，情報太郎。先頭2件と末尾1件の間は9列全幅で結合した省略帯で，中央に縦3点を示す。□，C20170512001，001，Z01ZZ001，ZZZZZZ，3，2017-05-12，Cグループ，試験五郎。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm5-screen",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 23,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-2017-pm5-4",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図4 注文書の例",
+        "alt": "図4 注文書の例。注文書。日付XXXX-XX-XX。取引先名 XX部品製造株式会社。住所 東京都新宿区XX-XX。J株式会社。購買グループ名 Aグループ。連絡先 03-9999-9999。2段の見出しは注文番号\n注文枝番，購買担当者，商品番号，数量，希望納期，商品名，単価（円），納品場所。先頭の注文情報は注文番号：A20170427001，注文枝番：001，購買担当者：情報太郎，商品番号：X01SS001，商品名：XXXXXX，数量：3，単価（円）：300，希望納期：2017-04-27，納品場所：AREA-01。省略記号の後に空白の最終行があり，注文情報の範囲を示す括弧には最大5件，下部に- 1 -とある。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm5-order",
+          "values": [
+            5
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 23,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "K君は，注文書出力画面で注文書出力ボタンがクリックされたときに実行する処理の一つである出力準備処理の流れ図を作成した。作成した流れ図を，図5に示す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "出力準備処理とは，注文書に含める注文情報を出力順に並べて出力ワーク領域に格納するものである。出力ワーク領域は，1回の注文書出力処理で出力される注文書に含まれる注文情報を格納する2次元配列である。出力ワーク領域[i][j]は，iが注文書のページを表し，jは注文書のページ内での出力順を表している。iもjも1から始まる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "出力準備処理は処理を開始するときに，注文書出力画面で選択された注文情報を，購買グループ名，希望納期，注文番号，注文枝番の順にそれぞれ昇順に整列して格納した1次元配列である注文データ[]と，注文情報件数を引数で受け取る。ここで，注文データ[1]には，注文書の1ページ目の第1番目に出力する注文情報が格納されている。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-2017-pm5-5",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図5 出力準備処理の流れ図",
+        "alt": "図5 出力準備処理の流れ図。開始後，出力ワーク領域[][]を初期化し，ページ変数←1，出力件数←1，購買グループ名変数←注文データ[1].購買グループ名，i←1，ページカウントフラグ←0を設定する。出力ワーク領域の作成という対のループ記号に，終了条件i＞注文情報件数がある。購買グループ名変数が注文データ[i].購買グループ名と一致するYes側では，②出力ワーク領域[ページ変数][出力件数]へ注文データ[i]を書き込む。出力件数＜［b］のYes側ではページカウントフラグ←0，④出力件数←出力件数＋1。No側ではページカウントフラグ←1，③出力件数←［a］，ページ変数←ページ変数＋1。一致しないNo側では，購買グループ名変数を現在の注文情報に更新し，①出力件数←［a］とする。ページカウントフラグ＝0のYes側だけページ変数を1増やす。その後ページカウントフラグ←0，出力ワーク領域へ現在の注文情報を書き込み，出力件数を1増やす。いずれもiを1増やしてループ末尾へ進み，終了する。同じaの空欄が2か所，bが1か所あり，①から④は各処理を指す矢印の番号である。注記 流れ図中の“注文データ[i].xxx”や“出力ワーク領域[i][j].xxx”という記述で，それぞれの配列に格納された注文情報の要素xxxの値を表す。ページカウントフラグは，ページ変数を制御するフラグである。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm5-flow",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 24,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 図5中の［ ］に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 K君は，出力準備処理のホワイトボックステストを実施するために，図6に示す注文データのテストデータを作成した。次の記述中の［ ］に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-2017-pm5-6",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図6 注文データのテストデータ",
+        "alt": "図6 注文データのテストデータ。行の添字列には見出しセルがなく，データ行1から始まる段付きの外形。列は行の添字，購買グループ名，希望納期，注文番号，注文枝番，商品番号，数量，購買担当者。注文データ[1]，Aグループ，2017-04-27，A20170427001，001，X01SS001，3，情報太郎。注文データ[2]，Aグループ，2017-04-27，A20170427001，002，Y01ZZ002，1，情報太郎。注文データ[3]，Aグループ，2017-04-30，A20170430001，001，D01SS001，3，情報太郎。注文データ[4]，Bグループ，2017-05-10，B20170510001，001，V01ZZ002，1，技術花子。注文データ[5]，Bグループ，2017-05-11，B20170511001，001，V01ZZ002，1，技術花子。注文データ[6]，Cグループ，2017-05-12，C20170512001，001，Y01ZZ001，3，試験五郎。注記 注文情報の一部の要素は省略してある。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm5-testdata",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "図6の注文データのテストデータを利用して，出力準備処理をテストしたときに，図5の［c］の処理が行われなかった。K君は，全ての処理を実行するために，［d］。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3 出力準備処理のブラックボックステストを行う場合，K君が実施すべきこととして適切な答えを，解答群の中から選べ。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "①"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "②"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "③"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "④"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "購買グループ名がAグループである注文情報を1件追加した"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "購買グループ名がBグループである注文情報を3件追加した"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "購買グループ名がCグループである注文情報を2件追加した"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "購買グループ名がCグループである注文情報を3件追加した"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 26,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "流れ図の全ての分岐処理が実行されたことを確認する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 26,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "入力として渡した引数の注文データ，注文情報件数の内容が仕様どおりであることを確認する。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問5",
+                "page": 26,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "入力として渡した引数の内容に対して出力ワーク領域の内容が仕様どおりであることを確認する。"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a：a，bに関する解答群",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b：a，bに関する解答群",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問2 c：cに関する解答群",
+      "choiceIds": [
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d：dに関する解答群",
+      "choiceIds": [
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-q3",
+      "label": "設問3：解答群",
+      "choiceIds": [
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-13"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q3",
+        "choiceId": "choice-value-18"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1 a：ページ内の添字は1から始まるため，どちらのリセットも1にする。b：1ページ最大5件なので，出力件数が5より小さい間は同じページの次の位置へ進む。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 c：3グループの件数は[3, 2, 1]で，各グループが1ページ未満なので，満杯になったときの③は実行されない。d：Bグループの既存2件へ3件を加えると5件となり③も実行できる。追加後も入力は指定の4キーで昇順に整列する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3：与えた入力に対し，出力ワーク領域の内容が仕様どおりかを確認する。分岐の実行を確かめることや入力だけの確認とは区別する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "満杯終了直後の内部ページ変数が未書込の次ページを指す場合でも，実際に注文情報を書き込んだページとは分けて追跡する。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-24",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度春期・旧午後問5。原資料と公式解答の全5解答欄を照合し、条件別の内容検証を記録している。本文・図表の利用条件は素材ごとの権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

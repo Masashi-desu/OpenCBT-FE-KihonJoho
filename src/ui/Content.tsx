@@ -4,12 +4,17 @@ import type {
   Bundle,
   Scene,
   Block,
+  Attribution,
 } from "../core/types";
 import { safeUrl } from "../core/validation";
 import {ContentParagraph} from "./ContentText";
 import {CaptionFrame} from "./CaptionFrame";
 import { mathOptions } from "./math";
 import { SourceFigure } from "./SourceFigure";
+import { Legacy2017Pm1UnderlinedParagraph, legacy2017Pm1UnderlinedSourceText } from "./Legacy2017Pm1Text";
+import { isLegacy2017Pm4Comparison, isLegacy2017Pm4List, Legacy2017Pm4Paragraph, Legacy2017Pm4List } from "./Legacy2017Pm4Text";
+import { isLegacy2017Pm5List, Legacy2017Pm5List } from "./Legacy2017Pm5Text";
+import { LegacyAfternoonCode } from "./LegacyAfternoonCode";
 import {
   activityNetworkAlt,
   activityNetworkRenderer,
@@ -73,14 +78,16 @@ export function Diagram({
   alt,
   caption,
   rendererRef,
+  materialAttribution,
 }: {
   scene: Scene;
   alt: string;
   caption: string;
   rendererRef: { id: string; version: string };
+  materialAttribution?: Attribution;
 }) {
   if (scene.kind === "source_figure")
-    return <SourceFigure scene={scene} caption={caption} />;
+    return <SourceFigure scene={scene} caption={caption} materialAttribution={materialAttribution} />;
   if (
     rendererRef.id === activityNetworkRenderer.id ||
     (rendererRef.id === "renderer-diagram-basic" &&
@@ -475,12 +482,22 @@ export function Content({
   return (
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
-        if (b.type === "paragraph") return <ContentParagraph key={i} text={b.text}/>;
+        if (b.type === "paragraph") {
+          if (content.attribution.sourceRefs.some(ref => ref.sourceId === "source-ipa-2017h29h-fe-pm-1-qs") && b.text === legacy2017Pm1UnderlinedSourceText)
+            return <Legacy2017Pm1UnderlinedParagraph key={i} text={b.text} />;
+          if (content.attribution.sourceRefs.some(ref => ref.sourceId === "source-ipa-2017h29h-fe-pm-4-qs") && isLegacy2017Pm4Comparison(b.text))
+            return <Legacy2017Pm4Paragraph key={i} text={b.text} />;
+          return <ContentParagraph key={i} text={b.text}/>;
+        }
         if (b.type === "heading") {
           const H = `h${b.level}` as "h2" | "h3" | "h4";
           return <H key={i}>{b.text}</H>;
         }
         if (b.type === "list") {
+          if (content.attribution.sourceRefs.some(ref => ref.sourceId === "source-ipa-2017h29h-fe-pm-4-qs") && isLegacy2017Pm4List(b.items, b.ordered))
+            return <Legacy2017Pm4List key={i} items={b.items} ordered={b.ordered} />;
+          if (isLegacy2017Pm5List(b.items, b.ordered, content.attribution))
+            return <Legacy2017Pm5List key={i} items={b.items} ordered={b.ordered} attribution={content.attribution} />;
           const List = b.ordered ? "ol" : "ul";
           return (
             <List key={i}>
@@ -558,7 +575,7 @@ export function Content({
         if (b.type === "code") {
           const code = (
             <pre>
-              <code>{b.text}</code>
+              <code><LegacyAfternoonCode text={b.text} language={b.language} attribution={content.attribution} /></code>
             </pre>
           );
           return b.language === "text" ? (
@@ -572,7 +589,7 @@ export function Content({
           ) : (
             <div className="code-block" key={i}>
               <span>
-                {b.language === "sql" ? "SQL" : b.language === "c" ? "C" : b.language === "cobol" ? "COBOL" : "疑似言語"} · 表示のみ
+                {b.language === "sql" ? "SQL" : b.language === "c" ? "C" : b.language === "cobol" ? "COBOL" : b.language === "java" ? "Java" : b.language === "casl2" ? "CASL II" : "疑似言語"} · 表示のみ
               </span>
               {code}
             </div>
@@ -588,7 +605,7 @@ export function Content({
                 alt={b.alt}
                 caption={b.caption}
                 rendererRef={b.rendererRef}
-
+                materialAttribution={b.attribution}
               />
               </CaptionFrame>
               {showAttribution && (

@@ -1,3 +1,5 @@
+import {managedLegacyFigure,joinManagedLegacyDomains,validateManagedLegacyValues,managedLegacyFigureAlt} from "./managed-legacy-figures";
+import {legacyAfternoonFigureDomains,isLegacyAfternoonFigure,readLegacyAfternoonFigure} from "./legacy-afternoon-figures";
 import type { Scene } from "./types";
 import { DataError } from "./errors";
 import { scatterPoints, signalValues } from "./generators/subject-a";
@@ -12,9 +14,9 @@ import { sampleBigramCases } from "./generators/sample-2022-data";
 import { sampleTree14 } from "./generators/sample-2022-dec-data";
 import {aTree,aGrid,aTransform,aNetworkDays,aNetworkEdges,aMultiplicityCases} from "./generators/sample-2022-dec-a-data";
 import { sampleMinimaxBoards, sampleMinimaxChildren, sampleMinimaxQueries } from "./generators/sample-2022-dec-data";
-export const sourceFigureDomains: Record<string, [number, number][]> =
+export const sourceFigureDomains = joinManagedLegacyDomains(
   Object.fromEntries(
-    Object.entries(domains).map(([profile, bounds]) => [
+    [...Object.entries(domains),...Object.entries(legacyAfternoonFigureDomains)].map(([profile, bounds]) => [
       profile,
       bounds.map((bound) => {
         if (
@@ -26,11 +28,13 @@ export const sourceFigureDomains: Record<string, [number, number][]> =
         return [bound[0], bound[1]] as [number, number];
       }),
     ]),
-  );
+  ));
 export function validateSourceFigure(scene: Scene) {
   if (scene.kind !== "source_figure")
     throw new DataError("FIGURE_PROFILE", "図プロファイルの型が不正です");
-  const domain = sourceFigureDomains[scene.profile];
+  if(isLegacyAfternoonFigure(scene.profile)){readLegacyAfternoonFigure(scene.profile,scene.values);return;}
+  if(scene.profile===managedLegacyFigure.profile){validateManagedLegacyValues(scene.values);return;}
+  const domain = Object.hasOwn(sourceFigureDomains,scene.profile)?sourceFigureDomains[scene.profile]:undefined;
   if (
     !domain ||
     scene.values.length !== domain.length ||
@@ -41,6 +45,8 @@ export function validateSourceFigure(scene: Scene) {
     throw new DataError("FIGURE_PROFILE", "登録図の入力域と一致しません");
 }
 export function sourceFigureAlt(profile: string, v: number[]) {
+  if(isLegacyAfternoonFigure(profile))return readLegacyAfternoonFigure(profile,v).alt;
+  if(profile===managedLegacyFigure.profile)return managedLegacyFigureAlt(v);
   const prefix = "原資料の形式に基づく改変図。";
   switch (profile) {
     case "dec-a-binary-flow": return prefix+`開始、jを入力、変換ループk：1，1，${v[0]}、空欄a、空欄b、変換ループ終端、終了。ループの指定は変数名：初期値，増分，終値。`;

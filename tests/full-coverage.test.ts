@@ -1,3 +1,4 @@
+import { legacyAfternoonDefinitions } from "../src/core/generators/legacy-afternoon-definitions";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createElement } from "react";
@@ -45,7 +46,14 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     Object.keys(sourceFigureDomains).sort(),
   );
   for (const [profile, domain] of Object.entries(sourceFigureDomains)) {
-    const values = domain.map(([minimum]) => minimum);
+    // Legacy tuples have coupled/sparse fields. Use an actual registered
+    // source scene, never invent a tuple from independent minimum bounds.
+    const managed = legacyAfternoonDefinitions.flatMap(definition => {
+      const body = definition.build(definition.fields.map(field => field.minimum));
+      return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
+    }).find(block => block.type === "diagram" && block.scene.kind === "source_figure" && block.scene.profile === profile);
+    const values = managed?.type === "diagram" && managed.scene.kind === "source_figure"
+      ? [...managed.scene.values] : domain.map(([minimum]) => minimum);
     validateSourceFigure({ kind: "source_figure", profile, values });
     assert.throws(
       () =>
@@ -77,12 +85,12 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
 });
 
-test("every one of 189 official sources has exactly one generator and is a mix candidate", async () => {
+test("every one of 202 official sources has exactly one generator and is a mix candidate", async () => {
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  assert.equal(c.total, 189);
-  assert.equal(c.covered, 189);
+  assert.equal(c.total, 202);
+  assert.equal(c.covered, 202);
   assert(
     c.rows.every((r) => r.templates.length === 1 && r.linked.length === 1),
   );

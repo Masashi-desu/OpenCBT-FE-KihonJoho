@@ -1,0 +1,1307 @@
+{
+  "source": {
+    "source": "2017h29h-fe-pm-2",
+    "status": "source_only_visual_transcription_not_implementation",
+    "physicalPages": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "selectionNotice": "次の問2から問7までの6問については，この中から4問を選択し，選択した問題については，答案用紙の選択欄の選をマークして解答してください。なお，5問以上マークした場合には，はじめの4問について採点します。",
+    "selectionNoticeTypography": "選 is circled in source; preserve original image and metadata, not a new instruction to mark in private client.",
+    "pages": [
+      {
+        "page": 9,
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "id": "major",
+            "text": "問2 温度モニタに関する次の記述を読んで，設問1，2に答えよ。"
+          },
+          {
+            "kind": "paragraph",
+            "id": "intro",
+            "text": "図1に，ある温度モニタのシステム構成図の一部を示す。"
+          },
+          {
+            "kind": "paragraph",
+            "id": "context1",
+            "text": "タイマ割込み発生時に起動される割込みプログラムが，温度検出器の出力値をA/D変換器を介して取り込み，対応した値を7セグメントLED（以下，LEDという）に表示するシステムである。温度の検出範囲は0～70℃とし，検出された温度（以下，検出温度という）を8段階のレベルに対応させて，“1”～“8”の数字で表示する。割込みプログラムが起動されてから表示処理の完了までの時間は，タイマ割込み間隔に比べて十分に短いものとする。"
+          },
+          {
+            "kind": "paragraph",
+            "id": "context2",
+            "text": "LEDの各セグメントは，対応する出力ポートのビットの値が1のとき点灯し，0のとき消灯する。LEDに“1”～“8”の数字を表示するために，数字の字形に合わせて，対応する8ビットのデータを出力ポートのビット0～7に設定する。このデータを形状データといい，出力ポートのビット7を最上位ビットとする2桁の16進数で表記する。"
+          },
+          {
+            "kind": "figure",
+            "id": "figure1",
+            "caption": "図1 温度モニタのシステム構成図の一部"
+          },
+          {
+            "kind": "note",
+            "id": "figure1-note",
+            "text": "注記 “2”を表示した例である。ここで，出力ポートのビット0には常に0が設定され，小数点を表示するセグメントは消灯している。"
+          }
+        ]
+      },
+      {
+        "page": 10,
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "id": "sub1",
+            "text": "設問1 次の記述中の空欄に入れる正しい答えを，解答群の中から選べ。"
+          },
+          {
+            "kind": "paragraph",
+            "id": "quantization",
+            "text": "検出温度は，A/D変換器によって，表1に示す10℃ごとの温度基準値の中の最も近い値に近似される。温度基準値の刻み幅の中央の値は高い側の温度基準値に近似される。例えば，検出温度14℃は10℃に，15℃は20℃に，16℃は20℃に近似される。温度基準値，A/D変換器出力，レベルの関係を，表1に示す。"
+          },
+          {
+            "kind": "table",
+            "id": "table1",
+            "caption": "表1 温度基準値，A/D変換器出力，レベルの関係",
+            "columns": [
+              "温度基準値（℃）",
+              "A/D変換器出力（2進表記）",
+              "レベル"
+            ],
+            "rows": [
+              [
+                "0",
+                "000",
+                "1"
+              ],
+              [
+                "10",
+                "001",
+                "2"
+              ],
+              [
+                "⋮",
+                "⋮",
+                "⋮"
+              ],
+              [
+                "70",
+                "111",
+                "8"
+              ]
+            ]
+          },
+          {
+            "kind": "paragraph",
+            "id": "abc",
+            "text": "LEDの表示が図2のとき，出力ポートに設定されている形状データは［a］，A/D変換器出力（2進表記）は［b］，検出温度の範囲は［c］である。"
+          },
+          {
+            "kind": "figure",
+            "id": "figure2",
+            "caption": "図2 LEDの表示",
+            "digit": 6
+          },
+          {
+            "kind": "choiceGroup",
+            "id": "a",
+            "label": "aに関する解答群",
+            "choices": [
+              "66",
+              "BE",
+              "DA",
+              "F2",
+              "FE"
+            ]
+          },
+          {
+            "kind": "choiceGroup",
+            "id": "b",
+            "label": "bに関する解答群",
+            "choices": [
+              "010",
+              "011",
+              "100",
+              "101",
+              "110"
+            ]
+          }
+        ]
+      },
+      {
+        "page": 11,
+        "blocks": [
+          {
+            "kind": "choiceGroup",
+            "id": "c",
+            "label": "cに関する解答群",
+            "choices": [
+              "40℃以上50℃未満",
+              "45℃以上55℃未満",
+              "50℃以上60℃未満",
+              "55℃以上65℃未満",
+              "60℃以上70℃未満"
+            ]
+          },
+          {
+            "kind": "paragraph",
+            "id": "sub2",
+            "text": "設問2 タイマ割込み発生時に起動される割込みプログラムについて，その処理の流れを，図3に示す。図3中の空欄に入れる正しい答えを，解答群の中から選べ。"
+          },
+          {
+            "kind": "paragraph",
+            "id": "io-context",
+            "text": "各機器にはI/Oポート番号が割り当てられており，割込みプログラムは，各機器に対する制御，データの読込み及び書込みを，I/Oポート番号を指定して行う。LEDに接続されている出力ポートにはI/Oポート番号1が，A/D変換器にはI/Oポート番号2と3が，それぞれ割り当てられている。表2にLEDとA/D変換器の動作概要を示す。また，図3で使用している擬似命令の形式と動作は，表3のとおりとする。"
+          },
+          {
+            "kind": "table",
+            "id": "table2",
+            "caption": "表2 LEDとA/D変換器の動作概要",
+            "columns": [
+              "機器",
+              "I/Oポート番号",
+              "動作概要"
+            ],
+            "rows": [
+              [
+                "LED",
+                "1",
+                "番号1のI/Oポートに形状データを書き込むと，出力ポートの各ビットに値が設定され，LEDの各セグメントの点灯と消灯が行われる。"
+              ],
+              [
+                "A/D変換器",
+                "2",
+                "番号2のI/Oポートに値1を書き込むと，A/D変換が開始される。"
+              ],
+              [
+                "A/D変換器",
+                "2",
+                "番号2のI/Oポートから読み込んだ値が0ならば，変換中を示す。"
+              ],
+              [
+                "A/D変換器",
+                "2",
+                "番号2のI/Oポートから読み込んだ値が0以外ならば，A/D変換が完了して出力値が確定していることを示す。"
+              ],
+              [
+                "A/D変換器",
+                "3",
+                "A/D変換完了後に番号3のI/Oポートから読み込むと，A/D変換器の出力値（0～7）が得られる。"
+              ]
+            ],
+            "mergeCells": [
+              {
+                "column": 0,
+                "rowStart": 1,
+                "rowSpan": 4
+              },
+              {
+                "column": 1,
+                "rowStart": 1,
+                "rowSpan": 3
+              }
+            ],
+            "note": "JSON logical rows repeat merged labels for independent reading only; intended visible source keeps exact2 merged cells rather than unmerging."
+          },
+          {
+            "kind": "table",
+            "id": "table3",
+            "caption": "表3 擬似命令の形式と動作",
+            "columns": [
+              "命令の形式",
+              "命令の動作"
+            ],
+            "rows": [
+              [
+                "INPUT I/Oポート番号",
+                "番号で指定したI/Oポートに接続されている機器からデータを読み込み，GRに設定する。"
+              ],
+              [
+                "OUTPUT I/Oポート番号",
+                "GRに設定したデータを，番号で指定したI/Oポートに接続されている機器に書き込む。"
+              ]
+            ]
+          },
+          {
+            "kind": "note",
+            "id": "gr-note",
+            "text": "注記 GRはCPUの8ビットのレジスタ"
+          }
+        ]
+      },
+      {
+        "page": 12,
+        "blocks": [
+          {
+            "kind": "figure",
+            "id": "figure3",
+            "caption": "図3 割込みプログラムの処理の流れ"
+          },
+          {
+            "kind": "choiceGroup",
+            "id": "d",
+            "label": "dに関する解答群",
+            "choices": [
+              "GR＜0",
+              "GR＝0",
+              "GR＝1",
+              "GR＞1"
+            ]
+          },
+          {
+            "kind": "choiceGroup",
+            "id": "e",
+            "label": "eに関する解答群",
+            "choices": [
+              "INPUT 1",
+              "INPUT 2",
+              "INPUT 3",
+              "OUTPUT 1",
+              "OUTPUT 2"
+            ]
+          }
+        ]
+      }
+    ],
+    "officialKeys": [
+      {
+        "subquestion": 1,
+        "slot": "a",
+        "symbol": "イ",
+        "content": "BE"
+      },
+      {
+        "subquestion": 1,
+        "slot": "b",
+        "symbol": "エ",
+        "content": "101"
+      },
+      {
+        "subquestion": 1,
+        "slot": "c",
+        "symbol": "イ",
+        "content": "45℃以上55℃未満"
+      },
+      {
+        "subquestion": 2,
+        "slot": "d",
+        "symbol": "イ",
+        "content": "GR＝0"
+      },
+      {
+        "subquestion": 2,
+        "slot": "e",
+        "symbol": "エ",
+        "content": "OUTPUT 1"
+      }
+    ],
+    "counts": {
+      "pages": 4,
+      "subquestions": 2,
+      "parts": 5,
+      "choiceGroups": 5,
+      "uniqueChoices": 24,
+      "partChoiceReferences": 24,
+      "groupCounts": [
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "figures": 3,
+      "tables": 3,
+      "sourceTable2MergedCells": 2,
+      "flowNodes": 10
+    },
+    "typographyReview": [
+      "a/b/c/d/e are rectangular blank boxes in narrative/flow, not raw underscore gaps.",
+      "Literal α appears in flow comment and GR←α assignment; it is shape data, not answerblank a.",
+      "Yes left return/No downward labels. Flow comment connectors dashed with brackets, not execution arrows.",
+      "Digit2 in figure1 remains a fixed example; figure2 digit6 is the variable target.",
+      "Source 温度の検出範囲0～70℃, 8levels1～8, bit7MSB, bit0always0, midpoint-to-higher and timerintervalassumption are answer-before visible."
+    ]
+  },
+  "scenarios": [
+    {
+      "variant": 0,
+      "displayDigit": 6,
+      "change": "原基準",
+      "values": {
+        "shapeHex": "BE",
+        "adBinary": "101",
+        "referenceTemperature": 50,
+        "temperatureInterval": {
+          "lowerInclusive": 45,
+          "upperExclusive": 55
+        }
+      },
+      "choices": {
+        "a": [
+          "66",
+          "BE",
+          "DA",
+          "F2",
+          "FE"
+        ],
+        "b": [
+          "010",
+          "011",
+          "100",
+          "101",
+          "110"
+        ],
+        "c": [
+          "40℃以上50℃未満",
+          "45℃以上55℃未満",
+          "50℃以上60℃未満",
+          "55℃以上65℃未満",
+          "60℃以上70℃未満"
+        ],
+        "d": [
+          "GR＜0",
+          "GR＝0",
+          "GR＝1",
+          "GR＞1"
+        ],
+        "e": [
+          "INPUT 1",
+          "INPUT 2",
+          "INPUT 3",
+          "OUTPUT 1",
+          "OUTPUT 2"
+        ]
+      },
+      "correctIndices": {
+        "a": 1,
+        "b": 3,
+        "c": 1,
+        "d": 1,
+        "e": 3
+      },
+      "correctContents": {
+        "a": "BE",
+        "b": "101",
+        "c": "45℃以上55℃未満",
+        "d": "GR＝0",
+        "e": "OUTPUT 1"
+      },
+      "truths": [
+        {
+          "part": "a",
+          "symbol": "ア",
+          "content": "66",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 3, 4, 5, 7]。66は図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "イ",
+          "content": "BE",
+          "truth": true,
+          "reason": "配線図の点灯ビットは[1, 2, 3, 4, 5, 7]。BEは図2と同じ点灯集合である。"
+        },
+        {
+          "part": "a",
+          "symbol": "ウ",
+          "content": "DA",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 3, 4, 5, 7]。DAは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "エ",
+          "content": "F2",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 3, 4, 5, 7]。F2は図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "オ",
+          "content": "FE",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 3, 4, 5, 7]。FEは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "b",
+          "symbol": "ア",
+          "content": "010",
+          "truth": false,
+          "reason": "図2はレベル6で，表1ではレベルは出力値+1。必要な出力は5（101）。010は出力2，レベル3。"
+        },
+        {
+          "part": "b",
+          "symbol": "イ",
+          "content": "011",
+          "truth": false,
+          "reason": "図2はレベル6で，表1ではレベルは出力値+1。必要な出力は5（101）。011は出力3，レベル4。"
+        },
+        {
+          "part": "b",
+          "symbol": "ウ",
+          "content": "100",
+          "truth": false,
+          "reason": "図2はレベル6で，表1ではレベルは出力値+1。必要な出力は5（101）。100は出力4，レベル5。"
+        },
+        {
+          "part": "b",
+          "symbol": "エ",
+          "content": "101",
+          "truth": true,
+          "reason": "図2はレベル6で，表1ではレベルは出力値+1。必要な出力は5（101）。101は出力5，レベル6。"
+        },
+        {
+          "part": "b",
+          "symbol": "オ",
+          "content": "110",
+          "truth": false,
+          "reason": "図2はレベル6で，表1ではレベルは出力値+1。必要な出力は5（101）。110は出力6，レベル7。"
+        },
+        {
+          "part": "c",
+          "symbol": "ア",
+          "content": "40℃以上50℃未満",
+          "truth": false,
+          "reason": "対応する基準温度50℃の両側中点は45℃と55℃。中点は高い側へ移るので全範囲は45℃以上55℃未満。下限と上限を各5℃低く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "c",
+          "symbol": "イ",
+          "content": "45℃以上55℃未満",
+          "truth": true,
+          "reason": "対応する基準温度50℃の両側中点は45℃と55℃。中点は高い側へ移るので全範囲は45℃以上55℃未満。中点規則と上下端の包含・非包含が一致する。"
+        },
+        {
+          "part": "c",
+          "symbol": "ウ",
+          "content": "50℃以上60℃未満",
+          "truth": false,
+          "reason": "対応する基準温度50℃の両側中点は45℃と55℃。中点は高い側へ移るので全範囲は45℃以上55℃未満。下限と上限を各5℃高く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "c",
+          "symbol": "エ",
+          "content": "55℃以上65℃未満",
+          "truth": false,
+          "reason": "対応する基準温度50℃の両側中点は45℃と55℃。中点は高い側へ移るので全範囲は45℃以上55℃未満。一つ高いレベルの中点区間である。"
+        },
+        {
+          "part": "c",
+          "symbol": "オ",
+          "content": "60℃以上70℃未満",
+          "truth": false,
+          "reason": "対応する基準温度50℃の両側中点は45℃と55℃。中点は高い側へ移るので全範囲は45℃以上55℃未満。下限と上限を各15℃高く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "d",
+          "symbol": "ア",
+          "content": "GR＜0",
+          "truth": false,
+          "reason": "変換中を表すGR=0で条件が偽になり，完了を待たずに先へ進む。符号付き比較を仮定する必要はない。"
+        },
+        {
+          "part": "d",
+          "symbol": "イ",
+          "content": "GR＝0",
+          "truth": true,
+          "reason": "表2の変換中を示す0の間だけYesでINPUT2を繰り返し，非0になればNoでINPUT3へ進む。"
+        },
+        {
+          "part": "d",
+          "symbol": "ウ",
+          "content": "GR＝1",
+          "truth": false,
+          "reason": "変換中0でNoになり未確定の出力を読む。完了値は1に限定されず，1になれば逆に待ち続ける。"
+        },
+        {
+          "part": "d",
+          "symbol": "エ",
+          "content": "GR＞1",
+          "truth": false,
+          "reason": "変換中0でNoになり未確定の出力を読む。完了値2以上を得れば逆に待ち続ける。"
+        },
+        {
+          "part": "e",
+          "symbol": "ア",
+          "content": "INPUT 1",
+          "truth": false,
+          "reason": "INPUTは読込みであり，LEDへ形状データを書き込まない。番号1でも方向が逆。"
+        },
+        {
+          "part": "e",
+          "symbol": "イ",
+          "content": "INPUT 2",
+          "truth": false,
+          "reason": "INPUT2はA/Dの状態を読み込む操作であり，LED書込みではない。"
+        },
+        {
+          "part": "e",
+          "symbol": "ウ",
+          "content": "INPUT 3",
+          "truth": false,
+          "reason": "INPUT3はA/D出力値を読み込む操作であり，LED書込みではない。"
+        },
+        {
+          "part": "e",
+          "symbol": "エ",
+          "content": "OUTPUT 1",
+          "truth": true,
+          "reason": "GRに形状データαを設定した後，OUTPUT1でLEDのポートに書き込む。"
+        },
+        {
+          "part": "e",
+          "symbol": "オ",
+          "content": "OUTPUT 2",
+          "truth": false,
+          "reason": "OUTPUT2はA/D側のポートへの書込みであり，LED側の1への書込みではない。αが1以外のOUTPUT2の効果は本問で規定されず，勝手に再変換開始と断定しない。"
+        }
+      ]
+    },
+    {
+      "variant": 1,
+      "displayDigit": 4,
+      "change": "図2の点灯字形を変え，同じ配線で読む形状データ・レベル・検出温度範囲を連動更新する。図1の数字2は説明例のまま。",
+      "values": {
+        "shapeHex": "66",
+        "adBinary": "011",
+        "referenceTemperature": 30,
+        "temperatureInterval": {
+          "lowerInclusive": 25,
+          "upperExclusive": 35
+        }
+      },
+      "choices": {
+        "a": [
+          "66",
+          "BE",
+          "DA",
+          "F2",
+          "FE"
+        ],
+        "b": [
+          "010",
+          "011",
+          "100",
+          "101",
+          "110"
+        ],
+        "c": [
+          "20℃以上30℃未満",
+          "25℃以上35℃未満",
+          "30℃以上40℃未満",
+          "35℃以上45℃未満",
+          "40℃以上50℃未満"
+        ],
+        "d": [
+          "GR＜0",
+          "GR＝0",
+          "GR＝1",
+          "GR＞1"
+        ],
+        "e": [
+          "INPUT 1",
+          "INPUT 2",
+          "INPUT 3",
+          "OUTPUT 1",
+          "OUTPUT 2"
+        ]
+      },
+      "correctIndices": {
+        "a": 0,
+        "b": 1,
+        "c": 1,
+        "d": 1,
+        "e": 3
+      },
+      "correctContents": {
+        "a": "66",
+        "b": "011",
+        "c": "25℃以上35℃未満",
+        "d": "GR＝0",
+        "e": "OUTPUT 1"
+      },
+      "truths": [
+        {
+          "part": "a",
+          "symbol": "ア",
+          "content": "66",
+          "truth": true,
+          "reason": "配線図の点灯ビットは[1, 2, 5, 6]。66は図2と同じ点灯集合である。"
+        },
+        {
+          "part": "a",
+          "symbol": "イ",
+          "content": "BE",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 5, 6]。BEは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "ウ",
+          "content": "DA",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 5, 6]。DAは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "エ",
+          "content": "F2",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 5, 6]。F2は図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "オ",
+          "content": "FE",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 2, 5, 6]。FEは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "b",
+          "symbol": "ア",
+          "content": "010",
+          "truth": false,
+          "reason": "図2はレベル4で，表1ではレベルは出力値+1。必要な出力は3（011）。010は出力2，レベル3。"
+        },
+        {
+          "part": "b",
+          "symbol": "イ",
+          "content": "011",
+          "truth": true,
+          "reason": "図2はレベル4で，表1ではレベルは出力値+1。必要な出力は3（011）。011は出力3，レベル4。"
+        },
+        {
+          "part": "b",
+          "symbol": "ウ",
+          "content": "100",
+          "truth": false,
+          "reason": "図2はレベル4で，表1ではレベルは出力値+1。必要な出力は3（011）。100は出力4，レベル5。"
+        },
+        {
+          "part": "b",
+          "symbol": "エ",
+          "content": "101",
+          "truth": false,
+          "reason": "図2はレベル4で，表1ではレベルは出力値+1。必要な出力は3（011）。101は出力5，レベル6。"
+        },
+        {
+          "part": "b",
+          "symbol": "オ",
+          "content": "110",
+          "truth": false,
+          "reason": "図2はレベル4で，表1ではレベルは出力値+1。必要な出力は3（011）。110は出力6，レベル7。"
+        },
+        {
+          "part": "c",
+          "symbol": "ア",
+          "content": "20℃以上30℃未満",
+          "truth": false,
+          "reason": "対応する基準温度30℃の両側中点は25℃と35℃。中点は高い側へ移るので全範囲は25℃以上35℃未満。下限と上限を各5℃低く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "c",
+          "symbol": "イ",
+          "content": "25℃以上35℃未満",
+          "truth": true,
+          "reason": "対応する基準温度30℃の両側中点は25℃と35℃。中点は高い側へ移るので全範囲は25℃以上35℃未満。中点規則と上下端の包含・非包含が一致する。"
+        },
+        {
+          "part": "c",
+          "symbol": "ウ",
+          "content": "30℃以上40℃未満",
+          "truth": false,
+          "reason": "対応する基準温度30℃の両側中点は25℃と35℃。中点は高い側へ移るので全範囲は25℃以上35℃未満。下限と上限を各5℃高く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "c",
+          "symbol": "エ",
+          "content": "35℃以上45℃未満",
+          "truth": false,
+          "reason": "対応する基準温度30℃の両側中点は25℃と35℃。中点は高い側へ移るので全範囲は25℃以上35℃未満。一つ高いレベルの中点区間である。"
+        },
+        {
+          "part": "c",
+          "symbol": "オ",
+          "content": "40℃以上50℃未満",
+          "truth": false,
+          "reason": "対応する基準温度30℃の両側中点は25℃と35℃。中点は高い側へ移るので全範囲は25℃以上35℃未満。下限と上限を各15℃高く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "d",
+          "symbol": "ア",
+          "content": "GR＜0",
+          "truth": false,
+          "reason": "変換中を表すGR=0で条件が偽になり，完了を待たずに先へ進む。符号付き比較を仮定する必要はない。"
+        },
+        {
+          "part": "d",
+          "symbol": "イ",
+          "content": "GR＝0",
+          "truth": true,
+          "reason": "表2の変換中を示す0の間だけYesでINPUT2を繰り返し，非0になればNoでINPUT3へ進む。"
+        },
+        {
+          "part": "d",
+          "symbol": "ウ",
+          "content": "GR＝1",
+          "truth": false,
+          "reason": "変換中0でNoになり未確定の出力を読む。完了値は1に限定されず，1になれば逆に待ち続ける。"
+        },
+        {
+          "part": "d",
+          "symbol": "エ",
+          "content": "GR＞1",
+          "truth": false,
+          "reason": "変換中0でNoになり未確定の出力を読む。完了値2以上を得れば逆に待ち続ける。"
+        },
+        {
+          "part": "e",
+          "symbol": "ア",
+          "content": "INPUT 1",
+          "truth": false,
+          "reason": "INPUTは読込みであり，LEDへ形状データを書き込まない。番号1でも方向が逆。"
+        },
+        {
+          "part": "e",
+          "symbol": "イ",
+          "content": "INPUT 2",
+          "truth": false,
+          "reason": "INPUT2はA/Dの状態を読み込む操作であり，LED書込みではない。"
+        },
+        {
+          "part": "e",
+          "symbol": "ウ",
+          "content": "INPUT 3",
+          "truth": false,
+          "reason": "INPUT3はA/D出力値を読み込む操作であり，LED書込みではない。"
+        },
+        {
+          "part": "e",
+          "symbol": "エ",
+          "content": "OUTPUT 1",
+          "truth": true,
+          "reason": "GRに形状データαを設定した後，OUTPUT1でLEDのポートに書き込む。"
+        },
+        {
+          "part": "e",
+          "symbol": "オ",
+          "content": "OUTPUT 2",
+          "truth": false,
+          "reason": "OUTPUT2はA/D側のポートへの書込みであり，LED側の1への書込みではない。αが1以外のOUTPUT2の効果は本問で規定されず，勝手に再変換開始と断定しない。"
+        }
+      ]
+    },
+    {
+      "variant": 2,
+      "displayDigit": 3,
+      "change": "図2の点灯字形を変え，同じ配線で読む形状データ・レベル・検出温度範囲を連動更新する。図1の数字2は説明例のまま。",
+      "values": {
+        "shapeHex": "F2",
+        "adBinary": "010",
+        "referenceTemperature": 20,
+        "temperatureInterval": {
+          "lowerInclusive": 15,
+          "upperExclusive": 25
+        }
+      },
+      "choices": {
+        "a": [
+          "66",
+          "BE",
+          "DA",
+          "F2",
+          "FE"
+        ],
+        "b": [
+          "010",
+          "011",
+          "100",
+          "101",
+          "110"
+        ],
+        "c": [
+          "10℃以上20℃未満",
+          "15℃以上25℃未満",
+          "20℃以上30℃未満",
+          "25℃以上35℃未満",
+          "30℃以上40℃未満"
+        ],
+        "d": [
+          "GR＜0",
+          "GR＝0",
+          "GR＝1",
+          "GR＞1"
+        ],
+        "e": [
+          "INPUT 1",
+          "INPUT 2",
+          "INPUT 3",
+          "OUTPUT 1",
+          "OUTPUT 2"
+        ]
+      },
+      "correctIndices": {
+        "a": 3,
+        "b": 0,
+        "c": 1,
+        "d": 1,
+        "e": 3
+      },
+      "correctContents": {
+        "a": "F2",
+        "b": "010",
+        "c": "15℃以上25℃未満",
+        "d": "GR＝0",
+        "e": "OUTPUT 1"
+      },
+      "truths": [
+        {
+          "part": "a",
+          "symbol": "ア",
+          "content": "66",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 4, 5, 6, 7]。66は図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "イ",
+          "content": "BE",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 4, 5, 6, 7]。BEは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "ウ",
+          "content": "DA",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 4, 5, 6, 7]。DAは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "a",
+          "symbol": "エ",
+          "content": "F2",
+          "truth": true,
+          "reason": "配線図の点灯ビットは[1, 4, 5, 6, 7]。F2は図2と同じ点灯集合である。"
+        },
+        {
+          "part": "a",
+          "symbol": "オ",
+          "content": "FE",
+          "truth": false,
+          "reason": "配線図の点灯ビットは[1, 4, 5, 6, 7]。FEは図2と同じ点灯集合ではなく，別の数字の字形になる。"
+        },
+        {
+          "part": "b",
+          "symbol": "ア",
+          "content": "010",
+          "truth": true,
+          "reason": "図2はレベル3で，表1ではレベルは出力値+1。必要な出力は2（010）。010は出力2，レベル3。"
+        },
+        {
+          "part": "b",
+          "symbol": "イ",
+          "content": "011",
+          "truth": false,
+          "reason": "図2はレベル3で，表1ではレベルは出力値+1。必要な出力は2（010）。011は出力3，レベル4。"
+        },
+        {
+          "part": "b",
+          "symbol": "ウ",
+          "content": "100",
+          "truth": false,
+          "reason": "図2はレベル3で，表1ではレベルは出力値+1。必要な出力は2（010）。100は出力4，レベル5。"
+        },
+        {
+          "part": "b",
+          "symbol": "エ",
+          "content": "101",
+          "truth": false,
+          "reason": "図2はレベル3で，表1ではレベルは出力値+1。必要な出力は2（010）。101は出力5，レベル6。"
+        },
+        {
+          "part": "b",
+          "symbol": "オ",
+          "content": "110",
+          "truth": false,
+          "reason": "図2はレベル3で，表1ではレベルは出力値+1。必要な出力は2（010）。110は出力6，レベル7。"
+        },
+        {
+          "part": "c",
+          "symbol": "ア",
+          "content": "10℃以上20℃未満",
+          "truth": false,
+          "reason": "対応する基準温度20℃の両側中点は15℃と25℃。中点は高い側へ移るので全範囲は15℃以上25℃未満。下限と上限を各5℃低く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "c",
+          "symbol": "イ",
+          "content": "15℃以上25℃未満",
+          "truth": true,
+          "reason": "対応する基準温度20℃の両側中点は15℃と25℃。中点は高い側へ移るので全範囲は15℃以上25℃未満。中点規則と上下端の包含・非包含が一致する。"
+        },
+        {
+          "part": "c",
+          "symbol": "ウ",
+          "content": "20℃以上30℃未満",
+          "truth": false,
+          "reason": "対応する基準温度20℃の両側中点は15℃と25℃。中点は高い側へ移るので全範囲は15℃以上25℃未満。下限と上限を各5℃高く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "c",
+          "symbol": "エ",
+          "content": "25℃以上35℃未満",
+          "truth": false,
+          "reason": "対応する基準温度20℃の両側中点は15℃と25℃。中点は高い側へ移るので全範囲は15℃以上25℃未満。一つ高いレベルの中点区間である。"
+        },
+        {
+          "part": "c",
+          "symbol": "オ",
+          "content": "30℃以上40℃未満",
+          "truth": false,
+          "reason": "対応する基準温度20℃の両側中点は15℃と25℃。中点は高い側へ移るので全範囲は15℃以上25℃未満。下限と上限を各15℃高く取り，全体の逆像と一致しない。"
+        },
+        {
+          "part": "d",
+          "symbol": "ア",
+          "content": "GR＜0",
+          "truth": false,
+          "reason": "変換中を表すGR=0で条件が偽になり，完了を待たずに先へ進む。符号付き比較を仮定する必要はない。"
+        },
+        {
+          "part": "d",
+          "symbol": "イ",
+          "content": "GR＝0",
+          "truth": true,
+          "reason": "表2の変換中を示す0の間だけYesでINPUT2を繰り返し，非0になればNoでINPUT3へ進む。"
+        },
+        {
+          "part": "d",
+          "symbol": "ウ",
+          "content": "GR＝1",
+          "truth": false,
+          "reason": "変換中0でNoになり未確定の出力を読む。完了値は1に限定されず，1になれば逆に待ち続ける。"
+        },
+        {
+          "part": "d",
+          "symbol": "エ",
+          "content": "GR＞1",
+          "truth": false,
+          "reason": "変換中0でNoになり未確定の出力を読む。完了値2以上を得れば逆に待ち続ける。"
+        },
+        {
+          "part": "e",
+          "symbol": "ア",
+          "content": "INPUT 1",
+          "truth": false,
+          "reason": "INPUTは読込みであり，LEDへ形状データを書き込まない。番号1でも方向が逆。"
+        },
+        {
+          "part": "e",
+          "symbol": "イ",
+          "content": "INPUT 2",
+          "truth": false,
+          "reason": "INPUT2はA/Dの状態を読み込む操作であり，LED書込みではない。"
+        },
+        {
+          "part": "e",
+          "symbol": "ウ",
+          "content": "INPUT 3",
+          "truth": false,
+          "reason": "INPUT3はA/D出力値を読み込む操作であり，LED書込みではない。"
+        },
+        {
+          "part": "e",
+          "symbol": "エ",
+          "content": "OUTPUT 1",
+          "truth": true,
+          "reason": "GRに形状データαを設定した後，OUTPUT1でLEDのポートに書き込む。"
+        },
+        {
+          "part": "e",
+          "symbol": "オ",
+          "content": "OUTPUT 2",
+          "truth": false,
+          "reason": "OUTPUT2はA/D側のポートへの書込みであり，LED側の1への書込みではない。αが1以外のOUTPUT2の効果は本問で規定されず，勝手に再変換開始と断定しない。"
+        }
+      ]
+    }
+  ],
+  "figures": {
+    "sourcePages": {
+      "figure1": 9,
+      "figure2": 10,
+      "figure3": 12,
+      "table2": 11
+    },
+    "figure1": {
+      "components": [
+        "CPU",
+        "タイマ（一定間隔で割込み）",
+        "温度検出器",
+        "A/D変換器",
+        "バス",
+        "出力ポート",
+        "LED"
+      ],
+      "busMembers": [
+        "CPU",
+        "タイマ",
+        "A/D変換器",
+        "出力ポート"
+      ],
+      "sensorArrow": [
+        "温度検出器",
+        "A/D変換器"
+      ],
+      "portBitLabels": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "ledBitToPosition": {
+        "7": "top",
+        "2": "upperLeft",
+        "6": "upperRight",
+        "1": "middle",
+        "3": "lowerLeft",
+        "5": "lowerRight",
+        "4": "bottom",
+        "0": "decimalPoint"
+      },
+      "exampleDigit": 2,
+      "exampleLitBits": [
+        7,
+        6,
+        4,
+        3,
+        1
+      ],
+      "exampleUnlitBits": [
+        5,
+        2,
+        0
+      ],
+      "ledLegend": [
+        "点灯状態",
+        "消灯状態"
+      ],
+      "busJunctionDots": 4,
+      "literalSensorNotConnectedToBus": true,
+      "wires": "8 continuous sourcebit→segment/decimal orthogonal paths with exactendpoints/intermediate vertices fixed byfutureindependentSVGreader; crossing alone isnotjunction. Rawsourceimagefirst."
+    },
+    "figure2": {
+      "originalDigit": 6,
+      "allSevenSegmentsAndDecimalVisible": true,
+      "sourceBitMap": {
+        "top": 7,
+        "upperLeft": 2,
+        "upperRight": 6,
+        "middle": 1,
+        "lowerLeft": 3,
+        "lowerRight": 5,
+        "bottom": 4,
+        "decimalPoint": 0
+      },
+      "digitSegments": {
+        "1": [
+          "upperRight",
+          "lowerRight"
+        ],
+        "2": [
+          "top",
+          "upperRight",
+          "middle",
+          "lowerLeft",
+          "bottom"
+        ],
+        "3": [
+          "top",
+          "upperRight",
+          "middle",
+          "lowerRight",
+          "bottom"
+        ],
+        "4": [
+          "upperLeft",
+          "upperRight",
+          "middle",
+          "lowerRight"
+        ],
+        "5": [
+          "top",
+          "upperLeft",
+          "middle",
+          "lowerRight",
+          "bottom"
+        ],
+        "6": [
+          "top",
+          "upperLeft",
+          "middle",
+          "lowerLeft",
+          "lowerRight",
+          "bottom"
+        ],
+        "7": [
+          "top",
+          "upperRight",
+          "lowerRight"
+        ],
+        "8": [
+          "top",
+          "upperLeft",
+          "upperRight",
+          "middle",
+          "lowerLeft",
+          "lowerRight",
+          "bottom"
+        ]
+      }
+    },
+    "figure3": {
+      "nodes": [
+        {
+          "id": "start",
+          "shape": "terminal",
+          "text": "開始"
+        },
+        {
+          "id": "gr1",
+          "shape": "rectangle",
+          "text": "GR←1"
+        },
+        {
+          "id": "out2",
+          "shape": "rectangle",
+          "text": "OUTPUT 2"
+        },
+        {
+          "id": "in2",
+          "shape": "rectangle",
+          "text": "INPUT 2"
+        },
+        {
+          "id": "d",
+          "shape": "diamond",
+          "text": "［d］"
+        },
+        {
+          "id": "in3",
+          "shape": "rectangle",
+          "text": "INPUT 3"
+        },
+        {
+          "id": "convert",
+          "shape": "rectangle",
+          "text": "変換処理"
+        },
+        {
+          "id": "gra",
+          "shape": "rectangle",
+          "text": "GR←α"
+        },
+        {
+          "id": "e",
+          "shape": "rectangle",
+          "text": "［e］"
+        },
+        {
+          "id": "end",
+          "shape": "terminal",
+          "text": "終了"
+        }
+      ],
+      "executionEdges": [
+        [
+          "start",
+          "gr1"
+        ],
+        [
+          "gr1",
+          "out2"
+        ],
+        [
+          "out2",
+          "in2"
+        ],
+        [
+          "in2",
+          "d"
+        ],
+        [
+          "d",
+          "in2",
+          "Yes,left-return-to-junction-above-in2"
+        ],
+        [
+          "d",
+          "in3",
+          "No,down"
+        ],
+        [
+          "in3",
+          "convert"
+        ],
+        [
+          "convert",
+          "gra"
+        ],
+        [
+          "gra",
+          "e"
+        ],
+        [
+          "e",
+          "end"
+        ]
+      ],
+      "visualArrowheads": {
+        "count": 1,
+        "edge": "Yes return entering junction above INPUT2, pointingright"
+      },
+      "comments": [
+        {
+          "node": "out2",
+          "text": "A/D変換開始",
+          "connector": "right dashed line and left bracket"
+        },
+        {
+          "node": "convert",
+          "text": "A/D変換器の出力値を形状データαに変換",
+          "connector": "right dashed line and left bracket"
+        }
+      ],
+      "unfilledDandE": true,
+      "doesNotPrintCorrectConditionOrInstruction": true
+    },
+    "futureSvgNegatives": [
+      "swap bit2/bit5 endpoints",
+      "change only intermediatewirevertices",
+      "invert on/offfill relativelegend",
+      "light decimalpoint",
+      "lose MSB7/bit15..0 labels",
+      "show6unchanged on generated3/4",
+      "return Yes to OUTPUT2 insteadINPUT2",
+      "swapYesNo labels",
+      "convert commentary dashedline intoexecution",
+      "lose α or interpret asblank a",
+      "erase one merged boundary/put deviceinwrongrow",
+      "delete comment or flowarrowhead"
+    ]
+  },
+  "checkedOn": "2026-10-23",
+  "limits": "Independent approved source-only facts; not generated fromproduction."
+}

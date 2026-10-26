@@ -1,3 +1,4 @@
+import { answerRun } from "./fixtures/answer-run";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
@@ -7,7 +8,7 @@ import { nextQuestionRef, selectEndlessQuestions, selectQuestions } from "../src
 import { refKey, refOf, type Ref, type Selection } from "../src/core/types";
 import { schema, validateBundle } from "../src/core/validation";
 import {
-  appendRunQuestion, finishRun, prepareRun, startRun, updateAnswer, validateRun,
+  appendRunQuestion, finishRun, prepareRun, startRun, validateRun,
 } from "../src/core/session";
 
 test("the shared endless pool accepts arbitrary single-subject and mixed subsets with only their bindings", () => {
@@ -50,9 +51,7 @@ test("every registered bookmark is selectable across both subjects, including co
       run = await appendRunQuestion(run, ref, 102000 + index * 1000);
     }
     if (index % 3 !== 2) {
-      const answer = index % 3 === 0 ? run.issued[index].correctAnswer.choiceId :
-        run.issued[index].choices.find((c) => c.id !== run.issued[index].correctAnswer.choiceId)!.id;
-      run = updateAnswer(run, answer, 102000 + index * 1000);
+      run = answerRun(run, index % 3 === 0, 102000 + index * 1000);
     }
     assert.equal(run.session.id, sessionId);
     assert(expected.includes(refKey(run.session.entries[index].questionRef)));

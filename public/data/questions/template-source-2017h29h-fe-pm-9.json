@@ -1,0 +1,1989 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29h-fe-pm-9",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon",
+      "language-c",
+      "parameterized"
+    ],
+    "topics": [
+      "C言語",
+      "ビット演算",
+      "プログラムの追跡"
+    ],
+    "keywords": [
+      "マークシート",
+      "unsigned int",
+      "論理積",
+      "順不同採点"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+          "page": 41,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+          "page": 42,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+          "page": 43,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+          "page": 44,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+          "page": 45,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+          "page": 46,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29h-fe-pm-9",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T08:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原6頁と7独立欄を対応",
+        "details": "全図表・16bit前提・全解答群を保持。a/b/cは同8択を同順で独立参照し、重複禁止や欄の順不同を追加しない。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T08:00:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "正答の条件とC言語による原の採点プログラム、マークとビットの対応、追跡図、空欄と解答群を保ち、受験者のマークと作業領域の入力を変更しています。関連する図と選択肢を同じ条件に対応させています。",
+        "affectsAnswer": true,
+        "answerDetails": "a：過剰マークを検査する対象はansE[i]。b：許されるマーク数の上限はtype[i]。2や3の固定値、正答のビット列、type[i]+1では一般の指定数を検査できない。c：正答と受験者の解答の両方が1のビットを&で抽出する。|は和集合なので正答していない選択肢も数える。d：work−1では最下位の1が0になり、その下位が1になる。元のworkとの&で最下位の1だけを取り除くので0101 0000 0…0から0100 0000 0…0となる。下位の1だけを残す、1を引くだけ、上位の1を左へ移す値は該当しない。e：&&は両辺を真偽値として評価し0又は1を返す。&のビット積とは異なり、ans=4なら本来1個だが2を返し、ans=7なら本来3個だが2を返す。今回のworkの2bitだけでは2と偶然一致するが、一般の個数計算として正しくない。workは変化するので無限ループにもならない。f：markの各要素は先に0にされ、type=13の行だけに集計値を記録する。1bitの解答だけを集合へ加え、同じ解答の重複はORで一つにまとめる。図4の共通正答集合との一致は1個なので、markは0、0、1となる。g：sumEは0000 1000 0…0。末尾の解答は2bitなので加えない。先頭2行は同じ1bitなので重複を数えない。正答側の集合を答えたり、複数マークを無条件に加えたりしない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+            "page": 41,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+            "page": 42,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+            "page": 43,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+            "page": 44,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+            "page": 45,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+            "page": 46,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29h-fe-pm-9",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の問9から問13までの5問については、この中から1問を選択し、選択した問題については、答案用紙の選択欄の（選）をマークして解答してください。なお、2問以上マークした場合には、はじめの1問について採点します。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問9 次のCプログラムの説明及びプログラムを読んで、設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "マーク式試験の答案を採点するプログラムである。問題と受験者の解答の例を、図1に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-mark-sheet",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 問題と受験者の解答の例",
+        "alt": "問11の選択肢a・b・cのうちcにマーク。問12の選択肢a・b・c・d・eのうちbとdにマーク。問題の全文と選択肢は図内に表示。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-mark-sheet",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 41,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "ここでは、unsigned int型のデータは、16ビットのビット列で表し、連続する8ビットが全て0のときは0…0、全て1のときは1…1と表記する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "プログラムの説明"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 関数markingは、1回の実行で受験者1人分の答案を採点する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 関数markingの引数の仕様は、次のとおりである。ここで、引数の値に誤りはないものとする。"
+      },
+      {
+        "type": "table",
+        "caption": "関数markingの引数の仕様",
+        "columns": [
+          "引数",
+          "データ型",
+          "入出力",
+          "説明"
+        ],
+        "rows": [
+          [
+            "numQ",
+            "int",
+            "入力",
+            "問の数を格納した変数"
+          ],
+          [
+            "type[]",
+            "int",
+            "入力",
+            "各問の解答形式を格納した配列"
+          ],
+          [
+            "ansC[]",
+            "unsigned int",
+            "入力",
+            "各問の正答を格納した配列"
+          ],
+          [
+            "ansE[]",
+            "unsigned int",
+            "入力",
+            "各問の受験者の解答を格納した配列"
+          ],
+          [
+            "mark[]",
+            "int",
+            "出力",
+            "各問の採点結果を格納する配列"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "① 問の数は、numQである。引数である各配列の要素数も、numQである。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② 1問当たりの選択肢の個数は16個以下である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ type[]の各要素には、答えを一つマークする問の場合は1、複数個マークする問の場合はマークする個数n（2≦n≦8）が格納されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "④ ansC[]の各要素は、16ビットのビット列で、図2の例に示すように、最上位のビットから1ビットずつ順に選択肢a、b、…に対応し、正答の選択肢に対応するビット位置に1が格納されている。他の全てのビットは0である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "⑤ ansE[]の各要素は、ansC[]と同様の形式で、受験者の解答が格納されている。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-bit-layout",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 正答及び受験者の解答の格納形式と格納例",
+        "alt": "正答と受験者の解答を左右の2図で示す。各図の問12の5マークから対応する格納bitへ点線を結ぶ。unsigned int型の16bitを左の最上位からa、b、c、d、e、残りの順に対応させる。ansC[11]は正答bとe、ansE[11]は受験者の解答bとd。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-bit-layout",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 42,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 関数markingは、各問（要素番号i：0、1、…、numQ−1）について、表1に示す解答形式に応じた採点方法で採点する。採点結果はmark[i]に格納する。"
+      },
+      {
+        "type": "table",
+        "caption": "表1 解答形式に応じた各問の採点方法",
+        "columns": [
+          "解答形式",
+          "type[i]の値",
+          "採点方法及びmark[i]に格納する値"
+        ],
+        "rows": [
+          [
+            "答えを一つマークする問",
+            "1",
+            "ansC[i]＝ansE[i]（正解）なら1、ansC[i]≠ansE[i]（不正解）なら0"
+          ],
+          [
+            "答えを複数個マークする問",
+            "n（2≦n≦8）",
+            "ansE[i]中の1のビットの個数がn＋1個以上なら0、n個以下なら、ansC[i]とansE[i]の対応するビットが共に1である個数"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 関数markingから呼ばれる関数countMarkBitsは、引数の値に含まれる1のビットの個数を返却値として返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "プログラム1"
+      },
+      {
+        "type": "code",
+        "text": "void marking(int numQ, int type[], unsigned int ansC[],\n             unsigned int ansE[], int mark[]) {\n    int i;\n    /* α */\n\n    for (i = 0; i < numQ; i++) {\n        mark[i] = 0;\n        if (type[i] == 1) {\n            if (ansE[i] == ansC[i]) {\n                mark[i] = 1;\n            }\n        }\n        else if ((2 <= type[i]) && (type[i] <= 8)) {\n            if (countMarkBits([a]) <= [b]) {\n                mark[i] = countMarkBits([c]);\n            }\n        }\n        /* β */\n    }\n}",
+        "language": "c"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 プログラム1中の［a］〜［c］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-abc-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "a〜cに関する解答群",
+        "alt": "a〜cに関する解答群。ア 2。イ 3。ウ ansC[i]。エ ansC[i] & ansE[i]。オ ansC[i] | ansE[i]。カ ansE[i]。キ type[i]。ク type[i] + 1",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-abc-bank",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 関数countMarkBitsのプログラムを、プログラム2に示す。次の記述中の［d］、［e］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "プログラム2"
+      },
+      {
+        "type": "code",
+        "text": "int countMarkBits(unsigned int ans) {\n    int count = 0;\n    unsigned int work = ans;\n\n    while (work != 0) {\n        count++;\n        work = work & (work - 1);    /* γ */\n    }\n    return count;\n}",
+        "language": "c"
+      },
+      {
+        "type": "paragraph",
+        "text": "コメント/* γ */を付した行の代入式を実行するとき、実行前のworkの値が0101 0000 0…0であれば、実行後のworkの値は［d］となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "コメント/* γ */を付した行の代入式を、次のとおり変更して、プログラム2の実行を試みた場合、［e］。"
+      },
+      {
+        "type": "code",
+        "text": "work = work && (work - 1);",
+        "language": "c"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-d-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "dに関する解答群",
+        "alt": "dに関する解答群。ア 0001 0000 0…0。イ 0100 0000 0…0。ウ 0100 1111 1…1。エ 1001 0000 0…0",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-d-bank",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-e-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "eに関する解答群",
+        "alt": "eに関する解答群。ア 演算子&&と&とは実行する演算の内容が同じなので、正しい結果を返す。イ 演算子&&はビットごとの論理積を求めることはしないので、誤った結果を返す。ウ 変数workには実行前の値が保持されたまま変わらないので、無限ループになる",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-e-bank",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3 次の記述中の［f］、［g］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答形式に、順不同形式を追加する。順不同形式とは、答えを一つマークする問が2問以上連続していて、共通の解答群から答えを選んでいくが、その選択の順序は入れ替わってもよい形式である。図3の例では、問21、22、23の順に正答b、d、eが設定されているが、これを受験者の解答の例のように異なる順序で解答してもよい。正しい答えが幾つ選択されたかによって、採点結果が決まる。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-unordered-example",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3 順不同形式の問題、正答及び受験者の解答の例",
+        "alt": "問21〜23は、次の府県のうち、海に面していない府県を三つ選ぶ問題。共通解答群は大阪・岐阜・京都・滋賀・奈良・兵庫・三重。正答は順にb・d・e、受験者の解答はe・b・dにマーク。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-unordered-example",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 45,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "順不同形式の問題に対する解答を含む答案を採点するために、プログラム1を次のとおり修正した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) プログラム1中のコメント/* α */の行を、次の1行で置き換える。"
+      },
+      {
+        "type": "code",
+        "text": "unsigned int sumC, sumE;",
+        "language": "c"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) プログラム1中のコメント/* β */の行を、次の13行で置き換える。"
+      },
+      {
+        "type": "code",
+        "text": "else if ((11 <= type[i]) && (type[i] <= 13)) {\n    if (type[i] == 11) {\n        sumC = 0;\n        sumE = 0;\n    }\n    sumC = sumC | ansC[i];\n    if (countMarkBits(ansE[i]) == 1) {\n        sumE = sumE | ansE[i];\n    }\n    if (type[i] == 13) {\n        mark[i] = countMarkBits(sumC & sumE);\n    }\n}",
+        "language": "c"
+      },
+      {
+        "type": "paragraph",
+        "text": "順不同形式の問を表すtype[]の値は、11〜13である。一組の順不同形式の問題において、値11は先頭の問を表し、値13は末尾の問を表す。値12は3問以上から成る順不同形式の問題における中間の問を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "図3の順不同形式の問題に対する解答を含む答案を、修正したプログラム1で採点する。ある受験者の解答の採点例として、関数markingに渡された各配列要素の内容、及びこれらの内容に基づく採点結果を、図4に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-marking-trace",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図4 関数markingに渡された配列の内容及び採点結果",
+        "alt": "3行の配列添字は20、21、22。typeは11、12、13。ansCは0100 0000 0…0、0001 0000 0…0、0000 1000 0…0。ansEは0000 1000 0…0、0000 1000 0…0、0101 0000 0…0。mark[20]〜mark[22]の3値をまとめた空欄fを右に置く。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-marking-trace",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "また、図4に示す解答の採点が完了した時点で、変数sumEには値［g］が格納されている。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-result-options",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "fに関する解答群",
+        "alt": "ア〜カの六つの選択肢は、それぞれ縦3セル。上からmark[20]、mark[21]、mark[22]の順。ア：0、0、1。イ：0、0、3。ウ：0、1、0。エ：0、1、2。オ：1、0、0。カ：1、0、2",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-result-options",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm9-g-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "gに関する解答群",
+        "alt": "gに関する解答群。ア 0…0 0…0。イ 0000 1000 0…0。ウ 0101 0000 0…0。エ 0101 1000 0…0",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm9-g-bank",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "2",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "3",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "ansC[i]",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "ansC[i] & ansE[i]",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "ansC[i] | ansE[i]",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "ansE[i]",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "type[i]",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 43,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "type[i] + 1",
+            "language": "pseudocode"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0001 0000 0…0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0100 0000 0…0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0100 1111 1…1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "1001 0000 0…0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "演算子&&と&とは実行する演算の内容が同じなので、正しい結果を返す"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "演算子&&はビットごとの論理積を求めることはしないので、誤った結果を返す"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 44,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "変数workには実行前の値が保持されたまま変わらないので、無限ループになる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "採点結果（上からmark[20]、mark[21]、mark[22]）",
+            "columns": [
+              "値"
+            ],
+            "rows": [
+              [
+                "0"
+              ],
+              [
+                "0"
+              ],
+              [
+                "1"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "採点結果（上からmark[20]、mark[21]、mark[22]）",
+            "columns": [
+              "値"
+            ],
+            "rows": [
+              [
+                "0"
+              ],
+              [
+                "0"
+              ],
+              [
+                "3"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "採点結果（上からmark[20]、mark[21]、mark[22]）",
+            "columns": [
+              "値"
+            ],
+            "rows": [
+              [
+                "0"
+              ],
+              [
+                "1"
+              ],
+              [
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "採点結果（上からmark[20]、mark[21]、mark[22]）",
+            "columns": [
+              "値"
+            ],
+            "rows": [
+              [
+                "0"
+              ],
+              [
+                "1"
+              ],
+              [
+                "2"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "採点結果（上からmark[20]、mark[21]、mark[22]）",
+            "columns": [
+              "値"
+            ],
+            "rows": [
+              [
+                "1"
+              ],
+              [
+                "0"
+              ],
+              [
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "採点結果（上からmark[20]、mark[21]、mark[22]）",
+            "columns": [
+              "値"
+            ],
+            "rows": [
+              [
+                "1"
+              ],
+              [
+                "0"
+              ],
+              [
+                "2"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0…0 0…0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0000 1000 0…0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0101 0000 0…0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問9",
+                "page": 46,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0101 1000 0…0"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問3 f",
+      "choiceIds": [
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21"
+      ]
+    },
+    {
+      "id": "part-g",
+      "label": "設問3 g",
+      "choiceIds": [
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24",
+        "choice-value-25"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-7"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-4"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-14"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-16"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-g",
+        "choiceId": "choice-value-23"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：過剰マークを検査する対象はansE[i]。b：許されるマーク数の上限はtype[i]。2や3の固定値、正答のビット列、type[i]+1では一般の指定数を検査できない。c：正答と受験者の解答の両方が1のビットを&で抽出する。|は和集合なので正答していない選択肢も数える。d：work−1では最下位の1が0になり、その下位が1になる。元のworkとの&で最下位の1だけを取り除くので0101 0000 0…0から0100 0000 0…0となる。下位の1だけを残す、1を引くだけ、上位の1を左へ移す値は該当しない。e：&&は両辺を真偽値として評価し0又は1を返す。&のビット積とは異なり、ans=4なら本来1個だが2を返し、ans=7なら本来3個だが2を返す。今回のworkの2bitだけでは2と偶然一致するが、一般の個数計算として正しくない。workは変化するので無限ループにもならない。f：markの各要素は先に0にされ、type=13の行だけに集計値を記録する。1bitの解答だけを集合へ加え、同じ解答の重複はORで一つにまとめる。図4の共通正答集合との一致は1個なので、markは0、0、1となる。g：sumEは0000 1000 0…0。末尾の解答は2bitなので加えない。先頭2行は同じ1bitなので重複を数えない。正答側の集合を答えたり、複数マークを無条件に加えたりしない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度春期・旧午後問9。原資料と公式解答の全7解答欄を照合し、条件別の内容検証を記録している。本文・図表の利用条件は素材ごとの権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

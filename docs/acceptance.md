@@ -207,7 +207,7 @@ Schema成功は適法性、著作物性、特許不存在、公開資料の適�
 
 テスト対象には系列・生成器版・入力範囲・期待値の根拠を対応付ける。正答参照の取り違え、別の選択肢も正答になる条件、表示値・解説の不一致を検出できる検証にする。過去の不具合を再現する入力は固定の回帰テストとして残す。新規系列を意味の検証対象へ追加し、未登録・skip・検証ケースの削除で成功させない。
 
-現行の参照先はtests/generation.test.tsの既存系列の独立検算、tests/answer-semantics.test.tsの知識対応・追加系列の意味検証、tests/fixtures/knowledge-pairs.jsonの固定した知識対応、tests/full-coverage.test.tsの全系列・表示構造の検証、tests/source-question-form.test.tsの全103系列の問い方と方向変更の拒否検証である。tests/fixtures/source-prerequisites.tsは原資料から査読した全対象の前提・注記を保持し、tests/source-prerequisites.test.tsで基準値・異なる入力・境界の表示を検査する。追加の注意書きがない問題も記録し、対象を未登録にして検査を通さない。解説・選択肢・出典・SVGのtitle/descを除いた解答前の表示を検査し、解説や図の代替説明だけで条件を補うケースも失敗させる。将来の系列にも同じ条件を適用し、現在の件数や64シードだけを十分性の根拠にしない。
+現行の参照先はtests/generation.test.tsの既存系列の独立検算、tests/answer-semantics.test.tsの知識対応・追加系列の意味検証、tests/fixtures/knowledge-pairs.jsonの固定した知識対応、tests/full-coverage.test.tsの全系列・表示構造の検証、tests/source-question-form.test.tsの既存2022〜2026年189系列の問い方と方向変更の拒否検証である。tests/fixtures/source-prerequisites.tsは原資料から査読した全対象の前提・注記を保持し、tests/source-prerequisites.test.tsで基準値・異なる入力・境界の表示を検査する。追加の注意書きがない問題も記録し、対象を未登録にして検査を通さない。解説・選択肢・出典・SVGのtitle/descを除いた解答前の表示を検査し、解説や図の代替説明だけで条件を補うケースも失敗させる。旧午後の複数解答・付属資料・原形式と内容は問題別のtests/legacy-2017-pm*.test.tsで独立検算し、実配布冊子の全75選択・採点・再開をtests/legacy-2017-spring-pm-booklet.test.tsで検査する。全配布範囲の原問題と生成器の一対一対応はsource inventoryとgeneration coverageで維持する。将来の系列にも同じ条件を適用し、現在の件数や64シードだけを十分性の根拠にしない。
 
 計算の精度・選択肢の査読値はtests/fixtures/calculation-options.ts、比較・独立検算・有限候補・回帰・保存互換はtests/calculation-difficulty.test.tsに保持する。今後の数値系列もその性質に合う比較基準・参照解法へ登録し、既存系列だけの検査を新系列の検証済み根拠にしない。
 

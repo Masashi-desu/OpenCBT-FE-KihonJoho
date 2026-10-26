@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 import { validateBundle } from "../src/core/validation";
+import { hasAssetSignature } from "../src/core/asset-signature";
 import { readDistributionBundle } from "./distribution-files";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { validateLicenseNotices } from "./licenses";
@@ -39,8 +40,7 @@ for (const a of bundle.assets) {
   if (
     hash(raw) !== a.sha256 ||
     raw.length !== a.byteLength ||
-    raw.toString("ascii", 0, 4) !== "RIFF" ||
-    raw.toString("ascii", 8, 12) !== "WEBP"
+    !hasAssetSignature(a, raw)
   )
     throw Error(`ASSET_HASH ${a.id}`);
 }

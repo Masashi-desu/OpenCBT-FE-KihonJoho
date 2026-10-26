@@ -1,0 +1,2705 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29h-fe-pm-7",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "在庫管理",
+      "決定表"
+    ],
+    "keywords": [
+      "在庫補充量",
+      "キャッシュフロー",
+      "賞味期限",
+      "在庫基準量"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+          "page": 31,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+          "page": 32,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+          "page": 33,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+          "page": 34,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29h-fe-pm-7",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原4頁を資料として保持し全8欄を対応",
+        "details": "原PNGを未改変で再録。d/eの表形式、f/g/hの同10選択肢参照を保持。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T00:00:00Z",
+        "actorId": "codex",
+        "kind": "numbers",
+        "summary": "原形式を保持して条件を変更",
+        "details": "在庫補充の原の規則、決定表、商品別の在庫・出荷予想、空欄と解答群を保ち、商品群と数量を変更しています。表と説明を同じ条件に対応させています。",
+        "affectsAnswer": true
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+            "page": 31,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+            "page": 32,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+            "page": 33,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+            "page": 34,
+            "year": 2017,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29h-fe-pm-7",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-4-0",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問題選択の注意書き",
+        "alt": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 31,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "問7　在庫補充方法の変更に関する次の記述を読んで，設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "食品メーカのM社では，コスト削減やキャッシュフローの改善を目的として，自社の在庫補充方法を変更して在庫量の削減を図ることにした。従来は，毎週月曜日に，保管を委託している全ての配送倉庫の全商品について，配送倉庫ごとに，当該週を含む4週間分の出荷予想量と在庫量を比較し，出荷予想量に満たない量を工場から補充していた。このたびM社では，出荷予想量を算出する期間を見直し，配送倉庫，商品群，賞味期限ごとに在庫基準量を設定し，在庫量が在庫基準量に満たない場合，その差を在庫補充量として補充することにした。この新しい在庫補充方法を次に示す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "〔新しい在庫補充方法〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 販売量が多い商品群A，中程度の商品群B，少ない商品群Cの商品群別に管理する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 賞味期限が短い商品（以下，短期品という）は，全ての商品群について2週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 賞味期限が中程度の商品（以下，中期品という）は，商品群Aについて2週間分の出荷予想量を，商品群B及びCについて3週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 賞味期限が長い商品（以下，長期品という）は，全ての商品群について3週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) 配送倉庫の中には，工場から遠く，すぐに在庫を補充できない配送倉庫（以下，遠隔地倉庫という）がある。遠隔地倉庫における商品群Aの商品の在庫基準量は，(2)〜(4)にかかわらず次のとおりとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① 短期品は，2週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② 中期品は，3週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 長期品は，4週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) 遠隔地倉庫における商品群B及びCの商品は全て，(2)〜(4)にかかわらず4週間分の出荷予想量を在庫基準量とする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-4-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問7の本文",
+        "alt": "設問1　在庫量を削減することによって期待される効果に関する次の記述中の【無記名指示枠】に入れる適切な答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            4,
+            1,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-4-2",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問7の本文",
+        "alt": "M社では，在庫量を削減することによって，原材料購入から商品販売までの期間を短くできるので【a】できる。また，【b】の削減も期待できる。さらに，在庫として保存する期間が短くなるので，商品の【c】についても期待できる。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            4,
+            2,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　売掛金の回収期間を短縮"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　買掛金の支払期間を延長"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　キャッシュの回収期間を短縮"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　資金の調達期間を延長"
+      },
+      {
+        "type": "paragraph",
+        "text": "bに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　在庫スペースの縮小による保管コスト"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　商品種類の減少による管理コスト"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　商品種類の減少による商品開発コスト"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　フリーキャッシュフローの減少による事務コスト"
+      },
+      {
+        "type": "paragraph",
+        "text": "cに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　欠品によって販売機会を逸失するリスクの低減"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　限界利益率の低下"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　賞味期限切れが発生するリスクの低減"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　損益分岐点販売量の増加"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-4-3",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問7の本文",
+        "alt": "設問2　M社では，新しい在庫補充方法に合わせて在庫管理システムの変更を検討している。その準備として，在庫基準量を決定するために表1に示す決定表を作成した。表中の【無記名指示枠】に入れる正しい答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            4,
+            3,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-0-0",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表1　新しい在庫補充方法における在庫基準量の決定表",
+        "alt": "条件は遠隔地倉庫、A商品群、空欄dの2行。各行10列。遠隔地倉庫 N、N、N、N、N、N、Y、Y、Y、Y。A商品群 Y、Y、Y、N、N、N、Y、Y、Y、N。d上行 Y、N、N、Y、N、N、Y、N、N、−。d下行 −、Y、N、−、Y、N、−、Y、N、−。4週間、3週間、2週間の処理行。4〜7列の3行×4列は一つの空欄e。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-5-0",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "dに関する解答群",
+        "alt": "ア 短期品、中期品。イ 短期品、長期品。ウ 中期品、短期品。エ 中期品、長期品。オ 長期品、短期品。カ 長期品、中期品",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            5,
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-6-0",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "eに関する解答群",
+        "alt": "ア X、−、−、X。−、X、X、−。−、−、−、−。イ X、−、−、X。−、X、−、−。−、−、X、−。ウ −、−、−、X。X、X、X、−。−、−、−、−。エ −、−、−、X。X、X、−、−。−、−、X、−。オ −、−、−、−。X、X、−、X。−、−、X、−。カ −、−、−、−。X、−、−、X。−、X、X、−",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            6,
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-4-4",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問7の本文",
+        "alt": "設問3　M社では，新しい在庫補充方法による在庫量の削減効果を，遠隔地倉庫ではないN配送倉庫について見積もることにした。表2は，ある月曜日におけるN配送倉庫の在庫量及び4週間分の出荷予想量である。N配送倉庫の在庫補充量及び在庫量に関する次の記述中の【無記名指示枠】に入れる適切な答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            4,
+            4,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-3-0",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表2　N配送倉庫の在庫量及び4週間分の出荷予想量",
+        "alt": "単位：百箱。列は商品、商品群、賞味期限の区分、在庫量、出荷予想量の1週目（当該週）〜4週目。P、A、短期品、120、100、80、50、70。Q、A、中期品、200、120、140、100、120。R、B、中期品、30、30、40、40、30。S、B、長期品、10、20、20、20、20。T、C、長期品、10、10、5、5、10",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-pm7-4-5",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "問7の本文",
+        "alt": "新しい在庫補充方法に基づく商品Pの在庫補充量は【f】百箱となる。また，商品Rの在庫補充量は，従来の在庫補充方法に基づく在庫補充量に比べて【g】百箱の削減となる。商品P，Q，R，S及びTの合計では，新しい在庫補充方法の導入によって従来の在庫補充方法に比べて，補充後の在庫量を【h】百箱削減できる。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-pm7-inventory",
+          "values": [
+            4,
+            5,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "f〜hに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　30"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　60"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　70"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　120"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　170"
+      },
+      {
+        "type": "paragraph",
+        "text": "カ　180"
+      },
+      {
+        "type": "paragraph",
+        "text": "キ　230"
+      },
+      {
+        "type": "paragraph",
+        "text": "ク　300"
+      },
+      {
+        "type": "paragraph",
+        "text": "ケ　400"
+      },
+      {
+        "type": "paragraph",
+        "text": "コ　440"
+      }
+    ]
+  },
+  "contexts": [],
+  "contextRefs": [],
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "売掛金の回収期間を短縮"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "買掛金の支払期間を延長"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "キャッシュの回収期間を短縮"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "資金の調達期間を延長"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "在庫スペースの縮小による保管コスト"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "商品種類の減少による管理コスト"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "商品種類の減少による商品開発コスト"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "フリーキャッシュフローの減少による事務コスト"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "欠品によって販売機会を逸失するリスクの低減"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "限界利益率の低下"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "賞味期限切れが発生するリスクの低減"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 32,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "損益分岐点販売量の増加"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-1-0",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "dに関する解答群",
+            "alt": "短期品、中期品",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-1-1",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "dに関する解答群",
+            "alt": "短期品、長期品",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                1,
+                1,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-1-2",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "dに関する解答群",
+            "alt": "中期品、短期品",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                1,
+                2,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-1-3",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "dに関する解答群",
+            "alt": "中期品、長期品",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                1,
+                3,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-1-4",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "dに関する解答群",
+            "alt": "長期品、短期品",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                1,
+                4,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-1-5",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "dに関する解答群",
+            "alt": "長期品、中期品",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                1,
+                5,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-2-0",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "eに関する解答群",
+            "alt": "X、−、−、X。−、X、X、−。−、−、−、−",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                2,
+                0,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-2-1",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "eに関する解答群",
+            "alt": "X、−、−、X。−、X、−、−。−、−、X、−",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                2,
+                1,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-2-2",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "eに関する解答群",
+            "alt": "−、−、−、X。X、X、X、−。−、−、−、−",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                2,
+                2,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-2-3",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "eに関する解答群",
+            "alt": "−、−、−、X。X、X、−、−。−、−、X、−",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                2,
+                3,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-2-4",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "eに関する解答群",
+            "alt": "−、−、−、−。X、X、−、X。−、−、X、−",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                2,
+                4,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "diagram",
+            "id": "diagram-legacy-2017-pm7-2-5",
+            "rendererRef": {
+              "id": "renderer-source-figures",
+              "version": "1.0.0"
+            },
+            "caption": "eに関する解答群",
+            "alt": "−、−、−、−。X、−、−、X。−、X、X、−",
+            "scene": {
+              "kind": "source_figure",
+              "profile": "legacy-2017-pm7-inventory",
+              "values": [
+                2,
+                5,
+                0,
+                0
+              ]
+            },
+            "attribution": {
+              "origin": "adapted",
+              "sourceRefs": [
+                {
+                  "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+                  "locator": {
+                    "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                    "page": 33,
+                    "year": 2017,
+                    "period": "春期",
+                    "exam": "基本情報技術者試験",
+                    "subject": "午後",
+                    "timeSlot": "午後",
+                    "questionNumber": "7"
+                  }
+                }
+              ],
+              "rightsRefs": [
+                "rights-ipa-2017h29h-fe-pm-7",
+                "rights-original"
+              ],
+              "creatorIds": [
+                "codex"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-26",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "60"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-27",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "70"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-28",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "120"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-29",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "170"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-30",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "180"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-31",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "230"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-32",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "300"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-33",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "400"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-34",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 春期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "440"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "b",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "c",
+      "choiceIds": [
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "d",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "e",
+      "choiceIds": [
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "f",
+      "choiceIds": [
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27",
+        "choice-value-28",
+        "choice-value-29",
+        "choice-value-30",
+        "choice-value-31",
+        "choice-value-32",
+        "choice-value-33",
+        "choice-value-34"
+      ]
+    },
+    {
+      "id": "part-g",
+      "label": "g",
+      "choiceIds": [
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27",
+        "choice-value-28",
+        "choice-value-29",
+        "choice-value-30",
+        "choice-value-31",
+        "choice-value-32",
+        "choice-value-33",
+        "choice-value-34"
+      ]
+    },
+    {
+      "id": "part-h",
+      "label": "h",
+      "choiceIds": [
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27",
+        "choice-value-28",
+        "choice-value-29",
+        "choice-value-30",
+        "choice-value-31",
+        "choice-value-32",
+        "choice-value-33",
+        "choice-value-34"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-3"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-5"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-11"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-18"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-22"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-26"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-g",
+        "choiceId": "choice-value-25"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-h",
+        "choiceId": "choice-value-33"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "在庫の滞留期間を短くすると原材料購入から販売までの期間が短くなり、キャッシュの回収期間を短縮できる（a）。売掛金の回収期間や買掛金の支払期間そのものの変更ではない。在庫スペースが減るので保管コストが減る（b）。商品種類の削減は与えられていない。保存期間が短くなるので賞味期限切れのリスクが低下する（c）。欠品リスクの低下や限界利益率の低下、損益分岐点販売量の増加は在庫削減の効果として導けない。決定表の通常倉庫・A群では、条件行が長期品、中期品なら、長期品は3週、中期品と残る短期品は2週となる（d＝カ）。空欄eの4列は通常倉庫B/Cの長期・中期・短期、遠隔地Aの長期に対応するので、処理は順に3週・3週・2週・4週である（e＝エ）。商品別の新しい補充量はP〜Tの順に60、60、80、50、10百箱、従来の補充量は180、280、110、70、20百箱。fは60百箱、gは30百箱。元の在庫量は新旧で共通なので、補充後の総在庫量の削減hは両方式の補充量合計の差400百箱となる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度春期・旧午後問7。原資料と公式解答の全8解答欄を照合し、条件別の内容検証を記録している。本文・図表の利用条件は素材ごとの権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

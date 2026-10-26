@@ -1,3 +1,4 @@
+import {legacyAfternoonStudyTerms} from "./generators/legacy-afternoon-study-terms";
 import type { Asset, Block, Question } from "./types";
 import concepts from "./study-concepts.json";
 import { studyAcronyms, type StudyTerm } from "./study-acronyms";
@@ -155,6 +156,8 @@ export function questionStudyTerms(
   question: Question,
   assets: Asset[] = [],
 ): StudyTerm[] {
+  const legacyTerms=legacyAfternoonStudyTerms(question);
+  if(legacyTerms)return legacyTerms;
   const sources = sourceKeys(question);
   const explanation = normalize(
     question.explanation.blocks

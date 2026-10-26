@@ -1,0 +1,13 @@
+/* Source-owned Java listings and merged tariff cells; common theme tokens. */
+.legacy-pm11-figure,.legacy-pm11-program,.legacy-pm11-bank{margin:1rem 0;max-width:100%;min-width:0;color:var(--ink)}
+.pm11-scroll{overflow:auto;max-width:100%;min-width:0;outline-offset:2px}
+.pm11-scroll:focus-visible{outline:2px solid var(--focus)}
+.legacy-pm11-figure table{border-collapse:collapse;white-space:nowrap}
+.legacy-pm11-figure td,.legacy-pm11-figure th{border:1px solid var(--ink);padding:.4rem .6rem;text-align:center;font-weight:normal}
+.legacy-pm11-figure th{font-weight:600}
+.legacy-pm11-program pre{white-space:pre;width:max-content;min-width:100%;margin:0;font:inherit;font-family:monospace;line-height:1.7}
+.pm11-blank{display:inline-block;min-width:3em;border:2px solid var(--ink);text-align:center;font-style:italic;line-height:1.2;vertical-align:baseline}
+.legacy-pm11-bank>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem 1rem}
+.legacy-pm11-bank p{margin:.35rem 0}.legacy-pm11-bank code{white-space:pre-wrap;overflow-wrap:anywhere}
+.legacy-pm11-bank[data-pm11-bank="5"]>div{grid-template-columns:1fr}
+@media(max-width:600px){.legacy-pm11-bank>div{grid-template-columns:1fr}}
