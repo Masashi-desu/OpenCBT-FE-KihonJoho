@@ -23,7 +23,10 @@ test("search covers every annual original once, preserves reading data and exclu
   const unavailable = structuredClone(bundle);
   unavailable.questions.find(q => q.id === "question-ipa-2026-a-2")!.lifecycle = "withdrawn";
   unavailable.questions.find(q => q.id === "question-ipa-2026-a-1")!.distribution = "excluded";
-  assert.equal(questionSearchDocuments(unavailable).length, 200);
+  const remaining = questionSearchDocuments(unavailable);
+  assert.equal(remaining.length, 213);
+  assert.deepEqual(remaining.map(doc => doc.question.id).sort(), docs.map(doc => doc.question.id)
+    .filter(id => id !== "question-ipa-2026-a-2" && id !== "question-ipa-2026-a-1").sort());
 });
 
 test("keywords match actual prompts, options, explanation, referenced materials and reviewed term meanings", () => {
