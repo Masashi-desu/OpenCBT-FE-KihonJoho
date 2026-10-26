@@ -32,6 +32,8 @@ function visibleProblem(q: Question, b: Bundle) {
     )
     .join(" ")
     .replace(/<(title|desc)\b[^>]*>[\s\S]*?<\/\1>/g, "")
+    // Inline layout spans do not introduce spaces into the question text.
+    .replace(/<\/?span(?:\s[^>]*)?>/g, "")
     .replace(/<[^>]*>/g, " ")
     .replaceAll("&lt;", "<")
     .replaceAll("&gt;", ">")
@@ -122,7 +124,7 @@ test("every eligible original has a reviewed premise and notation record", () =>
   const originals = b.questions.filter(
     (q) => q.origin.kind === "official_reprint",
   );
-  assert.equal(originals.length, 103);
+  assert.equal(originals.length, 189);
   assert.deepEqual(
     Object.keys(sourcePrerequisites).sort(),
     originals.map((q) => q.id.replace("question-ipa-", "")).sort(),
@@ -130,7 +132,7 @@ test("every eligible original has a reviewed premise and notation record", () =>
   assert(!("2025-b-6" in sourcePrerequisites));
 });
 
-test("all 103 sources display their required premises, notation, units and comments at baseline and changed inputs", async (ctx) => {
+test("all 189 sources display their required premises, notation, units and comments at baseline and changed inputs", async (ctx) => {
   const b = fixture();
   let checked = 0;
   for (const t of b.templates) {
@@ -199,7 +201,7 @@ test("all 103 sources display their required premises, notation, units and comme
   }
   assert(checked > 2000);
   ctx.diagnostic(
-    `103 baseline questions and ${checked} generated inputs checked in rendered question content.`,
+    `189 baseline questions and ${checked} generated inputs checked in rendered question content.`,
   );
 });
 

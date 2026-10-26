@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-apr-b-2",
+  "revision": 2,
+  "title": "配列の逆順化",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-apr-b-2",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-apr-b-2",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 3,
+      "minimum": 0,
+      "maximum": 7
+    },
+    "fields": [
+      {
+        "name": "配列添字の開始位置",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "要素数",
+        "minimum": 5,
+        "maximum": 7
+      },
+      {
+        "name": "配列値の差",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      5,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-apr-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問2",
+          "page": 3,
+          "exam": "基本情報技術者試験",
+          "period": "2022年4月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-apr-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "2413009f19a4dcb9a2bfdb3009d702c969478e47461f5895cb1da18727bb73bd"
+}

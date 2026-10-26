@@ -5,6 +5,7 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { generationContracts, bindQuestion } from "../src/core/generation";
 import { additionalContracts } from "../src/core/generators";
+import { readDistributionBundle, compactDistribution } from "./distribution-files";
 import { contentHash } from "../src/core/hash";
 import {
   refOf,
@@ -23,7 +24,8 @@ const write = (p: string, v: unknown) => {
 };
 const catalog: Catalog = read("catalog.json");
 const oldFiles = structuredClone(catalog.files);
-const questions: Question[] = oldFiles.questions.map((f) => read(f.path));
+const inputBundle = readDistributionBundle(root);
+const questions = inputBundle.questions;
 const originals = questions.filter((q) => q.origin.kind === "official_reprint");
 const generated: {
   question: Question;
@@ -68,7 +70,7 @@ for (const c of [...generationContracts, ...additionalContracts]) {
       templatePath = `templates/${c.id}.json`;
     generated.push({
       question: existingQuestion,
-      template: read(templatePath),
+      template: inputBundle.templates.find(t => t.id === `template-${c.id}`)!,
       questionPath,
       templatePath,
     });
@@ -79,7 +81,7 @@ for (const c of [...generationContracts, ...additionalContracts]) {
   changed = true;
   refreshedSubjects.add(original.subject);
   const existingTemplate = existingQuestion
-    ? read(`templates/${c.id}.json`)
+    ? inputBundle.templates.find(t => t.id === `template-${c.id}`)
     : undefined;
   const t: Template = {
     schemaVersion: "3.0.0",
@@ -159,21 +161,20 @@ if (!changed) {
   console.log("Managed generation data is unchanged; revisions preserved.");
   process.exit(0);
 }
+for (const q of originals) write(`questions/${q.id.replace(/^question-/, "")}.json`, q);
 for (const g of generated) {
   write(g.questionPath, g.question);
   write(g.templatePath, g.template);
 }
-const records = (files: { path: string }[]) =>
+const records = (files: { path: string; recordCount?: number }[]) =>
   files.map((f) => ({
-    path: f.path,
+    ...f,
     sha256: createHash("sha256")
       .update(fs.readFileSync(path.join(root, f.path)))
       .digest("hex"),
   }));
 catalog.files.questions = records([
-  ...oldFiles.questions.filter(
-    (f) => read(f.path).origin.kind === "official_reprint",
-  ),
+  ...originals.map(q => ({ path: `questions/${q.id.replace(/^question-/, "")}.json` })),
   ...generated.map((g) => ({ path: g.questionPath })),
 ]);
 catalog.files.templates = records(
@@ -182,7 +183,7 @@ catalog.files.templates = records(
 for (const subject of ["A", "B"] as const) {
   if (!refreshedSubjects.has(subject)) continue;
   const p = `sets/mix-${subject.toLowerCase()}.json`,
-    s: SetRecord = read(p),
+    s: SetRecord = inputBundle.sets.find(s => s.id === `set-mix-${subject.toLowerCase()}`)!,
     subset = generated.filter((g) => g.question.subject === subject);
   s.revision += 1;
   s.title = `科目${subject} ランダムミックス（値・図・正答を生成）`;
@@ -194,7 +195,7 @@ for (const subject of ["A", "B"] as const) {
   write(p, s);
   for (const mode of ["study", "practice"]) {
     const epath = `exams/mix-${subject.toLowerCase()}-${mode}.json`,
-      e = read(epath);
+      e = inputBundle.exams.find(e => e.id === `exam-mix-${subject.toLowerCase()}-${mode}`)!;
     e.revision = s.revision;
     e.title = s.title;
     e.duplicatePolicy = "instance_unique";
@@ -207,12 +208,12 @@ for (const subject of ["A", "B"] as const) {
   }));
   write(p, s);
 }
-catalog.files.sets = records(
-  oldFiles.sets.filter((f) => !f.path.includes("independent")),
-);
-catalog.files.exams = records(
-  oldFiles.exams.filter((f) => !f.path.includes("independent")),
-);
+catalog.files.sets = records(inputBundle.sets.filter(s => !s.id.includes("independent")).map(s => {
+  const p = `sets/${s.id.replace(/^set-/, "")}.json`; write(p, s); return { path: p };
+}));
+catalog.files.exams = records(inputBundle.exams.filter(e => !e.id.includes("independent")).map(e => {
+  const p = `exams/${e.id.replace(/^exam-/, "")}.json`; write(p, e); return { path: p };
+}));
 catalog.revision += 1;
 catalog.generationCoverage = "complete";
 // Replacement references must resolve after managed questions are revised.
@@ -232,6 +233,7 @@ const keep = new Set(
 for (const files of Object.values(oldFiles))
   for (const f of files)
     if (!keep.has(f.path)) fs.rmSync(path.join(root, f.path));
+compactDistribution(root);
 console.log(
   `${originals.length} official originals, ${generated.length} image-based parameter templates; standalone independent sets removed.`,
 );

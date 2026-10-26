@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-sample-2022-dec-b-15",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-decil"
+    ],
+    "topics": [
+      "ミニマックス"
+    ],
+    "keywords": [
+      "自分○、相手×",
+      "勝ち10、負け−10、引分け0",
+      "自分の番は最大、相手の番は最小",
+      "Aは左の子、Bは右の子"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問15",
+          "page": 24,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "15"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問15",
+            "page": 24,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "15"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-15-p24",
+        "caption": "原資料 p.24"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 24 － \n問15 次の記述中の \n と \n に入れる正しい答えの組合せを，解答群\nの中から選べ。 \n \n三目並べにおいて自分が勝利する可能性が最も高い手を決定する。次の手順で，\nゲームの状態遷移を木構造として表現し，根以外の各節の評価値を求める。その結\n果，根の子の中で最も評価値が高い手を，最も勝利する可能性が高い手とする。自\n分が選択した手を○で表し，相手が選択した手を×で表す。 \n \n〔手順〕 \n(1) 現在の盤面の状態を根とし，勝敗がつくか，引き分けとなるまでの考えられる\n全ての手を木構造で表現する。 \n(2) 葉の状態を次のように評価する。 \n① 自分が勝ちの場合は10 \n② 自分が負けの場合は－10 \n③ 引き分けの場合は0 \n(3) 葉以外の節の評価値は，その節の全ての子の評価値を基に決定する。 \n① 自分の手番の節である場合，子の評価値で最大の評価値を節の評価値とする。 \n② 相手の手番の節である場合，子の評価値で最小の評価値を節の評価値とする。 \n \nゲームが図の最上部にある根の状態のとき，自分が選択できる手は三つある。そ\nのうちA が指す子の評価値は \n であり，B が指す子の評価値は \n \nである。 \n \na \nb \na \nb"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-15-p25",
+        "caption": "原資料 p.25"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 25 － \n×\n \n×\n×\n \n \n \n×\n \n×\n×\n \n \n \n×\n×\n \n×\n×\n \n \n \n×\n×\n \n×\n×\n \n \n \n×\n \n×\n×\n \n \n \n×\n \n×\n×\n \n \n×\n \n×\n \n×\n×\n \n \n×\n \n×\n \n×\n×\n \n \n \n×\n \n×\n \n×\n×\n \n \n×\n×\n \n×\n×\n \n \n \n×\n \n×\n \n×\n×\n \n \n勝ち　評価値 10\n負け　評価値 －10\n引き分け　評価値 0\n相手の手番\n自分の手番\n勝ち　評価値 10\n引き分け　評価値 0\nA\nB\n根の状態\n自分の手番\n \n \n \n図 三目並べの状態遷移 \n \n解答群 \n \na \nb \nア \n0 \n－10 \nイ \n0 \n0 \nウ \n10 \n－10 \nエ \n10 \n0"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-notation-p2",
+        "caption": "原資料 p.2"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 2 － \n擬似言語の記述形式（基本情報技術者試験用） \n \n擬似言語を使用した問題では，各問題文中に注記がない限り，次の記述形式が適用され\nているものとする。 \n \n〔擬似言語の記述形式〕 \n記述形式 \n説明 \n○手続名又は関数名 \n手続又は関数を宣言する。 \n型名: 変数名 \n変数を宣言する。 \n/* 注釈 */ \n注釈を記述する。 \n// 注釈 \n変数名 ← 式 \n変数に式の値を代入する。 \n手続名又は関数名(引数, …) 手続又は関数を呼び出し，引数を受け渡す。 \nif (条件式1) \n  処理1 \nelseif (条件式2) \n  処理2 \nelseif (条件式n) \n  処理n \nelse \n  処理n ＋ 1 \nendif \n選択処理を示す。 \n条件式を上から評価し，最初に真になった条件式に\n対応する処理を実行する。以降の条件式は評価せ\nず，対応する処理も実行しない。どの条件式も真に\nならないときは，処理n ＋ 1 を実行する。 \n各処理は，0 以上の文の集まりである。 \nelseif と処理の組みは，複数記述することがあり，\n省略することもある。 \nelse と処理n ＋ 1 の組みは一つだけ記述し，省略す\nることもある。 \nwhile (条件式) \n  処理 \nendwhile \n前判定繰返し処理を示す。 \n条件式が真の間，処理を繰返し実行する。 \n処理は，0 以上の文の集まりである。 \ndo \n  処理 \nwhile (条件式) \n後判定繰返し処理を示す。 \n処理を実行し，条件式が真の間，処理を繰返し実行\nする。 \n処理は，0 以上の文の集まりである。 \nfor (制御記述) \n  処理 \nendfor \n繰返し処理を示す。 \n制御記述の内容に基づいて，処理を繰返し実行する。 \n処理は，0 以上の文の集まりである。"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-notation-p3",
+        "caption": "原資料 p.3"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 3 － \n〔演算子と優先順位〕 \n演算子の種類 \n演算子 \n優先度 \n式 \n() . \n高 \n単項演算子 \nnot ＋ －  \n \n二項演算子 \n乗除 \nmod × ÷  \n加減 \n＋ － \n関係 \n≠ ≦ ≧ ＜ ＝ ＞ \n論理積 \nand \n論理和 \nor \n低 \n注記 演算子 . は，メンバ変数又はメソッドのアクセスを表す。 \n演算子 mod は，剰余算を表す。 \n \n〔論理型の定数〕 \ntrue，false \n \n〔配列〕 \n配列の要素は，“[”と“]”の間にアクセス対象要素の要素番号を指定することでア\nクセスする。なお，二次元配列の要素番号は，行番号，列番号の順に“,”で区切って\n指定する。 \n“{”は配列の内容の始まりを，“}”は配列の内容の終わりを表す。ただし，二次元\n配列において，内側の“{”と“}”に囲まれた部分は，1 行分の内容を表す。 \n \n〔未定義，未定義の値〕 \n変数に値が格納されていない状態を，“未定義”という。変数に“未定義の値”を代\n入すると，その変数は未定義になる。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 25,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 25,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 25,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 25,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-1",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-ans",
+          "locator": {
+            "section": "科目B試験サンプル問題 問15 解答",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "15"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "左の子で相手は0と10の小さい方0を選ぶ。右の子では−10と0の小さい方−10を選ぶ。a=0、b=−10。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-sample-2022-dec-b-15-p24",
+    "asset-ipa-sample-2022-dec-b-15-p25",
+    "asset-ipa-sample-2022-dec-b-notation-p2",
+    "asset-ipa-sample-2022-dec-b-notation-p3"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式PDFの各問題ページ・全選択肢・注意書き・別紙解答p.1を目視照合。独立した参照解法と全選択肢のテストを適用。全文画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。"
+  }
+}

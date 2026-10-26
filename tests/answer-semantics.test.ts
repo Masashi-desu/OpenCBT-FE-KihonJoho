@@ -6,6 +6,9 @@ import { fixture } from "./fixtures";
 import type { GeneratedBody } from "../src/core/generators/definition";
 import type { Block } from "../src/core/types";
 import facts from "./fixtures/knowledge-pairs.json";
+import { aprilGeneratorOracle } from "./fixtures/april-generator-oracle";
+import { decemberGeneratorOracle } from "./fixtures/december-generator-oracle";
+import {decAGeneratorOracle} from "./fixtures/dec-a-generator-oracle";
 
 const text = (b: Block): string =>
   b.type === "paragraph" || b.type === "code"
@@ -105,6 +108,9 @@ for (const fact of facts)
   });
 
 function semantic(source: string, b: GeneratedBody, v: number[]) {
+  if (source.startsWith("sample-2022-dec-a-")) return decAGeneratorOracle(Number(source.split("-").at(-1)),b,v);
+  if (source.startsWith("sample-2022-apr-b-")) return aprilGeneratorOracle(Number(source.split("-").at(-1)), b, v);
+  if (source.startsWith("sample-2022-dec-b-")) return decemberGeneratorOracle(Number(source.split("-").at(-1)), b, v);
   const cs = choices(b),
     t = tables(b),
     program = code(b),

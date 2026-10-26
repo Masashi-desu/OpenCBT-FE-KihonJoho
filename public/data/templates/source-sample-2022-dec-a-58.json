@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-a-58",
+  "revision": 4,
+  "title": "固定資産売却損",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-a-58",
+    "revision": 4
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-a-58",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 2,
+      "maximum": 20
+    },
+    "fields": [
+      {
+        "name": "購入額の2万円単位",
+        "minimum": 10,
+        "maximum": 20
+      },
+      {
+        "name": "売却額の0.5万円単位",
+        "minimum": 2,
+        "maximum": 4
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      15,
+      2
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問58",
+          "page": 28,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "58"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "6d5f54432fd59eaa5b388765c1e75bc342f692853054bc98b7a82618fec297a6"
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-b-13",
+  "revision": 3,
+  "title": "二分探索の無限ループ",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-b-13",
+    "revision": 3
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-b-13",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fields": [
+      {
+        "name": "配列添字の開始",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "low側の境界更新",
+        "minimum": 0,
+        "maximum": 1
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問13",
+          "page": 22,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "ef63075d449b919884ac9dc3358b437553913bbfa86f30f6b820f134137c3779"
+}

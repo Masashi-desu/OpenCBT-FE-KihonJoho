@@ -1,16 +1,36 @@
-import type { Block, Question } from "../types";
+import type { AnswerPart, Attribution, Block, PartAnswer, Question } from "../types";
+import { DataError } from "../errors";
+import { validateAnswerDefinition } from "../answers";
 
 export type GeneratedBody = {
   prompt: Block[];
   choices: Block[][];
   explanation: string;
   correctIndex?: number;
+  answerParts?: AnswerPart[];
+  partAnswers?: PartAnswer[];
   contexts?: {
     title: string;
     presentation?: "text" | "text_figure";
     blocks: Block[];
   }[];
 };
+/** Keep the source's answer structure; a compound source cannot become one choice. */
+export function bindBodyAnswers(q: Question, body: GeneratedBody, attribution: Attribution) {
+  if (Boolean(q.answerParts) !== Boolean(body.answerParts) ||
+    Boolean(body.answerParts) !== Boolean(body.partAnswers) ||
+    body.answerParts && body.correctIndex !== undefined)
+    throw new DataError("SOURCE_FORMAT", "原問題と生成問題の解答欄構成が一致しません");
+  if (body.answerParts) {
+    q.answerParts = structuredClone(body.answerParts);
+    q.correctAnswer = { parts: structuredClone(body.partAnswers!), attribution };
+  } else {
+    const choice = q.choices[body.correctIndex ?? 0];
+    if (!choice) throw new DataError("ANSWER_REF", "生成した正答が選択肢にありません");
+    q.correctAnswer = { choiceId: choice.id, attribution };
+  }
+  validateAnswerDefinition(q);
+}
 export type GenerationDefinition = {
   source: string;
   title: string;

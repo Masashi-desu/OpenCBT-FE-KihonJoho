@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-sample-2022-dec-a-6",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "sample-2022-december"
+    ],
+    "topics": [
+      "配列の回転"
+    ],
+    "keywords": [
+      "配列の回転"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問6",
+          "page": 7,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-qs",
+          "locator": {
+            "section": "科目A試験サンプル問題 問6",
+            "page": 7,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-a-6-p7",
+        "caption": "原資料 p.7"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 7 － \n問６ 配列A が図2 の状態のとき，図1 の流れ図を実行すると，配列B が図3 の状態にな\nった。図1 のa に入れる操作はどれか。ここで，配列A，B の要素をそれぞれ \nA (i，j ) ，B (i，j ) とする。 \n \n終了\n図１　流れ図\nループ 1\nループ 2\nループ 2\n  j：0,1,7（注）\nループ 1\n  i：0,1,7（注）\n開始\n0\ni\nj\n1\n2\n3\n4\n5\n6\n7\n0\n1\n2\n4\n3\n5\n6\n7\n図２　配列Ａの状態\n＊\n＊\n＊\n＊\n＊\n＊\n＊\n＊＊＊＊＊＊\n＊＊＊\n0\ni\nj\n1\n2\n3\n4\n5\n6\n7\n0\n1\n2\n4\n3\n5\n6\n7\n図３　実行後の配列Ｂ の状態\n＊\n＊\n＊\n＊\n＊\n＊\n＊\n＊\n＊＊＊＊＊\n＊\n＊\n＊\na\n（注）ループ端の繰返し指定は，\n　　変数名：初期値，増分，終値\n　　を示す。\n \n \nア B (7－i，7－j ) ← A (i，j ) \nイ B (7－j，i ) ← A (i，j ) \nウ B (i，7－j ) ← A (i，j ) \nエ B ( j，7－i ) ← A (i，j )"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-a-notation-p2",
+        "caption": "原資料 p.2"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 2 － \n問題文中で共通に使用される表記ルール \n \n 各問題文中に注記がない限り，次の表記ルールが適用されているものとする。 \n \n１. 論理回路 \n図記号 \n説明 \n \n論理積素子（AND） \n \n否定論理積素子（NAND） \n \n論理和素子（OR） \n \n否定論理和素子（NOR） \n \n排他的論理和素子（XOR） \n \n論理一致素子 \n \nバッファ \n \n論理否定素子（NOT） \n \nスリーステートバッファ \n \n \n素子や回路の入力部又は出力\n部に示される\n印は，論理状態\nの反転又は否定を表す。"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-a-notation-p3",
+        "caption": "原資料 p.3"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 3 － \n２. 回路記号 \n図記号 \n説明 \n \n抵抗（R） \n \nコンデンサ（C） \n \nダイオード（D） \n \n \nトランジスタ（Tr） \n \n接地 \n+\n－\n \n演算増幅器"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問6",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問6",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問6",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問6",
+                "page": 7,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-4",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-ans",
+          "locator": {
+            "section": "科目A試験サンプル問題 問6 解答",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Aの(i,j)がBの(j,7−i)へ移る右90度回転である。上下の添字を取り違えると別の模様になる。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-sample-2022-dec-a-6-p7",
+    "asset-ipa-sample-2022-dec-a-notation-p2",
+    "asset-ipa-sample-2022-dec-a-notation-p3"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式PDFの各問題ページ・全選択肢・注意書き・別紙解答p.1を目視照合。独立した参照解法と全選択肢のテストを適用。全文画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。"
+  }
+}

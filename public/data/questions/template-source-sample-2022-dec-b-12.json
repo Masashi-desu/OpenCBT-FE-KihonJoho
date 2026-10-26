@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-b-12",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-decil",
+      "parameterized",
+      "template-source-sample-2022-dec-b-12"
+    ],
+    "topics": [
+      "文字列比較"
+    ],
+    "keywords": [
+      "要素番号1始まり",
+      "二つの配列は要素数1以上",
+      "長さ不一致は−1",
+      "配列の領域外参照は禁止",
+      "一致個数÷長さは実数"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問12",
+          "page": 20,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "12"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-b-12",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T05:25:42.248Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 比較例表・領域外禁止・長さ不一致−1・実数除算・4条件を維持。例と0／1始まりを連動。全6入力を短い二値文字列の全組合せで検算し、正答式は固定。 配列添字の開始=1、比較例の単語群=0。",
+        "affectsAnswer": true,
+        "answerDetails": "同じ要素番号iの文字を比較するのでs1[i]＝s2[i]。cntは一致した回数であり、s2の参照位置には使わない。例のappleとaprilは2文字一致して2/5＝0.4。長さの不一致は先に−1を返すので、以降は同じ有効範囲を走査できる。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問12",
+            "page": 20,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "12"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。ここで、配列の要素番号は1から始まる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "関数simRatioは、要素数1以上の二つの文字型配列s1、s2を比較する。要素数が等しければ、同じ要素番号の文字が一致する組の個数÷s1の要素数を実数型で返す。全要素一致なら1、一つも一致しなければ0。要素数が異なる場合は−1を返す。配列の領域外を参照してはならない。"
+      },
+      {
+        "type": "table",
+        "caption": "関数simRatioに与えるs1、s2及び戻り値の例",
+        "columns": [
+          "s1",
+          "s2",
+          "戻り値"
+        ],
+        "rows": [
+          [
+            "{\"a\", \"p\", \"p\", \"l\", \"e\"}",
+            "{\"a\", \"p\", \"p\", \"l\", \"e\"}",
+            "1"
+          ],
+          [
+            "{\"a\", \"p\", \"p\", \"l\", \"e\"}",
+            "{\"a\", \"p\", \"r\", \"i\", \"l\"}",
+            "0.4"
+          ],
+          [
+            "{\"a\", \"p\", \"p\", \"l\", \"e\"}",
+            "{\"m\", \"e\", \"l\", \"o\", \"n\"}",
+            "0"
+          ],
+          [
+            "{\"a\", \"p\", \"p\", \"l\", \"e\"}",
+            "{\"p\", \"e\", \"n\"}",
+            "−1"
+          ]
+        ]
+      },
+      {
+        "type": "code",
+        "text": "○実数型: simRatio(文字型の配列: s1, 文字型の配列: s2)\n  整数型: i, cnt ← 0\n  if (s1の要素数 ≠ s2の要素数)\n    return −1\n  endif\n  for (i を 1 から s1の要素数 まで 1 ずつ増やす)\n    if (空欄)\n      cnt ← cnt ＋ 1\n    endif\n  endfor\n  return cnt ÷ s1の要素数 /* 実数として計算する */",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問12",
+                "page": 20,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "12"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "s1[i] ≠ s2[cnt]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問12",
+                "page": 20,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "12"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "s1[i] ≠ s2[i]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問12",
+                "page": 20,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "12"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "s1[i] ＝ s2[cnt]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問12",
+                "page": 20,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "12"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "s1[i] ＝ s2[i]"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-4",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "同じ要素番号iの文字を比較するのでs1[i]＝s2[i]。cntは一致した回数であり、s2の参照位置には使わない。例のappleとaprilは2文字一致して2/5＝0.4。長さの不一致は先に−1を返すので、以降は同じ有効範囲を走査できる。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 比較例表・領域外禁止・長さ不一致−1・実数除算・4条件を維持。例と0／1始まりを連動。全6入力を短い二値文字列の全組合せで検算し、正答式は固定。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

@@ -51,15 +51,15 @@
     "questionCount": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 60,
-      "description": "問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。",
+      "maximum": 80,
+      "description": "問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。 旧午前では当該冊子の80問・150分（9000秒）を扱う。",
       "$comment": "practiceでは必須。studyで省略時は問題数の制限なし。0やnullを無制限の代用にしない。"
     },
     "timeLimitSeconds": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 7200,
-      "description": "practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。",
+      "maximum": 9000,
+      "description": "practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。 旧午前では当該冊子の80問・150分（9000秒）を扱う。",
       "$comment": "条件付き：practiceでは必須で欠落を拒否する。studyでは省略し、時間制限を設けない。"
     },
     "questionOrder": {

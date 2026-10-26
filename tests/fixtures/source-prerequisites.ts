@@ -2,7 +2,38 @@
 // These expectations are authored from the originals, never from build() output.
 // Empty entries explicitly record that no separate premise/notation note is given;
 // their question roles and concepts are checked by source-question-form and facts.
+import {decASourcePrerequisites} from "./dec-a-source-form";
 export const sourcePrerequisites: Record<string, string[]> = {
+  ...decASourcePrerequisites,
+  // IPA December 2022 B sample pp.2–35, reviewed 2026-10-19.
+  "sample-2022-dec-b-1": ["yの値 と zの値", "x ← y", "y ← z", "z ← x"],
+  "sample-2022-dec-b-2": ["引数の整数", "両方で割り切れる", "elseif"],
+  "sample-2022-dec-b-3": ["要素番号は1から", "要素数2以上", "要素数0", "要素番号5"],
+  "sample-2022-dec-b-4": ["二つの正の整数", "最大公約数", "等しい場合"],
+  "sample-2022-dec-b-5": ["正の実数xとy", "aのb乗", "実数として計算"],
+  "sample-2022-dec-b-6": ["ビット単位の論理積", "ビット単位の論理和", "空いたビットに0", "幅を超えるビットは捨てる"],
+  "sample-2022-dec-b-7": ["整数n", "階乗", "return 1"],
+  "sample-2022-dec-b-8": ["優先度は整数1、2、3", "同じ優先度", "追加したものを取り出す", "戻り値は使用しない"],
+  "sample-2022-dec-b-9": ["要素番号は1から", "左、右の順", "子が一つ", "要素数0"],
+  "sample-2022-dec-b-10": ["位置pos", "インスタンスの参照", "未定義", "繰返し処理を実行しない", "次の要素がないとき"],
+  "sample-2022-dec-b-11": ["要素番号は[01]から", "未定義の要素は含まれておらず", "昇順", "n個の未定義"],
+  "sample-2022-dec-b-12": ["要素数1以上", "要素数が異なる場合は−1", "配列の領域外", "実数として計算"],
+  "sample-2022-dec-b-13": ["昇順", "値に重複はない", "無限ループ", "÷ 2 の商"],
+  "sample-2022-dec-b-14": ["要素番号は1から", "要素数1以上", "昇順", "小数点以下を切り上げ", "要素数0"],
+  "sample-2022-dec-b-15": ["自分の手を○", "相手の手を×", "全ての手", "自分の手番.*最大", "相手の手番.*最小"],
+  "sample-2022-dec-b-16": ["二つの空欄には同じ", "要素番号は1から", "右詰め", "余ったxには0", "要素数 から 1 まで 1 ずつ減らす"],
+  "sample-2022-dec-b-17": ["開発・運用をC社", "Webアプリケーションプログラムの脆弱性対策はC社", "OS", "DBMS", "クロスサイトスクリプティング"],
+  "sample-2022-dec-b-18": ["1,000名", "総務部50名", "営業部50名", "9割", "客先常駐開発部員にはA社PCを貸与せず", "共用PC", "規則ではVPN接続にA社PC"],
+  "sample-2022-dec-b-19": ["200名", "電子メール", "情報システム部が運用", "課長1名", "別の利用者が承認", "全業務", "口頭", "A社が承認", "○は操作権限"],
+  "sample-2022-dec-b-20": ["500名", "事前に作成した操作指示書", "編集と操作承認の両方", "承認前にログ", "共用していない", "担当者自身", "8文字の英数字", "運用担当者だけが入退室"],
+
+  // IPA April 2022 sample pp.2–10, manually reviewed 2026-10-19.
+  "sample-2022-apr-b-1": ["年齢を表す0以上の整数", "入場料を返す"],
+  "sample-2022-apr-b-2": ["要素番号は[01]から始まる", "並びを逆順", "tmp.*array\\[right\\]"],
+  "sample-2022-apr-b-3": ["単方向リスト", "インスタンスの参照", "大域変数listHead", "初期状態は(?:未定義|endNode)"],
+  "sample-2022-apr-b-4": ["要素番号は1から始まる", "要素数0の配列を三つ", "matrixの行数", "matrixの列数"],
+  "sample-2022-apr-b-5": ["異なる2文字", "語末のc1.*含めない", "一度も出現しない.*0と定義", "＋は連結", "÷は実数"],
+  "sample-2022-apr-b-6": ["Aサイト", "開発・運用をC社", "Webアプリケーションプログラムの脆弱性対策はC社", "DBMS", "OS", "ログイン機能"],
   // User-requested expansion: both bases remain explicit before answering.
   "2023-a-1": ["(?:2|8|10|16)進小数[\\dA-F]+\\.[\\dA-F]+を(?:2|8|10|16)進小数に変換"],
   "2023-a-2": ["双方向のポインタをもつリスト構造", "0は参照先がない"],

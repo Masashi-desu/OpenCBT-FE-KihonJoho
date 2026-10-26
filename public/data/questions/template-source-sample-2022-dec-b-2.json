@@ -1,0 +1,403 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-b-2",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-decil",
+      "parameterized",
+      "template-source-sample-2022-dec-b-2"
+    ],
+    "topics": [
+      "倍数の分岐"
+    ],
+    "keywords": [
+      "整数num",
+      "3だけ、5だけ、両方、それ以外の四条件",
+      "elseifは先に成立した分岐を使う"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問2",
+          "page": 5,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-b-2",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T05:25:42.241Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 互いに素な1桁の除数、三分岐と五つの組を保持。4組について負数・0・剰余の全同値類を独立検算。 二つの除数の組=0。",
+        "affectsAnswer": true,
+        "answerDetails": "両方で割り切れる数は3の倍数でも5の倍数でもあるので、最初に3と5を判定する。通らなかった場合に3、次に5を判定すれば、四つの排他的な場合を区別できる。0も両方で割り切れる場合に含む。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問2",
+            "page": 5,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次のプログラム中の空欄a〜cに入れる正しい答えの組合せを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "関数fizzBuzzは、引数の整数が3で割り切れて5で割り切れない場合は“3で割り切れる”、5で割り切れて3で割り切れない場合は“5で割り切れる”、両方で割り切れる場合は“3と5で割り切れる”を返す。それ以外は“3でも5でも割り切れない”を返す。"
+      },
+      {
+        "type": "code",
+        "text": "○文字列型: fizzBuzz(整数型: num)\n  文字列型: result\n  if (num が 空欄a で割り切れる)\n    result ← \"空欄a で割り切れる\"\n  elseif (num が 空欄b で割り切れる)\n    result ← \"空欄b で割り切れる\"\n  elseif (num が 空欄c で割り切れる)\n    result ← \"空欄c で割り切れる\"\n  else\n    result ← \"3でも5でも割り切れない\"\n  endif\n  return result",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問2",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "3",
+                "3と5",
+                "5"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問2",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "3",
+                "5",
+                "3と5"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問2",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "3と5",
+                "3",
+                "5"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問2",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "5",
+                "3",
+                "3と5"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問2",
+                "page": 5,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b",
+              "c"
+            ],
+            "rows": [
+              [
+                "5",
+                "3と5",
+                "3"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-3",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "両方で割り切れる数は3の倍数でも5の倍数でもあるので、最初に3と5を判定する。通らなかった場合に3、次に5を判定すれば、四つの排他的な場合を区別できる。0も両方で割り切れる場合に含む。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 互いに素な1桁の除数、三分岐と五つの組を保持。4組について負数・0・剰余の全同値類を独立検算。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

@@ -1,0 +1,354 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-a-29",
+  "revision": 4,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "sample-2022-december",
+      "parameterized",
+      "template-source-sample-2022-dec-a-29"
+    ],
+    "topics": [
+      "ポート番号"
+    ],
+    "keywords": [
+      "ポート番号"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問29",
+          "page": 17,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "29"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-a-29",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T07:15:08.235Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 実際に要求パケットで観測した2ポートの条件と2列表4択を保持。HTTPは指定ポートで待受ける与条件を使い、80のみと仮定しない。 PCポート番号の差=0、HTTPポート=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-19T07:23:44.003Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 実際に要求パケットで観測した2ポートの条件と2列表4択を保持。HTTPは指定ポートで待受ける与条件を使い、80のみと仮定しない。 PCポート番号の差=0、HTTPポート=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-19T07:24:47.841Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 実際に要求パケットで観測した2ポートの条件と2列表4択を保持。HTTPは指定ポートで待受ける与条件を使い、80のみと仮定しない。 PCポート番号の差=0、HTTPポート=0。",
+        "affectsAnswer": true,
+        "answerDetails": "同じTCP通信の戻りは、要求の送信元と宛先が入れ替わる。Webサーバの送信元ポートは80、PCの宛先ポートは50001である。応答のために別のポートを新たに割り当てるわけではない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-qs",
+          "locator": {
+            "section": "科目A試験サンプル問題 問29",
+            "page": 17,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "29"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "PCとWebサーバがHTTPで通信している。PCからWebサーバ宛てのパケットでは、送信元ポート番号はPC側で割り当てた50001、宛先ポート番号は80であった。WebサーバからPCへの戻りのパケットでのポート番号の組合せはどれか。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問29",
+                "page": 17,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "29"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "送信元（Webサーバ）のポート番号",
+              "宛先（PC）のポート番号"
+            ],
+            "rows": [
+              [
+                "80",
+                "50001"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問29",
+                "page": 17,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "29"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "送信元（Webサーバ）のポート番号",
+              "宛先（PC）のポート番号"
+            ],
+            "rows": [
+              [
+                "50001",
+                "80"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問29",
+                "page": 17,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "29"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "送信元（Webサーバ）のポート番号",
+              "宛先（PC）のポート番号"
+            ],
+            "rows": [
+              [
+                "80と50001以外からサーバ側で割り当てた番号",
+                "80"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問29",
+                "page": 17,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "29"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "送信元（Webサーバ）のポート番号",
+              "宛先（PC）のポート番号"
+            ],
+            "rows": [
+              [
+                "80と50001以外からサーバ側で割り当てた番号",
+                "50001"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "同じTCP通信の戻りは、要求の送信元と宛先が入れ替わる。Webサーバの送信元ポートは80、PCの宛先ポートは50001である。応答のために別のポートを新たに割り当てるわけではない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 実際に要求パケットで観測した2ポートの条件と2列表4択を保持。HTTPは指定ポートで待受ける与条件を使い、80のみと仮定しない。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

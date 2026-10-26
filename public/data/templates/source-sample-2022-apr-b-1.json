@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-apr-b-1",
+  "revision": 2,
+  "title": "入場料の条件分岐",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-apr-b-1",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-apr-b-1",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 0,
+      "maximum": 8
+    },
+    "fields": [
+      {
+        "name": "最初の年齢上限",
+        "minimum": 0,
+        "maximum": 7
+      },
+      {
+        "name": "次の上限までの年齢差",
+        "minimum": 4,
+        "maximum": 8
+      },
+      {
+        "name": "最小料金の百円単位",
+        "minimum": 1,
+        "maximum": 3
+      },
+      {
+        "name": "料金差の百円単位",
+        "minimum": 1,
+        "maximum": 3
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      3,
+      6,
+      1,
+      2
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-apr-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問1",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "period": "2022年4月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-apr-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "e34faf2c8e6489d269ca08b69f21a8a00de918415937673ca97127d23c7b5f6b"
+}

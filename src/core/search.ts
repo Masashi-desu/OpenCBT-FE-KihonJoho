@@ -1,5 +1,6 @@
 import type { Bundle, Question, Subject } from "./types";
 import { areas } from "./types";
+import { sourceQuestionLabel } from "./source-label";
 import { questionStudyTerms, studyBlockText } from "./study-terms";
 import { loadDetailPackage, validateDetailAttribution, type DetailManifest } from "./detailed-explanation";
 
@@ -62,13 +63,16 @@ export function searchableQuestions(bundle: Bundle) {
   // Unbound generator definitions are not a second copy of the published problem.
   const bases = new Set(bundle.templates.map(template => template.baseQuestionRef.questionId));
   return bundle.questions.filter(question => question.lifecycle === "active" && question.distribution === "included" && !bases.has(question.id))
-    .sort((a, b) => (questionYear(b) ?? 0) - (questionYear(a) ?? 0) || a.subject.localeCompare(b.subject) ||
+    .sort((a, b) => (questionYear(b, bundle) ?? 0) - (questionYear(a, bundle) ?? 0) || a.subject.localeCompare(b.subject) ||
       Number(a.origin.sourceRefs[0]?.locator.questionNumber ?? 0) - Number(b.origin.sourceRefs[0]?.locator.questionNumber ?? 0) || a.id.localeCompare(b.id));
 }
-const questionYear = (question: Question) => question.origin.sourceRefs.find(ref => ref.locator.year)?.locator.year;
+const questionYear = (question: Question, bundle: Bundle) => {
+  const ref = question.origin.sourceRefs[0];
+  return ref?.locator.year ?? (bundle.sources.find(s => s.id === ref?.sourceId)?.publishedOn
+    ? Number(bundle.sources.find(s => s.id === ref?.sourceId)!.publishedOn!.slice(0, 4)) : undefined);
+};
 export function searchQuestionTitle(question: Question) {
-  const ref = question.origin.sourceRefs.find(ref => ref.locator.year && ref.locator.questionNumber);
-  return ref ? `${ref.locator.year}年度 科目${question.subject} 問${ref.locator.questionNumber}` : `科目${question.subject} · ${question.learning.topics?.[0] ?? "独自問題"}`;
+  return sourceQuestionLabel(question);
 }
 function learningWords(question: Question) {
   return [areas[question.learning.area] ?? question.learning.area, ...question.learning.tags, ...question.learning.topics ?? [], ...question.learning.keywords ?? []];
@@ -82,7 +86,7 @@ export function questionSearchDocuments(bundle: Bundle): SearchDocument[] {
     const excerptBlocks = question.prompt.blocks.filter(block => block.type !== "image");
     return { id: `question:${question.id}`, kind: "question", question, title: searchQuestionTitle(question),
       summary: (excerptBlocks.length ? excerptBlocks : question.prompt.blocks).map(block => studyBlockText(block, bundle.assets)).join("\n"),
-      body: [...contexts.map(context => context.title), text, ...terms].join("\n"), keywords: learningWords(question), year: questionYear(question) };
+      body: [...contexts.map(context => context.title), text, ...terms].join("\n"), keywords: learningWords(question), year: questionYear(question, bundle) };
   });
 }
 
@@ -110,7 +114,7 @@ export async function detailSearchDocuments(bundle: Bundle, base: URL, signal?: 
         const { manifest } = pkg;
         result.push({ id: `detail:${key}`, kind: "detail", question, manifest, title: manifest.title,
           summary: manifest.search?.summary ?? `${searchQuestionTitle(question)}の詳細解説`,
-          body: manifest.search?.text ?? "", keywords: [...learningWords(question), ...manifest.search?.keywords ?? []], year: questionYear(question) });
+          body: manifest.search?.text ?? "", keywords: [...learningWords(question), ...manifest.search?.keywords ?? []], year: questionYear(question, bundle) });
       } catch { /* An unavailable optional explanation does not hide its question. */ }
     }
   }));

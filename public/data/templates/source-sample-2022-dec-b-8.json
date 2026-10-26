@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-b-8",
+  "revision": 2,
+  "title": "優先度付きキューの取り出し",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-b-8",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-b-8",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fields": [
+      {
+        "name": "数値が表す優先度の向き",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "同じ優先度の取り出し順",
+        "minimum": 0,
+        "maximum": 1
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問8",
+          "page": 12,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "2fcbcf5e5792da3e2830cc876baa9e5930ac090c0aa5b41dbb2c2d58162b7788"
+}

@@ -1,0 +1,338 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-a-57",
+  "revision": 4,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "sample-2022-december",
+      "parameterized",
+      "template-source-sample-2022-dec-a-57"
+    ],
+    "topics": [
+      "線形計画"
+    ],
+    "keywords": [
+      "線形計画"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問57",
+          "page": 28,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "57"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-a-57",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T07:15:08.243Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 2原料2製品表・整数の個数と最大利益4択を維持。利益100/150、係数2/1を固定し原料量を変更、交点が整数になる6単位。誤答はXのみ、Yのみ、A制約無視。全整数生産計画の総当たりで検算。 原料量の倍率=1、原料Aの追加6単位=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-19T07:23:44.011Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 2原料2製品表・整数の個数と最大利益4択を維持。利益100/150、係数2/1を固定し原料量を変更、交点が整数になる6単位。誤答はXのみ、Yのみ、A制約無視。全整数生産計画の総当たりで検算。 原料量の倍率=1、原料Aの追加6単位=0。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-19T07:24:47.850Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 2原料2製品表・整数の個数と最大利益4択を維持。利益100/150、係数2/1を固定し原料量を変更、交点が整数になる6単位。誤答はXのみ、Yのみ、A制約無視。全整数生産計画の総当たりで検算。 原料量の倍率=1、原料Aの追加6単位=0。",
+        "affectsAnswer": true,
+        "answerDetails": "Xをx個、Yをy個とすると2x＋y≦100、x＋2y≦80。両制約が等号になるx=40、y=20では利益7,000円。Xだけ、Yだけの場合や非負領域の端点より高い。Xを80個生産する計算は原料Aの制約を無視している。従って最大利益は7,000円である。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-qs",
+          "locator": {
+            "section": "科目A試験サンプル問題 問57",
+            "page": 28,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "57"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "製品X及びYを生産するために2種類の原料A、Bが必要である。製品1個の生産に必要となる原料の量と調達可能量は表に示すとおりである。製品XとYの1個当たりの販売利益が、それぞれ100円、150円であるとき、最大利益は何円か。"
+      },
+      {
+        "type": "table",
+        "caption": "原料の必要量と調達可能量",
+        "columns": [
+          "原料",
+          "製品Xの1個当たりの必要量",
+          "製品Yの1個当たりの必要量",
+          "調達可能量"
+        ],
+        "rows": [
+          [
+            "A",
+            "2",
+            "1",
+            "100"
+          ],
+          [
+            "B",
+            "1",
+            "2",
+            "80"
+          ]
+        ]
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問57",
+                "page": 28,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "57"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問57",
+                "page": 28,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "57"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "6,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問57",
+                "page": 28,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "57"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "7,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問57",
+                "page": 28,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "57"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "8,000"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-3",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Xをx個、Yをy個とすると2x＋y≦100、x＋2y≦80。両制約が等号になるx=40、y=20では利益7,000円。Xだけ、Yだけの場合や非負領域の端点より高い。Xを80個生産する計算は原料Aの制約を無視している。従って最大利益は7,000円である。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 2原料2製品表・整数の個数と最大利益4択を維持。利益100/150、係数2/1を固定し原料量を変更、交点が整数になる6単位。誤答はXのみ、Yのみ、A制約無視。全整数生産計画の総当たりで検算。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

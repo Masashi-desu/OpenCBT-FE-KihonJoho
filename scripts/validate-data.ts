@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 import { validateBundle } from "../src/core/validation";
-import type { Bundle } from "../src/core/types";
+import { readDistributionBundle } from "./distribution-files";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { validateLicenseNotices } from "./licenses";
 import { validateSourceInventory } from "./source-inventory";
@@ -11,29 +11,7 @@ const base = "public/data",
   catalog = JSON.parse(raw.toString());
 const hash = (raw: Buffer) =>
   crypto.createHash("sha256").update(raw).digest("hex");
-const bundle: Bundle = {
-  catalog,
-  catalogHash: hash(raw),
-  questions: [],
-  sources: [],
-  rights: [],
-  assets: [],
-  sets: [],
-  exams: [],
-  templates: [],
-};
-for (const [kind, files] of Object.entries(catalog.files) as [
-  string,
-  { path: string; sha256: string }[],
-][]) {
-  for (const f of files) {
-    const raw = fs.readFileSync(`${base}/${f.path}`);
-    if (hash(raw) !== f.sha256) throw Error(`FILE_HASH ${f.path}`);
-    (bundle[kind as keyof Bundle] as unknown[]).push(
-      JSON.parse(raw.toString()),
-    );
-  }
-}
+const bundle = readDistributionBundle();
 await validateBundle(bundle);
 const detailedPackages = await validateDetailPackages(bundle);
 console.log(`Optional detailed explanations: ${detailedPackages} validated package references`);

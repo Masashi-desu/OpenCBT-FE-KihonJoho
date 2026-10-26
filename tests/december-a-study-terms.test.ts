@@ -1,0 +1,19 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {fixture} from "./fixtures";
+import {questionStudyTerms} from "../src/core/study-terms";
+// Hand-fixed terminology review. RFC768/9293/2045/4954/1939/2865/1994/8551,
+// IPA source/syllabus and primary Scrum Guide. Commands/flags APOP/FIN are not
+// falsely described as standardized expanded acronym names.
+const facts:Record<string,[string,string]>={
+ HTML:["Hypertext Markup Language","Web文書の構造"],IoT:["Internet of Things","モノのインターネット"],
+ ECC:["Error Correcting Code","誤り訂正符号"],DRAM:["Dynamic Random Access Memory","リフレッシュ"],SRAM:["Static Random Access Memory","フリップフロップ"],ROM:["Read Only Memory","読出し専用"],RDBMS:["Relational Database Management System","関係データベース管理"],UML:["Unified Modeling Language","統一モデリング言語"],BLE:["Bluetooth Low Energy","低消費電力"],PAN:["Personal Area Network","近距離機器"],LTE:["Long Term Evolution","移動体通信"],PLC:["Power Line Communication","電力線"],PPP:["Point-to-Point Protocol","二点間"],JPEG:["Joint Photographic Experts Group","静止画像"],MIME:["Multipurpose Internet Mail Extensions","電子メール"],MPEG:["Moving Picture Experts Group","動画や音声"],SMTP:["Simple Mail Transfer Protocol","送信・転送"],TCP:["Transmission Control Protocol","バイトストリーム"],UDP:["User Datagram Protocol","データグラム"],CDN:["Content Delivery Network","配信"],RADIUS:["Remote Authentication Dial-In User Service","認証・認可"],CHAP:["Challenge Handshake Authentication Protocol","チャレンジ"],OTP:["One-Time Password","認証値"],"C&C":["Command and Control","指令と制御"],"MAC（メッセージ認証符号）":["Message Authentication Code","共有秘密鍵"],UPS:["Uninterruptible Power Supply","無停電電源装置"],API:["Application Programming Interface","インタフェース"],POP3:["Post Office Protocol version 3","取り出す"],POP3S:["Post Office Protocol version 3 over TLS","TLS"],MD5:["Message-Digest Algorithm 5","128ビット"],"S/MIME":["Secure/Multipurpose Internet Mail Extensions","暗号化やディジタル署名"],"SMTP-AUTH":["SMTP Service Extension for Authentication","送信者を認証"],SLA:["Service Level Agreement","サービス水準合意"],VDI:["Virtual Desktop Infrastructure","仮想デスクトップ"],VPN:["Virtual Private Network","仮想専用"],ROI:["Return On Investment","投資利益率"],CSR:["Corporate Social Responsibility","社会的責任"],BSC:["Balanced Scorecard","財務、顧客"],SWOT:["Strengths / Weaknesses / Opportunities / Threats","強み、弱み、機会、脅威"],CGM:["Consumer Generated Media","消費者自身"],EA:["Enterprise Architecture","全体最適化"],
+};
+test("new sample abbreviations have separately reviewed expansions and Japanese roles",()=>{
+ const b=fixture(),q=structuredClone(b.questions.find(q=>q.id==="question-ipa-sample-2022-dec-a-1")!);q.prompt.blocks=[{type:"paragraph",text:Object.keys(facts).join("、")+" APOP FIN"}];q.choices=[];q.explanation.blocks=[];
+ const terms=questionStudyTerms(q,b.assets);for(const [name,[expansion,meaning]] of Object.entries(facts)){const found=terms.find(t=>t.term===name);assert(found,name);assert.equal(found.expansion,expansion,name);assert(found.meaning.includes(meaning),name);}assert.equal(new Set(terms.map(t=>t.term)).size,terms.length);for(const name of ["APOP","FIN"]){const found=terms.find(t=>t.term===name);assert(found);assert.equal(found.expansion,undefined);}
+});
+test("MAC authentication code is distinguished from network MAC address in the new questions",()=>{
+ const b=fixture();for(const id of ["question-ipa-sample-2022-dec-a-32","question-template-source-sample-2022-dec-a-32"]){const q=b.questions.find(q=>q.id===id)!,before=structuredClone(q),terms=questionStudyTerms(q,b.assets);assert(terms.some(t=>t.expansion==="Message Authentication Code"));assert(!terms.some(t=>t.expansion==="Media Access Control"));assert.deepEqual(q,before);}
+ const q=structuredClone(b.questions.find(q=>q.id==="question-ipa-2024-a-8")!);q.prompt.blocks=[{type:"paragraph",text:"MACアドレス"}];q.choices=[];q.explanation.blocks=[];assert(questionStudyTerms(q,b.assets).some(t=>t.expansion==="Media Access Control"));assert(!questionStudyTerms(q,b.assets).some(t=>t.expansion==="Message Authentication Code"));
+});

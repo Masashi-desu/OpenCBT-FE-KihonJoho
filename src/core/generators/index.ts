@@ -4,7 +4,11 @@ import { knowledgeDefinitions } from "./knowledge";
 import { subjectADefinitions } from "./subject-a";
 import { subjectBDefinitions } from "./subject-b";
 import { securityDefinitions } from "./security";
-import { ownContexts, p, type GenerationDefinition } from "./definition";
+import { april2022Definitions } from "./sample-2022-april";
+import { decemberProgramDefinitions } from "./sample-2022-dec-programs";
+import { decemberScenarioDefinitions } from "./sample-2022-dec-scenarios";
+import { decemberADefinitions } from "./sample-2022-dec-a";
+import { bindBodyAnswers, ownContexts, p, type GenerationDefinition } from "./definition";
 import { sourceFigureAlt, validateSourceFigure } from "../source-figures";
 import { withCorrections } from "./corrections";
 import { knowledgeForms } from "./knowledge-formats";
@@ -75,6 +79,10 @@ export const additionalDefinitions = [
   ...subjectAFormatDefinitions,
   ...subjectBDefinitions,
   ...securityDefinitions,
+  ...april2022Definitions,
+  ...decemberProgramDefinitions,
+  ...decemberScenarioDefinitions,
+  ...decemberADefinitions,
 ]
   .map(withCorrections)
   .map((d) =>
@@ -205,13 +213,9 @@ export function bindAdditionalQuestion(
     rightsRefs: ["rights-original"],
     creatorIds: t.editorIds,
   };
-  q.correctAnswer = {
-    choiceId: q.choices[body.correctIndex ?? 0].id,
-    attribution: own,
-  };
+  bindBodyAnswers(q, body, own);
   q.explanation = { attribution: own, blocks: [p(body.explanation)] };
   q.assetRefs = [];
-  q.choiceShuffleAllowed = true;
   return q;
 }
 export function validateAdditionalFormat(q: Question, t: Template) {
@@ -221,6 +225,11 @@ export function validateAdditionalFormat(q: Question, t: Template) {
     types = (blocks: Block[]) => blocks.map((b) => b.type).join(",");
   if (
     types(q.prompt.blocks) !== types(reference.prompt) ||
+    Boolean(q.answerParts) !== Boolean(reference.answerParts) ||
+    q.answerParts?.some((part, i) => !reference.answerParts?.[i] ||
+      part.id !== reference.answerParts[i].id || part.label !== reference.answerParts[i].label ||
+      part.choiceIds.length !== reference.answerParts[i].choiceIds.length) ||
+    q.answerParts?.length !== reference.answerParts?.length ||
     q.choices.length !== reference.choices.length ||
     q.choices.some(
       (c, i) => types(c.content.blocks) !== types(reference.choices[i]),

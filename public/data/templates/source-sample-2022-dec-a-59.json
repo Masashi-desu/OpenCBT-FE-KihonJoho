@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-a-59",
+  "revision": 4,
+  "title": "目標利益と売上高",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-a-59",
+    "revision": 4
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-a-59",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 1,
+      "maximum": 6
+    },
+    "fields": [
+      {
+        "name": "基準売上高の100百万円単位",
+        "minimum": 1,
+        "maximum": 2
+      },
+      {
+        "name": "目標利益の6百万円単位",
+        "minimum": 1,
+        "maximum": 6
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1,
+      3
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問59",
+          "page": 29,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "59"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "2c4eb85f4a8ef6fad341df5aafa2a9fd78dcf7ca663435eaf77bfe9ff118aa96"
+}

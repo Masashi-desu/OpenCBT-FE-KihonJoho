@@ -2,6 +2,7 @@ import type { Bundle, Ref, Result, Selection } from "./types";
 import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
 import { DataError } from "./errors";
+import { sourceQuestionLabel } from "./source-label";
 
 // Store only the source reference; generated content belongs to each saved run.
 export type Bookmark = {
@@ -70,12 +71,11 @@ export function makeBookmark(
   ref: Ref,
   at = Date.now(),
 ): Bookmark {
-  const original = bookmarkSource(bundle, ref),
-    locator = original.origin.sourceRefs[0].locator;
+  const original = bookmarkSource(bundle, ref);
   return {
     id: original.id,
     questionRef: refOf(original),
-    title: `${locator.year}年度 科目${original.subject} 問${locator.questionNumber}`,
+    title: sourceQuestionLabel(original),
     subject: original.subject,
     area: original.learning.area,
     createdAt: new Date(at).toISOString(),
@@ -117,16 +117,22 @@ export function bookmarkPreview(bundle: Bundle, ref: Ref): string {
     ) ?? bookmarkSource(bundle, ref);
   // Official text supplements also contain choices and figure transcriptions.
   // Keep the preview to the opening prose, without choices or explanations.
-  const text = original.prompt.blocks
+  const prose = original.prompt.blocks
     .flatMap((block) =>
       block.type === "paragraph" ||
       (block.type === "code" && block.language === "text")
         ? [block.text]
         : [],
     )
-    .join("\n")
-    .split(/\n\s*(?:ア\s+|〔プログラム〕)/u)[0]
-    .replace(/^[\s\S]*?問\s*[0-9０-９]+\s*/u, "")
+    .join("\n");
+  // Image-only originals keep their complete reading in the approved Asset.
+  // Reuse only its opening prose; choices and figure descriptions remain in
+  // the original material rather than becoming a bookmark answer hint.
+  const imageBlock = original.prompt.blocks.length === 1 ? original.prompt.blocks[0] : undefined;
+  const image = imageBlock?.type === "image" ? bundle.assets.find(a => a.id === imageBlock.assetId) : undefined;
+  const text = (prose || image?.alt || "")
+    .split(/\n\s*(?:ア\s+|〔プログラム〕)|選択肢[：:]/u)[0]
+    .replace(/^[\s\S]*?問\s*[0-9０-９]+(?:\s*[。．.:：])?\s*/u, "")
     .replace(
       /([\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}])[ \t]*\r?\n\s*(?=[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}])/gu,
       "$1",

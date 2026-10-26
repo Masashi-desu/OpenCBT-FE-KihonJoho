@@ -1,0 +1,500 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-sample-2022-dec-b-16",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-decil"
+    ],
+    "topics": [
+      "UTF-8"
+    ],
+    "keywords": [
+      "要素番号1始まり",
+      "二つの空欄は同じ",
+      "整数800(16)〜FFFF(16)",
+      "xへ右詰め、余りのxは0",
+      "初期値{224,128,128}",
+      "配列の末尾から処理"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問16",
+          "page": 26,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "16"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問16",
+            "page": 26,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "16"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-16-p26",
+        "caption": "原資料 p.26"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 26 － \n問16 次のプログラム中の \n に入れる正しい答えを，解答群の中から選べ。二\nつの \n には，同じ答えが入る。ここで，配列の要素番号は1 から始まる。 \n \nUnicode の符号位置を，UTF-8 の符号に変換するプログラムである。本問で数値の\n後ろに“(16)”と記載した場合は，その数値が16 進数であることを表す。 \nUnicode の各文字には，符号位置と呼ばれる整数値が与えられている。UTF-8 は，\nUnicode の文字を符号化する方式の一つであり，符号位置が800(16) 以上FFFF(16) \n以下の文字は，次のように3 バイトの値に符号化する。 \n3 バイトの長さのビットパターンを 1110xxxx 10xxxxxx 10xxxxxx とする。ビット\nパターンの下線の付いた“x”の箇所に，符号位置を2 進数で表した値を右詰めで格\n納し，余った“x”の箇所に，0 を格納する。この3 バイトの値がUTF-8 の符号であ\nる。 \n例えば，ひらがなの“あ”の符号位置である3042(16) を2 進数で表すと \n11000001000010 である。これを，上に示したビットパターンの“x”の箇所に右詰め\nで格納すると，1110xx11 10000001 10000010 となる。余った二つの“x”の箇所に0\nを格納すると，“あ”のUTF-8 の符号 11100011 10000001 10000010 が得られる。 \n関数encode は，引数で渡されたUnicode の符号位置をUTF-8 の符号に変換し，先\n頭から順に1 バイトずつ要素に格納した整数型の配列を返す。encode には，引数と\nして，800(16) 以上FFFF(16) 以下の整数値だけが渡されるものとする。 \n \n〔プログラム〕 \n○整数型の配列: encode(整数型: codePoint) \n  /* utf8Bytesの初期値は，ビットパターンの“x”を全て0に置き換え， \n     8桁ごとに区切って，それぞれを2進数とみなしたときの値 */ \n  整数型の配列: utf8Bytes ← {224, 128, 128} \n  整数型: cp ← codePoint \n  整数型: i \n  for (i を utf8Bytesの要素数 から 1 まで 1 ずつ減らす) \n    utf8Bytes[i] ← utf8Bytes[i] ＋ (cp ÷ \n の余り) \n    cp ← cp ÷ \n の商 \n  endfor \n  return utf8Bytes"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-16-p27",
+        "caption": "原資料 p.27"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 27 － \n解答群 \nア ((4 － i) × 2) \nイ (2 の (4 － i)乗) \nウ (2 の i 乗) \nエ (i × 2) \nオ 2 \nカ 6 \nキ 16 \nク 64 \nケ 256"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-notation-p2",
+        "caption": "原資料 p.2"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 2 － \n擬似言語の記述形式（基本情報技術者試験用） \n \n擬似言語を使用した問題では，各問題文中に注記がない限り，次の記述形式が適用され\nているものとする。 \n \n〔擬似言語の記述形式〕 \n記述形式 \n説明 \n○手続名又は関数名 \n手続又は関数を宣言する。 \n型名: 変数名 \n変数を宣言する。 \n/* 注釈 */ \n注釈を記述する。 \n// 注釈 \n変数名 ← 式 \n変数に式の値を代入する。 \n手続名又は関数名(引数, …) 手続又は関数を呼び出し，引数を受け渡す。 \nif (条件式1) \n  処理1 \nelseif (条件式2) \n  処理2 \nelseif (条件式n) \n  処理n \nelse \n  処理n ＋ 1 \nendif \n選択処理を示す。 \n条件式を上から評価し，最初に真になった条件式に\n対応する処理を実行する。以降の条件式は評価せ\nず，対応する処理も実行しない。どの条件式も真に\nならないときは，処理n ＋ 1 を実行する。 \n各処理は，0 以上の文の集まりである。 \nelseif と処理の組みは，複数記述することがあり，\n省略することもある。 \nelse と処理n ＋ 1 の組みは一つだけ記述し，省略す\nることもある。 \nwhile (条件式) \n  処理 \nendwhile \n前判定繰返し処理を示す。 \n条件式が真の間，処理を繰返し実行する。 \n処理は，0 以上の文の集まりである。 \ndo \n  処理 \nwhile (条件式) \n後判定繰返し処理を示す。 \n処理を実行し，条件式が真の間，処理を繰返し実行\nする。 \n処理は，0 以上の文の集まりである。 \nfor (制御記述) \n  処理 \nendfor \n繰返し処理を示す。 \n制御記述の内容に基づいて，処理を繰返し実行する。 \n処理は，0 以上の文の集まりである。"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-notation-p3",
+        "caption": "原資料 p.3"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 3 － \n〔演算子と優先順位〕 \n演算子の種類 \n演算子 \n優先度 \n式 \n() . \n高 \n単項演算子 \nnot ＋ －  \n \n二項演算子 \n乗除 \nmod × ÷  \n加減 \n＋ － \n関係 \n≠ ≦ ≧ ＜ ＝ ＞ \n論理積 \nand \n論理和 \nor \n低 \n注記 演算子 . は，メンバ変数又はメソッドのアクセスを表す。 \n演算子 mod は，剰余算を表す。 \n \n〔論理型の定数〕 \ntrue，false \n \n〔配列〕 \n配列の要素は，“[”と“]”の間にアクセス対象要素の要素番号を指定することでア\nクセスする。なお，二次元配列の要素番号は，行番号，列番号の順に“,”で区切って\n指定する。 \n“{”は配列の内容の始まりを，“}”は配列の内容の終わりを表す。ただし，二次元\n配列において，内側の“{”と“}”に囲まれた部分は，1 行分の内容を表す。 \n \n〔未定義，未定義の値〕 \n変数に値が格納されていない状態を，“未定義”という。変数に“未定義の値”を代\n入すると，その変数は未定義になる。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "カ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-7",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "キ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-8",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ク"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-9",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問16",
+                "page": 27,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "16"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ケ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-8",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-ans",
+          "locator": {
+            "section": "科目B試験サンプル問題 問16 解答",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "16"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "後ろのバイトは6ビットずつ埋めるので、64で割った余りと商を用いる。原資料の整数域はサロゲート符号位置も含むが、実際のUTF-8はUnicodeスカラー値を符号化し、サロゲートは除く。原問題のビット配置の計算と規格への適合を区別する。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-sample-2022-dec-b-16-p26",
+    "asset-ipa-sample-2022-dec-b-16-p27",
+    "asset-ipa-sample-2022-dec-b-notation-p2",
+    "asset-ipa-sample-2022-dec-b-notation-p3"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式PDFの各問題ページ・全選択肢・注意書き・別紙解答p.1を目視照合。独立した参照解法と全選択肢のテストを適用。全文画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。"
+  }
+}

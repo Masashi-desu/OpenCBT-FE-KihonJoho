@@ -76,7 +76,11 @@
                     "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
                   }
                 },
-                "required": ["id", "index", "value"],
+                "required": [
+                  "id",
+                  "index",
+                  "value"
+                ],
                 "description": "「scene{array}.cells」に記録する一つの要素。表示順に並んだ配列セル。各添字と値を図と読み上げ用説明へ共通で表示し、添字が連続することを確認する。",
                 "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
               },
@@ -86,7 +90,10 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["kind", "cells"],
+          "required": [
+            "kind",
+            "cells"
+          ],
           "description": "整数配列の図"
         },
         {
@@ -132,12 +139,23 @@
                   },
                   "role": {
                     "type": "string",
-                    "enum": ["start", "end", "process", "decision"],
+                    "enum": [
+                      "start",
+                      "end",
+                      "process",
+                      "decision"
+                    ],
                     "description": "ノードの図上の役割。フローチャートでは開始・処理・分岐・終了の固定形状を選び、グラフでは頂点として示す。",
                     "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
                   }
                 },
-                "required": ["id", "label", "x", "y", "role"],
+                "required": [
+                  "id",
+                  "label",
+                  "x",
+                  "y",
+                  "role"
+                ],
                 "description": "「scene{flowchart}.nodes」に記録する一つの要素。フローチャート内の処理又は頂点を表す要素。id・ラベル・位置・役割を図と読み上げ用説明に共通で使う。",
                 "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
               },
@@ -180,7 +198,13 @@
                     "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
                   }
                 },
-                "required": ["id", "from", "to", "label", "directed"],
+                "required": [
+                  "id",
+                  "from",
+                  "to",
+                  "label",
+                  "directed"
+                ],
                 "description": "「scene{flowchart}.edges」に記録する一つの要素。フローチャートのノード間の接続。接続先と向き・ラベルを図と読み上げ用説明で一致させ、存在しない端点を拒否する。",
                 "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
               },
@@ -190,7 +214,11 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["kind", "nodes", "edges"],
+          "required": [
+            "kind",
+            "nodes",
+            "edges"
+          ],
           "description": "フローチャート。論理幅・高さは1000固定"
         },
         {
@@ -240,7 +268,13 @@
                     "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
                   }
                 },
-                "required": ["id", "label", "x", "y", "role"],
+                "required": [
+                  "id",
+                  "label",
+                  "x",
+                  "y",
+                  "role"
+                ],
                 "description": "「scene{graph}.nodes」に記録する一つの要素。グラフ内の処理又は頂点を表す要素。id・ラベル・位置・役割を図と読み上げ用説明に共通で使う。",
                 "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
               },
@@ -283,7 +317,13 @@
                     "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
                   }
                 },
-                "required": ["id", "from", "to", "label", "directed"],
+                "required": [
+                  "id",
+                  "from",
+                  "to",
+                  "label",
+                  "directed"
+                ],
                 "description": "「scene{graph}.edges」に記録する一つの要素。グラフのノード間の接続。接続先と向き・ラベルを図と読み上げ用説明で一致させ、存在しない端点を拒否する。",
                 "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
               },
@@ -293,7 +333,11 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["kind", "nodes", "edges"],
+          "required": [
+            "kind",
+            "nodes",
+            "edges"
+          ],
           "description": "有向／無向グラフ。論理幅・高さは1000固定"
         },
         {
@@ -322,7 +366,22 @@
                 "stack",
                 "linked-arrays",
                 "ordered-array",
-                "onehot"
+                "onehot",
+                "list-element-class",
+                "bigram-example",
+                "priority-queue-class",
+                "sample-tree-14",
+                "sample-minimax",
+                "dec-a-binary-flow",
+                "dec-a-automaton",
+                "dec-a-bst",
+                "dec-a-array",
+                "dec-a-hash",
+                "dec-a-availability",
+                "dec-a-buffer",
+                "dec-a-multiplicity",
+                "dec-a-network",
+                "dec-a-dispatch"
               ],
               "description": "開発側の固定描画規則の識別子。値の意味・範囲・個数を登録契約で検査する。",
               "$comment": "必須：未登録・null・省略を拒否する。"
@@ -342,12 +401,34 @@
               "$comment": "必須：個数・範囲を検査する。"
             }
           },
-          "required": ["kind", "profile", "values"],
+          "required": [
+            "kind",
+            "profile",
+            "values"
+          ],
           "description": "固定描画器へ渡す宣言的な図の入力値。"
         }
       ],
       "description": "配列、フローチャート、グラフ又は登録した原形式図プロファイルの構造。許可した値だけで構成し、コード・スタイル・イベントを含めない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "captionPresentation": {
+      "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/captionPresentation",
+      "description": "図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。",
+      "$comment": "任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。"
+    },
+    "sourceLabels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceLabel",
+        "description": "字面と位置を原資料で照合した可視ラベル1件。",
+        "$comment": "配列要素：textとpositionを必須とし、未知フィールドと同一要素の重複を拒否する。"
+      },
+      "description": "読み上げ用のcaptionとは別に可視保持する、原資料で確認した識別子・題・単位注記。",
+      "$comment": "条件付き：captionPresentationがaccessibleの場合だけ指定できる。省略時は別ラベルを作らず、指定する場合は1〜4件でtextとpositionを省略しない。"
     }
   },
   "required": [
@@ -359,5 +440,19 @@
     "attribution",
     "scene"
   ],
-  "description": "管理された描画器へ渡す表示専用の図構造。図素材の出典・条件を保持し、任意コード、解答操作、経路実行をデータに含めない。"
+  "description": "管理された描画器へ渡す表示専用の図構造。図素材の出典・条件を保持し、任意コード、解答操作、経路実行をデータに含めない。",
+  "dependentSchemas": {
+    "sourceLabels": {
+      "properties": {
+        "captionPresentation": {
+          "const": "accessible",
+          "description": "図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。",
+          "$comment": "任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。"
+        }
+      },
+      "required": [
+        "captionPresentation"
+      ]
+    }
+  }
 }

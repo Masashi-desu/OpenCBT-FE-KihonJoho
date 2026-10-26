@@ -10,6 +10,7 @@ import type {
 } from "../core/types";
 import { labels } from "../core/types";
 import { safeUrl } from "../core/validation";
+import { sourceLocationLabel } from "../core/source-label";
 
 export const screenNotice =
   "非公式の学習教材です。公開情報をもとにCBTの画面・操作を再現しています。実際の試験画面・動作とは異なる場合があります。";
@@ -21,8 +22,10 @@ function sourceKey(ref: SourceRef) {
     l.section,
     l.page,
     l.year,
+    l.period,
     l.exam,
     l.subject,
+    l.timeSlot,
     l.questionNumber,
   ]);
 }
@@ -106,7 +109,10 @@ export function questionCredits(
   );
   for (const [index, id] of choiceOrder.entries()) {
     const choice = question.choices.find((c) => c.id === id)!;
-    content(sameChoices ? "選択肢" : `選択肢 ${labels[index]}`, choice.content);
+    const part = question.answerParts?.find(part => part.choiceIds.includes(id));
+    const localIndex = part ? choiceOrder.filter(id => part.choiceIds.includes(id)).indexOf(id) : index;
+    const label = `${part ? part.label + " " : ""}${labels[localIndex] ?? localIndex + 1}`;
+    content(sameChoices ? "選択肢" : `選択肢 ${label}`, choice.content);
   }
   if (revealed) {
     add("正答", question.correctAnswer.attribution);
@@ -125,15 +131,7 @@ export function SourceLink({
   const source = bundle.sources.find((s) => s.id === reference.sourceId);
   if (!source) return null;
   const l = reference.locator;
-  const location =
-    [
-      l.year && `${l.year}年度`,
-      l.exam,
-      l.subject,
-      l.questionNumber && `問${l.questionNumber}`,
-    ]
-      .filter(Boolean)
-      .join(" ") || `${source.title} ${l.section}`;
+  const location = sourceLocationLabel(reference, true) || `${source.title} ${reference.locator.section}`;
   return (
     <span className="footer-source">
       {location} ·{" "}

@@ -53,6 +53,12 @@ import {
 import { loadCatalog, loadAsset } from "../core/catalog";
 import { BookmarkLearning } from "./BookmarkLearning";
 import { selectQuestions } from "../core/selection";
+import { mixProfile } from "../core/mix-profile";
+import { sourceQuestionLabel, questionSubjectLabel } from "../core/source-label";
+import { isLegacyQuestion } from "../core/source-collections";
+import { menuSourceGroups, menuSourceGroup, chooseMenuSourceGroup, menuSubjectOptions, menuSubjectNotice, patchMenuSelection } from "../core/menu-selection";
+import { AnswerChoices, outcomeLabels } from "./AnswerChoices";
+import { answerLabels, hasCompleteAnswer } from "../core/answers";
 import { StudyClock } from "../core/study-clock";
 import {
   prepareRun,
@@ -61,6 +67,7 @@ import {
   startRun,
   finishRun,
   updateAnswer,
+  updatePartAnswer,
   remaining,
   elapsed,
   touch,
@@ -98,6 +105,7 @@ import {
 } from "../core/bookmark-accuracy";
 import { DataError, safeUrl } from "../core/validation";
 import { Content, AttributionLine } from "./Content";
+import { QuestionMaterialCredits } from "./QuestionMaterialCredits";
 import { StudyTerms } from "./StudyTerms";
 import { StudyActions } from "./StudyActions";
 import { latestLearningSelection, outdatedQuestionIndexes, QUESTION_UPDATE_NOTICE } from "../core/question-updates";
@@ -449,7 +457,9 @@ export function App() {
     saveFailed.current = false;
     try {
       const b = await loadCatalog();
-      await maintainStorage(b);
+      await maintainStorage(b, (completed, total) => setBusy(
+        `保存した学習記録を確認しています（${completed} / ${total} 件）`,
+      ));
       setBundle(b);
       setItems(await history());
       setBookmarks(await listBookmarks());
@@ -572,23 +582,28 @@ export function App() {
     return () => clearInterval(timer);
   }, [commit, navigate]);
   const assetUrls = useAssetUrls(run?.assets);
+  const sourceGroups = useMemo(() => bundle ? menuSourceGroups(bundle) : [], [bundle]);
+  const activeSourceGroup = menuSourceGroup(sourceGroups, selection);
+  const collectionSubjects = selection.mode !== "endless";
+  const subjects = menuSubjectOptions(activeSourceGroup, collectionSubjects);
+  const subjectNotice = menuSubjectNotice(activeSourceGroup, collectionSubjects);
   let chosen: ReturnType<typeof selectQuestions> | undefined,
+    mixSizing: ReturnType<typeof mixProfile> | undefined,
     selectionError = "";
   try {
-    if (bundle) chosen = selectQuestions(bundle, selection, (a) => a);
+    if (bundle) {
+      if (selection.kind === "mix" && collectionSubjects) mixSizing = mixProfile(bundle, { ...selection, size: "public" });
+      chosen = selectQuestions(bundle, selection, (a) => a);
+    }
   } catch (e) {
     selectionError = e instanceof Error ? e.message : String(e);
   }
   const finiteSelection = useRef<Selection>(defaults);
   const patch = (value: Partial<Selection>) =>
     setSelection((old) => {
-      if (value.mode === "endless") {
-        if (old.mode !== "endless") finiteSelection.current = old;
-        return { ...old, ...value, kind: "mix", bindingMode: "generated_values" };
-      }
-      if (old.mode === "endless" && value.mode)
-        return { ...finiteSelection.current, subject: old.subject, ...value };
-      return { ...old, ...value };
+      const next = patchMenuSelection(bundle, old, value, finiteSelection.current);
+      finiteSelection.current = next.finite;
+      return next.selection;
     });
   const begin = async (launchSelection = selection) => {
     if (!bundle) return;
@@ -672,6 +687,13 @@ export function App() {
     const r = current.current;
     if (!r || latestBusy.current || saveFailed.current) return;
     const next = updateAnswer(r, id);
+    commit(next);
+    if (next.result) navigate("result");
+  };
+  const answerPart = (partId: string, id: string | undefined) => {
+    const r = current.current;
+    if (!r || latestBusy.current || saveFailed.current) return;
+    const next = updatePartAnswer(r, partId, id);
     commit(next);
     if (next.result) navigate("result");
   };
@@ -1188,35 +1210,10 @@ export function App() {
                     ))}
                   </div>
                 </fieldset>
-                <div className="section-title">
-                  <span className="step-dot">2</span>
-                  <h2>科目を選択</h2>
-                </div>
-                <div className="subject-tabs" role="group" aria-label="科目">
-                  {(["A", "B"] as const).map((s) => (
-                    <button
-                      key={s}
-                      aria-pressed={selection.subject === s}
-                      className={selection.subject === s ? "selected" : ""}
-                      onClick={() => patch({ subject: s })}
-                    >
-                      <span className="subject-letter">{s}</span>
-                      <span>
-                        科目{s}
-                        <small>
-                          {s === "A"
-                            ? "知識・基礎理論・マネジメント"
-                            : "アルゴリズム・情報セキュリティ"}
-                        </small>
-                      </span>
-                      {selection.subject === s && <CheckCircle2 size={21} />}
-                    </button>
-                  ))}
-                </div>
                 {selection.mode !== "endless" && (
                   <>
                     <div className="section-title">
-                      <span className="step-dot">3</span>
+                      <span className="step-dot">2</span>
                       <h2>出題セットを選択</h2>
                     </div>
                     <div
@@ -1266,38 +1263,59 @@ export function App() {
                         </button>
                       ))}
                     </div>
+                      <label className="field-label collection-field">
+                        {selection.kind === "annual" ? "公開問題集" : "分野構成の基準問題集"}
+                        <select
+                          value={activeSourceGroup?.id ?? ""}
+                          disabled={!bundle}
+                          onChange={(e) => {
+                            const id = e.target.value;
+                            setSelection(old => chooseMenuSourceGroup(sourceGroups, old, id));
+                          }}
+                        >
+                          <option value="" disabled>問題集を選択</option>
+                          {sourceGroups.map(group => (
+                            <option key={group.id} value={group.id}>{group.title}</option>
+                          ))}
+                        </select>
+                      </label>
                   </>
                 )}
+                <div className="section-title">
+                  <span className="step-dot">{selection.mode === "endless" ? 2 : 3}</span>
+                  <h2>{collectionSubjects && activeSourceGroup?.timeSlot ? "試験区分を確認" : "科目を選択"}</h2>
+                </div>
+                {subjectNotice && <p className="subject-notice" id="subject-notice">{subjectNotice}</p>}
+                <div className={`subject-tabs${subjects.length === 1 ? " single-subject" : ""}`} role="group" aria-label="科目・試験区分" aria-describedby={subjectNotice ? "subject-notice" : undefined}>
+                  {subjects.map(option => (
+                    <button
+                      key={option.subject}
+                      disabled={!option.available}
+                      aria-pressed={option.available && selection.subject === option.subject}
+                      className={option.available && selection.subject === option.subject ? "selected" : ""}
+                      onClick={() => patch({ subject: option.subject })}
+                    >
+                      <span className={`subject-letter${option.badge.length > 1 ? " subject-time-slot" : ""}`}>{option.badge}</span>
+                      <span>{option.title}<small>{option.description}</small></span>
+                      {option.available && selection.subject === option.subject && <CheckCircle2 size={21} />}
+                    </button>
+                  ))}
+                </div>
                 {selection.mode !== "endless" && (
-                  <div className="config-grid">
-                    <label className="field-label">
-                      {selection.kind === "mix" ? "分野構成の基準年度" : "公開年度"}
-                      <select
-                        value={selection.year}
-                        onChange={(e) => patch({ year: Number(e.target.value) })}
-                      >
-                        {[2026, 2025, 2024, 2023].map((year) => (
-                          <option key={year} value={year}>
-                            {year}年度（令和{year - 2018}年度）
-                          </option>
-                        ))}
-                      </select>
-                    </label>
+                  <div className="config-grid config-grid-single">
                     <fieldset className="mode-field">
                       <legend>出題数</legend>
                       {selection.kind === "mix" ? (
                         <div className="segmented">
-                          {(["public", "full"] as const).map((size) => (
+                          {(["public", ...(mixSizing?.fullCount ? ["full" as const] : [])] as const).map((size) => (
                             <button
                               key={size}
                               aria-pressed={selection.size === size}
                               className={selection.size === size ? "selected" : ""}
                               onClick={() => patch({ size })}
                             >
-                              {size === "public" ? "短い練習" : "本番の問数"}
-                              （{selection.subject === "A"
-                                ? size === "public" ? 20 : 60
-                                : size === "public" ? 6 : 20}問）
+                              {size === "public" ? "問題集の問数" : "本番の問数"}
+                              （{(size === "public" ? mixSizing?.publicCount : mixSizing?.fullCount) ?? "―"}問）
                             </button>
                           ))}
                         </div>
@@ -1309,7 +1327,7 @@ export function App() {
                 )}
                 {selection.kind === "annual" &&
                   selection.subject === "B" &&
-                  selection.year === 2025 && (
+                  (selection.sourceCollectionId ?? `set-annual-${selection.year}-b`) === "set-annual-2025-b" && (
                     <div className="notice-inline">
                       <AlertCircle size={17} />
                       <p>
@@ -1361,7 +1379,7 @@ export function App() {
               <div className="home-notes">
                 <FileText size={19} />
                 <p>
-                  2023〜2026年度のIPA公開問題を収録。公開部分は本番の全問題ではありません。
+                  2023〜2026年度のIPA公開問題と2022年4月・12月公表サンプルを収録。公開部分は本番の全問題ではありません。
                   <br />
                   公開情報をもとにCBTの画面・操作を再現しています。公式IRT評価点や合否は算出しません。
                   <br />
@@ -1389,7 +1407,7 @@ export function App() {
                 開始前の確認
               </h1>
               <p className="page-intro">
-                {chosen.set.title} · 科目{selection.subject}
+                {chosen.set.title}{chosen.questions.every(isLegacyQuestion) ? "" : ` · 科目${selection.subject}`}
               </p>
               <section className="instruction-card">
                 <div className="instruction-stats">
@@ -1444,7 +1462,9 @@ export function App() {
                       ? "出題数と時間に制限はありません。年度を指定せず、選んだ科目の問題を続けて練習できます。"
                       : selection.kind === "mix" && selection.size === "full"
                       ? "本番の問数・制限時間を使います。収録問題を分野比率で選ぶ学習練習で、実際の本番の問題分布を保証しません。"
-                      : "制限時間はAを1問90秒、Bを1問300秒として算出した本アプリの設定です。公開部分を本番1回分とは扱いません。"}
+                      : chosen.questions.some(isLegacyQuestion)
+                        ? "旧制度の時間付き練習には、選んだ問題集の試験時間を使用します。"
+                        : "制限時間はAを1問90秒、Bを1問300秒として算出した本アプリの設定です。公開部分を本番1回分とは扱いません。"}
                   </li>
                   <li>
                     数式がある場合は固定版KaTeX・CSS・フォントを外部CDNから取得します。IPアドレス等がCDNに届きますが、学習記録を送信しません。
@@ -1499,7 +1519,7 @@ export function App() {
                   </button>
                   <div className="toolbar-set">
                     <strong>
-                      科目{q.subject} ·{" "}
+                      {questionSubjectLabel(q)} ·{" "}
                       {isReview
                         ? "復習"
                         : run.selection.mode === "endless"
@@ -1612,6 +1632,7 @@ export function App() {
                   <div className="answer-workspace">
                     <QuestionRail
                       entries={run.session.entries}
+                      questions={run.issued}
                       currentIndex={currentIndex}
                       disabled={!canNavigate}
                       expandable={isOpenEnded(run)}
@@ -1628,73 +1649,16 @@ export function App() {
                           </h1>
                         </div>
                       </div>
-                      <fieldset
-                        className="answer-choices"
-                        disabled={!canAnswer}
-                      >
-                        <legend className="sr-only">解答を選択</legend>
-                        {entry.choiceOrder.map((id, i) => {
-                          const c = q.choices.find((c) => c.id === id)!;
-                          const selected = entry.selectedChoiceId === id,
-                            correct =
-                              revealed && id === q.correctAnswer.choiceId;
-                          return (
-                            <label
-                              key={id}
-                              className={`answer-choice ${selected ? "selected" : ""} ${correct ? "correct" : ""}`}
-                            >
-                              <input
-                                className="sr-only"
-                                type="radio"
-                                name="answer"
-                                value={id}
-                                checked={selected}
-                                onChange={() => answer(id)}
-                                onClick={() => {
-                                  if (selected) answer(undefined);
-                                }}
-                                onKeyDown={(event) => {
-                                  if (event.key === " ") {
-                                    event.preventDefault();
-                                    if (!event.repeat)
-                                      answer(selected ? undefined : id);
-                                  }
-                                }}
-                              />
-                              <span className="choice-label">{labels[i]}</span>
-                              <span className="choice-body">
-                                {q.origin.kind === "official_reprint" ? (
-                                  `原文の「${c.content.blocks[0].type === "paragraph" ? c.content.blocks[0].text : labels[i]}」`
-                                ) : (
-                                  <Content
-                                    content={c.content}
-                                    bundle={run.bundle}
-                                    assetUrls={assetUrls}
-                                    showAttribution={false}
-                                  />
-                                )}
-                              </span>
-                              {correct && <span className="sr-only">正答</span>}
-                            </label>
-                          );
-                        })}
-                      </fieldset>
+                      <AnswerChoices question={q} entry={entry} bundle={run.bundle} assetUrls={assetUrls}
+                        disabled={!canAnswer} revealed={revealed || isReview} showResponse={isReview}
+                        onAnswer={answer} onPartAnswer={answerPart} />
                       {(revealed || isReview) && (
                         <section className="explanation">
                           <div className="explanation-title">
                             <CheckCircle2 size={20} />
-                            <h2>
-                              正答：
-                              {
-                                labels[
-                                  entry.choiceOrder.indexOf(
-                                    q.correctAnswer.choiceId,
-                                  )
-                                ]
-                              }
-                            </h2>
+                            <h2>{q.answerParts ? "正答・解説" : `正答：${answerLabels(q, entry.choiceOrder)}`}</h2>
                           </div>
-                          {isReview && (
+                          {isReview && !q.answerParts && (
                             <p>
                               あなたの解答：
                               {entry.selectedChoiceId
@@ -1837,7 +1801,7 @@ export function App() {
                   : "おつかれさまでした"}
               </h1>
               <p className="page-intro">
-                {run.set.title} · {subjectLabel(run.exam.subject)}
+                {run.set.title}{run.issued.every(isLegacyQuestion) ? "" : ` · ${subjectLabel(run.exam.subject)}`}
               </p>
               <section className="result-card">
                 {run.result.revealedCount > 0 && (
@@ -1855,7 +1819,7 @@ export function App() {
                   </div>
                   <div>
                     <h2>学習正答率</h2>
-                    <p>正解数 ÷ 全出題数 × 100</p>
+                    <p>{run.result.unscored ? "正解数 ÷ 採点対象の問題数 × 100" : "正解数 ÷ 全出題数 × 100"}</p>
                     <small>公式IRT評価点・合否とは異なります。</small>
                   </div>
                 </div>
@@ -1881,6 +1845,11 @@ export function App() {
                     label="経過時間"
                   />
                 </div>
+                {run.result.partSummary && <p className="subtle">
+                  解答欄ごとの内訳：正解{run.result.partSummary.correct}／採点対象{run.result.partSummary.total - run.result.partSummary.unscored}欄
+                  （不正解{run.result.partSummary.incorrect}・未解答{run.result.partSummary.unanswered}・採点対象外{run.result.partSummary.unscored}）
+                </p>}
+                {Boolean(run.result.unscored) && <p className="subtle">正解なしにより採点対象外：{run.result.unscored}問</p>}
                 <div className="result-answer-actions">
                   <div
                     className="result-bookmark-actions"
@@ -1993,11 +1962,7 @@ export function App() {
                         ) : (
                           <Square size={16} />
                         )}{" "}
-                        {e.outcome === "correct"
-                          ? "正解"
-                          : e.outcome === "incorrect"
-                            ? "不正解"
-                            : "未解答"}
+                        {outcomeLabels[e.outcome as keyof typeof outcomeLabels]}
                       </span>
                       {run.session.entries[i].reviewFlag && <Flag size={16} />}
                       <ChevronRight size={17} />
@@ -2334,7 +2299,7 @@ export function App() {
             <span>
               未解答{" "}
               <strong>
-                {run.session.entries.filter((e) => !e.selectedChoiceId).length}
+                {run.session.entries.filter((e, i) => !hasCompleteAnswer(run.issued[i], e)).length}
               </strong>
               問
             </span>
@@ -2435,17 +2400,17 @@ export function App() {
           </label>
           <p className="subtle">
             未解答
-            {run.session.entries.filter((e) => !e.selectedChoiceId).length}問 ·
+            {run.session.entries.filter((e, i) => !hasCompleteAnswer(run.issued[i], e)).length}問 ·
             見直し{run.session.entries.filter((e) => e.reviewFlag).length}問
           </p>
           <div className="question-grid">
             {run.session.entries.map((e, i) =>
-              (listFilter === "unanswered" && e.selectedChoiceId) ||
+              (listFilter === "unanswered" && hasCompleteAnswer(run.issued[i], e)) ||
               (listFilter === "flagged" && !e.reviewFlag) ? null : (
                 <button
                   key={i}
                   disabled={!canNavigate}
-                  className={`${currentIndex === i ? "current " : ""}${e.selectedChoiceId ? "answered " : ""}${e.reviewFlag ? "marked" : ""}`}
+                  className={`${currentIndex === i ? "current " : ""}${hasCompleteAnswer(run.issued[i], e) ? "answered " : ""}${e.reviewFlag ? "marked" : ""}`}
                   aria-current={currentIndex === i ? "true" : undefined}
                   onClick={() => {
                     isReview ? setReviewIndex(i) : move(i);
@@ -2454,12 +2419,12 @@ export function App() {
                 >
                   <strong>{i + 1}</strong>
                   <span>
-                    {e.selectedChoiceId ? (
+                    {hasCompleteAnswer(run.issued[i], e) ? (
                       <Check size={14} />
                     ) : (
                       <Square size={14} />
                     )}{" "}
-                    {e.selectedChoiceId ? "解答済" : "未解答"}
+                    {hasCompleteAnswer(run.issued[i], e) ? "解答済" : "未解答"}
                   </span>
                   {e.reviewFlag && (
                     <span>
@@ -2601,7 +2566,8 @@ export function App() {
                       assetUrls={assetUrls}
                     />
                     <h3>元の選択肢</h3>
-                    {base.choices.map((c, i) => (
+                    {base.answerParts ? <AnswerChoices question={base} entry={{ choiceOrder: base.choices.map(c => c.id) }}
+                      bundle={run.bundle} assetUrls={assetUrls} disabled revealed={revealed} /> : base.choices.map((c, i) => (
                       <div key={c.id}>
                         {labels[i]}
                         <Content
@@ -2614,14 +2580,7 @@ export function App() {
                     {revealed && (
                       <>
                         <p>
-                          元の正答：
-                          {
-                            labels[
-                              base.choices.findIndex(
-                                (c) => c.id === base.correctAnswer.choiceId,
-                              )
-                            ]
-                          }
+                          元の正答：{base.answerParts ? "各解答欄に表示" : answerLabels(base)}
                         </p>
                         <Content
                           content={base.explanation}
@@ -2636,21 +2595,7 @@ export function App() {
             </details>
           )}
           <h3>素材ごとの条件</h3>
-          <AttributionLine content={q.prompt} bundle={run.bundle} />
-          {q.prompt.attribution.rightsRefs.map((id) => {
-            const rights = run.bundle.rights.find((r) => r.id === id)!;
-            return (
-              <details key={id}>
-                <summary>{rights.attributionText}</summary>
-                <p>権利者：{rights.holders.join("・")}</p>
-                <p>適用範囲：{rights.scope}</p>
-                <p>
-                  利用根拠：{rights.basis} · {rights.licenseId}
-                </p>
-                <p>{rights.thirdParty.notes}</p>
-              </details>
-            );
-          })}
+          <QuestionMaterialCredits question={q} bundle={run.bundle} choiceOrder={entry?.choiceOrder ?? q.choices.map(c => c.id)}/>
           {revealed && (
             <>
               <h3>正答・解説の出典</h3>
@@ -2691,10 +2636,7 @@ function Stat({
   );
 }
 function questionName(q: Question) {
-  const r = q.origin.sourceRefs[0];
-  return r
-    ? `${r.locator.year}年度 科目${q.subject} 問${r.locator.questionNumber}`
-    : "独自問題";
+  return q.origin.sourceRefs.length ? sourceQuestionLabel(q) : "独自問題";
 }
 function useAssetUrls(assets: Record<string, Blob> | undefined) {
   const [urls, setUrls] = useState<Record<string, string>>({});
@@ -2760,12 +2702,10 @@ function LicensePage({ bundle }: { bundle?: Bundle }) {
       <section>
         <h2>IPA公開問題</h2>
         <p>
-          出典：独立行政法人情報処理推進機構（IPA）、2023〜2026年度
-          基本情報技術者試験 科目A・科目B 公開問題／解答例。
+          出典：独立行政法人情報処理推進機構（IPA）。本アプリに収録する公式公開問題・解答例・サンプルを使用し、年度・期・午前／科目・問番号は各問題の出典表示に保持します。
         </p>
         <p>
-          ©2023–2026
-          独立行政法人情報処理推進機構。会社名・製品名は各社の商標又は登録商標です。問題単位の出典・図表の条件・改変表示は、解答画面と復習画面でも表示します。
+          各原資料のIPA著作権表示を保持します。会社名・製品名は各社の商標又は登録商標です。問題単位の出典・図表の条件・改変表示は、解答画面と復習画面でも表示します。
         </p>
         <p>
           IPAは著作権を保持しています。公表問題の教育目的での利用条件に従い、年度・試験区分・科目・問番号等の出典と、改変した場合はその旨を表示します。第三者の素材には別の利用条件を適用します。
@@ -2778,6 +2718,14 @@ function LicensePage({ bundle }: { bundle?: Bundle }) {
           利用条件（FAQ「その他」）
           <ExternalLink size={15} />
         </a>
+        <p><a href="https://www.ipa.go.jp/shiken/syllabus/henkou/2022/20220425.html" target="_blank" rel="noreferrer">
+          2022年4月公表サンプルの利用条件<ExternalLink size={15} />
+        </a></p>
+        <p>出典：基本情報技術者試験（科目A試験） サンプル問題セット。</p>
+        <p>出典：基本情報技術者試験（科目B試験） サンプル問題セット。</p>
+        <p><a href="https://www.ipa.go.jp/shiken/syllabus/henkou/2022/20221226.html" target="_blank" rel="noreferrer">
+          2022年12月公表サンプルの利用条件<ExternalLink size={15} />
+        </a></p>
         <p>
           2025年度科目B問6はJIS文言の条件未確認のため配布していません。詳細解説は一部を除き未収録です。
         </p>
@@ -2813,13 +2761,13 @@ function LicensePage({ bundle }: { bundle?: Bundle }) {
         )}
       </section>
       <section>
-        <h2>数式描画・アイコン・ライブラリ</h2>
+        <h2>教材・数式描画・アイコン・ライブラリの全文通知</h2>
         <p>
           ブランドロゴは独自のベクタ、操作アイコンはLucide。数式はKaTeX
           0.19.0を固定URL・SRI付きでjsDelivrから読み込みます。数式を使うセットの準備時に外部CDNへ通信し、IPアドレス等が送信されます。学習記録・解答は送信しません。
         </p>
         <p>
-          LucideのISCとFeather由来アイコンのMITを含む原文通知、React等の通知を配布物に同梱しています。以下はCDNに依存しないローカルの全文です。
+          教材の素材別条件と適用範囲、LucideのISCとFeather由来アイコンのMIT、React等の原文通知を配布物に同梱します。以下はCDNに依存しないローカルの全文です。
         </p>
         <p>
           CDNのサービス条件：

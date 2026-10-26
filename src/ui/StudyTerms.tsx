@@ -1,5 +1,14 @@
 import type { Asset, Question } from "../core/types";
 import { questionStudyTerms } from "../core/study-terms";
+import { contentTextParts, isStudyTermCobolIdentifier } from "./ContentText";
+
+/** Keep only source-reviewed complete COBOL names whole; other text stays plain. */
+export function StudyTermMeaning({meaning}:{meaning:string}) {
+  const parts=contentTextParts(meaning);
+  if (!parts.some(part=>part.atomic && isStudyTermCobolIdentifier(part.text))) return meaning;
+  return <>{parts.map((part,i)=>part.atomic && isStudyTermCobolIdentifier(part.text)
+    ? <span key={i} className="content-text-token">{part.text}</span> : part.text)}</>;
+}
 
 export function StudyTerms({
   question,
@@ -20,7 +29,7 @@ export function StudyTerms({
               {term}
               {expansion && <span lang="en">（{expansion}）</span>}
             </dt>
-            <dd>{meaning}</dd>
+            <dd><StudyTermMeaning meaning={meaning}/></dd>
           </div>
         ))}
       </dl>

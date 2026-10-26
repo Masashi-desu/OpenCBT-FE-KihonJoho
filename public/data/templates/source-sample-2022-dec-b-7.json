@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-b-7",
+  "revision": 2,
+  "title": "階乗の再帰",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-b-7",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-b-7",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fields": [
+      {
+        "name": "最小入力と再帰の基底",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "自己再帰の誤った係数",
+        "minimum": 0,
+        "maximum": 1
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問7",
+          "page": 10,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "cf566a0c11f2ef7a3ad74013a472bee382c13d1b48dfd75fecbf89292ac3f6b6"
+}

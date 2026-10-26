@@ -15,7 +15,36 @@ import { Content } from "../src/ui/Content";
 
 // Original question intents reviewed independently from the generators. The
 // remaining 53 conceptual questions are fixed in knowledge-pairs.json.
+import {decASourceIntents} from "./fixtures/dec-a-source-form";
 const originalIntents: Record<string, RegExp> = {
+  ...decASourceIntents,
+  "sample-2022-dec-b-1": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-2": /プログラム中の空欄a〜c.*正しい答えの組合せ/,
+  "sample-2022-dec-b-3": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-4": /プログラム中の空欄a〜c.*正しい答えの組合せ/,
+  "sample-2022-dec-b-5": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-dec-b-6": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-dec-b-7": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-dec-b-8": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-9": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-10": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-dec-b-11": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-12": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-dec-b-13": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-14": /記述中の空欄.*正しい答え/,
+  "sample-2022-dec-b-15": /記述中の空欄aとb.*正しい答えの組合せ/,
+  "sample-2022-dec-b-16": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-dec-b-17": /図1中の各項番.*対処する組織.*適切な組合せ/,
+  "sample-2022-dec-b-18": /増加する又は新たに生じる.*リスクを二つ.*最も適切/,
+  "sample-2022-dec-b-19": /表1中の空欄a1、a2.*字句の適切な組合せ/,
+  "sample-2022-dec-b-20": /FWルールの誤った変更を防ぐための改善策.*最も適切/,
+
+  "sample-2022-apr-b-1": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-apr-b-2": /プログラム中の空欄aとb.*正しい答えの組合せ/,
+  "sample-2022-apr-b-3": /プログラム中の空欄aとb.*正しい答えの組合せ/,
+  "sample-2022-apr-b-4": /記述中の空欄a〜c.*正しい答えの組合せ/,
+  "sample-2022-apr-b-5": /プログラム中の空欄.*正しい答え/,
+  "sample-2022-apr-b-6": /図1中の項番.*それぞれに対処する組織.*組合せ/,
   "2023-a-1": /(?:2|8|10|16)進小数[\dA-F]+\.[\dA-F]+を(?:2|8|10|16)進小数に変換したものはどれか。/,
   "2023-a-2": /値が変わるポインタ.*全て/,
   "2023-a-6": /成立する推移的関数従属/,
@@ -103,6 +132,16 @@ const revisedCues: Record<string, RegExp> = {
 const descriptionBlanks = new Set(["2023-b-2", "2023-b-3", "2023-b-4", "2024-b-4", "2025-b-4", "2025-b-5"]);
 const pairedBlanks = new Set(["2023-b-1", "2023-b-5", "2024-b-5", "2025-b-1", "2025-b-3", "2025-b-5", "2026-b-4", "2026-b-5"]);
 function assertSourceDirective(source: string, prompt: string) {
+  if (source.startsWith("sample-2022-dec-b-")) {
+    assert.match(prompt, originalIntents[source]);
+    assert.match(prompt, /解答群/);
+    return;
+  }
+  if (source.startsWith("sample-2022-apr-b-")) {
+    assert.match(prompt, originalIntents[source]);
+    assert.match(prompt, /解答群の中から選べ。/);
+    return;
+  }
   if (revisedCues[source]) assert.match(prompt, revisedCues[source], source);
   if (!source.includes("-b-")) return;
   if (source === "2023-b-6") {
@@ -146,9 +185,9 @@ function assertIntent(source: string, q: Question) {
   if (fact) assert(!prompt.includes("誤っている"), source);
 }
 
-test("all 103 original question intents survive abstraction at baseline and changed inputs", async () => {
+test("all 189 original question intents survive abstraction at baseline and changed inputs", async () => {
   const b = fixture();
-  assert.equal(Object.keys(originalIntents).length + facts.length, 103);
+  assert.equal(Object.keys(originalIntents).length + facts.length, 189);
   for (const t of b.templates) {
     const base = b.questions.find(
       (q) => q.id === t.baseQuestionRef.questionId,

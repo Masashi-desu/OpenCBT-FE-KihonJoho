@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-a-19",
+  "revision": 4,
+  "title": "DRAM",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-a-19",
+    "revision": 4
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-a-19",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 1,
+      "minimum": 0,
+      "maximum": 2
+    },
+    "fields": [
+      {
+        "name": "着目する条件・記述",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問19",
+          "page": 13,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "19"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "3e252f58e8705364019f943c9e8068b818285f912040f483a1e1c8ae5fb07d50"
+}

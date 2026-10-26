@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-a-40",
+  "revision": 4,
+  "title": "テスト手法",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-a-40",
+    "revision": 4
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-a-40",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 1,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "問う条件",
+        "minimum": 0,
+        "maximum": 3
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      1
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問40",
+          "page": 21,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "40"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "d76f9b7ee9419f425b387bbf5517f38ccf92caacd0893166afed47b767e45899"
+}

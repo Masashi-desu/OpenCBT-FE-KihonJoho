@@ -46,30 +46,37 @@
 | `files.sources[]` | 「files.sources」に記録する一つの要素。このカタログが読込みを許可する出典資料レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.sources[].path` | 許可する出典資料JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.sources[].sha256` | 指定した出典資料ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.sources[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `files.rights` | このカタログが読込みを許可する利用条件レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 / uniqueItems=true |
 | `files.rights[]` | 「files.rights」に記録する一つの要素。このカタログが読込みを許可する利用条件レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.rights[].path` | 許可する利用条件JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.rights[].sha256` | 指定した利用条件ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.rights[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `files.assets` | このカタログが読込みを許可する画像素材のメタデータレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 / uniqueItems=true |
 | `files.assets[]` | 「files.assets」に記録する一つの要素。このカタログが読込みを許可する画像素材のメタデータレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.assets[].path` | 許可する画像素材のメタデータJSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.assets[].sha256` | 指定した画像素材のメタデータファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.assets[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `files.questions` | このカタログが読込みを許可する問題レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 / uniqueItems=true |
 | `files.questions[]` | 「files.questions」に記録する一つの要素。このカタログが読込みを許可する問題レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.questions[].path` | 許可する問題JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.questions[].sha256` | 指定した問題ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.questions[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `files.sets` | このカタログが読込みを許可する問題セットレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 / uniqueItems=true |
 | `files.sets[]` | 「files.sets」に記録する一つの要素。このカタログが読込みを許可する問題セットレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.sets[].path` | 許可する問題セットJSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.sets[].sha256` | 指定した問題セットファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.sets[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `files.exams` | このカタログが読込みを許可する試験設定レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 / uniqueItems=true |
 | `files.exams[]` | 「files.exams」に記録する一つの要素。このカタログが読込みを許可する試験設定レコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.exams[].path` | 許可する試験設定JSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.exams[].sha256` | 指定した試験設定ファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.exams[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `files.templates` | このカタログが読込みを許可する生成テンプレートレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 / uniqueItems=true |
 | `files.templates[]` | 「files.templates」に記録する一つの要素。このカタログが読込みを許可する生成テンプレートレコードのファイル一覧。列挙したファイルだけを同じカタログ内の参照解決に使用する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `files.templates[].path` | 許可する生成テンプレートJSONの配布物内の相対位置。種類のディレクトリに限定し、ネットワークURLやディレクトリ外の探索へ使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^(sources&#124;rights&#124;assets&#124;questions&#124;sets&#124;exams&#124;templates)/[a-z0-9-]+\\.json$" |
 | `files.templates[].sha256` | 指定した生成テンプレートファイルのバイト列を固定する照合値。空白変更も不一致として検出し、原資料からの改変有無や権利判断には使わない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
+| `files.templates[].recordCount` | 複数レコードを一つのJSON配列として格納した場合の要素数。省略時は従来の単一レコード。ファイル全体のhash・2MiB制限に加え、各レコードを種類ごとのSchemaと参照規則で検証する。 | 任意 | 任意：配列ファイルだけに記録し、実際の要素数との不一致を拒否する。単一レコードへ配列として補完しない。 | integer | minimum=1 / maximum=64 |
 | `withdrawals` | 保存済み問題の使用停止を伝える通知。本文や撤回素材の公開履歴ではなく、対象の識別情報と公開可能な説明だけを保持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 |
 | `withdrawals[]` | 「withdrawals」に記録する一つの要素。保存済み問題の使用停止を伝える通知。本文や撤回素材の公開履歴ではなく、対象の識別情報と公開可能な説明だけを保持する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `withdrawals[].questionRef` | 新規使用と保存内容の再表示を止める対象問題の不変参照。現行カタログから除いた問題も識別し、対象本文を再録する必要はない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
@@ -209,12 +216,15 @@
 | `block{table}.rows` | 表の行を表示順で保持する。各行はcolumnsと同じ列数のセルを持ち、任意HTMLや結合セルを入れない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=100 |
 | `block{table}.rows[]` | 表の一行を構成するセルの並び。列見出しと同じ順序・列数を保持する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | array | minItems=1 / maxItems=12 |
 | `block{table}.rows[][]` | この行の一つのセルに表示する内容。対応する列見出しと同じ位置に保持し、空文字は空欄として表示する。列を省略して位置を詰めない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | string | minLength=0 / maxLength=2000 |
+| `block{table}.captionPresentation` | 図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。 | 任意 | 任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。 | string / common.schema.json#/$defs/captionPresentation | enum=["visible","accessible"] |
+| `block{table}.sourceLabels` | 読み上げ用のcaptionとは別に可視保持する、原資料で確認した識別子・題・単位注記。 | 条件付き | 条件付き：captionPresentationがaccessibleの場合だけ指定できる。省略時は別ラベルを作らず、指定する場合は1〜4件でtextとpositionを省略しない。 | array | minItems=1 / maxItems=4 / uniqueItems=true |
+| `block{table}.sourceLabels[]` | 字面と位置を原資料で照合した可視ラベル1件。 | 配列要素 | 配列要素：textとpositionを必須とし、未知フィールドと同一要素の重複を拒否する。 | object / common.schema.json#/$defs/sourceLabel | additionalProperties=false |
 | `block{image}.type` | 許可した画像素材を表示する判別子。データから外部画像URLを直接読み込むブロックは作らない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="image" |
 | `block{image}.assetId` | 表示するassetのID。ファイル・代替文・素材条件を同じ素材レコードから解決し、question.assetRefsにも列挙する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `block{image}.caption` | この使用箇所で画像を説明する文章。asset.altの代替文と素材条件の表示を置き換えず、図の文脈を補う。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=500 |
 | `block{formula}` | 数式の表示内容と日本語等の代替説明。Unicode又は許可範囲のLaTeXを表示する構造で、計算や任意HTMLの実行を行うデータではない。 | 種類別 | 種類別：このブロック種類を選んだ場合は参照Schemaの必須項目を満たす。別種類の代用や推定変換はしない。 | object / formula.schema.json | additionalProperties=false |
 | `block{code}.type` | コード又は疑似言語を表示専用として扱う判別子。実行・コンパイル・式評価の機能へ接続しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="code" |
-| `block{code}.language` | 表示しているコードの言語区分。疑似言語・通常テキスト・SQLの表示を識別し、実行方法や外部モジュールを指定しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["pseudocode","text","sql"] |
+| `block{code}.language` | 表示しているコードの言語区分。疑似言語・SQL・C・COBOLは表示専用コードとして常時表示し、textは原文画像を補うPDF由来の補助テキストとして扱う。実行方法や外部モジュールを指定しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["pseudocode","text","sql","c","cobol"] |
 | `block{code}.text` | 空白・改行・インデントを含めて表示するコード本文。解答に必要な構造を保ち、ブラウザで実行しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=20000 |
 | `block{diagram}` | 管理された描画器へ渡す表示専用の図構造。図素材の出典・条件を保持し、任意コード、解答操作、経路実行をデータに含めない。 | 種類別 | 種類別：このブロック種類を選んだ場合は参照Schemaの必須項目を満たす。別種類の代用や推定変換はしない。 | object / diagram.schema.json | additionalProperties=false |
 
@@ -271,6 +281,27 @@
 | --- | --- | --- | --- | --- | --- |
 | `parameters.values` | 本文・表・図・正答・解説を整合させるために共通で使う配列入力。テンプレートの許可域を別途検証し、ユーザーの解答から値を変更しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=50 |
 | `parameters.values[]` | 「parameters.values」に記録する一つの要素。本文・表・図・正答・解説を整合させるために共通で使う配列入力。テンプレートの許可域を別途検証し、ユーザーの解答から値を変更しない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | integer | minimum=-1000000 / maximum=1000000 |
+
+### captionPresentation
+
+**意味：** 図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。
+
+**欠落時の扱い：** 任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。
+
+**型・制約：** string。enum=["visible","accessible"]。
+
+### sourceLabel
+
+**意味：** 読み上げ用のcaptionとは別に可視保持する原資料のラベル。
+
+**欠落時の扱い：** 任意：sourceLabelsを指定した場合の各要素。textとpositionの欠落は拒否し、captionから補完しない。
+
+**型・制約：** object。additionalProperties=false。
+
+| フィールド | 意味 | 必須／任意 | 欠落時の扱い | 型・参照先 | 制約 |
+| --- | --- | --- | --- | --- | --- |
+| `sourceLabel.text` | 原資料に実在する識別子・単位注記・題をその字面で保持する。意味名や解法を新設しない。 | 必須 | 必須：欠落・空文字を拒否する。semantic名や隣接素材の題から補完しない。 | string | minLength=1 / maxLength=300 |
+| `sourceLabel.position` | 原資料で確認した位置。startは左側、top-start/top-center/top-endは上の左端/中央/右端。 | 必須 | 必須：欠落・未登録の位置を拒否する。原資料との照合で指定する。 | string | enum=["start","top-start","top-center","top-end"] |
 
 ## 任意の詳細解説パッケージ（detailed-explanation）
 
@@ -361,9 +392,12 @@
 | `scene{graph}.edges[].label` | この接続の条件又は関係を示す文字。分岐の説明と読み上げ用説明に使い、ラベル不要の場合も空文字で明示する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=0 / maxLength=100 |
 | `scene{graph}.edges[].directed` | 接続に向きがあるか。フローチャートでは有向を固定し、グラフでは宣言に応じて矢印と読み上げ用説明の方向表示を切り替える。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | boolean | 子構造・種類別定義に従う |
 | `scene{source_figure}.kind` | 公開原問題の図形式を保つ登録プロファイル。任意SVG・HTML・CSS・JSを格納しない。 | 必須 | 必須：省略を拒否する。 | string | const="source_figure" |
-| `scene{source_figure}.profile` | 開発側の固定描画規則の識別子。値の意味・範囲・個数を登録契約で検査する。 | 必須 | 必須：未登録・null・省略を拒否する。 | string | enum=["waf-network","euclid-flow","crash-network","cache-layout","scatter","bst","project-network","logic-circuit","waveform","undirected-graph","adjacency-matrix","stack","linked-arrays","ordered-array","onehot"] |
+| `scene{source_figure}.profile` | 開発側の固定描画規則の識別子。値の意味・範囲・個数を登録契約で検査する。 | 必須 | 必須：未登録・null・省略を拒否する。 | string | enum=["waf-network","euclid-flow","crash-network","cache-layout","scatter","bst","project-network","logic-circuit","waveform","undirected-graph","adjacency-matrix","stack","linked-arrays","ordered-array","onehot","list-element-class","bigram-example","priority-queue-class","sample-tree-14","sample-minimax","dec-a-binary-flow","dec-a-automaton","dec-a-bst","dec-a-array","dec-a-hash","dec-a-availability","dec-a-buffer","dec-a-multiplicity","dec-a-network","dec-a-dispatch"] |
 | `scene{source_figure}.values` | 登録順に図の値と構造を確定する入力列。図単独で再抽選しない。 | 必須 | 必須：個数・範囲を検査する。 | array | minItems=1 / maxItems=50 |
 | `scene{source_figure}.values[]` | 登録プロファイルの入力値。実行する命令として解釈しない。 | 配列要素 | 要素：nullや穴を拒否する。 | integer | minimum=-1000000 / maximum=1000000 |
+| `captionPresentation` | 図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。 | 任意 | 任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。 | string / common.schema.json#/$defs/captionPresentation | enum=["visible","accessible"] |
+| `sourceLabels` | 読み上げ用のcaptionとは別に可視保持する、原資料で確認した識別子・題・単位注記。 | 条件付き | 条件付き：captionPresentationがaccessibleの場合だけ指定できる。省略時は別ラベルを作らず、指定する場合は1〜4件でtextとpositionを省略しない。 | array | minItems=1 / maxItems=4 / uniqueItems=true |
+| `sourceLabels[]` | 字面と位置を原資料で照合した可視ラベル1件。 | 配列要素 | 配列要素：textとpositionを必須とし、未知フィールドと同一要素の重複を拒否する。 | object / common.schema.json#/$defs/sourceLabel | additionalProperties=false |
 
 ## FE試験設定（exam）
 
@@ -377,8 +411,8 @@
 | `subject` | この設定で扱う本アプリのFE科目。A又はBは単一科目、mixedは科目A・Bを含む無限周回の学習用問題群を表す。セットの科目範囲と一致させ、時間付き練習は単一科目に限る。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B","mixed"] |
 | `title` | モード選択と開始前説明に表示する設定名。公式の試験実施名と誤認させず、本アプリの練習又は学習用設定と分かる名前にする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=200 |
 | `mode` | 制限時間付きで正答を終了後に示すpracticeか、時間制限なく正答表示・一時停止を扱うstudyかを選ぶ。FE本番の追加機能とは説明しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["practice","study"] |
-| `questionCount` | 問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。 | 任意 | practiceでは必須。studyで省略時は問題数の制限なし。0やnullを無制限の代用にしない。 | integer | minimum=1 / maximum=60 |
-| `timeLimitSeconds` | practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。 | 条件付き | 条件付き：practiceでは必須で欠落を拒否する。studyでは省略し、時間制限を設けない。 | integer | minimum=1 / maximum=7200 |
+| `questionCount` | 問題数を制限する場合の出題枠数。指定時は開始時に全枠を固定する。studyで省略すると問題数の制限を設けず、同じセッションの末尾へ問題を追加できる。追加済みの出題内容と解答は保持し、結果はsession.entriesの全枠を集計する。 旧午前では当該冊子の80問・150分（9000秒）を扱う。 | 任意 | practiceでは必須。studyで省略時は問題数の制限なし。0やnullを無制限の代用にしない。 | integer | minimum=1 / maximum=80 |
+| `timeLimitSeconds` | practice開始から終了までの制限時間。準備時間を含めず、startedAtと組み合わせて再読込みでも延長しない期限を決める。 旧午前では当該冊子の80問・150分（9000秒）を扱う。 | 条件付き | 条件付き：practiceでは必須で欠落を拒否する。studyでは省略し、時間制限を設けない。 | integer | minimum=1 / maximum=9000 |
 | `questionOrder` | セットに記録した順序で選ぶか、開始時に順序を抽選するか。確定した出題順をsession.entriesへ保存し、再開時に再抽選しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["set","shuffle"] |
 | `choiceOrder` | 元のchoices順を使うか、開始時に順序を抽選するか。choiceShuffleAllowedを尊重し、実際の順序はchoiceOrder配列へ固定する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["fixed","shuffle"] |
 | `duplicatePolicy` | 年度別のlineage_uniqueは同じ問題・派生系列を重複させない。生成ミックスのinstance_uniqueは同じ系列の別入力を許可するが、同一テンプレートの同じ入力を同じセッションへ重複させない。無限周回のrandom_reuseは全候補から毎回独立に抽選し、同じ系列の連続出題や過去の条件の再利用を許可する。生成時は同系列の直前の条件・可変な正答を避け、各出題を新しい生成記録へ保存する。cycle_uniqueは旧保存設定の互換用で、一巡内の系列重複を拒否する。次問追加時には出題済み内容を保持して新しいrandom_reuse設定へ切り替える。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["lineage_unique","instance_unique","cycle_unique","random_reuse"] |
@@ -770,13 +804,26 @@
 | `contextRefs` | この設問が使用するcontextsのID一覧。全て存在する本文へ解決し、参照本文がない問題は空配列とする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=200 / uniqueItems=true |
 | `contextRefs[]` | 「contextRefs」に記録する一つの要素。この設問が使用するcontextsのID一覧。全て存在する本文へ解決し、参照本文がない問題は空配列とする。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `prompt` | 利用者に回答を求める設問本文と、その出典・条件。必要な長文はcontextRefsで関連付け、選択肢や解説とは別の部品として表示する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/content | additionalProperties=false |
-| `choices` | 選択肢の内容と永続IDの一覧。ここでの順序を原順序とし、画面の表示ラベルやシャッフル後の位置から正答を特定しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=2 / maxItems=10 |
+| `choices` | 選択肢の内容と永続IDの一覧。ここでの順序を原順序とし、画面の表示ラベルやシャッフル後の位置から正答を特定しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=2 / maxItems=2000 |
 | `choices[]` | 「choices」に記録する一つの要素。選択肢の内容と永続IDの一覧。ここでの順序を原順序とし、画面の表示ラベルやシャッフル後の位置から正答を特定しない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `choices[].id` | この問題内で選択肢の内容を識別するID。correctAnswerとユーザー解答の参照先で、ア・イ等の表示ラベルや数値そのものとは分ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `choices[].content` | 一つの選択肢に表示する文章・数式・図等と部品の出典・条件。選択肢の順序を変えてもIDに結び付いた内容を維持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/content | additionalProperties=false |
-| `correctAnswer` | この改訂の単一選択の正答と正答情報の出典・条件。解答セッションから分離し、公式解答と独自検証を区別する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object | additionalProperties=false |
-| `correctAnswer.choiceId` | 正答となるchoicesのID。表示順・ア等のラベルを変えても同じ選択肢を指し、存在しないIDは参照検証で拒否する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer` | 単一選択又は複数解答欄の正答情報と出典。正解なしを架空の選択肢IDへ変換しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object | additionalProperties=false |
+| `correctAnswer.choiceId` | 正答となるchoicesのID。表示順・ア等のラベルを変えても同じ選択肢を指し、存在しないIDは参照検証で拒否する。 | 任意 | 単一選択で必須。複数解答では省略し、partsを使う。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `correctAnswer.attribution` | 正答情報の作成主体・出典・条件。公式解答冊子又は独自の検証記録へ対応させ、設問の出典だけで正答の根拠を代用しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/attribution | additionalProperties=false |
+| `correctAnswer.parts` | 全解答欄の正答。単独・順不同・正解なしのいずれかで各欄を一度だけ覆う。 | 任意 | 複数解答で必須。単一選択では省略する。 | array | minItems=1 / maxItems=200 |
+| `correctAnswer.parts[]` | 解答欄の正答の種類別定義。 | 配列要素 | 要素：kindに対応する種類の条件を満たす。 | oneOf（種類別） | 子構造・種類別定義に従う |
+| `correctAnswer.parts[]{choice}.kind` | 一つの欄の単一正答。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | const="choice" |
+| `correctAnswer.parts[]{choice}.partId` | 正答が対応する解答欄ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{choice}.choiceId` | その解答欄の正答選択肢ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{unordered}.kind` | 順序を問わない複数欄の正答。重複の個数も一致させる。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | const="unordered" |
+| `correctAnswer.parts[]{unordered}.partIds` | 同じ解答群を使う順不同の解答欄ID。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=2 / maxItems=200 / uniqueItems=true |
+| `correctAnswer.parts[]{unordered}.partIds[]` | 参照先を識別するID。 | 配列要素 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{unordered}.choiceIds` | 順不同の正答を構成する選択肢ID。重複する正答は個数を保持する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=2 / maxItems=200 |
+| `correctAnswer.parts[]{unordered}.choiceIds[]` | 正答の選択肢ID。 | 配列要素 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{no_correct_answer}.kind` | 公式解答が正解なしとする欄。採点対象から除外する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | const="no_correct_answer" |
+| `correctAnswer.parts[]{no_correct_answer}.partId` | 採点対象外とする解答欄ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{no_correct_answer}.reason` | 公式の正解なしの記載・対象箇所を説明する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | minLength=1 / maxLength=500 |
 | `explanation` | 復習で提示する解説とその出典・条件。独自に作成した解説はoriginalを明示し、公式問題に付けても公式解説と表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/content | additionalProperties=false |
 | `detailedExplanationRef` | 任意の詳細解説UIへの参照。通常のexplanationを保持し、参照先を利用できない場合は詳細解説なしと同じ導線にする。 | 任意 | 任意：旧snapshotには補完しない。参照・初期値は内容hashに含む。HTML/CSS/JSそのものは格納しない。 | object | additionalProperties=false |
 | `detailedExplanationRef.directory` | アプリ配布ルートからの問題専用ディレクトリ。manifest.jsonとindex.htmlを入口として使う。外部URL・上位パス・エンコードされたパスを認めない。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | pattern="^explanations/[a-z][a-z0-9-]{2,79}/$" |
@@ -798,6 +845,12 @@
 | `review.checks.answer` | 正答情報を公式解答又は独立した計算・根拠と照合した結果。存在するchoiceIdを指すという構造検証よりも広い内容確認を記録する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["pass","fail","not_applicable"] |
 | `review.checks.explanation` | 独自解説の論理と正答との対応を確認した結果。第三者教材を流用していないことや解説の出自もnotesとattributionに記録する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["pass","fail","not_applicable"] |
 | `review.notes` | 各工程で実際に確認した内容・方法・主体・限界を説明する。機械検証と原資料の照合、手計算等を区別し、実施していない確認を記載しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=3000 |
+| `answerParts` | 旧午後等の一つの問題にある解答欄。設問・空欄の対応と各解答群を保持し、大問を別の単一選択へ置き換えない。 | 任意 | 任意：単一選択では省略する。記録した場合はcorrectAnswer.partsを必須とする。 | array | minItems=1 / maxItems=200 |
+| `answerParts[]` | 一つの解答欄と参照する解答群。 | 配列要素 | 必須：親項目がある場合は欠落を拒否する。 | object | additionalProperties=false |
+| `answerParts[].id` | 問題内の解答欄ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `answerParts[].label` | 設問・空欄を特定する表示名。原資料の設問番号と記号を保持する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | minLength=1 / maxLength=100 |
+| `answerParts[].choiceIds` | この解答欄で選択できるchoicesのID。解答群の原順序を保持する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=2 / maxItems=200 / uniqueItems=true |
+| `answerParts[].choiceIds[]` | 参照先を識別するID。 | 配列要素 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 
 ### 条件付き制約
 
@@ -937,6 +990,37 @@
       },
       "type": "object"
     }
+  },
+  {
+    "if": {
+      "required": [
+        "answerParts"
+      ]
+    },
+    "then": {
+      "properties": {
+        "correctAnswer": {
+          "required": [
+            "parts"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "else": {
+      "properties": {
+        "choices": {
+          "maxItems": 10,
+          "type": "array"
+        },
+        "correctAnswer": {
+          "required": [
+            "choiceId"
+          ],
+          "type": "object"
+        }
+      }
+    }
   }
 ]
 ```
@@ -952,20 +1036,72 @@
 | `sessionId` | この結果を生成したsessionのID。問題順・実解答・見直し・正答表示履歴と当時の出題内容を参照するために使う。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `sessionRevision` | 結果を確定したsessionの保存版。後の状態変更や撤回処理で内容が変わった場合に、同じ結果として無断で再解釈しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=100000 |
 | `generatedAt` | 終了時の結果を確定した時刻。セッション終了時刻とは別に処理時点を記録し、後のレビューや再生成の時刻と混同しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | format="date-time" / pattern="Z$" |
-| `calculationVersion` | 記録した学習指標の計算規則を識別する版。将来計算方法が変わっても、過去の表示値がどの規則によるか説明できるようにする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="learning-accuracy-v1" |
-| `total` | この結果の対象となった出題枠数。正解・不正解・未解答の合計とentries件数に一致させ、公式成績の配点を表す値としない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 |
+| `calculationVersion` | 記録した学習指標の計算規則を識別する版。将来計算方法が変わっても、過去の表示値がどの規則によるか説明できるようにする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["learning-accuracy-v1","learning-accuracy-v2"] |
+| `total` | 出題枠数。正解・不正解・未解答・採点対象外の合計とentries件数に一致させる。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 |
 | `correct` | 記録したoutcomeがcorrectである枠数。学習正答率の分子に使い、本番のIRT得点や合格判定と表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
 | `incorrect` | 選択済みでoutcomeがincorrectである枠数。未解答と分けて復習対象を示し、内訳の合計をtotalと照合する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
 | `unanswered` | 選択をしないまま終了した枠数。学習正答率の分母に含め、未解答を無かった問題として除外しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
 | `revealedCount` | studyで正答・解説を表示したことがある枠数。セッションのrevealed履歴を維持し、正答表示後の学習結果を説明する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=0 |
-| `learningAccuracyPercent` | 全枠を等しい重みとしてcorrect÷total×100を小数1桁へ丸めた学習正答率。公式得点、合否、能力推定として表示しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | number | minimum=0 / maximum=100 / multipleOf=0.1 |
+| `learningAccuracyPercent` | 各問題を同じ重みとする学習正答率。v1はcorrect÷total、v2は採点対象外の問題を分母から除く。全問題対象外なら0。公式得点ではない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | number | minimum=0 / maximum=100 / multipleOf=0.1 |
 | `entries` | 出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 |
 | `entries[]` | 「entries」に記録する一つの要素。出題順に対応する各問の結果と当時の参照。session.entriesと同じ順序を保ち、復習対象と生成内容の対応を維持する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `entries[].questionRef` | 結果対象の固定問題又は生成基準問題の不変参照。セッションと同じ組にして保存し、最新改訂へ置き換えない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
-| `entries[].outcome` | この枠を正解、不正解、未解答のどれとして記録したか。件数の集計と復習表示に使い、参照検証自体は採点処理を実行しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["correct","incorrect","unanswered"] |
+| `entries[].outcome` | この枠を正解、不正解、未解答のどれとして記録したか。件数の集計と復習表示に使い、参照検証自体は採点処理を実行しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["correct","incorrect","unanswered","unscored"] |
 | `entries[].generatedInstanceId` | 生成枠の結果が対象としたinstanceのID。sessionの同じ枠と一致させ、実際に出題した正答・図・解説を復習する。 | 条件付き | 条件付き：対応するsession枠でbindingPerformed=trueなら必須。元データ又は固定問題を使った枠では省略する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `entries[].parts` | 複数解答の各欄の結果。正解なしはunscoredとし、別の選択肢へ正答を移さない。 | 任意 | 複数解答のv2で記録。単一選択又は旧結果では省略する。 | array | minItems=1 / maxItems=200 |
+| `entries[].parts[]` | 一つの解答欄の結果。 | 配列要素 | 必須：親項目がある場合は欠落を拒否する。 | object | additionalProperties=false |
+| `entries[].parts[].partId` | 対象の解答欄ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `entries[].parts[].outcome` | 欄の正解・不正解・未解答・採点対象外。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | enum=["correct","incorrect","unanswered","unscored"] |
 | `validity` | この結果を有効、訂正の説明が必要、又は無効として表示する区分。撤回・訂正時に当時の計算を黙って置き換えないために使う。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["valid","invalidated"] |
 | `notice` | 訂正・無効等について利用者に示す説明。撤回された本文や非公開情報を再録せず、結果をどう扱うかを伝える。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=1000 |
+| `unscored` | 全欄が正解なしで採点対象外となる問題数。正解・不正解・未解答へ加えない。 | 任意 | v2では必須。v1では省略し、旧結果を変更しない。 | integer | minimum=0 |
+| `partSummary` | 問題別の集計に加えた解答欄別の学習集計。公式得点ではない。 | 任意 | v2では必須。v1の旧結果には補完しない。 | object | additionalProperties=false |
+| `partSummary.total` | 全解答欄数。単一選択は一欄として数える。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=0 |
+| `partSummary.correct` | 正解した欄数。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=0 |
+| `partSummary.incorrect` | 不正解の欄数。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=0 |
+| `partSummary.unanswered` | 未解答の欄数。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=0 |
+| `partSummary.unscored` | 正解なしで採点対象外の欄数。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | integer | minimum=0 |
+| `partSummary.learningAccuracyPercent` | 正解欄数÷採点対象欄数を百分率で小数1桁に丸める。全欄対象外の場合は0。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | number | minimum=0 / maximum=100 / multipleOf=0.1 |
+
+### 条件付き制約
+
+以下は元Schemaの構造上の条件である。参照先による科目・モード・生成枠の条件は[データモデル](/data-model)と[受入条件](/acceptance)にも従う。改変の意味を判定する規則ではない。
+
+```json
+[
+  {
+    "if": {
+      "properties": {
+        "calculationVersion": {
+          "const": "learning-accuracy-v1"
+        }
+      }
+    },
+    "then": {
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "unscored"
+            ]
+          },
+          {
+            "required": [
+              "partSummary"
+            ]
+          }
+        ]
+      }
+    },
+    "else": {
+      "required": [
+        "unscored",
+        "partSummary"
+      ]
+    }
+  }
+]
+```
 
 ## 利用条件と権利情報（rights）
 
@@ -1091,7 +1227,7 @@
 | `entries` | 出題順と各問のユーザー状態。問題数が指定されている場合は開始時に全枠を固定し、無制限のstudyでは末尾へ追加する。追加済みの回答・見直し・正答表示履歴と出題順を再開時に保持する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 |
 | `entries[]` | 「entries」に記録する一つの要素。開始時に固定した問題順と各問のユーザー状態。回答・見直し・正答表示履歴を問題定義から分離し、再開時に出題順を抽選し直さない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `entries[].questionRef` | この枠の固定問題又は生成の基準問題の不変参照。生成枠の実際の内容はgeneratedInstanceIdからinstance.questionへ解決する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
-| `entries[].choiceOrder` | 実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=2 / maxItems=200 / uniqueItems=true |
+| `entries[].choiceOrder` | 実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=2 / maxItems=2000 / uniqueItems=true |
 | `entries[].choiceOrder[]` | 「entries[].choiceOrder」に記録する一つの要素。実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `entries[].selectedChoiceId` | 利用者が現在選んだ選択肢のID。choiceOrderと同じ問題のchoicesへ解決し、表示ラベルや配列位置で保存しない。 | 任意 | 省略は未解答を意味する。選択解除ではフィールドを削除し、最初の選択肢やnullで補わない。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `entries[].reviewFlag` | 後で見直すという利用者の印。未解答・解答済みとは独立して保存し、falseも明示して一覧の状態表示へ使う。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | boolean | 子構造・種類別定義に従う |
@@ -1102,6 +1238,7 @@
 | `entries[].issuedContent.originKind` | 表示対象questionの出自区分を出題時に保存した値。公式再録・公式改変・独自問題の表示を過去結果でも保つ。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["official_reprint","official_adaptation","original"] |
 | `entries[].issuedContent.contentSha256` | 実際に出題したquestion全体の照合値。保存内容が変わった場合は停止し、改変あり／なしの宣言値へ自動変換しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | pattern="^[a-f0-9]{64}$" |
 | `entries[].issuedContent.bindingPerformed` | この出題枠で値の生成・バインドを行ったかの処理記録。実施した枠はtrue、元データ又は固定問題を使った枠はfalseとし、数値の一致や文字差分から推定しない。 | 必須 | 必須：欠落を拒否する。既定値や推定値で補完しない。 | boolean | 子構造・種類別定義に従う |
+| `entries[].selectedPartChoices` | 解答欄IDから選択肢IDへの対応。未選択の欄はキーを持たず、単一選択のselectedChoiceIdと同時に使わない。 | 任意 | 複数解答で任意。省略は全欄未選択。空オブジェクトと未選択を再採点時に補完しない。 | object | additionalProperties={"$ref":"https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id"} |
 | `storage` | セッション、snapshot、生成instance、結果を利用者のブラウザ内で保持する保存方式。初期版ではサーバに解答を送る保存を追加しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | const="indexeddb" |
 | `expiresAt` | 最終保存から180日で削除対象となる期限。セッションだけでなく所有instanceと依存snapshotの整理にも使用する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | format="date-time" / pattern="Z$" |
 | `revision` | 利用者状態を保存するたびに進む保存版。競合更新とresult.sessionRevisionの照合に使い、問題・セットの不変改訂とは意味を分ける。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=100000 |
@@ -1257,12 +1394,12 @@
 | `revision` | 候補問題と関連試験設定を固定する改訂。問題の追加・差替え・設定の変更時に増やし、過去の出題候補を上書きしない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | integer | minimum=1 / maximum=100000 |
 | `title` | S01の問題セット選択に表示する名前。内容・学習目的を説明し、公式に提供された試験セットと誤認させない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | minLength=1 / maxLength=200 |
 | `subject` | このセットの科目範囲。A又はBは単一科目、mixedは科目A・Bを含む無限周回の学習用問題群を表す。各questionの科目は維持し、examの科目範囲と一致させる。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["A","B","mixed"] |
-| `questionRefs` | 問題と基準問題の不変参照を持つ候補一覧。年度別では原順序を保つ。候補自体に重複参照を置かず、生成ミックスの枠数・同系列の別入力はexam.duplicatePolicyとsession.entriesで決める。候補数と生成出題数は同一とは限らない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=500 / uniqueItems=true |
+| `questionRefs` | 問題と基準問題の不変参照を持つ候補一覧。年度別では原順序を保つ。候補自体に重複参照を置かず、生成ミックスの枠数・同系列の別入力はexam.duplicatePolicyとsession.entriesで決める。候補数と生成出題数は同一とは限らない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=32000 / uniqueItems=true |
 | `questionRefs[]` | 「questionRefs」に記録する一つの出題候補の不変参照。年度別では原順序を保持し、一つの問題を一枠へ選ぶ。生成ミックスでは基準問題を一度だけ候補に登録し、異なる入力を複数のセッション枠へ割り当てられる。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
 | `examConfigRefs` | このセットで開始できる試験設定のID・改訂。問数や分野内訳を満たす設定だけを関連付け、不足するpracticeを選択可能にしない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=1 / maxItems=20 / uniqueItems=true |
 | `examConfigRefs[]` | 「examConfigRefs」に記録する一つの要素。このセットで開始できる試験設定のID・改訂。問数や分野内訳を満たす設定だけを関連付け、不足するpracticeを選択可能にしない。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object / common.schema.json#/$defs/entityRef | additionalProperties=false |
 | `distribution` | セットを文書例・除外・配布対象のどれにするか。配布対象は参照する問題とテンプレートも全て配布可能であることを必要とする。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | string | enum=["docs_only","included","excluded"] |
-| `generationBindings` | このセットの出題候補に対する基準問題と生成テンプレートの対応。候補数は一回の出題数と分離し、実際に出題する枠は試験設定で選ぶ。全問対応では各対象の原問題を候補へ含める。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=500 |
+| `generationBindings` | このセットの出題候補に対する基準問題と生成テンプレートの対応。候補数は一回の出題数と分離し、実際に出題する枠は試験設定で選ぶ。全問対応では各対象の原問題を候補へ含める。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | array | minItems=0 / maxItems=32000 |
 | `generationBindings[]` | 「generationBindings」に記録する一つの要素。セット内のどの候補問題をテンプレート生成の枠として扱うか。固定問題だけのセットでは空配列を保持する。 | 配列要素 | 要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。 | object | additionalProperties=false |
 | `generationBindings[].questionRef` | 生成枠を代表する基準問題の不変参照。questionRefsに一度だけ含まれ、対応テンプレートのbaseQuestionRefと一致する。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/questionRef | additionalProperties=false |
 | `generationBindings[].templateRef` | その枠で使うテンプレートの不変ID・改訂。生成規則、入力域、作成時の改変宣言を解決し、最新改訂へ自動追従しない。 | 必須 | 必須：欠落を拒否する。参照値や既定値で補完しない。 | object / common.schema.json#/$defs/entityRef | additionalProperties=false |

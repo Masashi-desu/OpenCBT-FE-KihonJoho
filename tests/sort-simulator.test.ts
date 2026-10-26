@@ -180,6 +180,7 @@ test("reviewed original and all generated options initialize the right algorithm
     assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef);
     const map = lesson.choiceAlgorithms(c);
     question.choices.forEach((choice, i) => { const expected = (i + rotation) % 4; assert.equal(map[choice.id], reviewed[expected]); assert(choice.content.blocks.some((block: any) => block.text.includes(phrases[expected]))); assert.equal(lesson.initialAlgorithm({ ...c, initialParameters: { choiceId: choice.id } }), reviewed[expected]); });
+    assert(question.correctAnswer.choiceId);
     assert.equal(map[question.correctAnswer.choiceId], reviewed[target]);
     assert.equal(lesson.initialAlgorithm({ ...c, initialParameters: { algorithm: "heap" } }), "heap");
   }

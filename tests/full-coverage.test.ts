@@ -77,12 +77,12 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
 });
 
-test("every one of 103 official sources has exactly one generator and is a mix candidate", async () => {
+test("every one of 189 official sources has exactly one generator and is a mix candidate", async () => {
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  assert.equal(c.total, 103);
-  assert.equal(c.covered, 103);
+  assert.equal(c.total, 189);
+  assert.equal(c.covered, 189);
   assert(
     c.rows.every((r) => r.templates.length === 1 && r.linked.length === 1),
   );
@@ -95,7 +95,7 @@ test("every one of 103 official sources has exactly one generator and is a mix c
       size: "full",
       bindingMode: "generated_values",
     });
-    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 80 : 23);
+    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 140 : 49);
   }
   const missing = structuredClone(b);
   missing.templates = missing.templates.filter(
@@ -170,7 +170,7 @@ for (const d of additionalDefinitions)
         answers.size >= 2,
         `${d.source} must change answer content, not only option order`,
       );
-    else {
+    else if (d.source === "2024-a-20") {
       assert.equal(d.source, "2024-a-20");
       assert.equal(answers.size, 1);
       assert(
@@ -180,6 +180,17 @@ for (const d of additionalDefinitions)
           ),
         ).size === 8,
       );
+    } else if (["sample-2022-dec-a-16","sample-2022-dec-a-18"].includes(d.source)) {
+      assert.equal(d.answerVariation,"fixed");assert.equal(answers.size,1);
+      const variants=Array.from({length:d.fields[0].maximum+1},(_,i)=>d.build([i]));
+      assert.equal(new Set(variants.map(b=>JSON.stringify(b.choices))).size,variants.length);
+      assert(variants.length>=3);
+    } else {
+      assert(["sample-2022-dec-a-2", "sample-2022-dec-b-7", "sample-2022-dec-b-10", "sample-2022-dec-b-12", "sample-2022-dec-b-16"].includes(d.source));
+      assert.equal(d.answerVariation, "fixed");
+      assert.equal(answers.size, 1);
+      const low=d.fields.map(f=>f.minimum), high=d.fields.map(f=>f.maximum);
+      assert.notDeepEqual(d.build(low).prompt,d.build(high).prompt,"fixed-answer algorithms must vary meaningful problem conditions");
     }
     assert.equal(JSON.stringify(base), before);
   });

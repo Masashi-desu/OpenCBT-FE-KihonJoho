@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-b-14",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-decil",
+      "parameterized",
+      "template-source-sample-2022-dec-b-14"
+    ],
+    "topics": [
+      "順位"
+    ],
+    "keywords": [
+      "要素番号1始まり",
+      "要素数1以上、昇順",
+      "p×(要素数−1)を切り上げる",
+      "pは0、0.25、0.5、0.75、1",
+      "rankDataは要素数0"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問14",
+          "page": 23,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "14"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-b-14",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T05:25:42.249Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 10要素・5順位・切上げ・8配列を維持。正確な十分の一単位の等差列6組だけを使い、計算量と精度を増やさない。独立した有理数の天井関数と全8配列を比較。 先頭値の十分の一単位=1、差の十分の一単位=1。",
+        "affectsAnswer": true,
+        "answerDetails": "p×9を切り上げて1を足すと、要素番号は1、4、6、8、10になる。従って戻り値は{0.1, 0.4, 0.6, 0.8, 1}。四捨五入や切捨てを使わず、各pの切上げ位置を区別する。入力と選択肢は小数第1位までで、値を丸めて順位を求める処理ではない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問14",
+            "page": 23,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "14"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の記述中の空欄に入れる正しい答えを、解答群の中から選べ。ここで、配列の要素番号は1から始まる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "要素数1以上で昇順に整列済みの配列を基に、五つの値を返す。summarize({0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1})の戻り値は空欄である。"
+      },
+      {
+        "type": "code",
+        "text": "○実数型: findRank(実数型の配列: sortedData, 実数型: p)\n  整数型: i\n  i ← (p × (sortedDataの要素数 − 1)) の小数点以下を切り上げた値\n  return sortedData[i ＋ 1]\n○実数型の配列: summarize(実数型の配列: sortedData)\n  実数型の配列: rankData ← {} /* 要素数0の配列 */\n  実数型の配列: p ← {0, 0.25, 0.5, 0.75, 1}\n  整数型: i\n  for (i を 1 から pの要素数 まで 1 ずつ増やす)\n    rankDataの末尾に findRank(sortedData, p[i])の戻り値を追加する\n  endfor\n  return rankData",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.3, 0.5, 0.7, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.3, 0.5, 0.8, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.3, 0.6, 0.7, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.3, 0.6, 0.8, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.4, 0.5, 0.7, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.4, 0.5, 0.8, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.4, 0.6, 0.7, 1}"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問14",
+                "page": 23,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "{0.1, 0.4, 0.6, 0.8, 1}"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-8",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "p×9を切り上げて1を足すと、要素番号は1、4、6、8、10になる。従って戻り値は{0.1, 0.4, 0.6, 0.8, 1}。四捨五入や切捨てを使わず、各pの切上げ位置を区別する。入力と選択肢は小数第1位までで、値を丸めて順位を求める処理ではない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 10要素・5順位・切上げ・8配列を維持。正確な十分の一単位の等差列6組だけを使い、計算量と精度を増やさない。独立した有理数の天井関数と全8配列を比較。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

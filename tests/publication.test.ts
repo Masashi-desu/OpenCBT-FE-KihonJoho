@@ -16,8 +16,8 @@ import { validateBundle } from "../src/core/validation";
 test("declared scope cannot be reduced by deleting an original and its generator", () => {
   const b = fixture();
   assert.deepEqual(validateSourceInventory(b), {
-    declared: 104,
-    included: 103,
+    declared: 190,
+    included: 189,
     excluded: 1,
   });
   b.questions = b.questions.filter((q) => q.id !== "question-ipa-2026-a-1");
@@ -46,7 +46,7 @@ test("all distributed original answers match independently extracted official an
       checked++;
     }
   }
-  assert.equal(checked, 103);
+  assert.equal(checked, 189);
 });
 test("license validation rejects notice damage, dependency changes and unlisted bundle packages", () => {
   const root = process.cwd(),

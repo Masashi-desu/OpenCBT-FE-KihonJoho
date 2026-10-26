@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-a-1",
+  "revision": 4,
+  "title": "2の補数",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-a-1",
+    "revision": 4
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-a-1",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 1,
+      "minimum": 4,
+      "maximum": 8
+    },
+    "fields": [
+      {
+        "name": "ビット数",
+        "minimum": 4,
+        "maximum": 8
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      8
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問1",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "bca2c731d5e976906590837f745e17acd2b731ee17c73b5d951ee2572a6a8c99"
+}

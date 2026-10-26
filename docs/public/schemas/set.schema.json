@@ -31,7 +31,11 @@
     },
     "subject": {
       "type": "string",
-      "enum": ["A", "B", "mixed"],
+      "enum": [
+        "A",
+        "B",
+        "mixed"
+      ],
       "description": "このセットの科目範囲。A又はBは単一科目、mixedは科目A・Bを含む無限周回の学習用問題群を表す。各questionの科目は維持し、examの科目範囲と一致させる。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
@@ -43,7 +47,7 @@
         "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
       },
       "minItems": 1,
-      "maxItems": 500,
+      "maxItems": 32000,
       "description": "問題と基準問題の不変参照を持つ候補一覧。年度別では原順序を保つ。候補自体に重複参照を置かず、生成ミックスの枠数・同系列の別入力はexam.duplicatePolicyとsession.entriesで決める。候補数と生成出題数は同一とは限らない。",
       "uniqueItems": true,
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
@@ -63,7 +67,11 @@
     },
     "distribution": {
       "type": "string",
-      "enum": ["docs_only", "included", "excluded"],
+      "enum": [
+        "docs_only",
+        "included",
+        "excluded"
+      ],
       "description": "セットを文書例・除外・配布対象のどれにするか。配布対象は参照する問題とテンプレートも全て配布可能であることを必要とする。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
@@ -84,12 +92,15 @@
             "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
           }
         },
-        "required": ["questionRef", "templateRef"],
+        "required": [
+          "questionRef",
+          "templateRef"
+        ],
         "description": "「generationBindings」に記録する一つの要素。セット内のどの候補問題をテンプレート生成の枠として扱うか。固定問題だけのセットでは空配列を保持する。",
         "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
       },
       "minItems": 0,
-      "maxItems": 500,
+      "maxItems": 32000,
       "description": "このセットの出題候補に対する基準問題と生成テンプレートの対応。候補数は一回の出題数と分離し、実際に出題する枠は試験設定で選ぶ。全問対応では各対象の原問題を候補へ含める。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     }

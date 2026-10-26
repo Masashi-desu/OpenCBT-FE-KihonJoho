@@ -10,8 +10,11 @@ import {
   checkParameters,
 } from "./generation";
 import { selectQuestions, familyOf, nextQuestionRef } from "./selection";
+import { mixProfile } from "./mix-profile";
+import { isLegacyQuestion, isCurrentSubjectMixQuestion, sourceCollections } from "./source-collections";
 import { validateSourceFormat } from "./generation-formats";
 import { bookmarkTemplates } from "./bookmarks";
+import { gradeAnswer, validateAnswerDefinition, validateEntryAnswers } from "./answers";
 export const RETENTION_MS = 180 * 24 * 60 * 60 * 1000;
 export const expires = (at: number) =>
   new Date(at + RETENTION_MS).toISOString();
@@ -235,6 +238,8 @@ export async function prepareRun(
   if (selection.mode === "endless") {
     delete run.selection.year;
     delete run.selection.size;
+    delete run.selection.sourceCollectionId;
+    delete run.selection.mixProfileCollectionId;
   }
   schema("session", run.session);
   return run;
@@ -330,7 +335,8 @@ export async function appendRunQuestion(
 }
 export function remaining(run: Run, at = Date.now()): number {
   return run.session.deadlineAt
-    ? Math.max(0, Math.ceil((Date.parse(run.session.deadlineAt) - at) / 1000))
+    ? Math.min(run.exam.timeLimitSeconds ?? Infinity,
+        Math.max(0, Math.ceil((Date.parse(run.session.deadlineAt) - at) / 1000)))
     : 0;
 }
 export function elapsed(run: Run, at = Date.now()): number {
@@ -348,30 +354,34 @@ export function resultFor(run: Run, at = Date.now()): Result {
     ...(e.generatedInstanceId
       ? { generatedInstanceId: e.generatedInstanceId }
       : {}),
-    outcome: !e.selectedChoiceId
-      ? "unanswered"
-      : e.selectedChoiceId === run.issued[i].correctAnswer.choiceId
-        ? "correct"
-        : "incorrect",
+    ...gradeAnswer(run.issued[i], e),
   }));
   const correct = entries.filter((e) => e.outcome === "correct").length,
     incorrect = entries.filter((e) => e.outcome === "incorrect").length;
+  const compound = entries.some(e => e.parts !== undefined), unscored = entries.filter(e => e.outcome === "unscored").length;
+  const fields = entries.flatMap(e => e.parts ?? [{ partId: "single", outcome: e.outcome }]);
+  const count = (outcome: string) => fields.filter(e => e.outcome === outcome).length;
+  const denominator = entries.length - unscored, fieldDenominator = fields.length - count("unscored");
   const r: Result = {
     schemaVersion: "3.0.0",
     id: `result-${s.id}`,
     sessionId: s.id,
     sessionRevision: s.revision,
     generatedAt: new Date(at).toISOString(),
-    calculationVersion: "learning-accuracy-v1",
+    calculationVersion: compound ? "learning-accuracy-v2" : "learning-accuracy-v1",
     total: entries.length,
     correct,
     incorrect,
-    unanswered: entries.length - correct - incorrect,
+    unanswered: entries.filter(e => e.outcome === "unanswered").length,
+    ...(compound ? { unscored, partSummary: {
+      total: fields.length, correct: count("correct"), incorrect: count("incorrect"), unanswered: count("unanswered"), unscored: count("unscored"),
+      learningAccuracyPercent: fieldDenominator ? Math.round(count("correct") / fieldDenominator * 1000) / 10 : 0,
+    } } : {}),
     revealedCount: s.entries.filter((e) => e.revealed).length,
-    learningAccuracyPercent: Math.round((correct / entries.length) * 1000) / 10,
+    learningAccuracyPercent: denominator ? Math.round((correct / denominator) * 1000) / 10 : 0,
     entries,
     validity: s.status === "invalidated" ? "invalidated" : "valid",
-    notice:
+    notice: compound ? "学習正答率。大問は採点対象の全欄が正解なら正解、未選択の欄があれば未解答とする。正解なしの欄は採点対象外。解答欄別の内訳も表示する。公式配点・IRT評価点・合否ではありません。" :
       "学習正答率。各問を同じ重みで集計した値で、公式IRT評価点・合否・能力推定ではありません。",
   };
   schema("result", r);
@@ -410,13 +420,69 @@ export function updateAnswer(
     return finishRun(run, "expired", at);
   const next = structuredClone(run),
     index = next.session.currentIndex;
+  if (next.issued[index].answerParts) throw new DataError("ANSWER_REF", "解答欄を指定してください");
   if (choiceId && !next.issued[index].choices.some((c) => c.id === choiceId))
     throw new DataError("ANSWER_REF", "選択肢が存在しません");
   if (choiceId) next.session.entries[index].selectedChoiceId = choiceId;
   else delete next.session.entries[index].selectedChoiceId;
   return touch(next, at);
 }
+export function updatePartAnswer(run: Run, partId: string, choiceId: string | undefined, at = Date.now()): Run {
+  if (run.session.status !== "running") throw new DataError("STATE", "現在は解答できません");
+  if (run.session.deadlineAt && remaining(run, at) === 0) return finishRun(run, "expired", at);
+  const index = run.session.currentIndex, part = run.issued[index].answerParts?.find(p => p.id === partId);
+  if (!part || choiceId !== undefined && !part.choiceIds.includes(choiceId)) throw new DataError("ANSWER_REF", "解答欄又は選択肢が存在しません");
+  const next = structuredClone(run), entry = next.session.entries[index];
+  const answers = { ...entry.selectedPartChoices };
+  if (choiceId === undefined) delete answers[partId]; else answers[partId] = choiceId;
+  if (Object.keys(answers).length) entry.selectedPartChoices = answers; else delete entry.selectedPartChoices;
+  return touch(next, at);
+}
 export async function validateRun(run: Run) {
+  if (run.selection.sourceCollectionId !== undefined) {
+    if (run.selection.kind !== "annual" || run.selection.mode === "endless" ||
+      typeof run.selection.sourceCollectionId !== "string" || !run.selection.sourceCollectionId.length)
+      throw new DataError("SESSION_CONFIG", "公開問題集の保存設定が一致しません");
+    // Resolve explicit identities in the saved snapshot, never the latest
+    // catalog or a display title. Older year-only records retain their own
+    // issued settings without being reinterpreted as today's collection.
+    const collection = sourceCollections(run.bundle, run.selection.subject)
+      .find(set => set.id === run.selection.sourceCollectionId);
+    const expected = collection?.questionRefs.map(refKey);
+    const sameRefs = (refs: readonly Ref[]) => expected !== undefined &&
+      refs.length === expected.length && refs.every((ref, i) => refKey(ref) === expected[i]);
+    const configured = collection?.examConfigRefs.map(ref => run.bundle.exams.find(e =>
+      e.id === ref.id && e.revision === ref.revision && e.mode === "practice"))
+      .find(e => e?.timeLimitSeconds !== undefined);
+    const seconds = configured?.timeLimitSeconds ??
+      (expected?.length ?? 0) * (run.selection.subject === "A" ? 90 : 300);
+    if (!collection || !sameRefs(run.set.questionRefs) ||
+      !sameRefs(run.session.entries.map(entry => entry.questionRef)) ||
+      run.exam.questionCount !== expected?.length || run.exam.mode !== run.selection.mode ||
+      run.selection.bindingMode !== "original_data" || run.session.bindingMode !== "original_data" ||
+      (run.exam.mode === "practice" && run.exam.timeLimitSeconds !== seconds))
+      throw new DataError("SESSION_CONFIG", "保存した公開問題集・出題参照・設定が一致しません");
+  }
+  if (run.selection.mixProfileCollectionId !== undefined) {
+    if (run.selection.kind !== "mix" || run.selection.mode === "endless" ||
+      typeof run.selection.mixProfileCollectionId !== "string" || !run.selection.mixProfileCollectionId.length)
+      throw new DataError("SESSION_CONFIG", "基準問題集の保存設定が一致しません");
+    const profile = mixProfile(run.bundle, run.selection);
+    const actual: Record<string, number> = {};
+    for (const q of run.issued) actual[q.learning.area] = (actual[q.learning.area] ?? 0) + 1;
+    const areas = new Set([...Object.keys(profile.quota), ...Object.keys(actual)]);
+    const owned = new Set(profile.collection.questionRefs.map(refKey));
+    if (run.exam.mode !== run.selection.mode || run.exam.questionCount !== profile.questionCount ||
+      run.selection.bindingMode !== "generated_values" || run.session.bindingMode !== "generated_values" ||
+      (run.exam.mode === "practice" && run.exam.timeLimitSeconds !== profile.timeLimitSeconds) ||
+      [...areas].some(area => (actual[area] ?? 0) !== (profile.quota[area] ?? 0)) ||
+      run.set.questionRefs.some(ref => {
+        const q = run.bundle.questions.find(q => refKey(refOf(q)) === refKey(ref));
+        return !q || (profile.legacy
+          ? !isLegacyQuestion(q) || !q.origin.derivedFrom.some(parent => owned.has(refKey(parent)))
+          : !isCurrentSubjectMixQuestion(q));
+      })) throw new DataError("SESSION_CONFIG", "保存した基準問題集・問数・分野構成が一致しません");
+  }
   if (
     run.selection.mode === "endless" &&
     ((run.selection.kind !== "mix" && run.selection.kind !== "bookmark") ||
@@ -494,6 +560,7 @@ export async function validateRun(run: Run) {
       q.origin.kind !== e.issuedContent.originKind
     )
       throw new DataError("SESSION_HASH", "保存した出題内容が一致しません");
+    validateAnswerDefinition(q);
     const binding = run.set.generationBindings.find(
         (g) =>
           g.questionRef.questionId === base.id &&
@@ -544,6 +611,7 @@ export async function validateRun(run: Run) {
       (e.selectedChoiceId && !ids.includes(e.selectedChoiceId))
     )
       throw new DataError("ANSWER_REF", "保存した選択肢が不正です");
+    validateEntryAnswers(q, e);
   }
   if (run.session.currentIndex >= run.issued.length)
     throw new DataError("SESSION_INDEX", "表示位置が不正です");

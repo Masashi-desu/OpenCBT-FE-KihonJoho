@@ -33,7 +33,7 @@ test("all knowledge subjects render without copying a distinctive answer phrase 
         const html = renderToStaticMarkup(createElement(Content, {
           content: q.prompt, bundle, assetUrls: {}, credit: false,
         }));
-        assert(html.includes(stem), `${fact.source}/${target}: visible stem`);
+        assert(html.replace(/<\/?span(?:\s[^>]*)?>/g, "").includes(stem), `${fact.source}/${target}: visible stem, allowing inline layout spans`);
         assert.equal(options.length, 4);
       }
     }

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-sample-2022-dec-b-3",
+  "revision": 2,
+  "title": "配列の累積和",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-sample-2022-dec-b-3",
+    "revision": 2
+  },
+  "generatorRef": {
+    "id": "generator-source-sample-2022-dec-b-3",
+    "version": "3.2.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 2,
+      "minimum": 0,
+      "maximum": 5
+    },
+    "fields": [
+      {
+        "name": "入力配列の循環移動",
+        "minimum": 0,
+        "maximum": 5
+      },
+      {
+        "name": "各要素への加算",
+        "minimum": 0,
+        "maximum": 2
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      0
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問3",
+          "page": 6,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-b",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "50ae97f2ffc0325a5c2d96899f43c4663e0597f4383ea4a316064af72bff5997"
+}

@@ -80,7 +80,13 @@ export function detailContext(run: Run, route: DetailRoute, theme: "light" | "da
   return structuredClone({
     apiVersion: 1 as const,
     question,
-    choiceOrder: entry.choiceOrder.map((id, index) => ({ id, label: labels[index] })),
+    choiceOrder: entry.choiceOrder.map((id, index) => ({ id, label: labels[index] ?? String(index + 1) })),
+    ...(question.answerParts ? {
+      selectedPartChoices: { ...entry.selectedPartChoices },
+      partChoiceOrders: question.answerParts.map(part => ({ partId: part.id,
+        choiceOrder: entry.choiceOrder.filter(id => part.choiceIds.includes(id)).map((id, index) => ({ id, label: labels[index] ?? String(index + 1) })),
+      })),
+    } : {}),
     selectedChoiceId: entry.selectedChoiceId ?? null,
     initialParameters: { ...question.detailedExplanationRef?.initialParameters, ...route.initialParameters },
     generation: instance ? {
@@ -96,7 +102,12 @@ export type DetailContext = ReturnType<typeof detailContext>;
 export function questionDetailContext(question: Question, theme: "light" | "dark"): DetailContext {
   return structuredClone({
     apiVersion: 1 as const, question,
-    choiceOrder: question.choices.map((choice, i) => ({ id: choice.id, label: labels[i] })),
+    choiceOrder: question.choices.map((choice, i) => ({ id: choice.id, label: labels[i] ?? String(i + 1) })),
+    ...(question.answerParts ? {
+      selectedPartChoices: {}, partChoiceOrders: question.answerParts.map(part => ({ partId: part.id,
+        choiceOrder: question.choices.filter(c => part.choiceIds.includes(c.id)).map((c, i) => ({ id: c.id, label: labels[i] ?? String(i + 1) })),
+      })),
+    } : {}),
     selectedChoiceId: null, initialParameters: question.detailedExplanationRef?.initialParameters ?? {},
     generation: null, theme,
   });

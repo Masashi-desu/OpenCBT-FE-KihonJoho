@@ -35,14 +35,17 @@
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "calculationVersion": {
-      "const": "learning-accuracy-v1",
       "description": "記録した学習指標の計算規則を識別する版。将来計算方法が変わっても、過去の表示値がどの規則によるか説明できるようにする。",
-      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+      "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。",
+      "enum": [
+        "learning-accuracy-v1",
+        "learning-accuracy-v2"
+      ]
     },
     "total": {
       "type": "integer",
       "minimum": 1,
-      "description": "この結果の対象となった出題枠数。正解・不正解・未解答の合計とentries件数に一致させ、公式成績の配点を表す値としない。",
+      "description": "出題枠数。正解・不正解・未解答・採点対象外の合計とentries件数に一致させる。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "correct": {
@@ -74,7 +77,7 @@
       "minimum": 0,
       "maximum": 100,
       "multipleOf": 0.1,
-      "description": "全枠を等しい重みとしてcorrect÷total×100を小数1桁へ丸めた学習正答率。公式得点、合否、能力推定として表示しない。",
+      "description": "各問題を同じ重みとする学習正答率。v1はcorrect÷total、v2は採点対象外の問題を分母から除く。全問題対象外なら0。公式得点ではない。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
     },
     "entries": {
@@ -93,7 +96,8 @@
             "enum": [
               "correct",
               "incorrect",
-              "unanswered"
+              "unanswered",
+              "unscored"
             ],
             "description": "この枠を正解、不正解、未解答のどれとして記録したか。件数の集計と復習表示に使い、参照検証自体は採点処理を実行しない。",
             "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
@@ -102,6 +106,41 @@
             "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
             "description": "生成枠の結果が対象としたinstanceのID。sessionの同じ枠と一致させ、実際に出題した正答・図・解説を復習する。",
             "$comment": "条件付き：対応するsession枠でbindingPerformed=trueなら必須。元データ又は固定問題を使った枠では省略する。"
+          },
+          "parts": {
+            "type": "array",
+            "description": "複数解答の各欄の結果。正解なしはunscoredとし、別の選択肢へ正答を移さない。",
+            "$comment": "複数解答のv2で記録。単一選択又は旧結果では省略する。",
+            "minItems": 1,
+            "maxItems": 200,
+            "items": {
+              "type": "object",
+              "description": "一つの解答欄の結果。",
+              "$comment": "必須：親項目がある場合は欠落を拒否する。",
+              "additionalProperties": false,
+              "properties": {
+                "partId": {
+                  "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
+                  "description": "対象の解答欄ID。",
+                  "$comment": "必須：欠落を拒否する。"
+                },
+                "outcome": {
+                  "type": "string",
+                  "description": "欄の正解・不正解・未解答・採点対象外。",
+                  "$comment": "必須：親項目がある場合は欠落を拒否する。",
+                  "enum": [
+                    "correct",
+                    "incorrect",
+                    "unanswered",
+                    "unscored"
+                  ]
+                }
+              },
+              "required": [
+                "partId",
+                "outcome"
+              ]
+            }
           }
         },
         "required": [
@@ -130,6 +169,66 @@
       "maxLength": 1000,
       "description": "訂正・無効等について利用者に示す説明。撤回された本文や非公開情報を再録せず、結果をどう扱うかを伝える。",
       "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+    },
+    "unscored": {
+      "type": "integer",
+      "description": "全欄が正解なしで採点対象外となる問題数。正解・不正解・未解答へ加えない。",
+      "$comment": "v2では必須。v1では省略し、旧結果を変更しない。",
+      "minimum": 0
+    },
+    "partSummary": {
+      "type": "object",
+      "description": "問題別の集計に加えた解答欄別の学習集計。公式得点ではない。",
+      "$comment": "v2では必須。v1の旧結果には補完しない。",
+      "additionalProperties": false,
+      "properties": {
+        "total": {
+          "type": "integer",
+          "description": "全解答欄数。単一選択は一欄として数える。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。",
+          "minimum": 0
+        },
+        "correct": {
+          "type": "integer",
+          "description": "正解した欄数。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。",
+          "minimum": 0
+        },
+        "incorrect": {
+          "type": "integer",
+          "description": "不正解の欄数。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。",
+          "minimum": 0
+        },
+        "unanswered": {
+          "type": "integer",
+          "description": "未解答の欄数。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。",
+          "minimum": 0
+        },
+        "unscored": {
+          "type": "integer",
+          "description": "正解なしで採点対象外の欄数。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。",
+          "minimum": 0
+        },
+        "learningAccuracyPercent": {
+          "type": "number",
+          "description": "正解欄数÷採点対象欄数を百分率で小数1桁に丸める。全欄対象外の場合は0。",
+          "$comment": "必須：親項目がある場合は欠落を拒否する。",
+          "minimum": 0,
+          "maximum": 100,
+          "multipleOf": 0.1
+        }
+      },
+      "required": [
+        "total",
+        "correct",
+        "incorrect",
+        "unanswered",
+        "unscored",
+        "learningAccuracyPercent"
+      ]
     }
   },
   "required": [
@@ -149,5 +248,38 @@
     "validity",
     "notice"
   ],
-  "description": "終了時点のセッション保存版に対応した学習指標と各問の記録。公式IRT得点や合格判定とは区別し、訂正・撤回後の扱いも説明できるようにする。"
+  "description": "終了時点のセッション保存版に対応した学習指標と各問の記録。公式IRT得点や合格判定とは区別し、訂正・撤回後の扱いも説明できるようにする。",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "calculationVersion": {
+            "const": "learning-accuracy-v1"
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "unscored"
+              ]
+            },
+            {
+              "required": [
+                "partSummary"
+              ]
+            }
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "unscored",
+          "partSummary"
+        ]
+      }
+    }
+  ]
 }

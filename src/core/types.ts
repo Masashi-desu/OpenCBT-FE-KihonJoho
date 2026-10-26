@@ -10,9 +10,11 @@ export type SourceRef = {
     section: string;
     page?: number;
     year?: number;
+    period?: string;
     questionNumber?: string;
     exam?: string;
     subject?: string;
+    timeSlot?: string;
   };
 };
 export type Attribution = {
@@ -44,13 +46,17 @@ export type Scene =
         label?: string;
       }[];
     };
+export type CaptionMetadata = {
+  captionPresentation?: "visible" | "accessible";
+  sourceLabels?: { text: string; position: "start" | "top-start" | "top-center" | "top-end" }[];
+};
 export type Block =
   | { type: "paragraph"; text: string }
   | { type: "heading"; text: string; level: number }
   | { type: "list"; items: string[]; ordered: boolean }
   | { type: "code"; text: string; language: string }
   | { type: "formula"; text: string; alt: string; format?: "unicode" | "latex" }
-  | { type: "table"; caption: string; columns: string[]; rows: string[][] }
+  | ({ type: "table"; caption: string; columns: string[]; rows: string[][] } & CaptionMetadata)
   | { type: "image"; assetId: string; caption: string }
   | {
       type: "diagram";
@@ -60,6 +66,8 @@ export type Block =
       alt: string;
       attribution: Attribution;
       scene: Scene;
+      captionPresentation?: CaptionMetadata["captionPresentation"];
+      sourceLabels?: CaptionMetadata["sourceLabels"];
     };
 export type Content = { attribution: Attribution; blocks: Block[] };
 export type DetailParameters = Record<string, string | number | boolean>;
@@ -68,6 +76,12 @@ export type DetailedExplanationRef = {
   revision: number;
   initialParameters?: DetailParameters;
 };
+export type AnswerPart = { id: string; label: string; choiceIds: string[] };
+export type PartAnswer =
+  | { kind: "choice"; partId: string; choiceId: string }
+  | { kind: "unordered"; partIds: string[]; choiceIds: string[] }
+  | { kind: "no_correct_answer"; partId: string; reason: string };
+export type AnswerOutcome = "correct" | "incorrect" | "unanswered" | "unscored";
 export type Question = {
   schemaVersion: "3.0.0";
   id: string;
@@ -108,7 +122,8 @@ export type Question = {
   contextRefs: string[];
   prompt: Content;
   choices: { id: string; content: Content }[];
-  correctAnswer: { choiceId: string; attribution: Attribution };
+  answerParts?: AnswerPart[];
+  correctAnswer: { choiceId?: string; parts?: PartAnswer[]; attribution: Attribution };
   explanation: Content;
   // Optional supplemental UI. Missing resources never invalidate the saved question.
   detailedExplanationRef?: DetailedExplanationRef;
@@ -208,6 +223,7 @@ export type Exam = {
   practiceScope?: "full_exam" | "public_subset" | "learning_set";
   quotas?: { algorithm: number; security: number };
 };
+export type CatalogFile = { path: string; sha256: string; recordCount?: number };
 export type Catalog = {
   schemaVersion: string;
   id: string;
@@ -215,7 +231,7 @@ export type Catalog = {
   scope: string;
   generationCoverage?: "complete" | "partial";
   actors: { id: string; name: string; kind: string }[];
-  files: Record<string, { path: string; sha256: string }[]>;
+  files: Record<string, CatalogFile[]>;
   withdrawals: {
     questionRef: Ref;
     reason: string;
@@ -244,6 +260,7 @@ export type Entry = {
   };
   choiceOrder: string[];
   selectedChoiceId?: string;
+  selectedPartChoices?: Record<string, string>;
   reviewFlag: boolean;
   revealed: boolean;
   generatedInstanceId?: string;
@@ -313,11 +330,14 @@ export type Result = {
   correct: number;
   incorrect: number;
   unanswered: number;
+  unscored?: number;
+  partSummary?: { total: number; correct: number; incorrect: number; unanswered: number; unscored: number; learningAccuracyPercent: number };
   revealedCount: number;
   learningAccuracyPercent: number;
   entries: {
     questionRef: Ref;
     outcome: string;
+    parts?: { partId: string; outcome: AnswerOutcome }[];
     generatedInstanceId?: string;
   }[];
   validity: string;
@@ -340,6 +360,10 @@ export type Selection = {
   subject: SubjectScope;
   kind: "annual" | "mix" | "bookmark";
   year?: number;
+  // A source collection retains period/sample identity independently of year.
+  sourceCollectionId?: string;
+  // The original collection defining a finite mix's count and area profile.
+  mixProfileCollectionId?: string;
   mode: "practice" | "study" | "endless";
   size?: "public" | "full";
   bindingMode: "original_data" | "generated_values";
@@ -347,7 +371,7 @@ export type Selection = {
   // An explicit endless pool: source refs for bookmarks, base refs for other groups.
   questionRefs?: Ref[];
 };
-export const labels = [..."アイウエオカキクケコ"];
+export const labels = [..."アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"];
 export const areas: Record<string, string> = {
   technology: "テクノロジ",
   management: "マネジメント",

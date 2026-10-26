@@ -144,7 +144,7 @@
               "$comment": "要素：この位置に要素を置く場合は型と子の必須条件を満たす。nullや未定義の穴を置かない。配列全体の空・省略の扱いは親フィールドに従う。"
             },
             "minItems": 2,
-            "maxItems": 200,
+            "maxItems": 2000,
             "description": "実際に表示した選択肢IDの順序。画面のア等のラベルはこの順序から生成し、元のchoicesと過不足なく対応させる。",
             "uniqueItems": true,
             "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
@@ -208,6 +208,18 @@
             ],
             "description": "実際の出題経路、出自、改変表示と内容照合値の記録。元データを使ったか値を生成してバインドしたかを保存し、過去の表示を再判定しない。",
             "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+          },
+          "selectedPartChoices": {
+            "type": "object",
+            "description": "解答欄IDから選択肢IDへの対応。未選択の欄はキーを持たず、単一選択のselectedChoiceIdと同時に使わない。",
+            "$comment": "複数解答で任意。省略は全欄未選択。空オブジェクトと未選択を再採点時に補完しない。",
+            "propertyNames": {
+              "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id"
+            },
+            "additionalProperties": {
+              "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id"
+            },
+            "maxProperties": 200
           }
         },
         "required": [

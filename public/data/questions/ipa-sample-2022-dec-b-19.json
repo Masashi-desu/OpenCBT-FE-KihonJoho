@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-sample-2022-dec-b-19",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "sample-2022-decil"
+    ],
+    "topics": [
+      "最小権限"
+    ],
+    "keywords": [
+      "A社200名、電子メールで注文",
+      "A社情報システム部がJを運用",
+      "A社責任者は課長1名",
+      "入力と承認は別利用者",
+      "A社責任者は全業務閲覧",
+      "B社は入力しA社が承認",
+      "B社責任者は閲覧し口頭差戻し依頼",
+      "○は権限付与"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問19",
+          "page": 32,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "19"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問19",
+            "page": 32,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "19"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-19-p32",
+        "caption": "原資料 p.32"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 32 － \n問19 A 社は従業員200 名の通信販売業者である。一般消費者向けに生活雑貨，ギフト商\n品などの販売を手掛けている。取扱商品の一つである商品Z は，Z 販売課が担当して\nいる。 \n \n〔Z 販売課の業務〕 \n 現在，Z 販売課の要員は，商品Z についての受注管理業務及び問合せ対応業務を行\nっている。商品Z についての受注管理業務の手順を図1 に示す。 \n \n商品Z の顧客からの注文は電子メールで届く。 \n(1) 入力 \n 販売担当者は，届いた注文（変更，キャンセルを含む）の内容を受注管理システム\n1）（以\n下，J システムという）に入力し，販売責任者2）に承認を依頼する。 \n(2) 承認 \n 販売責任者は，注文の内容とJ システムへの入力結果を突き合わせて確認し，問題がなけ\nれば承認する。問題があれば差し戻す。 \n注1） A 社情報システム部が運用している。利用者は，販売責任者，販売担当者などである。 \n注2） Z 販売課の課長1 名だけである。 \n図1 受注管理業務の手順 \n \n〔J システムの操作権限〕 \n Z 販売課では，J システムについて，次の利用方針を定めている。 \n ［方針1］ ある利用者が入力した情報は，別の利用者が承認する。 \n ［方針2］ 販売責任者は，Z 販売課の全業務の情報を閲覧できる。 \n \n J システムでは，業務上必要な操作権限を利用者に与える機能が実装されている。 \n この度，商品Z の受注管理業務が受注増によって増えていることから，B 社に一部\nを委託することにした（以下，商品Z の受注管理業務の入力作業を行うB 社従業員\nを商品Z のB 社販売担当者といい，商品Z のB 社販売担当者の入力結果を閲覧して，\n不備があればA 社に口頭で差戻しを依頼するB 社従業員を商品Z のB 社販売責任者\nという）。"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-b-19-p33",
+        "caption": "原資料 p.33"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 33 － \n 委託に当たって，Z 販売課は情報システム部にJ システムに関する次の要求事項を\n伝えた。 \n ［要求1］ B 社が入力した場合は，A 社が承認する。 \n ［要求2］ A 社の販売担当者が入力した場合は，現状どおりにA 社の販売責任者\nが承認する。 \n \n 上記を踏まえ，情報システム部は今後の各利用者に付与される操作権限を表1 に\nまとめ，Z 販売課の情報セキュリティリーダーであるC さんに確認をしてもらった。 \n \n表1 操作権限案 \n  付与される操作権限 \n利用者 \nJ システム \n閲覧 \n入力 \n承認 \n（省略） \n○ \n \n○ \nZ 販売課の販売担当者 \n（省略） \n（省略） \n（省略） \n〇 \n \n \n \n〇 \n〇 \n \n注記 ○は，操作権限が付与されることを示す。 \n \n設問 表1 中の \n ，， \n  に入れる字句の適切な組合せを，a に関す\nる解答群の中から選べ。 \n \n \na に関する解答群 \n \na 1 \na 2 \nア \nZ 販売課の販売責任者 \n商品Z のB 社販売責任者 \nイ \nZ 販売課の販売責任者 \n商品Z のB 社販売担当者 \nウ \n商品Z のB 社販売責任者 \nZ 販売課の販売責任者 \nエ \n商品Z のB 社販売責任者 \n商品Z のB 社販売担当者 \nオ \n商品Z のB 社販売担当者 \n商品Z のB 社販売責任者 \n \na1 \na2 \na 1 \na 2"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問19",
+                "page": 33,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問19",
+                "page": 33,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問19",
+                "page": 33,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問19",
+                "page": 33,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問19",
+                "page": 33,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "19"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-4",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-ans",
+          "locator": {
+            "section": "科目B試験サンプル問題 問19 解答",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "19"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "B社責任者は入力結果を閲覧するだけで、入力も承認もしない。B社担当者は閲覧と入力が必要で承認はA社が行う。従ってa1はB社責任者、a2はB社担当者。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-sample-2022-dec-b-19-p32",
+    "asset-ipa-sample-2022-dec-b-19-p33"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式PDFの各問題ページ・全選択肢・注意書き・別紙解答p.1を目視照合。独立した参照解法と全選択肢のテストを適用。全文画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。"
+  }
+}

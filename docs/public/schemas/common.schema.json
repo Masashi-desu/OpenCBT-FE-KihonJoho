@@ -31,7 +31,10 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["questionId", "revision"],
+      "required": [
+        "questionId",
+        "revision"
+      ],
       "description": "問題の永続IDと内容を固定した改訂の組。表示・正答・条件が同じ不変定義へ到達するために使い、最新版への暗黙追従を行わない。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -52,7 +55,10 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["id", "revision"],
+      "required": [
+        "id",
+        "revision"
+      ],
       "description": "セット・試験設定・テンプレートを不変IDと改訂で参照する組。参照元で指定したレコード種類の中だけで解決する。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -117,7 +123,9 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["section"],
+      "required": [
+        "section"
+      ],
       "description": "原資料のどの箇所を照合すればよいかを表す位置情報。旧制度の表記を維持し、本アプリの学習分類から補わない。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -191,12 +199,17 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["section"],
+          "required": [
+            "section"
+          ],
           "description": "この参照が指す原資料内の位置。資料全体の確認記録sectionsとは分け、問題や部品ごとに参照した箇所を保持する。",
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["sourceId", "locator"],
+      "required": [
+        "sourceId",
+        "locator"
+      ],
       "description": "資料台帳への参照と、その原資料内で使用した箇所の組。原本リンクと問題・素材・条件ごとの照合に使う。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -206,7 +219,11 @@
       "properties": {
         "origin": {
           "type": "string",
-          "enum": ["official", "adapted", "original"],
+          "enum": [
+            "official",
+            "adapted",
+            "original"
+          ],
           "description": "この部品が公式由来、公式に依存する改変、独自作成のどれか。問題全体のorigin.kindとは独立し、独自解説を公式作成と誤認させない。",
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         },
@@ -250,7 +267,12 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["origin", "sourceRefs", "rightsRefs", "creatorIds"],
+      "required": [
+        "origin",
+        "sourceRefs",
+        "rightsRefs",
+        "creatorIds"
+      ],
       "description": "本文・選択肢・正答・解説・素材ごとに出自、根拠資料、利用条件、作成主体を保持する。問題全体の出自から各部品の由来を推定しない。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -273,7 +295,10 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["type", "text"],
+          "required": [
+            "type",
+            "text"
+          ],
           "description": "段落。改行は表示に保持"
         },
         {
@@ -300,7 +325,11 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["type", "level", "text"],
+          "required": [
+            "type",
+            "level",
+            "text"
+          ],
           "description": "問題内部の見出し"
         },
         {
@@ -332,7 +361,11 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["type", "ordered", "items"],
+          "required": [
+            "type",
+            "ordered",
+            "items"
+          ],
           "description": "一階層の箇条書き。入れ子リストは初期版で扱わない"
         },
         {
@@ -385,10 +418,47 @@
               "maxItems": 100,
               "description": "表の行を表示順で保持する。各行はcolumnsと同じ列数のセルを持ち、任意HTMLや結合セルを入れない。",
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
+            },
+            "captionPresentation": {
+              "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/captionPresentation",
+              "description": "図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。",
+              "$comment": "任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。"
+            },
+            "sourceLabels": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 4,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/sourceLabel",
+                "description": "字面と位置を原資料で照合した可視ラベル1件。",
+                "$comment": "配列要素：textとpositionを必須とし、未知フィールドと同一要素の重複を拒否する。"
+              },
+              "description": "読み上げ用のcaptionとは別に可視保持する、原資料で確認した識別子・題・単位注記。",
+              "$comment": "条件付き：captionPresentationがaccessibleの場合だけ指定できる。省略時は別ラベルを作らず、指定する場合は1〜4件でtextとpositionを省略しない。"
             }
           },
-          "required": ["type", "caption", "columns", "rows"],
-          "description": "先頭行を列ヘッダーとして表示する矩形表。結合セルは扱わない"
+          "required": [
+            "type",
+            "caption",
+            "columns",
+            "rows"
+          ],
+          "description": "先頭行を列ヘッダーとして表示する矩形表。結合セルは扱わない",
+          "dependentSchemas": {
+            "sourceLabels": {
+              "properties": {
+                "captionPresentation": {
+                  "const": "accessible",
+                  "description": "図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。",
+                  "$comment": "任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。"
+                }
+              },
+              "required": [
+                "captionPresentation"
+              ]
+            }
+          }
         },
         {
           "type": "object",
@@ -412,7 +482,11 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["type", "assetId", "caption"],
+          "required": [
+            "type",
+            "assetId",
+            "caption"
+          ],
           "description": "自リポジトリ内の許可された画像。代替テキストはasset.altを使用"
         },
         {
@@ -429,8 +503,14 @@
             },
             "language": {
               "type": "string",
-              "enum": ["pseudocode", "text", "sql"],
-              "description": "表示しているコードの言語区分。疑似言語・通常テキスト・SQLの表示を識別し、実行方法や外部モジュールを指定しない。",
+              "enum": [
+                "pseudocode",
+                "text",
+                "sql",
+                "c",
+                "cobol"
+              ],
+              "description": "表示しているコードの言語区分。疑似言語・SQL・C・COBOLは表示専用コードとして常時表示し、textは原文画像を補うPDF由来の補助テキストとして扱う。実行方法や外部モジュールを指定しない。",
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             },
             "text": {
@@ -441,7 +521,11 @@
               "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
             }
           },
-          "required": ["type", "language", "text"],
+          "required": [
+            "type",
+            "language",
+            "text"
+          ],
           "description": "表示専用pre/code。コンパイル、eval、インタプリタを呼ばない"
         },
         {
@@ -473,7 +557,10 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["attribution", "blocks"],
+      "required": [
+        "attribution",
+        "blocks"
+      ],
       "description": "表示順を持つブロック群と、その部品の出典・条件の組。問題文、選択肢、長文、解説それぞれへ別に設定できる。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -495,12 +582,20 @@
         },
         "kind": {
           "type": "string",
-          "enum": ["organization", "person", "assistant"],
+          "enum": [
+            "organization",
+            "person",
+            "assistant"
+          ],
           "description": "組織、個人、AIアシスタントのどれを記録したか。AIによる照合を人の確認と説明しないために主体の性質を保つ。",
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["id", "name", "kind"],
+      "required": [
+        "id",
+        "name",
+        "kind"
+      ],
       "description": "公開できる主体名と実際の主体種別の台帳項目。担当と素材の作成者をIDから解決し、連絡先等の個人情報は格納しない。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -520,7 +615,10 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["id", "version"],
+      "required": [
+        "id",
+        "version"
+      ],
       "description": "開発側が登録した描画器又は生成器の不変ID・版の組。読込み先URLや実行コードを含めず、固定レジストリだけへ解決する。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
     },
@@ -543,9 +641,50 @@
           "$comment": "必須：欠落を拒否する。参照値や既定値で補完しない。"
         }
       },
-      "required": ["values"],
+      "required": [
+        "values"
+      ],
       "description": "初期の生成契約で本文・図・選択肢・正答・解説が共通に使う入力。許可域はtemplateで絞り、回答状態とは分離する。",
       "$comment": "共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。"
+    },
+    "captionPresentation": {
+      "type": "string",
+      "enum": [
+        "visible",
+        "accessible"
+      ],
+      "description": "図表のcaptionを可視題として表示するか、読み上げ用の意味名として保持するかを指定する。",
+      "$comment": "任意：省略時はcaptionを従来どおり可視にする。accessibleでも必須のcaptionを空にせず、原の識別子・題・単位が別表示で必要ならsourceLabelsを併記する。"
+    },
+    "sourceLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "原資料に実在する識別子・単位注記・題をその字面で保持する。意味名や解法を新設しない。",
+          "$comment": "必須：欠落・空文字を拒否する。semantic名や隣接素材の題から補完しない。"
+        },
+        "position": {
+          "type": "string",
+          "enum": [
+            "start",
+            "top-start",
+            "top-center",
+            "top-end"
+          ],
+          "description": "原資料で確認した位置。startは左側、top-start/top-center/top-endは上の左端/中央/右端。",
+          "$comment": "必須：欠落・未登録の位置を拒否する。原資料との照合で指定する。"
+        }
+      },
+      "required": [
+        "text",
+        "position"
+      ],
+      "description": "読み上げ用のcaptionとは別に可視保持する原資料のラベル。",
+      "$comment": "任意：sourceLabelsを指定した場合の各要素。textとpositionの欠落は拒否し、captionから補完しない。"
     }
   },
   "description": "各レコードで同じ意味を持つ参照・主体・本文構造の共有定義。参照元のフィールドがどのレコードを対象とするかは各フィールドの意味で指定する。"

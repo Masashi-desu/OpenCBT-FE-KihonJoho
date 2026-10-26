@@ -151,6 +151,7 @@ small {
   }
 }
 .sr-only,
+.caption-accessible caption,
 .skip-link:not(:focus) {
   position: absolute;
   width: 1px;
@@ -328,6 +329,18 @@ small {
   gap: 13px;
   margin-bottom: 29px;
 }
+.subject-notice {
+  margin: -5px 0 14px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.subject-tabs.single-subject {
+  grid-template-columns: 1fr;
+}
+.subject-tabs .subject-time-slot {
+  width: 46px;
+  font-size: 15px;
+}
 .subject-tabs button {
   padding: 16px;
   text-align: left;
@@ -373,6 +386,7 @@ small {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 13px;
+  margin-bottom: 24px;
 }
 .set-option {
   padding: 22px 17px;
@@ -424,7 +438,13 @@ small {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 19px;
-  margin-top: 27px;
+  margin-top: 0;
+}
+.config-grid.config-grid-single {
+  grid-template-columns: 1fr;
+}
+.collection-field {
+  margin-bottom: 29px;
 }
 .field-label,
 .mode-field {
@@ -484,7 +504,7 @@ select {
   border: 1px solid var(--line);
   background: var(--soft-surface);
   margin-top: 7px;
-  height: 42px;
+  min-height: 42px;
 }
 .segmented button {
   flex: 1;
@@ -787,6 +807,7 @@ select {
   background: var(--toolbar-hover);
 }
 .exam-application {
+  container: exam-dialog / inline-size;
   background: var(--soft-surface);
 }
 .exam-main {
@@ -798,6 +819,7 @@ select {
   flex-direction: column;
 }
 .exam-toolbar {
+  container: exam-header / inline-size;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -938,6 +960,7 @@ select {
 }
 .material-toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5px;
   min-width: 0;
@@ -1135,6 +1158,21 @@ select {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+.content-blocks li > p {
+  margin: 0;
+}
+/* Numeric tokens keep their original characters and line up as one unit.
+   Only an oversized atomic token requires horizontal scrolling; surrounding
+   prose and long URLs still wrap. Existing overlay scrollbars own the paint. */
+.content-blocks p.content-text-scroll {
+  overflow-x: auto;
+}
+.content-text-token {
+  display: inline-block;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  vertical-align: baseline;
+}
 .content-blocks ul,
 .content-blocks ol {
   padding-left: 25px;
@@ -1176,6 +1214,7 @@ select {
   font-size: 10px;
 }
 .answer-pane {
+  container: exam-answer / inline-size;
   min-width: 0;
   background: var(--answer-surface);
   display: flex;
@@ -1217,7 +1256,8 @@ select {
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-.question-rail.expandable {
+.question-rail.expandable,
+.question-rail.long-source {
   overflow-y: auto;
 }
 .question-rail-number.answered {
@@ -1297,6 +1337,17 @@ select {
   padding: 0;
   display: grid;
   gap: 8px;
+}
+.compound-answers {
+  display: grid;
+  gap: 24px;
+}
+.answer-part-title {
+  padding: 0 0 10px;
+  font-weight: 700;
+}
+.answer-part-result p {
+  margin: 8px 0 0;
 }
 .answer-choice {
   position: relative;
@@ -1523,9 +1574,18 @@ select {
   font-size: 0.9em;
 }
 .table-scroll {
+  /* Keep absolutely positioned screen-reader text within the scroll clip. */
+  position: relative;
   overflow: auto;
   margin: 18px 0;
 }
+.caption-accessible figcaption { display: none; }
+.source-caption-body { min-width: 0; }
+.source-caption-with-side { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: center; gap: .75em; }
+.source-label-top-start, .source-label-top-center, .source-label-top-end { display: block; }
+.source-label-top-center { text-align: center; }
+.source-label-top-end { text-align: end; }
+.source-caption-label { white-space: nowrap; }
 .text-figure {
   margin: 22px 0;
 }
@@ -1565,11 +1625,32 @@ td {
   border: 1px solid var(--soft-border);
   padding: 8px 11px;
   text-align: left;
-  overflow-wrap: anywhere;
+  /* Keep each number or identifier at its natural minimum width. Sentences
+     still wrap normally; wider tables scroll inside .table-scroll. */
+  overflow-wrap: normal;
 }
 th {
   background: var(--soft-surface);
   font-weight: 600;
+}
+/* Preserve a short heading's natural width. Bound longer prose headings so
+   narrow viewports pan the table instead of reducing Japanese to one column. */
+.table-heading-text {
+  display: inline-block;
+  inline-size: max-content;
+  min-inline-size: min-content;
+  max-inline-size: 12em;
+}
+/* Short body values retain their natural width, including Japanese concepts
+   and short conditions. Longer prose wraps while keeping a readable minimum;
+   at desktop widths its block can use the whole available column. */
+.table-cell-value {
+  display: inline-block;
+  inline-size: max-content;
+}
+.table-cell-prose {
+  display: block;
+  min-inline-size: 12em;
 }
 .managed-diagram {
   margin: 20px 0;
@@ -2778,7 +2859,7 @@ dialog details {
 @media (max-width: 540px) {
   .mode-selector .segmented button {
     padding: 4px;
-    white-space: nowrap;
+    white-space: normal;
   }
   .mode-selector .segmented button svg {
     display: none;
@@ -3331,6 +3412,48 @@ dialog details {
     width: 36px;
     height: 40px;
     min-height: 40px;
+  }
+}
+/* Respond to the available layout width, including CSS text/page zoom whose
+   viewport media query can still be wide. Keep every control at its normal size. */
+@container exam-header (max-width: 280px) {
+  .exam-app-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .exam-app-toolbar > .exam-brand {
+    grid-area: 1 / 1 / 2 / 3;
+    justify-self: start;
+  }
+  .exam-app-toolbar > .toolbar-set {
+    grid-area: 2 / 1;
+  }
+  .exam-app-toolbar .toolbar-tools {
+    grid-area: 2 / 2;
+    flex-basis: auto;
+  }
+  .exam-app-toolbar .toolbar-study-actions {
+    min-width: min(180px, calc(100cqw - 24px));
+    max-width: calc(100cqw - 24px);
+  }
+  .exam-app-toolbar .toolbar-study-actions button {
+    white-space: normal;
+  }
+}
+@container exam-dialog (max-width: 280px) {
+  dialog {
+    max-width: calc(100cqw - 24px);
+  }
+}
+@container exam-answer (max-width: 220px) {
+  .exam-answer-toolbar {
+    flex-wrap: wrap;
+  }
+  .exam-time {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+  .exam-answer-toolbar .finish-button {
+    margin-left: auto;
   }
 }
 /* Scale reading text once; keep mobile controls from covering the answer text. */

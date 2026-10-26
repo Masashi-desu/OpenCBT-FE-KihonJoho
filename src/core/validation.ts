@@ -9,6 +9,7 @@ import {
 } from "./types";
 import { contentHash } from "./hash";
 import { DataError } from "./errors";
+import { validateAnswerDefinition } from "./answers";
 export { DataError } from "./errors";
 import { validateTemplateContract } from "./generation";
 import { validateSourceFormat } from "./generation-formats";
@@ -295,8 +296,7 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
             fail("RIGHTS_INHERITANCE", `${q.id}: 原部分の条件を継承する`);
       }
     }
-    if (!q.choices.some((c) => c.id === q.correctAnswer.choiceId))
-      fail("ANSWER_REF", q.id);
+    validateAnswerDefinition(q);
     if (new Set(q.choices.map((c) => c.id)).size !== q.choices.length)
       fail("DUPLICATE_ID", q.id);
     const contexts = new Set(q.contexts.map((c) => c.id));

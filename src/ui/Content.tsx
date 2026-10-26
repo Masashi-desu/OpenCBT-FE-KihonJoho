@@ -6,6 +6,8 @@ import type {
   Block,
 } from "../core/types";
 import { safeUrl } from "../core/validation";
+import {ContentParagraph} from "./ContentText";
+import {CaptionFrame} from "./CaptionFrame";
 import { mathOptions } from "./math";
 import { SourceFigure } from "./SourceFigure";
 import {
@@ -24,6 +26,7 @@ export function AttributionLine({
   sourceLabels?: Record<string, string>;
 }) {
   const a = content.attribution;
+  const referenceOccurrences = new Map<string, number>();
   return (
     <small className="material-credit">
       {a.origin === "original"
@@ -37,9 +40,19 @@ export function AttributionLine({
       })}
       {a.sourceRefs.map((r) => {
         const s = bundle.sources.find((s) => s.id === r.sourceId);
+        // A single paper can supply several pages/sections. Keep every link
+        // and its identity across reordering, including repeated locators.
+        const referenceKey = JSON.stringify([
+          r.sourceId,
+          Object.entries(r.locator).sort(([left], [right]) =>
+            left.localeCompare(right),
+          ),
+        ]);
+        const occurrence = referenceOccurrences.get(referenceKey) ?? 0;
+        referenceOccurrences.set(referenceKey, occurrence + 1);
         return s ? (
           <a
-            key={r.sourceId}
+            key={`${referenceKey}:${occurrence}`}
             href={
               safeUrl(s.url) + (r.locator.page ? `#page=${r.locator.page}` : "")
             }
@@ -437,6 +450,15 @@ function Formula({ block }: { block: Extract<Block, { type: "formula" }> }) {
     </figure>
   );
 }
+/** Presentation only: preserve bounded values as a unit without treating the
+ * ASCII full stop in decimals, addresses or identifiers as a sentence end. */
+export function tableCellTextPresentation(text: string) {
+  if (text === "") return "empty";
+  if (text === "非表示") return "omitted";
+  return [...text].length <= 24 && !/[。\r\n\u2028\u2029]/u.test(text)
+    ? "short"
+    : "prose";
+}
 export function Content({
   content,
   bundle,
@@ -453,7 +475,7 @@ export function Content({
   return (
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
-        if (b.type === "paragraph") return <p key={i}>{b.text}</p>;
+        if (b.type === "paragraph") return <ContentParagraph key={i} text={b.text}/>;
         if (b.type === "heading") {
           const H = `h${b.level}` as "h2" | "h3" | "h4";
           return <H key={i}>{b.text}</H>;
@@ -463,14 +485,15 @@ export function Content({
           return (
             <List key={i}>
               {b.items.map((t, j) => (
-                <li key={j}>{t}</li>
+                <li key={j}><ContentParagraph text={t}/></li>
               ))}
             </List>
           );
         }
         if (b.type === "table")
           return (
-            <div className="table-scroll" key={i}>
+            <CaptionFrame key={i} metadata={b}>
+            <div className="table-scroll">
               <table>
                 <caption>{b.caption}</caption>
                 <thead>
@@ -497,7 +520,7 @@ export function Content({
                         </th>
                       ) : (
                         <th key={j} scope="col">
-                          {c}
+                          <span className="table-heading-text">{c}</span>
                         </th>
                       ),
                     )}
@@ -506,27 +529,31 @@ export function Content({
                 <tbody>
                   {b.rows.map((r, j) => (
                     <tr key={j}>
-                      {r.map((c, k) => (
+                      {r.map((c, k) => {
+                        const presentation = tableCellTextPresentation(c);
+                        return (
                         <td
                           key={k}
                           className={
                             c === "非表示" ? "omitted-cell" : undefined
                           }
                         >
-                          {c === "非表示" ? (
+                          {presentation === "omitted" ? (
                             <span className="sr-only">
                               原資料で非表示の部分
                             </span>
-                          ) : (
-                            c
+                          ) : presentation === "empty" ? c : (
+                            <span className={presentation === "short" ? "table-cell-value" : "table-cell-prose"}>{c}</span>
                           )}
                         </td>
-                      ))}
+                        );
+                      })}
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
+            </CaptionFrame>
           );
         if (b.type === "code") {
           const code = (
@@ -545,7 +572,7 @@ export function Content({
           ) : (
             <div className="code-block" key={i}>
               <span>
-                {b.language === "sql" ? "SQL" : "疑似言語"} · 表示のみ
+                {b.language === "sql" ? "SQL" : b.language === "c" ? "C" : b.language === "cobol" ? "COBOL" : "疑似言語"} · 表示のみ
               </span>
               {code}
             </div>
@@ -555,12 +582,15 @@ export function Content({
         if (b.type === "diagram")
           return (
             <div key={i}>
+              <CaptionFrame metadata={b}>
               <Diagram
                 scene={b.scene}
                 alt={b.alt}
                 caption={b.caption}
                 rendererRef={b.rendererRef}
+
               />
+              </CaptionFrame>
               {showAttribution && (
                 <AttributionLine
                   content={{ attribution: b.attribution, blocks: [] }}

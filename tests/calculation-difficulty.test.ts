@@ -345,7 +345,7 @@ test("fraction conversion covers all 21504 inputs including multi-digit integers
       const html = renderToStaticMarkup(createElement(Content, {
         content: q.prompt, bundle, assetUrls: {}, credit: false,
       }));
-      assert(html.includes(cleanText(q)), "the question wording must be visible before answering");
+      assert(html.replace(/<\/?span(?:\s[^>]*)?>/g, "").includes(cleanText(q)), "the question wording must be visible before answering, allowing inline layout spans");
       inputs.add(`${fromBase}:${toBase}:${n}:${integer}`);
     }
   }

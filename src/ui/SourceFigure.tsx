@@ -1,7 +1,11 @@
 import { useId, type ReactNode } from "react";
+import { DecemberAFigure } from "./DecemberAFigure";
 import type { Scene } from "../core/types";
 import { validateSourceFigure, sourceFigureAlt } from "../core/source-figures";
 import { scatterPoints } from "../core/generators/subject-a";
+import { sampleBigramCases } from "../core/generators/sample-2022-data";
+import { sampleMinimaxBoards, sampleMinimaxChildren, sampleMinimaxQueries } from "../core/generators/sample-2022-dec-data";
+import { sampleTree14 } from "../core/generators/sample-2022-dec-data";
 import {
   adjacency,
   graphEdges,
@@ -20,6 +24,7 @@ export function SourceFigure({
   const id = useId().replace(/:/g, ""),
     v = scene.values,
     profile = scene.profile;
+  if (profile.startsWith("dec-a-")) return <DecemberAFigure profile={profile} values={v} caption={caption}/>;
   let key = 0,
     height = 450;
   const parts: ReactNode[] = [];
@@ -169,7 +174,83 @@ export function SourceFigure({
         t(start + (arrowAt - 0.5) * w, y + 145, "stackPos"),
       );
   };
-  if (profile === "waf-network") {
+  if (profile === "priority-queue-class") {
+    height = 560;
+    parts.push(rect(20, 10, 960, 100), line(430, 10, 430, 110), line(20, 55, 980, 55),
+      t(225, 32, "コンストラクタ"), t(705, 32, "説明"),
+      t(225, 82, "PrioQueue()"), t(705, 82, "空の優先度付きキューを生成する。"),
+      rect(20, 135, 960, 400), line(300, 135, 300, 535), line(440, 135, 440, 535),
+      ...[185,275,465].map(y => line(20,y,980,y)),
+      t(160, 160, "メソッド"), t(370, 160, "戻り値"), t(710, 160, "説明"),
+      t(160, 220, "enqueue(文字列型:"), t(160, 252, "s, 整数型: p)"), t(370, 232, "なし"),
+      t(460, 215, "文字列sを優先度pで追加する。", "start"), t(460, 250, "同じ文字列も別の要素として保持。", "start"),
+      t(160, 368, "dequeue()"), t(370, 368, "文字列型"),
+      t(460, 310, "最も優先度が高い要素を取り出す。", "start"),
+      t(460, 348, `数値が${v[0] ? "大きい" : "小さい"}ほど優先度が高い。`, "start"),
+      t(460, 386, "同じ優先度の要素がある場合は、", "start"),
+      t(460, 424, `${v[1] ? "最後" : "最初"}に追加したものを取り出す。`, "start"),
+      t(160, 500, "size()"), t(370, 500, "整数型"), t(460, 500, "キューの要素数を返す。", "start"));
+  } else if (profile === "sample-tree-14") {
+    height = 490;
+    const nodes = [[500,45],[260,155],[740,155],[140,265],[380,265],[620,265],[860,265]];
+    const tree = sampleTree14(v[0]);
+    for (let parent=4;parent<=7;parent++) tree[parent-1].forEach((_,i)=>nodes.push([nodes[parent-1][0]+(i?60:-60),375]));
+    tree.forEach((children,i)=>children.forEach(child=>parts.push(line(nodes[i][0],nodes[i][1],nodes[child-1][0],nodes[child-1][1]))));
+    nodes.forEach(([x,y],i)=>circle(x,y,25,String(i+1)));
+    parts.push(t(500,435,"○の中の値は節番号を表す。"), t(500,472,"子が一つの節では、その子を左の子とする。"));
+  } else if (profile === "sample-minimax") {
+    height = 825;
+    const centers = [[500,90],[260,265],[500,265],[760,265],[150,465],[370,465],[650,465],[870,465],[150,675],[370,675],[870,675]];
+    sampleMinimaxChildren.forEach((children,i)=>children.forEach(child=>parts.push(line(centers[i][0],centers[i][1]+43,centers[child][0],centers[child][1]-43,true))));
+    [170,395,600].forEach(y=>parts.push(line(20,y,980,y)));
+    parts.push(t(970,145,"自分の手番","end"),t(970,345,"相手の手番","end"),t(970,545,"自分の手番","end"),t(500,24,"根の状態"));
+    const query=sampleMinimaxQueries[v[1]];
+    query.forEach((child,i)=>parts.push(t((500+centers[child+1][0])/2+(child===1?25:0),152,i?"B":"A")));
+    sampleMinimaxBoards.forEach((board,i)=>{
+      const [x,y]=centers[i], left=x-42, top=y-42;
+      parts.push(rect(left,top,84,84));
+      [28,56].forEach(d=>parts.push(line(left+d,top,left+d,top+84),line(left,top+d,left+84,top+d)));
+      [...board].forEach((mark,j)=>{
+        const cx=left+14+(j%3)*28,cy=top+14+Math.floor(j/3)*28;
+        if(mark==="O") parts.push(<circle key={key++} cx={cx} cy={cy} r={9} fill="none" />);
+        else if(mark==="X") parts.push(line(cx-8,cy-8,cx+8,cy+8),line(cx+8,cy-8,cx-8,cy+8));
+      });
+      if(!sampleMinimaxChildren[i].length) {
+        const win=[2,9].includes(i), loss=i===6;
+        parts.push(t(x,y+70,win?"勝ち":loss?"負け":"引き分け"),t(x,y+105,`評価値 ${win?v[0]*5:loss?-v[0]*5:0}`));
+      }
+    });
+  } else if (profile === "list-element-class") {
+    height = 355;
+    parts.push(rect(20, 10, 960, 205), line(200, 10, 200, 215), line(390, 10, 390, 215),
+      line(20, 60, 980, 60), line(20, 120, 980, 120),
+      t(110, 35, "メンバ変数"), t(295, 35, "型"), t(685, 35, "説明"),
+      t(110, 90, "val"), t(295, 90, "文字型"), t(685, 90, "リストに格納する文字。"),
+      t(110, 164, "next"), t(295, 164, "ListElement"), t(685, 148, "次の要素の参照。"),
+      t(685, 187, v[0] ? "データ要素の初期状態はendNode。" : "初期状態は未定義である。"),
+      rect(20, 235, 960, 105), line(420, 235, 420, 340), line(20, 280, 980, 280),
+      t(220, 258, "コンストラクタ"), t(700, 258, "説明"),
+      t(220, 310, "ListElement(文字型: qVal)"), t(700, 310, "引数qValでvalを初期化する。"));
+  } else if (profile === "bigram-example") {
+    const sample = sampleBigramCases[v[0]];
+    height = 565;
+    sample.words.forEach((word, row) => {
+      const y = 110 + row * 125;
+      [...word].forEach((char, col) => {
+        const x = 150 + col * 45;
+        if (char === sample.first) {
+          const end = col + 1 === word.length;
+          parts.push(rect(x - 16, y - 22, 32, 44, 0, end ? "var(--soft-border)" : undefined));
+          if (end) parts.push(poly(`${x},${y + 22} ${x},${y + 36} 730,${y + 36}`), t(970, y + 36, "語末：集計対象外", "end"));
+          else {
+            const labelY = y - (col % 2 ? 82 : 48);
+            parts.push(t(x, labelY, `次は ${word[col + 1]}`), line(x, labelY + 17, x, y - 23, true));
+          }
+        }
+        parts.push(t(x, y, char));
+      });
+    });
+  } else if (profile === "waf-network") {
     height = 800;
     [340, 500, 660].forEach((x) => {
       parts.push(
@@ -508,6 +589,11 @@ export function SourceFigure({
     );
   }
   const showCaption = [
+    "priority-queue-class",
+    "sample-tree-14",
+    "sample-minimax",
+    "list-element-class",
+    "bigram-example",
     "cache-layout",
     "undirected-graph",
     "adjacency-matrix",

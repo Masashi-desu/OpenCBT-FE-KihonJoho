@@ -34,10 +34,10 @@ const legacyTemplate = () => ({
 test("distribution gate: real sources, official answer keys, JIS exclusion and Schema", async () => {
   const b = fixture();
   await validateBundle(b);
-  assert.equal(b.questions.length, 206);
+  assert.equal(b.questions.length, 378);
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
-    103,
+    189,
   );
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {
@@ -62,7 +62,7 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
         q.choices.find((c) => c.id === q.correctAnswer.choiceId)!.content
           .blocks[0] as { text: string }
       ).text,
-      keys[year][q.subject][n - 1],
+      year ? keys[year][q.subject][n - 1] : r.sourceId.includes("-dec-a-") ? "エエエアイエイウエウウイエエエアエエエエアイアイアエイエアアエアウウイアエイイイウエウエイエエイアアエアエエイエウイイウ"[n - 1] : r.sourceId.includes("-dec-") ? "カウカエオアカエウカアエウクアクカエエカ"[n - 1] : "カウアイウオ"[n - 1],
     );
   }
 });

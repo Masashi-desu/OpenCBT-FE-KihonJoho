@@ -278,6 +278,8 @@ test("other-choice concept definitions match independently frozen knowledge refe
     ディレクトリトラバーサル: "ファイル",
     NULL: "0や空文字列とは異なり",
     CO2: "二酸化炭素",
+    APOP: "POP3の認証コマンド名",
+    FIN: "TCPヘッダの制御フラグ名",
   };
   let checked = 0;
   for (const q of bundle.questions.filter(

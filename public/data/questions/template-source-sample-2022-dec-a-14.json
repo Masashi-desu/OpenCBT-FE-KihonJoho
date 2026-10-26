@@ -1,0 +1,381 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-a-14",
+  "revision": 4,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "sample-2022-december",
+      "parameterized",
+      "template-source-sample-2022-dec-a-14"
+    ],
+    "topics": [
+      "稼働率"
+    ],
+    "keywords": [
+      "稼働率"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問14",
+          "page": 11,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "14"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-a-14",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T07:15:08.230Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 1サーバ・LAN・並列クライアント/プリンタの接続図、稼働率表と4式を維持。独立性の前提を明記した改変。全状態の確率和で検算。 クライアント台数=3、プリンタ台数=2。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-19T07:23:43.999Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 1サーバ・LAN・並列クライアント/プリンタの接続図、稼働率表と4式を維持。独立性の前提を明記した改変。全状態の確率和で検算。 クライアント台数=3、プリンタ台数=2。",
+        "affectsAnswer": true
+      },
+      {
+        "at": "2026-10-19T07:24:47.836Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 1サーバ・LAN・並列クライアント/プリンタの接続図、稼働率表と4式を維持。独立性の前提を明記した改変。全状態の確率和で検算。 クライアント台数=3、プリンタ台数=2。",
+        "affectsAnswer": true,
+        "answerDetails": "クライアントが全て停止する確率は(1−b)^3なので、どれかが稼働する確率は1−(1−b)^3。プリンタも同様に1−(1−c)^2。必須のサーバaと、稼働率1のLANを掛け合わせる。他の式は全台必須、稼働と停止の取り違え、全台停止を表す。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-qs",
+          "locator": {
+            "section": "科目A試験サンプル問題 問14",
+            "page": 11,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "14"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "図のように、1台のサーバ、3台のクライアント及び2台のプリンタがLANで接続されている。このシステムはクライアントからの指示に基づいて、サーバにあるデータをプリンタに出力する。各装置の稼働率が表のとおりであるとき、このシステムの稼働率を表す計算式はどれか。ここで、クライアントは3台のうちどれか1台、プリンタは2台のうちどれか1台が稼働していればよい。各装置の故障は互いに独立とする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "機器の接続",
+        "alt": "原資料の形式に基づく改変図。サーバ1台、プリンタ2台、クライアント3台が一つのLANへ接続。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "dec-a-availability",
+          "values": [
+            3,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問14",
+                "page": 11,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "table",
+        "caption": "各装置の稼働率",
+        "columns": [
+          "装置",
+          "稼働率"
+        ],
+        "rows": [
+          [
+            "サーバ",
+            "a"
+          ],
+          [
+            "クライアント",
+            "b"
+          ],
+          [
+            "プリンタ",
+            "c"
+          ],
+          [
+            "LAN",
+            "1"
+          ]
+        ]
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問14",
+                "page": 11,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ab^3c^2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問14",
+                "page": 11,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "a(1−b^3)(1−c^2)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問14",
+                "page": 11,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "a(1−b)^3(1−c)^2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問14",
+                "page": 11,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "14"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "a(1−(1−b)^3)(1−(1−c)^2)"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-4",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "クライアントが全て停止する確率は(1−b)^3なので、どれかが稼働する確率は1−(1−b)^3。プリンタも同様に1−(1−c)^2。必須のサーバaと、稼働率1のLANを掛け合わせる。他の式は全台必須、稼働と停止の取り違え、全台停止を表す。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 1サーバ・LAN・並列クライアント/プリンタの接続図、稼働率表と4式を維持。独立性の前提を明記した改変。全状態の確率和で検算。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

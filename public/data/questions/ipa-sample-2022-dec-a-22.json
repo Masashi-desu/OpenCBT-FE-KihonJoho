@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-sample-2022-dec-a-22",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "A",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "sample-2022-december"
+    ],
+    "topics": [
+      "UML多重度"
+    ],
+    "keywords": [
+      "UML多重度"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問22",
+          "page": 14,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "22"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-qs",
+          "locator": {
+            "section": "科目A試験サンプル問題 問22",
+            "page": 14,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "22"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-a-22-p14",
+        "caption": "原資料 p.14"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 14 － \n問20 次のような注文データが入力されたとき，注文日が入力日以前の営業日かどうかを\n検査するチェックはどれか。 \n \n注文データ \n伝票番号 \n（文字） \n注文日 \n（文字） \n商品コード \n（文字） \n数量 \n（数値） \n顧客コード \n（文字） \n \nア シーケンスチェック \nイ 重複チェック \nウ フォーマットチェック \nエ 論理チェック \n \n \n問21 RDBMS におけるビューに関する記述のうち，適切なものはどれか。 \n \nア ビューとは，名前を付けた導出表のことである。 \nイ ビューに対して，ビューを定義することはできない。 \nウ ビューの定義を行ってから，必要があれば，その基底表を定義する。 \nエ ビューは一つの基底表に対して一つだけ定義できる。 \n \n \n問22 UML を用いて表した図の概念データモデルの解釈として，適切なものはどれか。 \n \n所属する\n1..＊\n部署\n0..＊\n従業員\n \n \nア 従業員の総数と部署の総数は一致する。 \nイ 従業員は，同時に複数の部署に所属してもよい。 \nウ 所属する従業員がいない部署の存在は許されない。 \nエ どの部署にも所属しない従業員が存在してもよい。"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-a-notation-p2",
+        "caption": "原資料 p.2"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 2 － \n問題文中で共通に使用される表記ルール \n \n 各問題文中に注記がない限り，次の表記ルールが適用されているものとする。 \n \n１. 論理回路 \n図記号 \n説明 \n \n論理積素子（AND） \n \n否定論理積素子（NAND） \n \n論理和素子（OR） \n \n否定論理和素子（NOR） \n \n排他的論理和素子（XOR） \n \n論理一致素子 \n \nバッファ \n \n論理否定素子（NOT） \n \nスリーステートバッファ \n \n \n素子や回路の入力部又は出力\n部に示される\n印は，論理状態\nの反転又は否定を表す。"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-sample-2022-dec-a-notation-p3",
+        "caption": "原資料 p.3"
+      },
+      {
+        "type": "code",
+        "language": "text",
+        "text": "－ 3 － \n２. 回路記号 \n図記号 \n説明 \n \n抵抗（R） \n \nコンデンサ（C） \n \nダイオード（D） \n \n \nトランジスタ（Tr） \n \n接地 \n+\n－\n \n演算増幅器"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問22",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "22"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問22",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "22"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問22",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "22"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-a-qs",
+              "locator": {
+                "section": "科目A試験サンプル問題 問22",
+                "page": 14,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目A",
+                "questionNumber": "22"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-a"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-2",
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-a-ans",
+          "locator": {
+            "section": "科目A試験サンプル問題 問22 解答",
+            "page": 1,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目A",
+            "questionNumber": "22"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-a"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "従業員から見る部署の多重度は1..*なので1以上の複数所属を許す。部署側からは0..*で従業員のいない部署も許す。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-sample-2022-dec-a-22-p14",
+    "asset-ipa-sample-2022-dec-a-notation-p2",
+    "asset-ipa-sample-2022-dec-a-notation-p3"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "公式PDFの各問題ページ・全選択肢・注意書き・別紙解答p.1を目視照合。独立した参照解法と全選択肢のテストを適用。全文画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。"
+  }
+}

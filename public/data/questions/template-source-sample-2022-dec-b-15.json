@@ -1,0 +1,399 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-dec-b-15",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-decil",
+      "parameterized",
+      "template-source-sample-2022-dec-b-15"
+    ],
+    "topics": [
+      "ミニマックス"
+    ],
+    "keywords": [
+      "自分○、相手×",
+      "勝ち10、負け−10、引分け0",
+      "自分の番は最大、相手の番は最小",
+      "Aは左の子、Bは右の子"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問15",
+          "page": 24,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "15"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-dec-b-15",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T05:25:42.249Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 盤面11個・全状態遷移・三段階の手順・葉の勝敗と値・四つのa/b組を保持。葉の評価値と問う二枝を変更する。全9入力を別の盤面の勝敗判定と全合法手のゲーム木で検算。 勝敗の評価値の5点単位=2、AとBを付ける根の子=0。",
+        "affectsAnswer": true,
+        "answerDetails": "根の左の子は、相手が引き分け0と自分の勝ち10のうち小さい方0を選ぶ。中央は既に自分の勝ち10。右の子は、相手が自分の負け−10と引き分け0のうち小さい方−10を選ぶ。図のA、Bの位置に対応させるとa=0、b=-10となる。自分に都合のよい枝を、相手の手番で選ばない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-dec-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問15",
+            "page": 24,
+            "exam": "基本情報技術者試験",
+            "period": "2022年12月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "15"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-dec-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の記述中の空欄aとbに入れる正しい答えの組合せを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "三目並べの状態遷移を木で表し、自分が勝利する可能性が最も高い手を決定する。自分の手を○、相手の手を×で表す。根以外の各節の評価値を求め、根の子のうち最大の評価値の手を選ぶ。"
+      },
+      {
+        "type": "list",
+        "items": [
+          "現在の盤面を根とし、勝敗又は引き分けが決まるまでの全ての手を木で表す。",
+          "葉は自分の勝ちを10、負けを−10、引き分けを0と評価する。",
+          "葉以外では、自分の手番の節は全ての子の評価値の最大、相手の手番の節は全ての子の評価値の最小を採用する。"
+        ],
+        "ordered": true
+      },
+      {
+        "type": "paragraph",
+        "text": "図の根で選べる手は三つある。Aが指す子の評価値は空欄a、Bが指す子の評価値は空欄bである。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-generated-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図 三目並べの状態遷移",
+        "alt": "原資料の形式に基づく改変図。盤面は左上から行優先、Oは自分、Xは相手、.は空所。盤面1=XOXXOO...。次の盤面は2、3、4。盤面2=XOXXOOO..。次の盤面は5、6。盤面3=XOXXOO.O.。勝ち、評価値10。盤面4=XOXXOO..O。次の盤面は7、8。盤面5=XOXXOOOX.。次の盤面は9。盤面6=XOXXOOO.X。次の盤面は10。盤面7=XOXXOOX.O。負け、評価値-10。盤面8=XOXXOO.XO。次の盤面は11。盤面9=XOXXOOOXO。引き分け、評価値0。盤面10=XOXXOOOOX。勝ち、評価値10。盤面11=XOXXOOOXO。引き分け、評価値0。根の子は左から2、3、4。Aは2、Bは4を指す。根は自分、次は相手、その次は自分の手番。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "sample-minimax",
+          "values": [
+            2,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 24,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 24,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "0",
+                "-10"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 24,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "0",
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 24,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "10",
+                "-10"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-dec-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問15",
+                "page": 24,
+                "exam": "基本情報技術者試験",
+                "period": "2022年12月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "15"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-dec-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a",
+              "b"
+            ],
+            "rows": [
+              [
+                "10",
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-1",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "根の左の子は、相手が引き分け0と自分の勝ち10のうち小さい方0を選ぶ。中央は既に自分の勝ち10。右の子は、相手が自分の負け−10と引き分け0のうち小さい方−10を選ぶ。図のA、Bの位置に対応させるとa=0、b=-10となる。自分に都合のよい枝を、相手の手番で選ばない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 盤面11個・全状態遷移・三段階の手順・葉の勝敗と値・四つのa/b組を保持。葉の評価値と問う二枝を変更する。全9入力を別の盤面の勝敗判定と全合法手のゲーム木で検算。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

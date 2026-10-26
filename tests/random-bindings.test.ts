@@ -14,6 +14,7 @@ import {
   parametersForSeed,
 } from "../src/core/generation";
 import { nextQuestionRef, selectQuestions } from "../src/core/selection";
+import { sourceCollections } from "../src/core/source-collections";
 import {
   appendRunQuestion,
   finishRun,
@@ -125,28 +126,46 @@ function routesFor(bundle: Bundle, original: Question, template: Template) {
   });
 }
 
-test("all 103 series remain selectable in every applicable menu and actual endless random draw", async (ctx) => {
+test("all registered series remain in every applicable publication pool and draw only within nonzero area quotas", async (ctx) => {
   const bundle = fixture(), rows = generationCoverage(bundle).rows;
   for (const subject of ["A", "B"] as const) {
-    const expected = rows.filter((row) => row.original.subject === subject)
+    const subjectRows = rows.filter(row => row.original.subject === subject);
+    const currentRows = subjectRows.filter(row => {
+      const slots = new Set(row.original.origin.sourceRefs.flatMap(r => r.locator.timeSlot ? [r.locator.timeSlot] : []));
+      return !slots.size || subject === "A" && slots.size === 1 && slots.has("午前");
+    });
+    const expected = currentRows
       .map((row) => refKey(row.linked[0].baseQuestionRef)).sort();
-    for (const mode of ["study", "practice", "endless"] as const)
-      for (const year of [2023, 2024, 2025, 2026])
-        for (const size of ["public", "full"] as const)
-          for (const target of expected) {
+    const visited = new Set<string>();
+    for (const collection of sourceCollections(bundle, subject)) {
+      const owned = new Set(collection.questionRefs.map(refKey));
+      const collectionRows = subjectRows.filter(row => owned.has(refKey(refOf(row.original))));
+      const legacy = collectionRows.some(row => row.original.origin.sourceRefs.some(r => r.locator.timeSlot));
+      const poolRows = legacy ? collectionRows : currentRows;
+      const pool = poolRows.map(row => refKey(row.linked[0].baseQuestionRef)).sort();
+      for (const mode of ["study", "practice"] as const)
+        for (const size of legacy ? ["public"] as const : ["public", "full"] as const)
+          for (const row of poolRows) {
+            const target = refKey(row.linked[0].baseQuestionRef);
             const prepared = selectQuestions(bundle, {
-              subject, kind: "mix", mode, year, size, bindingMode: "generated_values",
+              subject, kind: "mix", mode, mixProfileCollectionId: collection.id, size, bindingMode: "generated_values",
             }, <T>(items: T[]) => [
               ...items.filter((q) => refKey(refOf(q as Question)) === target),
               ...items.filter((q) => refKey(refOf(q as Question)) !== target),
             ]);
-            assert.deepEqual(prepared.set.questionRefs.map(refKey).sort(), expected);
-            assert.equal(refKey(refOf(prepared.questions[0])), target);
+            assert.deepEqual(prepared.set.questionRefs.map(refKey).sort(), pool);
+            if ((prepared.quota[row.original.learning.area] ?? 0) > 0)
+              assert.equal(refKey(refOf(prepared.questions[0])), target);
+            else assert(!prepared.questions.some(q => refKey(refOf(q)) === target), "zero-quota areas must not be issued");
+            visited.add(target);
           }
+    }
+    assert.deepEqual([...visited].sort(), subjectRows.map(row => refKey(row.linked[0].baseQuestionRef)).sort());
     const selection: Selection = { subject, kind: "mix", mode: "endless", bindingMode: "generated_values" },
       run = startRun(await prepareRun(bundle, selection, {}, 100000), 101000),
       refs = structuredClone(run.set.questionRefs),
       random = crypto.getRandomValues.bind(crypto);
+    assert.deepEqual(refs.map(refKey).sort(), expected);
     // Unequal historical frequency must not remove any series from the pool.
     run.session.entries.push(...Array.from({ length: 10 }, () => structuredClone(run.session.entries[0])));
     let targetIndex = 0, step = refs.length - 1;

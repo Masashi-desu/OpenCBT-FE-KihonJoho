@@ -74,7 +74,11 @@ studyはactiveElapsedSecondsを稼働中だけ増やし、明示停止時にpaus
 
 ## 保存・再読み込み・再開
 
-保存先は同一originのIndexedDB、DB名 `opencbt-fe-kihonjoho-v2`。storeはcatalogSnapshots、generatedInstances、sessions、resultsとする。問題・条件・assetを固定snapshotに保存し、セッションへ最新の定義を直接参照させない。生成枠ではinstanceとsessionを同一トランザクションで保存し、当時の生成済みquestionを使用する。
+保存先は同一originのIndexedDB、DB名 `opencbt-fe-kihonjoho-v2`、内部DB版は4とする。sessions、generatedInstances、resultsは当時の出題・回答・結果を保持する。catalogSnapshotsはセッションごとの固定参照、sharedBundlesは内容hashで共有する不変の全bundle、sharedAssetsは内容hashとMIMEで共有する画像Blobを保持する。ブックマークはbookmarks、既知の取り下げ参照はstoragePolicyへ保存する。これは内部保存形式の変更であり、公開sessionのschemaVersionは変更しない。セッションから現行配布データを直接参照せず、再開時は当時のbundle・asset・生成済みquestionを復元する。生成枠のinstance、session、必要な共有資源とsnapshot参照は同一トランザクションで保存する。
+
+バインド前には原問題・基準問題を含む完全なbundleとassetを先に保存する。セッション未確定の参照は準備中の保守と競合しないよう15分間保護し、確定時に保護を外す。これは放置又は失敗した準備を回収するための内部期限であり、学習履歴のupdatedAt・180日の期限は変えない。準備が15分を超えた場合や保存失敗後の再試行でも、確定保存は必要なbundle・Blob・参照を原子的に再作成する。保存成功前には出題へ進まない。
+
+旧DB版3のinline bundleとassetは読み出せる。DB更新のupgrade transactionで全本文を移し替えず、当該履歴の検証後又は起動保守で1件ずつ参照へ移す。取り下げ通知がある場合は未出題を含む全旧snapshotの確認を起動完了前に行う。通知がない場合の先行移行は1回8件までとする。移行は元のsession・出題・入力・回答・正誤・結果・参照・hash・時刻を変えず、再生成・再採点しない。移行失敗時は元のinline snapshotを残し、再試行可能とする。退役した未出題生成器を実行する必要はない。
 
 開始前に保存ができるかを確認する。解答変更・解除・見直し・正答表示・移動・一時停止・終了はトランザクションで保存し、成功後に保存済み状態を表示する。画面が開いている間は5秒ごとにも時刻と現在位置を保存する。保存に失敗した場合は操作を止め、最後の保存状態と理由を示す。永続保存に失敗しても保存済みと表示しない。
 
@@ -83,6 +87,8 @@ practiceを閉じるとrunningのまま期限が進む。復帰時にsnapshotと
 同じセッションを複数タブで同時に編集しない。IndexedDBのsession.revisionで競合を検出し、後から保存しようとしたタブは書込みを止め、先に保存された状態から再開選択へ戻る。
 
 保存期限はsession.updatedAtから180日。起動時と記録一覧表示時に期限切れセッションと対応結果を削除する。利用者はS08で1件又は全件を削除でき、参照がなくなったsnapshotとアセットも同時に削除する。閉じたブラウザ内の削除を指定時刻に実行する保証はない。ブラウザのサイトデータ消去・プライベートモード・容量制限で早く消える可能性も開始前に示す。
+
+共有資源のGCと保存はsessionsを含む同一のreadwrite transactionで生存参照を確認する。一部の履歴削除で別の履歴のbundleやBlobを消さず、最後の参照がなくなった共有資源だけを削除する。取り下げ確認は共有bundleの全問題・派生元参照のindexで行い、既知の取り下げ参照を含む古いタブからの保存も同一transactionで拒否する。履歴の全件削除でもbookmarksと既知の取り下げ通知は保持する。
 
 セッション所有のinstanceも同じ削除対象とする。instance欠落・hash不一致・出題時の改変情報との不一致はmissing_snapshot又はdata_errorでinvalidatedとし、再生成で修復しない。
 
@@ -93,3 +99,9 @@ practiceを閉じるとrunningのまま期限が進む。復帰時にsnapshotと
 studyの正答表示は `revealed=true` とし、元に戻さない。表示後も学習のため解答を変更できるが、結果では「正答・解説を確認した問題数」を示し、初見成績とは表現しない。practiceでは終了前のrevealedを許可しない。
 
 completed／expiredの結果を生成し、abandonedでは正答率を生成しない。invalidatedでは継続と新しい正答率の計算を止める。撤回通知では[保守](/maintenance)に従いセッション全体を削除する。当時の値を現在の正答で黙って上書きしない。学習正答率は公式のIRT評価点・合否・合格確率と異なる。[R07](/references)の公式採点方式を再現したと表示しない。
+
+## 旧午後の複数解答の保存と学習集計
+
+解答はselectedPartChoicesへ欄IDと選択肢IDの対応で保存する。各欄で選択・解除し、再開・復習は保存した選択順と当時の問題を使う。単一選択のselectedChoiceIdと混同しない。順不同は正答の多重集合と比較する。「正解なし」の欄は選択の有無にかかわらず採点対象外とし、正答表示・復習で理由を表示する。
+
+複数解答を含む練習はcalculationVersion=learning-accuracy-v2を使い、大問単位の結果と、欄ごとの正解・不正解・未解答・採点対象外及び欄単位の学習正答率を保存する。大問は採点欄が全て正解なら正解、未解答が残れば未解答、それ以外は不正解とし、全欄が対象外なら大問も対象外にする。対象外は正答率の分母へ含めない。公式の配点・選択問題・評価点・合否を再現する集計ではない。単一選択だけの練習は従来のcalculationVersion=learning-accuracy-v1と形を維持する。

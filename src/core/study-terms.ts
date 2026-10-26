@@ -1,6 +1,7 @@
 import type { Asset, Block, Question } from "./types";
 import concepts from "./study-concepts.json";
 import { studyAcronyms, type StudyTerm } from "./study-acronyms";
+import {sample2022AStudyTerms} from "./sample-2022-a-study-terms";
 
 // Related terms whose roles were reviewed against these original questions.
 // They are definitions, not an assignment of a displayed choice letter.
@@ -81,6 +82,7 @@ const extraTerms: StudyTerm[] = [
 
 const dictionary: StudyTerm[] = [
   ...studyAcronyms,
+  ...sample2022AStudyTerms,
   ...concepts.filter(
     (c) =>
       !studyAcronyms.some(
@@ -138,8 +140,10 @@ export function studyBlockText(block: Block, assets: Asset[] = []): string {
 }
 
 function sourceKeys(question: Question): string[] {
-  return question.origin.sourceRefs.flatMap(({ locator: l }) => {
+  return question.origin.sourceRefs.flatMap(({ sourceId, locator: l }) => {
     const subject = l.subject?.replace("科目", "").toLowerCase();
+    if(sourceId.startsWith("source-ipa-sample-")&&l.questionNumber)
+      return [`${sourceId.replace(/^source-ipa-/,"").replace(/-(qs|ans)$/,"")}-${l.questionNumber}`];
     return l.year && subject && l.questionNumber
       ? [`${l.year}-${subject}-${l.questionNumber}`]
       : [];
@@ -181,7 +185,10 @@ export function questionStudyTerms(
   );
   const related = new Set(sources.flatMap((s) => relatedBySource[s] ?? []));
   const selected = new Set<string>();
-  for (const term of dictionary) {
+  const available=dictionary.filter(term=>!term.sources||term.sources.some(s=>sources.includes(s)))
+    .filter((term,index,all)=>all.findIndex(other=>other.term===term.term)===index);
+  for (const term of available) {
+    if(term.term==="MAC"&&text.includes("メッセージ認証符号")&&!text.includes("MACアドレス"))continue;
     if (term.sources && !term.sources.some((s) => sources.includes(s)))
       continue;
     if (
@@ -194,11 +201,11 @@ export function questionStudyTerms(
   let previousSize = -1;
   while (previousSize !== selected.size) {
     previousSize = selected.size;
-    for (const term of dictionary)
+    for (const term of available)
       if (selected.has(term.term))
         for (const name of term.related ?? []) selected.add(name);
   }
-  return dictionary.filter(
+  return available.filter(
     (term) =>
       selected.has(term.term) &&
       (term.expansion ||

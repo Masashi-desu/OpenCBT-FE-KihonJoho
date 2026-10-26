@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import { detailRuntimePlugin } from "./scripts/detail-runtime";
 import {
@@ -40,7 +41,13 @@ export default defineConfig(({ command }) => ({
     },
   ],
   base: "./",
-  server: { host: "127.0.0.1", port: 5175 },
+  server: {
+    host: "127.0.0.1", port: 5175,
+    // Review snapshots can contain whole checkouts and dependency links.
+    // Watching them causes unrelated reloads and unbounded memory use.
+    watch: { ignored: ["output", ".cache"].map(directory =>
+      fileURLToPath(new URL(`./${directory}/**`, import.meta.url)).replaceAll("\\", "/")) },
+  },
   preview: { host: "127.0.0.1", port: 4175 },
   build: { sourcemap: false, chunkSizeWarningLimit: 850 },
 }));

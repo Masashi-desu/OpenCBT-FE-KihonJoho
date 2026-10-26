@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, LoaderCircle, Play, Search } from "lucide-react";
 import type { Bundle, Question } from "../core/types";
+import { answerLabels, partAnswerLabels } from "../core/answers";
 import { areas, labels } from "../core/types";
 import {
   SEARCH_PAGE_SIZE, detailSearchDocuments, emptySearch, findSearchDocuments, questionSearchDocuments,
@@ -90,8 +91,8 @@ export function SearchPage({ bundle, route, theme, onNavigate, onLicenses, onPra
         <label>科目<select value={route.subject} onChange={event => filter({ subject: event.target.value as SearchRoute["subject"] })}>
           <option value="all">すべての科目</option><option value="A">科目A</option><option value="B">科目B</option>
         </select></label>
-        <label>年度<select value={route.year} onChange={event => filter({ year: event.target.value === "all" ? "all" : Number(event.target.value) })}>
-          <option value="all">すべての年度</option>{years.map(year => <option key={year} value={year}>{year}年度</option>)}
+        <label>年度・公開年<select value={route.year} onChange={event => filter({ year: event.target.value === "all" ? "all" : Number(event.target.value) })}>
+          <option value="all">すべての年</option>{years.map(year => <option key={year} value={year}>{year}年</option>)}
         </select></label>
         {(route.query || route.subject !== "all" || route.year !== "all" || route.kind !== "all") &&
           <button type="button" className="text-button" onClick={() => { setDraft(""); onNavigate({ ...emptySearch }, true); }}>条件をクリア</button>}
@@ -103,7 +104,7 @@ export function SearchPage({ bundle, route, theme, onNavigate, onLicenses, onPra
       {loading && <span className="search-loading"><LoaderCircle size={15} className="spinning" />詳細解説を確認中</span>}
     </div>
     {!matches.length ? <div className="empty-state"><Search size={36} /><h2>条件に一致する内容がありません</h2>
-      <p>キーワードを短くするか、科目・年度・対象を変更してください。</p></div> : <div className="search-results">
+      <p>キーワードを短くするか、科目・年・対象を変更してください。</p></div> : <div className="search-results">
       {visible.map(document => <article className="search-result" key={document.id}>
         <div className="search-result-meta"><span className="search-kind">{document.kind === "detail" ? "詳細解説" : "問題"}</span>
           <span>{document.kind === "detail" ? searchQuestionTitle(document.question) : areas[document.question.learning.area] ?? document.question.learning.area}</span></div>
@@ -200,7 +201,8 @@ function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses
           <button className="search-practice" disabled={practiceDisabled} onClick={() => onPractice(question)}><Play size={17} />類題を解く</button>
         </div>
         {revealed && <section id="search-explanation" className="search-explanation" aria-label="正答と解説">
-          <h2>正答：{labels[question.choices.findIndex(choice => choice.id === question.correctAnswer.choiceId)]}</h2>
+          <h2>{question.answerParts ? "正答" : `正答：${answerLabels(question)}`}</h2>
+          {question.answerParts && <dl>{question.answerParts.map(part => <div key={part.id}><dt>{part.label}</dt><dd>{partAnswerLabels(question, part, question.choices.map(c => c.id))}</dd></div>)}</dl>}
           <Content content={question.explanation} bundle={bundle} assetUrls={assets.urls} credit />
           <StudyTerms question={question} assets={bundle.assets} />
         </section>}

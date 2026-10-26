@@ -1,0 +1,411 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-sample-2022-apr-b-1",
+  "revision": 2,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "algorithm",
+    "tags": [
+      "sample-2022-april",
+      "parameterized",
+      "template-source-sample-2022-apr-b-1"
+    ],
+    "topics": [
+      "条件分岐"
+    ],
+    "keywords": [
+      "ageは0以上の整数",
+      "0〜3歳は100円、4〜9歳は300円、10歳以上は500円",
+      "最初のifはageが3以下"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-apr-b-qs",
+        "locator": {
+          "section": "科目B試験サンプル問題 問1",
+          "page": 2,
+          "exam": "基本情報技術者試験",
+          "period": "2022年4月公表 サンプル問題",
+          "subject": "科目B",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-sample-2022-apr-b-1",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-19T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原ページを画像化し補助文字を併記",
+        "details": "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-19T03:09:29.781Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原問題の出題形式・定義・前提・注記を維持する生成用基準問題を定義",
+        "details": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 元の三段階料金・7条件を維持。年齢の中間区分は4歳分以上を確保し、端点だけの誤答が全域で正答になる条件を除く。料金は百円単位で正の等差。全360入力を料金仕様から独立検算する。 最初の年齢上限=3、次の上限までの年齢差=6、最小料金の百円単位=1、料金差の百円単位=2。",
+        "affectsAnswer": true,
+        "answerDetails": "最初のifを通らなかったときはageが4以上である。その中でageが9以下なら300円、10以上なら500円となる。下限を再判定する必要はない。上限を含めない条件は9歳を、下限を含めない条件は4歳を誤る。端点だけの条件は途中の年齢を誤り、下限だけでは大人の区分も通してしまう。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-sample-2022-apr-b-qs",
+          "locator": {
+            "section": "科目B試験サンプル問題 問1",
+            "page": 2,
+            "exam": "基本情報技術者試験",
+            "period": "2022年4月公表 サンプル問題",
+            "subject": "科目B",
+            "questionNumber": "1"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-sample-2022-apr-b",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "ある施設の入場料は、0歳から3歳までは100円、4歳から9歳までは300円、10歳以上は500円である。関数feeは、年齢を表す0以上の整数を引数として受け取り、入場料を返す。"
+      },
+      {
+        "type": "code",
+        "text": "○整数型: fee(整数型: age)\n  整数型: ret\n  if (age が 3 以下)\n    ret ← 100\n  elseif (空欄)\n    ret ← 300\n  else\n    ret ← 500\n  endif\n  return ret",
+        "language": "pseudocode"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(age が 4 以上) and (age が 9 より小さい)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(age が 4 と等しい) or (age が 9 と等しい)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(age が 4 より大きい) and (age が 9 以下)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "age が 4 以上"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "age が 4 より大きい"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "age が 9 以下"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-sample-2022-apr-b-qs",
+              "locator": {
+                "section": "科目B試験サンプル問題 問1",
+                "page": 2,
+                "exam": "基本情報技術者試験",
+                "period": "2022年4月公表 サンプル問題",
+                "subject": "科目B",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-sample-2022-apr-b",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "age が 9 より小さい"
+          }
+        ]
+      }
+    }
+  ],
+  "correctAnswer": {
+    "choiceId": "choice-value-6",
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "最初のifを通らなかったときはageが4以上である。その中でageが9以下なら300円、10以上なら500円となる。下限を再判定する必要はない。上限を含めない条件は9歳を、下限を含めない条件は4歳を誤る。端点だけの条件は途中の年齢を誤り、下限だけでは大人の区分も通してしまう。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": true,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-19",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 元の三段階料金・7条件を維持。年齢の中間区分は4歳分以上を確保し、端点だけの誤答が全域で正答になる条件を除く。料金は百円単位で正の等差。全360入力を料金仕様から独立検算する。 公開原問題の画像を参照して構造・意味・計算規則を独自の生成器へ定義した改変問題。実在する公式問題の再録とは表示しない。基準値と入力域の照合、生成器の独立計算テストを適用する。"
+  }
+}

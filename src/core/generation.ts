@@ -1,5 +1,6 @@
 import type { Question, Template, Block, Scene, Attribution } from "./types";
 import { DataError } from "./errors";
+import { compoundAnswerSignature } from "./answers";
 import { preserveSourceFormat } from "./generation-formats";
 import { sha256 } from "./hash";
 import { fractionBases, radixFraction } from "./generators/radix-fraction";
@@ -926,6 +927,7 @@ export function bindQuestion(
   return preserveSourceFormat(q, t, v, contractFor(t)!.notes, instanceId, at);
 }
 export function answerSignature(q: Question) {
+  if (q.answerParts) return compoundAnswerSignature(q);
   const answer = q.choices
     .find((c) => c.id === q.correctAnswer.choiceId)!
     .content.blocks.map((b) => ("text" in b ? b.text : JSON.stringify(b)))
