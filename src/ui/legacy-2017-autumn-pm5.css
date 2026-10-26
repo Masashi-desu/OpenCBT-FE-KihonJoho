@@ -1,0 +1,27 @@
+/* Preserve the source's ER arrows, row spans, empty rectangles and flow branches. */
+.legacy-autumn-pm5-figure { color:var(--ink); max-width:100%; overflow:auto; }
+.legacy-autumn-pm5-figure table { border-collapse:collapse; width:max-content; min-width:42em; font-size:inherit; }
+.legacy-autumn-pm5-figure caption { caption-side:top; margin:.5em; }
+.legacy-autumn-pm5-figure td,.legacy-autumn-pm5-figure th { border:1px solid var(--ink); padding:.35em .6em; text-align:left; font-weight:normal; max-width:38em; }
+.legacy-autumn-pm5-er-svg,.legacy-autumn-pm5-flow-svg { display:block; max-width:none; height:auto; fill:var(--ink); font-family:var(--font); }
+.legacy-autumn-pm5-er-svg { width:59em; font-size:inherit; }
+.legacy-autumn-pm5-er-svg text { font-size:20px; }
+.legacy-autumn-pm5-flow-svg { width:70em; font-size:inherit; }
+.legacy-autumn-pm5-flow-svg text { font-size:19px; }
+.legacy-autumn-pm5-er-svg rect,.legacy-autumn-pm5-er-svg line,.legacy-autumn-pm5-er-svg path,.legacy-autumn-pm5-flow-svg rect,.legacy-autumn-pm5-flow-svg line,.legacy-autumn-pm5-flow-svg path,.legacy-autumn-pm5-flow-svg polygon { stroke:var(--ink); stroke-width:1.4; }
+.legacy-autumn-pm5-er-svg rect,.legacy-autumn-pm5-flow-svg rect,.legacy-autumn-pm5-flow-svg polygon { fill:var(--surface); }
+.legacy-autumn-pm5-connections { fill:none; }
+.legacy-autumn-pm5-connections text { fill:var(--ink); }
+.legacy-autumn-pm5-connections [data-autumn-pm5-reference-arrow] { stroke-width:4; }
+.legacy-autumn-pm5-hole { stroke-width:3 !important; }
+.legacy-autumn-pm5-selection { border:3px double var(--ink); padding:.6em .8em; }
+.legacy-autumn-pm5-circled { border:1px solid var(--ink); border-radius:50%; padding:0 .15em; }
+.legacy-autumn-pm5-empty { display:inline-block; width:5em; height:1.5em; vertical-align:middle; border:3px solid var(--ink); }
+.legacy-autumn-pm5-bank { min-width:max-content; display:grid; gap:1em; }
+.legacy-autumn-pm5-bank > div { display:flex; gap:1.1em; white-space:pre; }
+.legacy-autumn-pm5-bank-a { grid-template-columns:repeat(3,max-content); column-gap:4em; row-gap:1.5em; }
+.legacy-autumn-pm5-bank-d { grid-template-columns:repeat(3,max-content); column-gap:2em; }
+.legacy-autumn-pm5-key-pair { display:block; width:max-content; text-decoration:underline; text-underline-offset:.25em; margin-bottom:1em; }
+.legacy-autumn-pm5-heading { margin:.6em 0 1em; }
+.legacy-autumn-pm5-caption { text-align:center; margin:.7em 0; }
+.legacy-autumn-pm5-inline-hole { display:inline-block; width:5em; height:1.5em; line-height:1.5; text-align:center; vertical-align:middle; border:3px solid var(--ink); }

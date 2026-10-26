@@ -1,0 +1,35 @@
+.legacy-autumn-pm8-figure { max-width:100%; overflow:auto; color:var(--ink); }
+.legacy-autumn-pm8-figure table { border-collapse:collapse; width:max-content; font-size:inherit; }
+.legacy-autumn-pm8-figure th,.legacy-autumn-pm8-figure td { border:1px solid var(--ink); padding:.3em .65em; font-weight:normal; }
+.legacy-autumn-pm8-figure th { white-space:nowrap; }
+.legacy-autumn-pm8-figure caption,.legacy-autumn-pm8-table-caption { text-align:center; caption-side:top; padding:.5em 0; }
+.legacy-autumn-pm8-characters { margin-block:1em 2em; }
+.legacy-autumn-pm8-characters td { min-width:1.2em; text-align:center; }
+.legacy-autumn-pm8-arguments-calc table,.legacy-autumn-pm8-arguments-validate table { min-width:48em; }
+.legacy-autumn-pm8-arguments-calc td:last-child,.legacy-autumn-pm8-arguments-validate td:last-child { max-width:25em; }
+.legacy-autumn-pm8-arguments-calc td:not(:last-child),.legacy-autumn-pm8-arguments-validate td:not(:last-child) { white-space:nowrap; }
+.legacy-autumn-pm8-cases-table table { min-width:20em; margin-inline:auto; }
+.legacy-autumn-pm8-cases-table td:first-child { text-align:center; }
+.legacy-autumn-pm8-hole { display:inline-block; width:5em; height:1.5em; line-height:1.5; text-align:center; border:3px solid var(--ink); vertical-align:middle; }
+.legacy-autumn-pm8-a-bank { min-width:22em; }
+.legacy-autumn-pm8-a-bank .legacy-autumn-pm8-corner { border:none; }
+.legacy-autumn-pm8-bank { display:grid; width:max-content; gap:1em 3.5em; }
+.legacy-autumn-pm8-bank>div { display:flex; gap:1em; white-space:pre; }
+.legacy-autumn-pm8-bank-b,.legacy-autumn-pm8-bank-c { grid-template-columns:repeat(2,max-content); }
+.legacy-autumn-pm8-bank-d,.legacy-autumn-pm8-bank-f { grid-template-columns:repeat(3,max-content); }
+.legacy-autumn-pm8-bank-e { grid-template-columns:repeat(4,max-content); }
+.legacy-autumn-pm8-program-svg,.legacy-autumn-pm8-grid-svg { display:block; max-width:none; height:auto; font-size:inherit; font-family:var(--font); fill:var(--ink); }
+.legacy-autumn-pm8-program-svg { width:64em; }
+.legacy-autumn-pm8-program-svg text { font-size:18px; }
+.legacy-autumn-pm8-grid-svg { width:31em; }
+.legacy-autumn-pm8-grid-unit { width:31em; }
+.legacy-autumn-pm8-grid-svg text { font-size:22px; }
+.legacy-autumn-pm8-program-svg line,.legacy-autumn-pm8-grid-svg rect,.legacy-autumn-pm8-grid-svg path { stroke:var(--ink); stroke-width:1.2; }
+.legacy-autumn-pm8-svg-hole { fill:var(--surface); stroke:var(--ink); stroke-width:3; }
+.legacy-autumn-pm8-grid-svg rect { fill:var(--surface); }
+.legacy-autumn-pm8-grid-svg .legacy-autumn-pm8-original-frame { fill:none; stroke-width:3; }
+.legacy-autumn-pm8-grid-svg pattern rect { fill:var(--soft-surface); stroke:none; }
+.legacy-autumn-pm8-grid-svg pattern path { stroke:var(--line); }
+.legacy-autumn-pm8-figure-caption { text-align:center; }
+.legacy-autumn-pm8-required { border:2px solid var(--ink); padding:.6em .8em; }
+.legacy-autumn-pm8-monospace { font-family:ui-monospace,monospace; }

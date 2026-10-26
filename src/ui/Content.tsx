@@ -15,6 +15,7 @@ import { Legacy2017Pm1UnderlinedParagraph, legacy2017Pm1UnderlinedSourceText } f
 import { isLegacy2017Pm4Comparison, isLegacy2017Pm4List, Legacy2017Pm4Paragraph, Legacy2017Pm4List } from "./Legacy2017Pm4Text";
 import { isLegacy2017Pm5List, Legacy2017Pm5List } from "./Legacy2017Pm5Text";
 import { LegacyAfternoonCode } from "./LegacyAfternoonCode";
+import { isLegacy2017AutumnNativeText, Legacy2017AutumnNativeText, Legacy2017AutumnNativeParagraph } from "./Legacy2017AutumnNativeText";
 import {
   activityNetworkAlt,
   activityNetworkRenderer,
@@ -466,6 +467,18 @@ export function tableCellTextPresentation(text: string) {
     ? "short"
     : "prose";
 }
+/** Exact source and locator identity selects presentation; identical unrelated
+ * text is never sufficient to opt into a source-owned rectangle contract. */
+function autumn2017TextMajor(attribution: Attribution) {
+  const refs = attribution.sourceRefs;
+  const first = refs[0], number = Number(first?.locator.questionNumber);
+  if (!Number.isInteger(number) || number < 1 || number > 13 || !refs.length ||
+    attribution.origin === "original" || !refs.every(ref =>
+      ref.sourceId === `source-ipa-2017h29a-fe-pm-${number}-qs` && ref.locator.year === 2017 &&
+      ref.locator.period === "秋期" && ref.locator.timeSlot === "午後" &&
+      ref.locator.questionNumber === String(number))) return undefined;
+  return number;
+}
 export function Content({
   content,
   bundle,
@@ -483,6 +496,9 @@ export function Content({
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
         if (b.type === "paragraph") {
+          const autumnNumber = autumn2017TextMajor(content.attribution);
+          if (autumnNumber !== undefined && isLegacy2017AutumnNativeText(autumnNumber,"paragraph",b.text))
+            return <Legacy2017AutumnNativeParagraph key={i} number={autumnNumber} text={b.text} />;
           if (content.attribution.sourceRefs.some(ref => ref.sourceId === "source-ipa-2017h29h-fe-pm-1-qs") && b.text === legacy2017Pm1UnderlinedSourceText)
             return <Legacy2017Pm1UnderlinedParagraph key={i} text={b.text} />;
           if (content.attribution.sourceRefs.some(ref => ref.sourceId === "source-ipa-2017h29h-fe-pm-4-qs") && isLegacy2017Pm4Comparison(b.text))
@@ -573,9 +589,12 @@ export function Content({
             </CaptionFrame>
           );
         if (b.type === "code") {
+          const autumnNumber = autumn2017TextMajor(content.attribution);
+          const nativeAutumn = autumnNumber !== undefined && isLegacy2017AutumnNativeText(autumnNumber,"code",b.text);
           const code = (
             <pre>
-              <code><LegacyAfternoonCode text={b.text} language={b.language} attribution={content.attribution} /></code>
+              <code>{nativeAutumn ? <Legacy2017AutumnNativeText number={autumnNumber!} kind="code" text={b.text} /> :
+                <LegacyAfternoonCode text={b.text} language={b.language} attribution={content.attribution} />}</code>
             </pre>
           );
           return b.language === "text" ? (

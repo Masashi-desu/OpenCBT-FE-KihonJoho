@@ -3,6 +3,7 @@ import { DataError } from "../errors";
 import { sourceFigureAlt } from "../source-figures";
 import { bindBodyAnswers, type GeneratedBody, type GenerationDefinition } from "./definition";
 import { legacyAfternoonPublicNotes } from "./legacy-afternoon-public-notes";
+import { validate2017AutumnFixedMaterials } from "./legacy-2017-autumn-fixed-materials";
 
 /** Fixed source material credits belong to their individual content/diagram
  * slots. Shared language references cannot inherit the main question's right. */
@@ -10,6 +11,7 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
   values: number[], instanceId: string, at: string): Question {
   const publicNotes = legacyAfternoonPublicNotes[definition.source];
   if (!publicNotes) throw new DataError("SOURCE_FORMAT", "旧午後の公開用の改変説明がありません。");
+  validate2017AutumnFixedMaterials(base,definition);
   const body = definition.build(values);
   if (base.id !== `question-template-source-${definition.source}` || base.choiceShuffleAllowed ||
     template.baseQuestionRef.questionId !== base.id || template.baseQuestionRef.revision !== base.revision ||
@@ -47,6 +49,7 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
   question.explanation = { attribution: own, blocks: [{ type: "paragraph", text: body.explanation }] };
   question.assetRefs = [...new Set(question.contexts.flatMap(context => context.content.blocks
     .flatMap(block => block.type === "image" ? [block.assetId] : [])))];
+  validate2017AutumnFixedMaterials(question,definition);
   return question;
 }
 
@@ -73,10 +76,12 @@ function matches(question: Question, body: GeneratedBody) {
 /** These enumerated domains have independent per-major content tests. A
  * structural match alone would not detect a missing premise or stale bank. */
 export function validateLegacyAfternoonFormat(question: Question, definition: GenerationDefinition) {
-  // These two source-owned appendices are fixed official language references,
+  validate2017AutumnFixedMaterials(question,definition);
+  // Reviewed source-owned errata/language appendices are fixed references,
   // not fixed images of a generated question. Their exact IDs/order are also
   // checked against the registered body below; catalog rights checks still run.
-  const fixedReferences = ["2017h29h-fe-pm-12", "2017h29h-fe-pm-13"].includes(definition.source);
+  const fixedReferences = ["2017h29h-fe-pm-12", "2017h29h-fe-pm-13", "2017h29a-fe-pm-5",
+    "2017h29a-fe-pm-8", "2017h29a-fe-pm-11", "2017h29a-fe-pm-12", "2017h29a-fe-pm-13"].includes(definition.source);
   const imageRefs = [...new Set(question.contexts.flatMap(context => context.content.blocks
     .flatMap(block => block.type === "image" ? [block.assetId] : [])))];
   if (question.choiceShuffleAllowed || (!fixedReferences && imageRefs.length) ||

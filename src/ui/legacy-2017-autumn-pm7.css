@@ -1,0 +1,28 @@
+.legacy-autumn-pm7-figure { max-width:100%; overflow:auto; color:var(--ink); }
+.legacy-autumn-pm7-figure table { border-collapse:collapse; width:max-content; font-size:inherit; }
+.legacy-autumn-pm7-figure td,.legacy-autumn-pm7-figure th { border:1px solid var(--ink); padding:.3em .6em; font-weight:normal; }
+.legacy-autumn-pm7-figure th { white-space:nowrap; }
+.legacy-autumn-pm7-figure caption { caption-side:top; padding:.5em 0; }
+.legacy-autumn-pm7-unit { display:block; text-align:right; }
+.legacy-autumn-pm7-table1 td:first-child { min-width:30em; max-width:38em; }
+.legacy-autumn-pm7-table1 td:not(:first-child) { text-align:right; white-space:nowrap; }
+.legacy-autumn-pm7-table2 td:nth-child(2) { width:23em; min-width:23em; }
+.legacy-autumn-pm7-table2 td:nth-child(3),.legacy-autumn-pm7-table2 td:nth-child(4) { text-align:right; white-space:nowrap; }
+.legacy-autumn-pm7-table2 td:first-child,.legacy-autumn-pm7-table2 td:last-child { white-space:nowrap; }
+.legacy-autumn-pm7-masked { background:repeating-linear-gradient(45deg,var(--soft-surface) 0,var(--soft-surface) 2px,var(--line) 2px,var(--line) 3px); }
+.legacy-autumn-pm7-hole { display:inline-block; width:5em; height:1.5em; line-height:1.5; text-align:center; border:3px solid var(--ink); vertical-align:middle; }
+.legacy-autumn-pm7-bank { display:grid; gap:.65em; min-width:28em; }
+.legacy-autumn-pm7-bank>div { display:flex; gap:1em; }
+.legacy-autumn-pm7-bank-two { grid-template-columns:repeat(2,max-content); gap:.65em 4em; width:max-content; }
+.legacy-autumn-pm7-c-bank { min-width:16em; }
+.legacy-autumn-pm7-c-bank td { text-align:right; }
+.legacy-autumn-pm7-c-bank .legacy-autumn-pm7-corner { border:none; }
+.legacy-autumn-pm7-scatter-svg { display:block; width:42em; height:auto; max-width:none; font-size:inherit; font-family:var(--font); fill:var(--ink); }
+.legacy-autumn-pm7-scatter-svg text { font-size:20px; }
+.legacy-autumn-pm7-scatter-svg line,.legacy-autumn-pm7-scatter-svg path { stroke:var(--ink); stroke-width:1.2; }
+.legacy-autumn-pm7-scatter-svg rect { fill:var(--surface); stroke:var(--ink); stroke-width:1; }
+.legacy-autumn-pm7-scatter-svg pattern rect { fill:var(--soft-surface); stroke:none; }
+.legacy-autumn-pm7-scatter-svg pattern path { stroke:var(--line); }
+.legacy-autumn-pm7-caption { text-align:center; }
+.legacy-autumn-pm7-selection { border:3px double var(--ink); padding:.6em .8em; }
+.legacy-autumn-pm7-circled { border:1px solid var(--ink); border-radius:50%; padding:0 .15em; }

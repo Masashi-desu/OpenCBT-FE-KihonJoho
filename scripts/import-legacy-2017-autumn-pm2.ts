@@ -1,0 +1,10 @@
+import {strings} from '../src/core/generators/definition';
+import {autumnAnswers} from '../src/core/generators/legacy-2017-autumn-pm1-4-preparation';
+import {legacy2017AutumnPm2Definition as definition} from '../src/core/generators/legacy-2017-autumn-pm2';
+import {legacy2017AutumnPm2Source,legacy2017AutumnPm2Profiles} from '../src/core/generators/legacy-2017-autumn-pm2-source';
+import {autumn2017PreparedRecords,bindAutumn2017PreparedBody,type Autumn2017PreparedInput,type Autumn2017PreparedSpec} from './import-legacy-2017-autumn-pm1-4';
+const s=legacy2017AutumnPm2Source();
+const original=autumnAnswers([{id:'numeric',choices:strings(['50','80','100','130'])},{id:'p',choices:strings(s.pChoices)},{id:'v',choices:strings(s.vChoices)},{id:'deadlock',choices:strings(['y1の確保，y1の解放，y2の確保，y2の解放','y1の確保，y2の確保，y1の解放，y2の解放','y1の確保，y2の確保，y2の解放，y1の解放','y2の確保，y1の確保，y1の解放，y2の解放','y2の確保，y2の解放，y1の確保，y1の解放'])}],[{id:'part-q1',label:'設問1',group:'numeric',correct:2},{id:'part-a',label:'設問2 a',group:'p',correct:2},{id:'part-b',label:'設問2 b',group:'v',correct:3},{id:'part-q3',label:'設問3',group:'deadlock',correct:3}]);
+export const legacy2017AutumnPm2Spec:Autumn2017PreparedSpec={number:2,pages:[9,10,11,12],definition,profiles:[...legacy2017AutumnPm2Profiles],topics:['排他制御','セマフォ','デッドロック'],keywords:['CPU','共有メモリ','P操作','V操作','更新喪失'],choicePages:[10,10,10,10,...Array(8).fill(11),...Array(5).fill(12)],original};
+export const legacy2017AutumnPm2Records=(input:Autumn2017PreparedInput)=>autumn2017PreparedRecords(legacy2017AutumnPm2Spec,input);
+export const bindLegacy2017AutumnPm2Body=(base:Parameters<typeof bindAutumn2017PreparedBody>[0],body:Parameters<typeof bindAutumn2017PreparedBody>[1])=>bindAutumn2017PreparedBody(base,body,legacy2017AutumnPm2Spec);

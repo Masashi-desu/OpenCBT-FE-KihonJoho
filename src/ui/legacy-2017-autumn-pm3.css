@@ -1,0 +1,10 @@
+/* Source tables preserve primary-key underlines and the source's 4-table grouping. */
+.legacy-autumn-pm3 .autumn-pm3-tables { min-width: 880px; width: max(calc(880px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1))); display: grid; gap: 2rem 1.5rem; grid-template-columns: auto auto; align-items: start; font-size: calc(16px * var(--image-scale, 1)); }
+.legacy-autumn-pm3 .autumn-pm3-layout-0 > table:first-child { grid-column: 1 / -1; }
+.legacy-autumn-pm3 .autumn-pm3-layout-0 > table:nth-child(2) { grid-column: 1 / -1; justify-self: start; }
+.legacy-autumn-pm3 .autumn-pm3-layout-1 { display: block; min-width: 580px; width: max(calc(580px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1))); }
+.legacy-autumn-pm3 table { border-collapse: collapse; color: var(--diagram-ink); background: var(--diagram-surface); }
+.legacy-autumn-pm3 caption { text-align: left; padding-bottom: .25em; font-weight: 400; }
+.legacy-autumn-pm3 th, .legacy-autumn-pm3 td { border: 1px solid var(--diagram-ink); padding: .35em .55em; white-space: nowrap; font-weight: 400; text-align: left; }
+.legacy-autumn-pm3 thead { border-bottom: 3px double var(--diagram-ink); }
+.legacy-autumn-pm3 u { text-underline-offset: .2em; }

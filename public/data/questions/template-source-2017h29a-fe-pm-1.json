@@ -1,0 +1,1170 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29a-fe-pm-1",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "security",
+    "tags": [
+      "legacy-2017-autumn",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "SSH",
+      "サーバ認証",
+      "公開鍵認証"
+    ],
+    "keywords": [
+      "Secure Shell",
+      "セッション鍵",
+      "中間者攻撃",
+      "共通鍵暗号方式",
+      "パスワード"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+          "page": 6,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "1"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+          "page": 7,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "1"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+          "page": 8,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "1"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29a-fe-pm-1",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原全頁と公式解答欄を局所データへ対応",
+        "details": "原画像を無crop/無resize/全画素一致で保持し，複数空欄の組合せ欄と共通解答群を分割しない。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "SSHの原の手順、暗号化・公開鍵登録の前提、下線、図、空欄と共有解答群を保ち、各誤答が表す攻撃や鍵・認証の性質の説明を変更しています。図は原資料に基づいて描き直しています。",
+        "affectsAnswer": true
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+            "page": 6,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "1"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+            "page": 7,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "1"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+            "page": 8,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "1"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-1",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の問1は必須問題です。必ず解答してください。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問1　SSHによる通信に関する次の記述を読んで，設問1〜4に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "SSHは遠隔ログインのための通信プロトコル及びソフトウェアであり，通信データの盗聴対策や，通信相手のなりすましを防ぐ仕組みを備えている。SSHでは，サーバにログインしてデータをやり取りする通信（以下，ログインセッションという）に先立って，安全な通信経路の確立と利用者認証を行う必要がある。安全な通信経路の確立，利用者認証及びログインセッションを合わせてSSHセッションと呼ぶ。その流れを，図1に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm1-session",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1　SSHセッションの流れ",
+        "alt": "図1 SSHセッションの流れ。時間は右向きに進む。SSHセッション開始から終了までの全期間をSSHセッションとし，安全な通信経路の確立，利用者認証，ログインセッションの3区間をこの順に置く。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm1-session",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 6,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "［安全な通信経路の確立の概要］"
+      },
+      {
+        "type": "paragraph",
+        "text": "安全な通信経路の確立は，次のようにして行う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1)　クライアントがサーバにアクセスする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2)　サーバとクライアントが，SSHセッションで使用する暗号アルゴリズムについて合意する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3)　サーバとクライアントが，通信データの暗号化に使用するセッション鍵と，他のSSHセッションと区別するためのセッション識別子について合意する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4)　①クライアントがサーバ認証を行う。サーバ認証では，クライアントがあらかじめ入手して正当性を確認しておいた［a］を用い，サーバによるセッション識別子へのディジタル署名が正しいかどうかを検証する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5)　合意した暗号アルゴリズムとセッション鍵を用いて，②共通鍵暗号方式による通信データの暗号化を開始する。これ以降の通信は，全て暗号化される。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［利用者認証の概要］"
+      },
+      {
+        "type": "paragraph",
+        "text": "クライアントからサーバへのログインでは，サーバは利用者認証を行う。SSHの利用者認証の方式には，ディジタル署名を用いる“公開鍵認証”とパスワードを用いる“パスワード認証”がある。"
+      },
+      {
+        "type": "paragraph",
+        "text": "“公開鍵認証”では，クライアントの公開鍵を事前にサーバに登録しておき，この登録されている公開鍵に対応する秘密鍵をクライアントがもっていることをサーバが確認する。この確認では，クライアントがセッション識別子などに対するディジタル署名をサーバに送信し，サーバが［b］を用いてディジタル署名を検証する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "“パスワード認証”では，クライアントが利用者IDとパスワードを送信し，サーバは受け取ったパスワードが当該利用者のパスワードと一致していることを検証する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "なお，③“パスワード認証”は，“公開鍵認証”に比べて，安全性が低いと考えられている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1　本文中の［　］に入る適切な答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "a，bに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　安全な通信経路の確立時に合意したセッション鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　クライアントの公開鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　クライアントの秘密鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　サーバの公開鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　サーバの秘密鍵"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2　本文中の下線①について防ぐことができる攻撃として適切な答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　DoS攻撃"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　SQLインジェクション"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　クロスサイトスクリプティング"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　総当たり攻撃"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　中間者攻撃"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3　本文中の下線②について，通信データの暗号化に公開鍵暗号方式ではなく共通鍵暗号方式を用いる理由として適切な答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　共通鍵暗号方式は，公開鍵暗号方式よりも暗号処理が高速である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　共通鍵暗号方式は，公開鍵暗号方式よりも解読に時間が掛かる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　共通鍵暗号方式は，公開鍵暗号方式よりも鍵の再利用が容易である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　共通鍵暗号方式は，公開鍵暗号方式よりも鍵の配布が容易である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問4　本文中の下線③のように考えられている理由として適切な答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　“パスワード認証”では，サーバが攻撃者に乗っ取られていた場合，送信したパスワードを攻撃者に取得されてしまう。"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　“パスワード認証”では，正当なサーバとは異なるサーバに接続させられてしまっても利用者が気付けない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　“パスワード認証”では，パスワードだけを用いるが，“公開鍵認証”では，パスワードの他にディジタル署名も用いる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　“パスワード認証”では，利用者のパスワードが平文でネットワーク上を流れるので，盗聴されるとパスワードを取得されてしまう。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 7,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "安全な通信経路の確立時に合意したセッション鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 7,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "クライアントの公開鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 7,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "クライアントの秘密鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 7,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "サーバの公開鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 7,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "サーバの秘密鍵"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "DoS攻撃"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SQLインジェクション"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "クロスサイトスクリプティング"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "総当たり攻撃"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "中間者攻撃"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "共通鍵暗号方式は，公開鍵暗号方式よりも暗号処理が高速である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "共通鍵暗号方式は，公開鍵暗号方式よりも解読に時間が掛かる。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "共通鍵暗号方式は，公開鍵暗号方式よりも鍵の再利用が容易である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "共通鍵暗号方式は，公開鍵暗号方式よりも鍵の配布が容易である。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "“パスワード認証”では，サーバが攻撃者に乗っ取られていた場合，送信したパスワードを攻撃者に取得されてしまう。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "“パスワード認証”では，正当なサーバとは異なるサーバに接続させられてしまっても利用者が気付けない。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "“パスワード認証”では，パスワードだけを用いるが，“公開鍵認証”では，パスワードの他にディジタル署名も用いる。"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-1-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問1",
+                "page": 8,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "1"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-1",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "“パスワード認証”では，利用者のパスワードが平文でネットワーク上を流れるので，盗聴されるとパスワードを取得されてしまう。"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5"
+      ]
+    },
+    {
+      "id": "part-q2",
+      "label": "設問2",
+      "choiceIds": [
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-q3",
+      "label": "設問3",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14"
+      ]
+    },
+    {
+      "id": "part-q4",
+      "label": "設問4",
+      "choiceIds": [
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-4"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q2",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q3",
+        "choiceId": "choice-value-11"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q4",
+        "choiceId": "choice-value-15"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1 a：サーバが持つ秘密鍵に対応するサーバの公開鍵で，サーバによる署名を検証する。事前の正当性確認があるので，別人の鍵への置換を防ぐ。セッション鍵はデータの共通鍵暗号化用，クライアントの2鍵は利用者側のものであり，サーバの秘密鍵はサーバが秘匿する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 b：登録済みのクライアントの公開鍵を使い，対応する秘密鍵を持つクライアントが署名したことを確認する。クライアントの秘密鍵を送る必要はない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2：正当なサーバの鍵による署名を確認し，通信に割り込んで別のサーバを装う中間者攻撃を防ぐ。サービス妨害，WebやSQLの注入，パスワード候補の総当たりはサーバ署名確認だけでは防げない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3：大量の通信データは共通鍵暗号方式で効率よく処理する。方式の分類だけで解読時間や鍵配布の容易さは決まらず，共通鍵を公開してよいわけでも，署名や相手確認が不要になるわけでもない。暗号化だけで改ざん検出を保証せず，鍵更新の要否や頻度は用途と運用条件に従う。本文手順3のセッション鍵の合意と手順4のサーバ鍵確認を，手順5の暗号方式を理由に省略できない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問4：暗号化された通信でも終端のサーバには送信パスワードが届くので，サーバが乗っ取られていれば取得され得る。公開鍵認証では秘密鍵そのものをサーバへ送らない。サーバ認証は利用者認証に先立つ共通の仕組みであり，パスワードも確立済みの暗号化経路で送信される。利用者認証はサーバがクライアントを確認する向きであり，事前登録したクライアント公開鍵や利用者パスワードによってサーバの正当性も確認できるわけではない。通信データの暗号化は合意したセッション鍵で行い，サーバの署名はサーバの公開鍵で検証する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "この問は認証鍵の役割と通信経路の前提が固定される知識問題で，生成時も正答を変えるために問い方を交換しない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問1。原資料と公式解答の全5解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

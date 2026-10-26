@@ -34,7 +34,7 @@ test('even all enumerated questions ready cannot bypass pending discovery; futur
  const futureToy={ready:true};assert.equal(finalStatus(false,true,futureToy),'not_ready');assert.equal(finalStatus(true,false,futureToy),'not_ready');assert.equal(finalStatus(true,true,futureToy),'ready');
  const evidence=JSON.parse(fs.readFileSync('scripts/source-evidence/ipa-pre-2023.json','utf8'));
  const actual=auditPre2023Readiness(fixture(),evidence);
- assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:2963,originalSemanticsReviewed:99,ready:99});
+ assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:2950,originalSemanticsReviewed:112,ready:112});
  assert.equal(actual.scopeDiscovery.ready,false);assert.equal(actual.scopeDiscovery.listedCollections,20);assert.equal(actual.status,'not_ready');
  assert.throws(()=>auditPre2023Readiness(fixture(),evidence,undefined,{}),invalid);
 });

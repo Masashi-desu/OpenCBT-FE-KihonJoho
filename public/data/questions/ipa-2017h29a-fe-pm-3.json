@@ -1,0 +1,1124 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2017h29a-fe-pm-3",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017-autumn",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "SQL",
+      "関係データベース",
+      "集約",
+      "価格履歴",
+      "ビュー"
+    ],
+    "keywords": [
+      "主キー",
+      "WHERE",
+      "HAVING",
+      "GROUP BY",
+      "SUM",
+      "COUNT",
+      "外部結合"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+          "page": 13,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+          "page": 14,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+          "page": 15,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+          "page": 16,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+          "page": 17,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原全頁と公式解答欄を局所データへ対応",
+        "details": "原画像を無crop/無resize/全画素一致で保持し，複数空欄の組合せ欄と共通解答群を分割しない。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+            "page": 13,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+            "page": 14,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+            "page": 15,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+            "page": 16,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+            "page": 17,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-3"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-3-p13",
+        "caption": "原資料 問3 physical p13"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-3-p14",
+        "caption": "原資料 問3 physical p14"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-3-p15",
+        "caption": "原資料 問3 physical p15"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-3-p16",
+        "caption": "原資料 問3 physical p16"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-3-p17",
+        "caption": "原資料 問3 physical p17"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-original-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 14,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "AND 販売表.販売日 >= '2016-01-01' AND 販売表.販売日 <= '2016-12-31'\nAND 商品表.分類 = 'コーヒー'\nAND 商品表.単価 * 販売明細表.個数 >= 10000\nGROUP BY 販売表.会員番号\nHAVING COUNT(*) >= 5",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 14,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "AND 販売表.販売日 >= '2016-01-01' AND 販売表.販売日 <= '2016-12-31'\nAND 商品表.分類 = 'コーヒー'\nGROUP BY 販売表.会員番号\nHAVING SUM(商品表.単価 * 販売明細表.個数) >= 10000\n  AND COUNT(*) >= 5",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 14,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "AND 販売表.販売日 >= '2016-01-01' AND 販売表.販売日 <= '2016-12-31'\nGROUP BY 販売表.会員番号\nHAVING 商品表.分類 = 'コーヒー'\n  AND SUM(商品表.単価 * 販売明細表.個数) >= 10000\n  AND COUNT(*) >= 5",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 14,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "GROUP BY 販売表.会員番号\nHAVING 販売表.販売日 >= '2016-01-01' AND 販売表.販売日 <= '2016-12-31'\n  AND 商品表.分類 = 'コーヒー'\n  AND SUM(販売表.販売額) >= 10000\n  AND COUNT(*) >= 5",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 15,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ある時，ある商品をある会員が購入した単価と，その直後に変更された単価との価格差"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 15,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "実際に購入された商品の，販売時点の単価の変遷"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-7",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 15,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "全ての商品の，単価の変遷"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-8",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 15,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "全ての商品の，直近の単価変更日の前日における単価"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-9",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 16,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "rows": [
+              [
+                "SUM(単価 * 個数)",
+                "商品表.単価，販売明細表.個数",
+                "年齢，分類"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-10",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 16,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "rows": [
+              [
+                "SUM(単価 * 個数)",
+                "商品表.単価，販売明細表.個数",
+                "年齢，分類，合計販売額"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-11",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 16,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "rows": [
+              [
+                "SUM(販売額)",
+                "販売表.販売額",
+                "年齢，分類"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-12",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 16,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "rows": [
+              [
+                "SUM(販売額)",
+                "販売表.販売額",
+                "年齢，分類，合計販売額"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-13",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 16,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "rows": [
+              [
+                "SUM(販売時単価 * 個数)",
+                "販売明細表.販売時単価，販売明細表.個数",
+                "年齢，分類"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-14",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 16,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "b1",
+              "b2",
+              "b3"
+            ],
+            "rows": [
+              [
+                "SUM(販売時単価 * 個数)",
+                "販売明細表.販売時単価，販売明細表.個数",
+                "年齢，分類，合計販売額"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-15",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 17,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "1",
+                "2"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-16",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 17,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "1",
+                "3"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-17",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 17,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "2",
+                "2"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-18",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-3-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問3",
+                "page": 17,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-3"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "2",
+                "3"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-original-1",
+        "choice-original-2",
+        "choice-original-3",
+        "choice-original-4"
+      ]
+    },
+    {
+      "id": "part-q2",
+      "label": "設問2",
+      "choiceIds": [
+        "choice-original-5",
+        "choice-original-6",
+        "choice-original-7",
+        "choice-original-8"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問3 b1〜b3",
+      "choiceIds": [
+        "choice-original-9",
+        "choice-original-10",
+        "choice-original-11",
+        "choice-original-12",
+        "choice-original-13",
+        "choice-original-14"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問4 c1・c2",
+      "choiceIds": [
+        "choice-original-15",
+        "choice-original-16",
+        "choice-original-17",
+        "choice-original-18"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-original-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q2",
+        "choiceId": "choice-original-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-original-13"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-original-15"
+      }
+    ],
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-3-ans",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問3 解答例",
+            "page": 1,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-3"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1：販売日と商品分類は集約前のWHERE条件，5回以上と購入合計10000円以上は会員単位のGROUP BY後のHAVING条件にする。明細1行が購入1回なのでCOUNT(*)を用い，合計はSUM(商品表.単価 * 販売明細表.個数)である。アは1行ごとの金額を条件にしてしまい，少額の複数購入による合計到達を落とす。ウとエは会員番号で集約した後のHAVINGへ，集約もグループ化もしていない分類や販売日を参照する。エはさらに伝票単位の販売額を明細との結合後に加算し，対象分類の購入額にならない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2：実際に売れた時点の単価を明細に保存するので，その販売履歴の単価を追える。販売のない期間の変更価格や変更日を保存するわけではないため，購入直後の変更価格との差，全商品の価格変遷，直近変更日の前日価格までは決まらない。受付前の価格変更という条件も，販売のない日の価格履歴を補わない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3：2017−生年で年齢を求め，年齢と分類でまとめ，販売時単価×個数を合計する。現在の商品表単価を使うと過去の金額が変わり，伝票販売額を使うと明細の分類をまたいだ金額や重複を数える。合計販売額自身をGROUP BYへ含めることは集約の求め方と一致しない。b1=SUM(販売時単価 * 個数)，b2=販売明細表.販売時単価，販売明細表.個数，b3=年齢，分類となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問4：販売明細表だけで商品ごとの個数を合計できるのでc1=1。ビュー販売集計表とビュー入荷集計表の2表から，入荷した商品を落とさない外部結合を使って入荷総数−販売総数を求められる。未販売商品の販売総数は0として扱い，売り切れの在庫0も行を削除しない。販売側だけでは未販売の入荷商品や入荷数を得られないためc2=2が必要最小限である。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2017h29a-fe-pm-3-p13",
+    "asset-ipa-2017h29a-fe-pm-3-p14",
+    "asset-ipa-2017h29a-fe-pm-3-p15",
+    "asset-ipa-2017h29a-fe-pm-3-p16",
+    "asset-ipa-2017h29a-fe-pm-3-p17"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問3。原資料と公式解答の全4解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

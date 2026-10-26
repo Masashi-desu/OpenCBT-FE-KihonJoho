@@ -1,0 +1,15 @@
+.legacy-autumn-pm10-figure { color:var(--ink); width:max-content; max-width:none; font-size:inherit; padding:12px; }
+.legacy-autumn-pm10-figure p { margin:8px 0; }
+.legacy-autumn-pm10-figure code,.legacy-autumn-pm10-figure pre { white-space:pre; font:inherit; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+.legacy-autumn-pm10-figure table { border-collapse:collapse; min-width:640px; }
+.legacy-autumn-pm10-figure td,.legacy-autumn-pm10-figure th { border:1px solid var(--ink); padding:10px; text-align:left; vertical-align:top; font-weight:normal; }
+.legacy-autumn-pm10-caption { text-align:center; }
+.legacy-autumn-pm10-record { display:block; width:36em; height:auto; fill:var(--ink); font:20px var(--font); }
+.legacy-autumn-pm10-record rect { fill:var(--surface); stroke:var(--ink); stroke-width:1.2; }
+.legacy-autumn-pm10-program { min-width:650px; width:max-content; padding-right:12px; }
+.legacy-autumn-pm10-line { display:grid; grid-template-columns:3ch max-content; column-gap:12px; min-height:1.65em; align-items:center; }
+.legacy-autumn-pm10-line>span { text-align:right; }
+.legacy-autumn-pm10-blank { display:inline-block; min-width:24ch; border:2px solid var(--ink); text-align:center; line-height:1.35; }
+.legacy-autumn-pm10-blank-b,.legacy-autumn-pm10-blank-e,.legacy-autumn-pm10-blank-f { min-width:8ch; }
+.legacy-autumn-pm10-bank { display:grid; gap:10px; min-width:570px; }
+.legacy-autumn-pm10-bank>div { display:grid; grid-template-columns:2em max-content; column-gap:16px; }

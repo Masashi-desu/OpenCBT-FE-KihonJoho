@@ -1,0 +1,1884 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29a-fe-pm-7",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "IT投資",
+      "業務改善"
+    ],
+    "keywords": [
+      "年間効果",
+      "効果率",
+      "必須要件",
+      "要望要件"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+          "page": 33,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+          "page": 34,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+          "page": 35,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+          "page": 36,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+          "page": 37,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29a-fe-pm-7",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T12:20:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "全5頁の原画素を独立したlossless WebPへ対応",
+        "details": "PDFのraw DCTを直接復号し，全頁の画素/寸法をlossless WebPへ保存。原表の試算条件/現状値/将来値/8要件の費用と効果/散布図/網掛け/空欄/全択を画像のまま保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T12:20:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "購買管理の原の作業、必須・要望要件、予算、非表示欄、散布図、組合せ空欄と解答群を保ち、時間当たり人件費を変更しています。年間費用と効果を同じ条件で更新しています。",
+        "affectsAnswer": true,
+        "answerDetails": "a：目視での照合と再照合をシステム上のデータチェックへ置き換えるので，将来値は0分となり，目視作業は不要になる。誤りの発生自体がなくなるという意味ではない。b：誤りは1日18枚から3枚へ減るが0ではない。注文請書全体200枚の数と誤りの数を区別する。\nc1：現状は初回照合200枚×5分，再照合18枚×5分，再提出依頼18枚×10分で，計1,270分/日。1年240日・1時間60分・人件費1,400円/時間を使うと，1,270×240÷60×1,400÷1,000＝7,112千円となる。再照合18枚を落とすと1,180分になって誤る。\nc2：システム化後の人手は再提出依頼3枚×5分＝15分/日で，年間費用は15×240÷60×1,400÷1,000＝84千円。現状費用から将来費用を引いた7,028千円が年間効果であり，費用c2と削減額を取り違えない。\n必須3件の開発費は5,800＋6,200＋12,400＝24,400千円，年間効果は4,800＋7,320＋7,028千円。要望SYS908は年間効果2,160千円/開発費1,800千円＝効果率1.20と最大で，追加後の費用は26,200千円。SYS906は520/4,300と小さいが，率が低いだけで全ての予算条件で必ず不採用となる一般則ではなく，本問の評価手順で不採用とされている。\nd：SYS905を加えると開発費28,950千円で，残りは1,050千円。SYS903の1,200千円もSYS907の1,630千円も追加できない。e：SYS907を加えると27,830千円で残り2,170千円。SYS903は追加できるが，SYS905の2,750千円は追加できない。SYS903も加えた費用が29,030千円となる。\nf：SYS905案の年間効果は22,948千円，SYS903とSYS907を組み合わせた案は23,258千円。どちらも予算内だが後者が310千円大きい。率の大小だけで組合せ全体の年間効果最大を決めず，追加費用の制約と候補の合計効果を比較する。保守運用費は本文の指定どおり評価へ加えない。\nシステム要件は本問の追加開発対象で，必須要件は全て採用する制約，要望要件は予算の範囲で採否を選ぶ対象である。効果率は年間効果÷開発費を表し，年間効果の金額そのものや利益率とは異なる。SYS901などは要件の識別番号である。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+            "page": 33,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+            "page": 34,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+            "page": 35,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+            "page": 36,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+            "page": 37,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-7",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-selection",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "選択した問題は，選択欄の（選）をマークしてください。マークがない場合は，採点されません。",
+        "alt": "選択した問題は，選択欄の（選）をマークしてください。マークがない場合は，採点されません。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-selection",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "問7　購買管理システムの導入による業務改善効果に関する次の記述を読んで，設問1，2に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "日用品メーカのC社では，ソフトウェアパッケージを用いた購買管理システムの導入を進めており，システムの要件定義を終えたところである。定義された要件には，ソフトウェアパッケージの機能を活用できる要件と，追加でシステム開発が必要な要件（以下，システム要件という）がある。全てのシステム要件を実現すると，開発費が当初の予算を超えることが分かった。そこで，各システム要件を実現した場合に削減される1年間のコスト（以下，年間効果という）と必要な開発費を併せて評価し，実現するシステム要件を決定することにした。この決定に当たっては，購買管理システムの保守運用費は考慮しないものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "C社は，システム要件8件について評価することにした。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-instruction1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問1　システム要件を実現（以下，システム化という）するための開発費と年間効果の試算に関する次の記述中の［ ］に入れる正しい答えを，解答群の中から選べ。ここで，c1とc2に入れる答えは，cに関する解答群の中から組合せとして正しいものを選ぶものとする。",
+        "alt": "設問1　システム要件を実現（以下，システム化という）するための開発費と年間効果の試算に関する次の記述中の［ ］に入れる正しい答えを，解答群の中から選べ。ここで，c1とc2に入れる答えは，cに関する解答群の中から組合せとして正しいものを選ぶものとする。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-instruction1",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 33,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) システム化するための開発費と年間効果を試算する。また，各システム要件を，“必ず実現したい”という要件（以下，必須要件という）と，“できれば実現したい”という要件（以下，要望要件という）に分類する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 必須要件の一つである“仕入先からの注文請書を購買管理システムで処理できるようにする”の年間効果を試算する。購買管理システムは仕入先も利用するものとし，システム化によって，C社での注文請書の確認と再提出依頼の作業は次のようになる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① 仕入先からファクシミリで送付されてきた注文請書の内容と注文書の内容の目視での照合に代えて，購買管理システム上のデータチェックで照合を行う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② データチェックで誤りが見つかったときに，仕入先への注文請書の再提出の依頼をWeb画面で行う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 再提出された注文請書の内容と注文書の内容の照合（以下，再照合という）も購買管理システムで行う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "上記①〜③の年間効果を試算するために，注文請書の確認と再提出依頼の作業状況を調査して条件を設定した。その結果を，表1に示す。将来値はシステム化後の作業状況を想定して設定した値である。ここで，再照合時に誤りは発生しないものとする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-table1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表1　年間効果を試算するための条件",
+        "alt": "表1　年間効果を試算するための条件。試算条件/現状値/将来値。注文に対して提出される注文請書枚数（枚／日）：200：200。注文請書の誤りの発生枚数（枚／日）：18：3。注文請書と注文書との目視での照合及び再照合の作業に要する時間（分／枚）：5：0。誤りが見つかった注文請書の再提出の依頼作業に要する時間（分／枚）：10：5。作業に要する人件費（円／時間）：1400：1400",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-table1",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-estimation",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "(3) 表1の将来値を設定するに当たり，注文請書と注文書との目視での照合及び再照合の作業に要する時間は，システム化によって［a］と想定した。また，仕入先がWebを介して注文書の確認と注文請書の送信を行うことによって，注文請書の誤りの発生枚数は［b］と想定した。1年当たりの稼働日数を240日とすると，現状で注文請書の確認，再提出依頼及び再照合の作業に要する年間費用は［c1］千円であり，システム化された場合は［c2］千円となって，この差額が年間効果となる。",
+        "alt": "(3) 表1の将来値を設定するに当たり，注文請書と注文書との目視での照合及び再照合の作業に要する時間は，システム化によって［a］と想定した。また，仕入先がWebを介して注文書の確認と注文請書の送信を行うことによって，注文請書の誤りの発生枚数は［b］と想定した。1年当たりの稼働日数を240日とすると，現状で注文請書の確認，再提出依頼及び再照合の作業に要する年間費用は［c1］千円であり，システム化された場合は［c2］千円となって，この差額が年間効果となる。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-estimation",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 34,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "全てのシステム要件に対する年間効果の試算と分類の結果を，表2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-table2",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表2　システム要件に対する年間効果の試算と分類の結果",
+        "alt": "表2　システム要件に対する年間効果の試算と分類の結果。単位 千円。SYS901：システム要件は網掛けで非表示，開発費5800，年間効果4800，必須要件。SYS902：システム要件は網掛けで非表示，開発費6200，年間効果7320，必須要件。SYS903：システム要件は網掛けで非表示，開発費1200，年間効果670，要望要件。SYS904：仕入先からの注文請書を購買管理システムで処理できるようにする，開発費12400，年間効果網掛けで非表示，必須要件。SYS905：システム要件は網掛けで非表示，開発費2750，年間効果1640，要望要件。SYS906：システム要件は網掛けで非表示，開発費4300，年間効果520，要望要件。SYS907：システム要件は網掛けで非表示，開発費1630，年間効果1280，要望要件。SYS908：システム要件は網掛けで非表示，開発費1800，年間効果2160，要望要件。注記 網掛けの部分は表示していない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-table2",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-bank-ab",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "a，bに関する解答群",
+        "alt": "a，bに関する解答群。ア 増加する。イ 減少するがゼロにならない。ウ 不要になる。エ 変わらない",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-bank-ab",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-bank-c",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "cに関する解答群",
+        "alt": "cに関する解答群。ア 6,608，84。イ 6,608，6,524。ウ 7,028，6,524。エ 7,112，84。オ 7,112，7,028",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-bank-c",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-instruction2",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2　開発費と年間効果の評価に関する次の記述中の［ ］に入れる正しい答えを，解答群の中から選べ。",
+        "alt": "設問2　開発費と年間効果の評価に関する次の記述中の［ ］に入れる正しい答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-instruction2",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "表2に示した三つの必須要件については全て採用するものとし，五つの要望要件については開発費と年間効果を評価して，採用，不採用を決定することにした。"
+      },
+      {
+        "type": "paragraph",
+        "text": "必須要件を含めて購買管理システムのシステム化のための開発費が予算の30,000千円に収まるように要望要件を選択することにした。"
+      },
+      {
+        "type": "paragraph",
+        "text": "選択に当たり，開発費に対する年間効果の割合（以下，効果率という）も選択条件とした。要望要件に分類したシステム要件の年間効果と効果率を，図1に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-scatter",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1　要望要件に分類したシステム要件の年間効果と効果率",
+        "alt": "図1　要望要件に分類したシステム要件の年間効果と効果率。横軸は年間効果（千円）0〜3000，500刻みで0〜2500の数値を表示。縦軸は効果率0.00〜1.40，0.20刻み。5点のうちSYS906とSYS908の名称だけ表示，他3点の名称は網掛けで非表示。注記 網掛けの部分は表示していない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-scatter",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 36,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) SYS908は，効果率も年間効果も最も大きく，開発費が予算に収まるので，採用とした。また，効果率も年間効果も最も小さいSYS906は不採用とした。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 続いて，残りの三つの要望要件から，開発費が予算に収まり，年間効果が最大になるような選択を行うことにした。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-case905",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "① SYS905を採用したとき，開発費の予算を考えると［d］。この場合，開発費の総額は28,950千円となり，年間効果は22,948千円となる。",
+        "alt": "① SYS905を採用したとき，開発費の予算を考えると［d］。この場合，開発費の総額は28,950千円となり，年間効果は22,948千円となる。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-case905",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-case907",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "② 一方，SYS907を採用したとき，開発費の予算を考えると［e］。この場合，開発費の総額は29,030千円となり，年間効果は23,258千円となる。",
+        "alt": "② 一方，SYS907を採用したとき，開発費の予算を考えると［e］。この場合，開発費の総額は29,030千円となり，年間効果は23,258千円となる。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-case907",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-decision",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "(1)，(2)の評価の結果，開発費が予算に収まり，年間効果を最大にするには，要望要件はSYS908に加えて［f］を採用すればよい。",
+        "alt": "(1)，(2)の評価の結果，開発費が予算に収まり，年間効果を最大にするには，要望要件はSYS908に加えて［f］を採用すればよい。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-decision",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-bank-d",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "dに関する解答群",
+        "alt": "dに関する解答群。ア SYS903もSYS907も採用できる。イ SYS903もSYS907も採用できない。ウ SYS903は採用できるが，SYS907は採用できない。エ SYS907は採用できるが，SYS903は採用できない",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-bank-d",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-bank-e",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "eに関する解答群",
+        "alt": "eに関する解答群。ア SYS903もSYS905も採用できる。イ SYS903もSYS905も採用できない。ウ SYS903は採用できるが，SYS905は採用できない。エ SYS905は採用できるが，SYS903は採用できない",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-bank-e",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm7-bank-f",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "fに関する解答群",
+        "alt": "fに関する解答群。ア SYS903とSYS905。イ SYS903とSYS907。ウ SYS905。エ SYS907",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm7-bank-f",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "増加する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "減少するがゼロにならない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "不要になる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "変わらない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "cに関する解答群",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "6,608",
+                "84"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "cに関する解答群",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "6,608",
+                "6,524"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "cに関する解答群",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "7,028",
+                "6,524"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "cに関する解答群",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "7,112",
+                "84"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 35,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "cに関する解答群",
+            "columns": [
+              "c1",
+              "c2"
+            ],
+            "rows": [
+              [
+                "7,112",
+                "7,028"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903もSYS907も採用できる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903もSYS907も採用できない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903は採用できるが，SYS907は採用できない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS907は採用できるが，SYS903は採用できない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903もSYS905も採用できる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903もSYS905も採用できない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903は採用できるが，SYS905は採用できない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS905は採用できるが，SYS903は採用できない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903とSYS905"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS903とSYS907"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS905"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-7-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問7",
+                "page": 37,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SYS907"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問2 f",
+      "choiceIds": [
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-3"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-8"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-11"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-16"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-19"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：目視での照合と再照合をシステム上のデータチェックへ置き換えるので，将来値は0分となり，目視作業は不要になる。誤りの発生自体がなくなるという意味ではない。b：誤りは1日18枚から3枚へ減るが0ではない。注文請書全体200枚の数と誤りの数を区別する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "c1：現状は初回照合200枚×5分，再照合18枚×5分，再提出依頼18枚×10分で，計1,270分/日。1年240日・1時間60分・人件費1,400円/時間を使うと，1,270×240÷60×1,400÷1,000＝7,112千円となる。再照合18枚を落とすと1,180分になって誤る。"
+      },
+      {
+        "type": "paragraph",
+        "text": "c2：システム化後の人手は再提出依頼3枚×5分＝15分/日で，年間費用は15×240÷60×1,400÷1,000＝84千円。現状費用から将来費用を引いた7,028千円が年間効果であり，費用c2と削減額を取り違えない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "必須3件の開発費は5,800＋6,200＋12,400＝24,400千円，年間効果は4,800＋7,320＋7,028千円。要望SYS908は年間効果2,160千円/開発費1,800千円＝効果率1.20と最大で，追加後の費用は26,200千円。SYS906は520/4,300と小さいが，率が低いだけで全ての予算条件で必ず不採用となる一般則ではなく，本問の評価手順で不採用とされている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "d：SYS905を加えると開発費28,950千円で，残りは1,050千円。SYS903の1,200千円もSYS907の1,630千円も追加できない。e：SYS907を加えると27,830千円で残り2,170千円。SYS903は追加できるが，SYS905の2,750千円は追加できない。SYS903も加えた費用が29,030千円となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "f：SYS905案の年間効果は22,948千円，SYS903とSYS907を組み合わせた案は23,258千円。どちらも予算内だが後者が310千円大きい。率の大小だけで組合せ全体の年間効果最大を決めず，追加費用の制約と候補の合計効果を比較する。保守運用費は本文の指定どおり評価へ加えない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "システム要件は本問の追加開発対象で，必須要件は全て採用する制約，要望要件は予算の範囲で採否を選ぶ対象である。効果率は年間効果÷開発費を表し，年間効果の金額そのものや利益率とは異なる。SYS901などは要件の識別番号である。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問7。原資料と公式解答の全6解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

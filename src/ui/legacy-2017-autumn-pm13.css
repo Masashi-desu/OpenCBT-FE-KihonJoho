@@ -1,0 +1,24 @@
+/* Exam worksheet/macro source layout; formulas and controls are display-only. */
+.legacy-autumn-pm13 .autumn-pm13-canvas { width: max(calc(1060px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1))); min-width: 1060px; color: var(--diagram-ink); font-size: calc(16px * var(--image-scale, 1)); }
+.legacy-autumn-pm13 table { border-collapse: collapse; color: var(--diagram-ink); background: var(--diagram-surface); width: 100%; }
+.legacy-autumn-pm13 th, .legacy-autumn-pm13 td { border: 1px solid var(--diagram-ink); padding: .4em .5em; white-space: nowrap; text-align: center; font-weight: 400; }
+.legacy-autumn-pm13 thead th, .legacy-autumn-pm13 tbody th { background: var(--selected-surface); }
+.legacy-autumn-pm13 table[data-autumn-pm13-sheet="log"] td:nth-child(5), .legacy-autumn-pm13 table[data-autumn-pm13-sheet="urls"] td:nth-child(2) { text-align: left; }
+.legacy-autumn-pm13 .autumn-pm13-aggregate tbody tr:nth-child(2), .legacy-autumn-pm13 .autumn-pm13-aggregate tbody tr:nth-child(10) { border-top: 3px solid var(--diagram-ink); border-bottom: 3px solid var(--diagram-ink); }
+.legacy-autumn-pm13 .autumn-pm13-aggregate tbody td:last-child { border-left: 3px solid var(--diagram-ink); }
+.legacy-autumn-pm13 .autumn-pm13-title { text-align: left; }
+.legacy-autumn-pm13 .autumn-pm13-aggregate { border: 1px solid var(--diagram-ink); }
+.legacy-autumn-pm13 .autumn-pm13-analysis-row td { border: none; min-height: 2.3em; text-align: left; }
+.legacy-autumn-pm13 .autumn-pm13-analysis-row .autumn-pm13-analysis-value { border: 1px solid var(--diagram-ink); text-align: center; }
+.legacy-autumn-pm13 .autumn-pm13-formula, .legacy-autumn-pm13 .autumn-pm13-macro, .legacy-autumn-pm13 .autumn-pm13-bank { font-family: var(--font); line-height: 1.9; white-space: nowrap; }
+.legacy-autumn-pm13 .autumn-pm13-hole { display: inline-block; min-width: 18em; text-align: center; border: 3px solid currentColor; line-height: 1.6; margin: .12em .2em; }
+.legacy-autumn-pm13 .autumn-pm13-macro { padding-left: 1.5em; }
+.legacy-autumn-pm13 .autumn-pm13-loop, .legacy-autumn-pm13 .autumn-pm13-if { position: relative; margin: .4em 0 .9em; border-left: 1px solid currentColor; }
+.legacy-autumn-pm13 .autumn-pm13-indent { padding-left: 1.5em; }
+.legacy-autumn-pm13 .autumn-pm13-condition { display: flex; align-items: center; gap: .65em; margin-left: -.55em; }
+.legacy-autumn-pm13 .autumn-pm13-control { width: 1.1em; text-align: center; flex: 0 0 1.1em; }
+.legacy-autumn-pm13 .autumn-pm13-loop-end, .legacy-autumn-pm13 .autumn-pm13-if-end { position: relative; left: -.55em; display: block; width: 1.1em; text-align: center; line-height: 1; }
+.legacy-autumn-pm13 .autumn-pm13-else { width: 3em; border-top: 1px solid currentColor; margin: .3em 0 .3em -.6em; }
+.legacy-autumn-pm13 .autumn-pm13-bank-row { display: flex; gap: 1em; padding: .3em 0; }
+.legacy-autumn-pm13 .autumn-pm13-label { min-width: 1.5em; }
+.legacy-autumn-pm13 code { font-family: inherit; font-size: inherit; white-space: pre; }

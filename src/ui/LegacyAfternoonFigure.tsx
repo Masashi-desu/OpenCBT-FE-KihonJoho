@@ -11,10 +11,33 @@ import { Legacy2017Pm10Figure } from "./Legacy2017Pm10Figure";
 import { Legacy2017Pm11Figure } from "./Legacy2017Pm11Figure";
 import { Legacy2017Pm12Figure } from "./Legacy2017Pm12Figure";
 import { Legacy2017Pm13Figure } from "./Legacy2017Pm13Figure";
+import { Legacy2017AutumnPm1Figure } from "./Legacy2017AutumnPm1Figure";
+import { Legacy2017AutumnPm2Figure } from "./Legacy2017AutumnPm2Figure";
+import { Legacy2017AutumnPm3Figure } from "./Legacy2017AutumnPm3Figure";
+import { Legacy2017AutumnPm4Figure } from "./Legacy2017AutumnPm4Figure";
+import { Legacy2017AutumnPm5Figure } from "./Legacy2017AutumnPm5Figure";
+import { Legacy2017AutumnPm6Figure } from "./Legacy2017AutumnPm6Figure";
+import { Legacy2017AutumnPm7Figure } from "./Legacy2017AutumnPm7Figure";
+import { Legacy2017AutumnPm8Figure } from "./Legacy2017AutumnPm8Figure";
+import { Legacy2017AutumnPm9Figure } from "./Legacy2017AutumnPm9Figure";
+import { Legacy2017AutumnPm10Figure } from "./Legacy2017AutumnPm10Figure";
+import { Legacy2017AutumnPm11Figure } from "./Legacy2017AutumnPm11Figure";
+import { Legacy2017AutumnPm12Figure } from "./Legacy2017AutumnPm12Figure";
+import { Legacy2017AutumnPm13Figure } from "./Legacy2017AutumnPm13Figure";
+
+const autumnFigures = [Legacy2017AutumnPm1Figure, Legacy2017AutumnPm2Figure, Legacy2017AutumnPm3Figure,
+  Legacy2017AutumnPm4Figure, Legacy2017AutumnPm5Figure, Legacy2017AutumnPm6Figure, Legacy2017AutumnPm7Figure,
+  Legacy2017AutumnPm8Figure, Legacy2017AutumnPm9Figure, Legacy2017AutumnPm10Figure, Legacy2017AutumnPm11Figure,
+  Legacy2017AutumnPm12Figure, Legacy2017AutumnPm13Figure];
 
 export function LegacyAfternoonFigure({ profile, values, caption }: { profile: string; values: number[]; caption: string }) {
   if (readLegacyAfternoonFigure(profile, values).caption !== caption)
     throw new DataError("SOURCE_MATERIAL", "旧午後の図の見出しが一致しません。");
+  const autumn = /^legacy-2017-autumn-pm(\d+)-/.exec(profile);
+  if (autumn) {
+    const Figure = autumnFigures[Number(autumn[1]) - 1];
+    if (Figure) return <Figure {...{ profile, values, caption }} />;
+  }
   if (profile === "legacy-2017-pm2-temperature-monitor") return <Legacy2017Pm2Figure {...{ profile, values, caption }} />;
   if (profile === "legacy-2017-pm4-wireless-timing") return <Legacy2017Pm4Figure {...{ profile, values, caption }} />;
   if (profile.startsWith("legacy-2017-pm5-")) return <Legacy2017Pm5Figure {...{ profile, values, caption }} />;

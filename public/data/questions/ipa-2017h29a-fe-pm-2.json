@@ -1,0 +1,932 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2017h29a-fe-pm-2",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017-autumn",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "排他制御",
+      "セマフォ",
+      "デッドロック"
+    ],
+    "keywords": [
+      "CPU",
+      "共有メモリ",
+      "P操作",
+      "V操作",
+      "更新喪失"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 9,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 10,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 11,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 12,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原全頁と公式解答欄を局所データへ対応",
+        "details": "原画像を無crop/無resize/全画素一致で保持し，複数空欄の組合せ欄と共通解答群を分割しない。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 9,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 10,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 11,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 12,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-2"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-2-p9",
+        "caption": "原資料 問2 physical p9"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-2-p10",
+        "caption": "原資料 問2 physical p10"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-2-p11",
+        "caption": "原資料 問2 physical p11"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2017h29a-fe-pm-2-p12",
+        "caption": "原資料 問2 physical p12"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-original-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "100"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "130"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が0であれば1に変更し，終了する。1であれば0になるまで待った後，1に変更して終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が0であれば1に変更し，終了する。1であれば何もせずに終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-7",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が1であれば0に変更し，終了する。0であれば1になるまで待った後，0に変更して終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-8",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が1であれば0に変更し，終了する。0であれば何もせずに終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-9",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が0であれば1になるまで待った後，終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-10",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が1であれば0になるまで待った後，終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-11",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値を0にして終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-12",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値を1にして終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-13",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y1の確保，y1の解放，y2の確保，y2の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-14",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y1の確保，y2の確保，y1の解放，y2の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-15",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y1の確保，y2の確保，y2の解放，y1の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-16",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y2の確保，y1の確保，y1の解放，y2の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-17",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y2の確保，y2の解放，y1の確保，y1の解放"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-q1",
+      "label": "設問1",
+      "choiceIds": [
+        "choice-original-1",
+        "choice-original-2",
+        "choice-original-3",
+        "choice-original-4"
+      ]
+    },
+    {
+      "id": "part-a",
+      "label": "設問2 a",
+      "choiceIds": [
+        "choice-original-5",
+        "choice-original-6",
+        "choice-original-7",
+        "choice-original-8"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問2 b",
+      "choiceIds": [
+        "choice-original-9",
+        "choice-original-10",
+        "choice-original-11",
+        "choice-original-12"
+      ]
+    },
+    {
+      "id": "part-q3",
+      "label": "設問3",
+      "choiceIds": [
+        "choice-original-13",
+        "choice-original-14",
+        "choice-original-15",
+        "choice-original-16",
+        "choice-original-17"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-q1",
+        "choiceId": "choice-original-3"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-original-7"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-original-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q3",
+        "choiceId": "choice-original-16"
+      }
+    ],
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-ans",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2 解答例",
+            "page": 1,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-2"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1：排他制御なしの読込み・局所更新・書出しを並行すると，両方の更新が反映された80，増加だけが残る130，減少だけが残る50のいずれかになる。更新処理は各1回で加減とも0ではなく，初期値100のままにはならない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2：S=1が解放，S=0が確保である。P操作はS=1なら0へ変えて更新処理へ進む。S=0ならS=1になるまで待ち，その後0へ変えてから進む。確保中なのに何もせず終了するP操作では同時に更新処理へ入れる。V操作はSを1に戻す。Sを待つだけ，確保状態へ戻す処理では次のプロセスが進めない。P/Vは途中中断せず，待ったときだけ別プロセスが実行できる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3：p5はy1を確保したままy2を待つ可能性がある。p6が逆の順に二資源を確保すると，それぞれ一つずつ確保した後で互いの資源を待ち，循環待ちになる。解放してから別の資源を確保する2候補は一つを保持したまま相手を待たず，p5と同じ確保順の2候補も循環待ちを作らない。唯一，y2の確保，y1の確保，y1の解放，y2の解放が該当する。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2017h29a-fe-pm-2-p9",
+    "asset-ipa-2017h29a-fe-pm-2-p10",
+    "asset-ipa-2017h29a-fe-pm-2-p11",
+    "asset-ipa-2017h29a-fe-pm-2-p12"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問2。原資料と公式解答の全4解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "reviewed-legacy-booklet/v1",
+  "collectionId": "2017h29a-fe-pm",
+  "checkedOn": "2026-10-26",
+  "questionPaperSHA256": "787ad5492b60949988e7e39ca532ac7c1c78ebfe5b3cbd9af4e6f621793ddd9a",
+  "answerPaperSHA256": "7bbf8eff0464a05ae1f65c9ecff1ee978c946fb1bd28ef13858e710b9d3678c1",
+  "candidateContentSHA256": "d05c019f8f967f4b137a7ef1283b49ae1c252948f1c679d4ae8f8d072ecaaf32",
+  "scope": "Only thirteen2017 Autumn afternoon majors and individually reviewed19 material scopes. No JIS section1.3 or table, other collection or whole expansion approval. Normal-App release checks remain a separate gate.",
+  "majorNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "answerFieldCounts": [
+    5,
+    4,
+    4,
+    4,
+    6,
+    7,
+    6,
+    6,
+    7,
+    7,
+    7,
+    6,
+    6
+  ],
+  "reviewers": [
+    "codex-source-and-independent-content-review",
+    "codex-root-scoped-integration-review"
+  ],
+  "sourceAndMaterialReview": {
+    "fullQuestionPaperPages": 93,
+    "answerPaperPages": 4,
+    "officialAnswerFields": 75,
+    "uniqueChoices": 345,
+    "fieldChoiceReferences": 376,
+    "distributedAssets": 90,
+    "q5Erratum": "Physical2 kept separately from body23-27",
+    "q11API": "Only IPA76-78 after individual15-item expression comparison; no OracleHTML/fullAPI/examples or claimed Oracle sublicensing",
+    "q12CASL": "79-84; physical81 only1432x1240 command/legend crop, lowerJIS section excluded",
+    "q13References": "Body68-75; spreadsheet85-90 and common notation4-5 with separate credits"
+  },
+  "independentEvidence": [
+    {
+      "path": "stage2-s2-02-body-material-audit-20261026-v1/MANIFEST.json",
+      "sha256": "7e08364e80b2904f912e24b173856a43be1d8a7d090707bd90be42b4d489d2cc"
+    },
+    {
+      "path": "stage2-s2-02-seven-major-independent-review-20261026-v1/MANIFEST.json",
+      "sha256": "457ef35eb60f1037b890f8d773427166aff9981078104f29a8d7602472cfd817"
+    },
+    {
+      "path": "stage2-s2-02-q5-8-handoff-20261026-v1/MANIFEST.json",
+      "sha256": "e42e583a05e6ecbe23bec14200d35687512e973494eb858a8c26f7953c7dba3c"
+    },
+    {
+      "path": "stage2-s2-02-q12-q13-independent-review-20261026-v1/MANIFEST.json",
+      "sha256": "c6e84fc93b0e3eff7ac73ead17b21525eb8997b8927ac5340eb1eedc18a59355"
+    }
+  ],
+  "checks": {
+    "transcription": "pass",
+    "rights": "pass",
+    "originalSemantics": "pass",
+    "generatorSemantics": "pass",
+    "rendering": "pass"
+  }
+}

@@ -1,0 +1,12 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import metadata from './fixtures/legacy-2017-autumn-pm6-original-metadata.json';
+import {legacy2017AutumnPm6Records as factory,bindLegacy2017AutumnPm6Body as bind,legacy2017AutumnPm6PageAlt} from '../scripts/import-legacy-2017-autumn-pm6';
+import {legacy2017AutumnPm6Definition as d} from '../src/core/generators/legacy-2017-autumn-pm6';import {contentHash} from '../src/core/hash';import {schema} from '../src/core/validation';
+test('2017秋PM6 real5 raw metadata -> original/base/template without false ordinary-App or rights admission',async()=>{
+ const r=await factory(structuredClone(metadata)),b=r.bundle;assert.equal(b.sources.length,2);assert.equal(b.rights.length,1);assert.equal(b.assets.length,5);assert.equal(b.questions.length,2);assert.equal(b.templates.length,1);assert.equal(r.validation.normalAppRegistered,false);const [original,base]=b.questions;schema('question',original);assert.equal(original.prompt.blocks.length,5);assert.equal(original.assetRefs.length,5);assert.equal(base.assetRefs.length,0);assert.equal(base.contexts.length,0);assert.equal(await contentHash(base),b.templates[0].originalContentSha256);assert(b.rights.every(x=>Object.values(x.uses).every(v=>v==='unconfirmed')));
+ for(let v=0;v<4;v++){const q=bind(base,d.build([v]));assert.equal(q.choiceShuffleAllowed,false);assert.equal(q.prompt.blocks.length,28);assert.equal(q.choices.length,36);assert(q.prompt.blocks.filter(x=>x.type==='diagram').every(x=>x.attribution?.sourceRefs.length===1&&x.attribution.rightsRefs.includes(b.rights[0].id)));assert(q.choices.every((c,i)=>c.content.attribution.sourceRefs[0].locator.page===(i<6?29:i<18?30:i<25?31:32)));}
+ assert(legacy2017AutumnPm6PageAlt(30).includes('網掛け'));assert(legacy2017AutumnPm6PageAlt(31).includes('小数第2位で四捨五入'));schema('question',base);assert.equal(base.distribution,'excluded');
+});
+test('2017秋PM6 raw provenance pins reject synthetic/other-edition/omitted pages',async()=>{
+ for(const mutation of ['page','sha','size','edition','pixels']){const input=structuredClone(metadata);if(mutation==='page')input.rendered.pages[0].page=27;if(mutation==='sha')input.rendered.pages[0].sha256='a'.repeat(64);if(mutation==='size')input.rendered.pages[0].byteLength++;if(mutation==='edition')input.collection.id='2017h29h-fe-pm';if(mutation==='pixels')input.rendered.rawImageExtraction[0].losslessWebpPixelsExact=false;await assert.rejects(factory(input));}
+});

@@ -1,0 +1,2763 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29a-fe-pm-13",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017-autumn",
+      "legacy-afternoon",
+      "spreadsheet",
+      "parameterized"
+    ],
+    "topics": [
+      "表計算",
+      "相対参照",
+      "絶対参照",
+      "ログ集計",
+      "マクロ"
+    ],
+    "keywords": [
+      "IP",
+      "URL",
+      "Proxy",
+      "PC",
+      "NULL",
+      "水平照合",
+      "照合検索",
+      "Page_count"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 68,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 69,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 70,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 71,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 72,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 73,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 74,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+          "page": 75,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29a-fe-pm-13",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原全8頁と個別付属8頁/公式6欄を局所構造へ対応",
+        "details": "全頁無crop/無resizeの画素一致。本文・専用仕様・共通記法の権利と出典を分離する。疎行/省略/全35択と原6欄を保持。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "表計算による原のログ分析、相対・絶対参照、疎な表と省略、式・マクロの空欄と解答群を保ち、日付・ログと同じ役割の誤式を変更しています。集計・極値・URL件数を同期し、表計算と共通疑似言語の資料も参照できます。",
+        "affectsAnswer": true
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-2017-autumn-pm13-spreadsheet",
+      "title": "表計算ソフトの機能・用語（2017年度秋期）",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-spreadsheet",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 表計算ソフトの機能・用語",
+                "page": 85,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-spreadsheet",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 表計算ソフトの機能・用語",
+                "page": 86,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-spreadsheet",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 表計算ソフトの機能・用語",
+                "page": 87,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-spreadsheet",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 表計算ソフトの機能・用語",
+                "page": 88,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-spreadsheet",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 表計算ソフトの機能・用語",
+                "page": 89,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-spreadsheet",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 表計算ソフトの機能・用語",
+                "page": 90,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13-spreadsheet",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "本問の式・マクロに適用される公式付属資料。一般製品の同名関数の仕様と混同しない。"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p85",
+            "caption": "表計算ソフトの機能・用語 physical p85"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p86",
+            "caption": "表計算ソフトの機能・用語 physical p86"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p87",
+            "caption": "表計算ソフトの機能・用語 physical p87"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p88",
+            "caption": "表計算ソフトの機能・用語 physical p88"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p89",
+            "caption": "表計算ソフトの機能・用語 physical p89"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p90",
+            "caption": "表計算ソフトの機能・用語 physical p90"
+          }
+        ]
+      }
+    },
+    {
+      "id": "context-2017-autumn-pm13-notation",
+      "title": "共通に使用される疑似言語の記述形式（2017年度秋期）",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-notation",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 共通疑似言語の記述形式",
+                "page": 4,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-notation",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13 共通疑似言語の記述形式",
+                "page": 5,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13-notation",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "表計算付属資料physical p90の(4)が参照する，宣言・注釈・処理・演算子の公式記法。問13を単独で開く場合も参照できるよう保持する。"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p4",
+            "caption": "共通疑似言語の記述形式 physical p4"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-13-p5",
+            "caption": "共通疑似言語の記述形式 physical p5"
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-2017-autumn-pm13-spreadsheet",
+    "context-2017-autumn-pm13-notation"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 68,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 69,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 70,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 71,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 72,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 73,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 74,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+            "page": 75,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "13"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-13",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は，選択欄の「選」をマークしてください。マークがない場合は，採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問13　次の表計算のワークシート及びマクロの説明を読んで，設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［表計算の説明］"
+      },
+      {
+        "type": "paragraph",
+        "text": "S社では，社内の業務用PC（以下，PCという）からインターネットへの接続に，社内に設置したProxyサーバ（以下，サーバという）を利用している。サーバの運用担当であるTさんは，社内から社外のWebページへのアクセス状況を確認するために，サーバのアクセスログを分析することにした。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［ワークシート: ログ］"
+      },
+      {
+        "type": "paragraph",
+        "text": "ワークシート“ログ”には，2017年4月3日（月）から2017年4月30日（日）までの4週間に社外のWebページにアクセスした記録だけをアクセスログから取り出し，集計に必要な加工を行った結果が入力されている。ワークシート“ログ”の例を，図1に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-log",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1　ワークシート“ログ”の例",
+        "alt": "ログはA時刻，B IPアドレス，C URL，D時間帯，E曜日コード，F集計キーの6列。先頭2行，省略，下端2行と最初の空行を表示。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-log",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 68,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記　“○○○”，“△△△”，“□□□”，“◇◇◇”は，特定の文字列を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 行1は見出し行で，データは行2以降に入力されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 列Aには，PCがサーバにアクセスした時刻が入力されている。ここで，時刻は，基準となる1970年1月1日（木曜日）の0時0分から当該時刻までの分を単位とする経過時間で表現する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 列Bには，社外のWebページにアクセスしたPCのIPアドレスが入力されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 列Cには，アクセスしたWebページのURLが入力されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) 列Dには，列Aの時刻に対応する時間帯（0〜23）を表示する式が入力されている。ここで，時間帯は，0時台（0時00分〜0時59分）を0，1時台（1時00分〜1時59分）を1，…，23時台（23時00分〜23時59分）を23とする整数値である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) 列Eには，列Aの時刻に対応する曜日を0〜6の整数値で表現する曜日コードを表示する式が入力されている。ここで，曜日コードは，基準となる1970年1月1日の曜日である木曜日を0とし，水曜日の6まで順に割り振る。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(7) 列Fには，時間帯と曜日コードをつないで一つの文字列とした集計キーを表示する式が入力されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(8) データは最大9,998件までとし，データの最終行よりも下の行の列A〜Cの各セルには空値が入力されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［ワークシート: 曜日］"
+      },
+      {
+        "type": "paragraph",
+        "text": "曜日と曜日コードとの対応を，ワークシート“曜日”に入力する。ワークシート“曜日”を，図2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-weekdays",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2　ワークシート“曜日”",
+        "alt": "曜日表のB〜H列に木・金・土・日・月・火・水，曜日コードは0〜6を対応させる。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-weekdays",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 69,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1　ワークシート“ログ”に関する次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，セルD2〜F9999に入力する各式は，当該行の列Aのセルの値が空値であれば空値を返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) セルD2には，セルA2の時刻に対応する時間帯を表示する次の式を入力する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-formula-a",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "空欄a",
+        "alt": "セルD2に入力する式の空欄aを長方形で示す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-formula-a",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) セルE2には，セルA2の時刻に対応する曜日コードを表示する次の式を入力する。ここで，1440は，1日を分に換算した値（24×60）である。"
+      },
+      {
+        "type": "code",
+        "text": "IF(A2 = null, null, 剰余(切捨て(A2／1440, 0), 7))",
+        "language": "text"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) セルF2には，セルD2とセルE2の値をつないで，一つの文字列として返す次の式を入力する。"
+      },
+      {
+        "type": "code",
+        "text": "IF(A2 = null, null, 結合(D2, E2))",
+        "language": "text"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) セルD2，E2，F2に入力した式を，行3〜9999の対応する列のセルに複写する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-bank-a",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "aに関する解答群",
+        "alt": "aの原数を保つ解答群。式やマクロ記法は表示するだけで実行しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-bank-a",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2　ワークシート“集計”に関する次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［ワークシート: 集計］"
+      },
+      {
+        "type": "paragraph",
+        "text": "ワークシート“集計”には，“アクセス集計表”及び“アクセス分析表”を作成する。ワークシート“集計”の例を，図3に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-aggregate",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3　ワークシート“集計”の例",
+        "alt": "集計表は月〜日の7行と0〜23時の24列のうち原と同じ列だけ表示し，中間列を省略記号で示す。右端に曜日ごとの計，最下行に時間帯ごとの計。下部に最多/最少となる時間帯と曜日を表示する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-aggregate",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 71,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) “アクセス集計表”は，ワークシート“ログ”を参照して，社外のWebページにアクセスした回数（以下，アクセス回数という）を，該当する曜日，時間帯ごとに集計して表示する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) “アクセス分析表”は，アクセス回数が，最多となる時間帯と最少となる時間帯，及び最多となる曜日と最少となる曜日を表示する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) セルA3〜A9には，曜日として“月”〜“日”を入力する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) セルB2〜Y2には，時間帯として0〜23を入力する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) セルB3には，ワークシート“ログ”のデータの中から，曜日と時間帯がそれぞれ，当該セルと同じ行の列Aで示す曜日と，同じ列の行2で示す時間帯に一致するデータの個数を数えて表示する次の式を入力して，セルB3〜Y9に複写する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-formula-b",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "空欄b",
+        "alt": "条件付個数関数の検索条件に空欄bがある。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-formula-b",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 71,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) セルZ3には，当該セルと同じ行の列B〜Yの値を合計する式を入力し，セルZ4〜Z9に複写する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(7) セルB10には，当該セルと同じ列の行3〜9の値を合計する式を入力し，セルC10〜Z10に複写する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(8) セルD14には，アクセス回数を時間帯ごとに集計したときに，その値が最多となる時間帯を表示する式を入力し，セルD15にはその値が最少となる時間帯を表示する式を入力する。ここで，最多，最少となる時間帯が複数あったときは，そのうちアクセス集計表の左端に最も近い時間帯を表示する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(9) セルD17には，アクセス回数を曜日ごとに集計したときに，その値が最多となる曜日を，“月”〜“日”で表示する次の式を入力する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-formula-c",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "空欄c",
+        "alt": "セルD17に入力する式の空欄cを長方形で示す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-formula-c",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "セルD18には，アクセス回数を曜日ごとに集計したときに，その値が最少となる曜日を，“月”〜“日”で表示する式を入力する。ここで，最多，最少となる曜日が複数あったときは，そのうちアクセス集計表の上端に最も近い曜日を表示する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-bank-b",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "bに関する解答群",
+        "alt": "bの原数を保つ解答群。式やマクロ記法は表示するだけで実行しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-bank-b",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-bank-c",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "cに関する解答群",
+        "alt": "cの原数を保つ解答群。式やマクロ記法は表示するだけで実行しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-bank-c",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3　Tさんは，ワークシート“ログ”のデータから，アクセス先のURLごとのアクセス回数を求めるマクロPage_countを作成し，ワークシート“アクセス先集計”に格納した。マクロPage_count中の［　］に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［ワークシート: アクセス先集計］"
+      },
+      {
+        "type": "paragraph",
+        "text": "マクロ実行後のワークシート“アクセス先集計”の例を，図4に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-urls",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図4　ワークシート“アクセス先集計”の例",
+        "alt": "アクセス先集計はURLとアクセス回数の2列。URLは最初に現れた順に表示し，先頭4行と省略行を示す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-urls",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 73,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記　“○○○”，“△△△”，“□□□”，“◇◇◇”は，特定の文字列を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 行1は見出し行である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) マクロ実行前のセルA2〜B9999には，あらかじめ空値を入力しておく。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) マクロPage_countの実行結果は，行2以降に表示される。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［マクロ: Page_countの説明］"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) ワークシート“ログ”のセルC2を最初の対象セルとして，以降，セルC3，C4，…と順次，対象セルを下に移しながら，対象セルの値が空値になるまで，(2)の処理を繰り返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) ワークシート“ログ”の対象セルに入力されているURLと同じ値が入力されているかどうかを，ワークシート“アクセス先集計”のセルA2から下に検索し，同じURLを値としてもつセルが見つかったときは，当該行の列Bのアクセス回数に1を加える。列Aのセルの値が空値になるまで検索しても同じURLを値としてもつセルが見つからなかったときは，最初に現れた空値の行の，列Aに対象セルの値を，列Bに1を格納する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［マクロ: Page_count］"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-macro",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "マクロ: Page_count",
+        "alt": "宣言3行，log_lineの初期化，外側と内側の前判定繰返し，双岐選択と3個の長方形空欄d/e/fを保持する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-macro",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-bank-d",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "dに関する解答群",
+        "alt": "dの原数を保つ解答群。式やマクロ記法は表示するだけで実行しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-bank-d",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-bank-e",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "eに関する解答群",
+        "alt": "eの原数を保つ解答群。式やマクロ記法は表示するだけで実行しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-bank-e",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm13-bank-f",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "fに関する解答群",
+        "alt": "fの原数を保つ解答群。式やマクロ記法は表示するだけで実行しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm13-bank-f",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "IF(A2 = null, null, 切上げ(剰余(A2／24, 60), 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "IF(A2 = null, null, 切上げ(剰余(A2, 60)／1440, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "IF(A2 = null, null, 切捨て(剰余(A2／24, 60), 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "IF(A2 = null, null, 切捨て(剰余(A2, 60)／1440, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "IF(A2 = null, null, 剰余(切捨て(A2／1440, 0), 60))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 70,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "IF(A2 = null, null, 剰余(切捨て(A2／60, 0), 24))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "=結合(B$2, 照合一致($A3, 曜日!$B$1:$H$1, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "=結合(B$2, 照合検索($A3, 曜日!$B$2:$H$2, 曜日!$B$1:$H$1))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "=結合(B$2, 水平照合($A3, 曜日!$B$1:$H$2, 2, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "=結合(照合一致($A3, 曜日!$B$1:$H$1, 0), B$2)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "=結合(照合検索($A3, 曜日!$B$2:$H$2, 曜日!$B$1:$H$1), B$2)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "=結合(水平照合($A3, 曜日!$B$1:$H$2, 2, 0), B$2)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "照合検索(最大(B10:Y10), B10:Y10, B2:Y2)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "照合検索(最大(Z3:Z9), Z3:Z9, A3:A9)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "照合検索(照合一致(最大(Z3:Z9), Z3:Z9, 0) - 1, 曜日!B2:H2, 曜日!B1:H1)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "表引き(A3:Z9, 1, 照合一致(最大(Z3:Z9), Z3:Z9, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "表引き(A3:Z9, 照合一致(最大(Z3:Z9), Z3:Z9, 0), 照合一致(最大(B10:Y10), B10:Y10, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 72,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "表引き(曜日!B1:H1, 1, 照合一致(最大(Z3:Z9), Z3:Z9, 0))",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "論理積(count_url = null, count_url = log_url)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "論理積(count_url = null, count_url ≠ log_url)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "論理積(count_url ≠ null, count_url ≠ log_url)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "論理和(count_url = null, count_url = log_url)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "論理和(count_url = null, count_url ≠ log_url)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "論理和(count_url ≠ null, count_url ≠ log_url)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "count_url = log_url",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-26",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "count_url = null",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-27",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "count_url ≠ null",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-28",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "log_url = null",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-29",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 74,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "log_url ≠ null",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-30",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "相対(A1, count_line, 1) ← 相対(A1, count_line, 1) + 1",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-31",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "相対(A1, count_line, 1) ← 相対(ログ!A1, log_line, 2)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-32",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "相対(A1, count_line, 2) ← 相対(A1, count_line, 2) + 1",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-33",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "相対(A1, count_line, 2) ← 相対(ログ!A1, log_line, 2)",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-34",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "相対(A1, log_line, 1) ← 相対(A1, log_line, 1) + 1",
+            "language": "text"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-35",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-13-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問13",
+                "page": 75,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "13"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-13",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "相対(A1, log_line, 2) ← 相対(A1, log_line, 2) + 1",
+            "language": "text"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問2 b",
+      "choiceIds": [
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問2 c",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問3 d",
+      "choiceIds": [
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問3 e",
+      "choiceIds": [
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27",
+        "choice-value-28",
+        "choice-value-29"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問3 f",
+      "choiceIds": [
+        "choice-value-30",
+        "choice-value-31",
+        "choice-value-32",
+        "choice-value-33",
+        "choice-value-34",
+        "choice-value-35"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-9"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-14"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-21"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-26"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-30"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：時刻は1970年1月1日0時からの経過分である。60で割った整数部分が経過時間数，その24での剰余が0〜23の時間帯になる。空行は先にA2=nullで判定してnullを返す。切上げ/四捨五入は分が残ると次の時間へ進んでしまい，24で割る，日数を60で割る等の式も時間帯と一致しない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "b：複写先の時間帯見出しは行2を固定したB$2，曜日見出しは列Aを固定した$A3で参照する。曜日表の上段で曜日名に完全一致する列を探し，下段のコードを水平照合で得る。そのコードを時間帯の後へつないでログF列と同じ文字列を作る。照合一致の1起点の位置は0起点の曜日コードではない。逆順結合や固定方向の違う参照も168セル全体で正しくならない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "c：最多曜日は曜日別計Z3:Z9の最大値を同範囲から検索し，同じ位置のA3:A9の曜日名を返す。最初に現れる一致を使うので，同率なら上端が選ばれる。時間別計や総計を混ぜると別対象になり，表引きの行列逆転や曜日コード表の並びをそのまま使っても月〜日の行順と対応しない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "d：既存URLを探す内側の繰返しはcount_urlがnullではなく，しかも対象log_urlとも異なる間だけ進める。空行又は一致URLに到達したら止める。NULL/一致のいずれかだけで続ける条件や論理和では探索の終了条件が崩れる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "e：内側の探索後count_url=nullなら未登録なので，新しいURLと1を最初の空行へ書く。それ以外は既存URLである。外側が非空のログだけを処理するためlog_urlのnull判定でこの二状態を分けられない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "f：既存URLがあるcount_line行のB列を1増やす。基準A1からの行ずれはcount_line，列ずれは1なので，相対(A1,count_line,1)を読み書きする。log_lineは入力側の行であり，2列ずれはC列である。URL文字列を件数へ代入する処理でもない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "この条件の疎表示は2017年4月3日（月）〜2017年4月30日（日）に対応する。最多/最少時間帯は13/4時台，最多/最少曜日は木/日。例の値が異なっても，正答の汎用式は同じ役割で働く。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2017h29a-fe-pm-13-p85",
+    "asset-ipa-2017h29a-fe-pm-13-p86",
+    "asset-ipa-2017h29a-fe-pm-13-p87",
+    "asset-ipa-2017h29a-fe-pm-13-p88",
+    "asset-ipa-2017h29a-fe-pm-13-p89",
+    "asset-ipa-2017h29a-fe-pm-13-p90",
+    "asset-ipa-2017h29a-fe-pm-13-p4",
+    "asset-ipa-2017h29a-fe-pm-13-p5"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問13。原資料と公式解答の全6解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

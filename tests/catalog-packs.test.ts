@@ -71,8 +71,9 @@ test("generic generation refresh refuses explicit and bulk old-PM rebuilds befor
     const before = snapshot(root);
     for (const [argument, message] of [
       ["--refresh-sources=2017h29h-fe-pm-1", /Unknown refresh source 2017h29h-fe-pm-1/],
-      ["--refresh-all", /BOOKLET_REVIEW_REQUIRED: 2017h29h-fe-pm-/],
-      ["--refresh-additional", /BOOKLET_REVIEW_REQUIRED: 2017h29h-fe-pm-/],
+      ["--refresh-sources=2017h29a-fe-pm-1", /Unknown refresh source 2017h29a-fe-pm-1/],
+      ["--refresh-all", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],
+      ["--refresh-additional", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],
     ] as const) {
       assert.throws(() => execFileSync(path.resolve("node_modules/.bin/tsx"),
         [path.resolve("scripts/prepare-generation-data.ts"), argument], { cwd: temporary, stdio: "pipe" }),

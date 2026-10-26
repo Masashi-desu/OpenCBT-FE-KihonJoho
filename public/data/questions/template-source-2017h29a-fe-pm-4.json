@@ -1,0 +1,1488 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29a-fe-pm-4",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017-autumn",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "VoIP",
+      "シーケンス図",
+      "待ち行列",
+      "リトルの公式"
+    ],
+    "keywords": [
+      "IP",
+      "PC",
+      "M/M/s",
+      "レイヤ3スイッチ",
+      "平均着信間隔",
+      "平均待ち時間"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+          "page": 18,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+          "page": 19,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+          "page": 20,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+          "page": 21,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+          "page": 22,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29a-fe-pm-4",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原全頁と公式解答欄を局所データへ対応",
+        "details": "原画像を無crop/無resize/全画素一致で保持し，複数空欄の組合せ欄と共通解答群を分割しない。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "コールセンタの原の構成・要求と応答・状態・待ち行列の前提、表、空欄と解答群を保ち、到着件数・通話時間・記録時間を変更しています。図表と必要人数の説明を同じ条件に対応させています。",
+        "affectsAnswer": true
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+            "page": 18,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+            "page": 19,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+            "page": 20,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+            "page": 21,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+            "page": 22,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-4",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は，選択欄の「選」をマークしてください。マークがない場合は，採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問4　コールセンタ設備の構成案及び必要となるオペレータ数の検討に関する次の記述を読んで，設問1，2に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "X社のコールセンタでは，顧客からの問合せの電話に対して30人のオペレータで処理を行っているが，“電話で待たされる”という顧客からの意見が多く寄せられている。この度，顧客が電話で待たされる時間の短縮を目的に，既存のコールセンタの設備とオペレータ数を見直すことにした。検討の要件とコールセンタ設備の構成案は，次のとおりである。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［検討の要件］"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) コールセンタでは，IPをベースにして拡張が可能なVoIP（Voice over Internet Protocol）を採用する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) コールセンタに着信があってからオペレータと通話を開始できるまでの平均待ち時間を，問合せが最も多い時間帯（以下，ピーク時という）においても，20秒以下になるようにオペレータを増員する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［コールセンタ設備の構成案］"
+      },
+      {
+        "type": "paragraph",
+        "text": "VoIPサーバ群は，顧客情報サーバ，コールサーバ及び着信分配情報サーバで構成する。オペレータ席には，それぞれ電話端末とPCを設置する。VoIPサーバ群と，音声ゲートウェイ及びオペレータ席との間はレイヤ3スイッチで接続する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "コールセンタ設備の構成案を，図1に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm4-network",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1　コールセンタ設備の構成案",
+        "alt": "コールセンタ内の顧客情報，コール，着信分配情報の3サーバからなるVoIPサーバ群，レイヤ3スイッチ，電話端末とPCからなる複数のオペレータ席，音声ゲートウェイの接続構成。音声ゲートウェイは公衆電話網を経由して複数の顧客電話機へ接続する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm4-network",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 19,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "顧客情報サーバは，過去の問合せ内容の検索や，顧客とのやり取りを記録するために利用される。コールサーバはVoIPの制御を行い，音声ゲートウェイから電話の接続要求があると，オペレータ席にある電話端末とPCの状態（以下，オペレータ席の状態という）を管理している着信分配情報サーバに問い合わせて，接続要求待ちのオペレータ席の電話端末へ接続する。オペレータ席の状態には，接続要求待ち，通話中及び結果記録中の状態があり，着信分配情報サーバは各オペレータ席がどの状態にあるかを認識している。"
+      },
+      {
+        "type": "paragraph",
+        "text": "顧客からの通話要求をオペレータ席の電話端末に接続するシーケンスを，図2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm4-sequence",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2　顧客からの通話要求をオペレータ席の電話端末に接続するシーケンス",
+        "alt": "顧客電話機，a1，a2，a3，電話端末の5オブジェクトを左から並べる。接続要求，接続先端末問合せ，接続先状況確認と端末決定，接続先端末通知，電話端末への接続要求，逆方向の接続応答の順を示す。実線の要求と破線の応答を区別する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm4-sequence",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 20,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1　図2中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，a1〜a3に入れる答えは，aに関する解答群の中から組合せとして正しいものを選ぶものとする。"
+      },
+      {
+        "type": "table",
+        "caption": "aに関する解答群",
+        "columns": [
+          "",
+          "a1",
+          "a2",
+          "a3"
+        ],
+        "rows": [
+          [
+            "ア",
+            "音声ゲートウェイ",
+            "コールサーバ",
+            "顧客情報サーバ"
+          ],
+          [
+            "イ",
+            "音声ゲートウェイ",
+            "コールサーバ",
+            "着信分配情報サーバ"
+          ],
+          [
+            "ウ",
+            "コールサーバ",
+            "音声ゲートウェイ",
+            "着信分配情報サーバ"
+          ],
+          [
+            "エ",
+            "着信分配情報サーバ",
+            "音声ゲートウェイ",
+            "顧客情報サーバ"
+          ],
+          [
+            "オ",
+            "着信分配情報サーバ",
+            "コールサーバ",
+            "顧客情報サーバ"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2　次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［オペレータ席の状態と問合せの処理件数及び処理時間］"
+      },
+      {
+        "type": "paragraph",
+        "text": "接続要求待ちの状態にあるオペレータ席の電話端末に接続要求があると，オペレータが顧客と通話を開始することによって通話中の状態になる。通話が終了すると結果記録中の状態となり，オペレータはPCから顧客情報サーバに，その結果の記録を行う。結果の記録が完了すると，接続要求待ちの状態に戻る。"
+      },
+      {
+        "type": "paragraph",
+        "text": "X社のコールセンタが想定する問合せの処理件数及び平均処理時間を表1に示す。1人のオペレータが1回の問合せに応対する通話時間と，結果記録時間の合計を処理時間とする。想定する平均処理時間は［b］分であり，コールセンタのピーク時における平均着信間隔は［c］秒となる。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm4-metrics",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表1　想定する問合せの処理件数及び平均処理時間",
+        "alt": "見出し行を持たない2列3行の原表。ピーク時の着信件数（件／時），平均通話時間（分／件），平均結果記録時間（分／件）とそれぞれの値を表示する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm4-metrics",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 21,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "［必要なオペレータ数の検討］"
+      },
+      {
+        "type": "paragraph",
+        "text": "コールセンタに顧客からの着信があってから，オペレータと通話を開始できるまでの平均待ち時間の算出には，待ち行列理論を使う。窓口数sのM/M/sモデルに表1の条件を適用すると，オペレータ数と平均待ち行列長の関係は，表2のようになることが分かっている。"
+      },
+      {
+        "type": "table",
+        "caption": "表2　オペレータ数と平均待ち行列長の関係",
+        "columns": [
+          "オペレータ数（人）",
+          "平均待ち行列長"
+        ],
+        "rows": [
+          [
+            "40",
+            "3.704"
+          ],
+          [
+            "41",
+            "2.304"
+          ],
+          [
+            "42",
+            "1.474"
+          ],
+          [
+            "43",
+            "0.957"
+          ],
+          [
+            "44",
+            "0.626"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "平均到着率（平均着信間隔の逆数）をλとすると，平均待ち行列長Lと平均待ち時間Wとの間には，次のリトルの公式が成立する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "λ × W = L"
+      },
+      {
+        "type": "paragraph",
+        "text": "リトルの公式と表2を用いると，ピーク時の平均待ち時間を20秒以下にするために必要なオペレータ数は最小［d］人となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "ここで，接続要求待ちの状態にあるオペレータ席が一つ以上ある場合に，コールセンタに顧客からの着信があってからオペレータ席の電話端末に接続要求を行うまでの時間と，オペレータが接続応答を行ってから顧客と通話を開始できるまでの時間は，無視できるほど短いものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "b，cに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　3"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　4"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　5"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　6"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　7"
+      },
+      {
+        "type": "paragraph",
+        "text": "カ　8"
+      },
+      {
+        "type": "paragraph",
+        "text": "キ　9"
+      },
+      {
+        "type": "paragraph",
+        "text": "ク　10"
+      },
+      {
+        "type": "paragraph",
+        "text": "ケ　11"
+      },
+      {
+        "type": "paragraph",
+        "text": "コ　12"
+      },
+      {
+        "type": "paragraph",
+        "text": "dに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　40"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　41"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　42"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　43"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　44"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 20,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a1",
+              "a2",
+              "a3"
+            ],
+            "rows": [
+              [
+                "音声ゲートウェイ",
+                "コールサーバ",
+                "顧客情報サーバ"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 20,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a1",
+              "a2",
+              "a3"
+            ],
+            "rows": [
+              [
+                "音声ゲートウェイ",
+                "コールサーバ",
+                "着信分配情報サーバ"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 20,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a1",
+              "a2",
+              "a3"
+            ],
+            "rows": [
+              [
+                "コールサーバ",
+                "音声ゲートウェイ",
+                "着信分配情報サーバ"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 20,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a1",
+              "a2",
+              "a3"
+            ],
+            "rows": [
+              [
+                "着信分配情報サーバ",
+                "音声ゲートウェイ",
+                "顧客情報サーバ"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 20,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "空欄の組合せ",
+            "columns": [
+              "a1",
+              "a2",
+              "a3"
+            ],
+            "rows": [
+              [
+                "着信分配情報サーバ",
+                "コールサーバ",
+                "顧客情報サーバ"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "40"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "41"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "42"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "43"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-4-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問4",
+                "page": 22,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-4",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "44"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a1〜a3",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問2 b",
+      "choiceIds": [
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問2 c",
+      "choiceIds": [
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-9"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-13"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-18"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1：顧客から公衆電話網を通した接続要求を受けるa1が音声ゲートウェイ，VoIPを制御して端末への接続を要求するa2がコールサーバ，席の状態を管理して接続先端末を決めるa3が着信分配情報サーバである。顧客情報サーバの役割は問合せ履歴の検索と結果の記録であり，接続先の決定ではない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 b：通話4分と結果記録2分の間は同じオペレータを占有するので，平均処理時間は6分。c：1時間は3600秒であり，3600÷360=10秒が平均着信間隔である。処理時間と着信間隔は別の量で，分と秒も区別する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "リトルの公式ではλ=1/10（件／秒）なのでW=L×10秒。表2を上から計算すると，40人：3.704×10=37.04秒，41人：2.304×10=23.04秒，42人：1.474×10=14.74秒，43人：0.957×10=9.57秒，44人：0.626×10=6.26秒となる。20秒以下になる最小の人数は42人である。接続要求待ちの席がある場合の接続要求前と応答後の時間を無視できるという条件により，待ち行列での待ち時間が求める平均待ち時間に対応する。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問4。原資料と公式解答の全4解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

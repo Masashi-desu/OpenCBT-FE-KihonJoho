@@ -5,6 +5,8 @@ import { generationCoverage } from "../src/core/generation-coverage";
 import { additionalDefinition } from "../src/core/generators";
 import { sourceFigureDomains } from "../src/core/source-figures";
 
+import autumn2017FigureMeaning from "./source-evidence/2017-autumn-figure-meaning.json";
+
 const b = readDistributionBundle();
 const c = generationCoverage(b);
 if (c.rows.some((r) => r.templates.length !== 1 || r.linked.length !== 1))
@@ -73,6 +75,7 @@ for (const group of groups) {
 md +=
   "\n## 登録図の入力契約\n\nrenderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts及びsrc/core/legacy-afternoon-figures.tsの有限契約を結合して生成する。旧午後の位置別上下限は外接域であり、許可する入力は後掲の査読済み有限組合せに限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／descに保持する。\n\n| profile | valuesの位置別の下限〜上限（0始まり） | 入力の意味・描画との対応 |\n| --- | --- | --- |\n";
 const figureMeaning: Record<string, string> = {
+  ...autumn2017FigureMeaning,
   "legacy-2017-pm13-a-equation": "0：数値の8条件。原の式全文とaの矩形空欄を元の式位置へ表示。可視見出しは追加しない。",
   "legacy-2017-pm13-b-equation": "0：数値の8条件。原の式全文とbの矩形空欄を元の式位置へ表示。可視見出しは追加しない。",
   "legacy-2017-pm13-cd-equation": "0：数値の8条件。原の式全文とc/dの矩形空欄を元の式位置へ表示。可視見出しは追加しない。",
@@ -179,7 +182,7 @@ for (const [profile, domain] of Object.entries(sourceFigureDomains)) {
   if (!figureMeaning[profile]) throw Error("図の入力意味の記録がない");
   md += `| ${profile} | ${domain.map(([min, max], i) => `${i}：${min}〜${max}`).join("、")} | ${figureMeaning[profile]} |\n`;
 }
-md += "\n旧午後の管理図は src/core/legacy-afternoon-figures.ts が登録された問題定義の有限入力から作る厳密なtuple辞書で検査する。上の上下限は外接域であり、個々の整数が範囲内でも未登録の組合せは拒否する。素材の出典と権利は基準問題の同じ本文・図・付属資料の単位から継承する。固定の問題本文画像は生成へ流用せず、登録された問12・問13の公式言語付属資料だけを厳密なIDと位置で保持する。\n";
+md += "\n旧午後の管理図は src/core/legacy-afternoon-figures.ts が登録された問題定義の有限入力から作る厳密なtuple辞書で検査する。上の上下限は外接域であり、個々の整数が範囲内でも未登録の組合せは拒否する。素材の出典と権利は基準問題の同じ本文・図・付属資料の単位から継承する。固定の問題本文画像は生成へ流用せず、登録された公式付属資料（正誤表・共通記法・API・言語仕様）だけを個別の素材条件・厳密なIDと位置で保持する。\n";
 const sceneText = (value: string) => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
   .replaceAll("|", "&#124;").replaceAll("*", "&#42;").replaceAll("_", "&#95;").replaceAll("`", "&#96;").replaceAll("\n", " ");
 md +=

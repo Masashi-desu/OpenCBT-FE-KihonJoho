@@ -1,0 +1,2032 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29a-fe-pm-5",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "ソフトウェア設計",
+      "関係データベース"
+    ],
+    "keywords": [
+      "E-R図",
+      "消込み処理",
+      "FIFO",
+      "複合主キー"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+          "page": 23,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+          "page": 24,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+          "page": 25,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+          "page": 26,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+          "page": 27,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-5-erratum",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問5 公式正誤表",
+          "page": 2,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "5"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29a-fe-pm-5",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T11:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原5頁と公式正誤表を解答前の資料へ対応",
+        "details": "原p23の旧文は原画像のまま保持。公式正誤表p2を独立contextへ置き，旧文/訂正文をその字面で表示。正誤表raw画像の画素は未変更で，PDFのRotate270を継承せず埋込み元の横長・正立配置で表示する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T11:00:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "買上げ・入金の原の関係、累積額と消込み手順、図表、空欄と共有解答群を保ち、同じ役割の誤答候補を変更しています。図は描き直し、公式正誤表を本文と分けて参照できるようにしています。",
+        "affectsAnswer": true,
+        "answerDetails": "a：消込は一つの入金から一つの月間買上げへの充当を表す。入金は複数の月間買上げへ，月間買上げは複数の入金から充当され得るため，入金番号と月間買上げ番号の組で対象を特定する。得意先だけ，又は一方の番号と得意先IDでは他方を区別できない。消込日や充当金額も同日の複数処理・同額の処理を区別する識別子ではない。原の図1には消込番号という属性を定義していない。\nb：まだ入金の全額を充当していないものは入金額＞充当額である。等しいものは全額充当済みであり，≧ではこれを含める。充当額＝0では部分充当済みの未完了入金を漏らし，充当額＞0では充当前の入金を漏らす。\nc：まだ月間買上げ額の全額を消し込んでいないものは月間買上げ額＞消込額である。買上げ額が正であることだけでは完了を除外できず，消込額が0か正かだけでも未処理・部分処理・完了を正しく分けられない。等号を含む条件は完了済みを混ぜる。\nd：古い買上げから充当するので買上げ年月の昇順である。降順は新しいものからになる。金額・消込額の大小は年月の古さを表さない。同じ得意先IDのレコードだけを既に取得しているため，得意先IDだけの整列では年月順を決められない。\ne：変数1には今回の入金でまだ使える残額を入れる。入金額−充当額であり，和や逆順の差ではない。月間買上げの値を使うと入金側の残額にならない。\nf：変数2には当該月間買上げの未充当額を入れるので，月間買上げ額−消込額である。変数1＞変数2なら月間買上げを完了させて入金残額を減らし，そうでなければ入金を全額使って当該月間買上げの消込額を増やす。等額は後者で双方完了となる。\nE-R図はEntity-Relationship diagram（実体関連図）で，表に管理する対象と関係を表す。FIFOはFirst In, First Out（先入れ先出し）で，本問では古い入金・古い買上げから充当する順序に対応する。公式正誤表を適用し，買上げ前の入金も買上げ後の入金も処理対象になり得る。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-2017h29a-fe-pm-5-erratum",
+      "title": "問5の公式正誤表（原PDF物理2頁）",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-erratum",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5 公式正誤表",
+                "page": 2,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5-erratum"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "公式正誤表：冊子22ページ（PDF物理23ページ）上から5行目"
+          },
+          {
+            "type": "paragraph",
+            "text": "訂正前：入金は，買上げ前に行うことができる。"
+          },
+          {
+            "type": "paragraph",
+            "text": "訂正後：得意先は，入金を，買上げ前にも，買上げ後にも行うことができる。"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2017h29a-fe-pm-5-erratum-p2",
+            "caption": "公式正誤表　平成29年度 秋期 基本情報技術者試験 午後 問5"
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-2017h29a-fe-pm-5-erratum"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+            "page": 23,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+            "page": 24,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+            "page": 25,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+            "page": 26,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+            "page": 27,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-5-erratum",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問5 公式正誤表",
+            "page": 2,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "5"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-5",
+        "rights-ipa-2017h29a-fe-pm-5-erratum",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-selection",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "選択した問題は，選択欄の（選）をマークしてください。マークがない場合は，採点されません。",
+        "alt": "選択した問題は，選択欄の（選）をマークしてください。マークがない場合は，採点されません。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-selection",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 23,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "問5　買上げ・入金管理システムを用いた月次集計処理に関する次の記述を読んで，設問1，2に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "E社は，10年以上の取引実績がある得意先とは，双方が合意した上で，得意先の買上げに対する支払を，1回の入金で行うことも，複数回の入金で行うことも許した取引を行っている。得意先は，入金を，買上げ前にも，買上げ後にも行うことができる。E社の担当者は，得意先の買上げ及び入金が発生するたびに，買上げ・入金管理システムに記録している。毎月の最終営業日の取引終了後に，買上げ・入金管理システムを用いて月次集計処理を行っている。月次集計処理の概要は次のとおりである。"
+      },
+      {
+        "type": "paragraph",
+        "text": "〔月次集計処理の概要〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "月次集計処理は月間買上げ額確定処理と消込み処理から成り，月間買上げ額確定処理の終了後に消込み処理を行う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "月間買上げ額確定処理は，得意先ごとに当月1か月分の買上げ金額を合計して，当月の買上げの合計額（以下，月間買上げ額という）を確定する処理である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "消込み処理は，充当が完了していない月間買上げ額に対して，得意先からの入金を充当していく処理である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "E社の得意先との取引では，過去の月間買上げ額に対する充当が完了していない場合や，逆に得意先から入金された金額が，全ては月間買上げ額に充当されずに残っている場合がある。したがって，消込み処理は，充当が完了していない月間買上げ額に対して，買上げ年月の古い順に，まだ入金額の全てを充当していない入金を，入金日が古い順に充当していく。"
+      },
+      {
+        "type": "paragraph",
+        "text": "〔買上げ・入金管理システムのデータベース〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "買上げ・入金管理システムでは，関係データベースの表で必要なデータを管理している。関係データベースのE-R図を図1に，各表の説明を表1に，主な表の属性の説明を表2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-er",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1　関係データベースのE-R図",
+        "alt": "図1　関係データベースのE-R図。7表：消込（a，消込充当額，消込日），入金（主キー入金番号，得意先ID，入金額，入金日，充当額），商品（主キー商品コード，商品名，単価），月間買上げ（主キー月間買上げ番号，得意先ID，買上げ年月，月間買上げ額，消込額），得意先（主キー得意先ID，得意先名，住所，電話番号），買上げ（主キー買上げ伝票番号，買上げ日，得意先ID，月間買上げ番号），買上げ明細（複合主キー買上げ伝票番号と明細番号，商品コード，数量，買上げ金額）。矢印は1対多を示す。得意先→入金/月間買上げ/買上げ，入金→消込，月間買上げ→消込/買上げ，商品→買上げ明細，買上げ→買上げ明細。属性名の実線の下線は主キーを示す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-er",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 24,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-table1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表1　各表の説明",
+        "alt": "表1　各表の説明。得意先：得意先の情報。商品：E社が取り扱う商品の情報。買上げ：1伝票単位の買上げ情報。買上げ明細：1伝票を構成する商品単位の買上げ情報。月間買上げ：得意先の月間買上げ額と，月間買上げ額に対して充当された金額（消込額）に関する情報。入金：得意先からの入金額と，その入金を月間買上げに充当した金額（充当額）に関する情報。消込：ある入金からある月間買上げに対して，充当した金額（消込充当額）の情報",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-table1",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 24,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-table2",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表2　主な表の属性の説明",
+        "alt": "表2　主な表の属性の説明。月間買上げ：月間買上げ額：ある得意先の，ある年月1か月分の買上げ金額。月間買上げ：消込額：月間買上げ額のうち，既に充当された金額。入金：入金額：ある得意先から入金された金額。入金：充当額：入金額のうち，月間買上げに既に充当した金額。消込：消込充当額：ある入金からある月間買上げに対して，消込み処理で充当した金額",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-table2",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-instruction1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問1　図1中の空欄に入れる属性の組みとして適切な答えを，解答群の中から選べ。",
+        "alt": "設問1　図1中の空欄に入れる属性の組みとして適切な答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-instruction1",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-bank-a",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "aに関する解答群",
+        "alt": "aに関する解答群。ア 消込番号，月間買上げ番号。イ 消込番号，入金番号。ウ 得意先ID，消込番号。エ 得意先ID，月間買上げ番号。オ 得意先ID，入金番号。カ 入金番号，月間買上げ番号",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-bank-a",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-instruction2",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2　図2は，消込み処理の流れ図である。次の記述及び図2中の空欄に入れる適切な答えを，解答群の中から選べ。",
+        "alt": "設問2　図2は，消込み処理の流れ図である。次の記述及び図2中の空欄に入れる適切な答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-instruction2",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-description",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2中のαの部分では，入金表から［b］の条件を満たすレコードを，得意先IDの昇順，入金日の昇順に整列して取得する。消込み①の繰返し処理では，取得したレコードを順に処理する。βの部分では，消込み①の繰返しで処理中のレコードの得意先IDと同じ得意先IDをもつ月間買上げ表のレコードのうち，［c］の条件を満たすレコードを，［d］に整列して取得する。消込み②の繰返し処理では，取得したレコードを順に処理する。",
+        "alt": "図2中のαの部分では，入金表から［b］の条件を満たすレコードを，得意先IDの昇順，入金日の昇順に整列して取得する。消込み①の繰返し処理では，取得したレコードを順に処理する。βの部分では，消込み①の繰返しで処理中のレコードの得意先IDと同じ得意先IDをもつ月間買上げ表のレコードのうち，［c］の条件を満たすレコードを，［d］に整列して取得する。消込み②の繰返し処理では，取得したレコードを順に処理する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-description",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-flow",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2　消込み処理の流れ図",
+        "alt": "図2　消込み処理の流れ図。開始。・入金表から，［b］の条件を満たすレコードを整列して取得する。・αで取得したレコードのうち先頭のものを[入金]とする。消込み①\n[入金]がない。・月間買上げ表から，[入金].得意先IDと同じ得意先IDをもち，［c］の条件を満たすレコードを整列して取得する。・βで取得したレコードのうち先頭のものを[月間買上げ]とする。・変数1 ← ［e］。消込み②\n[月間買上げ]がない。・変数2 ← ［f］。変数1 ＞ 変数2。・[月間買上げ].消込額 ← [月間買上げ].月間買上げ額\n・[月間買上げ]で月間買上げ表を更新する\n・[入金].充当額 ← [入金].充当額＋変数2\n・[入金]で入金表を更新する\n・消込表に，変数2の値を消込充当額として，消込みに使用した入金と月間買上げの情報をもつレコードを登録する\n・変数1 ← 変数1−変数2。・[月間買上げ].消込額 ← [月間買上げ].消込額＋変数1\n・[月間買上げ]で月間買上げ表を更新する\n・[入金].充当額 ← [入金].入金額\n・[入金]で入金表を更新する\n・消込表に，変数1の値を消込充当額として，消込みに使用した入金と月間買上げの情報をもつレコードを登録する。・βで取得したレコードのうち次のものを[月間買上げ]とする。消込み②。・αで取得したレコードのうち次のものを[入金]とする。消込み①。終了。αは入金選択，βは月間買上げ選択を指す。[X]はX表の処理中のレコード，[X].Yはその属性を表す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-flow",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 26,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-bank-b",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "bに関する解答群",
+        "alt": "bに関する解答群。ア 入金額＝充当額。イ 入金額＞充当額。ウ 入金額＜充当額。エ 充当額＝0",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-bank-b",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-bank-c",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "cに関する解答群",
+        "alt": "cに関する解答群。ア 月間買上げ額＞0。イ 月間買上げ額＞消込額。ウ 消込額＝0。エ 消込額＞0。オ 消込額＝月間買上げ額。カ 消込額＞月間買上げ額",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-bank-c",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-bank-d",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "dに関する解答群",
+        "alt": "dに関する解答群。ア 買上げ年月の降順。イ 買上げ年月の昇順。ウ 消込額の降順。エ 月間買上げ額の昇順。オ 得意先IDの昇順",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-bank-d",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm5-bank-ef",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "e，fに関する解答群",
+        "alt": "e，fに関する解答群。ア [月間買上げ].月間買上げ額＋[月間買上げ].消込額。イ [月間買上げ].月間買上げ額−[月間買上げ].消込額。ウ [月間買上げ].消込額−[月間買上げ].月間買上げ額。エ [入金].入金額＋[入金].充当額。オ [入金].入金額−[入金].充当額。カ [入金].充当額−[入金].入金額",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm5-bank-ef",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込番号\n月間買上げ番号"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込番号\n入金番号"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "得意先ID\n消込番号"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "得意先ID\n月間買上げ番号"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "得意先ID\n入金番号"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 25,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "入金番号\n月間買上げ番号"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "入金額＝充当額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "入金額＞充当額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "入金額＜充当額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "充当額＝0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "月間買上げ額＞0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "月間買上げ額＞消込額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込額＝0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込額＞0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込額＝月間買上げ額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込額＞月間買上げ額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "買上げ年月の降順"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "買上げ年月の昇順"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "消込額の降順"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "月間買上げ額の昇順"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "得意先IDの昇順"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "[月間買上げ].月間買上げ額＋[月間買上げ].消込額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "[月間買上げ].月間買上げ額−[月間買上げ].消込額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "[月間買上げ].消込額−[月間買上げ].月間買上げ額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "[入金].入金額＋[入金].充当額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-26",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "[入金].入金額−[入金].充当額"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-27",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-5-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問5",
+                "page": 27,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "5"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-5",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "[入金].充当額−[入金].入金額"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問2 b",
+      "choiceIds": [
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問2 c",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24",
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問2 f",
+      "choiceIds": [
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24",
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-8"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-18"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-26"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-23"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：消込は一つの入金から一つの月間買上げへの充当を表す。入金は複数の月間買上げへ，月間買上げは複数の入金から充当され得るため，入金番号と月間買上げ番号の組で対象を特定する。得意先だけ，又は一方の番号と得意先IDでは他方を区別できない。消込日や充当金額も同日の複数処理・同額の処理を区別する識別子ではない。原の図1には消込番号という属性を定義していない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "b：まだ入金の全額を充当していないものは入金額＞充当額である。等しいものは全額充当済みであり，≧ではこれを含める。充当額＝0では部分充当済みの未完了入金を漏らし，充当額＞0では充当前の入金を漏らす。"
+      },
+      {
+        "type": "paragraph",
+        "text": "c：まだ月間買上げ額の全額を消し込んでいないものは月間買上げ額＞消込額である。買上げ額が正であることだけでは完了を除外できず，消込額が0か正かだけでも未処理・部分処理・完了を正しく分けられない。等号を含む条件は完了済みを混ぜる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "d：古い買上げから充当するので買上げ年月の昇順である。降順は新しいものからになる。金額・消込額の大小は年月の古さを表さない。同じ得意先IDのレコードだけを既に取得しているため，得意先IDだけの整列では年月順を決められない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "e：変数1には今回の入金でまだ使える残額を入れる。入金額−充当額であり，和や逆順の差ではない。月間買上げの値を使うと入金側の残額にならない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "f：変数2には当該月間買上げの未充当額を入れるので，月間買上げ額−消込額である。変数1＞変数2なら月間買上げを完了させて入金残額を減らし，そうでなければ入金を全額使って当該月間買上げの消込額を増やす。等額は後者で双方完了となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "E-R図はEntity-Relationship diagram（実体関連図）で，表に管理する対象と関係を表す。FIFOはFirst In, First Out（先入れ先出し）で，本問では古い入金・古い買上げから充当する順序に対応する。公式正誤表を適用し，買上げ前の入金も買上げ後の入金も処理対象になり得る。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2017h29a-fe-pm-5-erratum-p2"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問5。原資料と公式解答の全6解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

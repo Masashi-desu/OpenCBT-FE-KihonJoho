@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "asset-ipa-2017h29a-fe-pm-8-p39",
+  "path": "assets/2017h29a-fe-pm-8-p39.webp",
+  "mediaType": "image/webp",
+  "sha256": "a69d9650246c7bb4b1444b4c4e0ecf4356c0592ddad4060e58e22ad5682a2ebb",
+  "width": 1432,
+  "height": 2026,
+  "byteLength": 304662,
+  "alt": "原資料2017秋午後問8 物理p39。(2) 検査文字付文字列の検証\n① 検査文字付文字列の末尾の文字を1番目の文字とし，文字列の先頭に向かって偶数番目の文字に割り当てた数値を2倍してNで割り，商と余りの和を求め，全て足し合わせる。\n② 奇数番目の文字に割り当てた数値は，そのまま全て足し合わせる。\n③ ①と②の結果を足し合わせる。\n④ ③で求めた総和がNで割り切れる場合は，検査文字付文字列に誤りがないと判定する。Nで割り切れない場合は，検査文字付文字列に誤りがあると判定する。\n〔検査文字付文字列の生成例〕\n表1及び検査文字の生成の手順を用いることによって，文字列ipa␣␣に対し，生成される検査文字はfである。\n検査文字付文字列は，文字列の末尾に検査文字を追加し，ipa␣␣fとなる。\n〔プログラムの仕様〕\n各関数の仕様を(1)〜(4)に示す。ここで，配列の添字は1から始まるものとする。\n(1) 関数calcCheckCharacterは，文字列及び文字列長を用いて生成した検査文字を返す。関数calcCheckCharacterの引数及び返却値の仕様は，表2のとおりである。\n表2　関数calcCheckCharacterの引数及び返却値の仕様。input[]：文字型：入力：文字列が格納されている1次元配列。len：整数型：入力：文字列の文字列長（1以上）。返却値：文字型：出力：生成した検査文字を返す。\n関数calcCheckCharacterは，関数getValue，関数getCharを使用する。",
+  "attribution": {
+    "origin": "official",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-8-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問8",
+          "page": 39,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2017h29a-fe-pm-8"
+    ],
+    "creatorIds": [
+      "ipa"
+    ]
+  }
+}

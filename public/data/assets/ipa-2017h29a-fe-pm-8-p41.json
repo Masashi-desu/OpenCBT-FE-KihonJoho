@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "asset-ipa-2017h29a-fe-pm-8-p41",
+  "path": "assets/2017h29a-fe-pm-8-p41.webp",
+  "mediaType": "image/webp",
+  "sha256": "6b2bff1b961e61c558fbccbeb02b26ad2b7c106218205681a6df94a219b799ea",
+  "width": 1432,
+  "height": 2026,
+  "byteLength": 196778,
+  "alt": "原資料2017秋午後問8 物理p41。設問1　プログラム中の［ ］に入れる正しい答えを，解答群の中から選べ。ここで，a1とa2に入れる答えは，aに関する解答群の中から組合せとして正しいものを選ぶものとする。\n〔プログラム〕。○文字型関数： calcCheckCharacter(文字型： input[], 整数型： len)\n○整数型： N, sum, i, value, check_value\n○論理型： is_even\n・N ← 30\n・sum ← 0\n・is_even ← false\ni: len, i ＞ 0, −1\n・value ← getValue(input[i])\nis_even ＝ ［a1］\n・sum ← sum ＋ value\n・sum ← sum ＋ (value × 2) ÷ N ＋ (value × 2) % N\n\n・is_even ← not is_even\n\n・check_value ← ［b］\n・return getChar(check_value)\n\n○論理型関数： validateCheckCharacter(文字型： input[], 整数型： len)\n○整数型： N, sum, i, value\n○論理型： is_odd, ret_value\n・N ← 30\n・sum ← 0\n・is_odd ← true\n・ret_value ← true\ni: len, i ＞ 0, −1\n・value ← getValue(input[i])\nis_odd ＝ ［a2］\n・sum ← sum ＋ value\n・sum ← sum ＋ (value × 2) ÷ N ＋ (value × 2) % N\n\n・is_odd ← not is_odd\n\n［c］\n・ret_value ← false\n\n・return ret_value。両関数に回数指定繰返し■，条件▲/▼とelse枝。検証末尾に条件cの▲/▼。",
+  "attribution": {
+    "origin": "official",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-8-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問8",
+          "page": 41,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2017h29a-fe-pm-8"
+    ],
+    "creatorIds": [
+      "ipa"
+    ]
+  }
+}

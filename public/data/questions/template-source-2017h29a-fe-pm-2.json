@@ -1,0 +1,1173 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2017h29a-fe-pm-2",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2017-autumn",
+      "legacy-afternoon",
+      "parameterized"
+    ],
+    "topics": [
+      "排他制御",
+      "セマフォ",
+      "デッドロック"
+    ],
+    "keywords": [
+      "CPU",
+      "共有メモリ",
+      "P操作",
+      "V操作",
+      "更新喪失"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 9,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 10,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 11,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+        "locator": {
+          "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+          "page": 12,
+          "year": 2017,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午後",
+          "timeSlot": "午後",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2017h29a-fe-pm-2",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原全頁と公式解答欄を局所データへ対応",
+        "details": "原画像を無crop/無resize/全画素一致で保持し，複数空欄の組合せ欄と共通解答群を分割しない。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-26T12:00:00Z",
+        "actorId": "codex",
+        "kind": "wording",
+        "summary": "原形式を保持して条件を変更",
+        "details": "プロセス更新とセマフォの原の不可分性・待ち条件、図、空欄と解答群を保ち、共有値・更新量、空き状態の表現と資源の確保順を変更しています。関連する図・選択肢・解説を同期しています。",
+        "affectsAnswer": true
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 9,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 10,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 11,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+          "locator": {
+            "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+            "page": 12,
+            "year": 2017,
+            "period": "秋期",
+            "exam": "基本情報技術者試験",
+            "subject": "午後",
+            "timeSlot": "午後",
+            "questionNumber": "2"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2017h29a-fe-pm-2",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の問2から問7までの6問については，この中から4問を選択し，選択した問題については，答案用紙の選択欄の選をマークして解答してください。なお，5問以上マークした場合には，はじめの4問について採点します。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問2　プロセスの排他制御に関する次の記述を読んで，設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "単一のCPUと，プロセス間で共有するデータ（以下，共有データという）を格納するためのメモリ（以下，共有メモリという）をもつコンピュータXにおいて，並行に実行される複数のプロセスが，共有データを更新する場合を考える。"
+      },
+      {
+        "type": "paragraph",
+        "text": "二つのプロセスp1，p2が共有データを更新する際には，図1に示す更新処理1，更新処理2を，それぞれ①〜③の順番に行う。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm2-updates",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1　二つのプロセスが共有データに対して更新処理を行う例",
+        "alt": "図1　二つのプロセスが共有データに対して更新処理を行う例。コンピュータX内で左のp1と右のp2が共有メモリのデータyを使う。各更新処理は①共有データの読込み，②読み込んだ値の更新，③共有データへの更新結果の書出しの順。共有データyから両プロセスへの読込み矢印と，各プロセスからyへの書出し矢印を区別する。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm2-updates",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 9,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記　“→”は共有データyへのアクセス（読込み又は書出し）を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1　図1に示すプロセスp1の更新処理1とプロセスp2の更新処理2が，次のとおりに共有データyを更新する場合を考える。"
+      },
+      {
+        "type": "paragraph",
+        "text": "【更新処理1】：共有データyの値を30増加させる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "【更新処理2】：共有データyの値を50減少させる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "二つのプロセスp1，p2の実行前の共有データyの値が100であり，共有データに対して排他制御を行わずに，プロセスp1が更新処理1を，プロセスp2が更新処理2を並行して各1回だけ行った。結果として，共有データyが取り得ない値を，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　50"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　80"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　100"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　130"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2　次の記述中の［　］に入る正しい答えを，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "共有データに対して排他制御を行う仕組みとして，セマフォ変数を利用する方法を考える。"
+      },
+      {
+        "type": "paragraph",
+        "text": "セマフォ変数は，対応する共有データが，解放されている状態を示す1，又はいずれかのプロセスに確保されている状態を示す0の値をもつ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "セマフォ変数の値は，P操作とV操作で変更する。共有データyに対するセマフォ変数Sを利用したプロセスp3，p4が共有データyを更新する際の動作を，図2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2017-autumn-pm2-semaphore",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2　セマフォ変数Sを利用した更新処理",
+        "alt": "図2　セマフォ変数Sを利用した更新処理。共有メモリにセマフォ変数Sと共有データyを置く。左のp3も右のp4もP操作，更新処理，V操作の順。P操作/V操作からSへの破線矢印はSへの操作を表し，更新処理とyの間の実線両矢印はyへのアクセスを表す。更新処理1と更新処理2は図1と同じ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2017-autumn-pm2-semaphore",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記　“↔”は共有データyへのアクセスを表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "“●→”の破線はセマフォ変数Sへの操作を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "更新処理1と更新処理2は，図1と同じ処理である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "図2において，共有データyに対して排他制御をした上で，更新処理を行うために，プロセスp3は，P操作，更新処理1，V操作の順に処理を行い，プロセスp4は，P操作，更新処理2，V操作の順に処理を行う。P操作は，［a］。V操作は，［b］。ここで，P操作とV操作は，それぞれ実行中の中断はないものとする。ただし，プロセスが待ち状態になれば，CPUは別のプロセスを実行させるものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　セマフォ変数Sの値が0であれば1に変更し，終了する。1であれば0になるまで待った後，1に変更して終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　セマフォ変数Sの値が0であれば1に変更し，終了する。1であれば何もせずに終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　セマフォ変数Sの値が1であれば0に変更し，終了する。0であれば1になるまで待った後，0に変更して終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　セマフォ変数Sの値が1であれば0に変更し，終了する。0であれば何もせずに終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "bに関する解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　セマフォ変数Sの値が0であれば1になるまで待った後，終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　セマフォ変数Sの値が1であれば0になるまで待った後，終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　セマフォ変数Sの値を0にして終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　セマフォ変数Sの値を1にして終了する"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3　プロセスp5，p6が更新する二つの共有データy1，y2があり，それぞれに異なるセマフォ変数を対応させて，個別に確保と解放ができるようにした場合を考える。共有データy1に対してセマフォ変数S1を，共有データy2に対してセマフォ変数S2を用いて排他制御を行う。プロセスp5が，次の順序で共有データy1，y2に対する確保と解放を行うとき，プロセスp6が，共有データy1，y2に対する確保と解放を行う順序によってはデッドロックが発生する可能性がある。デッドロックが発生する可能性がある，プロセスp6の共有データy1，y2に対する確保と解放の順序を，解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［プロセスp5の共有データに対する確保と解放の順序］"
+      },
+      {
+        "type": "paragraph",
+        "text": "y1の確保，y2の確保，y2の解放，y1の解放"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群"
+      },
+      {
+        "type": "paragraph",
+        "text": "ア　y1の確保，y1の解放，y2の確保，y2の解放"
+      },
+      {
+        "type": "paragraph",
+        "text": "イ　y1の確保，y2の確保，y1の解放，y2の解放"
+      },
+      {
+        "type": "paragraph",
+        "text": "ウ　y1の確保，y2の確保，y2の解放，y1の解放"
+      },
+      {
+        "type": "paragraph",
+        "text": "エ　y2の確保，y1の確保，y1の解放，y2の解放"
+      },
+      {
+        "type": "paragraph",
+        "text": "オ　y2の確保，y2の解放，y1の確保，y1の解放"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "100"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 10,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "130"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が0であれば1に変更し，終了する。1であれば0になるまで待った後，1に変更して終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が0であれば1に変更し，終了する。1であれば何もせずに終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が1であれば0に変更し，終了する。0であれば1になるまで待った後，0に変更して終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が1であれば0に変更し，終了する。0であれば何もせずに終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が0であれば1になるまで待った後，終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値が1であれば0になるまで待った後，終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値を0にして終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 11,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "セマフォ変数Sの値を1にして終了する"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y1の確保，y1の解放，y2の確保，y2の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y1の確保，y2の確保，y1の解放，y2の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y1の確保，y2の確保，y2の解放，y1の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y2の確保，y1の確保，y1の解放，y2の解放"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2017h29a-fe-pm-2-qs",
+              "locator": {
+                "section": "平成29年度 秋期 基本情報技術者試験 午後 問2",
+                "page": 12,
+                "year": 2017,
+                "period": "秋期",
+                "exam": "基本情報技術者試験",
+                "subject": "午後",
+                "timeSlot": "午後",
+                "questionNumber": "2"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2017h29a-fe-pm-2",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "y2の確保，y2の解放，y1の確保，y1の解放"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-q1",
+      "label": "設問1",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-a",
+      "label": "設問2 a",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問2 b",
+      "choiceIds": [
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-q3",
+      "label": "設問3",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-q1",
+        "choiceId": "choice-value-3"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-7"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-q3",
+        "choiceId": "choice-value-16"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1：排他制御なしの読込み・局所更新・書出しを並行すると，両方の更新が反映された80，増加だけが残る130，減少だけが残る50のいずれかになる。更新処理は各1回で加減とも0ではなく，初期値100のままにはならない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2：S=1が解放，S=0が確保である。P操作はS=1なら0へ変えて更新処理へ進む。S=0ならS=1になるまで待ち，その後0へ変えてから進む。確保中なのに何もせず終了するP操作では同時に更新処理へ入れる。V操作はSを1に戻す。Sを待つだけ，確保状態へ戻す処理では次のプロセスが進めない。P/Vは途中中断せず，待ったときだけ別プロセスが実行できる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3：p5はy1を確保したままy2を待つ可能性がある。p6が逆の順に二資源を確保すると，それぞれ一つずつ確保した後で互いの資源を待ち，循環待ちになる。解放してから別の資源を確保する2候補は一つを保持したまま相手を待たず，p5と同じ確保順の2候補も循環待ちを作らない。唯一，y2の確保，y1の確保，y1の解放，y2の解放が該当する。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-26",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "2017年度秋期・旧午後問2。原資料と公式解答の全4解答欄を照合し、条件別の独立検算と原形式の査読を記録している。公式素材・付属資料の利用条件は各素材の権利記録で確認し、独自解説と区別する。公式の配点や合否評価を表すものではない。"
+  }
+}

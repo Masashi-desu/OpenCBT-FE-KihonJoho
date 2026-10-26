@@ -1,0 +1,10 @@
+import {code,table,strings} from '../src/core/generators/definition';
+import {autumnAnswers} from '../src/core/generators/legacy-2017-autumn-pm1-4-preparation';
+import {legacy2017AutumnPm3Definition as definition} from '../src/core/generators/legacy-2017-autumn-pm3';
+import {legacy2017AutumnPm3Model} from '../src/core/generators/legacy-2017-autumn-pm3-model';
+import {legacy2017AutumnPm3Source as s,legacy2017AutumnPm3Profiles} from '../src/core/generators/legacy-2017-autumn-pm3-source';
+import {autumn2017PreparedRecords,bindAutumn2017PreparedBody,type Autumn2017PreparedInput,type Autumn2017PreparedSpec} from './import-legacy-2017-autumn-pm1-4';
+const original=autumnAnswers([{id:'a',choices:legacy2017AutumnPm3Model([0]).aChoices.map(x=>[code(x,'sql')])},{id:'history',choices:strings(s.historyChoices)},{id:'b',choices:s.aggregateRows.map(r=>[table('空欄の組合せ',['b1','b2','b3'],[r])])},{id:'c',choices:s.minimumRows.map(r=>[table('空欄の組合せ',['c1','c2'],[r])])}],[{id:'part-a',label:'設問1 a',group:'a',correct:1},{id:'part-q2',label:'設問2',group:'history',correct:1},{id:'part-b',label:'設問3 b1〜b3',group:'b',correct:4},{id:'part-c',label:'設問4 c1・c2',group:'c',correct:0}]);
+export const legacy2017AutumnPm3Spec:Autumn2017PreparedSpec={number:3,pages:[13,14,15,16,17],definition,profiles:[...legacy2017AutumnPm3Profiles],topics:['SQL','関係データベース','集約','価格履歴','ビュー'],keywords:['主キー','WHERE','HAVING','GROUP BY','SUM','COUNT','外部結合'],choicePages:[...Array(4).fill(14),...Array(4).fill(15),...Array(6).fill(16),...Array(4).fill(17)],original};
+export const legacy2017AutumnPm3Records=(input:Autumn2017PreparedInput)=>autumn2017PreparedRecords(legacy2017AutumnPm3Spec,input);
+export const bindLegacy2017AutumnPm3Body=(base:Parameters<typeof bindAutumn2017PreparedBody>[0],body:Parameters<typeof bindAutumn2017PreparedBody>[1])=>bindAutumn2017PreparedBody(base,body,legacy2017AutumnPm3Spec);

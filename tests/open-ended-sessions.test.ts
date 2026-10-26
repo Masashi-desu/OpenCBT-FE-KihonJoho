@@ -46,8 +46,8 @@ function answerCurrent(run: Run, correct: boolean, at: number) {
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
   const rows = generationCoverage(bundle).rows;
-  assert.equal(rows.length, 202);
-  assert.equal(rows.filter(row => row.original.answerParts).length, 13);
+  assert.equal(rows.length, 215);
+  assert.equal(rows.filter(row => row.original.answerParts).length, 26);
   for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {
       ...selection,

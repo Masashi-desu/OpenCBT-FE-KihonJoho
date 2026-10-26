@@ -1,3 +1,4 @@
+import autumn2017PMReview from "./source-evidence/stage2-2017-autumn-pm-review.json";
 import spring2017PMReview from "./source-evidence/stage2-2017-spring-pm-review.json";
 import fs from "node:fs";
 import path from "node:path";
@@ -62,6 +63,13 @@ export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportR
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
   testFiles: [`tests/legacy-2017-pm${number}.test.ts`, `tests/legacy-2017-pm${number}-records.test.ts`,
     "tests/legacy-2017-spring-pm-booklet.test.ts", "tests/legacy-afternoon-runtime.test.ts"],
+}))).concat(autumn2017PMReview.majorNumbers.map<ImportReview>(number => ({
+  collectionId: autumn2017PMReview.collectionId, questionNumber: number,
+  paperSha256: autumn2017PMReview.questionPaperSHA256,
+  checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
+  testFiles: [`tests/legacy-2017-autumn-pm${number}.test.ts`,
+    number <= 4 ? `tests/legacy-2017-autumn-pm${number}-display.test.ts` : `tests/legacy-2017-autumn-pm${number}-records.test.ts`,
+    "tests/legacy-2017-autumn-integration.test.ts", "tests/legacy-2017-autumn-booklet-release.test.ts"],
 })));
 
 export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, reviews = pre2023Reviews, discovery: unknown = discoveryLedger) {

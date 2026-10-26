@@ -9,7 +9,7 @@ export const sourceScope = [2023, 2024, 2025, 2026].flatMap((year) =>
       (_, i) => `${year}-${subject}-${i + 1}`,
     ),
   ),
-).concat(Array.from({ length: 6 }, (_, i) => `sample-2022-apr-b-${i + 1}`), Array.from({ length: 20 }, (_, i) => `sample-2022-dec-b-${i + 1}`),Array.from({length:60},(_,i)=>`sample-2022-dec-a-${i+1}`), Array.from({length:13},(_,i)=>`2017h29h-fe-pm-${i+1}`));
+).concat(Array.from({ length: 6 }, (_, i) => `sample-2022-apr-b-${i + 1}`), Array.from({ length: 20 }, (_, i) => `sample-2022-dec-b-${i + 1}`),Array.from({length:60},(_,i)=>`sample-2022-dec-a-${i+1}`), Array.from({length:13},(_,i)=>`2017h29h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2017h29a-fe-pm-${i+1}`));
 export const sourceExclusions = {
   "2025-b-6": {
     reason: "JIS Q 27001:2023に依存する第三者部分の再配布・改変条件を未確認",
