@@ -12,7 +12,12 @@ for (const definition of legacyAfternoonDefinitions) {
       for (let value = field.minimum; value <= field.maximum; value++) visit(index + 1, [...values, value]);
       return;
     }
-    const body = definition.build(values);
+    let body;
+    try { body = definition.build(values); }
+    catch (error) {
+      if (error instanceof Error && error.message === "PARAMETER_CONSTRAINT") return;
+      throw error;
+    }
     const blocks: Block[] = [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
     for (const block of blocks) {
       if (block.type !== "diagram" || block.scene.kind !== "source_figure" ||

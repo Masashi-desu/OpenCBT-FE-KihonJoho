@@ -1,0 +1,1802 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-8",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "ヒープ",
+      "昇順整列"
+    ],
+    "keywords": [
+      "親子関係",
+      "整数商",
+      "同値時右子",
+      "配列"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+          "page": 38,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+          "page": 39,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+          "page": 40,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+          "page": 41,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+          "page": 42,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+          "page": 43,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "8"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-8",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問8の原6頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "7個の値の集合を保ってヒープ例の配置を変え、木・配列・説明を対応させています。整列の方向、添字・計算の規則、プログラムと注意書き、全解答欄の構成を保ち、図とプログラムを画面用に描き直しています。共通仕様は未改変の原資料です。",
+        "affectsAnswer": true,
+        "answerDetails": "a/b：新たに末尾へ追加した値が親より大きい間、親の要素番号parent(k)と交換して根の方向へ移す。子の値は親以下であるというmaxheapの条件を回復するため、条件はheap[k] > heap[parent(k)]、交換先はparent(k)。k>0のときだけ親を参照するので、根でparentを計算しない。c：初回のlastは6であり、行5の交換により末尾の20がheap[0]へ移り、元の根60は整列済み側のheap[6]へ移る。d：右子が存在するとき、行7のheap[tmp] ≦ heap[rchild(n)]により、右子の値が左子以上であれば右子を選ぶ。同値のときも右子へ進むことを含めるので「以上のときには」。e：交換後の根20に対し、左子30と右子45のうち大きい45の要素番号2がtmpとなる。この値は根より大きいので交換し、行15でnに2を最初に代入する。downHeapはhlast以下の子だけを読み、整列済み側には触れない。last=1の交換後はhlast=0となり子がないため繰返しを実行しない。データが1個ならheapSortのlast>0が初めから偽で、交換を実行しない。空データは本文のhnum>0の対象外である。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-2018h30h-fe-pm-8-common",
+      "title": "疑似言語の共通仕様",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-common",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 common",
+                "page": 4,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-common",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 common",
+                "page": 5,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8-common"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2018h30h-fe-pm-8-p4",
+            "caption": "平成30年度春期 付属資料 物理p.4"
+          },
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2018h30h-fe-pm-8-p5",
+            "caption": "平成30年度春期 付属資料 物理p.5"
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-2018h30h-fe-pm-8-common"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+            "page": 38,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "8"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+            "page": 39,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "8"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+            "page": 40,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "8"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+            "page": 41,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "8"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+            "page": 42,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "8"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+            "page": 43,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "8"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-8",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の問8は必須問題です。必ず解答してください。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問8 次のプログラムの説明及びプログラムを読んで、設問1、2に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "ヒープの性質を利用して、データを昇順に整列するアルゴリズムを考える。ヒープは二分木であり、本問では、親は一つ又は二つの子をもち、親の値は子の値よりも常に大きいか等しいという性質をもつものとする。ヒープの例を図1に示す。図1において、丸は節を、丸の中の数値は各節が保持する値を表す。子をもつ節を、その子に対する親と呼ぶ。親をもたない節を根と呼び、根は最大の値をもつ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-heap-tree",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 ヒープの例",
+        "alt": "図1 ヒープの例。根は60。左の子は30、右の子は45。30の左の子は15、右の子は5。45の左の子は10、右の子は20。丸は節、数値は値。根、左側の子、右側の子の位置を表示。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-heap-tree",
+          "values": [
+            0,
+            12
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 38,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "〔プログラム1の説明〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 配列の要素番号は、0から始まる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 副プログラムmakeHeapは、整数型の1次元配列dataに格納されているhnum個（hnum > 0）のデータを、次の①〜③の規則で整数型の1次元配列heapに格納して、ヒープを配列で実現する。この状態を、配列heapは、ヒープの性質を満たしている、という。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① 配列要素heap[i]（i=0, 1, 2, …）は、節に対応する。配列要素heap[i]には、節が保持する値を格納する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② 配列要素heap[0]は、根に対応する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 配列要素heap[i]（i=0, 1, 2, …）に対応する節の左側の子は配列要素heap[2×i+1]に対応し、右側の子は配列要素heap[2×i+2]に対応する。子が一つの場合、左側の子として扱う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 図1のヒープの例に対応した配列heapの内容を、図2に示す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-heap-array",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 図1のヒープの例に対応した配列heapの内容",
+        "alt": "図2 要素番号0から6に60、30、45、15、5、10、20を格納。黒丸から矢じりへ向かう6本の矢印は、0から1/2、1から3/4、2から5/6の親子関係を表す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-heap-array",
+          "values": [
+            0,
+            12
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 39,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記：黒丸を始点、矢じりを終点とする矢印は、始点、終点の二つの配列要素に対応する節が、親子関係にあることを表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 親の要素番号と子の要素番号を関係付ける三つの関数がある。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① 整数型：lchild（整数型：i）。要素番号iの配列要素に対応する節の左側の子の配列要素の要素番号2×i+1を計算して返却する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② 整数型：rchild（整数型：i）。要素番号iの配列要素に対応する節の右側の子の配列要素の要素番号2×i+2を計算して返却する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 整数型：parent（整数型：i）。要素番号iの配列要素に対応する節の親の配列要素の要素番号(i−1)÷2（小数点以下切捨て）を計算して返却する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) 副プログラムswapは、二つの配列要素に格納されている値を交換する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) 副プログラムmakeHeapの引数の仕様を表1に、副プログラムswapの引数の仕様を表2に示す。"
+      },
+      {
+        "type": "table",
+        "caption": "表1 副プログラムmakeHeapの引数の仕様",
+        "columns": [
+          "引数",
+          "データ型",
+          "入出力",
+          "説明"
+        ],
+        "rows": [
+          [
+            "data[]",
+            "整数型",
+            "入力",
+            "データが格納されている1次元配列"
+          ],
+          [
+            "heap[]",
+            "整数型",
+            "出力",
+            "ヒープの性質を満たすようにデータを格納する1次元配列"
+          ],
+          [
+            "hnum",
+            "整数型",
+            "入力",
+            "データの個数"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "表2 副プログラムswapの引数の仕様",
+        "columns": [
+          "引数",
+          "データ型",
+          "入出力",
+          "説明"
+        ],
+        "rows": [
+          [
+            "heap[]",
+            "整数型",
+            "入力／出力",
+            "交換対象のデータが格納されている1次元配列"
+          ],
+          [
+            "i",
+            "整数型",
+            "入力",
+            "交換対象の要素番号"
+          ],
+          [
+            "j",
+            "整数型",
+            "入力",
+            "交換対象の要素番号"
+          ]
+        ]
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-heap-program-one",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "〔プログラム1〕",
+        "alt": "プログラム1 makeHeapとswap。原資料には行番号がない。次の番号は各副プログラム内の読上げ順で、制御記号だけの行も含む。 makeHeap 読上げ順1行 ○副プログラム：makeHeap（整数型：data[], 整数型：heap[], 整数型：hnum）。 makeHeap 読上げ順2行 ○整数型：i, k。 makeHeap 読上げ順3行 繰返し開始。i：0, i < hnum, 1。 makeHeap 読上げ順4行 ・heap[i] ← data[i] /* heapにデータを追加 */。 makeHeap 読上げ順5行 ・k ← i。 makeHeap 読上げ順6行 内側の繰返し開始。k > 0。 makeHeap 読上げ順7行 分岐開始。空欄［a］。 makeHeap 読上げ順8行 ・swap(heap, k, 空欄［b］)。 makeHeap 読上げ順9行 ・k ← parent(k)。 makeHeap 読上げ順10行 それ以外の場合。 makeHeap 読上げ順11行 ・break /* 内側の繰返し処理から抜ける */。 makeHeap 読上げ順12行 分岐終了。 makeHeap 読上げ順13行 内側の繰返し終了。 makeHeap 読上げ順14行 外側の繰返し終了。 swap 読上げ順1行 ○副プログラム：swap（整数型：heap[], 整数型：i, 整数型：j）。 swap 読上げ順2行 ○整数型：tmp。 swap 読上げ順3行 ・tmp ← heap[i]。 swap 読上げ順4行 ・heap[i] ← heap[j]。 swap 読上げ順5行 ・heap[j] ← tmp。制御範囲：makeHeapの読上げ順3〜14は外側の繰返し、6〜13は内側の繰返し、7〜12は分岐で10がそれ以外の場合。空欄aは条件式、空欄bはswapの第3引数の位置。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-heap-program-one",
+          "values": [
+            0,
+            12
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 プログラム1中の［　］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群\nア　heap[k] > heap[lchild(k)]\nイ　heap[k] > heap[parent(k)]\nウ　heap[k] > heap[rchild(k)]\nエ　heap[k] < heap[lchild(k)]\nオ　heap[k] < heap[parent(k)]\nカ　heap[k] < heap[rchild(k)]"
+      },
+      {
+        "type": "paragraph",
+        "text": "bに関する解答群\nア　heap[hnum−1]\nイ　heap[k]\nウ　parent(hnum−1)\nエ　parent(k)"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 〔プログラム2の動作〕の記述中の［　］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "〔プログラム2の説明〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 副プログラムheapSortは、最初に副プログラムmakeHeapを使って、配列heapにデータを格納する。配列heapは、整列対象領域と整列済みデータ領域に分かれている（図3参照）。lastは、整列対象領域の最後の配列要素の要素番号を表している。最初は、配列heap全体が整列対象領域であり、このときのlastの値はhnum−1である。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-heap-regions",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3 配列heapにおける整列対象領域と整列済みデータ領域",
+        "alt": "図3 heapの要素番号0、1、省略、k−1、k、k＋1、省略、hnum−1を並べる。lastはkを指す。0からlastまでは整列対象領域、lastより右からhnum−1までは整列済みデータ領域。値は表示しない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-heap-regions",
+          "values": [
+            0,
+            12
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 41,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 整列対象領域がヒープの性質を満たしているとき、配列要素heap[0]の値は、この領域で最大の値となっている。そこで、配列要素heap[0]の値を配列要素heap[last]の値と交換し、lastの値を1減らして、整列対象領域の範囲を狭め、整列済みデータ領域の範囲を広げる。値の交換によって、整列対象領域はヒープの性質を満たさなくなるので、副プログラムdownHeapを使って、整列対象領域がヒープの性質を満たすように再構成する。これを繰り返すことにより、整列済みデータ領域に昇順に整列されたデータが格納されることになる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 副プログラムheapSortの引数の仕様を表3に、副プログラムheapSortで使う副プログラムdownHeapの引数の仕様を表4に示す。"
+      },
+      {
+        "type": "table",
+        "caption": "表3 副プログラムheapSortの引数の仕様",
+        "columns": [
+          "引数",
+          "データ型",
+          "入出力",
+          "説明"
+        ],
+        "rows": [
+          [
+            "data[]",
+            "整数型",
+            "入力",
+            "整列対象のデータが格納されている1次元配列"
+          ],
+          [
+            "heap[]",
+            "整数型",
+            "出力",
+            "整列済みのデータが格納されている1次元配列"
+          ],
+          [
+            "hnum",
+            "整数型",
+            "入力",
+            "データの個数"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "表4 副プログラムdownHeapの引数の仕様",
+        "columns": [
+          "引数",
+          "データ型",
+          "入出力",
+          "説明"
+        ],
+        "rows": [
+          [
+            "heap[]",
+            "整数型",
+            "入力／出力",
+            "整列対象のデータが格納されている1次元配列"
+          ],
+          [
+            "hlast",
+            "整数型",
+            "入力",
+            "整列対象領域の最後の要素番号"
+          ]
+        ]
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-heap-program-two",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "〔プログラム2〕",
+        "alt": "プログラム2 heapSortとdownHeap。各副プログラムの原行番号。 heapSort 1行 ○副プログラム：heapSort（整数型：data[], 整数型：heap[], 整数型：hnum）。 heapSort 2行 ○整数型：last。 heapSort 3行 ・makeHeap(data, heap, hnum)。 heapSort 4行 繰返し開始。last：hnum−1, last > 0, −1。 heapSort 5行 ・swap(heap, 0, last) /* heap[0]とheap[last]の値を交換 */。 heapSort 6行 ・downHeap(heap, last−1) /* heapを再構成 */。 heapSort 7行 繰返し終了。 downHeap 1行 ○副プログラム：downHeap（整数型：heap[], 整数型：hlast）。 downHeap 2行 ○整数型：n, tmp。 downHeap 3行 ・n ← 0。 downHeap 4行 繰返し開始。lchild(n) ≦ hlast。 downHeap 5行 ・tmp ← lchild(n)。 downHeap 6行 分岐開始。rchild(n) ≦ hlast。 downHeap 7行 内側の分岐開始。heap[tmp] ≦ heap[rchild(n)]。 downHeap 8行 ・tmp ← rchild(n)。 downHeap 9行 内側の分岐終了。 downHeap 10行 右側の子の存在についての分岐終了。 downHeap 11行 分岐開始。heap[tmp] > heap[n]。 downHeap 12行 ・swap(heap, n, tmp)。 downHeap 13行 それ以外の場合、・return /* downHeapから抜ける */。 downHeap 14行 値比較の分岐終了。 downHeap 15行 ・n ← tmp。 downHeap 16行 繰返し終了。制御範囲：heapSortの4〜7行は繰返し。αはheapSortの3行目の直後、4行目の前。downHeapの4〜16行は繰返し、6〜10行は右側の子の存在の分岐、7〜9行はその内側の値比較の分岐、11〜14行は親と子の値比較の分岐で13行目がそれ以外の場合。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-heap-program-two",
+          "values": [
+            0,
+            12
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 42,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "〔プログラム2の動作〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "副プログラムheapSortの行番号3の実行が終了した直後のαにおける配列heapの内容は、図2のとおりであった。このとき、プログラムheapSortの行番号4から行番号7までの1回目の繰返し処理について考える。"
+      },
+      {
+        "type": "paragraph",
+        "text": "副プログラムheapSortの行番号5の副プログラムswapの実行が終了した直後の配列要素heap[0]の値は、［c］となる。このため、配列heapの要素番号0からhnum−2までのデータは、根に対応する配列要素heap[0]が最大の値をもつというヒープの性質を満たさなくなる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "副プログラムheapSortの行番号6で呼び出している副プログラムdownHeapは、配列heapの整列対象領域の要素番号0からhlastまでのデータがヒープの性質を満たすように、その領域のデータを次の手順で再構成する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 配列要素の値の大きさを比較する際に使用する要素番号をnとし、nの初期値を0とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 要素番号nの配列要素に対応する節の左側の子の要素番号を、tmpに代入する。要素番号nの子が二つあり（rchild(n) ≦ hlast）、右側の子の値が左側の子の値［d］、右側の子の要素番号をtmpに代入する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 子に対応する配列要素heap[tmp]の値と、その親に対応する配列要素heap[n]の値とを比較し、配列要素heap[tmp]の値が大きければ、配列要素heap[n]の値と配列要素heap[tmp]の値を交換し、tmpを次のnとして(2)に戻る。ここで、副プログラムdownHeapの行番号15において最初にnに代入される値は、［e］である。"
+      },
+      {
+        "type": "paragraph",
+        "text": "cに関する解答群\nア　5\nイ　10\nウ　15\nエ　20"
+      },
+      {
+        "type": "paragraph",
+        "text": "dに関する解答群\nア　以下のときには\nイ　以上のときには\nウ　よりも大きいときには\nエ　よりも小さいときには"
+      },
+      {
+        "type": "paragraph",
+        "text": "eに関する解答群\nア　1\nイ　2\nウ　3\nエ　4\nオ　5\nカ　6"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k] > heap[lchild(k)]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k] > heap[parent(k)]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k] > heap[rchild(k)]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k] < heap[lchild(k)]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k] < heap[parent(k)]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k] < heap[rchild(k)]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[hnum−1]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "heap[k]"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "parent(hnum−1)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 40,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "parent(k)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "以下のときには"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "以上のときには"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "よりも大きいときには"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "よりも小さいときには"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-8-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問8 原問題",
+                "page": 43,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "8"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-8",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "6"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5",
+        "choice-value-6"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問2 c",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-14"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-16"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-20"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a/b：新たに末尾へ追加した値が親より大きい間、親の要素番号parent(k)と交換して根の方向へ移す。子の値は親以下であるというmaxheapの条件を回復するため、条件はheap[k] > heap[parent(k)]、交換先はparent(k)。k>0のときだけ親を参照するので、根でparentを計算しない。c：初回のlastは6であり、行5の交換により末尾の20がheap[0]へ移り、元の根60は整列済み側のheap[6]へ移る。d：右子が存在するとき、行7のheap[tmp] ≦ heap[rchild(n)]により、右子の値が左子以上であれば右子を選ぶ。同値のときも右子へ進むことを含めるので「以上のときには」。e：交換後の根20に対し、左子30と右子45のうち大きい45の要素番号2がtmpとなる。この値は根より大きいので交換し、行15でnに2を最初に代入する。downHeapはhlast以下の子だけを読み、整列済み側には触れない。last=1の交換後はhlast=0となり子がないため繰返しを実行しない。データが1個ならheapSortのlast>0が初めから偽で、交換を実行しない。空データは本文のhnum>0の対象外である。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2018h30h-fe-pm-8-p4",
+    "asset-ipa-2018h30h-fe-pm-8-p5"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問8全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

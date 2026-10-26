@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "asset-ipa-2018h30h-fe-pm-13-p69",
+  "path": "assets/2018h30h-fe-pm-13-p69.webp",
+  "mediaType": "image/webp",
+  "sha256": "aac676bff31fe81be76e4b2ec885b1843a381b550f0754a9fc887fdc855bf614",
+  "width": 1432,
+  "height": 2026,
+  "byteLength": 348256,
+  "alt": "原問題物理p.69（印刷p.68）。A2:A16室番号、B2:B16定員、C2:C16スクリーン有無。条件はA19:E19へ利用日、開始、終了、人数、スクリーン要/不要。終了は開始より後、日付YYYYMMDD/時刻hhmmの整数。SelectRoomは予約を参照し、依頼日の開始終了の間（両端を含まない）に他予約がなければ可、あれば否をD2:D16へ格納。E2:E16は人数÷定員の収容率。ただし定員超過、必要スクリーン無し又は使用不可なら0。A22は最大の正の収容率の室番号。同率なら表の最上位、該当室無しなら「なし」。",
+  "attribution": {
+    "origin": "official",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-13-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問13 原問題",
+          "page": 69,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "13"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2018h30h-fe-pm-13"
+    ],
+    "creatorIds": [
+      "ipa"
+    ]
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "banks": {
+    "a": [
+      "論理積(E$19='要',C2='有'),D2='否',D$19>B2",
+      "論理積(E$19='要',C2='無'),D2='否',D$19>B2",
+      "論理積(E$19='要',C2='有',D2='否'),D$19>B2",
+      "論理積(E$19='要',C2='無',D2='否'),D$19>B2",
+      "論理積(E$19='不要',C2='有'),D2='否',D$19>B2",
+      "論理積(E$19='不要',C2='無'),D2='否',D$19>B2",
+      "論理積(E$19='不要',C2='有',D2='否'),D$19>B2",
+      "論理積(E$19='不要',C2='無',D2='否'),D$19>B2"
+    ],
+    "b": [
+      "最小(E2:E16)=0",
+      "最小(E2:E16)=1",
+      "最小(E2:E16)>0",
+      "最小(E2:E16)<1",
+      "最大(E2:E16)=0",
+      "最大(E2:E16)=1",
+      "最大(E2:E16)>0",
+      "最大(E2:E16)<1"
+    ],
+    "c": [
+      "照合一致(最小(E2:E16),E2:E16,0)",
+      "照合一致(最大(E2:E16),E2:E16,0)",
+      "照合検索(最小(E2:E16),E2:E16,A2:A16)",
+      "照合検索(最大(E2:E16),E2:E16,A2:A16)",
+      "表引き(A2:A16,順位(最小(E2:E16),E2:E16,0),1)",
+      "表引き(A2:A16,順位(最大(E2:E16),E2:E16,0),1)"
+    ],
+    "d": [
+      "論理積(表引き(予約リスト!C2:C10000,J,1)≥C19,表引き(予約リスト!D2:D10000,J,1)≤B19)",
+      "論理積(表引き(予約リスト!C2:C10000,J,1)≤C19,表引き(予約リスト!D2:D10000,J,1)≥B19)",
+      "論理積(表引き(予約リスト!D2:D10000,J,1)≥C19,表引き(予約リスト!C2:C10000,J,1)≤B19)",
+      "論理積(表引き(予約リスト!D2:D10000,J,1)≤C19,表引き(予約リスト!C2:C10000,J,1)≥B19)",
+      "論理和(表引き(予約リスト!C2:C10000,J,1)≥C19,表引き(予約リスト!D2:D10000,J,1)≤B19)",
+      "論理和(表引き(予約リスト!C2:C10000,J,1)≤C19,表引き(予約リスト!D2:D10000,J,1)≥B19)",
+      "論理和(表引き(予約リスト!D2:D10000,J,1)≥C19,表引き(予約リスト!C2:C10000,J,1)≤B19)",
+      "論理和(表引き(予約リスト!D2:D10000,J,1)≤C19,表引き(予約リスト!C2:C10000,J,1)≥B19)"
+    ],
+    "e": [
+      "相対(D2,J-1,0)",
+      "相対(D2,J,0)",
+      "相対(D2,照合一致(表引き(予約リスト!G2:G10000,J,1),A2:A16,0)-1,0)",
+      "相対(D2,照合一致(表引き(予約リスト!G2:G10000,J,1),予約リスト!G2:G10000,0)-1,0)",
+      "相対(D2,照合一致(予約リスト!G2,A2:A16,0)-1,0)",
+      "相対(D2,照合一致(予約リスト!G2,A2:A16,1)-1,0)"
+    ],
+    "f": [
+      "表引き(予約リスト!B2:B10000,J,1)=A19",
+      "表引き(予約リスト!B2:B10000,J,1)=null",
+      "表引き(予約リスト!B2:B10000,J,1)≠A19",
+      "表引き(予約リスト!B2:B10000,J,1)≠null",
+      "表引き(予約リスト!C2:C10000,J,1)<B19",
+      "表引き(予約リスト!D2:D10000,J,1)>C19"
+    ]
+  },
+  "macroLines": [
+    {
+      "kind": "declare_macro",
+      "text": "○マクロ：SelectRoom"
+    },
+    {
+      "kind": "declare_numbers",
+      "text": "○数値型：I, J, NumRoom"
+    },
+    {
+      "kind": "statement",
+      "text": "NumRoom ← 15"
+    },
+    {
+      "kind": "for_begin",
+      "text": "I:1, I ≤ NumRoom, 1"
+    },
+    {
+      "kind": "statement",
+      "text": "相対(D1,I,0) ← '可'"
+    },
+    {
+      "kind": "for_end",
+      "text": ""
+    },
+    {
+      "kind": "if_begin",
+      "text": "条件付個数(予約リスト!B2:B10000,=A19)>0"
+    },
+    {
+      "kind": "statement",
+      "text": "J ← 照合一致(A19,予約リスト!B2:B10000,0)"
+    },
+    {
+      "kind": "post_loop_begin",
+      "text": ""
+    },
+    {
+      "kind": "if_begin",
+      "text": "否定(［d］)"
+    },
+    {
+      "kind": "statement",
+      "text": "［e］ ← '否'"
+    },
+    {
+      "kind": "if_end",
+      "text": ""
+    },
+    {
+      "kind": "statement",
+      "text": "J ← J+1"
+    },
+    {
+      "kind": "post_loop_end",
+      "text": "［f］"
+    },
+    {
+      "kind": "if_end",
+      "text": ""
+    }
+  ],
+  "display": {
+    "roomCount": 15,
+    "roomRows": [
+      2,
+      16
+    ],
+    "requestRow": 19,
+    "recommendationCell": "A22",
+    "requestHeaders": [
+      "利用日",
+      "開始時刻",
+      "終了時刻",
+      "利用人数",
+      "スクリーン"
+    ],
+    "roomHeaders": [
+      "会議室番号",
+      "定員",
+      "スクリーン",
+      "使用可否",
+      "収容率"
+    ],
+    "visibleRoomRows": [
+      [
+        2,
+        101,
+        15,
+        "有",
+        "可",
+        "0.40"
+      ],
+      [
+        3,
+        102,
+        5,
+        "無",
+        "可",
+        "0.00"
+      ],
+      [
+        4,
+        103,
+        8,
+        "有",
+        "否",
+        "0.00"
+      ],
+      [
+        5,
+        201,
+        10,
+        "有",
+        "可",
+        "0.60"
+      ],
+      [
+        14,
+        501,
+        20,
+        "無",
+        "可",
+        "0.00"
+      ],
+      [
+        15,
+        502,
+        5,
+        "有",
+        "可",
+        "0.00"
+      ],
+      [
+        16,
+        503,
+        50,
+        "有",
+        "可",
+        "0.12"
+      ]
+    ],
+    "omittedRoomRows": {
+      "start": 6,
+      "end": 13,
+      "presentation": "one ellipsis row; source actual values unspecified; not filled or claimed restored"
+    },
+    "request": [
+      20180415,
+      1300,
+      1530,
+      6,
+      "要"
+    ],
+    "displayedRecommendation": 201,
+    "reservationHeaders": [
+      "予約ID",
+      "利用日",
+      "開始時刻",
+      "終了時刻",
+      "利用人数",
+      "スクリーン",
+      "会議室番号"
+    ],
+    "visibleReservationRows": [
+      [
+        2,
+        613,
+        20180415,
+        1300,
+        1530,
+        6,
+        "要",
+        401
+      ],
+      [
+        3,
+        574,
+        20180415,
+        1300,
+        1530,
+        6,
+        "要",
+        103
+      ],
+      [
+        4,
+        588,
+        20180415,
+        1300,
+        1500,
+        6,
+        "要",
+        301
+      ],
+      [
+        5,
+        565,
+        20180415,
+        900,
+        1100,
+        10,
+        "要",
+        201
+      ],
+      [
+        520,
+        893,
+        20180501,
+        900,
+        1000,
+        5,
+        "不要",
+        102
+      ],
+      [
+        521,
+        924,
+        20180501,
+        1000,
+        1100,
+        30,
+        "不要",
+        503
+      ],
+      [
+        522,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        10000,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    ],
+    "reservationEllipsis": "6–519 omitted data;523–9999 empty cells omitted; no invented restore",
+    "maxReservations": 9998,
+    "dateAscending": true,
+    "lastDataRow": 521,
+    "blankAfterLast": true,
+    "hours": [
+      900,
+      2100
+    ],
+    "endAfterStart": true,
+    "intervalEndpointPolicy": "request excludes its start/end for overlap; touching endpoints are allowed",
+    "noInterleavedMacros": true,
+    "sourceOnlyMacrosReferenced": [
+      "Register",
+      "Update"
+    ],
+    "cleanupTiming": "after21 immediately Update removes finished reservations and shifts following data upward",
+    "eligibility": "participants<=capacity; requested screen要 requires room有; unavailable否 yields0; otherwise participants/capacity",
+    "recommendation": "largest positive occupancy; first/top row among ties; なし if all zero"
+  }
+}

@@ -1,0 +1,5 @@
+import {legacy2018SpringPm11Figure as inspect} from '../core/generators/legacy-2018-spring-pm11-model';
+import {Legacy2018SpringPmCode,Legacy2018SpringPmBank,Legacy2018SpringPmFrame,Legacy2018SpringPmInline} from './Legacy2018SpringPmCode';
+export function Legacy2018SpringPm11Figure({profile,values,caption}:{profile:string;values:number[];caption:string}){const f=inspect(profile,values);if(caption!==f.caption)throw Error('SOURCE_FORMAT');return <div className={`spring2018-pm11 profile-${profile}`} data-source-profile={profile}>
+ {f.kind==='program'?<Legacy2018SpringPmCode text={f.text} caption={f.caption}/>:f.kind==='bank'?<div className="spring2018-scroll" tabIndex={0}><Legacy2018SpringPmBank text={f.text} caption={f.caption} visibleCaption={values[3]>=3?'解答群':undefined} columns={values[3]===0?2:values[3]===3||values[3]===5?1:3}/></div>:f.kind==='instruction'?<p><Legacy2018SpringPmInline text={f.text}/></p>:<Legacy2018SpringPmFrame caption={f.caption}><code>{f.text}</code></Legacy2018SpringPmFrame>}
+ </div>;}

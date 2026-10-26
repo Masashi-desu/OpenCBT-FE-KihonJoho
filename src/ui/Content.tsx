@@ -16,6 +16,11 @@ import { isLegacy2017Pm4Comparison, isLegacy2017Pm4List, Legacy2017Pm4Paragraph,
 import { isLegacy2017Pm5List, Legacy2017Pm5List } from "./Legacy2017Pm5Text";
 import { LegacyAfternoonCode } from "./LegacyAfternoonCode";
 import { isLegacy2017AutumnNativeText, Legacy2017AutumnNativeText, Legacy2017AutumnNativeParagraph } from "./Legacy2017AutumnNativeText";
+import { isLegacy2018SpringNativeText, Legacy2018SpringNativeText, Legacy2018SpringNativeParagraph } from "./Legacy2018SpringNativeText";
+import { Legacy2018SpringPmNativeText, Legacy2018SpringPm6SourceTable } from "./Legacy2018SpringPm5To8Native";
+import { spring2018NativeFragment, type Spring2018Major } from "../core/generators/legacy-2018-spring-pm5-8-native";
+import { legacy2018SpringPm6Definition, legacy2018SpringPm6ValidTuples } from "../core/generators/legacy-2018-spring-pm6";
+
 import {
   activityNetworkAlt,
   activityNetworkRenderer,
@@ -479,6 +484,20 @@ function autumn2017TextMajor(attribution: Attribution) {
       ref.locator.questionNumber === String(number))) return undefined;
   return number;
 }
+/** A source-owned presentation contract never applies to unrelated text. */
+function spring2018TextMajor(attribution: Attribution) {
+  const refs = attribution.sourceRefs;
+  const first = refs[0], number = Number(first?.locator.questionNumber);
+  if (!Number.isInteger(number) || number < 1 || number > 13 || !refs.length ||
+    attribution.origin === "original" || !refs.every(ref =>
+      ref.sourceId === `source-ipa-2018h30h-fe-pm-${number}-qs` && ref.locator.year === 2018 &&
+      ref.locator.period === "春期" && ref.locator.timeSlot === "午後" &&
+      ref.locator.questionNumber === String(number))) return undefined;
+  return number;
+}
+const spring2018EvmTables = new Set(legacy2018SpringPm6ValidTuples.flatMap(values =>
+  legacy2018SpringPm6Definition.build([...values]).prompt.filter(block => block.type === "table")
+    .map(block => JSON.stringify(block))));
 export function Content({
   content,
   bundle,
@@ -496,6 +515,12 @@ export function Content({
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
         if (b.type === "paragraph") {
+          const springNumber = spring2018TextMajor(content.attribution);
+          if (springNumber !== undefined && isLegacy2018SpringNativeText(springNumber, "paragraph", b.text))
+            return <Legacy2018SpringNativeParagraph key={i} number={springNumber} text={b.text} />;
+          if (springNumber !== undefined && springNumber >= 5 && springNumber <= 8 &&
+            spring2018NativeFragment(springNumber as Spring2018Major, b.text).known)
+            return <Legacy2018SpringPmNativeText key={i} major={springNumber as Spring2018Major} text={b.text} />;
           const autumnNumber = autumn2017TextMajor(content.attribution);
           if (autumnNumber !== undefined && isLegacy2017AutumnNativeText(autumnNumber,"paragraph",b.text))
             return <Legacy2017AutumnNativeParagraph key={i} number={autumnNumber} text={b.text} />;
@@ -523,6 +548,8 @@ export function Content({
             </List>
           );
         }
+        if (b.type === "table" && spring2018TextMajor(content.attribution) === 6 && spring2018EvmTables.has(JSON.stringify(b)))
+          return <Legacy2018SpringPm6SourceTable key={i} block={b} />;
         if (b.type === "table")
           return (
             <CaptionFrame key={i} metadata={b}>
@@ -591,9 +618,12 @@ export function Content({
         if (b.type === "code") {
           const autumnNumber = autumn2017TextMajor(content.attribution);
           const nativeAutumn = autumnNumber !== undefined && isLegacy2017AutumnNativeText(autumnNumber,"code",b.text);
+          const springNumber = spring2018TextMajor(content.attribution);
+          const nativeSpring = springNumber !== undefined && isLegacy2018SpringNativeText(springNumber, "code", b.text);
           const code = (
             <pre>
               <code>{nativeAutumn ? <Legacy2017AutumnNativeText number={autumnNumber!} kind="code" text={b.text} /> :
+                nativeSpring ? <Legacy2018SpringNativeText number={springNumber!} kind="code" text={b.text} /> :
                 <LegacyAfternoonCode text={b.text} language={b.language} attribution={content.attribution} />}</code>
             </pre>
           );

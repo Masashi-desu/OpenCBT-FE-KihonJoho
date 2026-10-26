@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "set-annual-2018-spring-pm",
+  "revision": 1,
+  "title": "2018年度 春期・午後",
+  "subject": "B",
+  "distribution": "included",
+  "questionRefs": [
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-1",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-2",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-3",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-4",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-5",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-6",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-7",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-8",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-9",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-10",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-11",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-12",
+      "revision": 1
+    },
+    {
+      "questionId": "question-ipa-2018h30h-fe-pm-13",
+      "revision": 1
+    }
+  ],
+  "examConfigRefs": [
+    {
+      "id": "exam-2018-spring-pm-study",
+      "revision": 1
+    },
+    {
+      "id": "exam-2018-spring-pm-practice",
+      "revision": 1
+    }
+  ],
+  "generationBindings": [],
+  "questionSelection": {
+    "requiredQuestionRefs": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-1",
+        "revision": 1
+      },
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-8",
+        "revision": 1
+      }
+    ],
+    "optionalGroups": [
+      {
+        "id": "general",
+        "label": "問2〜7から4問",
+        "questionRefs": [
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-2",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-3",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-4",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-5",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-6",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-7",
+            "revision": 1
+          }
+        ],
+        "choose": 4
+      },
+      {
+        "id": "language",
+        "label": "問9〜13から1問",
+        "questionRefs": [
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-9",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-10",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-11",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-12",
+            "revision": 1
+          },
+          {
+            "questionId": "question-ipa-2018h30h-fe-pm-13",
+            "revision": 1
+          }
+        ],
+        "choose": 1
+      }
+    ],
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-booklet",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 表紙・問題選択方法",
+          "page": 1,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-booklet",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 表紙・問題選択方法",
+          "page": 3,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後"
+        }
+      }
+    ],
+    "excessPolicy": "paper_order"
+  }
+}

@@ -15,7 +15,7 @@ test("search covers every annual original once, preserves reading data and exclu
   const bundle = fixture(), before = JSON.stringify(bundle);
   const docs = questionSearchDocuments(bundle);
   const annualIds = new Set(bundle.sets.filter(set => set.generationBindings.length === 0).flatMap(set => set.questionRefs.map(ref => ref.questionId)));
-  assert.equal(docs.length, 215);
+  assert.equal(docs.length, 228);
   assert.deepEqual(new Set(docs.map(doc => doc.question.id)), annualIds);
   assert.equal(new Set(docs.map(doc => doc.id)).size, docs.length);
   assert(docs.every(doc => !bundle.templates.some(template => template.baseQuestionRef.questionId === doc.question.id)));
@@ -24,7 +24,7 @@ test("search covers every annual original once, preserves reading data and exclu
   unavailable.questions.find(q => q.id === "question-ipa-2026-a-2")!.lifecycle = "withdrawn";
   unavailable.questions.find(q => q.id === "question-ipa-2026-a-1")!.distribution = "excluded";
   const remaining = questionSearchDocuments(unavailable);
-  assert.equal(remaining.length, 213);
+  assert.equal(remaining.length, 226);
   assert.deepEqual(remaining.map(doc => doc.question.id).sort(), docs.map(doc => doc.question.id)
     .filter(id => id !== "question-ipa-2026-a-2" && id !== "question-ipa-2026-a-1").sort());
 });
@@ -91,7 +91,7 @@ test("missing, corrupted, unpermitted or aborted optional explanations are omitt
   let called = false;
   assert.deepEqual(await detailSearchDocuments(bundle, base, controller.signal, (async () => { called = true; throw Error(); }) as typeof fetch), []);
   assert.equal(called, false);
-  assert.equal(questionSearchDocuments(bundle).length, 215);
+  assert.equal(questionSearchDocuments(bundle).length, 228);
 });
 
 test("optional search descriptors support old manifests and reject malformed or excessive content", () => {

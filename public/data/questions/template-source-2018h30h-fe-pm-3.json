@@ -1,0 +1,1350 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-3",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "関係データベース",
+      "SQL"
+    ],
+    "keywords": [
+      "主キー",
+      "DISTINCT",
+      "GROUP BY",
+      "COUNT",
+      "NULL"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+          "page": 14,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+          "page": 15,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+          "page": 16,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+          "page": 17,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-3",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問3の原4頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "原の4表、SQL、年度切替手順と4解答欄を保ち、案内対象学年と参加対象イベントの条件を関連するSQLへ反映しています。生成版では、児童の保護者番号は登録済みでNULLを含まない前提を解答前に補っています。",
+        "affectsAnswer": true,
+        "answerDetails": "設問1：保護者表と児童表を保護者番号で結合し、児童の学年が6の行をWHEREで選び、氏名と住所をDISTINCTで重複除去する。NOT INでは対象児童の保護者を除く逆の条件になる。保護者番号の結合条件がないSQLは、対象児童がいれば無関係な保護者まで組み合わせる。氏名と住所でまとめた後のHAVINGに、グループ化していない児童の学年を置くSQLは、この抽出条件を正しく表さない。\n設問2 a：児童番号で児童表と活動表を、保護者番号で児童表と保護者表を結合する。学年1とイベント番号18001を両方WHEREで指定し、保護者番号と氏名をDISTINCTで取り出す。結合条件の欠落や活動表の欠落は、参加していない児童の保護者などを含める。児童氏名だけでGROUP BYして保護者の列や児童の学年をそのまま扱うSQLも目的の抽出にならない。非グループ列を受理する一部SQL処理系の拡張を、正しい条件を表す根拠にはしない。\n設問3 b：活動表の主キーは児童番号とイベント番号の組なので、同じ児童の同じイベントの行は重複しない。イベント番号で内部結合し、全て異なるイベント名ごとにCOUNT(*)で行数を数えれば参加児童数になる。AVG・MAX・SUMはイベント番号という識別値の平均・最大・合計であり、人数ではない。この内部結合は参加行がないイベントを含めるものではない。\n設問4 c：新入児童は学年0で登録され、全児童を1学年進めた後に学年7の児童を削除する。その後、残る児童の保護者番号に含まれない保護者をNOT INで選んで削除する。生成版の追加前提により、この番号にNULLは含まれない。= NULLは真にならず、学年7の児童は既に削除されている。INで残る児童の保護者を選ぶと、削除対象が逆になる。活動表の全件削除と、最後のイベント表の全件削除・新年度登録も、順番を区別する。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+            "page": 14,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+            "page": 15,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+            "page": 16,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+            "page": 17,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "3"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-3",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は、選択欄の［選］をマークしてください。マークがない場合は、採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問3 小学生を対象とした、ある子供会の名簿を管理する関係データベースに関する次の記述を読んで、設問1〜4に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "生成版の追加前提：児童表の各児童には登録済の保護者番号が一つあり、この項目にNULLは含まれない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "D子供会は、小学校に入学するときに入会を受け付け、小学校を卒業したら退会する。D子供会では、会員名簿を管理するためのデータベースを構築して、会の運営に活用している。"
+      },
+      {
+        "type": "paragraph",
+        "text": "このたび、児童のイベントへの参加実績を記録するために、活動表とイベント表を追加した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "データベースの表構成とデータ格納例を図1に示す。下線付きの項目は、主キーを表す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-figure-0",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 データベースの表構成とデータ格納例",
+        "alt": "図1。保護者表、児童表を上下、下部に活動表とイベント表を左右に配置。下線付きの項目は主キー。保護者表。列は保護者番号、保護者氏名、電話番号、住所。主キーは保護者番号。表示行は12021、情報花子、03-1111-2222、東京都○○区□□□。各列に縦三点の省略行があり、全レコードを示したものではない。児童表。列は児童番号、児童氏名、学年、保護者番号。主キーは児童番号。表示行は12027、情報一郎、6、12021／14021、情報二郎、4、12021。各列に縦三点の省略行があり、全レコードを示したものではない。活動表。列は児童番号、イベント番号。主キーは児童番号、イベント番号。表示行は12027、18001／14021、18001／12027、18002。各列に縦三点の省略行があり、全レコードを示したものではない。イベント表。列はイベント番号、イベント名、開催日。主キーはイベント番号。表示行は18001、歓迎会、20180407／18002、地域清掃、20180414。各列に縦三点の省略行があり、全レコードを示したものではない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-figure-0",
+          "values": [
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 14,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 6年生を対象に実施するイベントの案内を配布するために、6年生の保護者の氏名と住所を抽出する。ここで、同一の保護者は重複して抽出しない。また、同じ住所に氏名が同じ保護者は、複数人いないものとする。正しいSQL文を、解答群の中から選べ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "解答群",
+        "alt": "ア　SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表\n WHERE 保護者表.保護者番号 NOT IN\n       (SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 6)\nイ　SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 児童表.学年 = 6\n GROUP BY 保護者表.保護者氏名, 保護者表.住所\nウ　SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号 AND 児童表.学年 = 6\nエ　SELECT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号\n GROUP BY 保護者表.保護者氏名, 保護者表.住所 HAVING 児童表.学年 = 6",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-bank",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 15,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 イベント番号が18001のイベントに参加した児童のうち、1年生である児童の保護者の保護者番号と氏名を抽出する。ここで、同一の保護者は重複して抽出しない。次のSQL文の［　］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-figure-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2 SQL文",
+        "alt": "設問2のSQL文。空欄aは一つ。\nSELECT DISTINCT 保護者表.保護者番号, 保護者表.保護者氏名\n［a］",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-figure-1",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 15,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "aに関する解答群",
+        "alt": "ア　FROM 児童表, 保護者表, イベント表\nWHERE 児童表.学年 = 1 AND\n      イベント表.イベント番号 = 18001\nイ　FROM 児童表, 保護者表, イベント表\nWHERE 児童表.保護者番号 = 保護者表.保護者番号 AND\n      児童表.学年 = 1 AND\n      イベント表.イベント番号 = 18001\nウ　FROM 児童表, 活動表, 保護者表\nWHERE 児童表.児童番号 = 活動表.児童番号 AND\n      児童表.保護者番号 = 保護者表.保護者番号 AND\n      活動表.イベント番号 = 18001\nGROUP BY 児童表.児童氏名 HAVING 児童表.学年 = 1\nエ　FROM 児童表, 活動表, 保護者表\nWHERE 児童表.児童番号 = 活動表.児童番号 AND\n      児童表.保護者番号 = 保護者表.保護者番号 AND\n      児童表.学年 = 1 AND\n      活動表.イベント番号 = 18001",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-bank",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3 イベント名と、そのイベントに参加した児童の数を表示する。次のSQL文の［　］に入れる正しい答えを、解答群の中から選べ。ここで、イベント名は全て異なるものとする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-figure-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問3 SQL文",
+        "alt": "設問3のSQL文。空欄bは一つ。\nSELECT イベント表.イベント名, ［b］\n  FROM 活動表, イベント表\n WHERE 活動表.イベント番号 = イベント表.イベント番号\n GROUP BY イベント表.イベント名",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-figure-1",
+          "values": [
+            1,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "bに関する解答群",
+        "alt": "ア　AVG(活動表.イベント番号)\nイ　COUNT(*)\nウ　MAX(活動表.イベント番号)\nエ　SUM(活動表.イベント番号)",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-bank",
+          "values": [
+            0,
+            0,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "設問4 年度の切替えのために、次に示す手順で表を更新する。(1)、(2)は入会前の準備のために3月31日に実行し、(3)〜(7)は6年生が退会した4月1日に実行する。次のSQL文の［　］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "〔手順〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 新入会児童の保護者のうち、未登録の保護者を登録する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 新入会児童を登録する。このとき、学年の値は0とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 活動表のレコードを全て削除する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 児童表の全ての児童に対して、学年の値に1を加える。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) 児童表から、学年の値が7の児童を削除する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) 次のSQL文を実行して、保護者表から、在籍する児童がいなくなった保護者を削除する。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-figure-1",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問4 SQL文",
+        "alt": "設問4のSQL文。空欄cは一つ。\nDELETE FROM 保護者表\n WHERE ［c］",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-figure-1",
+          "values": [
+            2,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 17,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm3-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "cに関する解答群",
+        "alt": "ア　保護者表.保護者番号 = NULL\nイ　保護者表.保護者番号 IN\n(SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 7)\nウ　保護者表.保護者番号 IN\n(SELECT 児童表.保護者番号 FROM 児童表)\nエ　保護者表.保護者番号 NOT IN\n(SELECT 児童表.保護者番号 FROM 児童表)",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm3-bank",
+          "values": [
+            0,
+            0,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 17,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(7) イベント表のレコードを全て削除してから、新年度の計画に合わせてイベントを登録する。"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 15,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表\n WHERE 保護者表.保護者番号 NOT IN\n       (SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 6)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 15,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 児童表.学年 = 6\n GROUP BY 保護者表.保護者氏名, 保護者表.住所",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 15,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号 AND 児童表.学年 = 6",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 15,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "SELECT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号\n GROUP BY 保護者表.保護者氏名, 保護者表.住所 HAVING 児童表.学年 = 6",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "FROM 児童表, 保護者表, イベント表\nWHERE 児童表.学年 = 1 AND\n      イベント表.イベント番号 = 18001",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "FROM 児童表, 保護者表, イベント表\nWHERE 児童表.保護者番号 = 保護者表.保護者番号 AND\n      児童表.学年 = 1 AND\n      イベント表.イベント番号 = 18001",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "FROM 児童表, 活動表, 保護者表\nWHERE 児童表.児童番号 = 活動表.児童番号 AND\n      児童表.保護者番号 = 保護者表.保護者番号 AND\n      活動表.イベント番号 = 18001\nGROUP BY 児童表.児童氏名 HAVING 児童表.学年 = 1",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "FROM 児童表, 活動表, 保護者表\nWHERE 児童表.児童番号 = 活動表.児童番号 AND\n      児童表.保護者番号 = 保護者表.保護者番号 AND\n      児童表.学年 = 1 AND\n      活動表.イベント番号 = 18001",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "AVG(活動表.イベント番号)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "COUNT(*)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "MAX(活動表.イベント番号)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 16,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "SUM(活動表.イベント番号)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 17,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "保護者表.保護者番号 = NULL",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 17,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "保護者表.保護者番号 IN\n(SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 7)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 17,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "保護者表.保護者番号 IN\n(SELECT 児童表.保護者番号 FROM 児童表)",
+            "language": "sql"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+                "page": 17,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "3"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-3",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "保護者表.保護者番号 NOT IN\n(SELECT 児童表.保護者番号 FROM 児童表)",
+            "language": "sql"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-answer1",
+      "label": "設問1",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-a",
+      "label": "設問2 a",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問3 b",
+      "choiceIds": [
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問4 c",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-answer1",
+        "choiceId": "choice-value-3"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-8"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-16"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "設問1：保護者表と児童表を保護者番号で結合し、児童の学年が6の行をWHEREで選び、氏名と住所をDISTINCTで重複除去する。NOT INでは対象児童の保護者を除く逆の条件になる。保護者番号の結合条件がないSQLは、対象児童がいれば無関係な保護者まで組み合わせる。氏名と住所でまとめた後のHAVINGに、グループ化していない児童の学年を置くSQLは、この抽出条件を正しく表さない。\n設問2 a：児童番号で児童表と活動表を、保護者番号で児童表と保護者表を結合する。学年1とイベント番号18001を両方WHEREで指定し、保護者番号と氏名をDISTINCTで取り出す。結合条件の欠落や活動表の欠落は、参加していない児童の保護者などを含める。児童氏名だけでGROUP BYして保護者の列や児童の学年をそのまま扱うSQLも目的の抽出にならない。非グループ列を受理する一部SQL処理系の拡張を、正しい条件を表す根拠にはしない。\n設問3 b：活動表の主キーは児童番号とイベント番号の組なので、同じ児童の同じイベントの行は重複しない。イベント番号で内部結合し、全て異なるイベント名ごとにCOUNT(*)で行数を数えれば参加児童数になる。AVG・MAX・SUMはイベント番号という識別値の平均・最大・合計であり、人数ではない。この内部結合は参加行がないイベントを含めるものではない。\n設問4 c：新入児童は学年0で登録され、全児童を1学年進めた後に学年7の児童を削除する。その後、残る児童の保護者番号に含まれない保護者をNOT INで選んで削除する。生成版の追加前提により、この番号にNULLは含まれない。= NULLは真にならず、学年7の児童は既に削除されている。INで残る児童の保護者を選ぶと、削除対象が逆になる。活動表の全件削除と、最後のイベント表の全件削除・新年度登録も、順番を区別する。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問3全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

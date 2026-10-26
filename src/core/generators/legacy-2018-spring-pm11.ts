@@ -1,0 +1,21 @@
+import {field,figure,p,strings,type GenerationDefinition} from './definition';
+import {legacy2018SpringPm11Model as model,legacy2018SpringPm11Banks as banks,legacy2018SpringPm11Profiles as profiles,legacy2018SpringPm11Figure as inspect} from './legacy-2018-spring-pm11-model';
+export {legacy2018SpringPm11Profiles,legacy2018SpringPm11Figure} from './legacy-2018-spring-pm11-model';
+export const legacy2018SpringPm11Definition:GenerationDefinition={
+ source:'2018h30h-fe-pm-11',title:'旧制度・午後：Javaの表現式ライブラリ',version:'3.2.0',answerVariation:'fixed',
+ fields:[field('左定数の選択番号',0,3),field('右定数の選択番号',0,4),field('等価判定定数の選択番号',0,1)],reference:[1,0,1],sourceAnswer:'設問1 a=ア、b=カ、c=ア、d=イ／設問2=ア／設問3=ア／設問4=イ',
+ notes:'2018春旧午後問11。原7頁/6プログラム/図1・2/7独立欄/6群31固有択38参照。aはプログラム4に3個、6に2個、匿名箱は7個を保持。p=1〜4、q=5〜9、等価判定値6/9の40条件。左右のExpressionオブジェクトと式の表示順、数値評価、入れ子出力全候補、等価判定の値を同期。交換時の同値sumだけを検証根拠にしない。protectedはパッケージ外の下位クラス実装文脈で判定し、同一パッケージ内でのアクセスを否定しない。正答固定、shuffle=false。専用profile/原頁素材/独立JDK21検算の準備対象。通常App・冊子受入・配布は未承認。',
+ build(values){const m=model(values),draw=(which:number,group:number)=>{const vs=[...values,group],f=inspect(profiles[which],vs);const block=figure(profiles[which],vs,f.caption,f.alt);if(block.type==='diagram'&&which===3)block.captionPresentation='accessible';return block;},bs=banks(values),counts=[4,6,7,7,4,6,4],offsets=[0,4,10,10,17,21,27],ids=['a','b','c','d','2','3','4'],keys=[0,5,0,1,0,0,1];return {
+ prompt:[p('選択した問題は、選択欄の（選）をマークしてください。マークがない場合は、採点されません。'),p('問11 次のJavaプログラムの説明及びプログラムを読んで、設問1〜4に答えよ。'),p('〔プログラムの説明〕'),
+ p('A君は、先輩エンジニアであるBさんの指導の下で、表現式（以下、式という）を構築するためのライブラリの作成を進めている。ライブラリはAPIを提供する。まず、次のインタフェース及びクラスをパッケージcom.example.exprに作成した。'),
+ p('(1) インタフェースExpressionは、式を表す。すなわち、Expressionを実装するクラスは、型としての式を表す。'),p('① メソッドevaluateは、式を評価した結果を型intで返す。'),
+ p('(2) クラスConstantは、定数を式（型Expression）として表す。'),p('① コンストラクタは、引数で与えられた型intの値を表す定数を生成する。'),p('② メソッドevaluateは、この定数の値を返す。'),p('③ メソッドtoStringは、この定数の値を文字列として返す。'),
+ p('(3) クラスAdditionは、加算を式（型Expression）として表す。'),p('① コンストラクタは、加算式を生成する。加算式a + bにおいて、演算子+の左側aの部分を左側の式、右側bの部分を右側の式とし、それぞれ引数left及び引数rightで指定する。いずれかの引数がnullのときは、NullPointerExceptionを投げる。'),p('② メソッドevaluateは、左側の式を評価した値に右側の式を評価した値を加え、その値を返す。'),p('③ メソッドtoStringは、この加算式を表す文字列を返す。'),draw(0,0),draw(0,1),draw(0,2),
+ draw(3,0),draw(1,0),draw(0,3),draw(2,0),draw(2,1),draw(2,2),
+ draw(3,1),p('A君は、これまでに作成したプログラムをBさんに見てもらったところ、次のアドバイスを受けた。'),p('“乗除算などの式を実装するクラスを追加する前に、上位クラスを導入して二項演算を表すクラスを簡単に実装できるようにすべきである。また、アプリケーションが必要とする全ての二項演算をライブラリで用意するのは一般に難しいので、パッケージ外でも二項演算がそのクラスの下位クラスとして簡単に実装できるようにすべきである。”'),p('そこで、A君は、次の仕様の抽象クラスをライブラリに追加した。'),
+ p('(1) 抽象クラスBinaryOperatorExpressionは、二項演算子を使用する式（以下、二項演算式という）を表す。'),p('① コンストラクタは、二項演算式を生成する。二項演算式a OP bにおいて、二項演算子OPの左側aの部分を左側の式、右側bの部分を右側の式とし、それぞれ引数left及び引数rightで指定する。いずれかの引数がnullのときは、NullPointerExceptionを投げる。'),p('② メソッドgetLeft及びgetRightは、それぞれ左側の式及び右側の式を返す。'),p('③ 抽象メソッドgetOperatorは、この二項演算式の演算子を文字列で返す。'),p('④ メソッドtoStringは、この二項演算式を表す文字列を返す。'),draw(3,2),draw(0,4),draw(2,3),
+ draw(3,3),p('プログラム6は、ライブラリのパッケージ外で二項演算式を実装するテストとして、減算式を表すクラスSubtractionを実装したものである。'),draw(0,5),draw(3,4),draw(1,1),draw(2,4),draw(3,5),draw(3,6),draw(2,5)],
+ choices:bs.flatMap(b=>strings(b)),answerParts:ids.map((id,i)=>({id:`part-${id}`,label:i<4?`設問1 ${id}`:`設問${id}`,choiceIds:Array.from({length:counts[i]},(_,j)=>`choice-value-${offsets[i]+j+1}`)})),partAnswers:keys.map((n,i)=>({kind:'choice' as const,partId:`part-${ids[i]}`,choiceId:`choice-value-${offsets[i]+n+1}`})),
+ explanation:`a：公開クラスが定義されているcom.example.exprを指定する。static importで型そのものの正規名をimportする形にはならない。b：コンストラクタはExpressionを二つ受け取り、左側${m.pn}、右側${m.qn}の順に渡す。逆順も和は${m.sum}だが出力の式は(${m.q} + ${m.p})となり、図1の${m.first}に一致しない。c：addそのものを文字列結合するとAddition.toStringが呼ばれ、(${m.p} + ${m.q})となる。evaluateでは和だけになり、他の変数では式全体を表さない。cのカ（${m.pn} + ${m.qn}）はExpression同士の+となるのでコンパイルエラーである。d：add.evaluate()がint値${m.sum}を返す。dのカは直前の文字列へ左から${m.pn}、${m.qn}を連結するので${m.p}${m.q}となり、和${m.sum}とは異なる。addそのものなら式の文字列となり、和の数値を出力しない。設問2：他パッケージで下位クラスを実装するコードから使うという目的にはprotectedが適する。同一パッケージからも利用可能であり、protectedを一般に下位クラス専用と断定しない。finalによる改変禁止やpublicの無制限公開とは異なる。設問3：toStringは評価値ではなく左右の式と演算子を再帰的に連結するため${m.third}。内側${m.p}−${m.q}を数値に置き換えず、最外側の括弧も省略しない。設問4：現在のequalsはObjectから継承した同一性の判定なので、別々に生成したConstantはfalseとなる。値等価を表すequalsを実装すべきである。==の参照同一性はequalsを上書きしても変わらず、evaluate()同士のintの==は既にtrue。intは参照型ではなく、int値へequalsメソッドを呼び出す式はコンパイルエラーである。`
+ };}
+};

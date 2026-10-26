@@ -1,0 +1,1805 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-6",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "management",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "EVM",
+      "工数予測"
+    ],
+    "keywords": [
+      "出来高",
+      "スケジュール差異",
+      "コスト差異"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+          "page": 29,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "6"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+          "page": 30,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "6"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+          "page": 31,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "6"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+          "page": 32,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "6"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+          "page": 33,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "6"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+          "page": 34,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "6"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-6",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問6の原6頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "開発規模・工数、進捗・費用と実績の推移を変更しています。原の工程、指標の定義、丸めと予測の前提、全解答群を保ち、表・グラフを再構成しています。生成グラフは出題条件に対応するもので、原図の数値が明記されていない点を精密に転記したものではありません。",
+        "affectsAnswer": true,
+        "answerDetails": "a：開発規模÷内部設計の生産性＝200.00÷6.40＝31.25人月。表3の網掛けの値は解答前に示していない。設問2：予定工数の進捗率は1.75÷2＝7/8で、表5は小数第3位を四捨五入する。表示されたEV÷PVが1未満なら遅延、EV÷ACが1未満ならコスト超過の見通しとなる。SPI/CPIを維持した完了時予測なので、各記述を両条件まで確認すると真なのは(4)と(6)である。特に(1)と(2)は共にスケジュール遅延せずという条件を含むため、費用だけでは決められない。b：結合テスト開始の10か月と、その1か月後の11か月を比較する。EV/PVとEV/ACの変化から、進捗状況とコスト状況のどちらも悪化傾向と分かる。c：αはEVとACの間のコスト差異CV。d：βはEVとPVの間のスケジュール差異SVである。グラフの区間の長さは正で示されるが、CV＝EV−AC、SV＝EV−PVはこの図では負の値であり、符号と距離を混同しない。e：今後の作業を計画どおりの工数で行うという別の仮定なので、未完了の計画工数はBAC−EV＝373.75−315.00＝58.75人月。既に発生したACを加えたBAC−EV＋AC＝432.50人月が総工数の予測となる。設問2のCPI一定による補正をここへ流用しない。EVMはEarned Value Management（出来高管理）、BACはBudget at Completion、PVはPlanned Value、EVはEarned Value、ACはActual Cost、SVはSchedule Variance、CVはCost Variance、SPIはSchedule Performance Index、CPIはCost Performance Index。KLOCはKilo Lines Of Codeでソースコード1,000行を表す。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+            "page": 29,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "6"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+            "page": 30,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "6"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+            "page": 31,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "6"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+            "page": 32,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "6"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+            "page": 33,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "6"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+            "page": 34,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "6"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-6",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は，選択欄の［選］をマークしてください。マークがない場合は，採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問6 EVM（Earned Value Management）手法を用いたプロジェクト管理に関する次の記述を読んで、設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "S社では、クライアントサーバシステムとして構築されている既存の営業システムを、Webシステムに刷新するプロジェクト（以下、刷新プロジェクトという）を立ち上げた。Webシステムとして構築する営業システムを、新営業システムと呼ぶ。N社は、この刷新プロジェクトにおける外部設計から結合テストまでを受注した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "［刷新プロジェクトへのN社の対応］(1) S社から提示された刷新プロジェクトの結合テストまでのスケジュールは、図1のとおりである。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-evm-timeline",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 刷新プロジェクトの結合テストまでのスケジュール",
+        "alt": "図1 刷新プロジェクトの結合テストまでのスケジュール。経過月数0〜1が基本計画、1〜2が要件定義、2〜4が外部設計、4〜6が内部設計、6〜10が製造・単体テスト、10〜12が結合テスト。N社が受注した範囲は外部設計開始から結合テスト終了まで。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-evm-timeline",
+          "values": [
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 29,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 新営業システムは、サブシステムS1（以下、S1という）、サブシステムS2（以下、S2という）及び共通機能の三つのサブシステムで構成される。N社はこの構成に合わせて外部設計から結合テストまでを実施するプロジェクト（以下、プロジェクトという）体制を構築し、プロジェクトマネージャは、システム企画部に所属するY君が担当する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) N社では、新営業システムと類似するWebシステムの開発をこれまで複数案件行っており、組織のプロセス資産として各開発工程の生産性のデータを保有している。N社が保有する各開発工程の生産性を、表1に示す。Y君は、要件定義の成果物である要件定義書とN社の過去の開発実績を参考にして、表2に示すとおりに新営業システムの開発規模を見積もった。ここで、KLOC（Kilo Lines Of Code）は、ソースコード1,000行を単位とする指標である。"
+      },
+      {
+        "type": "table",
+        "caption": "表1 各開発工程の生産性（単位 KLOC／人月）",
+        "columns": [
+          "開発工程",
+          "生産性"
+        ],
+        "rows": [
+          [
+            "外部設計",
+            "8.00"
+          ],
+          [
+            "内部設計",
+            "6.40"
+          ],
+          [
+            "製造・単体テスト",
+            "3.20"
+          ],
+          [
+            "結合テスト",
+            "8.00"
+          ]
+        ]
+      },
+      {
+        "type": "table",
+        "caption": "表2 新営業システムの開発規模（単位 KLOC）",
+        "columns": [
+          "サブシステム",
+          "開発規模"
+        ],
+        "rows": [
+          [
+            "S1",
+            "200.00"
+          ],
+          [
+            "S2",
+            "240.00"
+          ],
+          [
+            "共通機能",
+            "80.00"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Y君は、(1)〜(3)を前提に、各開発工程を完了させるために必要となる計画時点の工数（以下、計画工数という）を算出してプロジェクト計画を作成した。ここで、1か月の作業日数は20日とする。各開発工程における計画工数は、作業する各月に対して均等に割り当てる。例えば、外部設計に10.00人月と見積もった場合、外部設計の期間は2か月なので、各月に5.00人月を割り当てる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 外部設計と内部設計のサブシステムごとの計画工数を、表3に示す。表3中の［　］に入れる正しい答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-evm-plan-table",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表3 外部設計と内部設計のサブシステムごとの計画工数（単位 人月）",
+        "alt": "表3 外部設計と内部設計のサブシステムごとの計画工数。単位は人月。S1/S2/共通機能/合計の外部設計は25.00、30.00、10.00、65.00。内部設計のS1は空欄a、他の3セルは網掛けで表示していない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-evm-plan-table",
+          "values": [
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 30,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記 網掛けの部分は表示していない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群\nア　25.75\nイ　30.00\nウ　31.25\nエ　37.50"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 次の記述中の［　］に入れる正しい答えを、解答群の中から選べ。N社では、進捗遅延やコスト超過を早期に検出することを目的として、EVM手法を用いたプロジェクト管理を行っている。EVM手法では、プロジェクトの計画と実績について、定量的な情報を用いて進捗状況やコスト状況を分析し、評価する。EVM手法で使う各指標（以下、EVM指標という）のN社での意味を、表4に示す。"
+      },
+      {
+        "type": "table",
+        "caption": "表4 EVM指標のN社での意味",
+        "columns": [
+          "指標",
+          "名称",
+          "意味"
+        ],
+        "rows": [
+          [
+            "BAC（人月）",
+            "完了までの総予算",
+            "プロジェクト計画時点に見積もったプロジェクト完了までの予定総工数のこと。"
+          ],
+          [
+            "PV（人月）",
+            "出来高計画値",
+            "プロジェクト計画時点において、プロジェクト状況の評価時点までの予定作業に割り当てていた予定工数のこと。プロジェクト完了時点におけるPVはBACと同じ値になる。"
+          ],
+          [
+            "EV（人月）",
+            "出来高実績値",
+            "プロジェクト状況の評価時点までに完了した作業に対して、プロジェクト計画時点において割り当てていた予定工数のこと。"
+          ],
+          [
+            "AC（人月）",
+            "コスト実績値",
+            "プロジェクト状況の評価時点までに完了した作業に対して、実際に必要とした工数のこと。"
+          ],
+          [
+            "SV（人月）",
+            "スケジュール差異",
+            "プロジェクト状況の評価時点におけるEVとPVの差のこと。スケジュール面から見た差異を示す。"
+          ],
+          [
+            "CV（人月）",
+            "コスト差異",
+            "プロジェクト状況の評価時点におけるEVとACの差のこと。コスト面から見た差異を示す。"
+          ],
+          [
+            "SPI",
+            "スケジュール効率指数",
+            "SPI＝EV／PV。スケジュール面から見た効率のこと。1未満の場合、進捗遅延していることを示す。"
+          ],
+          [
+            "CPI",
+            "コスト効率指数",
+            "CPI＝EV／AC。コスト面から見た効率のこと。1未満の場合、コスト超過していることを示す。"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "外部設計を開始してから35作業日（1.75か月）が経過した時点での、外部設計工程のサブシステムごとのEVM指標値を、表5に示す。ここで、表5のEVM指標値は、小数点第3位を四捨五入した値である。"
+      },
+      {
+        "type": "table",
+        "caption": "表5 外部設計工程のサブシステムごとのEVM指標値（単位 人月）",
+        "columns": [
+          "サブシステム",
+          "外部設計終了時点 PV（出来高計画値）",
+          "外部設計開始から1.75か月経過時点 PV（出来高計画値）",
+          "同時点 EV（出来高実績値）",
+          "同時点 AC（コスト実績値）"
+        ],
+        "rows": [
+          [
+            "S1",
+            "25.00",
+            "21.88",
+            "21.15",
+            "21.60"
+          ],
+          [
+            "S2",
+            "30.00",
+            "26.25",
+            "26.25",
+            "26.55"
+          ],
+          [
+            "共通機能",
+            "10.00",
+            "8.75",
+            "8.75",
+            "8.10"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "次の(1)〜(6)の記述のうち、表5のEVM指標値から予測した、外部設計が終了する時点での見通しとして適切な組合せは、［　］である。ここで、予測に当たってSPI及びCPIは、表5の実績と同等であるものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) S1については、ACが外部設計終了時点のPVを超過しない。また、外部設計はスケジュール遅延せずに完了する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) S1については、ACが外部設計終了時点のPVを超過する。また、外部設計はスケジュール遅延せずに完了する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) S2については、外部設計はスケジュール遅延する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) S2については、ACが外部設計終了時点のPVを超過する。また、外部設計はスケジュール遅延せずに完了する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) 共通機能については、外部設計はスケジュール遅延する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) 共通機能については、ACが外部設計終了時点のPVを超過しない。また、外部設計はスケジュール遅延せずに完了する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群\nア　(1)と(4)\nイ　(1)と(5)\nウ　(2)と(3)\nエ　(2)と(4)\nオ　(3)と(5)\nカ　(3)と(6)\nキ　(4)と(5)\nク　(4)と(6)"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3 次の記述中の［　］に入れる正しい答えを、解答群の中から選べ。ここで、e1〜e3に入れる答えは、eに関する解答群の中から組み合わせとして正しいものを選ぶものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "図2は、外部設計を開始した時点から、結合テストを開始して1か月が経過した時点までの、各経過月末時点のEVM指標値をグラフにしたものである。Y君は、このグラフを用いてプロジェクトの現状分析を行うことにした。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-evm-status",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 各経過月末時点のEVM指標値",
+        "alt": "図2 各経過月末時点のEVM指標値。横軸は経過月数2〜12、縦軸は工数（人月）0〜400。PVは実線と四角、EVは破線と黒丸、ACは点線と白丸。結合テスト開始時点は10か月、開始から1か月が経過した時点は11か月。PVは12か月まで、実績のEVとACは11か月までを示す。11か月時点の上からの順序はAC、PV、EV。αはACとEVの間、βはPVとEVの間の縦区間。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-evm-status",
+          "values": [
+            0,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 33,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "結合テスト開始後、［b］であることがグラフから読み取れる。また、αは［c］を表し、βは［d］を表している。"
+      },
+      {
+        "type": "paragraph",
+        "text": "次に、未完了である残作業の作業工数（以下、残作業工数という）を、\"［e1］−［e2］\"で求めた。この残作業工数は、プロジェクト計画時点の見積りに基づいているが、今後の作業は計画どおり進捗するものとして、この残作業工数に［e3］を加算し、プロジェクトの全ての作業が完了したときの総工数の予測値を見直した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "bに関する解答群\nア　進捗状況とコスト状況のどちらも悪化傾向\nイ　進捗状況とコスト状況のどちらも改善傾向\nウ　進捗状況は改善傾向、コスト状況は悪化傾向\nエ　進捗状況は悪化傾向、コスト状況は改善傾向"
+      },
+      {
+        "type": "paragraph",
+        "text": "c，dに関する解答群\nア　BAC（完了までの総予算）\nイ　PV（出来高計画値）\nウ　EV（出来高実績値）\nエ　AC（コスト実績値）\nオ　SV（スケジュール差異）\nカ　CV（コスト差異）"
+      },
+      {
+        "type": "paragraph",
+        "text": "eに関する解答群\nア　BAC ／ AC ／ EV\nイ　BAC ／ EV ／ AC\nウ　BAC ／ PV ／ EV\nエ　PV ／ AC ／ EV\nオ　PV ／ BAC ／ EV\nカ　PV ／ EV ／ AC"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 30,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "25.75"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 30,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "30.00"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 30,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "31.25"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 30,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "37.50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(1)と(4)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(1)と(5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(2)と(3)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(2)と(4)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(3)と(5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(3)と(6)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(4)と(5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 32,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(4)と(6)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "進捗状況とコスト状況のどちらも悪化傾向"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "進捗状況とコスト状況のどちらも改善傾向"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "進捗状況は改善傾向、コスト状況は悪化傾向"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "進捗状況は悪化傾向、コスト状況は改善傾向"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "BAC（完了までの総予算）"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "PV（出来高計画値）"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "EV（出来高実績値）"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "AC（コスト実績値）"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "SV（スケジュール差異）"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "CV（コスト差異）"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "BAC ／ AC ／ EV"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "BAC ／ EV ／ AC"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "BAC ／ PV ／ EV"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-26",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "PV ／ AC ／ EV"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-27",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "PV ／ BAC ／ EV"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-28",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-6-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問6 原問題",
+                "page": 34,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "6"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-6",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "PV ／ EV ／ AC"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-forecast",
+      "label": "設問2",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問3 b",
+      "choiceIds": [
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問3 c",
+      "choiceIds": [
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問3 d",
+      "choiceIds": [
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問3 e",
+      "choiceIds": [
+        "choice-value-23",
+        "choice-value-24",
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27",
+        "choice-value-28"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-3"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-forecast",
+        "choiceId": "choice-value-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-13"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-22"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-21"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-24"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：開発規模÷内部設計の生産性＝200.00÷6.40＝31.25人月。表3の網掛けの値は解答前に示していない。設問2：予定工数の進捗率は1.75÷2＝7/8で、表5は小数第3位を四捨五入する。表示されたEV÷PVが1未満なら遅延、EV÷ACが1未満ならコスト超過の見通しとなる。SPI/CPIを維持した完了時予測なので、各記述を両条件まで確認すると真なのは(4)と(6)である。特に(1)と(2)は共にスケジュール遅延せずという条件を含むため、費用だけでは決められない。b：結合テスト開始の10か月と、その1か月後の11か月を比較する。EV/PVとEV/ACの変化から、進捗状況とコスト状況のどちらも悪化傾向と分かる。c：αはEVとACの間のコスト差異CV。d：βはEVとPVの間のスケジュール差異SVである。グラフの区間の長さは正で示されるが、CV＝EV−AC、SV＝EV−PVはこの図では負の値であり、符号と距離を混同しない。e：今後の作業を計画どおりの工数で行うという別の仮定なので、未完了の計画工数はBAC−EV＝373.75−315.00＝58.75人月。既に発生したACを加えたBAC−EV＋AC＝432.50人月が総工数の予測となる。設問2のCPI一定による補正をここへ流用しない。EVMはEarned Value Management（出来高管理）、BACはBudget at Completion、PVはPlanned Value、EVはEarned Value、ACはActual Cost、SVはSchedule Variance、CVはCost Variance、SPIはSchedule Performance Index、CPIはCost Performance Index。KLOCはKilo Lines Of Codeでソースコード1,000行を表す。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問6全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

@@ -1,0 +1,18 @@
+.spring2018-scroll{max-width:100%;overflow:auto;position:relative;min-width:0}
+.spring2018-program,.spring2018-bank,.spring2018-output,.spring2018-word-figure,.spring2018-reference{margin:1em 0;min-width:0;color:var(--ink)}
+.spring2018-program pre{font-family:monospace;line-height:1.8;white-space:pre;margin:.5em 0;min-width:max-content}
+.spring2018-program-line{display:inline}
+.spring2018-native-blank{border:2px solid var(--ink);background:var(--surface);color:var(--ink);display:inline-block;min-width:6.2em;text-align:center;line-height:1.4;white-space:nowrap;vertical-align:baseline;font-family:inherit}
+.spring2018-bank-items{display:grid;gap:.7em 1.6em;margin:.5em 0;width:max-content;min-width:100%}
+.spring2018-bank-item{display:flex;align-items:baseline;gap:.8em;white-space:pre}
+.spring2018-choice-label{flex:none}
+.spring2018-output-frame{width:max-content;max-width:none;margin:.5em auto;border:1px solid var(--ink);padding:.35em .7em;white-space:pre}
+.spring2018-output-frame p{white-space:normal;margin:.4em 0 0}
+.spring2018-output figcaption,.spring2018-word-figure figcaption{text-align:center}
+.spring2018-word-row{display:flex;width:max-content;margin:.5em auto;white-space:pre}
+.spring2018-word-row>div{display:flex;flex-direction:column;text-align:center}
+.spring2018-word-cell{display:inline-block;border:1px solid var(--ink);padding:.35em .7em;min-width:4em;text-align:center}
+.spring2018-word-row>.spring2018-word-cell+ .spring2018-word-cell,.spring2018-word-row>div+div .spring2018-word-cell{border-left:0}
+.spring2018-word-index{padding-top:.35em}
+.spring2018-reference table{border-collapse:collapse}
+.spring2018-reference th,.spring2018-reference td{border:1px solid var(--line);padding:.35em .7em}

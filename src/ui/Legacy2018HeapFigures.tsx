@@ -1,0 +1,42 @@
+import {useId} from "react";
+import {legacy2018HeapExample,legacy2018HeapFigureAlt} from "../core/generators/legacy-2018-pm-heap";
+import domains from "../core/generators/legacy-2018-heap-figure-domains.json";
+const loop=(name:string,x:number,top:number,bottom:number)=><g key={name} data-control={name} data-kind="loop"><rect x={x-5} y={top-5} width="10" height="10" fill="currentColor" style={{fill:"currentColor"}}/><line x1={x} y1={top+5} x2={x} y2={bottom-5}/><rect x={x-5} y={bottom-5} width="10" height="10" fill="currentColor" style={{fill:"currentColor"}}/></g>;
+const branch=(name:string,x:number,top:number,bottom:number,otherwise?:number)=><g key={name} data-control={name} data-kind="branch"><polygon points={`${x-6},${top+5} ${x},${top-6} ${x+6},${top+5}`} fill="currentColor" style={{fill:"currentColor"}}/><line x1={x} y1={top+5} x2={x} y2={bottom-5}/>{otherwise!==undefined&&<line data-else="true" x1={x} y1={otherwise} x2={x+20} y2={otherwise}/>}<polygon points={`${x-6},${bottom-5} ${x},${bottom+6} ${x+6},${bottom-5}`} fill="currentColor" style={{fill:"currentColor"}}/></g>;
+/** Annual-only five-profile renderer. Full source controls/labels are visible;
+ * no code or instructions from data are executed. */
+export function Legacy2018HeapFigure({profile,values,caption}:{profile:string;values:number[];caption:string}){
+ const bounds=domains[profile as keyof typeof domains];if(!bounds||values.length!==bounds.length||values.some((v,i)=>!Number.isInteger(v)||v<bounds[i][0]||v>bounds[i][1]))throw Error("PARAMETER_CONSTRAINT");
+ const h=legacy2018HeapExample(values),id=useId().replace(/:/g,""),tree=profile.endsWith("-tree"),array=profile.endsWith("-array"),regions=profile.endsWith("-regions"),one=profile.endsWith("-one"),width=tree?860:array?900:regions?1120:1180,height=tree?390:array?300:regions?270:one?760:1090;
+ const points=[[430,75],[250,180],[610,180],[140,300],[320,300],[540,300],[720,300]],parents=[0,0,1,1,2,2],children=[1,2,3,4,5,6];
+ const statement=(name:string,x:number,y:number,text:string,n?:number)=><g key={name} data-statement={name}>{n!==undefined&&<text data-line={n} x="20" y={y}>{n}</text>}<text x={x} y={y} textAnchor={name.startsWith("blank-")?"middle":undefined} style={{fontSize:22,fontFamily:"monospace",whiteSpace:"pre"}}>{text}</text></g>;
+ return <figure className={`managed-diagram source-figure profile-${profile}`}><div className="diagram-scroll" tabIndex={0} aria-label="ヒープとプログラムの図。幅が足りない場合は左右にスクロールできます。"><svg className="source-figure-svg" style={{width:`calc(${width}px * var(--image-scale, 1))`}} viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby={`${id}-title`} aria-describedby={`${id}-desc`}><title id={`${id}-title`}>{caption}</title><desc id={`${id}-desc`}>{legacy2018HeapFigureAlt(profile,values)}</desc><defs><marker id={`${id}-arrow`} markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" stroke="none"/></marker></defs><g aria-hidden="true">
+ {tree?<>
+  {children.map((child,i)=><line key={child} data-parent-edge={child} x1={points[parents[i]][0]} y1={points[parents[i]][1]} x2={points[child][0]} y2={points[child][1]}/>)}
+  {h.map((v,i)=><g key={i} data-heap-node={i}><circle cx={points[i][0]} cy={points[i][1]} r="42" fill="var(--surface)"/><text x={points[i][0]} y={points[i][1]} textAnchor="middle">{v}</text></g>)}
+  <text x="430" y="18" textAnchor="middle">根</text><text x="220" y="118" textAnchor="middle">左側の子</text><text x="640" y="118" textAnchor="middle">右側の子</text>
+ </>:array?<>
+  <text x="95" y="45" textAnchor="middle">要素番号</text><text x="95" y="95" textAnchor="middle">heap</text>
+  {h.map((v,i)=><g key={i} data-array-cell={i}><rect x={150+i*90} y="70" width="90" height="50" fill="none"/><text data-index={i} x={195+i*90} y="45" textAnchor="middle">{i}</text><text data-value={i} x={195+i*90} y="95" textAnchor="middle">{v}</text></g>)}
+  {children.map((child,i)=>{const start=195+parents[i]*90,end=195+child*90,level=145+i*23;return <g key={child} data-array-edge={child}><circle className="junction" cx={start} cy="120" r="4"/><polyline points={`${start},120 ${start},${level} ${end},${level} ${end},120`} fill="none" markerEnd={`url(#${id}-arrow)`}/></g>;})}
+ </>:regions?<>
+  <text x="95" y="45" textAnchor="middle">要素番号</text><text x="95" y="95" textAnchor="middle">heap</text>
+  {["0","1","…","k−1","k","k+1","…","hnum−1"].map((v,i)=><g key={i} data-region-cell={i}><rect x={160+i*110} y="70" width="110" height="50" fill="none"/><text x={215+i*110} y="45" textAnchor="middle">{v}</text></g>)}
+  <line data-last-pointer="true" x1="655" y1="180" x2="655" y2="120" markerEnd={`url(#${id}-arrow)`}/><text x="655" y="201" textAnchor="middle">last</text>
+  <line data-target-range="true" x1="710" y1="150" x2="160" y2="150" markerEnd={`url(#${id}-arrow)`}/><line data-sorted-range="true" x1="710" y1="150" x2="1040" y2="150" markerEnd={`url(#${id}-arrow)`}/><text x="400" y="240" textAnchor="middle">整列対象領域</text><text x="875" y="240" textAnchor="middle">整列済みデータ領域</text>
+ </>:one?<>
+  {statement("makeHeap-declaration",30,40,"○副プログラム：makeHeap（整数型：data[], 整数型：heap[], 整数型：hnum）")}
+  {statement("makeHeap-variables",30,76,"○整数型：i, k")}{statement("outer-loop",58,112,"i：0, i < hnum, 1")}{statement("insert",80,148,"・heap[i] ← data[i]       /* heapにデータを追加 */")}{statement("initial-k",80,184,"・k ← i")}{statement("inner-loop",80,220,"k > 0")}
+  {statement("blank-a",143,256,"a")}{statement("swap-k-b",124,292,"・swap(heap, k,      )")}{statement("blank-b",361,292,"b")}{statement("move-parent",124,328,"・k ← parent(k)")}{statement("break",124,400,"・break          /* 内側の繰返し処理から抜ける */")}
+  <rect data-blank="a" x="98" y="237" width="90" height="35" fill="none"/><rect data-blank="b" x="333" y="273" width="56" height="35" fill="none"/>
+  {loop("all-data",36,112,472)}{loop("upward",58,220,448)}{branch("compare-parent",80,256,424,364)}
+  {statement("swap-declaration",30,540,"○副プログラム：swap（整数型：heap[], 整数型：i, 整数型：j）")}{statement("swap-variable",30,576,"○整数型：tmp")}{statement("save-i",30,612,"・tmp ← heap[i]")}{statement("copy-j",30,648,"・heap[i] ← heap[j]")}{statement("restore-i",30,684,"・heap[j] ← tmp")}
+ </>:<>
+  {statement("heapSort-declaration",80,40,"○副プログラム：heapSort（整数型：data[], 整数型：heap[], 整数型：hnum）",1)}{statement("last-variable",80,76,"○整数型：last",2)}{statement("makeHeap-call",80,112,"・makeHeap(data, heap, hnum)",3)}{statement("last-loop",102,160,"last：hnum−1, last > 0, −1",4)}{statement("remove-root",124,196,"・swap(heap, 0, last)     /* heap[0]とheap[last]の値を交換 */",5)}{statement("rebuild",124,232,"・downHeap(heap, last−1)  /* heapを再構成 */",6)}
+  <text data-line="7" x="20" y="268">7</text>{loop("sort-pass",80,160,268)}<line data-alpha="true" x1="800" y1="134" x2="650" y2="134" markerEnd={`url(#${id}-arrow)`}/><text x="825" y="134">α</text>
+  {statement("downHeap-declaration",80,350,"○副プログラム：downHeap（整数型：heap[], 整数型：hlast）",1)}{statement("downHeap-variables",80,386,"○整数型：n, tmp",2)}{statement("initial-n",80,422,"・n ← 0",3)}{statement("has-left",102,458,"lchild(n) ≦ hlast",4)}{statement("choose-left",124,494,"・tmp ← lchild(n)",5)}{statement("has-right",124,530,"rchild(n) ≦ hlast",6)}{statement("right-not-smaller",146,566,"heap[tmp] ≦ heap[rchild(n)]",7)}{statement("choose-right",168,602,"・tmp ← rchild(n)",8)}
+  <text data-line="9" x="20" y="638">9</text><text data-line="10" x="20" y="674">10</text>{statement("child-greater",124,710,"heap[tmp] > heap[n]",11)}{statement("swap-child",146,746,"・swap(heap, n, tmp)",12)}{statement("return",146,818,"・return         /* downHeapから抜ける */",13)}<text data-line="14" x="20" y="854">14</text>{statement("next-n",124,890,"・n ← tmp",15)}<text data-line="16" x="20" y="926">16</text>
+  {loop("downward",80,458,926)}{branch("right-exists",102,530,674)}{branch("right-tie",124,566,638)}{branch("parent-comparison",102,710,854,782)}
+ </>}
+ </g></svg></div><figcaption>{caption}</figcaption></figure>;
+}

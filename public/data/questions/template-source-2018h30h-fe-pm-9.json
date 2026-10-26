@@ -1,0 +1,1642 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-9",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "C",
+      "集計",
+      "整数の範囲",
+      "配列の範囲"
+    ],
+    "keywords": [
+      "FILE",
+      "EOF",
+      "long",
+      "strncpy",
+      "ヌル文字",
+      "ゼロ除算"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+          "page": 44,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+          "page": 45,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+          "page": 46,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+          "page": 47,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+          "page": 48,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+          "page": 49,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "9"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-9",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問9の原6頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "原の集計処理、2本のCプログラム、図表と全解答群を保ち、棒グラフの幅と実行時の不具合を比較する金額の条件を変更しています。図・選択肢・解説を同じ条件へ合わせています。",
+        "affectsAnswer": true,
+        "answerDetails": "a：標準入出力のストリームを扱う型名FILEへのポインタを使う。FILEの内部表現を特定の基本型や構造体に固定するという意味ではない。\nb：同じキーのレコードなら件数を1増やし，読み込んだinValueを群のvalueへ加える。ここで印字すると未完成の群を出力してしまう。\nc：EOFになった後で，保持している最後のkey，count，valueを1回出力する。最初の読込みが成功したifの中なので，空ファイルでは何も出力しない。1件だけの場合inKeyのキー部分とinValueへはまだ代入されておらず，それらを0とみなして最後の群に使わない。\nd：カでは25×100,000,000＝2,500,000,000となり，longの上限2,147,483,647を超える。この積のあふれ後の値や印字結果は定まらず，後で同じ数で割ることを理由に安全とはいえない。\ne：アでは積-25,000,000は範囲内だが，valueMaxが0なので除算の動作は定まらない。valueMaxは最初0から更新されるため，全レコードが負でも0のまま残る。\nf：イでは積-250,000,000は範囲内，商はちょうど−25なので，添字は25−(−25)＝50となる。graphには星25個と終端のヌル文字1個の計26要素しかなく，有効な添字0〜25の外を参照する。ウは添字25の終端を指すので星0個，エも整数商0で終端を指す。オは添字0から25個の星を印字できる。範囲外やゼロ除算の後に正常な印字結果を与えない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+            "page": 44,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+            "page": 45,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+            "page": 46,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+            "page": 47,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+            "page": 48,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+            "page": 49,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "9"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-9",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "次の問9から問13までの5問については，この中から1問を選択し，選択した問題については，答案用紙の選択欄の○選をマークして解答してください。なお，2問以上マークした場合には，はじめの1問について採点します。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問9 次のCプログラムの説明及びプログラムを読んで，設問1，2に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "簡易集計プログラムである。このプログラムを用いると，例えば，図1の入力ファイルから，品番ごとのレコード件数と金額の合計を求めて，図2の集計ファイルを得ることができる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "プログラムは，キー項目及び数値項目の，開始桁位置及び桁数を引数で受け取り，キー項目で整列済みのレコードを入力ファイルから読み込み，キー項目の値ごとに，その件数と数値項目の値の合計を求め，集計ファイルにレコードとして書き出す。ここで，数値項目には整数の値が入る。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-records",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 入力ファイルのレコード例／図2 集計ファイルのレコード例",
+        "alt": "図1 入力ファイルのレコード例。年月日，時分秒，品番，数量，金額。20180410 112610 FE-111 0001 000100。20180410 154358 FE-111 0001 000100。20180410 123820 FE-222 0002 000400。20180410 153249 FE-333 0001 000300。20180410 135044 FE-333 0001 000300。20180410 152859 FE-333 0001 000300。20180410 131923 FE-444 0002 000800。20180410 123907 FE-444 0001 000400。注記 見出しの行はレコードに含まれない。 改行文字は表示していない。 破線は項目の区切りを表す。。図2 集計ファイルのレコード例。品番，件数，合計金額。FE-111 2 200。FE-222 1 400。FE-333 3 900。FE-444 2 1200。注記 見出しの行はレコードに含まれない。 改行文字は表示していない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-records",
+          "values": [
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 44,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "〔プログラム1の説明〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 入力ファイルは，固定長レコードの並びから成る。レコードは，1,000文字以下の1バイト文字の並びであり，最後の文字の後には改行文字が付いている。ファイル名は，引数dataFileで指定する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) レコード中のキー項目の開始桁位置及び桁数は，それぞれ引数keyPos及びkeyLenで指定する。また，数値項目の開始桁位置及び桁数は，それぞれ引数valuePos及びvalueLenで指定する。開始桁位置は，レコードの先頭文字の桁位置を0として数える。キー項目及び数値項目の桁数は，いずれも9桁以下とする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 入力レコードは，キー項目の昇順に整列されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 集計ファイルにレコードとして，キー項目の値，キー項目ごとの件数及び数値項目の値の合計を各9桁分の領域に右詰めで出力し，各項目の前に1個の空白文字を出力する。レコードの最後の文字の後には改行文字を付ける。ファイル名は，引数listFileで指定する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(5) 引数及び入力レコードの内容に誤りはないものとする。また，数値項目の値の合計は9桁以下であり，算術演算であふれは起きないものとする。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(6) プログラム中で使用しているライブラリ関数（一部）の概要は，次のとおりである。"
+      },
+      {
+        "type": "paragraph",
+        "text": "atol(s)：文字列sが表す数値をlong型の表現に変換した値を返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "fgets(s, m, f)：ストリームfから文字の列（改行文字まで，最大m−1文字）を読み取り，配列sに格納し，sを返す。ストリームの終わりに達した場合はNULLを返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "strcmp(s1, s2)：文字列s1とs2を比較し，s1＜s2のとき負の値を，s1＝s2のとき0を，s1＞s2のとき正の値を，それぞれ返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "strcpy(s1, s2)：文字列s2を文字列s1に複写する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "strncpy(s1, s2, n)：文字列s2の先頭からn個の文字を文字列s1に複写し，文字列s1の値を返す。"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "〔プログラム1〕"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム1",
+        "alt": "プログラム1。#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#define recSize 1002   /* 入力レコードの最大文字数 + 2 ('\\n', '\\0') */\n\nvoid outList(char *dataFile, char *listFile,\n             int keyPos, int keyLen, int valuePos, int valueLen) {\n    [a] *inFile, *outFile;\n    char inBuf[recSize], inKey[10], key[10], temp[10];\n    long count, inValue, value;\n    char format[] = \" %9s %9ld %9ld\\n\";\n    key[keyLen] = '\\0';\n    inKey[keyLen] = '\\0';\n    temp[valueLen] = '\\0';\n    outFile = fopen(listFile, \"w\");\n    inFile = fopen(dataFile, \"r\");\n\n    if (fgets(inBuf, recSize, inFile) != NULL) {\n        strncpy(key, inBuf + keyPos, keyLen);\n        count = 1;\n        value = atol(strncpy(temp, inBuf + valuePos, valueLen));\n        while (fgets(inBuf, recSize, inFile) != NULL) {\n            strncpy(inKey, inBuf + keyPos, keyLen);\n            inValue = atol(strncpy(temp, inBuf + valuePos, valueLen));\n            if (strcmp(key, inKey) != 0) {\n                fprintf(outFile, format, key, count, value);\n                count = 1;\n                strcpy(key, inKey);\n                value = inValue;\n            }\n            else {\n                [b]\n            }\n        }\n        [c]\n    }\n    fclose(inFile);\n    fclose(outFile);\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-program",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 45,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問1の指示文",
+        "alt": "設問1 プログラム1中の［　］に入れる適切な答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-instruction",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "aに関する解答群",
+        "alt": "aに関する解答群。ア char\nイ FILE\nウ file\nエ int",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-bank",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "b、cに関する解答群",
+        "alt": "b、cに関する解答群。ア fprintf(outFile, format, inKey, count, inValue);\nイ fprintf(outFile, format, key, count, value);\nウ count++;\nvalue += inValue;\nエ count++;\nvalue += inValue;\nfprintf(outFile, format, key, count, value);\nオ count--;\nfprintf(outFile, format, inKey, count, inValue);",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-bank",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2の指示文",
+        "alt": "設問2 次の記述中の［　］に入れる適切な答えを，解答群の中から選べ。ここで，プログラム2中の［a］には，設問1の正しい答えが入っているものとする。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-instruction",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "paragraph",
+        "text": "図3に示す，時分秒のうちの時をキー項目として昇順に整列済みのレコードを入力ファイルから読み込み，時間帯（0時台，1時台，…，23時台）ごとの件数と金額の合計（合計金額）を求め，時，件数，合計金額と合計金額を表す棒グラフを印字する。この処理を，次の手順で行う。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) プログラム1を利用して，図3の入力ファイルから，図4の集計ファイルを得る。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) プログラム2を利用して，図4の集計ファイルから，図5の印字結果を得る。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-records",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3 入力ファイルのレコード例／図4 集計ファイルのレコード例",
+        "alt": "図3 入力ファイルのレコード例。年月日，時分秒，品番，数量，金額。20180410 112610 FE-111 0001 000100。20180410 123820 FE-222 0002 000400。20180410 123907 FE-444 0001 000400。20180410 131923 FE-444 0002 000800。20180410 135044 FE-333 0001 000300。20180410 152859 FE-333 0001 000300。20180410 153249 FE-333 0001 000300。20180410 154358 FE-111 0001 000100。注記 見出しの行はレコードに含まれない。 改行文字は表示していない。 破線は項目の区切りを表す。。図4 集計ファイルのレコード例。時，件数，合計金額。11 1 100。12 2 800。13 2 1100。15 3 700。注記 見出しの行はレコードに含まれない。 改行文字は表示していない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-records",
+          "values": [
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-bar-print",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図5 印字結果の例",
+        "alt": "図5 印字結果の例。時・件数・合計金額の各9桁領域に右詰め，各項目の前に1空白。11，1，100，棒は**。12，2，800，棒は******************。13，2，1100，棒は*************************。15，3，700，棒は***************。注記 見出しの行は印字結果に含まれない。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-bar-print",
+          "values": [
+            25
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 48,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "〔プログラム2の説明〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) プログラム1で書き出した集計ファイルからレコードを読み込む。ファイル名は，引数listFileで指定する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 読み込んだ各レコードに，そのレコードの合計金額の値valueに応じた長さのグラフを追加して印字する。集計ファイル中の合計金額の値の最大値valueMaxを25個の“*”で表し，他の値は，25×value÷valueMax個（小数点以下切捨て）の“*”で表す。ここで，集計ファイル中の合計金額の値の最大値は正であり，最小値は0以上であるものとする。"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "〔プログラム2〕"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム2",
+        "alt": "プログラム2。#include <stdio.h>\n#include <stdlib.h>\n\n#define listLen 32   /* 入力レコードの最大文字数 + 2 ('\\n', '\\0') */\n\nvoid outListG(char *listFile) {\n    [a] *inFile;\n    char inBuf[listLen];\n    long value, valueMax;\n    char graph[] = \"*************************\";\n\n    inFile = fopen(listFile, \"r\");\n    valueMax = 0;\n    while (fgets(inBuf, listLen, inFile) != NULL) {\n        value = atol(inBuf + 21);\n        if (value > valueMax) {\n            valueMax = value;\n        }\n    }\n    fclose(inFile);\n    inFile = fopen(listFile, \"r\");\n    while (fgets(inBuf, listLen, inFile) != NULL) {\n        value = atol(inBuf + 21);\n        printf(\"%.30s |%s\\n\",\n               inBuf, &graph[25 - 25 * value / valueMax]);   /* α */\n        /* %.30sはレコードの先頭からの30桁（\\nの直前まで）を出力する */\n    }\n    fclose(inFile);\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-program",
+          "values": [
+            0,
+            0,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 48,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "プログラム2は，作成途中である。図4の集計ファイルを用いると図5の印字結果が得られるが，集計ファイル中の合計金額の値によっては，コメント/* α */を付けた印字処理の実行時に問題が発生する場合がある。〔プログラム2の説明〕の(2)にある前提“集計ファイル中の合計金額の値の最大値は正であり，最小値は0以上である”が満たされない場合も考慮に含め，コメント/* α */を付けた印字処理の実行時に発生し得る事象として，①算術演算であふれが発生，②算術演算でゼロ除算が発生，③配列の定義外の要素位置を参照，がある。これらの事象が発生し得るvalueとvalueMaxの値の例を，表1にまとめた。ここで，long型の数値の範囲は，−2^31〜2^31−1（2^31＝2,147,483,648）とする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-error-table",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表1 事象①〜③が発生し得るvalueとvalueMaxの値の例",
+        "alt": "表1 事象①〜③が発生し得るvalueとvalueMaxの値の例。① 算術演算であふれ [d]。② 算術演算でゼロ除算 [e]。③ 配列の定義外の要素位置を参照 [f]",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-error-table",
+          "values": [
+            0,
+            0,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm9-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "d〜fに関する解答群",
+        "alt": "d〜fに関する解答群。ア -1,000,000 | 0\nイ -10,000,000 | 10,000,000\nウ 0 | 10,000,000\nエ 100 | 10,000,000\nオ 10,000,000 | 10,000,000\nカ 100,000,000 | 100,000,000",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm9-bank",
+          "values": [
+            0,
+            0,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "char"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "FILE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "file"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 46,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "int"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "fprintf(outFile, format, inKey, count, inValue);",
+            "language": "c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "fprintf(outFile, format, key, count, value);",
+            "language": "c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "count++;\nvalue += inValue;",
+            "language": "c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "count++;\nvalue += inValue;\nfprintf(outFile, format, key, count, value);",
+            "language": "c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 47,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "text": "count--;\nfprintf(outFile, format, inKey, count, inValue);",
+            "language": "c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "valueとvalueMaxの値",
+            "columns": [
+              "valueの値",
+              "valueMaxの値"
+            ],
+            "rows": [
+              [
+                "-1,000,000",
+                "0"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "valueとvalueMaxの値",
+            "columns": [
+              "valueの値",
+              "valueMaxの値"
+            ],
+            "rows": [
+              [
+                "-10,000,000",
+                "10,000,000"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "valueとvalueMaxの値",
+            "columns": [
+              "valueの値",
+              "valueMaxの値"
+            ],
+            "rows": [
+              [
+                "0",
+                "10,000,000"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "valueとvalueMaxの値",
+            "columns": [
+              "valueの値",
+              "valueMaxの値"
+            ],
+            "rows": [
+              [
+                "100",
+                "10,000,000"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "valueとvalueMaxの値",
+            "columns": [
+              "valueの値",
+              "valueMaxの値"
+            ],
+            "rows": [
+              [
+                "10,000,000",
+                "10,000,000"
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-9-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問9 原問題",
+                "page": 49,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "9"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-9",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "table",
+            "caption": "valueとvalueMaxの値",
+            "columns": [
+              "valueの値",
+              "valueMaxの値"
+            ],
+            "rows": [
+              [
+                "100,000,000",
+                "100,000,000"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問2 d",
+      "choiceIds": [
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問2 f",
+      "choiceIds": [
+        "choice-value-10",
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-7"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-15"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-11"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：標準入出力のストリームを扱う型名FILEへのポインタを使う。FILEの内部表現を特定の基本型や構造体に固定するという意味ではない。\nb：同じキーのレコードなら件数を1増やし，読み込んだinValueを群のvalueへ加える。ここで印字すると未完成の群を出力してしまう。\nc：EOFになった後で，保持している最後のkey，count，valueを1回出力する。最初の読込みが成功したifの中なので，空ファイルでは何も出力しない。1件だけの場合inKeyのキー部分とinValueへはまだ代入されておらず，それらを0とみなして最後の群に使わない。\nd：カでは25×100,000,000＝2,500,000,000となり，longの上限2,147,483,647を超える。この積のあふれ後の値や印字結果は定まらず，後で同じ数で割ることを理由に安全とはいえない。\ne：アでは積-25,000,000は範囲内だが，valueMaxが0なので除算の動作は定まらない。valueMaxは最初0から更新されるため，全レコードが負でも0のまま残る。\nf：イでは積-250,000,000は範囲内，商はちょうど−25なので，添字は25−(−25)＝50となる。graphには星25個と終端のヌル文字1個の計26要素しかなく，有効な添字0〜25の外を参照する。ウは添字25の終端を指すので星0個，エも整数商0で終端を指す。オは添字0から25個の星を印字できる。範囲外やゼロ除算の後に正常な印字結果を与えない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問9全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

@@ -1,0 +1,2002 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-10",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "COBOL",
+      "突合せ",
+      "日付計算"
+    ],
+    "keywords": [
+      "索引順編成",
+      "READ",
+      "WRITE",
+      "CURRENT-DATE",
+      "INTEGER-OF-DATE",
+      "PIC"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+          "page": 50,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "10"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+          "page": 51,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "10"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+          "page": 52,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "10"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+          "page": 53,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "10"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+          "page": 54,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "10"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+          "page": 55,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "10"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-10",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問10の原6頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "原の注文・入金の突合せ処理と公式正誤表を保ち、支払方法に対応する区分値と未入金を判定する経過日数を変更しています。レコード図・プログラム・選択肢・解説を同じ条件へ更新しています。",
+        "affectsAnswer": true,
+        "answerDetails": "aは両入力の終わりまで処理するAND。bは支払種別3又は4のカード払い・着払い、cは請求金額と入金金額の一致を判定する。dは印字用レコードのWRITE。eは未入金の注文を出荷待ちへ書いた直後、次の注文の読込み前。fは注文日の翌日を1日目とするのでW-CNT > 7。公式訂正に従い、コード10は請求金額と差額を0、カード払い・着払いは入金金額と差額を0とする。W-CNTはPIC 9(3)で0〜999を表現できるが，日数差1000は収まらず，原題には表現不能時の処理は示されていない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "context-2018h30h-fe-pm-10-erratum",
+      "title": "公式正誤表（問10）",
+      "presentation": "text_figure",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-erratum",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 erratum",
+                "page": 2,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10-erratum"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "image",
+            "assetId": "asset-ipa-2018h30h-fe-pm-10-p2",
+            "caption": "平成30年度春期 付属資料 物理p.2"
+          }
+        ]
+      }
+    }
+  ],
+  "contextRefs": [
+    "context-2018h30h-fe-pm-10-erratum"
+  ],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+            "page": 50,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "10"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+            "page": 51,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "10"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+            "page": 52,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "10"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+            "page": 53,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "10"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+            "page": 54,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "10"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+            "page": 55,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "10"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-10",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は，選択欄の○選をマークしてください。マークがない場合は，採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問10 次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "〔プログラムの説明〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "Web上でショッピングサイトを運営しているP社では，注文を受けて入金確認の処理を待っている商品の注文情報を注文ファイルに格納し，前日に入金された情報を入金ファイルに格納する。P社では毎朝10時に入金確認の処理を実行し，注文ファイルの情報と入金ファイルの情報を突き合わせて結果リストを印字する。このとき，入金が確認できなかった商品の注文情報は，出荷待ちファイルに格納する。前処理として，注文ファイルには，前日にプログラムを実行した際に出力された出荷待ちファイルの情報と，前日に受け付けた商品の注文情報を格納しておく。"
+      },
+      {
+        "type": "paragraph",
+        "text": "このショッピングサイトでは，代金の支払方法として，銀行振込，コンビニ払い，クレジットカード払い（以下，カード払いという），商品着払い（以下，着払いという）のいずれかを，注文時に選択できる。注文時に選択した支払方法と入金方法が異なることはない。銀行振込及びコンビニ払いによる入金の情報が入金ファイルに格納され，入金が確認できた注文を出荷対象とする。支払方法にカード払い又は着払いが選択された場合は，注文を受けた翌日に出荷する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 注文ファイルは，図1に示すレコード様式の順ファイルである。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-record-layout",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 注文ファイルのレコード様式",
+        "alt": "{\"fields\":[[\"注文番号\",8],[\"注文日時\",14],[\"請求金額\",7],[\"支払種別\",1]]}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-record-layout",
+          "values": [
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 50,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "① 注文番号には，注文ごとに一意に割り振られた番号が設定されている。注文番号として，99999999が割り振られることはない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② 注文日時には，西暦の年，月，日と，24時間表記の時，分，秒が，それぞれ4桁，2桁，2桁，2桁，2桁，2桁で設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 請求金額には，正の整数が設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "④ 支払種別には，注文時に選択された支払方法が，銀行振込，コンビニ払い，カード払い，着払いのそれぞれに対応する値，1，2，3，4で設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "⑤ レコードは，注文番号の昇順に整列されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) 入金ファイルは，図2に示すレコード様式の順ファイルである。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-record-layout",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 入金ファイルのレコード様式",
+        "alt": "{\"fields\":[[\"注文番号\",8],[\"入金日時\",14],[\"入金金額\",7],[\"入金種別\",1]]}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-record-layout",
+          "values": [
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 51,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "① 注文番号には，入金が確認できた注文の注文番号が設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② 入金日時には，西暦の年，月，日と，24時間表記の時，分，秒が，それぞれ4桁，2桁，2桁，2桁，2桁，2桁で設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 入金金額には，正の整数が設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "④ 入金種別には，入金方法が，銀行振込，コンビニ払いのそれぞれに対応する値，1，2で設定されている。"
+      },
+      {
+        "type": "paragraph",
+        "text": "⑤ レコードは，注文番号の昇順に整列されている。同じ注文番号のレコードが複数格納されることはない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) 出荷待ちファイルは，図3に示すレコード様式の順ファイルである。支払方法に銀行振込又はコンビニ払いが選択された注文のうち，入金を確認できなかった商品の情報が格納される。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-record-layout",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図3 出荷待ちファイルのレコード様式",
+        "alt": "{\"fields\":[[\"注文番号\",8],[\"注文日時\",14],[\"請求金額\",7],[\"支払種別\",1]]}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-record-layout",
+          "values": [
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 51,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "① 各項目の内容は，注文ファイルのレコード様式と同じである。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(4) 結果リストの印字様式を図4に示す。見出しは印刷済みとする。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-print-format",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図4 結果リストの印字様式",
+        "alt": "{\"headers\":[\"注文番号\",\"結果\",\"請求金額\",\"入金金額\",\"差額\"],\"rows\":[[\"99999999\",\"XX\",\"Z,ZZZ,ZZ9\",\"Z,ZZZ,ZZ9\",\"--,---,--9\"],[\"99999999\",\"XX\",\"Z,ZZZ,ZZ9\",\"Z,ZZZ,ZZ9\",\"--,---,--9\"]]}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-print-format",
+          "values": [
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 51,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "① 結果リストには，出荷する注文と，エラーと判定した注文の情報を印字する。結果欄に印字するコードと意味を表1に示す。"
+      },
+      {
+        "type": "table",
+        "caption": "表1 結果欄に印字するコードと意味",
+        "columns": [
+          "コード",
+          "判定",
+          "意味"
+        ],
+        "rows": [
+          [
+            "00",
+            "出荷対象",
+            "請求金額と入金金額が一致した。又は，支払方法がカード払い，着払いのいずれかであった。"
+          ],
+          [
+            "10",
+            "エラー",
+            "入金ファイルの注文番号に対応する注文がなかった。"
+          ],
+          [
+            "20",
+            "エラー",
+            "請求金額と入金金額が一致しなかった。"
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "② 差額欄には，入金金額から請求金額を減算した金額を印字する。結果欄のコードが10の場合は，請求金額欄と差額欄には，0を印字する。支払方法がカード払い，着払いのいずれかであった場合は，入金金額欄と差額欄には，0を印字する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 判定がエラーの場合は，出荷待ちファイルに情報は出力せず，個別に対処する。"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "〔プログラム〕"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム",
+        "alt": "COBOLの注文・入金突合せプログラム全89行。行番号01〜37は入力・出力ファイル、レコード、条件名と作業領域の宣言、38〜79はファイルを開き両入力をキー順に処理する主処理、80〜89は注文・入金を順に読む副処理。空欄aは両入力の終了条件、bは支払種別の判定、cは請求金額と入金金額の比較、dは結果レコードの出力文。行番号・全命令・コメントと空欄の位置は、可視のプログラム本文に保持している。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-program",
+          "values": [
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 52,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 53,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            },
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問1の指示文",
+        "alt": "設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-instruction",
+          "values": [
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "aに関する解答群",
+        "alt": "aに関する解答群。ア ORD-EOF\nイ ORD-EOF AND RCP-EOF\nウ ORD-EOF OR RCP-EOF\nエ RCP-EOF",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-bank",
+          "values": [
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "b、cに関する解答群",
+        "alt": "b、cに関する解答群。ア ORD-AMNT = RCP-AMNT\nイ ORD-AMNT = ZERO\nウ ORD-AMNT NOT = RCP-AMNT\nエ ORD-CODE = 1 OR 2\nオ ORD-CODE = 3 OR 4\nカ ORD-CODE = RCP-CODE",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-bank",
+          "values": [
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "dに関する解答群",
+        "alt": "dに関する解答群。ア ADD 1 TO PRT-NO\nイ MOVE SPACE TO PRT-REC\nウ SET ORD-EOF RCP-EOF TO TRUE\nエ WRITE PRT-REC",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-bank",
+          "values": [
+            0,
+            1,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2の指示文",
+        "alt": "設問2 支払方法に銀行振込又はコンビニ払いが選択された注文のうち，注文日の翌日を1日目として，7日を過ぎても入金が確認できなかった注文の注文番号を表示するようにプログラムを変更する。表2中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，組込み関数INTEGER-OF-DATEは，引数に指定されたYYYYMMDD形式の日付を西暦1601年1月1日からの通算の日数に変換して返す。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-instruction",
+          "values": [
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-change-table",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表2 プログラムの変更内容",
+        "alt": "{\"columns\":[\"処理\",\"変更内容\"],\"rows\":[[\"行番号36と37の間に追加\",\"01 CR-DATE-X.\\n   02 CR-DATE    PIC 9(8).\\n77 W-CNT         PIC 9(3).\"],[\"行番号38と39の間に追加\",\"MOVE FUNCTION CURRENT-DATE TO CR-DATE-X. 1)\"],[\"[e]に追加\",\"COMPUTE W-CNT = FUNCTION INTEGER-OF-DATE(CR-DATE)\\n              - FUNCTION INTEGER-OF-DATE(ORD-DATE)\\nIF [f] THEN\\n    DISPLAY ORD-NO\\nEND-IF\"]]}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-change-table",
+          "values": [
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注1) プログラムを実行した日付が，YYYYMMDD形式でCR-DATE-Xに格納される。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "eに関する解答群",
+        "alt": "eに関する解答群。ア 行番号51と52の間\nイ 行番号53と54の間\nウ 行番号65と66の間\nエ 行番号71と72の間",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-bank",
+          "values": [
+            0,
+            1,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm10-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "fに関する解答群",
+        "alt": "fに関する解答群。ア W-CNT < 7\nイ W-CNT = 7\nウ W-CNT > 7\nエ W-CNT NOT = 7",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm10-bank",
+          "values": [
+            0,
+            1,
+            4
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-EOF"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-EOF AND RCP-EOF"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-EOF OR RCP-EOF"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "RCP-EOF"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-AMNT = RCP-AMNT"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-AMNT = ZERO"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-AMNT NOT = RCP-AMNT"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-CODE = 1 OR 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-CODE = 3 OR 4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 54,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ORD-CODE = RCP-CODE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "ADD 1 TO PRT-NO"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "MOVE SPACE TO PRT-REC"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "SET ORD-EOF RCP-EOF TO TRUE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "WRITE PRT-REC"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "行番号51と52の間"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "行番号53と54の間"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "行番号65と66の間"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "行番号71と72の間"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "W-CNT < 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "W-CNT = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "W-CNT > 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-10-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問10 原問題",
+                "page": 55,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "10"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-10",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "code",
+            "language": "cobol",
+            "text": "W-CNT NOT = 7"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問1 d",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問2 e",
+      "choiceIds": [
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問2 f",
+      "choiceIds": [
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21",
+        "choice-value-22"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-9"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-5"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-14"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-16"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-21"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "aは両入力の終わりまで処理するAND。bは支払種別3又は4のカード払い・着払い、cは請求金額と入金金額の一致を判定する。dは印字用レコードのWRITE。eは未入金の注文を出荷待ちへ書いた直後、次の注文の読込み前。fは注文日の翌日を1日目とするのでW-CNT > 7。公式訂正に従い、コード10は請求金額と差額を0、カード払い・着払いは入金金額と差額を0とする。W-CNTはPIC 9(3)で0〜999を表現できるが，日数差1000は収まらず，原題には表現不能時の処理は示されていない。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2018h30h-fe-pm-10-p2"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問10全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

@@ -1,0 +1,9 @@
+import pageAlts from '../tests/fixtures/legacy-2018-spring-pm13-source-alts.json';
+import {spring2018FixedMaterialGroups} from '../src/core/generators/legacy-2018-spring-fixed-materials';
+import assert from 'node:assert/strict';
+import pins from '../tests/fixtures/legacy-2018-spring-pm13-original-metadata.json';
+import {legacy2018SpringPm13Definition as definition} from '../src/core/generators/legacy-2018-spring-pm13';
+import {spring2018PreparedRecords,bindSpring2018PreparedBody,type Spring2018PreparedInput,type Spring2018PreparedSpec} from './import-legacy-2018-spring-pm-preparation';
+export const legacy2018SpringPm13Spec:Spring2018PreparedSpec={number:13,area:'technology',originalPageAlt:page=>{const text=pageAlts[String(page) as keyof typeof pageAlts];assert(text);return text;},pages:[68,69,70,71,72,73],definition,choicePages:[...Array(22).fill(71),...Array(8).fill(72),...Array(12).fill(73)],officialMarks:['イ','オ','エ','オ','ウ','ア'],fieldChoiceCounts:[8,8,6,8,6,6],topics:['表計算','相対参照','マクロ'],keywords:['会議室予約','収容率','照合検索','照合一致','後判定'],materialGroups:spring2018FixedMaterialGroups(13),diagramPages:b=>{if(b.scene.kind!=='source_figure')throw Error('SPRING2018_SCENE');const p=b.scene.profile;return p.endsWith('selection-sheet')?[68]:p.endsWith('reservation-sheet')?[70]:p.endsWith('occupancy')?[69]:p.endsWith('macro')?[72]:p.endsWith('bank-d')?[72]:p.endsWith('bank-e')||p.endsWith('bank-f')?[73]:[71];}};
+export async function legacy2018SpringPm13Records(input:Spring2018PreparedInput){assert.deepEqual(input,pins);return spring2018PreparedRecords(legacy2018SpringPm13Spec,input);}
+export const bindLegacy2018SpringPm13Body=(base:Parameters<typeof bindSpring2018PreparedBody>[0],body:Parameters<typeof bindSpring2018PreparedBody>[1])=>bindSpring2018PreparedBody(base,body,legacy2018SpringPm13Spec);

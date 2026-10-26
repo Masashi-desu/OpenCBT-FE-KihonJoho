@@ -7,17 +7,17 @@ import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope
 const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-pre-2023.json", "utf8"));
 const initialBaseline = () => {
   const b = fixture();
-  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-)/.test(q.id));
-  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-)/.test(t.id));
+  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30h-fe-pm-)/.test(q.id));
+  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30h-fe-pm-)/.test(t.id));
   return b;
 };
 test("the requested expansion cannot pass using the 103 already-distributed questions", () => {
   const reviews = pre2023Reviews.map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   const report = auditPre2023Readiness(initialBaseline(), evidence(), reviews);
   assert.equal(report.status, "not_ready");
-  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062, originalSemanticsReviewed: 112, ready: 0 });
+  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062, originalSemanticsReviewed: 125, ready: 0 });
   assert.equal(report.missingByCheck.compound_answer_model, undefined);
-  assert.equal(report.missingByCheck.originalSemantics, 2950);
+  assert.equal(report.missingByCheck.originalSemantics, 2937);
   assert.equal(report.missingByCheck.generatorSemantics, 3062);
   assert.deepEqual(report.capacity, [
     { kind: "questions", requiredAtLeast: 6330, maximum: 32000, exceeds: false },
@@ -35,15 +35,16 @@ test("deleting an unimplemented collection or changing its count never makes the
   assert.throws(() => auditPre2023Readiness(fixture(), count), /IMPORT_COUNT/);
 });
 
-test("86 samples and two complete 13-major booklets clear five collections while the remaining 2,950 units stay pending", () => {
+test("86 samples and three complete 13-major booklets clear six collections while the remaining 2,937 units stay pending", () => {
   const report = auditPre2023Readiness(fixture(), evidence());
   assert.equal(report.status, "not_ready");
-  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2950, originalSemanticsReviewed: 112, ready: 112 });
+  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2937, originalSemanticsReviewed: 125, ready: 125 });
   assert.equal(report.collections.find(c => c.id === "2017h29h-fe-pm")!.ready, 13);
   assert.equal(report.collections.find(c => c.id === "2017h29a-fe-pm")!.ready, 13);
+  assert.equal(report.collections.find(c => c.id === "2018h30h-fe-pm")!.ready, 13);
   assert.equal(report.collections.find(c => c.id === "2022-apr-sample-b")!.ready, 6);
   assert.equal(report.collections.find(c => c.id === "2022-dec-sample-b")!.ready, 20);
-  assert(report.collections.filter(c => !["2022-apr-sample-b","2022-dec-sample-b","2022-dec-sample-a","2017h29h-fe-pm","2017h29a-fe-pm"].includes(c.id)).every(c => c.ready === 0));
+  assert(report.collections.filter(c => !["2022-apr-sample-b","2022-dec-sample-b","2022-dec-sample-a","2017h29h-fe-pm","2017h29a-fe-pm","2018h30h-fe-pm"].includes(c.id)).every(c => c.ready === 0));
 });
 
 test("a review cannot silently move to a different PDF, question or collection", () => {

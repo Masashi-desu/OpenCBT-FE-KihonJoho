@@ -1,0 +1,2656 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-11",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "Java",
+      "オブジェクト指向",
+      "継承",
+      "文字列表現"
+    ],
+    "keywords": [
+      "Expression",
+      "protected",
+      "toString",
+      "equals",
+      "参照同一性",
+      "値の等価"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 56,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 57,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 58,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 59,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 60,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 61,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+          "page": 62,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "11"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-11",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問11の原7頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "原の6本のJavaプログラムと全解答群を保ち、定数の値と対応する式・出力例・選択肢・解説を変更しています。図は原資料に基づいて組み直しています。",
+        "affectsAnswer": false,
+        "answerDetails": "a：公開クラスが定義されているcom.example.exprを指定する。static importで型そのものの正規名をimportする形にはならない。b：コンストラクタはExpressionを二つ受け取り、左側two、右側fiveの順に渡す。逆順も和は7だが出力の式は(5 + 2)となり、図1の(2 + 5) = 7に一致しない。c：addそのものを文字列結合するとAddition.toStringが呼ばれ、(2 + 5)となる。evaluateでは和だけになり、他の変数では式全体を表さない。cのカ（two + five）はExpression同士の+となるのでコンパイルエラーである。d：add.evaluate()がint値7を返す。dのカは直前の文字列へ左からtwo、fiveを連結するので25となり、和7とは異なる。addそのものなら式の文字列となり、和の数値を出力しない。設問2：他パッケージで下位クラスを実装するコードから使うという目的にはprotectedが適する。同一パッケージからも利用可能であり、protectedを一般に下位クラス専用と断定しない。finalによる改変禁止やpublicの無制限公開とは異なる。設問3：toStringは評価値ではなく左右の式と演算子を再帰的に連結するため((2 + 5) - (2 - 5))。内側2−5を数値に置き換えず、最外側の括弧も省略しない。設問4：現在のequalsはObjectから継承した同一性の判定なので、別々に生成したConstantはfalseとなる。値等価を表すequalsを実装すべきである。==の参照同一性はequalsを上書きしても変わらず、evaluate()同士のintの==は既にtrue。intは参照型ではなく、int値へequalsメソッドを呼び出す式はコンパイルエラーである。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 56,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 57,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 58,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 59,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 60,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 61,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+            "page": 62,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "11"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-11",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は、選択欄の（選）をマークしてください。マークがない場合は、採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問11 次のJavaプログラムの説明及びプログラムを読んで、設問1〜4に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "〔プログラムの説明〕"
+      },
+      {
+        "type": "paragraph",
+        "text": "A君は、先輩エンジニアであるBさんの指導の下で、表現式（以下、式という）を構築するためのライブラリの作成を進めている。ライブラリはAPIを提供する。まず、次のインタフェース及びクラスをパッケージcom.example.exprに作成した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) インタフェースExpressionは、式を表す。すなわち、Expressionを実装するクラスは、型としての式を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① メソッドevaluateは、式を評価した結果を型intで返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(2) クラスConstantは、定数を式（型Expression）として表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① コンストラクタは、引数で与えられた型intの値を表す定数を生成する。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② メソッドevaluateは、この定数の値を返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ メソッドtoStringは、この定数の値を文字列として返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(3) クラスAdditionは、加算を式（型Expression）として表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① コンストラクタは、加算式を生成する。加算式a + bにおいて、演算子+の左側aの部分を左側の式、右側bの部分を右側の式とし、それぞれ引数left及び引数rightで指定する。いずれかの引数がnullのときは、NullPointerExceptionを投げる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② メソッドevaluateは、左側の式を評価した値に右側の式を評価した値を加え、その値を返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ メソッドtoStringは、この加算式を表す文字列を返す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム1",
+        "alt": "プログラム1。package com.example.expr;\n\npublic interface Expression {\n    public int evaluate();\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-program",
+          "values": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 57,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム2",
+        "alt": "プログラム2。package com.example.expr;\n\npublic class Constant implements Expression {\n    private final int value;\n\n    public Constant(int value) {\n        this.value = value;\n    }\n\n    public int evaluate() {\n        return value;\n    }\n\n    public String toString() {\n        return String.valueOf(value);\n    }\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-program",
+          "values": [
+            1,
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 57,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム3",
+        "alt": "プログラム3。package com.example.expr;\n\npublic class Addition implements Expression {\n    private final Expression left, right;\n\n    public Addition(Expression left, Expression right) {\n        if (left == null || right == null) {\n            throw new NullPointerException();\n        }\n        this.left = left;\n        this.right = right;\n    }\n\n    public int evaluate() {\n        return left.evaluate() + right.evaluate();\n    }\n\n    public String toString() {\n        return String.format(\"(%s + %s)\", left, right);\n    }\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-program",
+          "values": [
+            1,
+            0,
+            1,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 57,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問1の指示文",
+        "alt": "設問1 A君は、クラスConstant及びAdditionをAPIとして呼び出すテストをするために、クラスTestをパッケージcom.example.testに作成して実行したところ、図1の出力結果を得た。プログラム4中の［　］に入れる正しい答えを、解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-output",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 メソッドmainの出力結果",
+        "alt": "図1 メソッドmainの出力結果。(2 + 5) = 7",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-output",
+          "values": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム4",
+        "alt": "プログラム4。package com.example.test;\n\nimport [a].Addition;\nimport [a].Constant;\nimport [a].Expression;\n\npublic class Test {\n    public static void main(String[] args) {\n        Expression two = new Constant(2);\n        Expression five = new Constant(5);\n        Expression add = new Addition([b]);\n        System.out.println([c] + \" = \" + [d]);\n        /* α */\n    }\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-program",
+          "values": [
+            1,
+            0,
+            1,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "aに関する解答群",
+        "alt": "aに関する解答群。ア com.example.expr。イ com.example.test。ウ static com.example.expr。エ static com.example.test",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-bank",
+          "values": [
+            1,
+            0,
+            1,
+            0
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "bに関する解答群",
+        "alt": "bに関する解答群。ア 2, 5。イ 5, 2。ウ five。エ five, two。オ two。カ two, five",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-bank",
+          "values": [
+            1,
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "c、dに関する解答群",
+        "alt": "c、dに関する解答群。ア add。イ add.evaluate()。ウ five。エ five.evaluate()。オ two。カ two + five。キ two.evaluate()",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-bank",
+          "values": [
+            1,
+            0,
+            1,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2の指示文",
+        "alt": "設問2 次の記述中の［　］に入れる正しい答えを、解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 59,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "paragraph",
+        "text": "A君は、これまでに作成したプログラムをBさんに見てもらったところ、次のアドバイスを受けた。"
+      },
+      {
+        "type": "paragraph",
+        "text": "“乗除算などの式を実装するクラスを追加する前に、上位クラスを導入して二項演算を表すクラスを簡単に実装できるようにすべきである。また、アプリケーションが必要とする全ての二項演算をライブラリで用意するのは一般に難しいので、パッケージ外でも二項演算がそのクラスの下位クラスとして簡単に実装できるようにすべきである。”"
+      },
+      {
+        "type": "paragraph",
+        "text": "そこで、A君は、次の仕様の抽象クラスをライブラリに追加した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "(1) 抽象クラスBinaryOperatorExpressionは、二項演算子を使用する式（以下、二項演算式という）を表す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "① コンストラクタは、二項演算式を生成する。二項演算式a OP bにおいて、二項演算子OPの左側aの部分を左側の式、右側bの部分を右側の式とし、それぞれ引数left及び引数rightで指定する。いずれかの引数がnullのときは、NullPointerExceptionを投げる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "② メソッドgetLeft及びgetRightは、それぞれ左側の式及び右側の式を返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "③ 抽象メソッドgetOperatorは、この二項演算式の演算子を文字列で返す。"
+      },
+      {
+        "type": "paragraph",
+        "text": "④ メソッドtoStringは、この二項演算式を表す文字列を返す。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2の本文",
+        "alt": "このクラスをBさんに見てもらったところ、“ライブラリで用意されたAPIを呼び出すアプリケーションで二項演算式を表すクラスの実装に使えるようにすることが目的なので、［　］ようにするために、コンストラクタとメソッドgetLeft、getRight及びgetOperatorはpublicではなくprotectedにすべきである”という指摘を受け、その修正をしてプログラム5を作成した。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            2
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 59,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム5",
+        "alt": "プログラム5。package com.example.expr;\n\npublic abstract class BinaryOperatorExpression implements Expression {\n    private final Expression left, right;\n\n    protected BinaryOperatorExpression(Expression left, Expression right) {\n        if (left == null || right == null) {\n            throw new NullPointerException();\n        }\n        this.left = left;\n        this.right = right;\n    }\n\n    protected Expression getLeft() {\n        return left;\n    }\n\n    protected Expression getRight() {\n        return right;\n    }\n\n    protected abstract String getOperator();\n\n    public String toString() {\n        return String.format(\"(%s %s %s)\", getLeft(), getOperator(), getRight());\n    }\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-program",
+          "values": [
+            1,
+            0,
+            1,
+            4
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 60,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問2の解答群",
+        "alt": "設問2の解答群。ア 下位クラスを実装するクラスだけで使える。イ 上位クラスの実装が下位クラスで改変されない。ウ 通常のアプリケーションがどのパッケージからでも呼び出せる。エ パッケージcom.example.expr内の下位クラスだけで使える",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-bank",
+          "values": [
+            1,
+            0,
+            1,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 60,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問3の指示文",
+        "alt": "設問3 次の記述中の［　］に入れる正しい答えを、解答群の中から選べ。ここで、プログラム6中の［a］には、設問1の正しい答えが入っているものとする。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            3
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 61,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "paragraph",
+        "text": "プログラム6は、ライブラリのパッケージ外で二項演算式を実装するテストとして、減算式を表すクラスSubtractionを実装したものである。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-program",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "プログラム6",
+        "alt": "プログラム6。package com.example.test;\n\nimport [a].BinaryOperatorExpression;\nimport [a].Expression;\n\npublic class Subtraction extends BinaryOperatorExpression {\n    public Subtraction(Expression left, Expression right) {\n        super(left, right);\n    }\n\n    public int evaluate() {\n        return getLeft().evaluate() - getRight().evaluate();\n    }\n\n    public String getOperator() {\n        return \"-\";\n    }\n}",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-program",
+          "values": [
+            1,
+            0,
+            1,
+            5
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 61,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問3の本文",
+        "alt": "プログラム6をテストするために、プログラム4のメソッドmainの/* α */の行を図2に示す行に置き換えて実行したところ、図1に示した出力結果に加え、出力結果“［　］”を得た。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            4
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 61,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-output",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図2 メソッドmainの/* α */の行を置き換える行",
+        "alt": "図2 メソッドmainの/* α */の行を置き換える行。System.out.println(new Subtraction(add, new Subtraction(two, five)));",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-output",
+          "values": [
+            1,
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 61,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問3の解答群",
+        "alt": "設問3の解答群。ア ((2 + 5) - (2 - 5))。イ ((7) - (-3))。ウ (2 + 5 - 2 - 5)。エ (2 + 5) - (2 - 5)。オ 0。カ 10",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-bank",
+          "values": [
+            1,
+            0,
+            1,
+            4
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問4の指示文",
+        "alt": "設問4 次の記述中の［　］に入れる正しい答えを、解答群の中から選べ。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            5
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-instruction",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問4の本文",
+        "alt": "Bさんから、更に次の指摘を受けた。“オブジェクトの等価についての考慮も必要である。例えば、［　］を評価すると、二つのインスタンスが表す値が等しいのでtrueになるべきだが、今のクラスConstantの実装ではfalseになる。”",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-instruction",
+          "values": [
+            1,
+            0,
+            1,
+            6
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "captionPresentation": "accessible"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-spring-pm11-bank",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "設問4の解答群",
+        "alt": "設問4の解答群。ア new Constant(9) == new Constant(9)。イ new Constant(9).equals(new Constant(9))。ウ new Constant(9).evaluate() == new Constant(9).evaluate()。エ new Constant(9).evaluate().equals(new Constant(9).evaluate())",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-spring-pm11-bank",
+          "values": [
+            1,
+            0,
+            1,
+            5
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "com.example.expr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "com.example.test"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "static com.example.expr"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "static com.example.test"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "2, 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "5, 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "five"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "five, two"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "two"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "two, five"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "add"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "add.evaluate()"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "five"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "five.evaluate()"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "two"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "two + five"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 58,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "two.evaluate()"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 60,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "下位クラスを実装するクラスだけで使える"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 60,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "上位クラスの実装が下位クラスで改変されない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 60,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "通常のアプリケーションがどのパッケージからでも呼び出せる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 60,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "パッケージcom.example.expr内の下位クラスだけで使える"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "((2 + 5) - (2 - 5))"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "((7) - (-3))"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(2 + 5 - 2 - 5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "(2 + 5) - (2 - 5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-26",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-27",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-28",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "new Constant(9) == new Constant(9)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-29",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "new Constant(9).equals(new Constant(9))"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-30",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "new Constant(9).evaluate() == new Constant(9).evaluate()"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-31",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-11-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問11 原問題",
+                "page": 62,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "11"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-11",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "new Constant(9).evaluate().equals(new Constant(9).evaluate())"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-5",
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問1 d",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15",
+        "choice-value-16",
+        "choice-value-17"
+      ]
+    },
+    {
+      "id": "part-2",
+      "label": "設問2",
+      "choiceIds": [
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20",
+        "choice-value-21"
+      ]
+    },
+    {
+      "id": "part-3",
+      "label": "設問3",
+      "choiceIds": [
+        "choice-value-22",
+        "choice-value-23",
+        "choice-value-24",
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27"
+      ]
+    },
+    {
+      "id": "part-4",
+      "label": "設問4",
+      "choiceIds": [
+        "choice-value-28",
+        "choice-value-29",
+        "choice-value-30",
+        "choice-value-31"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-1"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-10"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-11"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-12"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-2",
+        "choiceId": "choice-value-18"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-3",
+        "choiceId": "choice-value-22"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-4",
+        "choiceId": "choice-value-29"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：公開クラスが定義されているcom.example.exprを指定する。static importで型そのものの正規名をimportする形にはならない。b：コンストラクタはExpressionを二つ受け取り、左側two、右側fiveの順に渡す。逆順も和は7だが出力の式は(5 + 2)となり、図1の(2 + 5) = 7に一致しない。c：addそのものを文字列結合するとAddition.toStringが呼ばれ、(2 + 5)となる。evaluateでは和だけになり、他の変数では式全体を表さない。cのカ（two + five）はExpression同士の+となるのでコンパイルエラーである。d：add.evaluate()がint値7を返す。dのカは直前の文字列へ左からtwo、fiveを連結するので25となり、和7とは異なる。addそのものなら式の文字列となり、和の数値を出力しない。設問2：他パッケージで下位クラスを実装するコードから使うという目的にはprotectedが適する。同一パッケージからも利用可能であり、protectedを一般に下位クラス専用と断定しない。finalによる改変禁止やpublicの無制限公開とは異なる。設問3：toStringは評価値ではなく左右の式と演算子を再帰的に連結するため((2 + 5) - (2 - 5))。内側2−5を数値に置き換えず、最外側の括弧も省略しない。設問4：現在のequalsはObjectから継承した同一性の判定なので、別々に生成したConstantはfalseとなる。値等価を表すequalsを実装すべきである。==の参照同一性はequalsを上書きしても変わらず、evaluate()同士のintの==は既にtrue。intは参照型ではなく、int値へequalsメソッドを呼び出す式はコンパイルエラーである。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問11全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

@@ -1,0 +1,1764 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-template-source-2018h30h-fe-pm-7",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "strategy",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "収益",
+      "損益分岐点"
+    ],
+    "keywords": [
+      "固定費",
+      "変動費率",
+      "最大値下げ率"
+    ]
+  },
+  "origin": {
+    "kind": "official_adaptation",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+          "page": 35,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+          "page": 36,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+          "page": 37,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "derivedFrom": [
+      {
+        "questionId": "question-ipa-2018h30h-fe-pm-7",
+        "revision": 1
+      }
+    ],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問7の原3頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      },
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "diagram",
+        "summary": "原形式を保った画面用の管理描画と可変条件",
+        "details": "販売数・金額・収益条件とグラフの形を変更しています。原問と同じ単位と解答欄の構成で、固定費・変動費・値下げの前提、非表示セル、全解答群を保ち、表と図を再構成しています。",
+        "affectsAnswer": true,
+        "answerDetails": "a：売上高の増分40,000千円に対して利益の増分は10,000千円なので、限界利益率は25%、変動費率は75%。b：ケースXで売上高200,000×25%−利益16,000=34,000千円が固定費。c：損益分岐点売上高は固定費÷限界利益率=34,000÷0.25=136,000千円。d：販売数・変動費総額を固定した値下げでは、売上高の減少分だけ利益が減る。ケースXの最大値下げ率は利益÷値下げ前の売上高=16,000÷200,000=8%。e：ケースYの売上高当たりの固定費はXより小さく、利益率はYの方が高い。従って最大の値下げ率もXより大きい。設問2：費用＝変動費率×売上高＋固定費なので、傾きが変動費率を表す。図中で最も傾きが大きい②を選ぶ。切片が最も高い線とは限らない。f：固定費一定で変動費率を下げると、限界利益率が大きくなるため損益分岐点売上高は下がる。g：原材料の単価を下げる取組みは、同じ販売単価なら変動費率を下げる。給与を上げること、販売数だけを増やすこと、販売単価を下げることは、この固定費一定で変動費率だけを下げる目的の施策ではない。"
+      }
+    ],
+    "isModified": true,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "adapted",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+            "page": 35,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+            "page": 36,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+            "page": 37,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "7"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-7",
+        "rights-original"
+      ],
+      "creatorIds": [
+        "ipa",
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "選択した問題は，選択欄の［選］をマークしてください。マークがない場合は，採点されません。"
+      },
+      {
+        "type": "paragraph",
+        "text": "問7 収益の検討に関する次の記述を読んで、設問1〜3に答えよ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "小規模な部品メーカであるR社は、部品Tだけを生産して大手機械メーカに販売している。"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問1 次の記述中の［　］に入れる適切な答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "利益計画を策定するために、部品Tの販売数について2通りの検討を行った。表1は、部品Tの販売数を1,000千個見込むケースXと、1,200千個見込むケースYについての収益検討表である。両ケースの、売上高に対する変動費の比率（以下、変動費率という）は等しく、固定費は同額である。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-profit-table",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "表1 収益検討表",
+        "alt": "表1 収益検討表。列はケース、X、Y。販売数（千個）は1,000、1,200。売上高（千円）は200,000、240,000。変動費（千円）と固定費（千円）は両ケースとも網掛けで表示していない。利益（千円）は16,000、26,000。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-profit-table",
+          "values": [
+            0,
+            1,
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 35,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "注記 網掛けの部分は表示していない。"
+      },
+      {
+        "type": "paragraph",
+        "text": "表1から、変動費率は［a］%、固定費は［b］千円である。よって、利益が0になる売上高（以下、損益分岐点売上高という）は、［c］千円となる。"
+      },
+      {
+        "type": "paragraph",
+        "text": "R社では、販売先から値下げ要求があることを想定して、販売数及び変動費を変えずに販売単価を下げた場合の値下げ率（値下げ額÷値下げ前の販売単価）と利益の計算を行った。利益がマイナスにならない最大の値下げ率は、ケースXでは［d］%であり、ケースYではケースX［e］。"
+      },
+      {
+        "type": "paragraph",
+        "text": "aに関する解答群\nア　25\nイ　40\nウ　60\nエ　75\nオ　80"
+      },
+      {
+        "type": "paragraph",
+        "text": "bに関する解答群\nア　16,000\nイ　34,000\nウ　64,000\nエ　104,000\nオ　134,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "cに関する解答群\nア　45,333\nイ　64,000\nウ　85,333\nエ　136,000\nオ　256,000"
+      },
+      {
+        "type": "paragraph",
+        "text": "dに関する解答群\nア　4\nイ　8\nウ　10\nエ　12\nオ　16"
+      },
+      {
+        "type": "paragraph",
+        "text": "eに関する解答群\nア　と変わらない\nイ　よりも大きい\nウ　よりも小さい"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問2 R社は、変動費と固定費の合計（以下、費用という）と売上高の関係を他の3社と比較して、分析した。その結果、変動費率はR社が他社と比べて最も高いことが分かった。売上高と費用の関係を示したグラフを、図1に示す。図1のグラフ①〜④のうち、R社に該当するものを、解答群の中から選べ。"
+      },
+      {
+        "type": "diagram",
+        "id": "diagram-legacy-2018-cost-curves",
+        "rendererRef": {
+          "id": "renderer-source-figures",
+          "version": "1.0.0"
+        },
+        "caption": "図1 4社の売上高と費用の関係を示したグラフ",
+        "alt": "図1 4社の売上高と費用の関係を示したグラフ。横軸は売上高、縦軸は費用、原点は0で、数値目盛りはない。①は実線、②は破線、③は点線、④は長破線。4本とも正の切片をもち右上がりの直線で、縦軸との交点は上から①③②④。傾きは小さい順に④、③、①、②。",
+        "scene": {
+          "kind": "source_figure",
+          "profile": "legacy-2018-cost-curves",
+          "values": [
+            1
+          ]
+        },
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "text": "解答群\nア　①\nイ　②\nウ　③\nエ　④"
+      },
+      {
+        "type": "paragraph",
+        "text": "設問3 R社は、変動費率を下げる取組みを開始した。次の記述中の［　］に入れる適切な答えを、解答群の中から選べ。"
+      },
+      {
+        "type": "paragraph",
+        "text": "R社は、固定費を変えずに変動費率だけを下げることによって、損益分岐点売上高を［f］こととした。そのために、［g］取組みを開始した。"
+      },
+      {
+        "type": "paragraph",
+        "text": "fに関する解答群\nア　上げる\nイ　下げる\nウ　0にする"
+      },
+      {
+        "type": "paragraph",
+        "text": "gに関する解答群\nア　原材料の単価を下げる\nイ　社員の給与を上げる\nウ　販売数を増やす\nエ　販売単価を下げる"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-value-1",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "25"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-2",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "40"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-3",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "60"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-4",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "75"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-5",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "80"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-6",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "16,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-7",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "34,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-8",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "64,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-9",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "104,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-10",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "134,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-11",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "45,333"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-12",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "64,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-13",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "85,333"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-14",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "136,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-15",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "256,000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-16",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-17",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-18",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-19",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-20",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "16"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-21",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "と変わらない"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-22",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "よりも大きい"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-23",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 36,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "よりも小さい"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-24",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "①"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-25",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "②"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-26",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "③"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-27",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "④"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-28",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "上げる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-29",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "下げる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-30",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "0にする"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-31",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "原材料の単価を下げる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-32",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "社員の給与を上げる"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-33",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "販売数を増やす"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-value-34",
+      "content": {
+        "attribution": {
+          "origin": "adapted",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+                "page": 37,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "7"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-7",
+            "rights-original"
+          ],
+          "creatorIds": [
+            "ipa",
+            "codex"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "販売単価を下げる"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-value-1",
+        "choice-value-2",
+        "choice-value-3",
+        "choice-value-4",
+        "choice-value-5"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-value-6",
+        "choice-value-7",
+        "choice-value-8",
+        "choice-value-9",
+        "choice-value-10"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-value-11",
+        "choice-value-12",
+        "choice-value-13",
+        "choice-value-14",
+        "choice-value-15"
+      ]
+    },
+    {
+      "id": "part-d",
+      "label": "設問1 d",
+      "choiceIds": [
+        "choice-value-16",
+        "choice-value-17",
+        "choice-value-18",
+        "choice-value-19",
+        "choice-value-20"
+      ]
+    },
+    {
+      "id": "part-e",
+      "label": "設問1 e",
+      "choiceIds": [
+        "choice-value-21",
+        "choice-value-22",
+        "choice-value-23"
+      ]
+    },
+    {
+      "id": "part-graph",
+      "label": "設問2",
+      "choiceIds": [
+        "choice-value-24",
+        "choice-value-25",
+        "choice-value-26",
+        "choice-value-27"
+      ]
+    },
+    {
+      "id": "part-f",
+      "label": "設問3 f",
+      "choiceIds": [
+        "choice-value-28",
+        "choice-value-29",
+        "choice-value-30"
+      ]
+    },
+    {
+      "id": "part-g",
+      "label": "設問3 g",
+      "choiceIds": [
+        "choice-value-31",
+        "choice-value-32",
+        "choice-value-33",
+        "choice-value-34"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-value-4"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-value-7"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-value-14"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-d",
+        "choiceId": "choice-value-17"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-e",
+        "choiceId": "choice-value-22"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-graph",
+        "choiceId": "choice-value-25"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-f",
+        "choiceId": "choice-value-29"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-g",
+        "choiceId": "choice-value-31"
+      }
+    ],
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    }
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：売上高の増分40,000千円に対して利益の増分は10,000千円なので、限界利益率は25%、変動費率は75%。b：ケースXで売上高200,000×25%−利益16,000=34,000千円が固定費。c：損益分岐点売上高は固定費÷限界利益率=34,000÷0.25=136,000千円。d：販売数・変動費総額を固定した値下げでは、売上高の減少分だけ利益が減る。ケースXの最大値下げ率は利益÷値下げ前の売上高=16,000÷200,000=8%。e：ケースYの売上高当たりの固定費はXより小さく、利益率はYの方が高い。従って最大の値下げ率もXより大きい。設問2：費用＝変動費率×売上高＋固定費なので、傾きが変動費率を表す。図中で最も傾きが大きい②を選ぶ。切片が最も高い線とは限らない。f：固定費一定で変動費率を下げると、限界利益率が大きくなるため損益分岐点売上高は下がる。g：原材料の単価を下げる取組みは、同じ販売単価なら変動費率を下げる。給与を上げること、販売数だけを増やすこと、販売単価を下げることは、この固定費一定で変動費率だけを下げる目的の施策ではない。"
+      }
+    ]
+  },
+  "assetRefs": [],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問7全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

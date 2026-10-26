@@ -1,0 +1,37 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {schema} from '../src/core/validation';import {contentHash} from '../src/core/hash';import {validateAnswerDefinition,gradeAnswer} from '../src/core/answers';
+import {legacy2018SpringPm9Records as r9,bindLegacy2018SpringPm9Body as b9} from '../scripts/import-legacy-2018-spring-pm9';
+import {legacy2018SpringPm10Records as r10,bindLegacy2018SpringPm10Body as b10} from '../scripts/import-legacy-2018-spring-pm10';
+import {legacy2018SpringPm11Records as r11,bindLegacy2018SpringPm11Body as b11} from '../scripts/import-legacy-2018-spring-pm11';
+import {legacy2018SpringPm12Records as r12,bindLegacy2018SpringPm12Body as b12} from '../scripts/import-legacy-2018-spring-pm12';
+import {legacy2018SpringPm9Definition as d9} from '../src/core/generators/legacy-2018-spring-pm9';import {legacy2018SpringPm10Definition as d10} from '../src/core/generators/legacy-2018-spring-pm10';import {legacy2018SpringPm11Definition as d11} from '../src/core/generators/legacy-2018-spring-pm11';import {legacy2018SpringPm12Definition as d12} from '../src/core/generators/legacy-2018-spring-pm12';
+import i9 from './fixtures/legacy-2018-spring-pm9-original-metadata.json';import i10 from './fixtures/legacy-2018-spring-pm10-original-metadata.json';import i11 from './fixtures/legacy-2018-spring-pm11-original-metadata.json';import i12 from './fixtures/legacy-2018-spring-pm12-original-metadata.json';
+test('four pure factories retain original symbol-only choices, reference pairs and excluded/unconfirmed material status',async()=>{
+ const outputs=[await r9(i9),await r10(i10),await r11(i11),await r12(i12)],expectedAssets=[6,7,7,11],expectedChoices=[15,22,31,34],fields=[6,6,7,6];
+ for(const [index,{bundle,validation}]of outputs.entries()){
+  assert.equal(bundle.questions.length,2);assert.equal(bundle.templates.length,1);assert.equal(bundle.assets.length,expectedAssets[index]);assert.equal(bundle.questions[0].choices.length,expectedChoices[index]);
+  for(const q of bundle.questions){assert.equal(q.distribution,'excluded');assert.equal(q.choiceShuffleAllowed,false);validateAnswerDefinition(q);assert.equal(q.answerParts?.length,fields[index]);}
+  for(const r of bundle.rights)assert.deepEqual(r.uses,{repositoryRedistribution:'unconfirmed',browserDisplay:'unconfirmed',adaptation:'unconfirmed'});
+  const original=bundle.questions[0];for(const p of original.answerParts!)p.choiceIds.forEach((id,n)=>{const choice=original.choices.find(c=>c.id===id)!;assert.deepEqual(choice.content.blocks,[{type:'paragraph',text:'アイウエオカキ'[n]}]);assert.equal(choice.content.attribution.origin,'official');});
+  assert.equal(bundle.templates[0].originalContentSha256,await contentHash(bundle.questions[1]));assert.equal(validation.ordinaryAppRegistered,false);assert.equal(validation.materialAdmission,false);schema('question',bundle.questions[1]);const unknown=structuredClone(bundle.questions[1]);const block=unknown.prompt.blocks.find(b=>b.type==='diagram');assert(block?.type==='diagram'&&block.scene.kind==='source_figure');block.scene.profile='unreviewed-profile';assert.throws(()=>schema('question',unknown),/SCHEMA|schema|enum/);
+ }
+ assert.equal(outputs[2].bundle.questions[0].origin.isModified,false);assert.equal(outputs[3].bundle.questions[0].origin.isModified,true);assert.equal(outputs[3].bundle.questions[0].origin.kind,'official_reprint');
+});
+test('Q10 fixed erratum and Q12 strict crop/independent contexts survive JSON and every binder',async()=>{
+ const cases=[{out:await r9(i9),definition:d9,bind:b9},{out:await r10(i10),definition:d10,bind:b10},{out:await r11(i11),definition:d11,bind:b11},{out:await r12(i12),definition:d12,bind:b12}];
+ for(const {out,definition,bind}of cases){const q=bind(out.bundle.questions[1],definition.build(definition.fields.map(f=>f.maximum))),saved=JSON.parse(JSON.stringify(q));assert.deepEqual(saved,q);assert.equal(saved.contextRefs.length,saved.contexts.length);assert.equal(saved.assetRefs.length,q.assetRefs.length);validateAnswerDefinition(saved);}
+ const q10=cases[1].out.bundle.questions;for(const q of q10){assert.equal(q.contexts[0].title,'公式正誤表（問10）');assert.deepEqual(q.contexts[0].content.blocks,[{type:'image',assetId:'asset-ipa-2018h30h-fe-pm-10-p2',caption:'平成30年度春期 付属資料 物理p.2'}]);}
+ const q12=cases[3].out.bundle.questions;for(const q of q12){assert.equal(q.contexts.length,2);assert.equal(q.contexts[0].content.blocks.length,6);assert.equal(q.contexts[1].content.attribution.origin,'adapted');assert.deepEqual(q.contexts[1].content.attribution.creatorIds,['unicode','codex']);assert.deepEqual(q.contexts[1].content.attribution.sourceRefs.map(r=>r.sourceId),['source-unicode-17-ucd-q12']);assert(q.origin.changes.some(c=>c.kind==='diagram'&&c.affectsAnswer===false));}
+ const crop=cases[3].out.bundle.assets.find(a=>a.id.endsWith('-casl-p76'))!;assert.equal(crop.height,1240);assert.equal(crop.attribution.origin,'adapted');assert.equal(crop.sha256,'fc293fd67f28ab4dcbe0c961cf6e6d12384b2525651dcf199a81ac5d647e988b');assert.equal(cases[3].out.bundle.assets.filter(a=>a.id.includes('unicode')).length,0);
+});
+test('wrong paper/raw/crop/Unicode/notice inputs fail closed, without material status promotion',async()=>{
+ const wrongPaper=structuredClone(i9);wrongPaper.collection.questionPaper.sha256='0'.repeat(64);await assert.rejects(r9(wrongPaper));const wrongPixels=structuredClone(i11);wrongPixels.rendered.pages[0].rawImageExtraction.allPixelsEqual=false;await assert.rejects(r11(wrongPixels));
+ const wrongCrop=structuredClone(i12);wrongCrop.materials[2].rawImageExtraction.crop=[0,0,1432,2026];await assert.rejects(r12(wrongCrop));const wrongFact=structuredClone(i12);wrongFact.unicode.rows[0].code='0041';await assert.rejects(r12(wrongFact));const missingNotice=structuredClone(i12);missingNotice.unicode.licenseText='';await assert.rejects(r12(missingNotice));
+});
+
+test('all83 originals/generated conditions preserve539 independently verified fields through JSON grading',async()=>{
+ const cases=[{out:await r9(i9),definition:d9,bind:b9},{out:await r10(i10),definition:d10,bind:b10},{out:await r11(i11),definition:d11,bind:b11},{out:await r12(i12),definition:d12,bind:b12}];let questions=0,fields=0;
+ for(const {out,definition,bind}of cases){const domain=definition.fields.reduce<number[][]>((rows,f)=>rows.flatMap(r=>Array.from({length:f.maximum-f.minimum+1},(_,n)=>[...r,n+f.minimum])),[[]]);
+  for(const q of [out.bundle.questions[0],...domain.map(v=>bind(out.bundle.questions[1],definition.build(v)))]){const saved=JSON.parse(JSON.stringify(q)),selectedPartChoices=Object.fromEntries(saved.correctAnswer.parts.map((a:{kind:string;partId:string;choiceId:string})=>{assert.equal(a.kind,'choice');return[a.partId,a.choiceId];}));const positive=gradeAnswer(saved,{selectedPartChoices});assert.equal(positive.outcome,'correct');assert.equal(positive.parts!.length,saved.answerParts.length);const first=saved.answerParts[0],wrong=first.choiceIds.find((id:string)=>id!==selectedPartChoices[first.id]);assert(wrong);assert.equal(gradeAnswer(saved,{selectedPartChoices:{...selectedPartChoices,[first.id]:wrong}}).outcome,'incorrect');const missing={...selectedPartChoices};delete missing[first.id];assert.equal(gradeAnswer(saved,{selectedPartChoices:missing}).outcome,'unanswered');questions++;fields+=saved.answerParts.length;}}
+ assert.equal(questions,83);assert.equal(fields,539);
+});

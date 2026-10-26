@@ -1,0 +1,976 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "question-ipa-2018h30h-fe-pm-4",
+  "revision": 1,
+  "lifecycle": "active",
+  "subject": "B",
+  "learning": {
+    "area": "technology",
+    "tags": [
+      "legacy-2018",
+      "legacy-afternoon"
+    ],
+    "topics": [
+      "クラウド",
+      "可用性",
+      "性能"
+    ],
+    "keywords": [
+      "仮想マシン",
+      "レプリケーション",
+      "負荷分散",
+      "通信処理量"
+    ]
+  },
+  "origin": {
+    "kind": "official_reprint",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+          "page": 18,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+          "page": 19,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+          "page": 20,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+          "page": 21,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+          "page": 22,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "derivedFrom": [],
+    "changes": [
+      {
+        "at": "2026-10-27T00:00:00Z",
+        "actorId": "codex",
+        "kind": "layout",
+        "summary": "原頁・全解答群を独立解答欄へ対応付け",
+        "details": "問4の原5頁を全画素保持し、原の注意・全択・全解答欄を対応付ける。固定付属資料は別source/rightで保持する。",
+        "affectsAnswer": false
+      }
+    ],
+    "isModified": false,
+    "modificationBasis": "official_source"
+  },
+  "contributors": [
+    {
+      "actorId": "ipa",
+      "role": "author"
+    },
+    {
+      "actorId": "codex",
+      "role": "editor"
+    },
+    {
+      "actorId": "codex",
+      "role": "verifier"
+    }
+  ],
+  "contexts": [],
+  "contextRefs": [],
+  "prompt": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+            "page": 18,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+            "page": 19,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+            "page": 20,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+            "page": 21,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        },
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+            "page": 22,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-4"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2018h30h-fe-pm-4-p18",
+        "caption": "原資料 問4 物理p.18（印刷p.17）"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2018h30h-fe-pm-4-p19",
+        "caption": "原資料 問4 物理p.19（印刷p.18）"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2018h30h-fe-pm-4-p20",
+        "caption": "原資料 問4 物理p.20（印刷p.19）"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2018h30h-fe-pm-4-p21",
+        "caption": "原資料 問4 物理p.21（印刷p.20）"
+      },
+      {
+        "type": "image",
+        "assetId": "asset-ipa-2018h30h-fe-pm-4-p22",
+        "caption": "原資料 問4 物理p.22（印刷p.21）"
+      }
+    ]
+  },
+  "choices": [
+    {
+      "id": "choice-original-1",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-2",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-3",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-4",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-5",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-6",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-7",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-8",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-9",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-10",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-11",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-12",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-13",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ア"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-14",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "イ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-15",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "ウ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-16",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "エ"
+          }
+        ]
+      }
+    },
+    {
+      "id": "choice-original-17",
+      "content": {
+        "attribution": {
+          "origin": "official",
+          "sourceRefs": [
+            {
+              "sourceId": "source-ipa-2018h30h-fe-pm-4-qs",
+              "locator": {
+                "section": "平成30年度 春期 基本情報技術者試験 午後 問4 原問題",
+                "page": 22,
+                "year": 2018,
+                "period": "春期",
+                "exam": "基本情報技術者試験",
+                "subject": "旧制度・午後",
+                "timeSlot": "午後",
+                "questionNumber": "4"
+              }
+            }
+          ],
+          "rightsRefs": [
+            "rights-ipa-2018h30h-fe-pm-4"
+          ],
+          "creatorIds": [
+            "ipa"
+          ]
+        },
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "オ"
+          }
+        ]
+      }
+    }
+  ],
+  "answerParts": [
+    {
+      "id": "part-a",
+      "label": "設問1 a",
+      "choiceIds": [
+        "choice-original-1",
+        "choice-original-2",
+        "choice-original-3",
+        "choice-original-4"
+      ]
+    },
+    {
+      "id": "part-b",
+      "label": "設問1 b",
+      "choiceIds": [
+        "choice-original-5",
+        "choice-original-6",
+        "choice-original-7",
+        "choice-original-8"
+      ]
+    },
+    {
+      "id": "part-c",
+      "label": "設問1 c",
+      "choiceIds": [
+        "choice-original-9",
+        "choice-original-10",
+        "choice-original-11",
+        "choice-original-12"
+      ]
+    },
+    {
+      "id": "part-choice1",
+      "label": "設問2 選択1（順不同）",
+      "choiceIds": [
+        "choice-original-13",
+        "choice-original-14",
+        "choice-original-15",
+        "choice-original-16",
+        "choice-original-17"
+      ]
+    },
+    {
+      "id": "part-choice2",
+      "label": "設問2 選択2（順不同）",
+      "choiceIds": [
+        "choice-original-13",
+        "choice-original-14",
+        "choice-original-15",
+        "choice-original-16",
+        "choice-original-17"
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "attribution": {
+      "origin": "official",
+      "sourceRefs": [
+        {
+          "sourceId": "source-ipa-2018h30h-fe-pm-4-ans",
+          "locator": {
+            "section": "平成30年度 春期 基本情報技術者試験 午後 問4 解答例",
+            "page": 1,
+            "year": 2018,
+            "period": "春期",
+            "exam": "基本情報技術者試験",
+            "subject": "旧制度・午後",
+            "timeSlot": "午後",
+            "questionNumber": "4"
+          }
+        }
+      ],
+      "rightsRefs": [
+        "rights-ipa-2018h30h-fe-pm-4"
+      ],
+      "creatorIds": [
+        "ipa"
+      ]
+    },
+    "parts": [
+      {
+        "kind": "choice",
+        "partId": "part-a",
+        "choiceId": "choice-original-2"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-b",
+        "choiceId": "choice-original-6"
+      },
+      {
+        "kind": "choice",
+        "partId": "part-c",
+        "choiceId": "choice-original-11"
+      },
+      {
+        "kind": "unordered",
+        "partIds": [
+          "part-choice1",
+          "part-choice2"
+        ],
+        "choiceIds": [
+          "choice-original-13",
+          "choice-original-15"
+        ]
+      }
+    ]
+  },
+  "explanation": {
+    "attribution": {
+      "origin": "original",
+      "sourceRefs": [],
+      "rightsRefs": [
+        "rights-original"
+      ],
+      "creatorIds": [
+        "codex"
+      ]
+    },
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "a：1要求の計算処理量は0.1秒、通信処理量は0.07秒である。各能力を50%まで使う1台の処理率は、計算能力×0.5÷0.1と通信能力×0.5÷0.07の小さい方で決まる。その処理率で時間コストを割ると、A〜Dの比較係数は2、1.8、2.38、4.2となり、Bが最小になる。係数の単位は（円／時間）／（要求／秒）。要求が非常に多いという条件で台数の整数性による差を相対的に小さくして比較する。少数の要求でも同じ型が常に最安という意味ではない。\nb：1時間に必要な計算処理量は4000×25=100000秒相当。D型1台が50%で処理できる量は8×3600×0.5=14400秒相当なので、100000÷14400を満たす最低整数は7台。6台では不足する。D型を使う条件、使用率50%、A型基準の処理量を区別する。\nc：図はアクセスを開始する方向を表す。受信ポートだけでなく許可元グループとの組を比較する。グループ2と6はどちらもグループ1から80へのアクセスだけを許す。グループ5は2・4・6から80、グループ1はインターネットから443、グループ4は受信を受け付けないため一致しない。グループ3は2と4から15432及び15672へ許可する。これらは原の独自ポートで、実製品の標準値へ置き換えない。\n設問2：写真のURLを得る新規検索ではフロントとDBを使い、写真実体の取得は複製先に向かう。既に分類・複製された写真へのアクセスが増えても、検索ごとにストレージを読む構成ではない。ストレージだけの障害で他の役割が正常なら、その写真の検索を続けられる。定期複製は最新投稿全件の即時同期や任意の同時障害への保証ではない。直接ストレージへ接続する案より負荷分散装置が介在するため、介在台数が少ないという説明は成立しないが、現実の全通信遅延の大小を断定するものでもない。投稿は一意IDを付けて写真を保存し属性をDBへ登録してIDをキューへ入れ、その後バックが分類する。ストレージ停止時は新規写真を保存できない。全フロント停止時は新規検索要求とURL生成が止まり、既知URLで取得できることとは区別する。"
+      }
+    ]
+  },
+  "assetRefs": [
+    "asset-ipa-2018h30h-fe-pm-4-p18",
+    "asset-ipa-2018h30h-fe-pm-4-p19",
+    "asset-ipa-2018h30h-fe-pm-4-p20",
+    "asset-ipa-2018h30h-fe-pm-4-p21",
+    "asset-ipa-2018h30h-fe-pm-4-p22"
+  ],
+  "choiceShuffleAllowed": false,
+  "distribution": "included",
+  "review": {
+    "checkedOn": "2026-10-27",
+    "reviewerIds": [
+      "codex"
+    ],
+    "checks": {
+      "publication": "pass",
+      "terms": "pass",
+      "thirdParty": "pass",
+      "transcription": "pass",
+      "answer": "pass",
+      "explanation": "pass"
+    },
+    "notes": "原冊子の問4全頁・全解答欄・全選択肢・前提・注記・独自解説を、独立した検算と原資料で照合。付属資料・独立参考は個別に出典と条件を確認。通常アプリと冊子全体の配布判定は別の検証で行う。"
+  }
+}

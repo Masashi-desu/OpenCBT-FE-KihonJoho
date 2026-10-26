@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "template-source-2018h30h-fe-pm-7",
+  "revision": 1,
+  "title": "旧制度・午後：収益と損益分岐点",
+  "baseQuestionRef": {
+    "questionId": "question-template-source-2018h30h-fe-pm-7",
+    "revision": 1
+  },
+  "generatorRef": {
+    "id": "generator-source-2018h30h-fe-pm-7",
+    "version": "3.6.0"
+  },
+  "parameterDomain": {
+    "values": {
+      "length": 4,
+      "minimum": 0,
+      "maximum": 3
+    },
+    "fields": [
+      {
+        "name": "variableCostRatioCase",
+        "minimum": 0,
+        "maximum": 1
+      },
+      {
+        "name": "profitMarginCase",
+        "minimum": 0,
+        "maximum": 2
+      },
+      {
+        "name": "quantityAndMoneyScale",
+        "minimum": 1,
+        "maximum": 3
+      },
+      {
+        "name": "highestSlopeCurve",
+        "minimum": 0,
+        "maximum": 3
+      }
+    ]
+  },
+  "referenceParameters": {
+    "values": [
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+          "page": 35,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+          "page": 36,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-7-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問7 原問題",
+          "page": 37,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "7"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2018h30h-fe-pm-7",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "ipa",
+      "codex"
+    ]
+  },
+  "editorIds": [
+    "codex"
+  ],
+  "lifecycle": "active",
+  "distribution": "included",
+  "bindingBasis": "official_source",
+  "originalContentSha256": "8648c661099c84acd677a94781c510abd466fd13cc61b6ef15e1dfe7c630b608"
+}

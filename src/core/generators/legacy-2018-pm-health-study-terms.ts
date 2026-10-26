@@ -1,0 +1,3 @@
+import type{StudyTerm}from'../study-acronyms';
+export const legacy2018HealthStudyTerms:StudyTerm[]=[{"term":"健康診断の対象年","meaning":"定期健康診断の受診対象となった年。翌年に再検査を実施しても，元の定期健康診断の対象年を引き継ぐので，実施年月の年とは一致しないことがある。","sources":["2018h30h-fe-pm-5"]},{"term":"最新レコードの抽出","meaning":"従業員コードを昇順，同じ従業員内の実施年月を降順に整列し，同じ従業員が続くとき最初の最新の一件だけを残す処理。区分まで組に含めると定期と再検査が別々に残る。","sources":["2018h30h-fe-pm-5"]},{"term":"最少の参照マスタ","meaning":"必要な情報へ到達でき，さらに選んだどのマスタも省けない参照先の組。十分な情報を含むだけの上位集合と区別し，既に抽出された情報と現在の情報の違いも考慮する。","sources":["2018h30h-fe-pm-5"]}];
+export const legacy2018HealthInheritedStudyTerms: {source:string;term:string;canonicalModule:string;canonicalSource:string|null}[]=[];

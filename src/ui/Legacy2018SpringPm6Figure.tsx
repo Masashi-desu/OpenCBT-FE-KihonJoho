@@ -1,0 +1,3 @@
+import {Legacy2018EvmFigure} from './Legacy2018EvmFigures';
+export {Legacy2018SpringPmNativeText,Legacy2018SpringPm6ForecastTable,Legacy2018SpringPm6SourceTable} from './Legacy2018SpringPm5To8Native';
+export function Legacy2018SpringPm6Figure({profile,values,caption}:{profile:string;values:number[];caption:string}){const table=profile==='legacy-2018-evm-plan-table';return <div className={`legacy-2018-spring-source-figure${table?' legacy-2018-spring-plan-with-unit':''}`} data-caption-position={table?'top':'bottom'}>{table&&<><p className="legacy-2018-spring-source-bank-heading">{caption.replace('（単位 人月）','')}</p><p className="legacy-2018-spring-source-unit">単位　人月</p></>}<Legacy2018EvmFigure profile={profile} values={values} caption={caption}/></div>;}

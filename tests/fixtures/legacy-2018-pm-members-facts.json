@@ -1,0 +1,897 @@
+{
+  "source": "2018h30h-fe-pm-3",
+  "checkedOn": "2026-10-23",
+  "sourceBlocks": [
+    {
+      "page": 14,
+      "kind": "p",
+      "text": "選択した問題は、選択欄の丸で囲まれた「選」をマークしてください。マークがない場合は、採点されません。"
+    },
+    {
+      "page": 14,
+      "kind": "p",
+      "text": "問3 小学生を対象とした、ある子供会の名簿を管理する関係データベースに関する次の記述を読んで、設問1〜4に答えよ。"
+    },
+    {
+      "page": 14,
+      "kind": "p",
+      "text": "D子供会は、小学校に入学するときに入会を受け付け、小学校を卒業したら退会する。D子供会では、会員名簿を管理するためのデータベースを構築して、会の運営に活用している。"
+    },
+    {
+      "page": 14,
+      "kind": "p",
+      "text": "このたび、児童のイベントへの参加実績を記録するために、活動表とイベント表を追加した。"
+    },
+    {
+      "page": 14,
+      "kind": "p",
+      "text": "データベースの表構成とデータ格納例を図1に示す。下線付きの項目は、主キーを表す。"
+    },
+    {
+      "page": 14,
+      "kind": "tables",
+      "text": "図1 データベースの表構成とデータ格納例"
+    },
+    {
+      "page": 15,
+      "kind": "p",
+      "text": "設問1 6年生を対象に実施するイベントの案内を配布するために、6年生の保護者の氏名と住所を抽出する。ここで、同一の保護者は重複して抽出しない。また、同じ住所に氏名が同じ保護者は、複数人いないものとする。正しいSQL文を、解答群の中から選べ。"
+    },
+    {
+      "page": 15,
+      "kind": "p",
+      "text": "設問2 イベント番号が18001のイベントに参加した児童のうち、1年生である児童の保護者の保護者番号と氏名を抽出する。ここで、同一の保護者は重複して抽出しない。次のSQL文の［a］に入れる正しい答えを、解答群の中から選べ。"
+    },
+    {
+      "page": 15,
+      "kind": "a",
+      "text": "SELECT DISTINCT 保護者表.保護者番号, 保護者表.保護者氏名\n［a］"
+    },
+    {
+      "page": 16,
+      "kind": "p",
+      "text": "設問3 イベント名と、そのイベントに参加した児童の数を表示する。次のSQL文の［b］に入れる正しい答えを、解答群の中から選べ。ここで、イベント名は全て異なるものとする。"
+    },
+    {
+      "page": 16,
+      "kind": "b",
+      "text": "SELECT イベント表.イベント名, ［b］\n  FROM 活動表, イベント表\n WHERE 活動表.イベント番号 = イベント表.イベント番号\n GROUP BY イベント表.イベント名"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "設問4 年度の切替えのために、次に示す手順で表を更新する。(1)、(2)は入会前の準備のために3月31日に実行し、(3)〜(7)は6年生が退会した4月1日に実行する。次のSQL文の［c］に入れる正しい答えを、解答群の中から選べ。"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "〔手順〕"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(1) 新入会児童の保護者のうち、未登録の保護者を登録する。"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(2) 新入会児童を登録する。このとき、学年の値は0とする。"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(3) 活動表のレコードを全て削除する。"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(4) 児童表の全ての児童に対して、学年の値に1を加える。"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(5) 児童表から、学年の値が7の児童を削除する。"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(6) 次のSQL文を実行して、保護者表から、在籍する児童がいなくなった保護者を削除する。"
+    },
+    {
+      "page": 17,
+      "kind": "c",
+      "text": "DELETE FROM 保護者表\n WHERE ［c］"
+    },
+    {
+      "page": 17,
+      "kind": "p",
+      "text": "(7) イベント表のレコードを全て削除してから、新年度の計画に合わせてイベントを登録する。"
+    }
+  ],
+  "tables": [
+    {
+      "title": "保護者表",
+      "columns": [
+        "保護者番号",
+        "保護者氏名",
+        "電話番号",
+        "住所"
+      ],
+      "primary": [
+        "保護者番号"
+      ],
+      "shownRows": 1,
+      "shownData": [
+        [
+          12021,
+          "情報花子",
+          "03-1111-2222",
+          "東京都○○区□□□"
+        ]
+      ]
+    },
+    {
+      "title": "児童表",
+      "columns": [
+        "児童番号",
+        "児童氏名",
+        "学年",
+        "保護者番号"
+      ],
+      "primary": [
+        "児童番号"
+      ],
+      "shownRows": 2,
+      "shownData": [
+        [
+          12027,
+          "情報一郎",
+          6,
+          12021
+        ],
+        [
+          14021,
+          "情報二郎",
+          4,
+          12021
+        ]
+      ]
+    },
+    {
+      "title": "活動表",
+      "columns": [
+        "児童番号",
+        "イベント番号"
+      ],
+      "primary": [
+        "児童番号",
+        "イベント番号"
+      ],
+      "shownRows": 3,
+      "knownPairs": [
+        [
+          12027,
+          18001
+        ],
+        [
+          14021,
+          18001
+        ],
+        [
+          12027,
+          18002
+        ]
+      ]
+    },
+    {
+      "title": "イベント表",
+      "columns": [
+        "イベント番号",
+        "イベント名",
+        "開催日"
+      ],
+      "primary": [
+        "イベント番号"
+      ],
+      "shownRows": 2,
+      "knownRows": [
+        [
+          18001,
+          "歓迎会",
+          20180407
+        ],
+        [
+          18002,
+          "地域清掃",
+          20180414
+        ]
+      ]
+    }
+  ],
+  "originalChoices": [
+    [
+      "SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表\n WHERE 保護者表.保護者番号 NOT IN\n       (SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 6)",
+      "SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 児童表.学年 = 6\n GROUP BY 保護者表.保護者氏名, 保護者表.住所",
+      "SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号 AND 児童表.学年 = 6",
+      "SELECT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号\n GROUP BY 保護者表.保護者氏名, 保護者表.住所 HAVING 児童表.学年 = 6"
+    ],
+    [
+      "FROM 児童表, 保護者表, イベント表\nWHERE 児童表.学年 = 1 AND\n      イベント表.イベント番号 = 18001",
+      "FROM 児童表, 保護者表, イベント表\nWHERE 児童表.保護者番号 = 保護者表.保護者番号 AND\n      児童表.学年 = 1 AND\n      イベント表.イベント番号 = 18001",
+      "FROM 児童表, 活動表, 保護者表\nWHERE 児童表.児童番号 = 活動表.児童番号 AND\n      児童表.保護者番号 = 保護者表.保護者番号 AND\n      活動表.イベント番号 = 18001\nGROUP BY 児童表.児童氏名 HAVING 児童表.学年 = 1",
+      "FROM 児童表, 活動表, 保護者表\nWHERE 児童表.児童番号 = 活動表.児童番号 AND\n      児童表.保護者番号 = 保護者表.保護者番号 AND\n      児童表.学年 = 1 AND\n      活動表.イベント番号 = 18001"
+    ],
+    [
+      "AVG(活動表.イベント番号)",
+      "COUNT(*)",
+      "MAX(活動表.イベント番号)",
+      "SUM(活動表.イベント番号)"
+    ],
+    [
+      "保護者表.保護者番号 = NULL",
+      "保護者表.保護者番号 IN\n(SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 7)",
+      "保護者表.保護者番号 IN\n(SELECT 児童表.保護者番号 FROM 児童表)",
+      "保護者表.保護者番号 NOT IN\n(SELECT 児童表.保護者番号 FROM 児童表)"
+    ]
+  ],
+  "scaffolds": {
+    "a": "SELECT DISTINCT 保護者表.保護者番号, 保護者表.保護者氏名\n［a］",
+    "b": "SELECT イベント表.イベント名, ［b］\n  FROM 活動表, イベント表\n WHERE 活動表.イベント番号 = イベント表.イベント番号\n GROUP BY イベント表.イベント名",
+    "c": "DELETE FROM 保護者表\n WHERE ［c］"
+  },
+  "partIds": [
+    "part-answer1",
+    "part-a",
+    "part-b",
+    "part-c"
+  ],
+  "partLabels": [
+    "設問1",
+    "設問2 a",
+    "設問3 b",
+    "設問4 c"
+  ],
+  "truth": [
+    [
+      false,
+      false,
+      true,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      false,
+      true,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      true
+    ]
+  ],
+  "addedGeneratedPremise": "児童表の各児童には登録済の保護者番号が一つあり、この項目にNULLは含まれない。",
+  "officialKeys": [
+    "ウ",
+    "エ",
+    "イ",
+    "エ"
+  ],
+  "counterexamples": {
+    "status": "source-only independent SQL/set-model experiment",
+    "sqliteVersion": "3.53.1",
+    "exhaustiveBoundedTotals": {
+      "q1": 164,
+      "a": 1928,
+      "b": 964,
+      "c": 354
+    },
+    "matchesPerOption": {
+      "q1": [
+        2,
+        120,
+        164,
+        148
+      ],
+      "a": [
+        1112,
+        1432,
+        1816,
+        1928
+      ],
+      "b": [
+        82,
+        964,
+        82,
+        82
+      ],
+      "c": [
+        193,
+        193,
+        1,
+        354
+      ]
+    },
+    "universalTruthWithinDeclaredFiniteModel": {
+      "q1": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "a": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "b": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "c": [
+        false,
+        false,
+        false,
+        true
+      ]
+    },
+    "allWrongOptionsHaveCounterexample": true,
+    "counterexamples": {
+      "q10": {
+        "guardians": [
+          1
+        ],
+        "children": [],
+        "activity": [],
+        "context": {
+          "targetGrade": 6
+        },
+        "actual": [
+          [
+            "保護者1",
+            "住所1"
+          ]
+        ],
+        "expected": []
+      },
+      "a0": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            102,
+            1,
+            1
+          ]
+        ],
+        "activity": [],
+        "context": {
+          "event": 18001
+        },
+        "actual": [
+          [
+            1,
+            "保護者1"
+          ]
+        ],
+        "expected": []
+      },
+      "a1": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            102,
+            1,
+            1
+          ]
+        ],
+        "activity": [],
+        "context": {
+          "event": 18001
+        },
+        "actual": [
+          [
+            1,
+            "保護者1"
+          ]
+        ],
+        "expected": []
+      },
+      "b0": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            102,
+            1,
+            1
+          ]
+        ],
+        "activity": [
+          [
+            102,
+            18001
+          ]
+        ],
+        "context": null,
+        "actual": [
+          [
+            "行事18001",
+            18001.0
+          ]
+        ],
+        "expected": [
+          [
+            "行事18001",
+            1
+          ]
+        ]
+      },
+      "b2": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            102,
+            1,
+            1
+          ]
+        ],
+        "activity": [
+          [
+            102,
+            18001
+          ]
+        ],
+        "context": null,
+        "actual": [
+          [
+            "行事18001",
+            18001
+          ]
+        ],
+        "expected": [
+          [
+            "行事18001",
+            1
+          ]
+        ]
+      },
+      "b3": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            102,
+            1,
+            1
+          ]
+        ],
+        "activity": [
+          [
+            102,
+            18001
+          ]
+        ],
+        "context": null,
+        "actual": [
+          [
+            "行事18001",
+            18001
+          ]
+        ],
+        "expected": [
+          [
+            "行事18001",
+            1
+          ]
+        ]
+      },
+      "q13": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            101,
+            1,
+            1
+          ],
+          [
+            102,
+            1,
+            4
+          ]
+        ],
+        "activity": [],
+        "context": {
+          "targetGrade": 4
+        },
+        "actual": [],
+        "expected": [
+          [
+            "保護者1",
+            "住所1"
+          ]
+        ]
+      },
+      "a2": {
+        "guardians": [
+          1
+        ],
+        "children": [
+          [
+            101,
+            1,
+            4
+          ],
+          [
+            102,
+            1,
+            1
+          ]
+        ],
+        "activity": [
+          [
+            101,
+            18001
+          ],
+          [
+            102,
+            18001
+          ]
+        ],
+        "context": {
+          "event": 18001
+        },
+        "actual": [],
+        "expected": [
+          [
+            1,
+            "保護者1"
+          ]
+        ]
+      },
+      "q11": {
+        "guardians": [
+          1,
+          2
+        ],
+        "children": [
+          [
+            102,
+            1,
+            4
+          ]
+        ],
+        "activity": [],
+        "context": {
+          "targetGrade": 4
+        },
+        "actual": [
+          [
+            "保護者1",
+            "住所1"
+          ],
+          [
+            "保護者2",
+            "住所2"
+          ]
+        ],
+        "expected": [
+          [
+            "保護者1",
+            "住所1"
+          ]
+        ]
+      },
+      "c0": {
+        "guardians": [
+          1
+        ],
+        "children": [],
+        "activity": [],
+        "context": {
+          "beforeAprilUpdate": []
+        },
+        "actual": [],
+        "expected": [
+          [
+            1
+          ]
+        ]
+      },
+      "c1": {
+        "guardians": [
+          1
+        ],
+        "children": [],
+        "activity": [],
+        "context": {
+          "beforeAprilUpdate": []
+        },
+        "actual": [],
+        "expected": [
+          [
+            1
+          ]
+        ]
+      },
+      "c2": {
+        "guardians": [
+          1
+        ],
+        "children": [],
+        "activity": [],
+        "context": {
+          "beforeAprilUpdate": []
+        },
+        "actual": [],
+        "expected": [
+          [
+            1
+          ]
+        ]
+      }
+    },
+    "groupingBoundary": {
+      "question1エ": "Ungrouped児童.学年 in HAVING; no grouping key determines児童grade.",
+      "aウ": "UngroupedSELECT guardianID/name and HAVINGchildgrade; childname not PK.",
+      "sqlite": "SQLite accepted these queries in this experiment; some result sets coincidentally match. This is not proof of standardSQL validity. Exact structural rule is separately fixed in future review."
+    },
+    "capacityWitness": {
+      "sourceVisibleGuardians": [
+        12021
+      ],
+      "sourceVisibleChildren": [
+        [
+          12027,
+          12021,
+          6
+        ],
+        [
+          14021,
+          12021,
+          4
+        ]
+      ],
+      "sourceVisibleActivity": [
+        [
+          12027,
+          18001
+        ],
+        [
+          14021,
+          18001
+        ],
+        [
+          12027,
+          18002
+        ]
+      ],
+      "guardians": [
+        12021,
+        13021,
+        14021
+      ],
+      "children": [
+        [
+          12027,
+          12021,
+          6
+        ],
+        [
+          14021,
+          12021,
+          4
+        ],
+        [
+          20001,
+          13021,
+          6
+        ],
+        [
+          20002,
+          14021,
+          4
+        ],
+        [
+          20003,
+          13021,
+          1
+        ],
+        [
+          20004,
+          14021,
+          1
+        ]
+      ],
+      "activity": [
+        [
+          12027,
+          18001
+        ],
+        [
+          14021,
+          18001
+        ],
+        [
+          12027,
+          18002
+        ],
+        [
+          20003,
+          18001
+        ],
+        [
+          20004,
+          18002
+        ]
+      ],
+      "interpretation": "The visible source rows and three participation pairs are kept. Additional private rows are one possible completion of the ellipsis, not reconstruction of undisclosed source data, and never added as a question hint."
+    },
+    "cases": [
+      {
+        "values": [
+          0,
+          0
+        ],
+        "invitationGrade": 6,
+        "event": 18001,
+        "invitationOutput": [
+          [
+            "保護者13021",
+            "住所13021"
+          ],
+          [
+            "情報花子",
+            "東京都○○区□□□"
+          ]
+        ],
+        "activityOutput": [
+          [
+            13021,
+            "保護者13021"
+          ]
+        ],
+        "keys": [
+          "ウ",
+          "エ",
+          "イ",
+          "エ"
+        ]
+      },
+      {
+        "values": [
+          0,
+          1
+        ],
+        "invitationGrade": 6,
+        "event": 18002,
+        "invitationOutput": [
+          [
+            "保護者13021",
+            "住所13021"
+          ],
+          [
+            "情報花子",
+            "東京都○○区□□□"
+          ]
+        ],
+        "activityOutput": [
+          [
+            14021,
+            "保護者14021"
+          ]
+        ],
+        "keys": [
+          "ウ",
+          "エ",
+          "イ",
+          "エ"
+        ]
+      },
+      {
+        "values": [
+          1,
+          0
+        ],
+        "invitationGrade": 4,
+        "event": 18001,
+        "invitationOutput": [
+          [
+            "保護者14021",
+            "住所14021"
+          ],
+          [
+            "情報花子",
+            "東京都○○区□□□"
+          ]
+        ],
+        "activityOutput": [
+          [
+            13021,
+            "保護者13021"
+          ]
+        ],
+        "keys": [
+          "ウ",
+          "エ",
+          "イ",
+          "エ"
+        ]
+      },
+      {
+        "values": [
+          1,
+          1
+        ],
+        "invitationGrade": 4,
+        "event": 18002,
+        "invitationOutput": [
+          [
+            "保護者14021",
+            "住所14021"
+          ],
+          [
+            "情報花子",
+            "東京都○○区□□□"
+          ]
+        ],
+        "activityOutput": [
+          [
+            14021,
+            "保護者14021"
+          ]
+        ],
+        "keys": [
+          "ウ",
+          "エ",
+          "イ",
+          "エ"
+        ]
+      }
+    ],
+    "meaningfulProposedInputs": 4,
+    "answerSignatureCount": 1,
+    "answerVariation": "variable",
+    "nullOutsideProposedGeneratedDomain": {
+      "children": [
+        [
+          101,
+          null,
+          1
+        ]
+      ],
+      "expectedOrphans": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "NOT_IN_actual": []
+    },
+    "limits": "Two optional guardians/two optional children grades1/4/6 with all valid participation subsets; annual update separately grades0..6. Bounded enumeration and algebraic argument, not global DBMS/SQL or all unbounded database proof. Source figure hasellipsis and does not reveal the complete dataset. Private witness is not added as an answer hint or claimed as source rows.",
+    "answerIdStructures": 1,
+    "answerContentSignatures": 4,
+    "classificationCorrection": "source-only prototype fixed classification was a part/choice-ID signature misunderstanding. Actual core content signatures4; source-only original model JSON remains immutable research."
+  }
+}

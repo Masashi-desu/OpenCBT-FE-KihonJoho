@@ -1,0 +1,2719 @@
+{
+  "source": "2018h30h-fe-pm-5",
+  "sourceUnits": [
+    {
+      "page": 23,
+      "kind": "notice",
+      "text": "選択した問題は，選択欄の〔丸囲みの選〕をマークしてください。マークがない場合は，採点されません。",
+      "note": "〔丸囲みの選〕は画像中の記号を表す設計用プレースホルダー。実装では原の丸囲み選記号を作図又は同等の字形で維持し、この括弧書きを配布本文にしない。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "問5 健康管理システムの設計に関する次の記述を読んで，設問1，2に答えよ。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "K社は，従業員の健康診断管理業務に健康管理システムを利用している。全従業員には，年1回，誕生月に定期健康診断を受診させる。再検査が必要となった場合には，再度，健康診断を受診させる。"
+    },
+    {
+      "page": 23,
+      "kind": "heading",
+      "text": "健康管理システムを利用した健康診断管理業務の説明"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "月初に，受診日（当月中旬の特定日）を指定して受診案内を通知する。受診すれば，受診した月の月末に健康診断結果を通知する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(1) 健康管理システムに，当月の受診対象者を登録する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "① 当月が誕生月である従業員を抽出する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "② 前月の定期健康診断において，再検査が必要と判定された従業員を抽出する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "③ ①と②で抽出した従業員を受診対象者とし，健康診断コースを決定する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "④ 受診日を決定し，受診対象者の健康診断レコードを健康管理システムに登録する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(2) 受診案内を受診対象者に通知する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(3) 定期健康診断及び再検査の受診後に，受診者の判定結果などを健康管理システムに登録する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(4) 受診者に，健康診断結果を通知する。"
+    },
+    {
+      "page": 23,
+      "kind": "heading",
+      "text": "健康管理システムの機能の説明"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "健康管理システムの機能一覧を，表1に示す。表1において，“業務との対応”列の項番は，〔健康管理システムを利用した健康診断管理業務の説明〕の項番に対応する。各機能では，健康管理システムの健康診断ファイルのアクセスと，人事システムの各マスタファイル（以下，マスタという）の情報の参照を行う。"
+    },
+    {
+      "page": 24,
+      "kind": "table",
+      "number": 1
+    },
+    {
+      "page": 24,
+      "kind": "heading",
+      "text": "健康管理システム及び人事システムの関係の説明"
+    },
+    {
+      "page": 24,
+      "kind": "p",
+      "text": "健康管理システムは，健康診断結果を健康診断ファイルで管理し，従業員の情報については，必要な項目の最新情報を人事システムの各マスタを参照して利用する。健康管理システム及び人事システムの関係は，図1のとおりである。"
+    },
+    {
+      "page": 24,
+      "kind": "figure",
+      "number": 1
+    },
+    {
+      "page": 25,
+      "kind": "heading",
+      "text": "健康診断ファイルの説明"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "健康診断ファイルのレコード様式を，図2に示す。下線付きの項目は，主キーである。"
+    },
+    {
+      "page": 25,
+      "kind": "figure",
+      "number": 2
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(1) 対象年には，定期健康診断の受診対象となった年を設定する。再検査の場合は，前月に受診した定期健康診断の対象年と同じとする。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(2) 実施年月には，健康診断を受診する年月を設定する。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(3) 区分には，定期健康診断の場合は“定期”を，再検査の場合は“再検”を設定する。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(4) 判定結果，再検査要否及び判定年月日は，対象者登録機能で空白を設定し，判定結果登録機能で更新する。"
+    },
+    {
+      "page": 25,
+      "kind": "heading",
+      "text": "人事システムの各マスタの説明"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "健康管理システムが参照する人事システムの各マスタのレコード様式を，図3に示す。下線付きの項目は，主キーである。"
+    },
+    {
+      "page": 25,
+      "kind": "figure",
+      "number": 3
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "従業員マスタは，従業員の氏名，性別，生年月日などを保持する。従業員コードは，従業員に一意に付けられた番号であり，在勤地コードには，現在の在勤地の在勤地コードが入っている。職位マスタは，職位名と管理職フラグを保持し，管理職フラグで管理職かどうかが判別できる。在勤地マスタは，在勤地名とその在勤地の健康診断実施場所を保持する。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "設問1 次の記述中の空欄に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "健康診断内容決定機能において，定期健康診断対象者抽出機能で従業員マスタから抽出された情報に加えて，定期健康診断の健康診断コース及び健康診断実施場所を決定するために最低限必要となるのは，［a］の情報である。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "再検査対象者抽出機能で健康診断ファイルから抽出された情報に加えて，再検査の健康診断実施場所を決定するために最低限必要となるのは，［b］の情報である。"
+    },
+    {
+      "page": 26,
+      "kind": "choices",
+      "group": "ab",
+      "caption": "a，bに関する解答群"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "設問2 次の記述中の空欄に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "今回，健康管理業務として，12月の受診者の健康診断の判定結果を登録し"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "た後に，当年の健康診断の未受診者を抽出することになった。そのために，未受診者抽出機能を追加することにした。ここで，当年の健康診断の未受診者は，従業員マスタから情報が抽出できる従業員のうち，次のいずれかに該当する者とする。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(1) 当年の定期健康診断の健康診断レコードが存在しない。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(2) 当年の定期健康診断の判定結果が登録されていない。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(3) 当年の定期健康診断の結果，再検査が必要と判定されたが，再検査の健康診断レコードが存在しない，又はその判定結果が登録されていない。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "未受診者抽出機能の処理の流れを図4に示す。ここで，図4の従業員マスタは従業員コードの昇順で整列されているものとする。"
+    },
+    {
+      "page": 27,
+      "kind": "figure",
+      "number": 4
+    },
+    {
+      "page": 27,
+      "kind": "heading",
+      "text": "未受診者抽出機能の処理の説明"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(1) 図4の突合せ処理において，各ファイルを先頭から順次読み込んで処理できるように，前処理として次の①〜③を実行する。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "① 抽出1処理で，対象年が当年のレコードを健康診断ファイルから抽出し，当年の健康診断ファイルを作成する。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "② 整列処理で，当年の健康診断ファイルを［c］で整列し，ファイ"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "ルXを作成する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "③ 抽出2処理で，ファイルXのレコードを先頭から順にファイルYに出力する。ここで，［d］が連続した場合には，最初に出現したレコードだけを出力する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "(2) 突合せ処理で，従業員マスタに存在する従業員コードに対して，次に示す①又は②のいずれかに該当する場合に，従業員コードを未受診者ファイルに出力する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "① 従業員コードが一致するレコードがファイルYに存在しない。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "② ［e］のレコードがファイルYに存在する。"
+    },
+    {
+      "page": 28,
+      "kind": "choices",
+      "group": "c",
+      "caption": "cに関する解答群"
+    },
+    {
+      "page": 28,
+      "kind": "choices",
+      "group": "d",
+      "caption": "dに関する解答群"
+    },
+    {
+      "page": 28,
+      "kind": "choices",
+      "group": "e",
+      "caption": "eに関する解答群"
+    }
+  ],
+  "bodyUnits": [
+    {
+      "page": 23,
+      "kind": "notice",
+      "text": "選択した問題は，選択欄の丸囲みの「選」をマークしてください。マークがない場合は，採点されません。",
+      "note": "〔丸囲みの選〕は画像中の記号を表す設計用プレースホルダー。実装では原の丸囲み選記号を作図又は同等の字形で維持し、この括弧書きを配布本文にしない。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "問5 健康管理システムの設計に関する次の記述を読んで，設問1，2に答えよ。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "K社は，従業員の健康診断管理業務に健康管理システムを利用している。全従業員には，年1回，誕生月に定期健康診断を受診させる。再検査が必要となった場合には，再度，健康診断を受診させる。"
+    },
+    {
+      "page": 23,
+      "kind": "heading",
+      "text": "健康管理システムを利用した健康診断管理業務の説明"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "月初に，受診日（当月中旬の特定日）を指定して受診案内を通知する。受診すれば，受診した月の月末に健康診断結果を通知する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(1) 健康管理システムに，当月の受診対象者を登録する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "① 当月が誕生月である従業員を抽出する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "② 前月の定期健康診断において，再検査が必要と判定された従業員を抽出する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "③ ①と②で抽出した従業員を受診対象者とし，健康診断コースを決定する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "④ 受診日を決定し，受診対象者の健康診断レコードを健康管理システムに登録する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(2) 受診案内を受診対象者に通知する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(3) 定期健康診断及び再検査の受診後に，受診者の判定結果などを健康管理システムに登録する。"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "(4) 受診者に，健康診断結果を通知する。"
+    },
+    {
+      "page": 23,
+      "kind": "heading",
+      "text": "健康管理システムの機能の説明"
+    },
+    {
+      "page": 23,
+      "kind": "p",
+      "text": "健康管理システムの機能一覧を，表1に示す。表1において，“業務との対応”列の項番は，〔健康管理システムを利用した健康診断管理業務の説明〕の項番に対応する。各機能では，健康管理システムの健康診断ファイルのアクセスと，人事システムの各マスタファイル（以下，マスタという）の情報の参照を行う。"
+    },
+    {
+      "page": 24,
+      "kind": "table",
+      "number": 1
+    },
+    {
+      "page": 24,
+      "kind": "heading",
+      "text": "健康管理システム及び人事システムの関係の説明"
+    },
+    {
+      "page": 24,
+      "kind": "p",
+      "text": "健康管理システムは，健康診断結果を健康診断ファイルで管理し，従業員の情報については，必要な項目の最新情報を人事システムの各マスタを参照して利用する。健康管理システム及び人事システムの関係は，図1のとおりである。"
+    },
+    {
+      "page": 24,
+      "kind": "figure",
+      "number": 1,
+      "profile": "legacy-2018-health-system-relation",
+      "caption": "図1 健康管理システム及び人事システムの関係",
+      "alt": "図1 健康管理システム及び人事システムの関係。健康管理システム内の健康診断ファイルから，人事システム内の従業員マスタ・職位マスタ・所属マスタ・在勤地マスタを参照する。"
+    },
+    {
+      "page": 25,
+      "kind": "heading",
+      "text": "健康診断ファイルの説明"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "健康診断ファイルのレコード様式を，図2に示す。下線付きの項目は，主キーである。"
+    },
+    {
+      "page": 25,
+      "kind": "figure",
+      "number": 2,
+      "profile": "legacy-2018-health-record-layout",
+      "caption": "図2 健康診断ファイルのレコード様式",
+      "alt": "図2 健康診断ファイルのレコード様式。左から従業員コード，対象年，実施年月，健康診断コース，区分，健康診断実施場所，受診年月日，判定結果，再検査要否，判定年月日。従業員コード・対象年・実施年月の三項目が下線付き主キー。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(1) 対象年には，定期健康診断の受診対象となった年を設定する。再検査の場合は，前月に受診した定期健康診断の対象年と同じとする。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(2) 実施年月には，健康診断を受診する年月を設定する。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(3) 区分には，定期健康診断の場合は“定期”を，再検査の場合は“再検”を設定する。"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "(4) 判定結果，再検査要否及び判定年月日は，対象者登録機能で空白を設定し，判定結果登録機能で更新する。"
+    },
+    {
+      "page": 25,
+      "kind": "heading",
+      "text": "人事システムの各マスタの説明"
+    },
+    {
+      "page": 25,
+      "kind": "p",
+      "text": "健康管理システムが参照する人事システムの各マスタのレコード様式を，図3に示す。下線付きの項目は，主キーである。"
+    },
+    {
+      "page": 25,
+      "kind": "figure",
+      "number": 3,
+      "profile": "legacy-2018-health-master-layouts",
+      "caption": "図3 健康管理システムが参照する人事システムの各マスタのレコード様式",
+      "alt": "図3 人事システムの各マスタのレコード様式。従業員マスタは従業員コード（下線付き主キー）・氏名・性別・生年月日・職位コード・所属コード・在勤地コード。職位マスタは職位コード（下線付き主キー）・職位名・管理職フラグ。所属マスタは所属コード（下線付き主キー）・所属名。在勤地マスタは在勤地コード（下線付き主キー）・在勤地名・健康診断実施場所。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "従業員マスタは，従業員の氏名，性別，生年月日などを保持する。従業員コードは，従業員に一意に付けられた番号であり，在勤地コードには，現在の在勤地の在勤地コードが入っている。職位マスタは，職位名と管理職フラグを保持し，管理職フラグで管理職かどうかが判別できる。在勤地マスタは，在勤地名とその在勤地の健康診断実施場所を保持する。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "設問1 次の記述中の空欄に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "健康診断内容決定機能において，定期健康診断対象者抽出機能で従業員マスタから抽出された情報に加えて，定期健康診断の健康診断コース及び健康診断実施場所を決定するために最低限必要となるのは，［a］の情報である。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "再検査対象者抽出機能で健康診断ファイルから抽出された情報に加えて，再検査の健康診断実施場所を決定するために最低限必要となるのは，［b］の情報である。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "a，bに関する解答群（解答欄に表示）"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "設問2 次の記述中の空欄に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "page": 26,
+      "kind": "p",
+      "text": "今回，健康管理業務として，12月の受診者の健康診断の判定結果を登録した後に，当年の健康診断の未受診者を抽出することになった。そのために，未受診者抽出機能を追加することにした。ここで，当年の健康診断の未受診者は，従業員マスタから情報が抽出できる従業員のうち，次のいずれかに該当する者とする。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(1) 当年の定期健康診断の健康診断レコードが存在しない。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(2) 当年の定期健康診断の判定結果が登録されていない。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(3) 当年の定期健康診断の結果，再検査が必要と判定されたが，再検査の健康診断レコードが存在しない，又はその判定結果が登録されていない。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "未受診者抽出機能の処理の流れを図4に示す。ここで，図4の従業員マスタは従業員コードの昇順で整列されているものとする。"
+    },
+    {
+      "page": 27,
+      "kind": "figure",
+      "number": 4,
+      "profile": "legacy-2018-health-missing-flow",
+      "caption": "図4 未受診者抽出機能の処理の流れ",
+      "alt": "図4 未受診者抽出機能の処理の流れ。健康診断ファイル，抽出1，当年の健康診断ファイル，整列，ファイルX，抽出2，ファイルY，突合せ，未受診者ファイルの順に線で接続する。左の従業員マスタも突合せへ接続する。ファイルは六つ，処理は四つ。原の接続線に矢印はない。"
+    },
+    {
+      "page": 27,
+      "kind": "heading",
+      "text": "未受診者抽出機能の処理の説明"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "(1) 図4の突合せ処理において，各ファイルを先頭から順次読み込んで処理できるように，前処理として次の①〜③を実行する。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "① 抽出1処理で，対象年が当年のレコードを健康診断ファイルから抽出し，当年の健康診断ファイルを作成する。"
+    },
+    {
+      "page": 27,
+      "kind": "p",
+      "text": "② 整列処理で，当年の健康診断ファイルを［c］で整列し，ファイルXを作成する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "③ 抽出2処理で，ファイルXのレコードを先頭から順にファイルYに出力する。ここで，［d］が連続した場合には，最初に出現したレコードだけを出力する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "(2) 突合せ処理で，従業員マスタに存在する従業員コードに対して，次に示す①又は②のいずれかに該当する場合に，従業員コードを未受診者ファイルに出力する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "① 従業員コードが一致するレコードがファイルYに存在しない。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "② ［e］のレコードがファイルYに存在する。"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "cに関する解答群（解答欄に表示）"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "dに関する解答群（解答欄に表示）"
+    },
+    {
+      "page": 28,
+      "kind": "p",
+      "text": "eに関する解答群（解答欄に表示）"
+    }
+  ],
+  "sourceUnitMapping": [
+    {
+      "bodyIndex": 0,
+      "sourceUnitIndices": [
+        0
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 1,
+      "sourceUnitIndices": [
+        1
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 2,
+      "sourceUnitIndices": [
+        2
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 3,
+      "sourceUnitIndices": [
+        3
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 4,
+      "sourceUnitIndices": [
+        4
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 5,
+      "sourceUnitIndices": [
+        5
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 6,
+      "sourceUnitIndices": [
+        6
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 7,
+      "sourceUnitIndices": [
+        7
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 8,
+      "sourceUnitIndices": [
+        8
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 9,
+      "sourceUnitIndices": [
+        9
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 10,
+      "sourceUnitIndices": [
+        10
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 11,
+      "sourceUnitIndices": [
+        11
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 12,
+      "sourceUnitIndices": [
+        12
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 13,
+      "sourceUnitIndices": [
+        13
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 14,
+      "sourceUnitIndices": [
+        14
+      ],
+      "physicalPages": [
+        23
+      ]
+    },
+    {
+      "bodyIndex": 15,
+      "sourceUnitIndices": [
+        15
+      ],
+      "physicalPages": [
+        24
+      ]
+    },
+    {
+      "bodyIndex": 16,
+      "sourceUnitIndices": [
+        16
+      ],
+      "physicalPages": [
+        24
+      ]
+    },
+    {
+      "bodyIndex": 17,
+      "sourceUnitIndices": [
+        17
+      ],
+      "physicalPages": [
+        24
+      ]
+    },
+    {
+      "bodyIndex": 18,
+      "sourceUnitIndices": [
+        18
+      ],
+      "physicalPages": [
+        24
+      ]
+    },
+    {
+      "bodyIndex": 19,
+      "sourceUnitIndices": [
+        19
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 20,
+      "sourceUnitIndices": [
+        20
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 21,
+      "sourceUnitIndices": [
+        21
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 22,
+      "sourceUnitIndices": [
+        22
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 23,
+      "sourceUnitIndices": [
+        23
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 24,
+      "sourceUnitIndices": [
+        24
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 25,
+      "sourceUnitIndices": [
+        25
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 26,
+      "sourceUnitIndices": [
+        26
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 27,
+      "sourceUnitIndices": [
+        27
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 28,
+      "sourceUnitIndices": [
+        28
+      ],
+      "physicalPages": [
+        25
+      ]
+    },
+    {
+      "bodyIndex": 29,
+      "sourceUnitIndices": [
+        29
+      ],
+      "physicalPages": [
+        26
+      ]
+    },
+    {
+      "bodyIndex": 30,
+      "sourceUnitIndices": [
+        30
+      ],
+      "physicalPages": [
+        26
+      ]
+    },
+    {
+      "bodyIndex": 31,
+      "sourceUnitIndices": [
+        31
+      ],
+      "physicalPages": [
+        26
+      ]
+    },
+    {
+      "bodyIndex": 32,
+      "sourceUnitIndices": [
+        32
+      ],
+      "physicalPages": [
+        26
+      ]
+    },
+    {
+      "bodyIndex": 33,
+      "sourceUnitIndices": [
+        33
+      ],
+      "physicalPages": [
+        26
+      ]
+    },
+    {
+      "bodyIndex": 34,
+      "sourceUnitIndices": [
+        34
+      ],
+      "physicalPages": [
+        26
+      ]
+    },
+    {
+      "bodyIndex": 35,
+      "sourceUnitIndices": [
+        35,
+        36
+      ],
+      "physicalPages": [
+        26,
+        27
+      ]
+    },
+    {
+      "bodyIndex": 36,
+      "sourceUnitIndices": [
+        37
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 37,
+      "sourceUnitIndices": [
+        38
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 38,
+      "sourceUnitIndices": [
+        39
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 39,
+      "sourceUnitIndices": [
+        40
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 40,
+      "sourceUnitIndices": [
+        41
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 41,
+      "sourceUnitIndices": [
+        42
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 42,
+      "sourceUnitIndices": [
+        43
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 43,
+      "sourceUnitIndices": [
+        44
+      ],
+      "physicalPages": [
+        27
+      ]
+    },
+    {
+      "bodyIndex": 44,
+      "sourceUnitIndices": [
+        45,
+        46
+      ],
+      "physicalPages": [
+        27,
+        28
+      ]
+    },
+    {
+      "bodyIndex": 45,
+      "sourceUnitIndices": [
+        47
+      ],
+      "physicalPages": [
+        28
+      ]
+    },
+    {
+      "bodyIndex": 46,
+      "sourceUnitIndices": [
+        48
+      ],
+      "physicalPages": [
+        28
+      ]
+    },
+    {
+      "bodyIndex": 47,
+      "sourceUnitIndices": [
+        49
+      ],
+      "physicalPages": [
+        28
+      ]
+    },
+    {
+      "bodyIndex": 48,
+      "sourceUnitIndices": [
+        50
+      ],
+      "physicalPages": [
+        28
+      ]
+    },
+    {
+      "bodyIndex": 49,
+      "sourceUnitIndices": [
+        51
+      ],
+      "physicalPages": [
+        28
+      ]
+    },
+    {
+      "bodyIndex": 50,
+      "sourceUnitIndices": [
+        52
+      ],
+      "physicalPages": [
+        28
+      ]
+    },
+    {
+      "bodyIndex": 51,
+      "sourceUnitIndices": [
+        53
+      ],
+      "physicalPages": [
+        28
+      ]
+    }
+  ],
+  "table": {
+    "caption": "表1 健康管理システムの機能一覧",
+    "columns": [
+      "機能名",
+      "処理内容",
+      "業務との対応"
+    ],
+    "rows": [
+      [
+        "定期健康診断対象者抽出機能",
+        "当月が誕生月である従業員を従業員マスタから抽出する。",
+        "(1)①"
+      ],
+      [
+        "再検査対象者抽出機能",
+        "前月に定期健康診断を受診した従業員のうち，再検査が必要と判定された従業員を，健康診断ファイルから抽出する。",
+        "(1)②"
+      ],
+      [
+        "健康診断内容決定機能",
+        "定期健康診断対象者抽出機能，再検査対象者抽出機能で抽出した従業員に対して，健康診断コース及び健康診断実施場所を決定する。\n健康診断コースは，定期健康診断の場合は従業員の年齢，性別，管理職かどうかで決定する。再検査の場合は，前月に受診した定期健康診断の健康診断コースと同じとする。\n健康診断実施場所は，転勤になることも考慮し，従業員の現在の在勤地に基づいて決定する。",
+        "(1)③"
+      ],
+      [
+        "対象者登録機能",
+        "健康診断レコードを作成して健康診断ファイルに登録する。",
+        "(1)④"
+      ],
+      [
+        "判定結果登録機能",
+        "健康診断レコードの判定結果，再検査要否及び判定年月日を更新する。\n再検査要否は，定期健康診断後に再検査が必要な場合は“要”で，必要ない場合は“否”で更新する。再検査後の場合は，再検査要否は常に“否”で更新する。\n判定年月日は，処理を実行した年月日で更新する。",
+        "(3)"
+      ]
+    ]
+  },
+  "figures": [
+    {
+      "number": 1,
+      "page": 24,
+      "caption": "健康管理システム及び人事システムの関係",
+      "shape": "two enclosing system boxes; five concave file symbols; one labelled rightward reference connector with brace to four HR masters",
+      "systems": [
+        {
+          "name": "健康管理システム",
+          "files": [
+            "健康診断ファイル"
+          ]
+        },
+        {
+          "name": "人事システム",
+          "files": [
+            "従業員マスタ",
+            "職位マスタ",
+            "所属マスタ",
+            "在勤地マスタ"
+          ]
+        }
+      ],
+      "connector": {
+        "from": "健康管理システム",
+        "to": "人事システムの四マスタ",
+        "label": "参照"
+      }
+    },
+    {
+      "number": 2,
+      "page": 25,
+      "caption": "健康診断ファイルのレコード様式",
+      "shape": "one horizontal record strip of ten cells, three underlined key fields",
+      "records": [
+        {
+          "label": "健康診断ファイル",
+          "fields": [
+            "従業員コード",
+            "対象年",
+            "実施年月",
+            "健康診断コース",
+            "区分",
+            "健康診断実施場所",
+            "受診年月日",
+            "判定結果",
+            "再検査要否",
+            "判定年月日"
+          ],
+          "primaryKey": [
+            "従業員コード",
+            "対象年",
+            "実施年月"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "page": 25,
+      "caption": "健康管理システムが参照する人事システムの各マスタのレコード様式",
+      "shape": "four labelled horizontal record strips, one underlined key per strip",
+      "records": [
+        {
+          "label": "従業員マスタ",
+          "fields": [
+            "従業員コード",
+            "氏名",
+            "性別",
+            "生年月日",
+            "職位コード",
+            "所属コード",
+            "在勤地コード"
+          ],
+          "primaryKey": [
+            "従業員コード"
+          ]
+        },
+        {
+          "label": "職位マスタ",
+          "fields": [
+            "職位コード",
+            "職位名",
+            "管理職フラグ"
+          ],
+          "primaryKey": [
+            "職位コード"
+          ]
+        },
+        {
+          "label": "所属マスタ",
+          "fields": [
+            "所属コード",
+            "所属名"
+          ],
+          "primaryKey": [
+            "所属コード"
+          ]
+        },
+        {
+          "label": "在勤地マスタ",
+          "fields": [
+            "在勤地コード",
+            "在勤地名",
+            "健康診断実施場所"
+          ],
+          "primaryKey": [
+            "在勤地コード"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "page": 27,
+      "caption": "未受診者抽出機能の処理の流れ",
+      "shape": "six file symbols and four operation boxes (operation boxes have side stripes), plain connected lines with no arrowheads",
+      "nodes": [
+        {
+          "id": "health",
+          "kind": "file",
+          "label": "健康診断ファイル"
+        },
+        {
+          "id": "extract1",
+          "kind": "operation",
+          "label": "抽出1"
+        },
+        {
+          "id": "current",
+          "kind": "file",
+          "label": "当年の健康診断ファイル"
+        },
+        {
+          "id": "sort",
+          "kind": "operation",
+          "label": "整列"
+        },
+        {
+          "id": "x",
+          "kind": "file",
+          "label": "ファイルX"
+        },
+        {
+          "id": "extract2",
+          "kind": "operation",
+          "label": "抽出2"
+        },
+        {
+          "id": "y",
+          "kind": "file",
+          "label": "ファイルY"
+        },
+        {
+          "id": "employee",
+          "kind": "file",
+          "label": "従業員マスタ"
+        },
+        {
+          "id": "merge",
+          "kind": "operation",
+          "label": "突合せ"
+        },
+        {
+          "id": "missing",
+          "kind": "file",
+          "label": "未受診者ファイル"
+        }
+      ],
+      "connections": [
+        [
+          "health",
+          "extract1"
+        ],
+        [
+          "extract1",
+          "current"
+        ],
+        [
+          "current",
+          "sort"
+        ],
+        [
+          "sort",
+          "x"
+        ],
+        [
+          "x",
+          "extract2"
+        ],
+        [
+          "extract2",
+          "y"
+        ],
+        [
+          "y",
+          "merge"
+        ],
+        [
+          "employee",
+          "merge"
+        ],
+        [
+          "merge",
+          "missing"
+        ]
+      ],
+      "employeeBranch": "left-hand employee file joins merge operation after Y; no connection to extract2",
+      "directed": false
+    }
+  ],
+  "profiles": [
+    "legacy-2018-health-system-relation",
+    "legacy-2018-health-record-layout",
+    "legacy-2018-health-master-layouts",
+    "legacy-2018-health-missing-flow"
+  ],
+  "figureAlts": [
+    "図1 健康管理システム及び人事システムの関係。健康管理システム内の健康診断ファイルから，人事システム内の従業員マスタ・職位マスタ・所属マスタ・在勤地マスタを参照する。",
+    "図2 健康診断ファイルのレコード様式。左から従業員コード，対象年，実施年月，健康診断コース，区分，健康診断実施場所，受診年月日，判定結果，再検査要否，判定年月日。従業員コード・対象年・実施年月の三項目が下線付き主キー。",
+    "図3 人事システムの各マスタのレコード様式。従業員マスタは従業員コード（下線付き主キー）・氏名・性別・生年月日・職位コード・所属コード・在勤地コード。職位マスタは職位コード（下線付き主キー）・職位名・管理職フラグ。所属マスタは所属コード（下線付き主キー）・所属名。在勤地マスタは在勤地コード（下線付き主キー）・在勤地名・健康診断実施場所。",
+    "図4 未受診者抽出機能の処理の流れ。健康診断ファイル，抽出1，当年の健康診断ファイル，整列，ファイルX，抽出2，ファイルY，突合せ，未受診者ファイルの順に線で接続する。左の従業員マスタも突合せへ接続する。ファイルは六つ，処理は四つ。原の接続線に矢印はない。"
+  ],
+  "choices": {
+    "ab": [
+      "従業員マスタ",
+      "従業員マスタ及び職位マスタ",
+      "従業員マスタ及び在勤地マスタ",
+      "従業員マスタ，職位マスタ及び在勤地マスタ",
+      "職位マスタ",
+      "職位マスタ及び所属マスタ",
+      "職位マスタ及び在勤地マスタ",
+      "所属マスタ",
+      "所属マスタ及び在勤地マスタ",
+      "在勤地マスタ"
+    ],
+    "c": [
+      "従業員コードの昇順",
+      "従業員コードの昇順，実施年月の昇順",
+      "従業員コードの昇順，実施年月の降順",
+      "従業員コードの降順",
+      "従業員コードの降順，実施年月の昇順",
+      "従業員コードの降順，実施年月の降順"
+    ],
+    "d": [
+      "同じ従業員コード",
+      "同じ従業員コード及び区分",
+      "同じ健康診断コース",
+      "同じ健康診断コース及び区分"
+    ],
+    "e": [
+      "判定結果が空白",
+      "再検査要否が“要”",
+      "再検査要否が“否”",
+      "判定結果が空白，又は再検査要否が“要”",
+      "判定結果が空白，又は再検査要否が“否”"
+    ]
+  },
+  "partLabels": [
+    "設問1 a",
+    "設問1 b",
+    "設問2 c",
+    "設問2 d",
+    "設問2 e"
+  ],
+  "truth": [
+    {
+      "values": [
+        0
+      ],
+      "a": [
+        {
+          "label": "ア",
+          "masters": [
+            "E"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "イ",
+          "masters": [
+            "E",
+            "P"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ウ",
+          "masters": [
+            "E",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "エ",
+          "masters": [
+            "E",
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "E"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "オ",
+          "masters": [
+            "P"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "カ",
+          "masters": [
+            "P",
+            "S"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "departmentName",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "キ",
+          "masters": [
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [],
+          "truth": true,
+          "reason": "必要な最新情報を全て得られ，どの選択マスタも省けない"
+        },
+        {
+          "label": "ク",
+          "masters": [
+            "S"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "departmentName",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ケ",
+          "masters": [
+            "S",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "departmentName",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "コ",
+          "masters": [
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        }
+      ],
+      "b": [
+        {
+          "label": "ア",
+          "masters": [
+            "E"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "イ",
+          "masters": [
+            "E",
+            "P"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ウ",
+          "masters": [
+            "E",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [],
+          "truth": true,
+          "reason": "必要な最新情報を全て得られ，どの選択マスタも省けない"
+        },
+        {
+          "label": "エ",
+          "masters": [
+            "E",
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "P"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "オ",
+          "masters": [
+            "P"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "カ",
+          "masters": [
+            "P",
+            "S"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "キ",
+          "masters": [
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ク",
+          "masters": [
+            "S"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ケ",
+          "masters": [
+            "S",
+            "W"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "コ",
+          "masters": [
+            "W"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        }
+      ],
+      "correctIndices": [
+        6,
+        2,
+        2,
+        0,
+        3
+      ]
+    },
+    {
+      "values": [
+        1
+      ],
+      "a": [
+        {
+          "label": "ア",
+          "masters": [
+            "E"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "イ",
+          "masters": [
+            "E",
+            "P"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ウ",
+          "masters": [
+            "E",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "E"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "エ",
+          "masters": [
+            "E",
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "E",
+            "P"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "オ",
+          "masters": [
+            "P"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "カ",
+          "masters": [
+            "P",
+            "S"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "departmentName",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "キ",
+          "masters": [
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "P"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "ク",
+          "masters": [
+            "S"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "departmentName",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ケ",
+          "masters": [
+            "S",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "departmentName",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "S"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "コ",
+          "masters": [
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [],
+          "truth": true,
+          "reason": "必要な最新情報を全て得られ，どの選択マスタも省けない"
+        }
+      ],
+      "b": [
+        {
+          "label": "ア",
+          "masters": [
+            "E"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "イ",
+          "masters": [
+            "E",
+            "P"
+          ],
+          "availableFacts": [
+            "age",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ウ",
+          "masters": [
+            "E",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [],
+          "truth": true,
+          "reason": "必要な最新情報を全て得られ，どの選択マスタも省けない"
+        },
+        {
+          "label": "エ",
+          "masters": [
+            "E",
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "age",
+            "currentPlace",
+            "currentWorkCode",
+            "departmentCode",
+            "employeeId",
+            "managerFlag",
+            "pastCourse",
+            "pastPlace",
+            "positionCode",
+            "sex"
+          ],
+          "sufficient": true,
+          "redundantMasters": [
+            "P"
+          ],
+          "truth": false,
+          "reason": "必要情報は得られるが余分なマスタがあり最低限ではない"
+        },
+        {
+          "label": "オ",
+          "masters": [
+            "P"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "カ",
+          "masters": [
+            "P",
+            "S"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "キ",
+          "masters": [
+            "P",
+            "W"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ク",
+          "masters": [
+            "S"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "ケ",
+          "masters": [
+            "S",
+            "W"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        },
+        {
+          "label": "コ",
+          "masters": [
+            "W"
+          ],
+          "availableFacts": [
+            "employeeId",
+            "pastCourse",
+            "pastPlace"
+          ],
+          "sufficient": false,
+          "redundantMasters": [],
+          "truth": false,
+          "reason": "必要な情報に到達できない"
+        }
+      ],
+      "correctIndices": [
+        9,
+        2,
+        2,
+        0,
+        3
+      ]
+    }
+  ],
+  "batchSinglePartTruths": [
+    {
+      "part": "c",
+      "label": "ア",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          5
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "c",
+      "label": "イ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          5
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "c",
+      "label": "ウ",
+      "truth": true,
+      "counterexample": null
+    },
+    {
+      "part": "c",
+      "label": "エ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          5
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "c",
+      "label": "オ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          5
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "c",
+      "label": "カ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          1,
+          1
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "",
+            "need": ""
+          },
+          {
+            "employee": 202,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "",
+            "need": ""
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": false
+      }
+    },
+    {
+      "part": "d",
+      "label": "ア",
+      "truth": true,
+      "counterexample": null
+    },
+    {
+      "part": "d",
+      "label": "イ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          4
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201802,
+            "course": "A",
+            "kind": "recheck",
+            "result": "",
+            "need": ""
+          },
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": false
+      }
+    },
+    {
+      "part": "d",
+      "label": "ウ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          1,
+          2
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 202,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "",
+            "need": ""
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "d",
+      "label": "エ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          4
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201802,
+            "course": "A",
+            "kind": "recheck",
+            "result": "",
+            "need": ""
+          },
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": false
+      }
+    },
+    {
+      "part": "e",
+      "label": "ア",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          3
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "yes"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "e",
+      "label": "イ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          1
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "",
+            "need": ""
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "e",
+      "label": "ウ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          1
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "",
+            "need": ""
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    },
+    {
+      "part": "e",
+      "label": "エ",
+      "truth": true,
+      "counterexample": null
+    },
+    {
+      "part": "e",
+      "label": "オ",
+      "truth": false,
+      "counterexample": {
+        "states": [
+          0,
+          0,
+          2
+        ],
+        "monthPair": [
+          1,
+          2
+        ],
+        "physicalOrder": "natural",
+        "fileY": [
+          {
+            "employee": 303,
+            "target": 2018,
+            "month": 201801,
+            "course": "A",
+            "kind": "regular",
+            "result": "done",
+            "need": "no"
+          }
+        ],
+        "expectedMissing": [
+          101,
+          202,
+          404
+        ],
+        "actualMissing": [
+          101,
+          202,
+          303,
+          404
+        ],
+        "orderedAndUnique": true
+      }
+    }
+  ],
+  "pageAlt": {
+    "23": "平成30年度 春期 基本情報技術者試験 午後 問5 原資料物理p23（印刷p22）。選択した問題は，選択欄の丸囲みの「選」をマークしてください。マークがない場合は，採点されません。 問5 健康管理システムの設計に関する次の記述を読んで，設問1，2に答えよ。 K社は，従業員の健康診断管理業務に健康管理システムを利用している。全従業員には，年1回，誕生月に定期健康診断を受診させる。再検査が必要となった場合には，再度，健康診断を受診させる。 健康管理システムを利用した健康診断管理業務の説明 月初に，受診日（当月中旬の特定日）を指定して受診案内を通知する。受診すれば，受診した月の月末に健康診断結果を通知する。 (1) 健康管理システムに，当月の受診対象者を登録する。 ① 当月が誕生月である従業員を抽出する。 ② 前月の定期健康診断において，再検査が必要と判定された従業員を抽出する。 ③ ①と②で抽出した従業員を受診対象者とし，健康診断コースを決定する。 ④ 受診日を決定し，受診対象者の健康診断レコードを健康管理システムに登録する。 (2) 受診案内を受診対象者に通知する。 (3) 定期健康診断及び再検査の受診後に，受診者の判定結果などを健康管理システムに登録する。 (4) 受診者に，健康診断結果を通知する。 健康管理システムの機能の説明 健康管理システムの機能一覧を，表1に示す。表1において，“業務との対応”列の項番は，〔健康管理システムを利用した健康診断管理業務の説明〕の項番に対応する。各機能では，健康管理システムの健康診断ファイルのアクセスと，人事システムの各マスタファイル（以下，マスタという）の情報の参照を行う。",
+    "24": "平成30年度 春期 基本情報技術者試験 午後 問5 原資料物理p24（印刷p23）。表1 健康管理システムの機能一覧。機能名、処理内容、業務との対応。定期健康診断対象者抽出機能。当月が誕生月である従業員を従業員マスタから抽出する。。(1)① 再検査対象者抽出機能。前月に定期健康診断を受診した従業員のうち，再検査が必要と判定された従業員を，健康診断ファイルから抽出する。。(1)② 健康診断内容決定機能。定期健康診断対象者抽出機能，再検査対象者抽出機能で抽出した従業員に対して，健康診断コース及び健康診断実施場所を決定する。\n健康診断コースは，定期健康診断の場合は従業員の年齢，性別，管理職かどうかで決定する。再検査の場合は，前月に受診した定期健康診断の健康診断コースと同じとする。\n健康診断実施場所は，転勤になることも考慮し，従業員の現在の在勤地に基づいて決定する。。(1)③ 対象者登録機能。健康診断レコードを作成して健康診断ファイルに登録する。。(1)④ 判定結果登録機能。健康診断レコードの判定結果，再検査要否及び判定年月日を更新する。\n再検査要否は，定期健康診断後に再検査が必要な場合は“要”で，必要ない場合は“否”で更新する。再検査後の場合は，再検査要否は常に“否”で更新する。\n判定年月日は，処理を実行した年月日で更新する。。(3) 健康管理システム及び人事システムの関係の説明 健康管理システムは，健康診断結果を健康診断ファイルで管理し，従業員の情報については，必要な項目の最新情報を人事システムの各マスタを参照して利用する。健康管理システム及び人事システムの関係は，図1のとおりである。 図1 健康管理システム及び人事システムの関係。健康管理システム内の健康診断ファイルから，人事システム内の従業員マスタ・職位マスタ・所属マスタ・在勤地マスタを参照する。",
+    "25": "平成30年度 春期 基本情報技術者試験 午後 問5 原資料物理p25（印刷p24）。健康診断ファイルの説明 健康診断ファイルのレコード様式を，図2に示す。下線付きの項目は，主キーである。 図2 健康診断ファイルのレコード様式。左から従業員コード，対象年，実施年月，健康診断コース，区分，健康診断実施場所，受診年月日，判定結果，再検査要否，判定年月日。従業員コード・対象年・実施年月の三項目が下線付き主キー。 (1) 対象年には，定期健康診断の受診対象となった年を設定する。再検査の場合は，前月に受診した定期健康診断の対象年と同じとする。 (2) 実施年月には，健康診断を受診する年月を設定する。 (3) 区分には，定期健康診断の場合は“定期”を，再検査の場合は“再検”を設定する。 (4) 判定結果，再検査要否及び判定年月日は，対象者登録機能で空白を設定し，判定結果登録機能で更新する。 人事システムの各マスタの説明 健康管理システムが参照する人事システムの各マスタのレコード様式を，図3に示す。下線付きの項目は，主キーである。 図3 人事システムの各マスタのレコード様式。従業員マスタは従業員コード（下線付き主キー）・氏名・性別・生年月日・職位コード・所属コード・在勤地コード。職位マスタは職位コード（下線付き主キー）・職位名・管理職フラグ。所属マスタは所属コード（下線付き主キー）・所属名。在勤地マスタは在勤地コード（下線付き主キー）・在勤地名・健康診断実施場所。",
+    "26": "平成30年度 春期 基本情報技術者試験 午後 問5 原資料物理p26（印刷p25）。従業員マスタは，従業員の氏名，性別，生年月日などを保持する。従業員コードは，従業員に一意に付けられた番号であり，在勤地コードには，現在の在勤地の在勤地コードが入っている。職位マスタは，職位名と管理職フラグを保持し，管理職フラグで管理職かどうかが判別できる。在勤地マスタは，在勤地名とその在勤地の健康診断実施場所を保持する。 設問1 次の記述中の空欄に入れる適切な答えを，解答群の中から選べ。 健康診断内容決定機能において，定期健康診断対象者抽出機能で従業員マスタから抽出された情報に加えて，定期健康診断の健康診断コース及び健康診断実施場所を決定するために最低限必要となるのは，［a］の情報である。 再検査対象者抽出機能で健康診断ファイルから抽出された情報に加えて，再検査の健康診断実施場所を決定するために最低限必要となるのは，［b］の情報である。 a，bに関する解答群。ア 従業員マスタ。イ 従業員マスタ及び職位マスタ。ウ 従業員マスタ及び在勤地マスタ。エ 従業員マスタ，職位マスタ及び在勤地マスタ。オ 職位マスタ。カ 職位マスタ及び所属マスタ。キ 職位マスタ及び在勤地マスタ。ク 所属マスタ。ケ 所属マスタ及び在勤地マスタ。コ 在勤地マスタ 設問2 次の記述中の空欄に入れる適切な答えを，解答群の中から選べ。 今回，健康管理業務として，12月の受診者の健康診断の判定結果を登録し",
+    "27": "平成30年度 春期 基本情報技術者試験 午後 問5 原資料物理p27（印刷p26）。た後に，当年の健康診断の未受診者を抽出することになった。そのために，未受診者抽出機能を追加することにした。ここで，当年の健康診断の未受診者は，従業員マスタから情報が抽出できる従業員のうち，次のいずれかに該当する者とする。 (1) 当年の定期健康診断の健康診断レコードが存在しない。 (2) 当年の定期健康診断の判定結果が登録されていない。 (3) 当年の定期健康診断の結果，再検査が必要と判定されたが，再検査の健康診断レコードが存在しない，又はその判定結果が登録されていない。 未受診者抽出機能の処理の流れを図4に示す。ここで，図4の従業員マスタは従業員コードの昇順で整列されているものとする。 図4 未受診者抽出機能の処理の流れ。健康診断ファイル，抽出1，当年の健康診断ファイル，整列，ファイルX，抽出2，ファイルY，突合せ，未受診者ファイルの順に線で接続する。左の従業員マスタも突合せへ接続する。ファイルは六つ，処理は四つ。原の接続線に矢印はない。 未受診者抽出機能の処理の説明 (1) 図4の突合せ処理において，各ファイルを先頭から順次読み込んで処理できるように，前処理として次の①〜③を実行する。 ① 抽出1処理で，対象年が当年のレコードを健康診断ファイルから抽出し，当年の健康診断ファイルを作成する。 ② 整列処理で，当年の健康診断ファイルを［c］で整列し，ファイ",
+    "28": "平成30年度 春期 基本情報技術者試験 午後 問5 原資料物理p28（印刷p27）。ルXを作成する。 ③ 抽出2処理で，ファイルXのレコードを先頭から順にファイルYに出力する。ここで，［d］が連続した場合には，最初に出現したレコードだけを出力する。 (2) 突合せ処理で，従業員マスタに存在する従業員コードに対して，次に示す①又は②のいずれかに該当する場合に，従業員コードを未受診者ファイルに出力する。 ① 従業員コードが一致するレコードがファイルYに存在しない。 ② ［e］のレコードがファイルYに存在する。 cに関する解答群。ア 従業員コードの昇順。イ 従業員コードの昇順，実施年月の昇順。ウ 従業員コードの昇順，実施年月の降順。エ 従業員コードの降順。オ 従業員コードの降順，実施年月の昇順。カ 従業員コードの降順，実施年月の降順 dに関する解答群。ア 同じ従業員コード。イ 同じ従業員コード及び区分。ウ 同じ健康診断コース。エ 同じ健康診断コース及び区分 eに関する解答群。ア 判定結果が空白。イ 再検査要否が“要”。ウ 再検査要否が“否”。エ 判定結果が空白，又は再検査要否が“要”。オ 判定結果が空白，又は再検査要否が“否”"
+  },
+  "reviewedBodyNormalization": "54原単位を52ブロックへ対応付ける。p26/27の登録し+た後，p27/28のファイ+ルを連結。丸囲み選は意味を明記。解答群見出しの全択は独立解答欄へ表示。"
+}

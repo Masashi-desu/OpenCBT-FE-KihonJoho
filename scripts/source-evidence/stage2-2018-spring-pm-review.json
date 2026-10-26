@@ -1,0 +1,104 @@
+{
+  "schema": "reviewed-legacy-booklet/v1",
+  "collectionId": "2018h30h-fe-pm",
+  "checkedOn": "2026-10-27",
+  "questionPaperSHA256": "bb172e6225037b05e18aec455f7aec8ec66f3e82838c92a27bb50d2d203dbfb9",
+  "answerPaperSHA256": "50c0b5defdb6a579048671d6a371e1ecf982ad59d370c08d1909e16d0f7b0777",
+  "candidateContentSHA256": "ec1ed558828e39678eb41d445295e82ef12c391413b449a6d1170145ca9baeef",
+  "scope": "2018年度春期・旧午後の13大問と個別に確認した19素材用途。問12の原本文・公式解答を保持し、付属p76の文字符号表と導入は配布しない。必要な12文字の事実はUnicode17から別資料として独立編集し、改変表示・個別出典・通知全文を保持する。他年度や全追加範囲の承認ではない。",
+  "majorNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "answerFieldCounts": [
+    5,
+    5,
+    4,
+    5,
+    5,
+    6,
+    8,
+    5,
+    6,
+    6,
+    7,
+    6,
+    6
+  ],
+  "reviewers": [
+    "codex-source-and-independent-content-review",
+    "codex-root-scoped-integration-review"
+  ],
+  "sourceAndMaterialReview": {
+    "fullQuestionPaperPages": 89,
+    "answerPaperPages": 4,
+    "officialAnswerPage": 1,
+    "officialAnswerFields": 74,
+    "officialAnswerDefinitionGroups": 73,
+    "uniqueChoices": 324,
+    "fieldChoiceReferences": 386,
+    "distributedAssets": 85,
+    "q4Unordered": "2 fields form one unordered answer group; all25 choices under17 conditions independently checked",
+    "q8CommonNotation": "Physical4–5 retained as individually credited fixed reference",
+    "q10Erratum": "Physical2 retained separately; table2→CURRENT-DATE note1→e/f banks kept in source order",
+    "q11Java": "Six IPA-authored programs only; physical86–88 are memo pages and no external Java API appendix is distributed",
+    "q12CASL": "Physical74–79; physical76 only1432×1240 upper command/legend crop, SHA fc293fd67f28ab4dcbe0c961cf6e6d12384b2525651dcf199a81ac5d647e988b. Lower JIS section1.3 and table excluded",
+    "q12Unicode": "U+0020 U+002E U+0030–U+0039 from UnicodeData17; fixed native reference distinct from IPA; Unicode License V3 1995bytes",
+    "q13References": "Physical80–85 spreadsheet plus4–5 common notation, both distinct from body68–73"
+  },
+  "independentEvidence": [
+    {
+      "path": "stage2-s2-03-q1-4-13-peer-review-20261027-v1/MANIFEST.json",
+      "sha256": "5eace62c41d4fd83023965acb13fded7a37e05f5626d0467ead2ebb09a2442d0",
+      "byteLength": 31237
+    },
+    {
+      "path": "stage2-s2-03-peer-q5-8-20261027-v1/MANIFEST.json",
+      "sha256": "c4251c49d40a695a6b6966e768e1f5a7e3ecfd72758cfe1ebf0a9e08c31d07e7",
+      "byteLength": 13149
+    },
+    {
+      "path": "stage2-s2-03-independent-q9-12-20261027-v1/MANIFEST.json",
+      "sha256": "bbce7cdc3c89bb5b4187aac49bf458b2f3548d92c04bfe215a9af6c446f9a0c0",
+      "byteLength": 23421
+    },
+    {
+      "path": "stage2-s2-03-q12-unicode-test-addendum-20261027-v1/MANIFEST.json",
+      "sha256": "18b4da197a09fa60f59b2573cf917972ba82a6a52995d11f81e24fabb792dfef",
+      "byteLength": 2194
+    },
+    {
+      "path": "stage2-s2-03-q12-origin-history-fix-20261027-v1/MANIFEST.json",
+      "sha256": "02b09e8d5b78580cf77b1f2957bec0dd73eb56d746ac55706a700b206375e65b",
+      "byteLength": 2851
+    },
+    {
+      "path": "stage2-s2-03-root-precheck-20261027-v1/PEER-AND-OWN-REHASH-v2.json",
+      "sha256": "847a8007a0927085b3e1113250411d07cd95f593d0b1c02c572cd2e67523eea7",
+      "byteLength": 1675
+    }
+  ],
+  "checks": {
+    "transcription": "pass",
+    "rights": "pass",
+    "originalSemantics": "pass",
+    "generatorSemantics": "pass",
+    "rendering": "pass"
+  },
+  "releaseGate": {
+    "status": "separate_mandatory_receipt",
+    "note": "This record certifies the scoped source, material, independent content and per-series rendering reviews. Complete npm check, ordinary-App acceptance and latest-main publication require the separate booklet release receipt. A source review alone does not authorize or certify deployment."
+  },
+  "historyCleanup": "Q12の非最終変更記録から不要な過去answerDetailsだけを削除。原本文・現在の解説・全正答・出典・素材と別由来参考の改変履歴を保持。補遺の独立差分とbefore-factory負例で確認。"
+}

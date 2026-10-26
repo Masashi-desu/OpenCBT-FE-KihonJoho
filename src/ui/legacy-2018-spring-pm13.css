@@ -1,0 +1,19 @@
+/* Native worksheets and source control notation; colors come from tokens.css. */
+.spring2018-pm13-canvas { width: max-content; min-width: 100%; padding: .5em; font-size: calc(1rem * var(--image-scale, 1)); }
+.spring2018-pm13 table { border-collapse: collapse; width: max-content; margin: 0; }
+.spring2018-pm13 th, .spring2018-pm13 td { border: 1px solid var(--diagram-border); padding: .35em .75em; white-space: nowrap; text-align: right; min-width: 5em; }
+.spring2018-pm13 th { background: var(--soft-surface); font-weight: normal; text-align: center; }
+.spring2018-pm13 figcaption { text-align: left; margin: .6em 0; }
+.spring2018-pm13-fraction { display: inline-grid; text-align: center; vertical-align: middle; }
+.spring2018-pm13-fraction > span:first-child { border-bottom: 1px solid var(--diagram-ink); padding: 0 .4em .2em; }
+.spring2018-pm13-fraction > span:last-child { padding: .2em .4em 0; }
+.spring2018-pm13-formula { white-space: nowrap; padding: .5em 2em; }
+.spring2018-pm13-macro { font-family: ui-monospace, monospace; white-space: nowrap; line-height: 1.9; }
+.spring2018-pm13-line { min-height: 1.9em; }
+.spring2018-pm13-indent { margin-left: 1.4em; }
+.spring2018-pm13-loop, .spring2018-pm13-if { border-left: 1px solid var(--diagram-ink); margin-left: .5em; }
+.spring2018-pm13-control-line { display: flex; align-items: baseline; gap: .45em; }
+.spring2018-pm13-control-line > span:first-child { margin-left: -.55em; }
+.spring2018-pm13-bank { display: grid; gap: .65em; }
+.spring2018-pm13-bank-row { display: grid; grid-template-columns: 1.5em auto; gap: .5em; align-items: baseline; }
+.spring2018-pm13-bank-row code { white-space: pre; font-size: 1em; }

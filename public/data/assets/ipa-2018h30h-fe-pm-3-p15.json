@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "3.0.0",
+  "id": "asset-ipa-2018h30h-fe-pm-3-p15",
+  "path": "assets/2018h30h-fe-pm-3-p15.webp",
+  "mediaType": "image/webp",
+  "sha256": "8424cae34a951bbd6e48b75713cb1119a8f3962d8ff8cc4b8fafa2dc1fb006a9",
+  "width": 1432,
+  "height": 2026,
+  "byteLength": 275180,
+  "alt": "原問題物理p.15（印刷p.14）。\n設問1 6年生を対象に実施するイベントの案内を配布するために、6年生の保護者の氏名と住所を抽出する。ここで、同一の保護者は重複して抽出しない。また、同じ住所に氏名が同じ保護者は、複数人いないものとする。正しいSQL文を、解答群の中から選べ。\n設問2 イベント番号が18001のイベントに参加した児童のうち、1年生である児童の保護者の保護者番号と氏名を抽出する。ここで、同一の保護者は重複して抽出しない。次のSQL文の［a］に入れる正しい答えを、解答群の中から選べ。\nSELECT DISTINCT 保護者表.保護者番号, 保護者表.保護者氏名\n［a］\n設問1解答群：ア SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表\n WHERE 保護者表.保護者番号 NOT IN\n       (SELECT 児童表.保護者番号 FROM 児童表 WHERE 児童表.学年 = 6)\nイ SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 児童表.学年 = 6\n GROUP BY 保護者表.保護者氏名, 保護者表.住所\nウ SELECT DISTINCT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号 AND 児童表.学年 = 6\nエ SELECT 保護者表.保護者氏名, 保護者表.住所\n  FROM 保護者表, 児童表\n WHERE 保護者表.保護者番号 = 児童表.保護者番号\n GROUP BY 保護者表.保護者氏名, 保護者表.住所 HAVING 児童表.学年 = 6",
+  "attribution": {
+    "origin": "official",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30h-fe-pm-3-qs",
+        "locator": {
+          "section": "平成30年度 春期 基本情報技術者試験 午後 問3 原問題",
+          "page": 15,
+          "year": 2018,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午後",
+          "timeSlot": "午後",
+          "questionNumber": "3"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2018h30h-fe-pm-3"
+    ],
+    "creatorIds": [
+      "ipa"
+    ]
+  }
+}

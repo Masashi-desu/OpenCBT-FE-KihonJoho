@@ -1,0 +1,18 @@
+/* Source-local structure; all common colors inherit tokens.css. */
+.spring2018-first-figure figcaption { text-align: left; margin: .6rem 0; }
+.spring2018-first-canvas { width: max-content; min-width: 100%; font-size: calc(1rem * var(--image-scale, 1)); padding: .35rem; }
+.spring2018-first-bank { display: grid; gap: .75em 1.8em; }
+.spring2018-first-bank[data-columns="2"] { grid-template-columns: repeat(2, minmax(12em, auto)); }
+.spring2018-first-bank[data-columns="4"] { grid-template-columns: repeat(4, minmax(5em, auto)); }
+.spring2018-first-bank[data-columns="5"] { grid-template-columns: repeat(5, minmax(5em, auto)); }
+.spring2018-first-bank-row { display: grid; grid-template-columns: 1.5em minmax(0, 1fr); gap: .4em; align-items: baseline; }
+.spring2018-first-bank-row code { display: block; white-space: pre; font-size: 1em; }
+.spring2018-first-bank-row span { white-space: pre-wrap; }
+.spring2018-first-table { border-collapse: collapse; width: max-content; margin: 0 auto; }
+.spring2018-first-table th, .spring2018-first-table td { border: 1px solid var(--diagram-border); padding: .4em .8em; text-align: center; white-space: nowrap; }
+.spring2018-native-blank { display: inline-block; box-sizing: border-box; border: 2px solid var(--text-primary); min-width: 4em; padding: 0 .5em; line-height: 1.4; text-align: center; vertical-align: baseline; }
+.spring2018-native-underline { text-underline-offset: .2em; text-decoration-thickness: 1px; }
+
+.spring2018-native-circle { display: inline-flex; align-items: center; justify-content: center; min-width: 1.4em; height: 1.4em; border: 1px solid currentColor; border-radius: 50%; line-height: 1; }
+.spring2018-native-notice { border: 2px solid currentColor; padding: .7em 1em; }
+.spring2018-native-notice-selection { border: 5px double currentColor; }

@@ -27,16 +27,23 @@ const selection: Selection = {
   bookmarkQuestionRef: { questionId: "question-ipa-2026-a-1", revision: 1 },
 };
 
-/** Answer the real issued form. Old-PM fields are independent ordinary
- * single-choice slots; one wrong field makes that major incorrect. */
+/** Answer the real issued choice/unordered form. One wrong first field
+ * makes that major incorrect while every remaining field stays correct. */
 function answerCurrent(run: Run, correct: boolean, at: number) {
   const question = run.issued[run.session.currentIndex];
   if (!question.answerParts) return updateAnswer(run, correct ? question.correctAnswer.choiceId
     : question.choices.find(choice => choice.id !== question.correctAnswer.choiceId)!.id, at);
+  const correctChoices = new Map(question.correctAnswer.parts!.flatMap(answer => {
+    if (answer.kind === "choice") return [[answer.partId, answer.choiceId]];
+    assert.equal(answer.kind, "unordered", "this distribution has no unscored answer slots");
+    assert(answer.kind === "unordered");
+    return answer.partIds.map((id, index) => [id, answer.choiceIds[index]]);
+  }));
+  assert.equal(correctChoices.size, question.answerParts.length);
   for (const [index, part] of question.answerParts.entries()) {
-    const answer = question.correctAnswer.parts!.find(answer => answer.kind === "choice" && answer.partId === part.id);
-    assert(answer?.kind === "choice");
-    const choiceId = correct || index > 0 ? answer.choiceId : part.choiceIds.find(id => id !== answer.choiceId)!;
+    const correctChoice = correctChoices.get(part.id);
+    assert(correctChoice && part.choiceIds.includes(correctChoice));
+    const choiceId = correct || index > 0 ? correctChoice : part.choiceIds.find(id => id !== correctChoice)!;
     assert(choiceId);
     run = updatePartAnswer(run, part.id, choiceId, at);
   }
@@ -46,8 +53,8 @@ function answerCurrent(run: Run, correct: boolean, at: number) {
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
   const rows = generationCoverage(bundle).rows;
-  assert.equal(rows.length, 215);
-  assert.equal(rows.filter(row => row.original.answerParts).length, 26);
+  assert.equal(rows.length, 228);
+  assert.equal(rows.filter(row => row.original.answerParts).length, 39);
   for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {
       ...selection,

@@ -1,0 +1,23 @@
+/* Source-local layout only; colors remain the shared token definitions. */
+.legacy-2018-spring-source-paragraph { white-space: pre-wrap; }
+.legacy-2018-spring-source-blank { display: inline-flex; align-items: center; justify-content: center; min-width: 5.2em; min-height: 1.65em; padding-inline: .4em; border: .14em solid currentColor; margin-inline: .15em; vertical-align: middle; line-height: 1.2; }
+.legacy-2018-spring-source-circle { display: inline-flex; align-items: center; justify-content: center; width: 1.4em; height: 1.4em; border: .1em solid currentColor; border-radius: 50%; line-height: 1; }
+.legacy-2018-spring-source-notice { border: .14em solid currentColor; padding: .7em 1em; }
+.legacy-2018-spring-source-bank-heading { margin-block: 1em .55em; }
+.legacy-2018-spring-source-bank-rows { display: grid; min-width: max-content; gap: .4em 1.5em; }
+.legacy-2018-spring-source-bank-row { display: contents; }
+.legacy-2018-spring-source-bank-row > p { display: flex; gap: 1.1em; margin: .3em 0; white-space: pre-wrap; }
+.legacy-2018-spring-source-bank-symbol { flex: 0 0 1.2em; }
+.legacy-2018-spring-source-bank-table,.legacy-2018-spring-source-table table { border-collapse: collapse; min-width: max-content; }
+.legacy-2018-spring-source-bank-table th,.legacy-2018-spring-source-bank-table td,.legacy-2018-spring-source-table th,.legacy-2018-spring-source-table td { border: 1px solid var(--ink); padding: .4em .7em; text-align: center; }
+.legacy-2018-spring-source-figure[data-caption-position="top"] > figure { display: flex; flex-direction: column; }
+.legacy-2018-spring-source-figure[data-caption-position="top"] > figure > figcaption { order: -1; margin-block: 0 .6em; }
+.legacy-2018-spring-source-unit { text-align: right; margin-block: 0 .25em; }
+.legacy-2018-spring-plan-with-unit > figure > figcaption { display: none; }
+/* These source figures have a larger base minimum than the generic560px.
+   Scale that base as well, so image150 means an actual1.5 size increase. */
+.legacy-2018-spring-source-figure .profile-legacy-2018-evm-timeline .source-figure-svg { width: max(calc(850px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1))); }
+.legacy-2018-spring-source-figure .profile-legacy-2018-evm-status .source-figure-svg { width: max(calc(900px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1))); }
+
+/* PM6 e-header starts above the three expression columns only. */
+.legacy-2018-spring-source-bank-table thead td.legacy-2018-spring-source-bank-corner { border: 0; }

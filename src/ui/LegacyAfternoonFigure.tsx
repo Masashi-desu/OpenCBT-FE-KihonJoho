@@ -25,6 +25,22 @@ import { Legacy2017AutumnPm11Figure } from "./Legacy2017AutumnPm11Figure";
 import { Legacy2017AutumnPm12Figure } from "./Legacy2017AutumnPm12Figure";
 import { Legacy2017AutumnPm13Figure } from "./Legacy2017AutumnPm13Figure";
 
+import { Legacy2018SpringPm1Figure } from "./Legacy2018SpringPm1Figure";
+import { Legacy2018SpringPm2Figure } from "./Legacy2018SpringPm2Figure";
+import { Legacy2018SpringPm3Figure } from "./Legacy2018SpringPm3Figure";
+import { Legacy2018SpringPm4Figure } from "./Legacy2018SpringPm4Figure";
+import { Legacy2018SpringPm5Figure } from "./Legacy2018SpringPm5Figure";
+import { Legacy2018SpringPm6Figure } from "./Legacy2018SpringPm6Figure";
+import { Legacy2018SpringPm7Figure } from "./Legacy2018SpringPm7Figure";
+import { Legacy2018SpringPm8Figure } from "./Legacy2018SpringPm8Figure";
+import { Legacy2018SpringPm9Figure } from "./Legacy2018SpringPm9Figure";
+import { Legacy2018SpringPm10Figure } from "./Legacy2018SpringPm10Figure";
+import { Legacy2018SpringPm11Figure } from "./Legacy2018SpringPm11Figure";
+import { Legacy2018SpringPm12Figure } from "./Legacy2018SpringPm12Figure";
+import { Legacy2018SpringPm13Figure } from "./Legacy2018SpringPm13Figure";
+
+const spring2018Figures = [Legacy2018SpringPm1Figure, Legacy2018SpringPm2Figure, Legacy2018SpringPm3Figure, Legacy2018SpringPm4Figure, Legacy2018SpringPm5Figure, Legacy2018SpringPm6Figure, Legacy2018SpringPm7Figure, Legacy2018SpringPm8Figure, Legacy2018SpringPm9Figure, Legacy2018SpringPm10Figure, Legacy2018SpringPm11Figure, Legacy2018SpringPm12Figure, Legacy2018SpringPm13Figure];
+
 const autumnFigures = [Legacy2017AutumnPm1Figure, Legacy2017AutumnPm2Figure, Legacy2017AutumnPm3Figure,
   Legacy2017AutumnPm4Figure, Legacy2017AutumnPm5Figure, Legacy2017AutumnPm6Figure, Legacy2017AutumnPm7Figure,
   Legacy2017AutumnPm8Figure, Legacy2017AutumnPm9Figure, Legacy2017AutumnPm10Figure, Legacy2017AutumnPm11Figure,
@@ -36,6 +52,16 @@ export function LegacyAfternoonFigure({ profile, values, caption }: { profile: s
   const autumn = /^legacy-2017-autumn-pm(\d+)-/.exec(profile);
   if (autumn) {
     const Figure = autumnFigures[Number(autumn[1]) - 1];
+    if (Figure) return <Figure {...{ profile, values, caption }} />;
+  }
+  const spring2018 = /^legacy-2018-spring-pm(\d+)-/.exec(profile);
+  const number2018 = spring2018 ? Number(spring2018[1]) :
+    profile.startsWith("legacy-2018-health-") ? 5 :
+    profile.startsWith("legacy-2018-evm-") ? 6 :
+    profile === "legacy-2018-profit-table" || profile === "legacy-2018-cost-curves" ? 7 :
+    profile.startsWith("legacy-2018-heap-") ? 8 : undefined;
+  if (number2018 !== undefined) {
+    const Figure = spring2018Figures[number2018 - 1];
     if (Figure) return <Figure {...{ profile, values, caption }} />;
   }
   if (profile === "legacy-2017-pm2-temperature-monitor") return <Legacy2017Pm2Figure {...{ profile, values, caption }} />;
