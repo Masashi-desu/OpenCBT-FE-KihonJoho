@@ -1,0 +1,27 @@
+/* Source-local four-language program layouts; common color roles remain in tokens.css. */
+.legacy-autumn-language-figure{margin:1rem 0;color:var(--diagram-ink);max-width:100%;min-width:0}
+.legacy-autumn-language-figure figcaption{text-align:center;margin:.5rem 0;font-weight:600}
+.legacy-autumn-language-figure pre{font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:.95em;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;color:var(--diagram-ink);tab-size:4}
+.legacy-autumn-language-figure table{border-collapse:collapse;width:100%;margin:1rem 0;background:var(--surface)}
+.legacy-autumn-language-figure th,.legacy-autumn-language-figure td{border:1px solid var(--diagram-border);padding:.45rem;text-align:left;vertical-align:top}
+.legacy-autumn-language-route-scroll{max-width:100%;overflow:auto}
+.legacy-autumn-language-route{display:block;width:100%;height:auto;min-width:790px;font-size:13px;color:var(--diagram-ink);fill:var(--diagram-ink)}
+.legacy-autumn-language-example{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:1rem;align-items:start}
+.legacy-autumn-language-example section{min-width:0}
+.legacy-autumn-language-example h4{margin:0;font-weight:400;text-align:center}
+.legacy-autumn-language-example pre{border:1px solid var(--diagram-border);padding:.6rem;background:var(--surface);min-height:3rem}
+.legacy-autumn-language-output{grid-column:1/3}
+@media(max-width:560px){.legacy-autumn-language-example{grid-template-columns:minmax(0,1fr)}.legacy-autumn-language-example>span{display:none}.legacy-autumn-language-output{grid-column:1}.legacy-autumn-language-figure pre{font-size:.85em}}
+
+.legacy-autumn-language-figure.kind-program>pre,.legacy-autumn-language-figure.kind-example pre{white-space:pre;overflow:auto;max-width:100%}
+.legacy-autumn-language-figure [data-alpha]{display:inline-block;margin-left:4em;white-space:nowrap}
+.legacy-autumn-language-figure.kind-program>pre:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+.legacy-autumn-language-figure.kind-program figcaption,.legacy-autumn-language-figure.kind-bank figcaption{text-align:left;font-weight:400}
+.legacy-autumn-line-numbers{margin:0}
+.legacy-autumn-apply,.legacy-autumn-output-arrow{text-align:center}
+.legacy-autumn-language-code pre{font-family:ui-monospace,monospace;white-space:pre;overflow:auto;max-width:100%;font-size:.95em;line-height:1.55}
+
+.legacy-autumn-language-record-scroll{max-width:100%;overflow:auto}
+.legacy-autumn-language-record-scroll table{min-width:32em}
+.legacy-autumn-language-record-scroll th,.legacy-autumn-language-record-scroll td{white-space:nowrap}

@@ -1,0 +1,4 @@
+/** Proposed source-local guard only. Shared schema/renderer registration is root-owned. */
+import {autumn2018Pm5Profiles,autumn2018Pm5Figure} from './legacy-2018-autumn-pm5';import {autumn2018Pm6Profiles,autumn2018Pm6Figure} from './legacy-2018-autumn-pm6';import {autumn2018Pm7Profiles,autumn2018Pm7Figure} from './legacy-2018-autumn-pm7';
+export const autumn2018Pm5To7Profiles=[...autumn2018Pm5Profiles,...autumn2018Pm6Profiles,...autumn2018Pm7Profiles];
+export function assertAutumn2018Pm5To7Profile(profile:string,values:number[]){if(autumn2018Pm5Profiles.includes(profile as never)){autumn2018Pm5Figure(profile,values);return;}if(autumn2018Pm6Profiles.includes(profile as never)){autumn2018Pm6Figure(profile,values);return;}if(autumn2018Pm7Profiles.includes(profile as never)){autumn2018Pm7Figure(profile,values);return;}throw Error('UNKNOWN_AUTUMN2018_PM5_TO_7_PROFILE');}

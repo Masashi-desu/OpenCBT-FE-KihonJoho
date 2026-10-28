@@ -1,0 +1,233 @@
+{
+  "source": "2018h30a-fe-pm-13",
+  "sourceQS": "11c85fd0985431b938392d2e163cd83158917973ade6205e273be5bfc6e703ad",
+  "physicalPages": [
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74
+  ],
+  "referenceParameters": [
+    0
+  ],
+  "groups": [
+    6,
+    5,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "marks": [
+    "正解なし",
+    "オ",
+    "イ",
+    "イ",
+    "エ",
+    "エ",
+    "ウ"
+  ],
+  "correctIndicesAfterUnscored": [
+    4,
+    1,
+    1,
+    3,
+    3,
+    2
+  ],
+  "sourceShownCells": {
+    "来店状況!A109": "110",
+    "来店状況!B109": "18:52",
+    "来店状況!J3": "78",
+    "分析!G4": "62",
+    "分析!G5": "29",
+    "分析!G6": "16",
+    "分析!G10": "92",
+    "分析!G11": "97",
+    "分析!G12": "99",
+    "分析!G13": "91",
+    "分析!G14": "93"
+  },
+  "premises": [
+    "5件以上250件以下",
+    "最後のデータが入力された行よりも下の行の各セルには空値",
+    "時間を分の単位の整数値",
+    "10時0分になると同時に開始し，19時0分になると同時に終了",
+    "全てのサービスは，1日に1回以上利用",
+    "窓口は三つ",
+    "待ち時間が0の窓口利用者は，待ち人数に含めない",
+    "受付番号の小さいデータを上位",
+    "受付人数が0のときの待ち時間の平均値は0",
+    "1〜8を指定",
+    "窓口番号が最小の窓口を選択"
+  ],
+  "review": "All six a-formulas retain their source defects. b is inclusive closed hourly interval, c matches service label C and sums numeric duration F over matching positions, d searches unique rank J for reception A. e strict > keeps smallest window on ties; f stores min_no; g writes recalculated G, relative col6 from A2. Original A109=110 is not corrected to row count107; skipped receipt numbers are valid. Source examples omit middle records and their unknown original data is never reconstructed.",
+  "aCopyFormsAtRowR": [
+    "E_r:E$252 > B_r",
+    "E$3:E_r < B_r",
+    "E$3:E_r > B_r",
+    "G_r:G$252 > B_r",
+    "G_r:G$252 < B_r",
+    "G$3:G_r > B_r"
+  ],
+  "scope": "New ignored implementation tests only; does not approve material, normal App or booklet release.",
+  "macroRows": [
+    {
+      "level": 0,
+      "control": "○",
+      "text": "マクロ: queue_simulation"
+    },
+    {
+      "level": 0,
+      "control": "○",
+      "text": "数値型: i, work_line, sw, end_time[9], min_time, min_no"
+    },
+    {
+      "level": 0,
+      "control": "■",
+      "text": "i: 1, i ≤ B1, 1"
+    },
+    {
+      "level": 1,
+      "control": "・",
+      "text": "end_time[i] ← 0"
+    },
+    {
+      "level": 0,
+      "control": "■",
+      "text": ""
+    },
+    {
+      "level": 0,
+      "control": "・",
+      "text": "work_line ← 1"
+    },
+    {
+      "level": 0,
+      "control": "・",
+      "text": "sw ← 0"
+    },
+    {
+      "level": 0,
+      "control": "■",
+      "text": "論理積(sw = 0, work_line ≤ 250)"
+    },
+    {
+      "level": 1,
+      "control": "・",
+      "text": "min_no ← 1"
+    },
+    {
+      "level": 1,
+      "control": "・",
+      "text": "min_time ← end_time[1]"
+    },
+    {
+      "level": 1,
+      "control": "■",
+      "text": "i: 2, i ≤ B1, 1"
+    },
+    {
+      "level": 2,
+      "control": "▲",
+      "text": "[e]"
+    },
+    {
+      "level": 3,
+      "control": "・",
+      "text": "min_time ← end_time[i]"
+    },
+    {
+      "level": 3,
+      "control": "・",
+      "text": "min_no ← i"
+    },
+    {
+      "level": 2,
+      "control": "▼",
+      "text": ""
+    },
+    {
+      "level": 1,
+      "control": "■",
+      "text": ""
+    },
+    {
+      "level": 1,
+      "control": "・",
+      "text": "相対(A2, work_line, 3) ← [f]"
+    },
+    {
+      "level": 1,
+      "control": "▲",
+      "text": "相対(A2, work_line, 1) > min_time"
+    },
+    {
+      "level": 2,
+      "control": "・",
+      "text": "相対(A2, work_line, 4) ← 相対(A2, work_line, 1)"
+    },
+    {
+      "level": 1,
+      "control": "├",
+      "text": ""
+    },
+    {
+      "level": 2,
+      "control": "・",
+      "text": "相対(A2, work_line, 4) ← min_time"
+    },
+    {
+      "level": 1,
+      "control": "▼",
+      "text": ""
+    },
+    {
+      "level": 1,
+      "control": "・",
+      "text": "[g]"
+    },
+    {
+      "level": 1,
+      "control": "・",
+      "text": "work_line ← work_line + 1"
+    },
+    {
+      "level": 1,
+      "control": "▲",
+      "text": "相対(A2, work_line, 0) = null"
+    },
+    {
+      "level": 2,
+      "control": "・",
+      "text": "sw ← 1"
+    },
+    {
+      "level": 1,
+      "control": "▼",
+      "text": ""
+    },
+    {
+      "level": 0,
+      "control": "■",
+      "text": ""
+    }
+  ],
+  "macroSourceVisualNotes": {
+    "physicalPages": [
+      72,
+      73,
+      74
+    ],
+    "expectedOrigin": "Manually fixed from source image and independent role review; not generated from producer objects or rendered output.",
+    "layout": "Original square loop open/close, triangle branch and vertical flow are preserved in managed source-style lines; the else branch is explicitly labelled それ以外 to retain the original unlabelled alternative path. This native layout is an adaptation and remains isModified=true.",
+    "allNonHoleRowsFixed": true,
+    "checks": "Initialization, zero fill, first index/limit, strict comparison, assignments, alternative branch, recomputed G, increment-before-empty, and all closing levels/order.",
+    "integrationReview": "Primary p73: heading precedes program; else delimiter is a horizontal rule with no visible text; continuous vertical controls connect six opening/closing pairs."
+  }
+}

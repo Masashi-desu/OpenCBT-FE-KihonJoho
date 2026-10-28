@@ -50,13 +50,14 @@ export function encodeRecordPacks(kind: string, records: readonly unknown[]): { 
   return packs;
 }
 
-/** Repack listed data only; unrelated files are never removed. */
-export function compactDistribution(root: string, threshold = 500) {
+/** Repack listed metadata in catalog order; unrelated files are never removed.
+ * All categories use the existing pack protocol to limit cold-start requests. */
+export function compactDistribution(root: string, threshold = 0) {
   const bundle = readDistributionBundle(root), catalog = structuredClone(bundle.catalog);
   const removed: CatalogFile[] = [];
   let changed = false;
   for (const kind of catalogKinds) {
-    const records = [...bundle[kind]].sort((a, b) => a.id.localeCompare(b.id));
+    const records = bundle[kind];
     if (records.length <= threshold) continue;
     const packs = encodeRecordPacks(kind, records);
     if (JSON.stringify(packs.map(p => p.entry)) === JSON.stringify(catalog.files[kind])) continue;

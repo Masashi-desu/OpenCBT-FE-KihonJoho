@@ -1,0 +1,34 @@
+{
+ "basis":"Manual source-choice transcription from QS48/50/51,54/55/56,62,65/66; not derived from producer answers.",
+ "9":[
+  ["block->next[0]->train == NULL","block->next[1]->train == NULL","block->next[0]->train == NULL || block->next[1]->train == NULL","block->next[0]->train == NULL && block->next[1]->train == NULL","block->signal == RED","block->train == NULL","block->train != NULL"],
+  ["block->train->dest == NULL","block->train->dest != NULL","block == block->train->dest","block != block->train->dest"],
+  ["break","continue","return"],
+  ["dest, block","dest, block->next[i]","block, dest","block, block->next[i]","block->next[i], dest","block->next[i], block"],
+  ["0","2","3","7"],
+  ["一つあり，その信号機は緑を表示している","一つあり，その信号機は赤を表示している","二つあり，それらの信号機はいずれも緑を表示している","二つあり，それらの信号機はいずれも赤を表示している","二つあり，それらの信号機は，一方が緑を，もう一方が赤を表示している"]
+ ],
+ "10":[
+  ["MOVE SPACE TO CR-NO","PERFORM UPD-PROC","PERFORM WRT-PROC","REWRITE QLF-REC"],
+  ["CR-NO = SPACE","SRT-NO = CR-NO","SRT-NO = SPACE","SRT-NO NOT = CR-NO"],
+  ["MOVE QLF-DATE(SRT-CD) TO QLF-DATE(SRT-CD + 1)","MOVE SRT-DATE TO QLF-DATE(SRT-CD)","MOVE SRT-NO TO QLF-DATE(SRT-CD)","MOVE ZERO TO QLF-DATE(SRT-CD)"],
+  ["行番号33と34の間","行番号35と36の間","行番号42と43の間","行番号46と47の間"],
+  ["QLF-DATE(CR-NO) = ZERO","QLF-DATE(W-CNT) = ZERO","QLF-INF NOT = ALL ZERO","W-CNT > 4"],
+  ["当該事業年度の上期に，各資格試験に合格した従業員の数","当該事業年度の上期に，各資格試験を受験した従業員の数","当該事業年度の上期までに，各資格試験に合格した従業員の数","当該事業年度の上期までに，各資格試験に合格していない従業員の数"]
+ ],
+ "11":[
+  ["extends","interface","implements","throws"],
+  ["Fragment(buf)","Fragment(c)","PassThrough(buf)","PassThrough(c)","Replacer(buf)","Replacer(c)"],
+  ["fragmentList","new Template(buf)","new Template(fragmentList)","new Template(reader)"],
+  ["fragment","fragmentList","sb","table"],
+  ["break","buf.append((char) c)","buf.append((char) c); break","buf.append((char) reader.read())","buf.append((char) reader.read()); break"]
+ ],
+ "12":[
+  ["LAD GR4,ACCMDAYS","LAD GR4,ACCMDAYS,GR3","LAD GR4,ACCMDAYS,GR5","LD GR4,ACCMDAYS","LD GR4,ACCMDAYS,GR3","LD GR4,ACCMDAYS,GR5"],
+  ["JMI BREAK","JNZ BREAK","JOV BREAK","JPL BREAK","JUMP BREAK","JZE BREAK"],
+  ["JMI FIN","JNZ FIN","JOV FIN","JUMP FIN","JZE FIN"],
+  ["AND GR0,=#FFFE","AND GR0,=1","OR GR0,=#FFFE","OR GR0,=1","XOR GR0,=#FFFF","XOR GR0,=1"],
+  ["8","13","18","19","20"],
+  ["JMI","JNZ","JOV","JPL","JZE"]
+ ]
+}

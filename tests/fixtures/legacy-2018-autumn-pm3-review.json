@@ -1,0 +1,21 @@
+{
+  "source": "2018h30a-fe-pm-3",
+  "version": "3.2.0",
+  "physicalPages": [15,16,17,18,19],
+  "questionPaperSha256": "11c85fd0985431b938392d2e163cd83158917973ade6205e273be5bfc6e703ad",
+  "reviewMethod": "原5頁/18択/SQLの誤構文も含め目視して固定。producerの正答や関数を期待値へ流用しない。",
+  "sourceConcert": "C00001",
+  "sourceSeat": "S",
+  "sourcePrice": 6000,
+  "sourceReminderDays": 3,
+  "sourceThresholds": [10000,20000],
+  "sourceConstraints": [["決済表.決済額","検査制約"],["決済表.決済日","非NULL制約"],["商品詳細表.席種","参照制約"],["販売表.会員ID","一意性制約"]],
+  "constraintTruths": [true,false,false,false],
+  "constraintReasons": ["取消は-1、支払額は0以上なので額の検査制約が適切", "取消処理では決済日がNULLとなる", "図の表構成に席種単独の参照先はなく、商品詳細の主キーはコンサートIDとの組", "一人の会員による複数購入があり、販売IDだけを一意に生成する"],
+  "sourceJoinKinds": ["INNER JOIN","INNER JOIN","LEFT OUTER JOIN","LEFT OUTER JOIN","RIGHT OUTER JOIN","RIGHT OUTER JOIN"],
+  "sourceJoinConditions": ["決済表.決済額 = -1","決済表.決済額 >= 0","(決済表.決済額 IS NULL OR 決済表.決済額 = -1)","(決済表.決済額 IS NULL OR 決済表.決済額 >= 0)","(決済表.決済額 IS NULL OR 決済表.決済額 = -1)","(決済表.決済額 IS NULL OR 決済表.決済額 >= 0)"],
+  "sourceAnswerSymbols": ["ア","エ","ア","ウ"],
+  "premises": ["下線付きの項目は主キー", "価格（常に有料）", "一意な販売ID", "決済日はレコードを追加した日", "決済期限日の翌日", "決済日はNULLで，決済額は-1", "毎夜0〜4時", "追加した列は0で初期化", "1ポイント1円", "販売額の全額にポイント", "第1引数から第2引数を引いた日数", "引数の値以下で最大の整数値"],
+  "calculationReview": {"amount":"整数円", "dayDifference":"整数日", "ratesPercent":[1,2,3], "rounding":"各率の乗算結果をFLOOR", "additionalPrecision":false},
+  "limits": "SQLiteにNOW/DATEDIFF/FLOORだけを明示adapterで追加。原IF/ELSEIFや誤CASEを補正せず拒否する。外部DB方言全般や通常App/素材の受入ではない。"
+}

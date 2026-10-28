@@ -85,12 +85,12 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
 });
 
-test("every one of 228 official sources has exactly one generator and is a mix candidate", async () => {
+test("every one of 241 official sources has exactly one generator and is a mix candidate", async () => {
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  assert.equal(c.total, 228);
-  assert.equal(c.covered, 228);
+  assert.equal(c.total, 241);
+  assert.equal(c.covered, 241);
   assert(
     c.rows.every((r) => r.templates.length === 1 && r.linked.length === 1),
   );

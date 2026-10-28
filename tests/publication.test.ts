@@ -16,8 +16,8 @@ import { validateBundle } from "../src/core/validation";
 test("declared scope cannot be reduced by deleting an original and its generator", () => {
   const b = fixture();
   assert.deepEqual(validateSourceInventory(b), {
-    declared: 229,
-    included: 228,
+    declared: 242,
+    included: 241,
     excluded: 1,
   });
   b.questions = b.questions.filter((q) => q.id !== "question-ipa-2026-a-1");

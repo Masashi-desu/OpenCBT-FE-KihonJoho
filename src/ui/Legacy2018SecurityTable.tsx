@@ -1,0 +1,6 @@
+import {legacy2018SecurityUnits as units,legacy2018SecurityFigureAllowed as allowed} from '../core/generators/legacy-2018-pm-security';
+export function Legacy2018SecurityTable({profile,values}:{profile:string;values:number[];caption?:string}){
+ if(profile!=='legacy-2018-security-measure-table'||!allowed(profile,values))throw Error('UNKNOWN_SECURITY_TABLE');
+ const t=units.find(x=>x.id==='table1')!;if(t.id!=='table1')throw Error('SOURCE_UNIT');
+ return <div className="table-wrap" data-security-table style={{maxWidth:'100%',overflow:'auto'}}><table style={{width:'100%',borderCollapse:'collapse'}}><caption>{t.caption}</caption><thead><tr>{t.header.map(h=><th key={h} scope="col" style={{border:'1px solid var(--diagram-border)',padding:'.4em'}}>{h}</th>)}</tr></thead><tbody>{t.rows.map((r,i)=><tr key={r.purpose}><th scope="row" style={{border:'1px solid var(--diagram-border)',padding:'.4em',fontWeight:'normal',width:'40%'}}>{r.purpose}</th><td style={{border:'1px solid var(--diagram-border)',padding:'.4em'}}><ul style={{margin:0,paddingLeft:'1.2em'}}>{r.measures.map((m,k)=><li key={k}>{'text'in m?m.text:<span data-security-blank={String.fromCharCode(97+i)} style={{display:'inline-block',border:'1px solid var(--diagram-border)',minWidth:'3em',textAlign:'center'}}>{String.fromCharCode(97+i)}</span>}</li>)}</ul></td></tr>)}</tbody></table></div>;
+}

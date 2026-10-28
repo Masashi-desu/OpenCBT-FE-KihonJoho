@@ -1,0 +1,147 @@
+{
+  "schema": "reviewed-legacy-booklet/v1",
+  "collectionId": "2018h30a-fe-pm",
+  "checkedOn": "2026-10-28",
+  "questionPaperSHA256": "11c85fd0985431b938392d2e163cd83158917973ade6205e273be5bfc6e703ad",
+  "answerPaperSHA256": "c8891b8c075a7b5654625fe5051776ef17a8b9196958ef6adf8450d83ff69bb5",
+  "candidateContentSHA256": "ab72b05e9c631a395f7d55859d78ea2e0a0af5c1f345cb917ac4fe5c553da2ca",
+  "scope": "2018年度秋期・旧午後の全13大問と個別19素材用途だけ。問12資料p80は1432x1240上部cropに限りJIS1.3の見出し・本文・表を配布しない。問11のQS75–77は8型9操作の試験用機能要約とQS2正誤表に限定したプロジェクト内判断で、Oracle HTML/API全文の許諾又は権利者の契約確認を意味しない。",
+  "majorNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "answerFieldCounts": [
+    5,
+    4,
+    4,
+    5,
+    5,
+    7,
+    5,
+    7,
+    6,
+    6,
+    6,
+    6,
+    7
+  ],
+  "reviewers": [
+    "codex-source-and-independent-content-review",
+    "codex-root-source-material-integration-review",
+    "codex-independent-normal-flow-review"
+  ],
+  "sourceAndMaterialReview": {
+    "sourcePages": 102,
+    "questionPaperPages": 93,
+    "answerPaperPages": 4,
+    "commentaryPages": 5,
+    "operationFields": 73,
+    "answerDefinitionGroups": 69,
+    "scoredFields": 72,
+    "unorderedGroups": 4,
+    "noCorrectAnswerFields": 1,
+    "uniqueChoices": 319,
+    "fieldChoiceReferences": 376,
+    "materialReferences": 89,
+    "physicalAssetPaths": 87,
+    "materialScopeAssessmentSHA256": "ee72a1db868eeddd97a6fa278d5caa914572af8c3ceaa4be4c3b931b10207dfe",
+    "Q13a": "公式の正解なしを保持し、元6式を正答に変更しない。選択は保存し学習欄正答率の分母から除く。公式採点方法は推定しない。",
+    "Q13inputs": "原部分表示profile0と独自完全条件1080例を区別。原省略データを復元せず、平均へ追加の切捨てを加えない。"
+  },
+  "independentEvidence": [
+    {
+      "path": "tests/fixtures/legacy-2018-autumn-booklet-review.json",
+      "sha256": "fcb101b174277380f643175ace6cba2de0e6c832688a1bf4b3baeddcbade5bb8",
+      "byteLength": 20466
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-autumn-language-review.json",
+      "sha256": "908cb26eadafa8fbfa4360d0e70f6467c02f5a634bcc440fefd78e474cceecfc",
+      "byteLength": 5643
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-autumn-pm13-review.json",
+      "sha256": "6f209989ce48fef5e845d19569bc6a89dce7dfbb250405e58f315867014586a1",
+      "byteLength": 5665
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-autumn-material-assessment.json",
+      "sha256": "ee72a1db868eeddd97a6fa278d5caa914572af8c3ceaa4be4c3b931b10207dfe",
+      "byteLength": 17353
+    },
+    {
+      "path": "tests/legacy-2018-autumn-normal-flow.test.ts",
+      "sha256": "c1163ffb9228f4a09e683e9dd386c8d82ddd94128b47b7a2bd302355a0dd2369",
+      "byteLength": 15962
+    }
+  ],
+  "actualRootEvidence": [
+    {
+      "path": "output/source-review/stage2-s2-04-root-source-apply-20261028-v1/NEW-SOURCE-TESTS.log",
+      "sha256": "7fdb268bfa95caf8fa36c4055fd319266ca9fe5b754acc49118619017404e0ff",
+      "byteLength": 10791
+    },
+    {
+      "path": "output/source-review/stage2-s2-04-root-fixed-material-apply-20261028-v1/TESTS.log",
+      "sha256": "9f3fd9dff4bcfc0bd8b58f07f5caae316e7d7492caa56fc0c74ee14818ffa8a4",
+      "byteLength": 808
+    },
+    {
+      "path": "output/source-review/stage2-s2-04-root-glossary-apply-20261028-v1/TESTS.log",
+      "sha256": "dcee17ba8564c8ac82bd8c0046b8b12d8dd31ae3660a7e6dfdb21546e4451d50",
+      "byteLength": 1183
+    },
+    {
+      "path": "output/source-review/stage2-s2-04-root-normal-flow-apply-20261028-v1/F-TESTS.log",
+      "sha256": "0098bd48435d177a2e55f8d3714814558a0caa6e32a11cd6a78429c3b3bd1f5c",
+      "byteLength": 1236
+    },
+    {
+      "path": "output/playwright/stage2-s2-04-root/annual-study-all13-v1.json",
+      "sha256": "3192dee1b97bd950bb23b4b89b2c40f23e0e6509b0d39e0e052927deccb327e6",
+      "byteLength": 724767
+    },
+    {
+      "path": "output/playwright/stage2-s2-04-root/generated-study-all13-v1.json",
+      "sha256": "28a14dd44112ab0a16301638043bcf4d101b19e72c8b5220245ec085267ab3e9",
+      "byteLength": 5022350
+    },
+    {
+      "path": "output/playwright/stage2-s2-04-root/selection-all75-v1.json",
+      "sha256": "1f2dc496cff29b2229e8e82f1c311d2ed23f89e22b5fe569ce9e16dc115ea462",
+      "byteLength": 319496
+    },
+    {
+      "path": "output/playwright/stage2-s2-04-root/visual-all13-v1.json",
+      "sha256": "615c79872c30a656b4c74cc19467b353b1bc88e88f046290127b09da82f40d5b",
+      "byteLength": 2694909
+    },
+    {
+      "path": "output/playwright/stage2-s2-04-root/bookmark-no-correct-v3.json",
+      "sha256": "ba7aec36f7a9c0bff2d5ff9e44afe1bca53630658852bafcdf70a786acfd2860",
+      "byteLength": 1276924
+    }
+  ],
+  "checks": {
+    "transcription": "pass",
+    "rights": "pass",
+    "originalSemantics": "pass",
+    "generatorSemantics": "pass",
+    "rendering": "pass"
+  },
+  "releaseGate": {
+    "status": "separate_mandatory_receipt_pending_full_check_and_live",
+    "note": "Source/content/material/rendering review for this booklet. Full check, latest-main selective diff review, actual release receipt, merge, CI and served artifact remain separate mandatory steps. This record does not claim deployment."
+  }
+}

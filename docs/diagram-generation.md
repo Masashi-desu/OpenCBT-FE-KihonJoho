@@ -47,7 +47,7 @@ graphのroleはvertexとする。図中に存在しない内部IDや「結合点
 
 ## 登録生成器と基準値
 
-現在のランダムミックスは収録したA80問・B23問の全103問に対応する。[全問の対応・入力域・表示形式](/generation-coverage)は配布データと登録契約から生成する。非公開本番の難易度・小分類・全問題は再現しない。次の表は先に実装した13系列の計算契約であり、原問題は[公開資料一覧R20](/references#r20--fe-public-records)と、各基準questionのsourceRefsから特定する。
+ランダムミックスは、収録した原問題・大問に対応する登録生成器を使用する。[全問の対応・入力域・表示形式](/generation-coverage)は配布データと登録契約から生成し、現行の収録範囲とする。非公開本番の難易度・小分類・全問題は再現しない。次の表は先に実装した13系列の計算契約であり、原問題は[公開資料一覧R20](/references#r20--fe-public-records)と、各基準questionのsourceRefsから特定する。
 
 | generator ID | 原問題 | 入力と正答規則 | 基準値 |
 | --- | --- | --- | --- |
@@ -85,9 +85,11 @@ graphのroleはvertexとする。図中に存在しない内部IDや「結合点
 
 最早時刻はt0=0、t1=A、t2=t1+B、t3=max(t1+C,t2)、t4=max(t1+D,t3)、t5=max(t2+E,t3+F,t4+G)、t6=t5+H。正答はt6とし、解説には各maxの対象と計算結果を記載する。ダミー作業を無視した単なる各枝の和では計算しない。原値で120日となることを確認する。
 
-次のJSONは本体の正本を直接掲載する。文書用に複製しない。
+現行のテンプレートは、配布カタログからIDで参照する。レコードは複数件をまとめたファイルに入り、内容に応じてファイル名が変わる。次のコマンドは本体の正本から `template-critical-path` を表示する。文書用のJSONは複製しない。
 
-<<< @/../public/data/templates/critical-path.json
+```sh
+node --import tsx --input-type=module -e 'import { readDistributionBundle } from "./scripts/distribution-files.ts"; console.log(JSON.stringify(readDistributionBundle().templates.find(t => t.id === "template-critical-path"), null, 2));'
+```
 
 ## 元データと出題経路
 
@@ -104,7 +106,7 @@ graphのroleはvertexとする。図中に存在しない内部IDや「結合点
 
 開始時にCrypto APIで128bitのシードを抽選し、32桁の小文字16進文字列として保存する。SHA-256へ渡すUTF-8文字列はseed、template.id、revision、generatorRef.id、generatorRef.version、counterをLFで結合し、末尾LFなしとする。
 
-現在の103生成器はdigestを先頭から8桁ずつ読み、符号なし32bit整数にする。各fieldの幅wに対しfloor(2の32乗÷w)×w以上を捨て、minimum+(整数mod w)へ対応させる。counterは0から始まる10進整数で、8整数を使い切ったら次のdigestへ進む。抽選1値につき最大1024試行、入力間の条件を満たす列の選択は最大256列とする。
+登録生成器の抽選ではdigestを先頭から8桁ずつ読み、符号なし32bit整数にする。各fieldの幅wに対しfloor(2の32乗÷w)×w以上を捨て、minimum+(整数mod w)へ対応させる。counterは0から始まる10進整数で、8整数を使い切ったら次のdigestへ進む。抽選1値につき最大1024試行、入力間の条件を満たす列の選択は最大256列とする。
 
 ハッシュの余り一致、売上＞変動費、m≧n+10、継続会員≦前月会員、リテンション率の一意な最大、選択肢の重複等を検査する。違反した候補は出題せず、定義した限度内で次の候補を選ぶ。
 

@@ -35,10 +35,10 @@ const legacyTemplate = () => ({
 test("distribution gate: real sources, official answer keys, JIS exclusion and Schema", async () => {
   const b = fixture();
   await validateBundle(b);
-  assert.equal(b.questions.length, 456);
+  assert.equal(b.questions.length, 482);
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
-    228,
+    241,
   );
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {

@@ -20,6 +20,8 @@ import { isLegacy2018SpringNativeText, Legacy2018SpringNativeText, Legacy2018Spr
 import { Legacy2018SpringPmNativeText, Legacy2018SpringPm6SourceTable } from "./Legacy2018SpringPm5To8Native";
 import { spring2018NativeFragment, type Spring2018Major } from "../core/generators/legacy-2018-spring-pm5-8-native";
 import { legacy2018SpringPm6Definition, legacy2018SpringPm6ValidTuples } from "../core/generators/legacy-2018-spring-pm6";
+import { isLegacy2018AutumnNativeText, Legacy2018AutumnNativeText } from "./Legacy2018AutumnNativeText";
+import { Legacy2018AutumnCode } from "./Legacy2018AutumnCode";
 
 import {
   activityNetworkAlt,
@@ -495,6 +497,16 @@ function spring2018TextMajor(attribution: Attribution) {
       ref.locator.questionNumber === String(number))) return undefined;
   return number;
 }
+/** Only the new booklet's complete source locators select its text frame. */
+function autumn2018TextMajor(attribution: Attribution) {
+  const refs = attribution.sourceRefs, number = Number(refs[0]?.locator.questionNumber);
+  if (!Number.isInteger(number) || number < 1 || number > 13 || !refs.length ||
+    attribution.origin === "original" || !refs.every(ref =>
+      ref.sourceId === `source-ipa-2018h30a-fe-pm-${number}-qs` && ref.locator.year === 2018 &&
+      ref.locator.period === "秋期" && ref.locator.timeSlot === "午後" &&
+      ref.locator.questionNumber === String(number))) return undefined;
+  return number;
+}
 const spring2018EvmTables = new Set(legacy2018SpringPm6ValidTuples.flatMap(values =>
   legacy2018SpringPm6Definition.build([...values]).prompt.filter(block => block.type === "table")
     .map(block => JSON.stringify(block))));
@@ -515,6 +527,8 @@ export function Content({
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
         if (b.type === "paragraph") {
+          if (autumn2018TextMajor(content.attribution) !== undefined && isLegacy2018AutumnNativeText(b.text))
+            return <Legacy2018AutumnNativeText key={i} text={b.text} />;
           const springNumber = spring2018TextMajor(content.attribution);
           if (springNumber !== undefined && isLegacy2018SpringNativeText(springNumber, "paragraph", b.text))
             return <Legacy2018SpringNativeParagraph key={i} number={springNumber} text={b.text} />;
@@ -616,6 +630,10 @@ export function Content({
             </CaptionFrame>
           );
         if (b.type === "code") {
+          // Text-form declarations and examples are source premises too; they
+          // must remain visible before answering, including language="text".
+          if (autumn2018TextMajor(content.attribution) !== undefined)
+            return <div className="legacy-autumn-language-code" key={i}><pre><code><Legacy2018AutumnCode text={b.text} /></code></pre></div>;
           const autumnNumber = autumn2017TextMajor(content.attribution);
           const nativeAutumn = autumnNumber !== undefined && isLegacy2017AutumnNativeText(autumnNumber,"code",b.text);
           const springNumber = spring2018TextMajor(content.attribution);

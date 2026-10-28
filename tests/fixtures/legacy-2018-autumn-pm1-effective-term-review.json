@@ -1,0 +1,282 @@
+{
+  "basis": "Existing reviewed private effective25 metadata only; annual graph is acquisition-only and not a runtime import.",
+  "ownTerms": [
+    "DMZ",
+    "DB（データベース）",
+    "DNS（ドメイン名の管理）",
+    "ディジタル署名（電子メール）",
+    "アクセスログ",
+    "プレースホルダ",
+    "エスケープ処理",
+    "平文",
+    "脆弱性",
+    "情報の保管期間",
+    "ミドルウェア",
+    "デフラグメンテーション",
+    "冗長化"
+  ],
+  "inherited": [
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "PC",
+      "canonicalModule": "src/core/study-acronyms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "LAN",
+      "canonicalModule": "src/core/study-acronyms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "HTTP",
+      "canonicalModule": "src/core/study-acronyms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "TLS",
+      "canonicalModule": "src/core/study-acronyms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "SQL",
+      "canonicalModule": "src/core/study-acronyms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "WAF",
+      "canonicalModule": "src/core/study-acronyms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "SQLインジェクション",
+      "canonicalModule": "src/core/study-terms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "クロスサイトスクリプティング",
+      "canonicalModule": "src/core/study-terms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "ディレクトリトラバーサル",
+      "canonicalModule": "src/core/study-terms.ts",
+      "canonicalSource": null
+    },
+    {
+      "source": "2018h30a-fe-pm-1",
+      "term": "HTML",
+      "canonicalModule": "src/core/sample-2022-a-study-terms.ts",
+      "canonicalSource": null
+    }
+  ],
+  "reused": [
+    "暗号学的ハッシュ関数",
+    "バックアップ"
+  ],
+  "terms": [
+    {
+      "term": "DMZ",
+      "meaning": "インターネットへ公開するサーバなどを配置し，内部ネットワークとは分離して扱う領域。本問ではWebサーバを置き，個人情報を保持するDBサーバは社内LANに置く。DBを同じ領域へ移すことがWebアプリの脆弱性対策になるわけではない。",
+      "expansion": "Demilitarized Zone",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "DB（データベース）",
+      "meaning": "関連する情報を整理して保持し，検索や更新を行うためのデータの集まり。本問ではカタログ請求者の個人情報をDBサーバで保持する。DBへの不正ログインと，Webアプリ経由でSQL命令を実行させる攻撃は経路が異なる。",
+      "expansion": "Database",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "DNS（ドメイン名の管理）",
+      "meaning": "ドメイン名に対応するIPアドレスなどの情報を管理・検索する仕組み。登録情報を改ざんして別のWebサイトへ誘導する手口と，正規のWebアプリへSQL命令を入力する手口は，攻撃する情報と経路が異なる。",
+      "expansion": "Domain Name System",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "ディジタル署名（電子メール）",
+      "meaning": "電子メールへ付けた署名を検証することで，作成者や署名後の変更の有無などを確認する仕組み。メールへの署名は，データベースに保管する個人情報の量を減らす対策ではなく，メール本文を暗号化する処理そのものでもない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "アクセスログ",
+      "meaning": "誰がいつどの情報へアクセスしたかなどを調べるための記録。本問ではDBへのアクセスを記録することが，事故の原因や流出範囲を調査するための手掛かりになる。記録を取っていなかった過去の操作が後から復元される保証はない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "プレースホルダ",
+      "meaning": "SQLの命令の構造と，後から渡す値を分離するための差込み位置。値をSQL命令の一部として文字列連結しない実装につなげる。文字列連結をした後の表示用エスケープと同じ処理として扱わない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "エスケープ処理",
+      "meaning": "特別な意味をもつ文字を，使用先の文法や文脈に合った形に置き換える処理。SQL命令文を組み立てる場合と，Webページへ出力する場合では文脈が異なる。同じ置換を全ての用途へ使えば安全になるわけではない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "平文",
+      "meaning": "暗号化されていない元の情報。本問ではパスワード以外の情報が平文で格納されている。パスワードのハッシュ化を行っていても，それ以外の個人情報が不正に読み出される危険が解消するわけではない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "脆弱性",
+      "meaning": "攻撃などによって悪用される可能性がある，ソフトウェアやシステムの弱点。本問では一部の調査で別の脆弱性も判明しており，Webアプリ全体の調査が必要になる。一つ見つけたことだけで，他に弱点がないとは判断できない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "情報の保管期間",
+      "meaning": "利用目的を踏まえて情報を保持する期間。本問では購入支援や再ログインも利用目的であるため，送付後に直ちに一律消去する方法とは区別する。適切な期間と本人の同意を定め，期間後に消去することが保管情報量の低減につながる。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "ミドルウェア",
+      "meaning": "OSとアプリケーションの間で，データ管理や通信などの共通機能を提供するソフトウェア。必要最小限にすることには管理対象を抑える効果があるが，それだけではDBに誰がアクセスしたかという記録を取得できない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "デフラグメンテーション",
+      "meaning": "記憶媒体上で分散して配置されたファイルなどの断片を整理する処理。記憶配置の整理を，データベースへのアクセスの記録や，情報流出範囲を特定するための証跡の取得と混同しない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "冗長化",
+      "meaning": "故障に備えて機器や経路などを重複して用意すること。本問の可用性対策では，DBサーバの待機系への切替え，予備電源，通信経路の二重化は，それぞれ異なる障害への備えである。保管情報の削減やアクセスログの取得とは役割が異なる。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "PC",
+      "expansion": "Personal Computer",
+      "meaning": "個人用コンピュータ。利用者が手元で使う汎用のコンピュータを指す。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "LAN",
+      "expansion": "Local Area Network",
+      "meaning": "建物や敷地など、比較的限られた範囲の機器を接続するネットワーク。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "HTTP",
+      "expansion": "Hypertext Transfer Protocol",
+      "meaning": "Webの要求と応答をやり取りするプロトコル。HTTPだけでは通信内容の暗号化は保証されない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "TLS",
+      "expansion": "Transport Layer Security",
+      "meaning": "通信相手の認証、暗号化、改ざん検出などを行うプロトコル。HTTPSはHTTPをTLSで保護して使う。",
+      "related": [
+        "HTTPS",
+        "HTTP"
+      ],
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "SQL",
+      "expansion": "Structured Query Language",
+      "meaning": "データベースの表の定義、データの検索・挿入・更新・削除などを記述する言語。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "WAF",
+      "expansion": "Web Application Firewall",
+      "meaning": "Webアプリケーション用のファイアウォール。HTTPの要求内容などを検査し、SQLインジェクションなどの攻撃を検知・遮断する。",
+      "related": [
+        "HTTP",
+        "SQL"
+      ],
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "SQLインジェクション",
+      "meaning": "外部入力を通して意図しないSQL命令を実行させる攻撃。命令と値を分離し、値をプレースホルダへバインドする対策を取る。",
+      "related": [
+        "SQL"
+      ],
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "クロスサイトスクリプティング",
+      "meaning": "不正なスクリプトをWebページに混入させ、閲覧者のブラウザで実行させる攻撃。出力先に応じたエスケープなどで対策する。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "ディレクトリトラバーサル",
+      "meaning": "パスの指定を悪用し、本来アクセスできないファイルへアクセスする攻撃。許可した識別子からファイルを選ぶなどの対策を取る。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "HTML",
+      "expansion": "Hypertext Markup Language",
+      "meaning": "ハイパーテキスト記述言語。Web文書の構造をタグなどで記述する。外部入力をタグやスクリプトとして解釈させない出力時の対策が必要になる。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "暗号学的ハッシュ関数",
+      "meaning": "入力データから固定長の値を得る関数。同じ関数と同じ入力なら同じ値となる。異なる入力が同じ値になる衝突は理論上あり得るが、簡単に衝突や元の入力を求められることを目標とする関数ではない。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    },
+    {
+      "term": "バックアップ",
+      "meaning": "復元などに備えてデータの複製を保存しておくこと。この問の選択肢では、定期的な保存によって障害前の状態への復旧に備える。障害中も処理を続ける構成とは区別する。",
+      "sources": [
+        "2018h30a-fe-pm-1"
+      ]
+    }
+  ]
+}

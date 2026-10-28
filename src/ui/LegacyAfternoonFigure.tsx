@@ -39,6 +39,19 @@ import { Legacy2018SpringPm11Figure } from "./Legacy2018SpringPm11Figure";
 import { Legacy2018SpringPm12Figure } from "./Legacy2018SpringPm12Figure";
 import { Legacy2018SpringPm13Figure } from "./Legacy2018SpringPm13Figure";
 
+import { Legacy2018AutumnPm2Figure } from "./Legacy2018AutumnPm2Figure";
+import { Legacy2018AutumnPm3Figure } from "./Legacy2018AutumnPm3Figure";
+import { Legacy2018AutumnPm4Figure } from "./Legacy2018AutumnPm4Figure";
+import { Legacy2018AutumnPm5Figure } from "./Legacy2018AutumnPm5Figure";
+import { Legacy2018AutumnPm6Figure } from "./Legacy2018AutumnPm6Figure";
+import { Legacy2018AutumnPm7Figure } from "./Legacy2018AutumnPm7Figure";
+import { Legacy2018AutumnPm13Figure } from "./Legacy2018AutumnPm13Figure";
+import { Legacy2018AutumnLanguageFigure } from "./Legacy2018AutumnLanguageFigure";
+import { Legacy2018AutumnExistingBank } from "./Legacy2018AutumnExistingBank";
+import { Legacy2018AutumnExpressionFigure } from "./Legacy2018AutumnExpressionFigure";
+import { Legacy2018SecurityText } from "./Legacy2018SecurityText";
+import { Legacy2018SecurityTable } from "./Legacy2018SecurityTable";
+
 const spring2018Figures = [Legacy2018SpringPm1Figure, Legacy2018SpringPm2Figure, Legacy2018SpringPm3Figure, Legacy2018SpringPm4Figure, Legacy2018SpringPm5Figure, Legacy2018SpringPm6Figure, Legacy2018SpringPm7Figure, Legacy2018SpringPm8Figure, Legacy2018SpringPm9Figure, Legacy2018SpringPm10Figure, Legacy2018SpringPm11Figure, Legacy2018SpringPm12Figure, Legacy2018SpringPm13Figure];
 
 const autumnFigures = [Legacy2017AutumnPm1Figure, Legacy2017AutumnPm2Figure, Legacy2017AutumnPm3Figure,
@@ -49,6 +62,22 @@ const autumnFigures = [Legacy2017AutumnPm1Figure, Legacy2017AutumnPm2Figure, Leg
 export function LegacyAfternoonFigure({ profile, values, caption }: { profile: string; values: number[]; caption: string }) {
   if (readLegacyAfternoonFigure(profile, values).caption !== caption)
     throw new DataError("SOURCE_MATERIAL", "旧午後の図の見出しが一致しません。");
+  if (profile === "legacy-2018-security-mandatory-notice" || profile === "legacy-2018-security-attack-evidence")
+    return <Legacy2018SecurityText {...{ profile, values, caption }} />;
+  if (profile === "legacy-2018-security-measure-table") return <Legacy2018SecurityTable {...{ profile, values, caption }} />;
+  if (profile === "legacy-2018-autumn-pm1-bank" || profile === "legacy-2018-autumn-pm8-bank")
+    return <Legacy2018AutumnExistingBank {...{ profile, values, caption }} />;
+  if (profile.startsWith("legacy-2018-autumn-pm8-expression-"))
+    return <Legacy2018AutumnExpressionFigure {...{ profile, values, caption }} />;
+  const autumn2018 = /^legacy-2018-autumn-pm(\d+)-/.exec(profile);
+  if (autumn2018) {
+    const number = Number(autumn2018[1]);
+    if (number >= 9 && number <= 12) return <Legacy2018AutumnLanguageFigure {...{ profile, values }} />;
+    const Figure = ({ 2: Legacy2018AutumnPm2Figure, 3: Legacy2018AutumnPm3Figure, 4: Legacy2018AutumnPm4Figure,
+      5: Legacy2018AutumnPm5Figure, 6: Legacy2018AutumnPm6Figure, 7: Legacy2018AutumnPm7Figure,
+      13: Legacy2018AutumnPm13Figure } as Record<number, typeof Legacy2018AutumnPm2Figure>)[number];
+    if (Figure) return <Figure {...{ profile, values, caption }} />;
+  }
   const autumn = /^legacy-2017-autumn-pm(\d+)-/.exec(profile);
   if (autumn) {
     const Figure = autumnFigures[Number(autumn[1]) - 1];
