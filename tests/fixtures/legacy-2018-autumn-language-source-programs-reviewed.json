@@ -1,0 +1,240 @@
+{
+  "scope": "Author-frozen snapshot after visual comparison with every primary page45-66. This is a source transcription regression fixture, not an external independent peer opinion or a generator answer oracle.",
+  "sourcePDFSHA256": "11c85fd0985431b938392d2e163cd83158917973ade6205e273be5bfc6e703ad",
+  "rows": [
+    {
+      "number": 9,
+      "profile": "legacy-2018-autumn-pm9-program",
+      "group": 0,
+      "pages": [
+        47,
+        48
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム1〕",
+        "alt": "問9 プログラム1。空欄と全処理を保持。",
+        "text": "#include <stddef.h>\n#define RED (0)\n#define GREEN (1)\nstruct train_info {\n    int number;\n    struct block_info* dest;\n};\nstruct block_info {\n    struct train_info* train;\n    struct block_info* next[2];\n    int signal;\n};\nvoid set_signals(struct block_info[], int);\nvoid set_signals(struct block_info blocks[], int nblocks) {\n    int i;\n    struct block_info* block;\n    for (i = 0; i < nblocks; i++) {\n        block = &blocks[i];\n        if (［a］) {\n            block->signal = GREEN;\n        } else {\n            block->signal = RED;\n        }\n    }\n}"
+      }
+    },
+    {
+      "number": 9,
+      "profile": "legacy-2018-autumn-pm9-program",
+      "group": 1,
+      "pages": [
+        49,
+        50
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム2〕",
+        "alt": "問9 プログラム2。空欄と全処理を保持。",
+        "text": "#include <stddef.h>\nvoid proceed(struct block_info[], int);\nint find_block(struct block_info*, struct block_info*);\nvoid proceed(struct block_info blocks[], int nblocks) {\n    int i, j;\n    struct block_info* block;\n    for (i = nblocks - 1; i >= 0; i--) {\n        block = &blocks[i];\n        if (block->train == NULL) {\n            continue;\n        }\n        if (［b］) {\n            block->train = NULL;\n            continue;\n        }\n        for (j = 0; j < 2; j++) {\n            if (block->next[j] == NULL) {\n                continue;\n            }\n            if (block->next[j]->signal == RED) {\n                continue;\n            }\n            if (find_block(block->next[j], block->train->dest) == 1) {\n                block->next[j]->train = block->train;\n                block->next[j]->signal = RED;\n                block->train = NULL;\n                ［c］;\n            }\n        }\n    }\n}\nint find_block(struct block_info* block, struct block_info* dest) {\n    int i;\n    if (block == dest) {\n        return 1;\n    }\n    for (i = 0; i < 2; i++) {\n        if (block->next[i] == NULL) {\n            continue;\n        }\n        if (find_block(［d］) == 1) {\n            return 1;\n        }\n    }\n    return 0;\n}"
+      }
+    },
+    {
+      "number": 9,
+      "profile": "legacy-2018-autumn-pm9-program",
+      "group": 2,
+      "pages": [
+        51
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム3〕",
+        "alt": "問9 プログラム3。空欄と全処理を保持。",
+        "text": "void start(struct block_info[], int);\nvoid start(struct block_info blocks[], int nblocks) {\n    int i;\n    set_signals(blocks, nblocks);\n    for (i = 0; i < 4; i++) {\n        proceed(blocks, nblocks);\n        set_signals(blocks, nblocks);\n    }\n}"
+      }
+    },
+    {
+      "number": 10,
+      "profile": "legacy-2018-autumn-pm10-program",
+      "group": 0,
+      "pages": [
+        53,
+        54
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム〕",
+        "lineNumbersLabel": true,
+        "alt": "全データ定義，SORT/RETURN，EOF，社員境界と書戻しの行番号を保持。",
+        "text": " 1  DATA DIVISION.\n 2  FILE SECTION.\n 3  SD SRT-FILE.\n 4  01 SRT-REC.\n 5     02 SRT-NO      PIC X(8).\n 6     02 SRT-CD      PIC 9(1).\n 7     02 SRT-DATE    PIC 9(8).\n 8  FD QLF-FILE.\n 9  01 QLF-REC.\n10     02 QLF-NO      PIC X(8).\n11     02 QLF-INF.\n12        03 QLF-DATE PIC 9(8) OCCURS 4.\n13  FD PAS-FILE.\n14  01 PAS-REC.\n15     02 PAS-NO      PIC X(8).\n16     02 PAS-CD      PIC 9(1).\n17     02 PAS-DATE    PIC 9(8).\n18  WORKING-STORAGE SECTION.\n19  77 SRT-FLAG      PIC X(1) VALUE SPACE.\n20     88 SRT-EOF    VALUE \"E\".\n21  77 CR-NO         PIC X(8) VALUE SPACE.\n22  PROCEDURE DIVISION.\n23  MAIN-PROC.\n24      OPEN I-O QLF-FILE.\n25      SORT SRT-FILE ASCENDING KEY SRT-NO\n26           USING PAS-FILE\n27           OUTPUT PROCEDURE IS RET-PROC.\n28      CLOSE QLF-FILE.\n29      STOP RUN.\n30  RET-PROC.\n31      PERFORM TEST BEFORE UNTIL SRT-EOF\n32          RETURN SRT-FILE AT END SET SRT-EOF TO TRUE\n33                              ［a］\n34                      NOT AT END PERFORM UPD-PROC\n35          END-RETURN\n36      END-PERFORM.\n37  UPD-PROC.\n38      IF ［b］ THEN\n39          PERFORM WRT-PROC\n40          MOVE SRT-NO TO QLF-NO\n41          READ QLF-FILE END-READ\n42          MOVE QLF-NO TO CR-NO\n43      END-IF.\n44      ［c］.\n45  WRT-PROC.\n46      IF CR-NO NOT = SPACE THEN\n47          REWRITE QLF-REC\n48      END-IF."
+      }
+    },
+    {
+      "number": 10,
+      "profile": "legacy-2018-autumn-pm10-changes",
+      "group": 0,
+      "pages": [
+        55
+      ],
+      "referenceModel": {
+        "kind": "changes",
+        "caption": "表1 プログラムの変更内容1",
+        "alt": "挿入箇所と命令の対応を保持。",
+        "columns": [
+          "処置",
+          "変更内容"
+        ],
+        "rows": [
+          [
+            "行番号21と22の間に追加",
+            "77 W-CNT PIC 9(4)."
+          ],
+          [
+            "［d］に追加",
+            "PERFORM VARYING W-CNT FROM 1 BY 1\n    UNTIL W-CNT > 4 OR QLF-DATE(W-CNT) = ZERO\n    CONTINUE\nEND-PERFORM\nIF ［e］ THEN\n    DISPLAY \"EMPLOYEE-NO:\" QLF-NO \" COMPLETE\"\nEND-IF"
+          ]
+        ]
+      }
+    },
+    {
+      "number": 10,
+      "profile": "legacy-2018-autumn-pm10-changes",
+      "group": 1,
+      "pages": [
+        56
+      ],
+      "referenceModel": {
+        "kind": "changes",
+        "caption": "表2 プログラムの変更内容2",
+        "alt": "挿入箇所と命令の対応を保持。",
+        "columns": [
+          "処置",
+          "変更内容"
+        ],
+        "rows": [
+          [
+            "行番号18と19の間に追加",
+            "01 W-LIC.\n   02 W-NUM PIC 9(4) OCCURS 4 VALUE ZERO."
+          ],
+          [
+            "行番号28と29の間に追加",
+            "DISPLAY W-NUM(1) \", \" W-NUM(2) \", \" W-NUM(3) \", \" W-NUM(4)."
+          ],
+          [
+            "行番号44と45の間に追加",
+            "ADD 1 TO W-NUM(SRT-CD)."
+          ]
+        ]
+      }
+    },
+    {
+      "number": 11,
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 0,
+      "pages": [
+        59
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム1〕",
+        "alt": "問11 プログラム1。原の全宣言，空欄，α挿入位置を保持。",
+        "text": "import java.util.List;\nimport java.util.Map;\npublic interface Fragment {\n    String replace(Map<String, List<String>> table);\n}"
+      }
+    },
+    {
+      "number": 11,
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 1,
+      "pages": [
+        59
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム2〕",
+        "alt": "問11 プログラム2。原の全宣言，空欄，α挿入位置を保持。",
+        "text": "import java.util.List;\nimport java.util.Map;\npublic class Replacer ［a］ Fragment {\n    final String key;\n    Replacer(CharSequence cs) { key = cs.toString(); }\n    public String replace(Map<String, List<String>> table) {\n        return String.join(\"\\n\", table.get(key));\n    }\n}"
+      }
+    },
+    {
+      "number": 11,
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 2,
+      "pages": [
+        60
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム3〕",
+        "alt": "問11 プログラム3。原の全宣言，空欄，α挿入位置を保持。",
+        "text": "import java.util.List;\nimport java.util.Map;\npublic class PassThrough ［a］ Fragment {\n    final String str;\n    PassThrough(CharSequence cs) { str = cs.toString(); }\n    public String replace(Map<String, List<String>> table) {\n        return str;\n    }\n}"
+      }
+    },
+    {
+      "number": 11,
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 3,
+      "pages": [
+        60,
+        61
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム4〕",
+        "alt": "問11 プログラム4。原の全宣言，空欄，α挿入位置を保持。",
+        "text": "import java.io.IOException;\nimport java.io.Reader;\nimport java.util.ArrayList;\nimport java.util.List;\npublic class TemplateParser {\n    static public Template parse(Reader reader) throws IOException {\n        StringBuilder buf = new StringBuilder();\n        List<Fragment> fragmentList = new ArrayList<>();\n        int c;\n        while ((c = reader.read()) >= 0) {\n            switch (c) {\n            case '<':\n                fragmentList.add(new ［b］);\n                buf = new StringBuilder();\n                break;\n            case '>':\n                fragmentList.add(new ［c］);\n                buf = new StringBuilder();\n                break;\n            // ← α（設問2の2行の挿入位置）\n            default:\n                buf.append((char) c);\n            }\n        }\n        fragmentList.add(new PassThrough(buf));\n        return ［d］;\n    }\n}"
+      }
+    },
+    {
+      "number": 11,
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 4,
+      "pages": [
+        61
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム5〕",
+        "alt": "問11 プログラム5。原の全宣言，空欄，α挿入位置を保持。",
+        "text": "import java.util.List;\nimport java.util.Map;\npublic class Template {\n    List<Fragment> fragmentList;\n    Template(List<Fragment> fragmentList) {\n        this.fragmentList = fragmentList;\n    }\n    public String apply(Map<String, List<String>> table) {\n        StringBuilder sb = new StringBuilder();\n        for (Fragment fragment : fragmentList) {\n            sb.append(fragment.replace(［e］));\n        }\n        return sb.toString();\n    }\n}"
+      }
+    },
+    {
+      "number": 11,
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 5,
+      "pages": [
+        61
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム6〕",
+        "alt": "問11 プログラム6。原の全宣言，空欄，α挿入位置を保持。",
+        "text": "import java.io.FileReader;\nimport java.io.IOException;\nimport java.io.Reader;\nimport java.util.List;\nimport java.util.Map;\npublic class TemplateTester {\n    public static void main(String... args) throws IOException {\n        try (\n            Reader tReader = new FileReader(\"template.txt\");\n            Reader rReader = new FileReader(\"replacementTable.txt\")\n        ) {\n            Template template = TemplateParser.parse(tReader);\n            Map<String, List<String>> table =\n                ReplacementTableParser.parse(rReader);\n            System.out.print(template.apply(table));\n        }\n    }\n}"
+      }
+    },
+    {
+      "number": 12,
+      "profile": "legacy-2018-autumn-pm12-program",
+      "group": 0,
+      "pages": [
+        64
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム1〕",
+        "lineNumbersLabel": true,
+        "alt": "全行番号・ラベル・注釈・空欄を保持。GR1〜GR7は各副プログラムから戻る際復元。",
+        "text": " 1 DAYOFFST START\n 2          RPUSH\n 3          LD    GR5,0,GR2       ; GR5: 年\n 4          LD    GR3,1,GR2       ; GR3: 月\n 5          LD    GR1,2,GR2       ; GR1: 日\n 6          SUBL  GR1,=1         ; GR1で日数をカウント\n 7          ［a］\n 8          ADDL  GR1,-1,GR4     ; 1月1日からの日数（平年）を求める\n 9          CPA   GR3,=3        ; 月が3月以降のときうるう年を考慮\n10          JMI   SKIP\n11          LD    GR2,GR5\n12          CALL  LEAPYEAR\n13          ADDL  GR1,GR0\n14 SKIP     LD    GR2,=1970 ; 1970年から（年−1）年までの間（ただし，\n15 LOOP     CPA   GR2,GR5       ; 年>1970），1年の日数を加算\n16          ［b］\n17          CALL  LEAPYEAR\n18          ADDL  GR0,=365\n19          ADDL  GR1,GR0\n20          ADDA  GR2,=1\n21          JUMP  LOOP\n22 BREAK    LD    GR0,GR1\n23 EXIT     RPOP\n24          RET\n25 ; ACCMDAYSは，平年の各月1日の1月1日からの日数（1月1日は0日目）\n26 ACCMDAYS DC    0,31,59,90,120,151,181,212,243,273,304,334\n27          END"
+      }
+    },
+    {
+      "number": 12,
+      "profile": "legacy-2018-autumn-pm12-program",
+      "group": 1,
+      "pages": [
+        64,
+        65
+      ],
+      "referenceModel": {
+        "kind": "program",
+        "caption": "〔プログラム2〕",
+        "lineNumbersLabel": true,
+        "alt": "全行番号・ラベル・注釈・空欄を保持。GR1〜GR7は各副プログラムから戻る際復元。",
+        "text": " 1 LEAPYEAR START\n 2          RPUSH\n 3          SUBA GR0,GR0\n 4          LD   GR3,GR2\n 5          AND  GR3,=3\n 6          ［c］\n 7          LD   GR3,=100\n 8          CALL DIVISIBL\n 9          ［d］\n10          JNZ  FIN\n11          LD   GR3,=400\n12          CALL DIVISIBL\n13 FIN      RPOP\n14          RET\n15          END"
+      }
+    }
+  ]
+}

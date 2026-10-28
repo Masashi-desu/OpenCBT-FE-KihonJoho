@@ -25,6 +25,9 @@ test("generation preparation reads packed inputs, revises only the requested ser
     assert(before.catalog.files.sources.every(f => f.recordCount));
     execFileSync(path.resolve("node_modules/.bin/tsx"), [path.resolve("scripts/prepare-generation-data.ts"), "--refresh-sources=sample-2022-apr-b-1"], { cwd: temporary, stdio: "pipe" });
     const after = readDistributionBundle(root);
+    assert.deepEqual(after.questions.map(q => q.id), before.questions.map(q => q.id));
+    assert.deepEqual(after.templates.map(t => t.id), before.templates.map(t => t.id));
+    for (const files of Object.values(after.catalog.files)) assert(files.every(file => file.recordCount !== undefined));
     await validateBundle(after);
     assert.equal(after.questions.length, before.questions.length);
     assert.equal(after.templates.length, before.templates.length);

@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
+import { answerRun as answerCurrent } from "./fixtures/answer-run";
+import { compoundRun } from "./fixtures/compound-question";
+import { contentHash } from "../src/core/hash";
 import { refOf, type Run, type Selection } from "../src/core/types";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { answerCanVary, answerSignature } from "../src/core/generation";
@@ -27,34 +30,11 @@ const selection: Selection = {
   bookmarkQuestionRef: { questionId: "question-ipa-2026-a-1", revision: 1 },
 };
 
-/** Answer the real issued choice/unordered form. One wrong first field
- * makes that major incorrect while every remaining field stays correct. */
-function answerCurrent(run: Run, correct: boolean, at: number) {
-  const question = run.issued[run.session.currentIndex];
-  if (!question.answerParts) return updateAnswer(run, correct ? question.correctAnswer.choiceId
-    : question.choices.find(choice => choice.id !== question.correctAnswer.choiceId)!.id, at);
-  const correctChoices = new Map(question.correctAnswer.parts!.flatMap(answer => {
-    if (answer.kind === "choice") return [[answer.partId, answer.choiceId]];
-    assert.equal(answer.kind, "unordered", "this distribution has no unscored answer slots");
-    assert(answer.kind === "unordered");
-    return answer.partIds.map((id, index) => [id, answer.choiceIds[index]]);
-  }));
-  assert.equal(correctChoices.size, question.answerParts.length);
-  for (const [index, part] of question.answerParts.entries()) {
-    const correctChoice = correctChoices.get(part.id);
-    assert(correctChoice && part.choiceIds.includes(correctChoice));
-    const choiceId = correct || index > 0 ? correctChoice : part.choiceIds.find(id => id !== correctChoice)!;
-    assert(choiceId);
-    run = updatePartAnswer(run, part.id, choiceId, at);
-  }
-  return run;
-}
-
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
   const rows = generationCoverage(bundle).rows;
-  assert.equal(rows.length, 228);
-  assert.equal(rows.filter(row => row.original.answerParts).length, 39);
+  assert.equal(rows.length, 241);
+  assert.equal(rows.filter(row => row.original.answerParts).length, 52);
   for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {
       ...selection,
@@ -107,11 +87,14 @@ test("all bookmarked series append to one session and aggregate every answer wit
     assert.equal(completed.result!.revealedCount, 1);
     assert.equal(completed.result!.learningAccuracyPercent, 33.3);
     if (row.original.answerParts) {
-      const fields = row.original.answerParts.length;
+      const fields = row.original.answerParts.length,
+        unscored = row.original.correctAnswer.parts!.filter(answer => answer.kind === "no_correct_answer").length,
+        scored = fields - unscored;
+      assert(scored > 0, "The one-wrong exercise requires a scored answer slot");
       assert.deepEqual(completed.result!.entries.map(entry => entry.parts!.length), [fields, fields, fields]);
-      assert.deepEqual(completed.result!.partSummary, { total: fields * 3, correct: fields * 2 - 1,
-        incorrect: 1, unanswered: fields, unscored: 0,
-        learningAccuracyPercent: Math.round((fields * 2 - 1) / (fields * 3) * 1000) / 10 });
+      assert.deepEqual(completed.result!.partSummary, { total: fields * 3, correct: scored * 2 - 1,
+        incorrect: 1, unanswered: scored, unscored: unscored * 3,
+        learningAccuracyPercent: Math.round((scored * 2 - 1) / (scored * 3) * 1000) / 10 });
     }
   }
 });
@@ -193,4 +176,32 @@ test("generation failure preserves all previously answered entries", async () =>
   const saved = structuredClone(run);
   await assert.rejects(appendRunQuestion(run, baseRef, 103000), { code: "GENERATOR_REF" });
   assert.deepEqual(run, saved);
+});
+
+// Synthetic API coverage only; the real 2018 autumn Q13 source keys and all
+// choices are independently covered by the booklet's content tests after admission.
+test("an unscored first field keeps its saved choice and cannot consume the one intended scored error", async () => {
+  for (const selected of [undefined, "choice-one", "choice-two", "choice-three"]) {
+    for (const correct of [true, false]) {
+      const ready = await compoundRun(), q = ready.issued[0];
+      q.answerParts!.unshift(q.answerParts!.pop()!);
+      q.correctAnswer.parts!.unshift(q.correctAnswer.parts!.pop()!);
+      ready.session.entries[0].issuedContent.contentSha256 = await contentHash(q);
+      let run = startRun(ready, 100000);
+      if (selected) run = updatePartAnswer(run, "part-f", selected, 100100);
+      const source = structuredClone(run.issued[0]);
+      run = answerCurrent(run, correct, 100200);
+      assert.deepEqual(run.issued[0], source);
+      assert.equal(run.session.entries[0].selectedPartChoices?.["part-f"], selected);
+      assert.equal(run.session.entries[0].selectedPartChoices?.["part-a"] === "choice-two", correct);
+      run = finishRun(run, "completed", 100300);
+      await validateRun(structuredClone(run));
+      assert.equal(run.result!.entries[0].outcome, correct ? "correct" : "incorrect");
+      assert.deepEqual(run.result!.entries[0].parts!.find(part => part.partId === "part-f"),
+        { partId: "part-f", outcome: "unscored" });
+      assert.deepEqual(run.result!.partSummary, { total: 4, correct: correct ? 3 : 2,
+        incorrect: correct ? 0 : 1, unanswered: 0, unscored: 1,
+        learningAccuracyPercent: correct ? 100 : 66.7 });
+    }
+  }
 });

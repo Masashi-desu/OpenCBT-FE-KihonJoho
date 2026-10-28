@@ -1,0 +1,8 @@
+/** Source-positioned banks for the reused Q1/Q8. Read existing pure choices;
+ * no solver/content replacement, shuffle, extra option or global hook. */
+import{figure}from'./definition';import{autumn2018Tuple}from'./legacy-2018-autumn-pm-input';
+import{legacy2018SecurityDefinitions}from'./legacy-2018-pm-security';import{legacy2018ExpressionAfternoonDefinitions}from'./legacy-2018-pm-expression';
+export const autumn2018ExistingBankProfiles=['legacy-2018-autumn-pm1-bank','legacy-2018-autumn-pm8-bank']as const;
+export const autumn2018Pm8MandatoryNotice='次の問8は必須問題です。必ず解答してください。';
+export function autumn2018ExistingBank(profile:string,input:number[]){const one=profile===autumn2018ExistingBankProfiles[0];if(!autumn2018ExistingBankProfiles.includes(profile as never))throw Error('UNKNOWN_SOURCE_BANK');const values=autumn2018Tuple(input,one?[[0,3],[0,4]]:[[0,3],[0,3],[0,3],[0,1],[0,5]]),group=values.at(-1)!,v=values.slice(0,-1),body=(one?legacy2018SecurityDefinitions[0]:legacy2018ExpressionAfternoonDefinitions[0]).build(v),part=body.answerParts![group],entries=part.choiceIds.map((id,i)=>({label:'アイウエ'[i],blocks:body.choices[Number(id.slice(13))-1]})),caption=one?['設問1 解答群','aに関する解答群','bに関する解答群','cに関する解答群','設問3 解答群'][group]:['aに関する解答群','bに関する解答群','cに関する解答群','dに関する解答群','eに関する解答群','f，gに関する解答群'][group];return{one,group,v,entries,caption};}
+export function autumn2018ExistingBankBlock(number:1|8,v:number[],group:number){const profile=`legacy-2018-autumn-pm${number}-bank`,values=[...v,group],f=autumn2018ExistingBank(profile,values);return figure(profile,values,f.caption,f.entries.map(e=>e.label+' '+e.blocks.map(b=>b.type==='paragraph'?b.text:b.type==='table'?[b.columns.join('，'),...b.rows.map(r=>r.join('，'))].join('。'):'').join('。')).join('。'));}

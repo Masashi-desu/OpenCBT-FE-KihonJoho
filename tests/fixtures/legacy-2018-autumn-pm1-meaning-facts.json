@@ -1,0 +1,297 @@
+{
+  "basis": "corrected v3 source/independent CIA-evidence-auth judgments; false claims do not come from producer answer IDs",
+  "factsSHA256": "75c9381b21b06bc839a56fcd7bc6f052cd198560c14c54b91c98ac362d98a888",
+  "own": [
+    {
+      "term": "DMZ",
+      "requiredMeaningLiterals": [
+        "内部ネットワーク",
+        "Webサーバ",
+        "脆弱性対策になるわけではない"
+      ],
+      "facts": [
+        {
+          "claim": "公開サーバの領域と社内DBを分離する",
+          "true": true
+        },
+        {
+          "claim": "DBを移すだけでWebのSQLiは解消しない",
+          "true": true
+        },
+        {
+          "claim": "DBのDMZ移設はSQLiの根本修正である",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "DB（データベース）",
+      "requiredMeaningLiterals": [
+        "カタログ請求者",
+        "経路が異なる"
+      ],
+      "facts": [
+        {
+          "claim": "DBは関連情報を整理して保持する",
+          "true": true
+        },
+        {
+          "claim": "直接DBログインとWeb経由SQLiは別の経路である",
+          "true": true
+        },
+        {
+          "claim": "DBは写真の画像だけを格納する装置である",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "DNS（ドメイン名の管理）",
+      "requiredMeaningLiterals": [
+        "ドメイン名",
+        "SQL命令"
+      ],
+      "facts": [
+        {
+          "claim": "名前に対応する情報を管理する",
+          "true": true
+        },
+        {
+          "claim": "DNSの改ざんとSQL命令入力は別の攻撃対象である",
+          "true": true
+        },
+        {
+          "claim": "DNSはDB操作命令を安全に実行する機構である",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "ディジタル署名（電子メール）",
+      "requiredMeaningLiterals": [
+        "署名後",
+        "保管する個人情報の量"
+      ],
+      "facts": [
+        {
+          "claim": "署名は作成者や変更の確認に使う",
+          "true": true
+        },
+        {
+          "claim": "メール署名はDBの保管情報を減らさない",
+          "true": true
+        },
+        {
+          "claim": "署名を付ければDBに残る個人情報が消去される",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "アクセスログ",
+      "requiredMeaningLiterals": [
+        "記録",
+        "過去の操作"
+      ],
+      "facts": [
+        {
+          "claim": "DBアクセスを調査する証跡になる",
+          "true": true
+        },
+        {
+          "claim": "記録がなかった過去の操作の復元は保証しない",
+          "true": true
+        },
+        {
+          "claim": "ログ取得だけでSQLi自体を完全に防止する",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "プレースホルダ",
+      "requiredMeaningLiterals": [
+        "構造",
+        "値を分離"
+      ],
+      "facts": [
+        {
+          "claim": "命令と値を分離する差込み位置である",
+          "true": true
+        },
+        {
+          "claim": "単なるSQL文字列連結とは異なる",
+          "true": true
+        },
+        {
+          "claim": "Web出力HTMLエスケープと全く同じ処理である",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "エスケープ処理",
+      "requiredMeaningLiterals": [
+        "文法や文脈",
+        "Webページ"
+      ],
+      "facts": [
+        {
+          "claim": "使用先の文脈に合わせる",
+          "true": true
+        },
+        {
+          "claim": "SQL用とWeb出力用は別の文脈を持つ",
+          "true": true
+        },
+        {
+          "claim": "一種類の置換で全用途が安全になる",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "平文",
+      "requiredMeaningLiterals": [
+        "暗号化されていない",
+        "パスワード以外"
+      ],
+      "facts": [
+        {
+          "claim": "暗号化していない情報を指す",
+          "true": true
+        },
+        {
+          "claim": "パスワードhashは他の個人情報の読出しを防ぐ保証ではない",
+          "true": true
+        },
+        {
+          "claim": "パスワードをhash化すれば全ての個人情報も暗号化される",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "脆弱性",
+      "requiredMeaningLiterals": [
+        "弱点",
+        "Webアプリ全体"
+      ],
+      "facts": [
+        {
+          "claim": "悪用され得る弱点である",
+          "true": true
+        },
+        {
+          "claim": "部分調査だけでは他の箇所に弱点なしと判断しない",
+          "true": true
+        },
+        {
+          "claim": "一つ見つかれば残りの調査は不要である",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "情報の保管期間",
+      "requiredMeaningLiterals": [
+        "購入支援",
+        "本人の同意"
+      ],
+      "facts": [
+        {
+          "claim": "継続利用目的を踏まえる",
+          "true": true
+        },
+        {
+          "claim": "同意した適切な期間後の消去は保管量低減策になる",
+          "true": true
+        },
+        {
+          "claim": "送付直後の一律消去は継続利用目的と常に一致する",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "ミドルウェア",
+      "requiredMeaningLiterals": [
+        "OS",
+        "記録を取得できない"
+      ],
+      "facts": [
+        {
+          "claim": "共通機能をアプリへ提供する",
+          "true": true
+        },
+        {
+          "claim": "必要最小限化だけではDBアクセス記録を得られない",
+          "true": true
+        },
+        {
+          "claim": "ソフトを減らすだけで操作証跡が自動生成される",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "デフラグメンテーション",
+      "requiredMeaningLiterals": [
+        "断片",
+        "証跡"
+      ],
+      "facts": [
+        {
+          "claim": "断片配置を整理する",
+          "true": true
+        },
+        {
+          "claim": "DBへのアクセス記録とは役割が異なる",
+          "true": true
+        },
+        {
+          "claim": "断片整理は誰がDBを読んだかの監査記録である",
+          "true": false
+        }
+      ]
+    },
+    {
+      "term": "冗長化",
+      "requiredMeaningLiterals": [
+        "待機系",
+        "予備電源",
+        "通信経路"
+      ],
+      "facts": [
+        {
+          "claim": "機器や経路の故障への備えである",
+          "true": true
+        },
+        {
+          "claim": "電源故障と経路故障は異なる対象である",
+          "true": true
+        },
+        {
+          "claim": "冗長化すればアクセスログのない過去の漏えい範囲が確定する",
+          "true": false
+        }
+      ]
+    }
+  ],
+  "formalExpansions": {
+    "DMZ": "Demilitarized Zone",
+    "DB（データベース）": "Database",
+    "DNS（ドメイン名の管理）": "Domain Name System"
+  },
+  "oldProjectionHashes": {
+    "own396": "a3d7911276c2f3a795b64f176de91d596b844923d631c7e56941becde8ca6d2c",
+    "inherited90": "fd492a00bc4a4a48f7c14937d5a4105b15ee622520277511730bf589cba7382d",
+    "aliases15": "3f9dd9ec74a2404729a9b733f4a7837a758bfa1ef6306ce305c2dca133c3d9f1"
+  },
+  "effectiveInitialCounts": {
+    "own": 13,
+    "inherited": 10,
+    "reused": 2,
+    "effective": 25
+  }
+}

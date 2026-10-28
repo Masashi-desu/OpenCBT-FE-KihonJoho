@@ -333,18 +333,74 @@ test("GPU and every reference/rotated binding can be issued on all four random p
   assert.deepEqual(bundle, original);
 });
 
+// Only this source-reviewed 1081-input domain is admitted above the existing
+// exhaustive256 bound. Identity, version and both declared domains are pinned;
+// any future enlargement or another old-PM domain still fails for review.
+function finiteSeedBudget(template: Template, contract: NonNullable<ReturnType<typeof contractFor>>, afternoon: boolean) {
+  const fields = contract.fields,
+    capacity = fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1);
+  if (template.id === "template-source-2018h30a-fe-pm-13") {
+    assert(afternoon);
+    assert.equal(contract.source, "2018h30a-fe-pm-13");
+    assert.equal(contract.version, "3.2.0");
+    assert.deepEqual(template.generatorRef, { id: "generator-source-2018h30a-fe-pm-13", version: "3.2.0" });
+    const reviewedFields = [{ name: "待ち時間を分析する利用状況の例", minimum: 0, maximum: 1080 }];
+    assert.deepEqual(fields, reviewedFields);
+    assert.deepEqual(template.parameterDomain, { values: { length: 1, minimum: 0, maximum: 1080 }, fields: reviewedFields });
+    assert.deepEqual(contract.reference, [0]);
+    assert.deepEqual(template.referenceParameters.values, [0]);
+    assert.equal(capacity, 1081);
+    return 32768;
+  }
+  if (afternoon) assert(capacity <= 256, `${template.id}: all finite afternoon inputs require exhaustive coverage`);
+  return capacity <= 256 ? 4096 : undefined;
+}
+
+test("only the exact reviewed2018 autumnQ13 domain expands exhaustive finite sampler coverage", () => {
+  const bundle = fixture(), row = generationCoverage(bundle).rows.find(row => row.linked[0].id === "template-source-2018h30a-fe-pm-13")!,
+    template = row.linked[0], contract = contractFor(template)!;
+  assert.equal(finiteSeedBudget(template, contract, isAfternoon(row.original)), 32768);
+  const mutants: ((template: Template, contract: NonNullable<ReturnType<typeof contractFor>>) => void)[] = [
+    t => { t.id = "template-source-2018h30a-fe-pm-12"; },
+    t => { t.generatorRef.id = "generator-source-2018h30a-fe-pm-12"; },
+    t => { t.generatorRef.version = "3.3.0"; },
+    (_t, c) => { c.source = "2018h30a-fe-pm-12"; },
+    (_t, c) => { c.version = "3.3.0"; },
+    (_t, c) => { c.fields[0].name = "未査読の入力"; },
+    (_t, c) => { c.fields[0].minimum = 1; },
+    (_t, c) => { c.fields[0].maximum = 1081; },
+    (_t, c) => { c.fields.push({ ...c.fields[0] }); },
+    t => { t.parameterDomain.fields![0].maximum = 1081; },
+    t => { t.parameterDomain.values.maximum = 1081; },
+    t => { t.parameterDomain.values.length = 2; },
+    t => { t.referenceParameters.values = [1]; },
+    (_t, c) => { c.reference = [1]; },
+  ];
+  for (const mutate of mutants) {
+    const t = structuredClone(template), c = structuredClone(contract);
+    mutate(t, c);
+    assert.throws(() => finiteSeedBudget(t, c, true), { code: "ERR_ASSERTION" });
+  }
+  assert.throws(() => finiteSeedBudget(template, contract, false), { code: "ERR_ASSERTION" });
+  for (const old of generationCoverage(bundle).rows.filter(r => isAfternoon(r.original) && r.linked[0].id !== template.id)) {
+    const t = old.linked[0], c = structuredClone(contractFor(t)!);
+    assert.equal(finiteSeedBudget(t, c, true), 4096);
+    c.fields = [{ name: "未査読の拡大域", minimum: 0, maximum: 256 }];
+    assert.throws(() => finiteSeedBudget(t, c, true), { code: "ERR_ASSERTION" });
+  }
+  const current = generationCoverage(bundle).rows.find(r => !isAfternoon(r.original) && contractFor(r.linked[0])!.fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1) > 256)!;
+  assert.equal(finiteSeedBudget(current.linked[0], contractFor(current.linked[0])!, false), undefined);
+});
+
 test("every small-domain binding survives every applicable issuance path and endless history, including all old afternoon inputs", async (ctx) => {
   const bundle = fixture(), control = seedControl(ctx);
   let templates = 0, inputs = 0, initialDraws = 0, appendedDraws = 0;
   let afternoonInputs = 0, afternoonInitialDraws = 0, afternoonAppendedDraws = 0;
   const afternoonTemplates: string[] = [];
   for (const row of generationCoverage(bundle).rows) {
-    const template = row.linked[0], fields = contractFor(template)!.fields;
-    const capacity = fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1), afternoon = isAfternoon(row.original);
-    // All current PM domains are explicitly enumerable. A later enlargement
-    // must fail here for review, never silently fall into the64-seed sample.
-    if (afternoon) assert(capacity <= 256, `${template.id}: all finite afternoon inputs require exhaustive coverage`);
-    if (capacity > 256) continue;
+    const template = row.linked[0], contract = contractFor(template)!, fields = contract.fields,
+      afternoon = isAfternoon(row.original), maximumSeeds = finiteSeedBudget(template, contract, afternoon);
+    if (maximumSeeds === undefined) continue;
     const candidates = fields.reduce<number[][]>((rows, f) => rows.flatMap((v) =>
       Array.from({ length: f.maximum - f.minimum + 1 }, (_, i) => [...v, f.minimum + i]),
     ), [[]]).filter((v) => {
@@ -357,7 +413,8 @@ test("every small-domain binding survives every applicable issuance path and end
       }
     });
     assert(candidates.length > 1, template.id);
-    const seeds = await seedsFor(template, candidates),
+    if (template.id === "template-source-2018h30a-fe-pm-13") assert.equal(candidates.length, 1081);
+    const seeds = await seedsFor(template, candidates, maximumSeeds),
       routes = routesFor(bundle, row.original, template),
       precedents: Run[] = [],
       history: Instance[] = [];

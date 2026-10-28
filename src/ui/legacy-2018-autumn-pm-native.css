@@ -1,0 +1,60 @@
+.autumn2018-native { color: var(--ink); max-width: 100%; min-width: 0; }
+.autumn2018-native table { border-collapse: collapse; margin-inline: auto; width: 100%; min-width: max-content; }
+.autumn2018-native th,.autumn2018-native td { border: 1px solid var(--diagram-border); padding: .4em .6em; text-align: center; font-weight: normal; }
+.autumn2018-native caption { margin-block-end: .4em; }
+.autumn2018-unit { display: block; text-align: end; }
+.autumn2018-two-columns { display: grid; grid-template-columns: repeat(2,minmax(max-content,1fr)); gap: .6em 1.5em; }
+.autumn2018-five-columns { display: grid; grid-template-columns: repeat(5,minmax(max-content,1fr)); gap: .6em 1em; }
+.autumn2018-bank { margin-block: 1em; overflow: auto; }
+.autumn2018-bank .table-wrap { max-width: 40em; }
+.autumn2018-pm2-svg { color: var(--ink); }
+.autumn2018-pm2-svg circle,.autumn2018-pm2-svg rect,.autumn2018-pm2-svg polyline { stroke: currentColor; stroke-width: 1.6; }
+.autumn2018-pm2-svg text { fill: currentColor; stroke: none; font-family: var(--font); font-size: 20px; dominant-baseline: alphabetic; }
+.autumn2018-schemas { display: grid; gap: 1em; }
+.autumn2018-schemas-0 { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.autumn2018-schemas>.table-wrap { min-width: 0; max-width: 100%; overflow: auto; }
+.autumn2018-schemas-0 [data-source-position="0"],.autumn2018-schemas-0 [data-source-position="1"],.autumn2018-schemas-0 [data-source-position="4"] { grid-column: 1 / -1; }
+.autumn2018-schemas-0 [data-source-position="0"] { max-width: 70%; }
+.autumn2018-schemas caption { text-align: start; }
+.autumn2018-sql { margin: .4em 0; font-family: monospace; white-space: pre; line-height: 1.65; color: var(--ink); background: transparent; }
+.autumn2018-sql-choice { display: flex; gap: .8em; margin-block: 1.3em; }
+.autumn2018-choice-label { padding-block-start: .45em; }
+.autumn2018-blank { display: inline-block; min-width: 4em; padding-inline: .3em; border: 2px solid var(--diagram-border); text-align: center; line-height: 1.3; }
+.autumn2018-choice-lines { display: grid; gap: .8em; }
+.autumn2018-pm4-svg { color: var(--ink); }
+.autumn2018-pm4-svg rect,.autumn2018-pm4-svg ellipse,.autumn2018-pm4-svg polyline,.autumn2018-pm4-svg line { stroke: currentColor; stroke-width: 1.6; }
+.autumn2018-pm4-svg text { fill: currentColor; stroke: none; font-family: var(--font); font-size: 20px; dominant-baseline: alphabetic; }
+.autumn2018-pm4-svg .autumn2018-segment { stroke-dasharray: 3 4; }
+.autumn2018-source-notice { border: 2px solid var(--diagram-border); padding: .5em .7em; line-height: 1.8; }
+.autumn2018-selection-mark { display: inline-block; width: 1.25em; height: 1.25em; border: 1px solid var(--diagram-border); border-radius: 50%; line-height: 1.2; text-align: center; }
+/* Source spreadsheet coordinates/omitted rows and code blocks keep horizontal
+   reading inside their own region; they never reserve a scrollbar gutter. */
+.autumn2018-worksheet { width:100%;min-width:1050px;border-collapse:collapse;table-layout:fixed }
+.autumn2018-worksheet th,.autumn2018-worksheet td { border:1px solid var(--line);padding:.28em .35em;text-align:center;overflow-wrap:normal }
+.autumn2018-worksheet th:first-child { width:3.8em;background:var(--soft-surface) }
+.autumn2018-worksheet thead th { background:var(--soft-surface) }
+.autumn2018-worksheet .autumn2018-sheet-gap { border:0;background:var(--canvas) }
+.autumn2018-sheet-choice { display:flex;gap:1.1em;align-items:baseline;margin:.8em 0;min-width:max-content }
+.autumn2018-sheet-choice>span { width:1em;flex:none }
+.autumn2018-sheet-choice code { white-space:pre-wrap;font:inherit }
+.autumn2018-sheet-macro { font:inherit;min-width:840px;position:relative;padding:0 }
+.autumn2018-macro-line { display:flex;gap:.25em;height:1.9em;line-height:1.3;align-items:center }
+.autumn2018-macro-line code { font:inherit;white-space:pre }
+.autumn2018-macro-control { width:1em;flex:none }
+.autumn2018-macro-line.level-1 { margin-left:1.7em }
+.autumn2018-macro-line.level-2 { margin-left:3.4em }
+.autumn2018-macro-line.level-3 { margin-left:5.1em }
+.autumn2018-macro-line.autumn2018-macro-else { height:.6em }
+.autumn2018-macro-rails { position:absolute;inset:0 auto auto 0;overflow:visible;pointer-events:none;color:var(--ink);fill:currentColor;stroke:currentColor;stroke-width:.055 }
+
+
+.autumn2018-worksheet td.autumn2018-empty-input { background:var(--soft-surface) }
+.autumn2018-expression-inner>.managed-diagram { margin:0 }
+.autumn2018-expression-inner>.managed-diagram>figcaption { display:none }
+.autumn2018-program-heading { margin-block-end:.5em }
+.autumn2018-hatch-note { font-size:.9em;margin-block:.5em }
+
+.autumn2018-existing-text-choice { display:flex;gap:1em;align-items:baseline;margin:.9em 0;min-width:0 }
+.autumn2018-existing-text-choice>span { width:1em;flex:none }
+.autumn2018-existing-text-choice>div { min-width:0;flex:1 }
+.autumn2018-existing-text-choice p { margin:0 }

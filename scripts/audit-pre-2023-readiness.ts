@@ -1,3 +1,4 @@
+import autumn2018PMReview from "./source-evidence/stage2-2018-autumn-pm-review.json";
 import autumn2017PMReview from "./source-evidence/stage2-2017-autumn-pm-review.json";
 import spring2017PMReview from "./source-evidence/stage2-2017-spring-pm-review.json";
 import spring2018PMReview from "./source-evidence/stage2-2018-spring-pm-review.json";
@@ -80,6 +81,15 @@ export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportR
     number <= 10 ? "tests/legacy-2018-spring-pm9-10.test.ts" : `tests/legacy-2018-spring-pm${number}.test.ts`,
     "tests/legacy-2018-spring-afternoon-booklet.test.ts", "tests/legacy-2018-spring-common.test.ts",
     "tests/legacy-2018-spring-binding.test.ts"],
+}))).concat(autumn2018PMReview.majorNumbers.map<ImportReview>(number => ({
+  collectionId: autumn2018PMReview.collectionId, questionNumber: number,
+  paperSha256: autumn2018PMReview.questionPaperSHA256,
+  checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
+  testFiles: [number === 1 || number === 8 ? "tests/legacy-2018-autumn-existing-adapters.test.ts" :
+    number >= 9 && number <= 12 ? "tests/legacy-2018-autumn-language.test.ts" :
+    number >= 5 && number <= 7 ? "tests/legacy-2018-autumn-pm5-7.test.ts" : `tests/legacy-2018-autumn-pm${number}.test.ts`,
+    "tests/legacy-2018-autumn-booklet-facts.test.ts", "tests/legacy-2018-autumn-complete-integration.test.ts",
+    "tests/legacy-2018-autumn-normal-flow.test.ts", "tests/legacy-2018-autumn-fixed-materials.test.ts"],
 })));
 
 export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, reviews = pre2023Reviews, discovery: unknown = discoveryLedger) {

@@ -1,0 +1,1777 @@
+{
+  "status": "manual_source_page_transcription_units_not_generator_expected_answers",
+  "sourcePDFSHA256": "11c85fd0985431b938392d2e163cd83158917973ade6205e273be5bfc6e703ad",
+  "units": [
+    {
+      "number": 9,
+      "promptIndex": 0,
+      "id": "Q9.P45.selection",
+      "physicalPages": [
+        45
+      ],
+      "kind": "paragraph",
+      "sourceText": "次の問9から問13までの5問については，この中から1問を選択し，選択した問題については，解答用紙の選択欄の選をマークして解答してください。なお，2問以上マークした場合には，はじめの1問について採点します。",
+      "expression": "p(\"次の問9から問13までの5問については，この中から1問を選択し，選択した問題については，解答用紙の選択欄の選をマークして解答してください。なお，2問以上マークした場合には，はじめの1問について採点します。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 1,
+      "id": "Q9.P45.question",
+      "physicalPages": [
+        45
+      ],
+      "kind": "paragraph",
+      "sourceText": "問9 次のCプログラムの説明及びプログラムを読んで，設問1〜3に答えよ。",
+      "expression": "p(\"問9 次のCプログラムの説明及びプログラムを読んで，設問1〜3に答えよ。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 2,
+      "id": "Q9.P45.introduction",
+      "physicalPages": [
+        45
+      ],
+      "kind": "paragraph",
+      "sourceText": "本問は，図1に示す路線構成の鉄道模型における列車の運行をシミュレーションするプログラムである。表1は，図1の説明である。",
+      "expression": "p(\"本問は，図1に示す路線構成の鉄道模型における列車の運行をシミュレーションするプログラムである。表1は，図1の説明である。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 3,
+      "id": "Q9.P45.figure1",
+      "physicalPages": [
+        45
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-route",
+      "group": 0,
+      "nestedSourceUnits": [
+        "9区間・5列車・全接続・始発A/B・終着X/Y/Z・全入口信号",
+        "図1 鉄道模型の路線構成及び列車位置"
+      ],
+      "expression": "draw('route',v,0)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 4,
+      "id": "Q9.P45.table1",
+      "physicalPages": [
+        45
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-route",
+      "group": 1,
+      "nestedSourceUnits": [
+        "表1 図1の説明",
+        "区間／接続区間二列／区間内列車（行先）・全9行"
+      ],
+      "expression": "draw('route',v,1)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 5,
+      "id": "Q9.P46.rules-heading",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "〔列車を進行させるルール〕",
+      "expression": "p(\"〔列車を進行させるルール〕\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 6,
+      "id": "Q9.P46.rule1",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(1) 各列車は，あらかじめ決められた始発駅から，あらかじめ決められた終着駅を行先として，路線を後戻りすることなく進行する。",
+      "expression": "p(\"(1) 各列車は，あらかじめ決められた始発駅から，あらかじめ決められた終着駅を行先として，路線を後戻りすることなく進行する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 7,
+      "id": "Q9.P46.rule2",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(2) 一つの区間には，同時に一つの列車しかいることができない。",
+      "expression": "p(\"(2) 一つの区間には，同時に一つの列車しかいることができない。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 8,
+      "id": "Q9.P46.rule3",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(3) 各区間の入口には信号機があり，赤又は緑を表示する。",
+      "expression": "p(\"(3) 各区間の入口には信号機があり，赤又は緑を表示する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 9,
+      "id": "Q9.P46.rule4",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(4) 各列車は，終着駅を出口とする区間にいるときは無条件に進行できる。終着駅を出口とする区間にいる列車が進行した場合，その列車は路線上から取り除かれる。",
+      "expression": "p(\"(4) 各列車は，終着駅を出口とする区間にいるときは無条件に進行できる。終着駅を出口とする区間にいる列車が進行した場合，その列車は路線上から取り除かれる。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 10,
+      "id": "Q9.P46.rule5-definition",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(5) 各列車は，現在いる区間の出口で接続する区間（以下，次区間という）が次の条件をいずれも満たしたとき，次区間に進行できる。",
+      "expression": "p(\"(5) 各列車は，現在いる区間の出口で接続する区間（以下，次区間という）が次の条件をいずれも満たしたとき，次区間に進行できる。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 11,
+      "id": "Q9.P46.rule5-condition1",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "① 次区間の信号機の表示が緑である。",
+      "expression": "p(\"① 次区間の信号機の表示が緑である。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 12,
+      "id": "Q9.P46.rule5-condition2",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "② 次区間に進行すると，最終的には行先とする終着駅に到達できる。",
+      "expression": "p(\"② 次区間に進行すると，最終的には行先とする終着駅に到達できる。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 13,
+      "id": "Q9.P46.rule6-intro",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(6) 次の二つの処理を繰り返し実行して各列車を進行させる。",
+      "expression": "p(\"(6) 次の二つの処理を繰り返し実行して各列車を進行させる。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 14,
+      "id": "Q9.P46.rule6-first",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "① 路線を構成する全ての区間の信号機それぞれについて，区間内に列車がいるときは表示を赤に，列車がいないときは表示を緑にする。",
+      "expression": "p(\"① 路線を構成する全ての区間の信号機それぞれについて，区間内に列車がいるときは表示を赤に，列車がいないときは表示を緑にする。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 15,
+      "id": "Q9.P46.rule6-second",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "② 路線を構成する全ての区間それぞれについて，次の処理を行う。",
+      "expression": "p(\"② 路線を構成する全ての区間それぞれについて，次の処理を行う。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 16,
+      "id": "Q9.P46.rule6-second-a",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(ア) 終着駅を出口とする区間に列車がいる場合は，(4)に従って列車を進行させ，路線上から取り除く。",
+      "expression": "p(\"(ア) 終着駅を出口とする区間に列車がいる場合は，(4)に従って列車を進行させ，路線上から取り除く。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 17,
+      "id": "Q9.P46.rule6-second-b",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(イ) (ア)で述べた以外の区間に列車がいる場合は，(5)に従って進行できる列車を進行させ，進行した区間の信号機の表示を赤にする。",
+      "expression": "p(\"(イ) (ア)で述べた以外の区間に列車がいる場合は，(5)に従って進行できる列車を進行させ，進行した区間の信号機の表示を赤にする。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 18,
+      "id": "Q9.P46.program1-description",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "〔プログラム1の説明〕",
+      "expression": "p(\"〔プログラム1の説明〕\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 19,
+      "id": "Q9.P46.struct-block-heading",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "(1) 構造体block_infoは，鉄道模型の区間を表現する。",
+      "expression": "p(\"(1) 構造体block_infoは，鉄道模型の区間を表現する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 20,
+      "id": "Q9.P46.struct-block-declaration",
+      "physicalPages": [
+        46
+      ],
+      "kind": "code",
+      "language": "c",
+      "sourceText": "struct block_info {\n    struct train_info* train;\n    struct block_info* next[2];\n    int signal;\n};",
+      "expression": "code(\"struct block_info {\\n    struct train_info* train;\\n    struct block_info* next[2];\\n    int signal;\\n};\",\"c\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 21,
+      "id": "Q9.P46.train-member",
+      "physicalPages": [
+        46
+      ],
+      "kind": "paragraph",
+      "sourceText": "train： 区間内にいる列車を表した，構造体train_infoへのポインタである。区間内に列車がいないとき，NULLを設定する。",
+      "expression": "p(\"train： 区間内にいる列車を表した，構造体train_infoへのポインタである。区間内に列車がいないとき，NULLを設定する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 22,
+      "id": "Q9.P47.next-member",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "next： 次区間を表した，構造体block_infoへのポインタを格納する配列（配列の大きさは2）である。終着駅を出口とする区間では，いずれの要素にもNULLを設定する。次区間が一つしかなければ，そのポインタは最初の要素に設定し，2番目の要素にはNULLを設定する。",
+      "expression": "p(\"next： 次区間を表した，構造体block_infoへのポインタを格納する配列（配列の大きさは2）である。終着駅を出口とする区間では，いずれの要素にもNULLを設定する。次区間が一つしかなければ，そのポインタは最初の要素に設定し，2番目の要素にはNULLを設定する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 23,
+      "id": "Q9.P47.signal-member",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "signal： 信号機に表示する色を示す。次のいずれかの定数値をとる。",
+      "expression": "p(\"signal： 信号機に表示する色を示す。次のいずれかの定数値をとる。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 24,
+      "id": "Q9.P47.signal-constants",
+      "physicalPages": [
+        47
+      ],
+      "kind": "code",
+      "language": "text",
+      "sourceText": "RED       表示は赤\nGREEN     表示は緑",
+      "expression": "code(\"RED       表示は赤\\nGREEN     表示は緑\",\"text\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 25,
+      "id": "Q9.P47.struct-train-heading",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "(2) 構造体train_infoは，鉄道模型の列車を表現する。",
+      "expression": "p(\"(2) 構造体train_infoは，鉄道模型の列車を表現する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 26,
+      "id": "Q9.P47.struct-train-declaration",
+      "physicalPages": [
+        47
+      ],
+      "kind": "code",
+      "language": "c",
+      "sourceText": "struct train_info {\n    int number;\n    struct block_info* dest;\n};",
+      "expression": "code(\"struct train_info {\\n    int number;\\n    struct block_info* dest;\\n};\",\"c\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 27,
+      "id": "Q9.P47.number-member",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "number： 列車の番号である。",
+      "expression": "p(\"number： 列車の番号である。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 28,
+      "id": "Q9.P47.dest-member",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "dest： 列車の終着駅を出口とする区間を表した，構造体block_infoへのポインタである。",
+      "expression": "p(\"dest： 列車の終着駅を出口とする区間を表した，構造体block_infoへのポインタである。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 29,
+      "id": "Q9.P47.set-signals-specification",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "(3) 関数set_signalsの仕様は，次のとおりである。",
+      "expression": "p(\"(3) 関数set_signalsの仕様は，次のとおりである。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 30,
+      "id": "Q9.P47.set-signals-function",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "機能： 全ての区間の信号機それぞれについて，区間内に列車がいるときは表示を赤に，列車がいないときは表示を緑にする。",
+      "expression": "p(\"機能： 全ての区間の信号機それぞれについて，区間内に列車がいるときは表示を赤に，列車がいないときは表示を緑にする。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 31,
+      "id": "Q9.P47.set-signals-argument-blocks",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "引数： blocks　全ての区間を表した，構造体block_infoの配列",
+      "expression": "p(\"引数： blocks　全ての区間を表した，構造体block_infoの配列\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 32,
+      "id": "Q9.P47.set-signals-argument-nblocks",
+      "physicalPages": [
+        47
+      ],
+      "kind": "paragraph",
+      "sourceText": "　　　nblocks　blocksの要素数",
+      "expression": "p(\"　　　nblocks　blocksの要素数\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 33,
+      "id": "Q9.P47-48.program1",
+      "physicalPages": [
+        47,
+        48
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-program",
+      "group": 0,
+      "nestedSourceUnits": [
+        "〔プログラム1〕",
+        "全include/define/構造体2宣言/宣言/定義/空欄a/全brace"
+      ],
+      "expression": "draw('program',v,0)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 34,
+      "id": "Q9.P48.subquestion1",
+      "physicalPages": [
+        48
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問1 プログラム1中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問1 プログラム1中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 35,
+      "id": "Q9.P48.bank-a",
+      "physicalPages": [
+        48
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-bank",
+      "group": 0,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,0)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 36,
+      "id": "Q9.P48.subquestion2",
+      "physicalPages": [
+        48
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問2 関数proceedは，進行できる全ての列車を進行させるプログラムである。プログラム2中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問2 関数proceedは，進行できる全ての列車を進行させるプログラムである。プログラム2中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 37,
+      "id": "Q9.P49.program2-description",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "〔プログラム2の説明〕",
+      "expression": "p(\"〔プログラム2の説明〕\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 38,
+      "id": "Q9.P49.proceed-specification",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "(1) 関数proceedの仕様は，次のとおりである。",
+      "expression": "p(\"(1) 関数proceedの仕様は，次のとおりである。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 39,
+      "id": "Q9.P49.proceed-function",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "機能： 全ての区間それぞれについて，進行できる列車がいるかどうかを判定し，進行できると判定された列車を進行させる。終着駅を出口とする区間にいる列車を進行させた場合，その列車を路線上から取り除く。出口で他の区間と接続する区間にいる列車を進行させた場合，進行した区間の信号機の表示を赤にする。",
+      "expression": "p(\"機能： 全ての区間それぞれについて，進行できる列車がいるかどうかを判定し，進行できると判定された列車を進行させる。終着駅を出口とする区間にいる列車を進行させた場合，その列車を路線上から取り除く。出口で他の区間と接続する区間にいる列車を進行させた場合，進行した区間の信号機の表示を赤にする。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 40,
+      "id": "Q9.P49.proceed-argument-blocks",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "引数： blocks　全ての区間を表した，構造体block_infoの配列",
+      "expression": "p(\"引数： blocks　全ての区間を表した，構造体block_infoの配列\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 41,
+      "id": "Q9.P49.proceed-argument-nblocks",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "　　　nblocks　blocksの要素数",
+      "expression": "p(\"　　　nblocks　blocksの要素数\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 42,
+      "id": "Q9.P49.find-block-specification",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "(2) 関数proceedから呼び出される関数find_blockの仕様は，次のとおりである。",
+      "expression": "p(\"(2) 関数proceedから呼び出される関数find_blockの仕様は，次のとおりである。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 43,
+      "id": "Q9.P49.find-block-function",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "機能： 引数blockで示す区間が，引数destで示す区間に最終的に到達できる経路上にあるかどうかを判定する。",
+      "expression": "p(\"機能： 引数blockで示す区間が，引数destで示す区間に最終的に到達できる経路上にあるかどうかを判定する。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 44,
+      "id": "Q9.P49.find-block-argument-block",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "引数： block　判定対象の区間を表した，構造体block_infoへのポインタ",
+      "expression": "p(\"引数： block　判定対象の区間を表した，構造体block_infoへのポインタ\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 45,
+      "id": "Q9.P49.find-block-argument-dest",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "　　　dest　列車の終着駅を出口とする区間を表した，構造体block_infoへのポインタ",
+      "expression": "p(\"　　　dest　列車の終着駅を出口とする区間を表した，構造体block_infoへのポインタ\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 46,
+      "id": "Q9.P49.find-block-return1",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "返却値： 到達できるとき，1",
+      "expression": "p(\"返却値： 到達できるとき，1\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 47,
+      "id": "Q9.P49.find-block-return0",
+      "physicalPages": [
+        49
+      ],
+      "kind": "paragraph",
+      "sourceText": "　　　　到達できないとき，0",
+      "expression": "p(\"　　　　到達できないとき，0\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 48,
+      "id": "Q9.P49-50.program2",
+      "physicalPages": [
+        49,
+        50
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-program",
+      "group": 1,
+      "nestedSourceUnits": [
+        "〔プログラム2〕",
+        "全proceed/find_block宣言/定義/空欄b,c,d/全brace"
+      ],
+      "expression": "draw('program',v,1)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 49,
+      "id": "Q9.P50.bank-b",
+      "physicalPages": [
+        50
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-bank",
+      "group": 1,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,1)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 50,
+      "id": "Q9.P50.bank-c",
+      "physicalPages": [
+        50
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-bank",
+      "group": 2,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,2)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 51,
+      "id": "Q9.P51.bank-d",
+      "physicalPages": [
+        51
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-bank",
+      "group": 3,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,3)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 52,
+      "id": "Q9.P51.subquestion3-introduction",
+      "physicalPages": [
+        51
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問3 図1に示した鉄道模型の路線構成及び列車位置を表した，構造体block_infoの配列を第1引数とし，その要素数9を第2引数として，プログラム3を実行した。プログラム3の実行が終了したときの状態について述べた次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，blocks[n]は区間nを示す。",
+      "expression": "p(\"設問3 図1に示した鉄道模型の路線構成及び列車位置を表した，構造体block_infoの配列を第1引数とし，その要素数9を第2引数として，プログラム3を実行した。プログラム3の実行が終了したときの状態について述べた次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。ここで，blocks[n]は区間nを示す。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 53,
+      "id": "Q9.P51.program3",
+      "physicalPages": [
+        51
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-program",
+      "group": 2,
+      "nestedSourceUnits": [
+        "〔プログラム3〕",
+        "全start宣言/定義/反復数slot"
+      ],
+      "expression": "draw('program',v,2)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 54,
+      "id": "Q9.P51.blank-e-f-after-program3",
+      "physicalPages": [
+        51
+      ],
+      "kind": "paragraph",
+      "sourceText": "列車4がいるのは区間［e］である。また，区間［e］の出口で接続する区間は［f］。",
+      "expression": "p(\"列車4がいるのは区間［e］である。また，区間［e］の出口で接続する区間は［f］。\")"
+    },
+    {
+      "number": 9,
+      "promptIndex": 55,
+      "id": "Q9.P51.bank-e",
+      "physicalPages": [
+        51
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-bank",
+      "group": 4,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,4)"
+    },
+    {
+      "number": 9,
+      "promptIndex": 56,
+      "id": "Q9.P51.bank-f",
+      "physicalPages": [
+        51
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm9-bank",
+      "group": 5,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,5)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 0,
+      "id": "Q10.P52.selection",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。",
+      "expression": "p(\"選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 1,
+      "id": "Q10.P52.question",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "問10 次のCOBOLプログラムの説明及びプログラムを読んで，設問1〜3に答えよ。",
+      "expression": "p(\"問10 次のCOBOLプログラムの説明及びプログラムを読んで，設問1〜3に答えよ。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 2,
+      "id": "Q10.P52.description-heading",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "〔プログラムの説明〕",
+      "expression": "p(\"〔プログラムの説明〕\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 3,
+      "id": "Q10.P52.purpose",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "従業員の社内資格の保有状況を管理するプログラムである。",
+      "expression": "p(\"従業員の社内資格の保有状況を管理するプログラムである。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 4,
+      "id": "Q10.P52.company-rules",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "情報サービス企業であるP社には社内資格として資格1〜4があり，従業員に取得を奨励している。社内資格を取得するための試験（以下，資格試験という）は定期的に実施しており，全従業員の保有状況を保有資格ファイルで管理する。P社の事業年度は4月から翌年3月までであり，上期（4月〜9月）と下期（10月〜翌年3月）の2期から成る。資格試験に合格した従業員の情報は合格ファイルに1期分を蓄積する。上期の合格者を蓄積した合格ファイルは10月初めに，下期の合格者を蓄積した合格ファイルは4月初めにプログラムを実行して，保有資格ファイルに反映する運用である。従業員は，合格した資格試験を再度受けることはない。",
+      "expression": "p(`情報サービス企業であるP社には社内資格として資格1〜4があり，従業員に取得を奨励している。社内資格を取得するための試験（以下，資格試験という）は定期的に実施しており，全従業員の保有状況を保有資格ファイルで管理する。P社の事業年度は${x.start}月から${x.start===1?'同年':'翌年'}${x.start===1?12:x.start-1}月までであり，上期（${range(x.first)}）と下期（${range(x.second)}）の2期から成る。資格試験に合格した従業員の情報は合格ファイルに1期分を蓄積する。上期の合格者を蓄積した合格ファイルは${(x.start+5)%12+1}月初めに，下期の合格者を蓄積した合格ファイルは${x.start}月初めにプログラムを実行して，保有資格ファイルに反映する運用である。従業員は，合格した資格試験を再度受けることはない。`)",
+      "binding": "Only source role-position values/associated wording change together."
+    },
+    {
+      "number": 10,
+      "promptIndex": 5,
+      "id": "Q10.P52.owned-file",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "(1) 保有資格ファイルは，図1に示すレコード様式の索引ファイルであり，全従業員のレコードが格納されている。主キーは従業員番号である。プログラムでは，乱呼出法で入出力している。",
+      "expression": "p(\"(1) 保有資格ファイルは，図1に示すレコード様式の索引ファイルであり，全従業員のレコードが格納されている。主キーは従業員番号である。プログラムでは，乱呼出法で入出力している。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 6,
+      "id": "Q10.P52.figure1",
+      "physicalPages": [
+        52
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-record",
+      "group": 0,
+      "nestedSourceUnits": [
+        "従業員番号8桁",
+        "保有状況（資格1〜4の各8桁）",
+        "図1 保有資格ファイルのレコード様式"
+      ],
+      "expression": "draw('record',v,0)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 7,
+      "id": "Q10.P52.owned-dates",
+      "physicalPages": [
+        52
+      ],
+      "kind": "paragraph",
+      "sourceText": "資格1〜4には，従業員番号で示される従業員が各資格試験に合格した日付として，西暦の年，月，日が，それぞれ4桁，2桁，2桁で格納されている。合格していない場合は，0が格納されている。",
+      "expression": "p(\"資格1〜4には，従業員番号で示される従業員が各資格試験に合格した日付として，西暦の年，月，日が，それぞれ4桁，2桁，2桁で格納されている。合格していない場合は，0が格納されている。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 8,
+      "id": "Q10.P52-53.pass-file",
+      "physicalPages": [
+        52,
+        53
+      ],
+      "kind": "paragraph",
+      "sourceText": "(2) 合格ファイルは，図2に示すレコード様式の順ファイルであり，資格試験に合格した従業員のレコードが格納されている。同じ従業員が複数の資格試験に合格した場合は，合格した資格試験ごとにレコードが格納されている。レコードは，順不同で格納されている。",
+      "expression": "p(\"(2) 合格ファイルは，図2に示すレコード様式の順ファイルであり，資格試験に合格した従業員のレコードが格納されている。同じ従業員が複数の資格試験に合格した場合は，合格した資格試験ごとにレコードが格納されている。レコードは，順不同で格納されている。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 9,
+      "id": "Q10.P53.figure2",
+      "physicalPages": [
+        53
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-record",
+      "group": 1,
+      "nestedSourceUnits": [
+        "従業員番号8桁／資格種別1桁／合格日8桁",
+        "図2 合格ファイルのレコード様式"
+      ],
+      "expression": "draw('record',v,1)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 10,
+      "id": "Q10.P53.qualification-code",
+      "physicalPages": [
+        53
+      ],
+      "kind": "paragraph",
+      "sourceText": "① 資格種別には，合格した資格試験を表す値が，資格1は1で，資格2は2で，資格3は3で，資格4は4で格納されている。",
+      "expression": "p(\"① 資格種別には，合格した資格試験を表す値が，資格1は1で，資格2は2で，資格3は3で，資格4は4で格納されている。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 11,
+      "id": "Q10.P53.pass-date",
+      "physicalPages": [
+        53
+      ],
+      "kind": "paragraph",
+      "sourceText": "② 合格日には，合格した日付として，西暦の年，月，日が，それぞれ4桁，2桁，2桁で格納されている。",
+      "expression": "p(\"② 合格日には，合格した日付として，西暦の年，月，日が，それぞれ4桁，2桁，2桁で格納されている。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 12,
+      "id": "Q10.P53.existing-employee",
+      "physicalPages": [
+        53
+      ],
+      "kind": "paragraph",
+      "sourceText": "(3) 保有資格ファイルには，合格ファイルの従業員番号で示される従業員のレコードが必ず存在する。",
+      "expression": "p(\"(3) 保有資格ファイルには，合格ファイルの従業員番号で示される従業員のレコードが必ず存在する。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 13,
+      "id": "Q10.P53-54.program",
+      "physicalPages": [
+        53,
+        54
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-program",
+      "group": 0,
+      "nestedSourceUnits": [
+        "〔プログラム〕",
+        "（行番号）",
+        "全48行／a,b,c／全paragraph・period"
+      ],
+      "expression": "draw('program',v,0)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 14,
+      "id": "Q10.P54.subquestion1",
+      "physicalPages": [
+        54
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 15,
+      "id": "Q10.P54.bank-a",
+      "physicalPages": [
+        54
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-bank",
+      "group": 0,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,0)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 16,
+      "id": "Q10.P54.bank-b",
+      "physicalPages": [
+        54
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-bank",
+      "group": 1,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,1)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 17,
+      "id": "Q10.P55.bank-c",
+      "physicalPages": [
+        55
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-bank",
+      "group": 2,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,2)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 18,
+      "id": "Q10.P55.subquestion2",
+      "physicalPages": [
+        55
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問2 P社では，社内資格を四つ全て取得した従業員を表彰している。合格ファイルの内容を保有資格ファイルに反映するとき，新たに表彰の対象となった従業員の従業員番号を表示するようにプログラムを変更する。表1中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問2 P社では，社内資格を四つ全て取得した従業員を表彰している。合格ファイルの内容を保有資格ファイルに反映するとき，新たに表彰の対象となった従業員の従業員番号を表示するようにプログラムを変更する。表1中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 10,
+      "promptIndex": 19,
+      "id": "Q10.P55.table1",
+      "physicalPages": [
+        55
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-changes",
+      "group": 0,
+      "nestedSourceUnits": [
+        "表1 プログラムの変更内容1",
+        "処置2行／W-CNT定義／d挿入場所／全PERFORM・IF・DISPLAY/e"
+      ],
+      "expression": "draw('changes',v,0)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 20,
+      "id": "Q10.P55.bank-d",
+      "physicalPages": [
+        55
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-bank",
+      "group": 3,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,3)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 21,
+      "id": "Q10.P55.bank-e",
+      "physicalPages": [
+        55
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-bank",
+      "group": 4,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,4)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 22,
+      "id": "Q10.P56.subquestion3",
+      "physicalPages": [
+        56
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問3 プログラムを表2に示すとおり変更して，通常の運用どおり10月初めに実行した。行番号28と29の間に追加したDISPLAYによって表示される内容に関する説明として適切な答えを，解答群の中から選べ。ここで，プログラムは設問2の変更を行う前のものとする。また，対象となる従業員の数は，10,000未満である。",
+      "expression": "p(`設問3 プログラムを表2に示すとおり変更して，通常の運用どおり${x.runMonth}月初めに実行した。行番号28と29の間に追加したDISPLAYによって表示される内容に関する説明として適切な答えを，解答群の中から選べ。ここで，プログラムは設問2の変更を行う前のものとする。また，対象となる従業員の数は，10,000未満である。`)",
+      "binding": "Only source role-position values/associated wording change together."
+    },
+    {
+      "number": 10,
+      "promptIndex": 23,
+      "id": "Q10.P56.table2",
+      "physicalPages": [
+        56
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-changes",
+      "group": 1,
+      "nestedSourceUnits": [
+        "表2 プログラムの変更内容2",
+        "処置3行／W-LIC・W-NUM・DISPLAY4列・ADD"
+      ],
+      "expression": "draw('changes',v,1)"
+    },
+    {
+      "number": 10,
+      "promptIndex": 24,
+      "id": "Q10.P56.bank-f",
+      "physicalPages": [
+        56
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm10-bank",
+      "group": 5,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,5)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 0,
+      "id": "Q11.P57.selection",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。",
+      "expression": "p(\"選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 1,
+      "id": "Q11.P57.question",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "問11 次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。",
+      "expression": "p(\"問11 次のJavaプログラムの説明及びプログラムを読んで，設問1，2に答えよ。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 2,
+      "id": "Q11.P57.api-direction",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "（Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。）",
+      "expression": "p(\"（Javaプログラムで使用するAPIの説明は，この冊子の末尾を参照してください。）\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 3,
+      "id": "Q11.P57.description-heading",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "〔プログラムの説明〕",
+      "expression": "p(\"〔プログラムの説明〕\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 4,
+      "id": "Q11.P57.purpose",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "図1のように，文書の書式を表すひな形に置換表を適用して，出力文書を得るプログラムである。",
+      "expression": "p(\"図1のように，文書の書式を表すひな形に置換表を適用して，出力文書を得るプログラムである。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 5,
+      "id": "Q11.P57.figure1",
+      "physicalPages": [
+        57
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-example",
+      "group": 0,
+      "nestedSourceUnits": [
+        "ひな形",
+        "置換表",
+        "適用矢印",
+        "出力矢印",
+        "出力文書",
+        "図1 ひな形に置換表を適用して出力文書を得る例"
+      ],
+      "expression": "draw('example',v,0)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 6,
+      "id": "Q11.P57.template-definition",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "(1) ひな形は，0個以上の置換指示と，0個以上のそのまま出力される置換指示以外の部分が連なるテキストである。",
+      "expression": "p(\"(1) ひな形は，0個以上の置換指示と，0個以上のそのまま出力される置換指示以外の部分が連なるテキストである。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 7,
+      "id": "Q11.P57.replacement-definition",
+      "physicalPages": [
+        57
+      ],
+      "kind": "paragraph",
+      "sourceText": "置換指示は，キー名称を<と>で囲んだものである。ひな形中で，<と>は，置換指示としてキー名称を囲う用途にだけ使用できる。",
+      "expression": "p(\"置換指示は，キー名称を<と>で囲んだものである。ひな形中で，<と>は，置換指示としてキー名称を囲う用途にだけ使用できる。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 8,
+      "id": "Q11.P58.table-definition",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "(2) 置換表は，キー名称とこれに対応する文字列の並びとの組みを一つ以上記述したテキストであり，それぞれの組みは，次の形式で記述する。",
+      "expression": "p(\"(2) 置換表は，キー名称とこれに対応する文字列の並びとの組みを一つ以上記述したテキストであり，それぞれの組みは，次の形式で記述する。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 9,
+      "id": "Q11.P58.pair-format",
+      "physicalPages": [
+        58
+      ],
+      "kind": "code",
+      "language": "text",
+      "sourceText": "\"キー名称\":[文字列の並び]",
+      "expression": "code(\"\\\"キー名称\\\":[文字列の並び]\",\"text\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 10,
+      "id": "Q11.P58.pair-separator",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "組みを二つ以上記述するときは，コンマで区切る。",
+      "expression": "p(\"組みを二つ以上記述するときは，コンマで区切る。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 11,
+      "id": "Q11.P58.string-list",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "文字列の並びには，置換に用いる文字列（以下，置換用文字列という）を二重引用符で囲んだものを一つ以上記述する。置換用文字列を二つ以上記述するときは，コンマで区切る。例えば，置換用文字列が二つである場合は，次の形式で記述する。",
+      "expression": "p(\"文字列の並びには，置換に用いる文字列（以下，置換用文字列という）を二重引用符で囲んだものを一つ以上記述する。置換用文字列を二つ以上記述するときは，コンマで区切る。例えば，置換用文字列が二つである場合は，次の形式で記述する。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 12,
+      "id": "Q11.P58.two-string-format",
+      "physicalPages": [
+        58
+      ],
+      "kind": "code",
+      "language": "text",
+      "sourceText": "\"キー名称\":[\"置換用文字列\",\"置換用文字列\"]",
+      "expression": "code(\"\\\"キー名称\\\":[\\\"置換用文字列\\\",\\\"置換用文字列\\\"]\",\"text\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 13,
+      "id": "Q11.P58.apply-definition",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "(3) ひな形に置換表を適用すると，ひな形中の<キー名称>は，次の規則に従って置換される。",
+      "expression": "p(\"(3) ひな形に置換表を適用すると，ひな形中の<キー名称>は，次の規則に従って置換される。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 14,
+      "id": "Q11.P58.single-replacement-rule",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "① 置換表のキー名称に対応する文字列の並びに含まれる置換用文字列が一つだけのときは，その置換用文字列で置換される。",
+      "expression": "p(\"① 置換表のキー名称に対応する文字列の並びに含まれる置換用文字列が一つだけのときは，その置換用文字列で置換される。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 15,
+      "id": "Q11.P58.multiple-replacement-rule",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "② 置換表のキー名称に対応する文字列の並びに含まれる置換用文字列が二つ以上あるときは，各置換用文字列の間に改行を挟んだ上で，並び順に連結してできる文字列で置換される。",
+      "expression": "p(\"② 置換表のキー名称に対応する文字列の並びに含まれる置換用文字列が二つ以上あるときは，各置換用文字列の間に改行を挟んだ上で，並び順に連結してできる文字列で置換される。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 16,
+      "id": "Q11.P58.figure-name-example",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "図1の例では，置換表中のキー名称 名前に対応する文字列の並びに含まれる置換用文字列は 情報太郎 だけなので，ひな形中の<名前>は，情報太郎 に置換される。",
+      "expression": "p(\"図1の例では，置換表中のキー名称 名前に対応する文字列の並びに含まれる置換用文字列は 情報太郎 だけなので，ひな形中の<名前>は，情報太郎 に置換される。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 17,
+      "id": "Q11.P58.figure-detail-example",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "置換表中のキー名称 明細に対応する文字列の並びには，置換用文字列として メモリ；5,000円 と HDD；9,000円 とが含まれるので，ひな形中の<明細>は，メモリ；5,000円↵HDD；9,000円（↵は改行）に置換される。",
+      "expression": "p(`置換表中のキー名称 明細に対応する文字列の並びには，置換用文字列として ${x.table['明細'].map(s=>s===''?'空文字列':s).join(' と ')} ${x.table['明細'].length>1?'とが':'が'}含まれるので，ひな形中の<明細>は，${x.table['明細'].join('↵')||'空文字列'}（↵は改行）に置換される。`)",
+      "binding": "Only source role-position values/associated wording change together."
+    },
+    {
+      "number": 11,
+      "promptIndex": 18,
+      "id": "Q11.P58.fragment-definition",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "このプログラムでは，ひな形を，0個以上の置換指示と0個以上の置換指示以外の部分が連なる文字ストリームとして扱う。個々の置換指示及び個々の置換指示以外の部分をフラグメントと呼ぶ。",
+      "expression": "p(\"このプログラムでは，ひな形を，0個以上の置換指示と0個以上の置換指示以外の部分が連なる文字ストリームとして扱う。個々の置換指示及び個々の置換指示以外の部分をフラグメントと呼ぶ。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 19,
+      "id": "Q11.P58.fragment-interface",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "インタフェースFragmentは，フラグメントを表す。",
+      "expression": "p(\"インタフェースFragmentは，フラグメントを表す。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 20,
+      "id": "Q11.P58.replacer-class",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "クラスReplacerは，置換指示を表す。",
+      "expression": "p(\"クラスReplacerは，置換指示を表す。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 21,
+      "id": "Q11.P58.pass-through-class",
+      "physicalPages": [
+        58
+      ],
+      "kind": "paragraph",
+      "sourceText": "クラスPassThroughは，置換指示以外の部分を表す。",
+      "expression": "p(\"クラスPassThroughは，置換指示以外の部分を表す。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 22,
+      "id": "Q11.P59.template-parser-class",
+      "physicalPages": [
+        59
+      ],
+      "kind": "paragraph",
+      "sourceText": "クラスTemplateParserのメソッドparseは，ひな形を表す文字ストリームからフラグメントのリストを構築し，クラスTemplateのインスタンスを生成して返す。ひな形に誤りはないものとする。",
+      "expression": "p(\"クラスTemplateParserのメソッドparseは，ひな形を表す文字ストリームからフラグメントのリストを構築し，クラスTemplateのインスタンスを生成して返す。ひな形に誤りはないものとする。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 23,
+      "id": "Q11.P59.template-class",
+      "physicalPages": [
+        59
+      ],
+      "kind": "paragraph",
+      "sourceText": "クラスTemplateは，ひな形をフラグメントのリストとして保持する。メソッドapplyは，ひな形に置換表を適用して，出力文書を文字列で返す。置換表には，このひな形に含まれるキー名称とそれに対応する文字列の並びが含まれているものとする。",
+      "expression": "p(\"クラスTemplateは，ひな形をフラグメントのリストとして保持する。メソッドapplyは，ひな形に置換表を適用して，出力文書を文字列で返す。置換表には，このひな形に含まれるキー名称とそれに対応する文字列の並びが含まれているものとする。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 24,
+      "id": "Q11.P59.omitted-parser-class",
+      "physicalPages": [
+        59
+      ],
+      "kind": "paragraph",
+      "sourceText": "クラスReplacementTableParserのメソッドparseは，置換表を表す文字ストリームから，キー名称とそれに対応する文字列の並びのマップを構築して，返す。置換表に誤りはないものとする（プログラムは省略）。",
+      "expression": "p(\"クラスReplacementTableParserのメソッドparseは，置換表を表す文字ストリームから，キー名称とそれに対応する文字列の並びのマップを構築して，返す。置換表に誤りはないものとする（プログラムは省略）。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 25,
+      "id": "Q11.P59.tester-class",
+      "physicalPages": [
+        59
+      ],
+      "kind": "paragraph",
+      "sourceText": "クラスTemplateTesterはテスト用のプログラムである。テキストファイルtemplate.txtが図1のひな形と同じ内容であって，テキストファイルreplacementTable.txtが図1の置換表と同じ内容であるとき，実行結果は図1の出力文書と同じになる。",
+      "expression": "p(\"クラスTemplateTesterはテスト用のプログラムである。テキストファイルtemplate.txtが図1のひな形と同じ内容であって，テキストファイルreplacementTable.txtが図1の置換表と同じ内容であるとき，実行結果は図1の出力文書と同じになる。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 26,
+      "id": "Q11.P59.program1",
+      "physicalPages": [
+        59
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 0,
+      "nestedSourceUnits": [
+        "〔プログラム1〕",
+        "全import/interface/replace宣言"
+      ],
+      "expression": "draw('program',v,0)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 27,
+      "id": "Q11.P59.program2",
+      "physicalPages": [
+        59
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 1,
+      "nestedSourceUnits": [
+        "〔プログラム2〕",
+        "全import/Replacer定義/a/constructor/replace"
+      ],
+      "expression": "draw('program',v,1)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 28,
+      "id": "Q11.P60.program3",
+      "physicalPages": [
+        60
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 2,
+      "nestedSourceUnits": [
+        "〔プログラム3〕",
+        "全import/PassThrough定義/a/constructor/replace"
+      ],
+      "expression": "draw('program',v,2)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 29,
+      "id": "Q11.P60-61.program4",
+      "physicalPages": [
+        60,
+        61
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 3,
+      "nestedSourceUnits": [
+        "〔プログラム4〕",
+        "全import/TemplateParser/while/switch/b,c/α矢印/default/末尾PassThrough/d/全brace"
+      ],
+      "expression": "draw('program',v,3)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 30,
+      "id": "Q11.P61.program5",
+      "physicalPages": [
+        61
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 4,
+      "nestedSourceUnits": [
+        "〔プログラム5〕",
+        "全import/Template定義/constructor/apply/for/e/return"
+      ],
+      "expression": "draw('program',v,4)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 31,
+      "id": "Q11.P61.program6",
+      "physicalPages": [
+        61
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-program",
+      "group": 5,
+      "nestedSourceUnits": [
+        "〔プログラム6〕",
+        "全import/TemplateTester/main/try2Reader/parse2呼出し/System.out.print/全brace"
+      ],
+      "expression": "draw('program',v,5)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 32,
+      "id": "Q11.P62.subquestion1",
+      "physicalPages": [
+        62
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 33,
+      "id": "Q11.P62.bank-a",
+      "physicalPages": [
+        62
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-bank",
+      "group": 0,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,0)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 34,
+      "id": "Q11.P62.bank-b-c",
+      "physicalPages": [
+        62
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-bank",
+      "group": 1,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,1)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 35,
+      "id": "Q11.P62.bank-d",
+      "physicalPages": [
+        62
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-bank",
+      "group": 2,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,2)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 36,
+      "id": "Q11.P62.bank-e",
+      "physicalPages": [
+        62
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-bank",
+      "group": 3,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,3)"
+    },
+    {
+      "number": 11,
+      "promptIndex": 37,
+      "id": "Q11.P62.subquestion2-direction",
+      "physicalPages": [
+        62
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問2 次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問2 次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 38,
+      "id": "Q11.P62.escape-rule",
+      "physicalPages": [
+        62
+      ],
+      "kind": "paragraph",
+      "sourceText": "<と>は，置換指示としてキー名称を囲う用途以外では，ひな形中で使用することができない。そこで，これらの文字を他の用途でも使用できるように，次の2行をプログラム4のクラスTemplateParserのαの位置に挿入した。これによって，\\に続く1文字（\\が複数個連続するときは奇数個目に続く1文字）は，置換指示以外の部分やキー名称の一部として扱われる。ここで，続く1文字は必ず読めるものとする。",
+      "expression": "p(\"<と>は，置換指示としてキー名称を囲う用途以外では，ひな形中で使用することができない。そこで，これらの文字を他の用途でも使用できるように，次の2行をプログラム4のクラスTemplateParserのαの位置に挿入した。これによって，\\\\に続く1文字（\\\\が複数個連続するときは奇数個目に続く1文字）は，置換指示以外の部分やキー名称の一部として扱われる。ここで，続く1文字は必ず読めるものとする。\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 39,
+      "id": "Q11.P62.insertion-two-lines",
+      "physicalPages": [
+        62
+      ],
+      "kind": "code",
+      "language": "java",
+      "sourceText": "case '\\\\':\n    ［f］;",
+      "expression": "code(\"case '\\\\\\\\':\\n    ［f］;\",\"java\")"
+    },
+    {
+      "number": 11,
+      "promptIndex": 40,
+      "id": "Q11.P62.bank-f",
+      "physicalPages": [
+        62
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm11-bank",
+      "group": 4,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,4)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 0,
+      "id": "Q12.P63.selection",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。",
+      "expression": "p(\"選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 1,
+      "id": "Q12.P63.question",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "問12 次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。",
+      "expression": "p(\"問12 次のアセンブラプログラムの説明及びプログラムを読んで，設問1，2に答えよ。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 2,
+      "id": "Q12.P63.description-heading",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "〔プログラムの説明〕",
+      "expression": "p(\"〔プログラムの説明〕\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 3,
+      "id": "Q12.P63.origin-date",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "1970年1月1日（以下，基準日という）から，指定された日付までの日数を求める副プログラム群である。日付は，全て西暦（グレゴリオ暦）の日付であり，基準日以降でなければならない。",
+      "expression": "p(`${x.epoch}年1月1日（以下，基準日という）から，指定された日付までの日数を求める副プログラム群である。日付は，全て西暦（グレゴリオ暦）の日付であり，基準日以降でなければならない。`)",
+      "binding": "Only source role-position values/associated wording change together."
+    },
+    {
+      "number": 12,
+      "promptIndex": 4,
+      "id": "Q12.P63.dayoffst-contract",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "(1) プログラム1は，基準日から指定された日付までの日数を計算する副プログラムDAYOFFSTである。日付は，GR2に設定されたアドレスから始まる連続した3語に，年，月，日を表す数値でこの順に格納され，誤りはないものとする。基準日を0日目とし，指定された日付までの日数を，符号のない数値（0〜65535）としてGR0に設定して呼出し元に戻る。ただし，日付は基準日から65535日目までの日付で与えられる。",
+      "expression": "p(\"(1) プログラム1は，基準日から指定された日付までの日数を計算する副プログラムDAYOFFSTである。日付は，GR2に設定されたアドレスから始まる連続した3語に，年，月，日を表す数値でこの順に格納され，誤りはないものとする。基準日を0日目とし，指定された日付までの日数を，符号のない数値（0〜65535）としてGR0に設定して呼出し元に戻る。ただし，日付は基準日から65535日目までの日付で与えられる。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 5,
+      "id": "Q12.P63.leapyear-contract",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "(2) プログラム2は，うるう年を判定する副プログラムLEAPYEARである。GR2に設定された年が平年の場合は0を，うるう年の場合は1を，GR0に設定して呼出し元に戻る。年が平年であるか，うるう年であるかの判定は，次の順で行う。",
+      "expression": "p(\"(2) プログラム2は，うるう年を判定する副プログラムLEAPYEARである。GR2に設定された年が平年の場合は0を，うるう年の場合は1を，GR0に設定して呼出し元に戻る。年が平年であるか，うるう年であるかの判定は，次の順で行う。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 6,
+      "id": "Q12.P63.leap-rule1",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "① 年が4で割り切れない場合，平年とする。",
+      "expression": "p(\"① 年が4で割り切れない場合，平年とする。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 7,
+      "id": "Q12.P63.leap-rule2",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "② 年が4で割り切れ，かつ100で割り切れない場合，うるう年とする。",
+      "expression": "p(\"② 年が4で割り切れ，かつ100で割り切れない場合，うるう年とする。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 8,
+      "id": "Q12.P63.leap-rule3",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "③ 年が400で割り切れる場合，うるう年とする。",
+      "expression": "p(\"③ 年が400で割り切れる場合，うるう年とする。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 9,
+      "id": "Q12.P63.leap-rule4",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "④ ①〜③のいずれでも決定しなかった場合，平年とする。",
+      "expression": "p(\"④ ①〜③のいずれでも決定しなかった場合，平年とする。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 10,
+      "id": "Q12.P63.divisibl-contract",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "(3) 副プログラムDIVISIBLは，GR2に設定された整数値がGR3に設定された整数値で割り切れる場合は1を，割り切れない場合は0を，GR0に設定して呼出し元に戻る。このプログラムのソースコードは，省略する。",
+      "expression": "p(\"(3) 副プログラムDIVISIBLは，GR2に設定された整数値がGR3に設定された整数値で割り切れる場合は1を，割り切れない場合は0を，GR0に設定して呼出し元に戻る。このプログラムのソースコードは，省略する。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 11,
+      "id": "Q12.P63.register-contract",
+      "physicalPages": [
+        63
+      ],
+      "kind": "paragraph",
+      "sourceText": "(4) 各副プログラムから戻るとき，汎用レジスタGR1〜GR7の内容は元に戻す。",
+      "expression": "p(\"(4) 各副プログラムから戻るとき，汎用レジスタGR1〜GR7の内容は元に戻す。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 12,
+      "id": "Q12.P64.program1",
+      "physicalPages": [
+        64
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-program",
+      "group": 0,
+      "nestedSourceUnits": [
+        "〔プログラム1〕",
+        "（行番号）",
+        "全27行/全label/comments/ACCMDAYS12語/空欄a,b"
+      ],
+      "expression": "draw('program',v,0)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 13,
+      "id": "Q12.P64-65.program2",
+      "physicalPages": [
+        64,
+        65
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-program",
+      "group": 1,
+      "nestedSourceUnits": [
+        "〔プログラム2〕",
+        "（行番号）",
+        "全15行/全label/comments/空欄c,d"
+      ],
+      "expression": "draw('program',v,1)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 14,
+      "id": "Q12.P65.subquestion1",
+      "physicalPages": [
+        65
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問1 プログラム中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 15,
+      "id": "Q12.P65.bank-a",
+      "physicalPages": [
+        65
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-bank",
+      "group": 0,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,0)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 16,
+      "id": "Q12.P65.bank-b",
+      "physicalPages": [
+        65
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-bank",
+      "group": 1,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,1)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 17,
+      "id": "Q12.P65.bank-c",
+      "physicalPages": [
+        65
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-bank",
+      "group": 2,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,2)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 18,
+      "id": "Q12.P65.bank-d",
+      "physicalPages": [
+        65
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-bank",
+      "group": 3,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,3)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 19,
+      "id": "Q12.P66.subquestion2-direction",
+      "physicalPages": [
+        66
+      ],
+      "kind": "paragraph",
+      "sourceText": "設問2 次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。",
+      "expression": "p(\"設問2 次の記述中の［　］に入れる正しい答えを，解答群の中から選べ。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 20,
+      "id": "Q12.P66.subquestion2-contract",
+      "physicalPages": [
+        66
+      ],
+      "kind": "paragraph",
+      "sourceText": "副プログラムDAYOFFSTに，基準日から65536日目以降32767年12月31日までの日付を与えた場合には，あふれが発生し，正しい結果を返すことができない。あふれが発生したことを呼出し元に通知するために，フラグレジスタFRのOFが1の状態で呼出し元に戻るようにしたい。このためには，プログラム1の行番号［e］の行の直後に，［f］命令を挿入し，ラベルEXITの行に分岐する必要がある。",
+      "expression": "p(\"副プログラムDAYOFFSTに，基準日から65536日目以降32767年12月31日までの日付を与えた場合には，あふれが発生し，正しい結果を返すことができない。あふれが発生したことを呼出し元に通知するために，フラグレジスタFRのOFが1の状態で呼出し元に戻るようにしたい。このためには，プログラム1の行番号［e］の行の直後に，［f］命令を挿入し，ラベルEXITの行に分岐する必要がある。\")"
+    },
+    {
+      "number": 12,
+      "promptIndex": 21,
+      "id": "Q12.P66.bank-e",
+      "physicalPages": [
+        66
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-bank",
+      "group": 4,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,4)"
+    },
+    {
+      "number": 12,
+      "promptIndex": 22,
+      "id": "Q12.P66.bank-f",
+      "physicalPages": [
+        66
+      ],
+      "kind": "diagram",
+      "profile": "legacy-2018-autumn-pm12-bank",
+      "group": 5,
+      "nestedSourceUnits": [],
+      "expression": "draw('bank',v,5)"
+    }
+  ]
+}

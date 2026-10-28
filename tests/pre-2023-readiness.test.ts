@@ -7,17 +7,17 @@ import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope
 const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-pre-2023.json", "utf8"));
 const initialBaseline = () => {
   const b = fixture();
-  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30h-fe-pm-)/.test(q.id));
-  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30h-fe-pm-)/.test(t.id));
+  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-)/.test(q.id));
+  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-)/.test(t.id));
   return b;
 };
 test("the requested expansion cannot pass using the 103 already-distributed questions", () => {
   const reviews = pre2023Reviews.map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   const report = auditPre2023Readiness(initialBaseline(), evidence(), reviews);
   assert.equal(report.status, "not_ready");
-  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062, originalSemanticsReviewed: 125, ready: 0 });
+  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062, originalSemanticsReviewed: 138, ready: 0 });
   assert.equal(report.missingByCheck.compound_answer_model, undefined);
-  assert.equal(report.missingByCheck.originalSemantics, 2937);
+  assert.equal(report.missingByCheck.originalSemantics, 2924);
   assert.equal(report.missingByCheck.generatorSemantics, 3062);
   assert.deepEqual(report.capacity, [
     { kind: "questions", requiredAtLeast: 6330, maximum: 32000, exceeds: false },
@@ -35,16 +35,17 @@ test("deleting an unimplemented collection or changing its count never makes the
   assert.throws(() => auditPre2023Readiness(fixture(), count), /IMPORT_COUNT/);
 });
 
-test("86 samples and three complete 13-major booklets clear six collections while the remaining 2,937 units stay pending", () => {
+test("86 samples and four complete 13-major booklets clear seven collections while the remaining 2,924 units stay pending", () => {
   const report = auditPre2023Readiness(fixture(), evidence());
   assert.equal(report.status, "not_ready");
-  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2937, originalSemanticsReviewed: 125, ready: 125 });
+  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2924, originalSemanticsReviewed: 138, ready: 138 });
   assert.equal(report.collections.find(c => c.id === "2017h29h-fe-pm")!.ready, 13);
   assert.equal(report.collections.find(c => c.id === "2017h29a-fe-pm")!.ready, 13);
   assert.equal(report.collections.find(c => c.id === "2018h30h-fe-pm")!.ready, 13);
+  assert.equal(report.collections.find(c => c.id === "2018h30a-fe-pm")!.ready, 13);
   assert.equal(report.collections.find(c => c.id === "2022-apr-sample-b")!.ready, 6);
   assert.equal(report.collections.find(c => c.id === "2022-dec-sample-b")!.ready, 20);
-  assert(report.collections.filter(c => !["2022-apr-sample-b","2022-dec-sample-b","2022-dec-sample-a","2017h29h-fe-pm","2017h29a-fe-pm","2018h30h-fe-pm"].includes(c.id)).every(c => c.ready === 0));
+  assert(report.collections.filter(c => !["2022-apr-sample-b","2022-dec-sample-b","2022-dec-sample-a","2017h29h-fe-pm","2017h29a-fe-pm","2018h30h-fe-pm","2018h30a-fe-pm"].includes(c.id)).every(c => c.ready === 0));
 });
 
 test("a review cannot silently move to a different PDF, question or collection", () => {
@@ -89,4 +90,20 @@ test("matching a PDF hash cannot disguise a sample as a 2023 exam or a stale col
   assert(row().pending.includes("source_collection"));
   assert(row().pending.includes("generation_binding"));
   assert.equal(auditPre2023Readiness(b, e).status, "not_ready");
+});
+
+
+test("the new13 registered majors remain pending when any one of the five scoped reviews is absent", () => {
+  for (const check of ["transcription", "rights", "originalSemantics", "generatorSemantics", "rendering"] as const) {
+    const reviews = structuredClone(pre2023Reviews);
+    for (const review of reviews) if (review.collectionId === "2018h30a-fe-pm") delete review.checks[check];
+    const report = auditPre2023Readiness(fixture(), evidence(), reviews);
+    assert.equal(report.status, "not_ready");
+    assert.equal(report.summary.ready, 125);
+    assert.equal(report.summary.missingOriginals, 2924);
+    const collection = report.collections.find(c => c.id === "2018h30a-fe-pm")!;
+    assert.equal(collection.questions.length, 13);
+    assert(collection.questions.every(q => q.pending.includes(check)));
+    assert.equal(collection.ready, 0);
+  }
 });

@@ -194,13 +194,26 @@ const records = (files: { path: string; recordCount?: number }[]) =>
       .update(fs.readFileSync(path.join(root, f.path)))
       .digest("hex"),
   }));
-catalog.files.questions = records([
-  ...originals.map(q => ({ path: `questions/${q.id.replace(/^question-/, "")}.json` })),
-  ...generated.map((g) => ({ path: g.questionPath })),
-]);
-catalog.files.templates = records(
-  generated.map((g) => ({ path: g.templatePath })),
-);
+// Retain catalog record order when replacing selected records. Newly
+// registered records append once; compaction must not reorder saved metadata.
+function inPriorOrder<T extends { id: string; path: string }>(prior: readonly { id: string }[], next: readonly T[]) {
+  const byId = new Map(next.map(row => [row.id, row]));
+  if (byId.size !== next.length) throw Error("DUPLICATE_RECORD");
+  const ordered: T[] = [];
+  for (const row of prior) {
+    const replacement = byId.get(row.id);
+    if (replacement) { ordered.push(replacement); byId.delete(row.id); }
+  }
+  ordered.push(...byId.values());
+  return ordered.map(({ path }) => ({ path }));
+}
+catalog.files.questions = records(inPriorOrder(inputBundle.questions, [
+  ...originals.map(q => ({ id: q.id, path: `questions/${q.id.replace(/^question-/, "")}.json` })),
+  ...generated.map(g => ({ id: g.question.id, path: g.questionPath })),
+]));
+catalog.files.templates = records(inPriorOrder(inputBundle.templates,
+  generated.map(g => ({ id: g.template.id, path: g.templatePath })),
+));
 for (const subject of ["A", "B"] as const) {
   if (!refreshedSubjects.has(subject)) continue;
   const p = `sets/mix-${subject.toLowerCase()}.json`,
