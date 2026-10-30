@@ -69,9 +69,12 @@ test("old source labels display a duplicated subject/time slot once and retain d
   assert.equal(sourceLocationLabel(ref), "2017年度 秋期 分類が別の資料 午前 問64");
 });
 
-test("two collections in one year select their own references and retain the configured legacy duration", () => {
+test("two synthetic collections coexist with the real same-year booklet and retain their own references and duration", () => {
   const b = legacyFixture();
-  const sets = sourceCollections(b, "B").filter(s => s.title.startsWith("2019"));
+  const sameYear = sourceCollections(b, "B").filter(s => s.title.startsWith("2019"));
+  const sets = sameYear.filter(s => s.id.startsWith("set-question-test-legacy-"));
+  assert.deepEqual(sameYear.filter(s => !sets.includes(s)).map(s => [s.id, s.questionRefs.length]), [["set-annual-2019-spring-pm", 13]]);
+  assert.equal(sameYear.length, 3);
   assert.equal(sets.length, 2);
   for (const set of sets) {
     const selection: Selection = { subject: "B", kind: "annual", sourceCollectionId: set.id,

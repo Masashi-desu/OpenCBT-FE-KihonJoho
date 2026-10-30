@@ -1,0 +1,376 @@
+{
+  "status": "primary_verified_target_units_not_whole_question_acceptance",
+  "question": 6,
+  "coveredScope": "F6 primary role heading/list at30; question2/schedule/impact at32; productivity/plans and capacity premises at33",
+  "sourceUnits": [
+    {
+      "id": "q6-title",
+      "pages": [
+        30
+      ],
+      "kind": "question-heading",
+      "visuallyVerified": true,
+      "literal": "問6 社内システムの仕様変更の扱いに関する次の記述を読んで，設問1，2に答えよ。"
+    },
+    {
+      "id": "q6-procedure-heading",
+      "pages": [
+        30
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔仕様変更の依頼が発生した場合の取扱手順〕"
+    },
+    {
+      "id": "q6-role-intro",
+      "pages": [
+        30
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "プロジェクト管理チーム，担当PM，開発チームの役割は，次のとおりである。"
+    },
+    {
+      "id": "q6-role-management-label",
+      "pages": [
+        30
+      ],
+      "kind": "bullet-label",
+      "visuallyVerified": true,
+      "literal": "・プロジェクト管理チーム"
+    },
+    {
+      "id": "q6-role-management-description",
+      "pages": [
+        30
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更依頼票の受渡しなど利用部門との書類や情報のやり取り，担当PMや開発チームとの書類のやり取り，取りまとめを行う。また，変更管理会議の運営を行う。"
+    },
+    {
+      "id": "q6-role-pm-label",
+      "pages": [
+        30
+      ],
+      "kind": "bullet-label",
+      "visuallyVerified": true,
+      "literal": "・担当PM"
+    },
+    {
+      "id": "q6-role-pm-description",
+      "pages": [
+        30
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更依頼票の確認，仕様変更の採否の判断，プロジェクト計画の更新を行う。"
+    },
+    {
+      "id": "q6-role-development-label",
+      "pages": [
+        30
+      ],
+      "kind": "bullet-label",
+      "visuallyVerified": true,
+      "literal": "・開発チーム"
+    },
+    {
+      "id": "q6-role-development-description",
+      "pages": [
+        30
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更依頼票の内容に基づく影響調査を実施する。"
+    },
+    {
+      "id": "q6-question2",
+      "pages": [
+        32
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問2 次の記述中の{{blank}}に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q6-schedule-intro",
+      "pages": [
+        32
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "刷新プロジェクトのスケジュールを，図1に示す。ここで，1か月は4週とする。"
+    },
+    {
+      "id": "q6-figure1",
+      "pages": [
+        32
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "stages": [
+        [
+          "設計",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "プログラム開発",
+          [
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        [
+          "結合試験",
+          [
+            7,
+            8
+          ]
+        ],
+        [
+          "総合試験",
+          [
+            9,
+            10
+          ]
+        ]
+      ],
+      "geometryVerified": false
+    },
+    {
+      "id": "q6-figure1-caption",
+      "pages": [
+        32
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図1 刷新プロジェクトのスケジュール",
+      "placement": "after drawing"
+    },
+    {
+      "id": "q6-week13",
+      "pages": [
+        32
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "スケジュールのとおりに開発が進んでいたところ，刷新プロジェクトの開始後13週目において，機能Lに対する仕様変更依頼票が起票され，すぐに担当PMは受領した。刷新プロジェクトでは，機能Lを開発チーム1が，機能Mを開発チーム2が，機能Nを開発チーム3が担当している。現在の工程では，変更内容に対する影響調査の依頼先は，Q社のルールにのっとり，［c］となる。"
+    },
+    {
+      "id": "q6-impact-heading",
+      "pages": [
+        32
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔影響調査結果の概要〕"
+    },
+    {
+      "id": "q6-impact-intro",
+      "pages": [
+        32
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "影響調査の結果，開発チーム1が担当している機能L（当初計画の開発規模は，400kステップ）だけに影響があることが分かった。機能Lに関する生産性及び当初計画の工数を，表1に示す。"
+    },
+    {
+      "id": "q6-table1-caption",
+      "pages": [
+        33
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表1 機能Lに関する生産性及び当初計画の工数",
+      "placement": "before table"
+    },
+    {
+      "id": "q6-table1",
+      "pages": [
+        33
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "工程",
+        "生産性（kステップ/人月）",
+        "工数（人月）"
+      ],
+      "rows": [
+        [
+          "設計",
+          "10",
+          "40"
+        ],
+        [
+          "プログラム開発",
+          "4",
+          "100"
+        ],
+        [
+          "結合試験",
+          "8",
+          "50"
+        ],
+        [
+          "総合試験",
+          "10",
+          "40"
+        ]
+      ]
+    },
+    {
+      "id": "q6-additional-work",
+      "pages": [
+        33
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更を行っても，開発を進めている機能Lのプログラムを変更する必要はなく，機能Lの当初計画の開発規模の10%の追加開発が必要と分かった。また，仕様変更分における工程ごとの生産性は，当初計画と同じである。仕様変更に関わる，設計工程から結合試験工程までは，当初計画分と切り離して実施可能であり，この期間に必要な追加の工数は［d］人月となる。"
+    },
+    {
+      "id": "q6-plans-intro",
+      "pages": [
+        33
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "開発チーム1では，仕様変更分の総合試験の実施に関して，次の二つの計画を検討した。"
+    },
+    {
+      "id": "q6-plan1-label",
+      "pages": [
+        33
+      ],
+      "kind": "bullet-label",
+      "visuallyVerified": true,
+      "literal": "・計画1"
+    },
+    {
+      "id": "q6-plan1-description",
+      "pages": [
+        33
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更分の総合試験は，当初計画分の総合試験の開始時点から実施する。"
+    },
+    {
+      "id": "q6-plan2-label",
+      "pages": [
+        33
+      ],
+      "kind": "bullet-label",
+      "visuallyVerified": true,
+      "literal": "・計画2"
+    },
+    {
+      "id": "q6-plan2-description",
+      "pages": [
+        33
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更分の総合試験は，当初計画分の総合試験の5週目開始時点から実施する。"
+    },
+    {
+      "id": "q6-capacity-premises",
+      "pages": [
+        33
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "仕様変更に関わる，設計工程から結合試験工程までの期間は，刷新プロジェクトの開始後17週目開始から，計画1又は計画2の総合試験工程の開始前までとする。総合試験工程は，図1のスケジュールで示した当初計画どおりに完了させる。ここで，仕様変更分の開発に必要な追加の要員数は，設計工程から結合試験工程までの期間の各週で同一とする。また，追加の要員は，全ての工程を担当できるスキルを備えているものとする。"
+    }
+  ],
+  "sourceOrder": [
+    "q6-title",
+    "q6-procedure-heading",
+    "q6-role-intro",
+    "q6-role-management-label",
+    "q6-role-management-description",
+    "q6-role-pm-label",
+    "q6-role-pm-description",
+    "q6-role-development-label",
+    "q6-role-development-description",
+    "q6-question2",
+    "q6-schedule-intro",
+    "q6-figure1",
+    "q6-figure1-caption",
+    "q6-week13",
+    "q6-impact-heading",
+    "q6-impact-intro",
+    "q6-table1-caption",
+    "q6-table1",
+    "q6-additional-work",
+    "q6-plans-intro",
+    "q6-plan1-label",
+    "q6-plan1-description",
+    "q6-plan2-label",
+    "q6-plan2-description",
+    "q6-capacity-premises"
+  ],
+  "sourceUnitCount": 25,
+  "primary": [
+    {
+      "document": "qs",
+      "physicalPage": 30,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-030.png",
+      "bytes": 835876,
+      "sha256": "c2dd6854ec73f686b11e5e7598179b17acfed526db5ecbe707bcddcb9ec05b78"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 32,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-032.png",
+      "bytes": 617679,
+      "sha256": "ae310df884772b702f43ec2053df99efc45881fd5f06b9807ca007eef88e3a80"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 33,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-033.png",
+      "bytes": 840366,
+      "sha256": "509e316cf8421046ebd5a56922b987249fec18d42e8bae35cf175f6f729eab2d"
+    }
+  ],
+  "expectedFrom": "Manual primary-raster transcription; no producer expected output",
+  "typographyPolicy": "Linewrap/typographic whitespace only may be ignored; no paraphrase/elision/reorder. ， is the chosen comma transcription. {{blank}} means unnamed empty source box.",
+  "bindingPolicy": {
+    "fixed": "All listed prose/headings/role/plan labels, schedule, month/week relationships and 400k/10% source conditions. Do not paraphrase 仕様変更の扱い or Q社のルールにのっとり.",
+    "bindable": [
+      {
+        "unit": "q6-table1",
+        "position": "プログラム開発/結合試験 productivity and corresponding工数 cells only, within their original two numeric columns; source reference above."
+      }
+    ],
+    "outsideGoldReviewedVariablePositions": [
+      "Computed d/f/g/h values/choices bind to same reviewed productivity input; existing independent weekly capacity oracle required."
+    ]
+  },
+  "unverifiedOrOutsideThisGold": [
+    "QS30 introductory paragraph and source procedure(1)–(8)/設問1/banks at31–32 not newly literal-transcribed here",
+    "QS33→34 e/f/g/h paragraph and end decision/all remaining banks not literal-transcribed in this new gold",
+    "Original prior-read bank order a→b→c/d/e/fg/h is not a fresh literal bank acceptance",
+    "Actual timeline/month/arrow geometry; actual complex a1/a2/a3 inline blank rendering"
+  ],
+  "normalAppOrDistributionAdmission": false
+}

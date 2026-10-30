@@ -33,8 +33,8 @@ const selection: Selection = {
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
   const rows = generationCoverage(bundle).rows;
-  assert.equal(rows.length, 241);
-  assert.equal(rows.filter(row => row.original.answerParts).length, 52);
+  assert.equal(rows.length, 254);
+  assert.equal(rows.filter(row => row.original.answerParts).length, 65);
   for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {
       ...selection,

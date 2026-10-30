@@ -1,6 +1,8 @@
+import { spring2019AfternoonPublicNotes } from "./legacy-2019-spring-public-notes";
 /** Public modification descriptions are distinct from retained development
  * review notes. Neither these descriptions nor admission can waive a hold. */
 export const legacyAfternoonPublicNotes: Readonly<Record<string, string>> = Object.freeze({
+  ...spring2019AfternoonPublicNotes,
   "2018h30a-fe-pm-1": "原の事故状況・対策表・5解答欄と全解答群を保ち、同じ役割の誤った対策の内容を変更しています。下線や未記載・不明な情報を保持し、原の省略された値や事故の証跡を復元しません。",
   "2018h30a-fe-pm-2": "原の状態遷移・スケジュール方式・表と4解答欄を保ち、プロセスのCPU処理時間を変更しています。時間量子、優先度、同時完了時の順序、I/Oの並行処理、待ち時間の前提と全選択肢を保って計算します。",
   "2018h30a-fe-pm-3": "原のチケット販売・会員・決済の表構成と四つのSQLの問いを保ち、コンサート・価格・期限・ポイント率の境界額を変更しています。本文・表・全SQL選択肢を同期し、NULL・取消・未決済・全額ポイント利用と日付関数の定義を保持しています。",

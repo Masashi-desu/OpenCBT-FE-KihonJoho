@@ -1,0 +1,53 @@
+import test from'node:test';import assert from'node:assert/strict';
+import{legacy2019SpringExistingDefinitions as formal}from'../src/core/generators/legacy-2019-spring-pm-existing';
+import type{GeneratedBody,GenerationDefinition}from'../src/core/generators/definition';
+import{assertLegacy2019PmAuthBody as auth}from'./fixtures/legacy-2019-spring-auth-formal-oracle';
+import{assertLegacy2019Memory as memory}from'./fixtures/legacy-2019-spring-memory-formal-oracle';
+import{assertLegacy2019Database as database}from'./fixtures/legacy-2019-spring-database-formal-oracle';
+import{assertLegacy2019LoadBalance as balance}from'./fixtures/legacy-2019-spring-load-balance-formal-oracle';
+import{assertLegacy2019InspectionBody as inspection}from'./fixtures/legacy-2019-spring-inspection-formal-oracle';
+import{assertLegacy2019PmChangeBody as change}from'./fixtures/legacy-2019-spring-change-formal-oracle';
+import{assertLegacy2019PmIntegrationBody as integration}from'./fixtures/legacy-2019-spring-integration-formal-oracle';
+import{assertLegacy2019Pm8Body as huffman}from'./fixtures/legacy-2019-spring-pm8-formal-oracle';
+import{verifyRankingChoices}from'./fixtures/legacy-2019-pm-ranking-oracle';
+import rankingFacts from'./fixtures/legacy-2019-pm-ranking-facts.json';
+import q10Gold from'./fixtures/legacy-2019-spring-pm10-source-closure-reviewed.json';
+import{createElement as h}from'react';import{renderToStaticMarkup as render}from'react-dom/server';
+import{Legacy2019SpringRankingChangeFigure}from'../src/ui/Legacy2019SpringRankingChangeFigure';
+import gold from'./fixtures/legacy-2019-spring-booklet-review.json';
+const ranges:Record<number,[number,number][]>= {1:Array.from({length:6},()=>[0,1]),2:[[0,3],[0,11],[2,3]],3:[[0,2],[0,1],[0,1],[0,1],[-1,1]],4:[[0,3],[0,2]],5:[[0,1],[0,1]],6:[[0,3],[0,3]],7:[[0,8],[0,2]],8:[[0,3]],10:[[0,1]]};
+const counts:Record<number,number>={1:64,2:96,3:72,4:12,5:4,6:16,7:27,8:4,10:2};
+function* tuples(ranges:[number,number][],at=0,values:number[]=[]):Generator<number[]>{if(at===ranges.length){yield values;return;}for(let n=ranges[at][0];n<=ranges[at][1];n++)yield*tuples(ranges,at+1,[...values,n]);}
+/** The historical memory/SQL oracle API has distinct flat storage for every
+ * printed slot. Lift only actual per-slot choices/answer IDs into that API.
+ * Prompt is the exact actual object: no old text, paragraph/list layout, or DOM
+ * is constructed. Formal shared-ID/unique-count contracts are checked first. */
+function slotChoiceInterface(number:2|3,b:GeneratedBody):GeneratedBody{
+ const offsets=number===2?[0,5,9,13,22]:[0,6,11,15,20,25];
+ const choices=b.answerParts!.flatMap(p=>p.choiceIds.map(id=>{const at=Number(id.slice('choice-value-'.length))-1;assert(at>=0&&at<b.choices.length);return b.choices[at];}));
+ const answerParts=b.answerParts!.map((p,i)=>({...p,choiceIds:p.choiceIds.map((_,j)=>`choice-value-${offsets[i]+j+1}`)}));
+ const partAnswers=b.partAnswers!.map(a=>{assert(a.kind==='choice');const at=b.answerParts!.findIndex(p=>p.id===a.partId);assert(at>=0);const j=b.answerParts![at].choiceIds.indexOf(a.choiceId);assert(j>=0);return{...a,choiceId:answerParts[at].choiceIds[j]};});
+ const view={...b,choices,answerParts,partAnswers};assert.equal(view.prompt,b.prompt);assert.equal(view.explanation,b.explanation);return view;
+}
+function ranking(b:GeneratedBody,v:number[]){
+ const names=['a','b','cd','cd','e','f']as const;assert.equal(b.answerParts!.length,6);b.answerParts!.forEach((p,i)=>{const expected=rankingFacts.groups[names[i]];assert.deepEqual(p.choiceIds.map(id=>b.choices[Number(id.split('-').at(-1))-1]),expected.map(text=>[{type:'paragraph',text}]));});
+ const code=b.prompt.filter(x=>x.type==='code');assert.equal(code.length,1);assert.equal(code[0].language,'cobol');const lines=code[0].text.split('\n');assert.equal(lines.length,79);const sourceProgram=q10Gold.sourceUnits.find(u=>u.id==='q10-program')! as unknown as{rows:{line:number;literal:string}[]};assert.equal(sourceProgram.rows.length,79);sourceProgram.rows.forEach((line,i)=>{let expected=line.literal;assert.equal(line.line,i+1);if(v[0]&&[31,35].includes(line.line))expected=expected.replace('PIC 9(3)','PIC S9(3)').replace('VALUE 999','VALUE -1');if(v[0]&&[65,69].includes(line.line))expected=expected.replace(' < ',' > ');const m=/^(\d+)\s+(.*)$/.exec(lines[i]);assert(m);assert.equal(Number(m[1]),i+1);assert.equal(quoteAware(m[2]),quoteAware(expected),'primaryCOBOL'+(i+1));});verifyRankingChoices(b,v[0],true);
+}
+function verify(n:number,b:GeneratedBody,v:number[]){switch(n){case 1:return auth(b,v);case 2:return memory('2019h31h-fe-pm-2',slotChoiceInterface(2,b),v);case 3:return database('2019h31h-fe-pm-3',slotChoiceInterface(3,b),v);case 4:return balance('2019h31h-fe-pm-4',b,v);case 5:return inspection(b,v);case 6:return change(b,v);case 7:return integration(b,v);case 8:return huffman(b,v);case 10:return ranking(b,v);default:throw Error('UNREVIEWED_SOURCE');}}
+for(const n of[1,2,3,4,5,6,7,8,10])test(`2019 formal PM${n} all${counts[n]} inputs use independent truth/algorithm and every actual source slot-choice/answer without old prompt synthesis`,ctx=>{
+ const d=formal.find(d=>d.source===`2019h31h-fe-pm-${n}`)!;assert(d);assert.deepEqual(d.fields.map(f=>[f.minimum,f.maximum]),ranges[n]);const g=gold.questions.find(q=>q.number===n)!;let inputs=0,choiceReferences=0,wrongAnswers=0,wrongChoices=0;
+ for(const values of tuples(ranges[n])){const b=d.build(values),before=JSON.stringify(b);assert.equal(b.choices.length,g.uniqueChoices);assert.equal(b.answerParts!.length,g.operationSlots);assert.equal(b.partAnswers!.length,g.answerGroups);assert.equal(b.answerParts!.reduce((sum,p)=>sum+p.choiceIds.length,0),g.choiceRefs);verify(n,b,values);for(const bank of g.banks){const parts=bank.parts.map(p=>g.parts.indexOf(p));for(const p of parts.slice(1))assert.deepEqual(b.answerParts![p].choiceIds,b.answerParts![parts[0]].choiceIds);}
+  if(n===8){assert.equal(b.contexts!.length,1);assert.deepEqual(b.contexts![0].blocks.map(x=>{assert(x.type==='image');return x.assetId;}),[3,4].map(page=>`asset-ipa-2019h31h-fe-pm-8-p${page}`));}
+  for(const a of b.partAnswers!){const bad=structuredClone(b),target=bad.partAnswers![b.partAnswers!.indexOf(a)];if(target.kind==='choice'){const p=bad.answerParts!.find(p=>p.id===target.partId)!;target.choiceId=p.choiceIds[(p.choiceIds.indexOf(target.choiceId)+1)%p.choiceIds.length];}else{assert(target.kind==='unordered');const p=bad.answerParts!.find(p=>p.id===target.partIds[0])!;target.choiceIds[0]=p.choiceIds.find(id=>!target.choiceIds.includes(id))!;}assert.throws(()=>verify(n,bad,values));wrongAnswers++;}
+  for(const p of b.answerParts!){const bad=structuredClone(b),idx=Number(p.choiceIds[0].split('-').at(-1))-1;bad.choices[idx]=[{type:'paragraph',text:'INDEPENDENT_ORACLE_CORRUPTION'}];assert.throws(()=>verify(n,bad,values));wrongChoices++;}
+  assert.equal(JSON.stringify(b),before);choiceReferences+=g.choiceRefs;inputs++;
+ }assert.equal(inputs,counts[n]);assert.equal(choiceReferences,counts[n]*g.choiceRefs);assert.equal(wrongAnswers,counts[n]*g.answerGroups);assert.equal(wrongChoices,counts[n]*g.operationSlots);ctx.diagnostic(JSON.stringify({source:d.source,inputs,choiceReferences,wrongAnswers,wrongChoices,promptSynthesis:false,scope:'formal independent meaning only; source-form gold and geometry are separate'}));
+});
+
+/** Whitespace outside a quoted COBOL literal is layout. Quoted payload,
+ * including the source's two spaces, stays exact and independently fixed. */
+function quoteAware(text:string){return JSON.stringify(text.match(/"[^"]*"|'[^']*'|[^\s]+/g)??[]);}
+function assertQ10Table(html:string){const u=q10Gold.sourceUnits.find(u=>u.id==='q10-table1')! as unknown as{columns:string[];rows:{lines:string[]}[]};assert.deepEqual(u.columns,['処置','変更内容']);assert(html.includes('>処置</text>'));const text=new Map([...html.matchAll(/data-ranking-text="([^"]+)"[^>]*>([\s\S]*?)<\/text>/g)].map(m=>[m[1],m[2].replaceAll('&quot;','"').replaceAll('&lt;','<').replaceAll('&gt;','>').replaceAll('&amp;','&')]));assert.equal(text.get('table-header-left'),u.columns[0]);assert.equal(text.get('table-header-right'),u.columns[1]);for(let r=0;r<u.rows.length;r++)for(let i=0;i<u.rows[r].lines.length;i++){const expected=u.rows[r].lines[i].trim()==='［f］'?'f':u.rows[r].lines[i];assert.equal(quoteAware(text.get('table-right-'+r+'-'+i)!),quoteAware(expected),'primaryTable'+r+'/'+i);}assert(html.includes('data-ranking-blank="e"'));assert.equal((html.match(/>e<\/text>/g)??[]).length,1);}
+test('2019 formal Q10 both policies retain independently fixed79source rows and all change-table initializers/quoted spaces; stale flags/period/ZERO/1or3spaces are rejected',()=>{const d=formal.find(d=>d.source==='2019h31h-fe-pm-10')!;for(const v of[[0],[1]]){const b=d.build(v);ranking(b,v);for(const mutate of[(text:string)=>text.replace(/^(26.*VALUE )"E"/m,'$1"Y"'),(text:string)=>text.replace(/^(28.*VALUE )"E"/m,'$1"Y"'),(text:string)=>text.replace(/^(64\s+［b］)\.$/m,'$1'),(text:string)=>text.replace('DATA DIVISION.','DATADIVISION.')]){const bad=structuredClone(b),code=bad.prompt.find(x=>x.type==='code')!;assert(code.type==='code');const old=code.text;code.text=mutate(code.text);assert.notEqual(code.text,old);assert.throws(()=>ranking(bad,v));}const block=b.prompt.find(x=>x.type==='diagram'&&x.scene.kind==='source_figure'&&x.scene.profile==='legacy-2019-spring-pm10-change-table');assert(block?.type==='diagram'&&block.scene.kind==='source_figure');const html=render(h(Legacy2019SpringRankingChangeFigure,{profile:block.scene.profile,values:block.scene.values,caption:block.caption}));assertQ10Table(html);const mutateVisible=(key:string,change:(text:string)=>string)=>{let found=0;const result=html.replace(new RegExp('(data-ranking-text="'+key+'"[^>]*>)([\\s\\S]*?)(</text>)'),(_all,start,text,end)=>{found++;const after=change(text);assert.notEqual(after,text);return start+after+end;});assert.equal(found,1);return result;};
+ const zero=mutateVisible('table-right-1-1',text=>text.replace(' VALUE ZERO.','.'));assert.throws(()=>assertQ10Table(zero));assert.throws(()=>assertQ10Table(html.replace('>処置</text>','>処理</text>')));assert.throws(()=>assertQ10Table(html.replace('>変更内容</text>','>変更処理</text>')));assert.throws(()=>assertQ10Table(html.replace('>e</text>','>e</text><text>e</text>')));
+ for(const [key,from]of[['table-right-2-2','AVG:  &quot;'],['table-right-2-3','BLD-AVG:  &quot;'],['table-right-2-8','DSP-AVG &quot;  &quot;']])for(const count of[1,3]){const bad=mutateVisible(key,text=>text.replace(from,from.replace('  ',' '.repeat(count))));assert.throws(()=>assertQ10Table(bad));}}});

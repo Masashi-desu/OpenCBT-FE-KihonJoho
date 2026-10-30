@@ -1,0 +1,838 @@
+{
+  "purpose": "Change detection,not a substitute for independent source/fact/wire oracles. Future changes require manual re-review.",
+  "source": "2019h31h-fe-pm-1",
+  "version": "3.2.0",
+  "fields": [
+    {
+      "name": "認証基盤の誤概念",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "可用性の誤概念",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "別の認証要素",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "検証鍵との混同",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "送信される項目",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "機密性の誤概念",
+      "minimum": 0,
+      "maximum": 1
+    }
+  ],
+  "reference": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "sourceAnswer": "設問1 a=カ、b=イ、c=ウ／設問2 d=エ、e=イ",
+  "answerVariation": "fixed",
+  "originalSha256": "e051fc301aff1acf1448bd0a6d89aff61c85910a59cc907a89318b14a6571e64",
+  "baseSha256": "676942c874f8615245ff28f9951087b6e3fc768c1e9da2dee7be4d6e928c6000",
+  "templateSha256": "7163fa140ce4ca7e973f9c541b4ea7e3e5cb25b6830141d57ec83b50065de46b",
+  "assets": [
+    {
+      "id": "asset-ipa-2019h31h-fe-pm-p5",
+      "sha256": "a5b97319966d9a245b390a36766ffd62e0e50629c0dc6cc393a5fe7425815c9e"
+    },
+    {
+      "id": "asset-ipa-2019h31h-fe-pm-p6",
+      "sha256": "c7b499a8441036fa2f72454863638e3dd0a06123cbefb22655a204b7980c83e3"
+    },
+    {
+      "id": "asset-ipa-2019h31h-fe-pm-p7",
+      "sha256": "e37bb557599e578bfa98b403e790ce2b51477796a37d06354bcff2917460bc9b"
+    },
+    {
+      "id": "asset-ipa-2019h31h-fe-pm-p8",
+      "sha256": "b3ace0805077ca74ea1b37f4c62ac88f71c389ba65ab3064d2ac4ab73174e181"
+    }
+  ],
+  "outputs": [
+    {
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "fd26da53264801042fa3f85ccf7c8fbfdba94b80d68e410db7d422aba3b078af",
+      "questionSha256": "acc2353c33a887fe5a3fae96a953b3ff9ae28130b7b97d0e4261e725d5e38f9c"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "4a1a4d71c3a0e6d24a73d1eba257245123a853d00506031ee474c0cf3f44dbeb",
+      "questionSha256": "2873f16c305412657e708490974380e7064c5b32edb5d8ac190b6ff7c8c73415"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "4fb1bd8c73d269261d445624f0116d035bd1e51172ab6765418242b10bcbd44f",
+      "questionSha256": "99a2672d63019a8e494aab4d8ff7bed208742db5215ef6fc7ec996b1acebb6dd"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "d5078c3490342506f0472dee3ab0a41091a6d3f9919149d9867a84e621aff027",
+      "questionSha256": "833d42491d8e058618554eb09e68944a252283234fccaa8f7c1e30b85ac85620"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "sha256": "1e7cfd04fbb2ec67a93552a4756ff4e408ababeac3eb8d7cb6145251faea8f49",
+      "questionSha256": "839470e1db33b8ba92c429ba869102c1f73f984767dfad50881f8f291c1fa71f"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "sha256": "7a065cba6b1eac797f7819e0b546868e6c9a0f478640a1eedf9f03966e324a3a",
+      "questionSha256": "8a6c3f558a2b034fcaaace9adee317cc1041a6230368c3fe244a3e9b2bfcdbce"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "sha256": "0a912e0aac9807edd3192e7d11d72ea0cebacf3464a286bb33cdb95e51671369",
+      "questionSha256": "63ae8377d0df8727a03c91fb4c5a7c57545d241a7a2f1a96b47efb2be3fb90ad"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "sha256": "ddb2b7c53dca8ebc61c70eb7186555cbebdbaf8ed5f0d25844499df6461d7454",
+      "questionSha256": "61b2ff26700b047192cf2350517cf956d8e09ee7bd2e58bfe8277a9910dc5eba"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "sha256": "660cd1d02d293c61528386146679b36b550abe0c31cf4ecea48ddc5f864093f4",
+      "questionSha256": "402d75bbde394eaa728d265d208931f45df85e59e95e795e0b5f1bcea0cab2f0"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "sha256": "a29b4fe4a14d380ef51dcdb391570e69cde8532149589952abb5c2c5742f3cc8",
+      "questionSha256": "2ca92377cbd77927efb50efb62a17772ff860d547ee6b3624f54c11b35d1f460"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "sha256": "aa414854232f741c7427ca04884d58c996dc842611a42eaedcbc38becc32a3b0",
+      "questionSha256": "2615f6099f9b36cba8cb4b4e4740e1d4ef6781063b98f06d41cf16ec449cce2e"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "sha256": "d2614760425c3c8024b4f57d1505b27bd6b63019ab451660dbdbfc27c860bd7a",
+      "questionSha256": "883faf97e3c8be065f08d30443e0fb484d09276d08a006e901b122c0fb4e6d9e"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "sha256": "95e8f01fb92da34e3557adca601acbc193c6765e60df59c41a40add9dba5ff24",
+      "questionSha256": "0eaddae0d1fd3962bdcdffefd39ace030216f28aaf73d9b9cb88f0e210333e09"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "sha256": "8fdfcc00c03faed72a3c73dcf0a509d436ab4fa7ef9dcfd1d3bf883ca4b293b8",
+      "questionSha256": "d29838f38ee45a4864441c56e0dea614df71ecce46efaf07ad6dd55c268b49eb"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "sha256": "dc371dc8a432e335261232ce0ab89b81c0b3a19edd53538ccc339e1646056617",
+      "questionSha256": "28e7a5a28788119fa9acf51ee3e9f8911803ef8112792fb2827974b31a063d84"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "sha256": "2a5891869281efb5f98a31067a1bafc87bdaf6a77cf5188bced08a59cffde0ac",
+      "questionSha256": "ef9ee3db3ecb0cdad87fee9a9e07597a57d2fc7f89f5aa06198690bed8cc24c5"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "sha256": "c636f330995ab602a8bf357b91fcc4c119057e0aee176d13bdeffba9ac89babb",
+      "questionSha256": "b694521f4bda46de6c8857007e168053d3542d11d257f37191df2b439e08e2a5"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "sha256": "1a8578e2ea1b24876dbb5bd7238fc224709c767cda49ff552fa6503d9d5f0706",
+      "questionSha256": "73dda0935347e83ea9c97a3a396fe5164dddf2cf38f167ac4480d168f2459ac9"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "sha256": "0f9927f95115fcc8c08d54698cac7a6c7d151479be8229960bcd8a799e080b98",
+      "questionSha256": "ee1ce8a8ec3cfb2828a4a4b14036a8d385f867a31b8075319c429cba67de2dae"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "sha256": "a27fa1afe196ee0219738360e9e9b422c7a2c7e545495a62416ff3c4dae72e1f",
+      "questionSha256": "ac43dd5b9e75bc02bb0a9c684eb313c5913489fbe28e99e0cf4fc62c9575fc85"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "sha256": "cc95b8903a09e857b8f87e302b8e1d9c73bbecbad9e824e230e8688c4a5dbe01",
+      "questionSha256": "c20769758df39e9c8d5184691744aa1d4fa92f2382e9fc9ae6ee39554baada83"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "sha256": "a0684b8e9849d2d83dfc21fcdf15855344aed97c25fd881f0f3445685c85450a",
+      "questionSha256": "c5eb431879c56d95e0274837d767c8b2d46feca0a55c672ebd9f3401dea49bb9"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "sha256": "49ed0917f944d456abf17ed90785dcffd6f22a21875983faafc123f3ecd08eca",
+      "questionSha256": "764ac55982a332123d128b8ba6c78b9d52a7000e6b7e2a987260f9d0f1a81592"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "sha256": "33d714027bef55e2e729456742f146f64e54fa0ea351f8b0dc363ed549659a1d",
+      "questionSha256": "8aec07e55b5eef2da46c0e6c651c5cbe4ab60a4068b36b45e2ad3427c0a8f82f"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "sha256": "da0ce85b97650e919606697c92a09380263cd02ddb1091bfb98cb5a855b40211",
+      "questionSha256": "40ce4f41e4e5384d87e8d28eb0d34ce1739d0184241bde5e94cb3de0cb9ebbe7"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "sha256": "71c567a928eb9499f5762f9f9519d781c114c3639de8e0164e8f9285a2885d0b",
+      "questionSha256": "a6ec0b1dd72fea4f75099eb4ff4f200cbc22afbda39378ffd68f50e3751c3d48"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "sha256": "7f623d70f3578fdb2c13cbfe6cccc5159462a24554228838ea868bb6c774655d",
+      "questionSha256": "f2e54212159a0347f0c1ff31b10adae0942bbd45b8656078d34d3cfc18883611"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "sha256": "6fe1ee3f34a4e394ddc50ecf97b2038c041f51392fcf30cfbcba604c2d4564ab",
+      "questionSha256": "ac835d5efe476f2bb8d0361c3acd964d52b3ab4c42caf62d40e7100499310222"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "sha256": "fbd8558f4e7a08a41f11ce4a79578bb9f746df811823b255a58f0df82c29ba59",
+      "questionSha256": "876c61dee806d349ae955d91e52fd495a62158108d820943004ac22c27f620a6"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "sha256": "dceba7ae80d5060d93fd65ae4d2f71d9579aa85f36b0f14ff0be7a7fd18ac36a",
+      "questionSha256": "7d077b1a78f0202bb453343f7cb9cef3ac5eb4b063668fc20107453435926146"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "sha256": "2f1ebc318b681af703cdc3563d1450fe895e152033ec5d92c5fd75b878cf93d5",
+      "questionSha256": "7845438aacf0a74d22c676d77dcbd7a7273e3ced32fdf53c378dd24e69723245"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "sha256": "5aa006c83d437cf3a2d0b3b98b19f608cbf51229046bc99d8014007b0d7eae3b",
+      "questionSha256": "f35c700abebc3d07c2b9a8d76843bbb419fd4c37c44cf5eafd31ef5007eee792"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "sha256": "c96eac2284ba5b930b4a7d51ad22b0a8a6005df6cc2e02f765dc8a743ffca47c",
+      "questionSha256": "add296f6a43ce5c50cea13b4d4aaafe1e3ed528fca1a316abadbb1d36b767648"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "sha256": "b19cf2e4d6bd90cae68000f873a4a95f4c0d752874058b265254f1db1b5a8a08",
+      "questionSha256": "7afb56b667b23a453f390a1ab4dc0f300f289d087fe303d06df6e865f34685f5"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "sha256": "11a64b3c65822ae35d377271627760963c7696cc07b93db7ffe820733d3f77ef",
+      "questionSha256": "cf29ea181652297f1e8ad468029aa4849f5075d8ded4a279a41c765e7a06c5aa"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "sha256": "f370040ef6ab17095f4083297e83acd7b3e6ec207cfd6c6dddf986a45319b786",
+      "questionSha256": "d24be2f6090e3a3ecd1f2d038404cc9ef4a277ab2395e0d639689cae9bf1cd99"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "sha256": "06b89d4f816b643cf16fce0207264bb19060811471ea8091d6f9e2ff4939543c",
+      "questionSha256": "418dce2b47bd5e095d8cc661c81239801d95df4b2c9a79894f9d7c68622d97cd"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "sha256": "50c21a2943cf06d62d69d0f275d00c6e3e5b40c4fbf3781fe2e5a17b398bf863",
+      "questionSha256": "819f5b6cfa30bd2e6b02eca61d99d371af85126918b26b043a29f2d44f39eb66"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "sha256": "949f484e7ecda641ff805d44bf30bfdceca93b6d505990ecd519f2297d6f52d8",
+      "questionSha256": "97c3ebe8daf04cf2c5d9cef3f4822bab913d6dc6b6fb5ab9076a76276d37aedf"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "sha256": "e8c2c803a488722cbbb069663c4ccba8940dc19c7d685d101005bdd743b1114b",
+      "questionSha256": "ca963ebedb37e7d0862c6d0b3facc8adff7b8e8238bb9dc77f9b6435d8e37dcb"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "sha256": "669b44ff57062f54ff55c0c6403e8e5d63e6f0b3a543e74007e5c6cb7e61fc41",
+      "questionSha256": "a16dc54504b10b9477ae9685f63139bf76a4431bf79ede939d59e324622f7838"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "sha256": "8cae930c1d7867f1f91f6bf07e93bfccc41692fef604b775b43b1db7ca6fa41f",
+      "questionSha256": "5b091149b98478f4ad97113212a87a7abf06d55c0a878365f0c5828d50cc9efe"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "sha256": "c004ab1bac182d250dd927645e43ac74662fec0c51ce0d18089d30e035e0c7a6",
+      "questionSha256": "f90910833d16a8f81db81ddf98a2f8b7b97c762fd55c8418a1157307444a90f6"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "sha256": "ce2f08507cbeba0cd2890d789f6dbf3c78dac82a1fd87f0f8bd4deb668b59b11",
+      "questionSha256": "8951aa3c02ba2e230550d64bcf40ff5aa565d86fb20035d0626b1cb68f843c8b"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "sha256": "97c86665873b1352e9ea6a9f8acb5459ec03c121395317c91ddb711aca22255d",
+      "questionSha256": "bd173d036855b5a7be33ec352dcc54f6473ccd428458b6d3884e81683396d885"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "sha256": "3d337d506407dbd92f92a1b4ea0c709ed00e71b30cb1001a2fe8b04056468993",
+      "questionSha256": "09977942618daa9079ded30b27066baa75f89f44c97030040b64507435263b9e"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "sha256": "a3bfbb39bfe52e60f8a40cd1d998c87b7a0a953deb02d9ad0d2163028795ebd4",
+      "questionSha256": "47ecf7fdb4f29d7bdd0aa229a669dfffac8bb1c6970cc793abface9b68a95fe9"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "sha256": "f15e3b0ee69a4f95f131d704f15b4a253cd023b55fa1a67bfe670f7373cf2f25",
+      "questionSha256": "746589ba5196020af6ae97e003a63241102294c6072cfe26d2f1c251ace5341a"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "sha256": "9b2b5984de4a84fe9c68eb2f55109e32cb598d0023663c95133b5e08273dd63d",
+      "questionSha256": "7da08791547080d45c75f62b3f8d4dcfa2f2647c33c9ad77387368c19f92cf16"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "sha256": "64f44420036261d35ad8f5d1825c3b974b6d130baf0699ed75d60f9cfa991175",
+      "questionSha256": "5e3faa88494babf026c6d6b690f69cbe32f594b84ffd05821145ce02f2883558"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "sha256": "63ec9da673512698f454275441bb543587b2e0c84bbd2454d935a012cd8cd3c4",
+      "questionSha256": "f4f137465e4c432f0152846fcd758a9da39cdecb19100d97b998d6f92a4b73ce"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "sha256": "70e7621c8c80e76fca5f6ddfa3da8acfa6ad0ed759014e0625c3558aea7944cf",
+      "questionSha256": "a2231c66e85828f7907e52dfedc956c5004ba003c98c9dcf2d46f767fdcb2deb"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "sha256": "9e74a5e57ac77c7ec1c915582d4ce0ad867833e3c583d9be077ced4a330ace4c",
+      "questionSha256": "1cc4dc41e3ac71f649a3d99b20af08b72584efb8524fa0d408adb42a30f8c242"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "sha256": "f5a0470a961961f162a6e624ea76e994ca8cd75bb61f191819d9fe919a9081ff",
+      "questionSha256": "1c38f3ff2acee4bfe973a0eebd622a08be80cb57369b083bf66931ade84033ae"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "sha256": "020469d0d1b896df18036c38fca5356e3fdf1a268506dac4f96eab50e1f5d672",
+      "questionSha256": "86f917acc1debafbe82782bb186eeaa4a79fc4b39605357a666b75cc077e699d"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "sha256": "c4e22b1ec2da81abda3bfb1c800bf60cf947a6771a414d171f91a4a7eed45063",
+      "questionSha256": "e4100643c0c627accf9e7f23a593a3563d90064819f9c6c4f5504775a95180d6"
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "sha256": "ea552bc8aaf21cc01c135ae6341dedf51e76c0cc97ceee6ac09e5abc57962b5a",
+      "questionSha256": "705fab53e82b13f98cb4f96c2944335535f64f2bf47fa242f01e2eb0266e1f47"
+    },
+    {
+      "values": [
+        1,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "sha256": "4dbcbb5ad67cff966d142130a24752aca7c14c0eca64252fb1a9b0118c999847",
+      "questionSha256": "30e12a0cf92c60ba42dd6fca33c59d2d4625e57880f6cf929deb157288b80d86"
+    },
+    {
+      "values": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "sha256": "224f83d68e405cef7aaeae28cb041c59fd751573d2655f2a49a21894d167a172",
+      "questionSha256": "c602f3363006800737a235013f4f237410d39f113bab8a7e05edd6d67e6bdef1"
+    },
+    {
+      "values": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "sha256": "0f95bf22c4496b0b658ffaec9ef85aad8a9af7441df74a937d3b4c501e2d0d4c",
+      "questionSha256": "dce58641aefab8df9be4e4bf7782ddad706f722a9029e80a43ff7be42ef24f10"
+    },
+    {
+      "values": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sha256": "38f74ff9d24359c3868566bcd10b5a2887c7be70f4338bc4e06eb5174104fbce",
+      "questionSha256": "efcb3be5d26149e8098ab4f2d29184cda9fc3d0e8e15d7c1c66d8e297cc3c1b0"
+    },
+    {
+      "values": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sha256": "f0b93e21ccb635f7d8d30da6846b62607ef0506760830aab3825206e909a24b4",
+      "questionSha256": "349b13321202c5623ee001a336de4b891bc513d7b81f5d63297ae0e0b443e81f"
+    },
+    {
+      "values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sha256": "9cc0ab04b52cf0c430051529227a35683d2bc341004f5478774e991d46523112",
+      "questionSha256": "0fa2a138769aac4d8f54174309590e088f888d1a3f39645ed396d0932855838d"
+    },
+    {
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "sha256": "f676e5113dbe4a305f2d6d381ce7aabb415be95ab6dcc1c5ddcb065dde28bd88",
+      "questionSha256": "8d595f185da84ea2fdefe127572bb9292ca72a813652dbb6eeb0e865caff1117"
+    }
+  ]
+}

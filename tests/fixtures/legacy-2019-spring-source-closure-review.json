@@ -1,0 +1,257 @@
+{
+  "status": "owner_direct_primary_image_readback_addendum_not_producer_generated_expected_text",
+  "sourcePDFSHA256": "bfd415139913f156ea36b5de5f3d8a6fba7efd721b67c1be12ec45cc693df0dd",
+  "primaryImages": [
+    {
+      "page": 9,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-009.png",
+      "sha256": "f76d2273f29ab4acf618f12e1dcbe5bf7f9ee46ad875e720d2e7c7a037d79c86"
+    },
+    {
+      "page": 10,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-010.png",
+      "sha256": "0f6e9fb6d4b03c354c7ac856cff9adccbcfa9b138e71dad7f9e8787e5fe453ac"
+    },
+    {
+      "page": 11,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-011.png",
+      "sha256": "5d02527f33c4a0c4dfc64b1b6872c33cd8ceec17bb2df307c24788a2d78f4912"
+    },
+    {
+      "page": 12,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-012.png",
+      "sha256": "843cba4fa612d27c70b158ba75d509e276c4470963cd1877dc57200e2a535509"
+    },
+    {
+      "page": 13,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-013.png",
+      "sha256": "246da32837d14e9262cb349996673950a4dbea2979abd74b0a6fa64ba3593f90"
+    },
+    {
+      "page": 14,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-014.png",
+      "sha256": "991e943ea095f35bacef88c345ea2c6840d42e2a80615b640590d6691a3d124d"
+    },
+    {
+      "page": 15,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-015.png",
+      "sha256": "e5df743b5eca111aa0c3fdc4da62e19f0a7a13da8f5a2b0ef018aa02fd8f95a6"
+    },
+    {
+      "page": 16,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-016.png",
+      "sha256": "92b6cf19801c66f18f84ff4d0e5e070dbce58892c9b5445b3bc4a1af404dcc98"
+    },
+    {
+      "page": 21,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-021.png",
+      "sha256": "20d7309b2cfad3190f7ffe849a8f199d1cbf6855a8e3490dedf9d6d257b3d400"
+    },
+    {
+      "page": 22,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-022.png",
+      "sha256": "a80ffb11ca90562d10d432d7de7eb1129ec2b025860de0b50fdc799c6306faff"
+    },
+    {
+      "page": 31,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-031.png",
+      "sha256": "246b961bee1971ccd37a62fd3753bb8196bae2e4e872dee965a40e0212f92d3c"
+    },
+    {
+      "page": 32,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-032.png",
+      "sha256": "ae310df884772b702f43ec2053df99efc45881fd5f06b9807ca007eef88e3a80"
+    }
+  ],
+  "expectedFrom": "Directly read scanned original pages; producer output is only the actual side. Existing independent215unit fixtures remain immutable.",
+  "rows": [
+    {
+      "id": "q2-figure-intro",
+      "question": 2,
+      "pages": [
+        9,
+        10
+      ],
+      "kind": "literal-fragment",
+      "before": "物理アドレス空間の物理ページの対応例を",
+      "after": "物理アドレス空間の物理ページとの対応例を"
+    },
+    {
+      "id": "q2-question2",
+      "question": 2,
+      "pages": [
+        11
+      ],
+      "kind": "paragraph",
+      "literal": "設問2 次の記述中の［空欄］に入れる適切な答えを，解答群の中から選べ。ここで，b1とb2，c1とc2に入れる答えは，それぞれb，cに関する解答群の中から組合せとして適切なものを選ぶものとする。"
+    },
+    {
+      "id": "q2-interrupt-heading",
+      "question": 2,
+      "pages": [
+        11
+      ],
+      "kind": "heading",
+      "literal": "〔ページフォールト割込み処理〕"
+    },
+    {
+      "id": "q2-question3",
+      "question": 2,
+      "pages": [
+        12
+      ],
+      "kind": "paragraph",
+      "literal": "設問3 次の記述中の［空欄］に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q2-sequence-heading",
+      "question": 2,
+      "pages": [
+        12
+      ],
+      "kind": "heading",
+      "literal": "〔仮想ページの参照順〕",
+      "nextOriginalLiteral": "4 → 2 → 1 → 5 → 4 → 2 → 3 → 4 → 2 → 1 → 5 → 3 → 5",
+      "binding": "Generated reference sequence stays bound to the current model; only the heading is split."
+    },
+    {
+      "id": "q3-decimal",
+      "question": 3,
+      "pages": [
+        13
+      ],
+      "kind": "literal-fragment",
+      "before": "表示する数全体の桁数を示し",
+      "after": "表示する数字の桁数を示し"
+    },
+    {
+      "id": "q3-question1-box",
+      "question": 3,
+      "pages": [
+        14
+      ],
+      "kind": "literal-fragment",
+      "before": "SQL文中の［a］〜［c2］に入れる正しい答えを",
+      "after": "SQL文の［空欄］に入れる正しい答えを",
+      "binding": "Keep actual start/end years, not constant original-year substitution."
+    },
+    {
+      "id": "q3-question2-box",
+      "question": 3,
+      "pages": [
+        15
+      ],
+      "kind": "paragraph",
+      "literal": "設問2 次の記述中の［空欄］に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q3-question3-box",
+      "question": 3,
+      "pages": [
+        16
+      ],
+      "kind": "paragraph",
+      "literal": "設問3 次の記述中の［空欄］に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q3-question3-quote",
+      "question": 3,
+      "pages": [
+        16
+      ],
+      "kind": "literal-fragment",
+      "before": "『人数が相違している』",
+      "after": "“人数が相違している”"
+    },
+    {
+      "id": "q4-question1-box",
+      "question": 4,
+      "pages": [
+        21
+      ],
+      "kind": "paragraph",
+      "literal": "設問1 本文中の［空欄］に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q4-question3-box",
+      "question": 4,
+      "pages": [
+        22
+      ],
+      "kind": "paragraph",
+      "literal": "設問3 次の記述中の［空欄］に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q4-question2-wrong-u",
+      "question": 4,
+      "pages": [
+        21
+      ],
+      "kind": "choice",
+      "literal": "負荷分散装置が送信元IPアドレスの情報を用いるだけの単純な機能なので，高速に動作すること。",
+      "before": "単純な構成なので",
+      "after": "単純な機能なので",
+      "truth": "false; a faster simple forwarding function does not explain biased per-classroom load"
+    },
+    {
+      "id": "q4-question2-3-bank-caption",
+      "question": 4,
+      "pages": [
+        21,
+        22
+      ],
+      "kind": "bank-caption",
+      "literal": "解答群"
+    },
+    {
+      "id": "q6-question1",
+      "question": 6,
+      "pages": [
+        31
+      ],
+      "kind": "paragraph",
+      "literal": "設問1 〔仕様変更の依頼が発生した場合の取扱手順〕の記述中の［空欄］に入れる適切な答えを，解答群の中から選べ。ここで，a1〜a3に入れる答えは，aに関する解答群の中から組合せとして適切なものを選ぶものとする。"
+    },
+    {
+      "id": "q6-b-wrong-u",
+      "question": 6,
+      "pages": [
+        32
+      ],
+      "kind": "choice",
+      "literal": "仕様変更依頼の起票に至る経緯をプロジェクト管理チームに確認",
+      "before": "仕様変更依頼票の起票に至る経緯",
+      "after": "仕様変更依頼の起票に至る経緯",
+      "truth": "false; adopted changes must update project plan"
+    },
+    {
+      "id": "q6-b-wrong-e",
+      "question": 6,
+      "pages": [
+        32
+      ],
+      "kind": "choice",
+      "literal": "仕様変更依頼の起票に至る経緯を利用部門に確認",
+      "before": "仕様変更依頼票の起票に至る経緯",
+      "after": "仕様変更依頼の起票に至る経緯",
+      "truth": "false; adopted changes must update project plan"
+    }
+  ],
+  "q3TableOrder": {
+    "QS14": [
+      "table 図1",
+      "注記 行の並び順はSQL文の出力順と同じである。",
+      "図1 体格推移表"
+    ],
+    "QS16": [
+      "table 図2",
+      "図2 身長階級表",
+      "table 図3",
+      "図3 身長度数分布表"
+    ],
+    "diagram2And3Notes": [],
+    "rootContentNarrowHookPending": true
+  },
+  "unprovenGlyphCodepoint": "The scan does not establish a unique Unicode code point for the horizontal default-value glyph in Q3 SQL/choice; do not replace its meaning or infer a normative encoding from visual similarity. Annual original raster retains it.",
+  "distributionAdmission": false
+}

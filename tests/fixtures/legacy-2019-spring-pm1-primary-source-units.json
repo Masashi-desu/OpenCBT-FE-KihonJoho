@@ -1,0 +1,415 @@
+{
+  "status": "primary_verified_target_units_not_whole_question_acceptance",
+  "question": 1,
+  "coveredScope": "F1 complete primary QS6–8 text/units and all18bank choices; source QS5 intentionally outside this new gold",
+  "sourceUnits": [
+    {
+      "id": "q1-cloud-heading",
+      "pages": [
+        6
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔クラウドサービスの利用者認証〕"
+    },
+    {
+      "id": "q1-cloud-intro",
+      "pages": [
+        6
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "このたびA社は，業務システムの一つである販売管理システムを，B社がインターネットを介して提供する販売管理サービス（以下，B社クラウドサービスという）に移行することにした。利用者認証に関しては，A社認証サーバとB社クラウドサービスを連携し，次の(1)〜(3)を実現することにした。"
+    },
+    {
+      "id": "q1-requirement-1",
+      "pages": [
+        6
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(1) B社クラウドサービスをシングルサインオンの対象とする。"
+    },
+    {
+      "id": "q1-requirement-2",
+      "pages": [
+        6
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(2) A社の利用者認証は，B社クラウドサービスについても，A社認証サーバで行う。"
+    },
+    {
+      "id": "q1-requirement-3",
+      "pages": [
+        6
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(3) 利用者が本人であることを確認するためにA社認証サーバで用いる［a］は，B社クラウドサービスには送信しない。"
+    },
+    {
+      "id": "q1-idp",
+      "pages": [
+        6
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "(1)〜(3)を実現するために，A社は，利用者認証を仲介するIDプロバイダ（以下，IdPという）を社内LANに設置することにした。IdPは，認証結果，認証有効期限及び利用者ID（以下，これら三つを併せて認証済情報という）にディジタル署名を付加してから，Webブラウザを介して，B社クラウドサービスに送信する。B社クラウドサービスは，付加されているディジタル署名を使って，受信した認証済情報に［b］がないことを検証する。このために，IdPの［c］をB社クラウドサービスに登録しておく。"
+    },
+    {
+      "id": "q1-communications",
+      "pages": [
+        6
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "WebブラウザとB社クラウドサービスとの間，及びWebブラウザとIdPとの間の通信には，HTTPSを用いる。IdPとA社認証サーバとの間の通信にはLDAPを用いる。"
+    },
+    {
+      "id": "q1-procedure-heading",
+      "pages": [
+        6
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔B社クラウドサービスが利用可能になるまでの処理の手順〕"
+    },
+    {
+      "id": "q1-procedure-intro",
+      "pages": [
+        6
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "A社の利用者が，利用者認証されていない状態で，B社クラウドサービスを利用しようとした場合に，利用可能になるまでの処理の手順を次の①〜⑩に示す。"
+    },
+    {
+      "id": "q1-procedure-1",
+      "pages": [
+        6
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "① 利用者は，WebブラウザからB社クラウドサービスにアクセスの要求を送信する。"
+    },
+    {
+      "id": "q1-procedure-2",
+      "pages": [
+        6
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "② B社クラウドサービスは，アクセスの要求をIdPに転送する指示（以下，転送指示という）を，Webブラウザに返信する。"
+    },
+    {
+      "id": "q1-procedure-3",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "③ Webブラウザは，②の転送指示に従い，IdPにアクセスの要求を送信する。"
+    },
+    {
+      "id": "q1-procedure-4",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "④ IdPは，利用者認証情報の入力画面をWebブラウザに返信する。"
+    },
+    {
+      "id": "q1-procedure-5",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑤ 利用者は，Webブラウザで利用者認証情報を入力する。Webブラウザは，入力された利用者認証情報をIdPに送信する。"
+    },
+    {
+      "id": "q1-procedure-6",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑥ IdPは，利用者認証情報をA社認証サーバに送信する。"
+    },
+    {
+      "id": "q1-procedure-7",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑦ A社認証サーバは，利用者認証情報を検証し，認証結果をIdPに返信する。"
+    },
+    {
+      "id": "q1-procedure-8",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑧ IdPは，認証結果が成功の場合に，認証済情報を発行し，当該情報のB社クラウドサービスへの転送指示とともに，Webブラウザに返信する。"
+    },
+    {
+      "id": "q1-procedure-9",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑨ Webブラウザは，⑧の転送指示に従い，認証済情報をB社クラウドサービスに送信する。"
+    },
+    {
+      "id": "q1-procedure-10",
+      "pages": [
+        7
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑩ B社クラウドサービスは，認証済情報に基づいて，B社クラウドサービスの利用を許可し，操作画面をWebブラウザに返信する。"
+    },
+    {
+      "id": "q1-figure2-intro",
+      "pages": [
+        7
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "B社クラウドサービスが利用可能になるまでの処理の流れを，図2に示す。図2中の①〜⑩は，処理の手順の①〜⑩と対応している。"
+    },
+    {
+      "id": "q1-figure2",
+      "pages": [
+        7
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "columns": [
+        "B社クラウドサービス",
+        "Webブラウザ",
+        "IdP",
+        "A社認証サーバ"
+      ],
+      "steps": "q1-procedure-1..10",
+      "geometryVerified": false
+    },
+    {
+      "id": "q1-figure2-legend",
+      "pages": [
+        7
+      ],
+      "kind": "legend",
+      "visuallyVerified": true,
+      "entries": [
+        {
+          "style": "solid arrow",
+          "literal": "送信"
+        },
+        {
+          "style": "dashed arrow",
+          "literal": "返信"
+        }
+      ],
+      "prefix": "（凡例）"
+    },
+    {
+      "id": "q1-figure2-caption",
+      "pages": [
+        7
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図2 B社クラウドサービスが利用可能になるまでの処理の流れ",
+      "placement": "after drawing and legend"
+    },
+    {
+      "id": "q1-question1",
+      "pages": [
+        8
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問1 本文中の{{blank}}に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q1-bank-abc",
+      "pages": [
+        8
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "a〜cに関する解答群",
+      "parts": [
+        "a",
+        "b",
+        "c"
+      ],
+      "shared": true,
+      "choices": [
+        "PKI",
+        "改ざん",
+        "公開鍵",
+        "サービス妨害",
+        "生体情報",
+        "パスワード",
+        "秘密鍵",
+        "利用者ID",
+        "漏えい"
+      ],
+      "sourceArrangement": "3rows ×3; ア/イ/ウ, エ/オ/カ, キ/ク/ケ"
+    },
+    {
+      "id": "q1-question2",
+      "pages": [
+        8
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問2 次の記述中の{{blank}}に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q1-restriction",
+      "pages": [
+        8
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "B社クラウドサービスでは，接続元のIPアドレスをA社のものに限定する機能は提供されていない。しかし，他の業務システムと同様に，B社クラウドサービスを，社内LANからの利用に限定できる。"
+    },
+    {
+      "id": "q1-reason",
+      "pages": [
+        8
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "この理由は，［d］ことが必要であるが，IdPを社内LANに設置するので，社外からB社クラウドサービスを利用しようとしても，図2中の［e］の送信で失敗し，利用者認証されないからである。"
+    },
+    {
+      "id": "q1-bank-d",
+      "pages": [
+        8
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "dに関する解答群",
+      "parts": [
+        "d"
+      ],
+      "choices": [
+        "B社クラウドサービスが，IdPと直接通信する",
+        "B社クラウドサービスが，利用者認証情報を検証し，Webブラウザに返信する",
+        "IdPが，利用者に代わって，利用者認証情報をB社クラウドサービスに送信する",
+        "Webブラウザが，IdPと通信する"
+      ],
+      "sourceArrangement": "4vertical entries"
+    },
+    {
+      "id": "q1-bank-e",
+      "pages": [
+        8
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "eに関する解答群",
+      "parts": [
+        "e"
+      ],
+      "choices": [
+        "①",
+        "③",
+        "⑤",
+        "⑥",
+        "⑨"
+      ],
+      "sourceArrangement": "one horizontal row"
+    }
+  ],
+  "sourceOrder": [
+    "q1-cloud-heading",
+    "q1-cloud-intro",
+    "q1-requirement-1",
+    "q1-requirement-2",
+    "q1-requirement-3",
+    "q1-idp",
+    "q1-communications",
+    "q1-procedure-heading",
+    "q1-procedure-intro",
+    "q1-procedure-1",
+    "q1-procedure-2",
+    "q1-procedure-3",
+    "q1-procedure-4",
+    "q1-procedure-5",
+    "q1-procedure-6",
+    "q1-procedure-7",
+    "q1-procedure-8",
+    "q1-procedure-9",
+    "q1-procedure-10",
+    "q1-figure2-intro",
+    "q1-figure2",
+    "q1-figure2-legend",
+    "q1-figure2-caption",
+    "q1-question1",
+    "q1-bank-abc",
+    "q1-question2",
+    "q1-restriction",
+    "q1-reason",
+    "q1-bank-d",
+    "q1-bank-e"
+  ],
+  "sourceUnitCount": 30,
+  "primary": [
+    {
+      "document": "qs",
+      "physicalPage": 6,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-006.png",
+      "bytes": 770248,
+      "sha256": "01f63a9fd3d85b4db7c64e0d040e0e874a9d9f6045c657f51f06efc95ebbcae8"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 7,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-007.png",
+      "bytes": 638036,
+      "sha256": "5f33c5e697f63111aea92b2ff3c4952eca89e87f0aa1cef73f5d54b7aa00c57b"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 8,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-008.png",
+      "bytes": 490615,
+      "sha256": "b046cc03fab5708d3544524b6508230a5077ed5cf60afe93e618599509ad9844"
+    }
+  ],
+  "expectedFrom": "Manual primary-raster transcription; no producer expected output",
+  "typographyPolicy": "Linewrap/typographic whitespace only may be ignored; no paraphrase/elision/clause reorder. ， is the chosen comma transcription. {{blank}} means an unnamed empty source answer box.",
+  "bindingPolicy": {
+    "fixed": "All protocol paragraphs/steps/headings/captions and correct concepts are fixed.",
+    "changeableRolesAtSourceReferenceOnly": [
+      {
+        "unit": "q1-bank-abc",
+        "choiceIndicesZeroBased": [
+          0,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "role": "Six independently reviewed distractor roles, at these existing slots only; no correct-concept or protocol text replacement."
+      }
+    ]
+  },
+  "unverifiedOrOutsideThisGold": [
+    "QS5 text/figure1 not freshly transcribed here",
+    "Actual figure2 arrow/box geometry",
+    "Generated wrong-role choices require meaning review; no source-protocol change"
+  ],
+  "normalAppOrDistributionAdmission": false
+}

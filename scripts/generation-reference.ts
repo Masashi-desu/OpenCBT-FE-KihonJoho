@@ -7,6 +7,7 @@ import { sourceFigureDomains } from "../src/core/source-figures";
 
 import autumn2017FigureMeaning from "./source-evidence/2017-autumn-figure-meaning.json";
 import spring2018FigureMeaning from "./source-evidence/2018-spring-figure-meaning.json";
+import spring2019FigureMeaning from "./source-evidence/2019-spring-figure-meaning.json";
 
 const b = readDistributionBundle();
 const c = generationCoverage(b);
@@ -78,6 +79,7 @@ md +=
 const figureMeaning: Record<string, string> = {
   ...autumn2017FigureMeaning,
   ...spring2018FigureMeaning,
+  ...spring2019FigureMeaning,
   // 2018 autumn: source-owned value positions and original unit roles.
   "legacy-2018-security-mandatory-notice": "0：固定単位0。原の問1必須の囲み注意を表示する。問題の誤答対策条件とは別の値である。",
   "legacy-2018-security-attack-evidence": "0：文章単位0=事故の原因と流出範囲（下線部(ア)〜(ウ)を含む）、1=表1の空欄を問う設問2。原の文章と下線の役割を保持し、未記載の事故情報を補わない。",

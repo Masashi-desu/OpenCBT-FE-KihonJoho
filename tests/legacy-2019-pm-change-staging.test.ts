@@ -1,0 +1,18 @@
+import{expectedLegacy2019Diagnostic}from'./fixtures/legacy-2019-spring-local-expected-diagnostic';
+/** Source-local extraction: original test title, oracle, loops and non-annual assertions retained. Annual-only aggregate assertions are listed verbatim in HISTORICAL-BOUNDARIES.json and remain in F original tests. */
+import test from "node:test";
+import assert from "node:assert/strict";
+import {legacy2019OrderedPmGroupLayout} from "./fixtures/legacy-2019-spring-local-layout";
+import {legacy2019CandidateSchema} from "./fixtures/legacy-2019-spring-local-diagnostic";
+import {bindLegacy2019PmChange} from "./fixtures/legacy-2019-spring-local-change-binding";
+import {legacy2019AfternoonChangeDefinitions} from "../src/core/generators/legacy-2019-pm-change";
+import {compoundQuestion} from "./fixtures/compound-question";
+import {legacy2019PmChangeInputs as inputs,assertLegacy2019PmChangeBody as verify} from "./fixtures/legacy-2019-pm-change-oracle";
+import {contentHash} from "../src/core/hash";
+test("2019 PM6 sharedfg stores35 unique choices for43 references and keeps both independently answerable slots",()=>{const x=legacy2019OrderedPmGroupLayout([4,4,7,4,4,8,8,4],["a","b","c","d","e","fg","fg","h"]);assert.equal(x.total,35);assert.deepEqual(x.offsets,[0,4,8,15,19,23,23,31]);assert.equal(x.unique.length,7);assert.throws(()=>legacy2019OrderedPmGroupLayout([9,8,9],["abc","abc","abc"]));});
+test("2019 PM6 all16 source-specific bindings preserve diagram credit and metadata without mutation and reject invalid alt/scene under the strict enum guard",async()=>{
+ const base=compoundQuestion();base.id="question-template-source-2019h31h-fe-pm-6";base.prompt.attribution={origin:"adapted",sourceRefs:[30,31,32,33,34].map(page=>({sourceId:"source-ipa-2019h31h-fe-pm-qs",locator:{section:"平成31春 旧午後 問6",page,year:2019,period:"春期",timeSlot:"午後",questionNumber:"6"}})),rightsRefs:["rights-ipa-2019h31h-fe-pm-6","rights-original"],creatorIds:["codex"]};base.choiceShuffleAllowed=true;const before=JSON.stringify(base);let rejects=0;
+ for(const values of inputs()){const raw=legacy2019AfternoonChangeDefinitions[0].build(values),rawBefore=JSON.stringify(raw),q=bindLegacy2019PmChange(base,values);verify({prompt:q.prompt.blocks,choices:q.choices.map(c=>c.content.blocks),answerParts:q.answerParts,partAnswers:q.correctAnswer.parts,explanation:q.explanation.blocks.map(b=>{assert(b.type==="paragraph");return b.text;}).join("\n")},values);assert.equal(await contentHash(q),await contentHash(JSON.parse(JSON.stringify(q))));assert.deepEqual(q.contexts,base.contexts);assert.deepEqual(q.assetRefs,[]);assert.equal(q.choiceShuffleAllowed,true);assert.equal(JSON.stringify(base),before);assert.equal(JSON.stringify(raw),rawBefore);const figures=q.prompt.blocks.filter(b=>b.type==="diagram");assert.equal(figures.length,1);for(const b of figures){assert.deepEqual(b.attribution,q.prompt.attribution);assert.deepEqual(b.attribution.sourceRefs.map(r=>r.locator.page),[30,31,32,33,34]);}assert.equal(legacy2019CandidateSchema(q).status,expectedLegacy2019Diagnostic(q).status);
+  for(const mutate of[(q:typeof base)=>{const b=q.prompt.blocks.find(b=>b.type==="diagram")!;assert(b.type==="diagram");delete(b as Partial<typeof b>).alt;},(q:typeof base)=>{const b=q.prompt.blocks.find(b=>b.type==="diagram")!;assert(b.type==="diagram"&&b.scene.kind==="source_figure");b.scene.values=[1];},(q:typeof base)=>{delete(q as Partial<typeof q>).review;}]){const wrong=structuredClone(q);mutate(wrong);assert.throws(()=>legacy2019CandidateSchema(wrong));rejects++;}
+ }assert.equal(rejects,48);const wrongCredit=structuredClone(base);wrongCredit.prompt.attribution.sourceRefs=[];assert.throws(()=>bindLegacy2019PmChange(wrongCredit,[0,0]));
+});

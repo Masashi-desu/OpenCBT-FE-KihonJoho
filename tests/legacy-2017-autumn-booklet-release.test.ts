@@ -12,7 +12,7 @@ test('秋の実配布は13原/13基準/13生成器/90素材と公式75欄の対�
  for(const x of[q,v]){assert.equal(x.distribution,'included');assert(Object.values(x.review.checks).every(x=>x==='pass'));assert(x.origin.sourceRefs.every(r=>r.locator.year===2017&&r.locator.period==='秋期'&&r.locator.timeSlot==='午後'&&r.locator.questionNumber===String(n)));}
  const scoped=b.assets.filter(a=>a.attribution.sourceRefs.some(r=>r.locator.year===2017&&r.locator.period==='秋期'&&r.locator.questionNumber===String(n)));assetCount+=scoped.length;
  const binding=b.sets.find(s=>s.id==='set-mix-b')!.generationBindings.filter(g=>g.templateRef.id===t.id);assert.equal(binding.length,1);assert.deepEqual(binding[0].questionRef,refOf(v));}
- assert.equal(assetCount,90);assert.equal(fields.reduce((a,b)=>a+b),75);assert.equal(b.questions.length,482);assert.equal(b.templates.length,241);
+ assert.equal(assetCount,90);assert.equal(fields.reduce((a,b)=>a+b),75);assert.equal(b.questions.length,508);assert.equal(b.templates.length,254);
  const current=selectQuestions(b,{subject:'B',kind:'mix',year:2026,mode:'study',size:'full',bindingMode:'generated_values'});assert.equal(current.set.questionRefs.length,49);assert(current.questions.every(q=>!q.origin.sourceRefs.some(r=>r.locator.timeSlot==='午後')));assert(!b.questions.some(q=>q.id==='question-ipa-2025-b-6'));
  const crop=b.assets.find(a=>a.id==='asset-ipa-2017h29a-fe-pm-12-p81-instructions')!;assert(crop);assert.equal(crop.sha256,'5a2b6a5dc3e28214571e8bc82341f584a8c1969a1d327e3dc65333127d86aa5e');assert.deepEqual([crop.width,crop.height],[1432,1240]);
 });

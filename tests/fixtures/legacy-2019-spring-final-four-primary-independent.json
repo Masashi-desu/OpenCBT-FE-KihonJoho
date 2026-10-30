@@ -1,0 +1,278 @@
+{
+  "status": "source_only_targeted_new4_facts_before_new_delta_not_full_source_gold",
+  "units": [
+    {
+      "question": 9,
+      "page": 47,
+      "id": "q9-description2",
+      "kind": "paragraph",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "(2) 入力ファイル中の各バイトについて，文字コード（16進数00〜FFで表示する）ごとの出現回数を求めて印字する。印字例を，図1に示す。"
+    },
+    {
+      "question": 9,
+      "page": 47,
+      "id": "q9-language-section-notice",
+      "kind": "notice",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "次の問9から問13までの5問については，この中から1問を選択し，選択した問題については，答案用紙の選択欄の選をマークして解答してください。なお，2問以上マークした場合には，はじめの1問について採点します。",
+      "encircledMark": "選"
+    },
+    {
+      "question": 9,
+      "page": 49,
+      "id": "q9-q1-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問1 プログラム中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "question": 9,
+      "page": 49,
+      "id": "q9-q2-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問2 次の記述中の{{blank}}に入れる正しい答えを，解答群の中から選べ。ここで，記述中の［b］と［c］には，設問1の正しい答えが入っているものとする。"
+    },
+    {
+      "question": 9,
+      "page": 50,
+      "id": "q9-declaration-no-caption",
+      "kind": "source-program-without-caption",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "precedingLiteral": "この処理のために，プログラムの行①の直後に，次の宣言を追加する。",
+      "codeTokens": "int ih, ix, code[256];",
+      "followingLiteral": "さらに，プログラムの行②の位置に，次の整列処理部を追加する。",
+      "inventedVisibleCaptionAllowed": false
+    },
+    {
+      "question": 9,
+      "page": 51,
+      "id": "q9-table1",
+      "kind": "change-table-header",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "caption": "表1 整列処理部の変更内容",
+      "captionPosition": "above",
+      "columns": [
+        "処置",
+        "変更内容"
+      ],
+      "rows": [
+        {
+          "operation": "［f］の直後に追加",
+          "lines": [
+            "ix = 0;"
+          ]
+        },
+        {
+          "operation": "行⑦の位置に追加",
+          "lines": [
+            "ix = i;"
+          ]
+        },
+        {
+          "operation": "行⑧を置換え",
+          "lines": [
+            "［g］;"
+          ]
+        }
+      ]
+    },
+    {
+      "question": 11,
+      "page": 58,
+      "id": "q11-first-masu-reading",
+      "kind": "ruby-paragraph",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "升目を用いて表現された迷路と，迷路上に置かれて外部から操作される駒を表すプログラムである。",
+      "rubyBase": "升",
+      "rubyReading": "ます",
+      "onlyFirstOccurrence": true
+    },
+    {
+      "question": 11,
+      "page": 59,
+      "id": "q11-turn-paragraph",
+      "kind": "paragraph",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "メソッドturnLeftは左の方向に，turnRightは右の方向に向きを変える。"
+    },
+    {
+      "question": 11,
+      "page": 59,
+      "id": "q11-try-paragraph",
+      "kind": "paragraph",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "メソッドtryStepForwardは，隣接する前方の升が通路なら1升前進し，前進した方角を履歴リストに追加してからtrueを返す。通路でなければ，前進せずにfalseを返す。"
+    },
+    {
+      "question": 11,
+      "page": 59,
+      "id": "q11-goal-paragraph",
+      "kind": "paragraph",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "メソッドisAtGoalは，ゴール地点にいればtrueを，それ以外はfalseを返す。"
+    },
+    {
+      "question": 11,
+      "page": 59,
+      "id": "q11-history-paragraph",
+      "kind": "paragraph",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "メソッドgetHistoryは，履歴リストを返す。"
+    },
+    {
+      "question": 11,
+      "page": 62,
+      "id": "q11-q1-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問1 プログラム中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "question": 11,
+      "page": 63,
+      "id": "q11-q2-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問2 プログラム5のαの位置に次の処理を挿入し，実行結果として，図2に示す方角のリストを得た。駒は，開始地点からリストの方角の順に1升ずつ進むと，直前の升に戻る（正反対の方角に向きを変えて進む）ことなく，ゴール地点に至ることができる。{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "question": 12,
+      "page": 66,
+      "id": "q12-q1-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問1 プログラム中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "question": 12,
+      "page": 67,
+      "id": "q12-q2-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問2 次の記述中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "question": 13,
+      "page": 71,
+      "id": "q13-rank-table1",
+      "kind": "table",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "caption": "表1 ランク分類基準",
+      "captionPosition": "above",
+      "columns": [
+        "ランク",
+        "販売額合計のランクの基準（円）",
+        "販売回数のランクの基準（回）"
+      ],
+      "rows": [
+        [
+          "1",
+          "0〜39,999",
+          "0〜5"
+        ],
+        [
+          "2",
+          "40,000〜79,999",
+          "6〜11"
+        ],
+        [
+          "3",
+          "80,000以上",
+          "12以上"
+        ]
+      ]
+    },
+    {
+      "question": 13,
+      "page": 72,
+      "id": "q13-q1-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問1 ワークシート“会員管理”に関する次の記述中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "question": 13,
+      "page": 73,
+      "id": "q13-q2-instruction",
+      "kind": "question-instruction",
+      "basis": "independent original PNG viewed before reading new4delta",
+      "literal": "設問2 新商品の見本の配布などの販売促進キャンペーンに活用するために，ワークシート“商品別管理”を作成し，マクロmanageMembersを格納した。マクロmanageMembers中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    }
+  ],
+  "sourceUnitCount": 18,
+  "sourcePagePins": [
+    {
+      "page": 47,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-047.png",
+      "sha256": "bca26044f132eb85e0a32dd0cebc5b5a462399014b980cc70bcc0c1c554e9e7c"
+    },
+    {
+      "page": 49,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-049.png",
+      "sha256": "850ade282ec8d33d11a067797a49c847c10fa4433c97012ace03b3b159cd8b61"
+    },
+    {
+      "page": 50,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-050.png",
+      "sha256": "4e29952f0d6f1fba5366764ebf5b0962fe0a941297b811226ef6f7c75f10358a"
+    },
+    {
+      "page": 51,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-051.png",
+      "sha256": "5196ede4e55ba926dc34363966647dd0ad26ac30d2c00e03792d882f81b87fba"
+    },
+    {
+      "page": 58,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-058.png",
+      "sha256": "f81b57aab8a3023e8a0d24d690cc3a9123b422cab692c3c53f1c9837cdacc8f8"
+    },
+    {
+      "page": 59,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-059.png",
+      "sha256": "3c909406667769bf6233e1727da6a563ed5122953d1026a47053eb08b88dd5c5"
+    },
+    {
+      "page": 62,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-062.png",
+      "sha256": "f997c9a9efb035e4fb5da60689f6966bb8edb669fe0dfb1abc94cb691aa39b39"
+    },
+    {
+      "page": 63,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-063.png",
+      "sha256": "a99c053ba2bb42fb19fe2d77da71dc831fac68ccdd5d84f65dd6d44ea2a08b6e"
+    },
+    {
+      "page": 66,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-066.png",
+      "sha256": "59a1fc86a700622fe91f59a4697e8b7eab8ee20156f2748baf62416c1a92ab1d"
+    },
+    {
+      "page": 67,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-067.png",
+      "sha256": "3c125dccea62d6410d6f92f9009bd52b6b51bacb9064132ed7d2d43ed43f622d"
+    },
+    {
+      "page": 71,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-071.png",
+      "sha256": "746563c7af313fc30d8f43e5039c29240957da9188b4bfd15c0d4730e7a8e24e"
+    },
+    {
+      "page": 72,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-072.png",
+      "sha256": "56dcd5392ea5f31fca9c05ffe75a95d88e5e9df3a4534b7f7a057f94d3460e55"
+    },
+    {
+      "page": 73,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-073.png",
+      "sha256": "783864889419a0b8887765dd2ac75ceb3f25a716374a56772f19b49e64c8e44d"
+    }
+  ],
+  "normalOrMaterialAdmission": false,
+  "unverified": [
+    "All24pages final wholebody/renderer/choicebanks have not been newly compared by this supplement. Prior independent program/numeric checks stay separate.",
+    "Exact glyph geometry and final common Content hook remain separate.",
+    "No original hidden Q13 cells or unassigned values are reconstructed."
+  ]
+}

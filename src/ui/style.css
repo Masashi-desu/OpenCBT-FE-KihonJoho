@@ -1,3 +1,4 @@
+@import "./legacy-2019-spring.css";
 @import "./legacy-2017-pm6.css";
 @import "./legacy-2017-pm7.css";
 @import "./legacy-2017-pm9.css";
@@ -26,6 +27,12 @@
 @import "./legacy-2017-autumn-pm13.css";
 @import url("./tokens.css");
 @import url("./scrollbars.css");
+/* Source-owned program blocks retain source headings without an extra UI label. */
+.spring2019-source-code pre { font-family: ui-monospace, monospace; white-space: pre; font-size: 1em; line-height: 1.65; margin: .5em 0; overflow: auto; max-width: 100%; tab-size: 4; }
+/* These S205 source figure tables retain the original note/caption order. */
+.spring2019-source-table { margin: 1em 0; }
+.spring2019-source-table > p { margin: .5em 0; }
+.spring2019-source-table > figcaption { text-align: center; margin-top: .5em; }
 * {
   box-sizing: border-box;
 }

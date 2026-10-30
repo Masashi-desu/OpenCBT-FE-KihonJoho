@@ -7,12 +7,12 @@ import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope
 const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-pre-2023.json", "utf8"));
 const initialBaseline = () => {
   const b = fixture();
-  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-)/.test(q.id));
-  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-)/.test(t.id));
+  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019h31h-fe-pm-)/.test(q.id));
+  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019h31h-fe-pm-)/.test(t.id));
   return b;
 };
 test("the requested expansion cannot pass using the 103 already-distributed questions", () => {
-  const reviews = pre2023Reviews.map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
+  const reviews = pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm").map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   const report = auditPre2023Readiness(initialBaseline(), evidence(), reviews);
   assert.equal(report.status, "not_ready");
   assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062, originalSemanticsReviewed: 138, ready: 0 });
@@ -36,7 +36,10 @@ test("deleting an unimplemented collection or changing its count never makes the
 });
 
 test("86 samples and four complete 13-major booklets clear seven collections while the remaining 2,924 units stay pending", () => {
-  const report = auditPre2023Readiness(fixture(), evidence());
+  const beforeS205 = fixture();
+  beforeS205.questions = beforeS205.questions.filter(q => !q.id.includes("2019h31h-fe-pm-"));
+  beforeS205.templates = beforeS205.templates.filter(t => !t.id.includes("2019h31h-fe-pm-"));
+  const report = auditPre2023Readiness(beforeS205, evidence(), pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm"));
   assert.equal(report.status, "not_ready");
   assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2924, originalSemanticsReviewed: 138, ready: 138 });
   assert.equal(report.collections.find(c => c.id === "2017h29h-fe-pm")!.ready, 13);
@@ -59,7 +62,7 @@ test("a review cannot silently move to a different PDF, question or collection",
 });
 
 test("an independently checked original alone does not clear its generator, rights or rendering", () => {
-  const reviews = pre2023Reviews.map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
+  const reviews = pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm").map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   const report = auditPre2023Readiness(initialBaseline(), evidence(), reviews);
   const collection = report.collections.find(c => c.id === "2022-apr-sample-b")!;
   assert.equal(collection.ready, 0);
@@ -97,7 +100,10 @@ test("the new13 registered majors remain pending when any one of the five scoped
   for (const check of ["transcription", "rights", "originalSemantics", "generatorSemantics", "rendering"] as const) {
     const reviews = structuredClone(pre2023Reviews);
     for (const review of reviews) if (review.collectionId === "2018h30a-fe-pm") delete review.checks[check];
-    const report = auditPre2023Readiness(fixture(), evidence(), reviews);
+    const oldBooklets = fixture();
+    oldBooklets.questions = oldBooklets.questions.filter(q => !q.id.includes("2019h31h-fe-pm-"));
+    oldBooklets.templates = oldBooklets.templates.filter(t => !t.id.includes("2019h31h-fe-pm-"));
+    const report = auditPre2023Readiness(oldBooklets, evidence(), reviews.filter(r => r.collectionId !== "2019h31h-fe-pm"));
     assert.equal(report.status, "not_ready");
     assert.equal(report.summary.ready, 125);
     assert.equal(report.summary.missingOriginals, 2924);

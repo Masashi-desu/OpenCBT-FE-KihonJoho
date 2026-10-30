@@ -1,0 +1,937 @@
+{
+  "schema": "reviewed-legacy-booklet/v1",
+  "collectionId": "2019h31h-fe-pm",
+  "checkedOn": "2026-10-29",
+  "status": "reviewed_source_and_normal_app",
+  "questionPaperSHA256": "bfd415139913f156ea36b5de5f3d8a6fba7efd721b67c1be12ec45cc693df0dd",
+  "answerPaperSHA256": "8085576c2b5d6db18c9b9ecb00c7b0b9b120eb2be8ac977961b4c81e8c3a52d8",
+  "candidateContentSHA256": "6b773fb4bfee8644736a802e58d9d5495c331f2c94786360f8f7a47eed844791",
+  "draftOnlyExcluded186RecordsSHA256": "b51562e29a1f299cb60fa203dcb531b47d2848141be373f9456a68426abeec30",
+  "reviewAdmission": {
+    "status": "reviewed",
+    "reviewer": "codex-root",
+    "note": "Actual same193candidate source/content/material and normal F/C App acceptance; full release10/mainCI/live remain separate."
+  },
+  "rootSourceReview": {
+    "status": "pass",
+    "candidateContentSHA256": "6b773fb4bfee8644736a802e58d9d5495c331f2c94786360f8f7a47eed844791",
+    "evidence": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-SOURCE-REVIEW.json",
+      "sha256": "2eb2c9e30b2be0fce85237977acf40dd60a6513ee553a7959a36047db230bd3e",
+      "byteLength": 5341
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "candidateContentSHA256": "6b773fb4bfee8644736a802e58d9d5495c331f2c94786360f8f7a47eed844791",
+    "evidence": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+      "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+      "byteLength": 1042
+    }
+  },
+  "scope": "2019年度春期・旧午後全13と当該18IPA素材用途＋Q9独立95事実/新layoutだけ。原JIS表・文言を配布しない。API77〜78は今年の限定判断645dに基づく短い試験用説明で、Oracle全文等の許諾ではない。通常配布は別受入。",
+  "majorNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "answerFieldCounts": [
+    5,
+    5,
+    6,
+    5,
+    5,
+    8,
+    7,
+    6,
+    7,
+    6,
+    6,
+    6,
+    6
+  ],
+  "sourceAndMaterialReview": {
+    "sourcePages": 101,
+    "questionPaperPages": 92,
+    "answerPaperPages": 4,
+    "commentaryPages": 5,
+    "operationFields": 78,
+    "answerDefinitionGroups": 77,
+    "scoredFields": 78,
+    "unorderedGroups": 1,
+    "noCorrectAnswerFields": 0,
+    "uniqueChoices": 323,
+    "fieldChoiceReferences": 406,
+    "materialReferences": 90,
+    "physicalAssetPaths": 88,
+    "materialScopeAssessmentSHA256": "645dcb7b86cfc5e0a76248e5dbde11cfb3b109d8eb5c0b1e55727a3bc5ccbd1c",
+    "scopeAssessmentStatus": "limited_uses_accepted_not_final_material_or_app_admission",
+    "Q9": "原program/文字/問い方/1.3参照文/全24択30refsを保持。原JIS1.3はhold。独立95参考は5Cyen/7Etilde/93共通、別source/right/UnicodeV3notice/改変trace/解答前参照。annual official_reprint/isModified=true、baseは別official_adaptation。",
+    "Q11": "API77〜78固定2頁/3型8操作11項目。当該rootscopeのみで原word/signature/order保持。",
+    "Q12": "CASL79〜84、p81は1432x1240exactuppercropのみ/OF末尾保持/JIS1.3全除外。原code/公式a-f保持、unsigned一般域120失敗所見と有限16正長例・原44/24・CMNT8/4/0長・語境界を分離。",
+    "Q13": "source0は原可視セル/3333販売/531会員/223購入会員/最終225行。隠れ行と未代入規則を補造せず、完全synthetic1を基準とし1〜16では全3333行/531人購入・最終533行、strict32と独立8496行。",
+    "backMatter": "p91メモ、p92試験注意6〜13/商標/©2019IPA。関数・仕様の追加本文なし。fixedsheet85〜90を確認し90refs/88physicalを上限扱いしない。"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "originalId": "question-ipa-2019h31h-fe-pm-1",
+      "baseId": "question-template-source-2019h31h-fe-pm-1",
+      "templateId": "template-source-2019h31h-fe-pm-1",
+      "generatorId": "generator-source-2019h31h-fe-pm-1",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 64,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-1",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-1",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-1",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 2,
+      "originalId": "question-ipa-2019h31h-fe-pm-2",
+      "baseId": "question-template-source-2019h31h-fe-pm-2",
+      "templateId": "template-source-2019h31h-fe-pm-2",
+      "generatorId": "generator-source-2019h31h-fe-pm-2",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 96,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-2",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-2",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-2",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 3,
+      "originalId": "question-ipa-2019h31h-fe-pm-3",
+      "baseId": "question-template-source-2019h31h-fe-pm-3",
+      "templateId": "template-source-2019h31h-fe-pm-3",
+      "generatorId": "generator-source-2019h31h-fe-pm-3",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 72,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-3",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-3",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-3",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 4,
+      "originalId": "question-ipa-2019h31h-fe-pm-4",
+      "baseId": "question-template-source-2019h31h-fe-pm-4",
+      "templateId": "template-source-2019h31h-fe-pm-4",
+      "generatorId": "generator-source-2019h31h-fe-pm-4",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-4",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-4",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-4",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 5,
+      "originalId": "question-ipa-2019h31h-fe-pm-5",
+      "baseId": "question-template-source-2019h31h-fe-pm-5",
+      "templateId": "template-source-2019h31h-fe-pm-5",
+      "generatorId": "generator-source-2019h31h-fe-pm-5",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-5",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-5",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-5",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 6,
+      "originalId": "question-ipa-2019h31h-fe-pm-6",
+      "baseId": "question-template-source-2019h31h-fe-pm-6",
+      "templateId": "template-source-2019h31h-fe-pm-6",
+      "generatorId": "generator-source-2019h31h-fe-pm-6",
+      "operationFields": 8,
+      "answerGroups": 8,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 16,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-6",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-6",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-6",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 7,
+      "originalId": "question-ipa-2019h31h-fe-pm-7",
+      "baseId": "question-template-source-2019h31h-fe-pm-7",
+      "templateId": "template-source-2019h31h-fe-pm-7",
+      "generatorId": "generator-source-2019h31h-fe-pm-7",
+      "operationFields": 7,
+      "answerGroups": 6,
+      "unorderedGroups": [
+        [
+          "c",
+          "d"
+        ]
+      ],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 27,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-7",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-7",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-7",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 8,
+      "originalId": "question-ipa-2019h31h-fe-pm-8",
+      "baseId": "question-template-source-2019h31h-fe-pm-8",
+      "templateId": "template-source-2019h31h-fe-pm-8",
+      "generatorId": "generator-source-2019h31h-fe-pm-8",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-8",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-8",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-8",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 9,
+      "originalId": "question-ipa-2019h31h-fe-pm-9",
+      "baseId": "question-template-source-2019h31h-fe-pm-9",
+      "templateId": "template-source-2019h31h-fe-pm-9",
+      "generatorId": "generator-source-2019h31h-fe-pm-9",
+      "operationFields": 7,
+      "answerGroups": 7,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 17,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-pm9.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-9",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-9",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-9",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "new4ProgramAndMeaningTests",
+        "finalSourceFormIndependentEvidence"
+      ],
+      "pending": []
+    },
+    {
+      "number": 10,
+      "originalId": "question-ipa-2019h31h-fe-pm-10",
+      "baseId": "question-template-source-2019h31h-fe-pm-10",
+      "templateId": "template-source-2019h31h-fe-pm-10",
+      "generatorId": "generator-source-2019h31h-fe-pm-10",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-existing-independent.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-10",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-10",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-10",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "sourceGold215",
+        "existing9IndependentQA",
+        "olderTargetedSourceFormReadback"
+      ],
+      "pending": []
+    },
+    {
+      "number": 11,
+      "originalId": "question-ipa-2019h31h-fe-pm-11",
+      "baseId": "question-template-source-2019h31h-fe-pm-11",
+      "templateId": "template-source-2019h31h-fe-pm-11",
+      "generatorId": "generator-source-2019h31h-fe-pm-11",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-pm11.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-11",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-11",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-11",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "new4ProgramAndMeaningTests",
+        "finalSourceFormIndependentEvidence"
+      ],
+      "pending": []
+    },
+    {
+      "number": 12,
+      "originalId": "question-ipa-2019h31h-fe-pm-12",
+      "baseId": "question-template-source-2019h31h-fe-pm-12",
+      "templateId": "template-source-2019h31h-fe-pm-12",
+      "generatorId": "generator-source-2019h31h-fe-pm-12",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 16,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-pm12.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-12",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-12",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-12",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "new4ProgramAndMeaningTests",
+        "finalSourceFormIndependentEvidence"
+      ],
+      "pending": []
+    },
+    {
+      "number": 13,
+      "originalId": "question-ipa-2019h31h-fe-pm-13",
+      "baseId": "question-template-source-2019h31h-fe-pm-13",
+      "templateId": "template-source-2019h31h-fe-pm-13",
+      "generatorId": "generator-source-2019h31h-fe-pm-13",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "candidateValidInputs": 16,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-spring-pm13.test.ts",
+        "tests/legacy-2019-spring-booklet.test.ts",
+        "tests/legacy-2019-spring-source-form.test.ts",
+        "tests/legacy-2019-spring-primary-source-form.test.ts",
+        "tests/legacy-2019-spring-source-closure.test.ts",
+        "tests/legacy-2019-spring-final-four-source-form.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-spring-normal-flow.test.ts",
+        "tests/legacy-2019-spring-candidate-helper.test.ts",
+        "tests/legacy-2019-spring-figure-meaning.test.ts"
+      ],
+      "normalOriginalRef": {
+        "questionId": "question-ipa-2019h31h-fe-pm-13",
+        "revision": 1
+      },
+      "normalBaseRef": {
+        "questionId": "question-template-source-2019h31h-fe-pm-13",
+        "revision": 1
+      },
+      "normalGeneratorRef": {
+        "id": "generator-source-2019h31h-fe-pm-13",
+        "version": "3.2.0"
+      },
+      "normalAppEvidence": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+        "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+        "byteLength": 1042
+      },
+      "evidenceKeys": [
+        "sourceShelf",
+        "sourceMaterialIndependent",
+        "finalSourceLeaf76",
+        "new4ProgramAndMeaningTests",
+        "finalSourceFormIndependentEvidence"
+      ],
+      "pending": []
+    }
+  ],
+  "checks": {
+    "transcription": "pass",
+    "rights": "pass",
+    "originalSemantics": "pass",
+    "generatorSemantics": "pass",
+    "rendering": "pass"
+  },
+  "evidenceRefs": {
+    "sourceShelf": {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/MANIFEST.json",
+      "sha256": "97ac7b4919e7f02698398c6007edd6ccec5db5c66ddf83804ce50c219abf2898",
+      "byteLength": 28143,
+      "scope": "source-local ignored evidence; not a normal App execution or distribution receipt"
+    },
+    "sourceMaterialIndependent": {
+      "path": "output/source-review/stage2-s2-05-source-material-independent-20261029-v1/MANIFEST.json",
+      "sha256": "5a9867ef2d93a8b65c1c87fb9d47b7e7ed0f4710a6356883ffecf0fe3ba78bf8",
+      "byteLength": 4975,
+      "scope": "source-local ignored evidence; not a normal App execution or distribution receipt"
+    },
+    "sourceGold215": {
+      "path": "output/source-review/stage2-s2-05-source-form-gold-independent-20261029-v1/MANIFEST.json",
+      "sha256": "11636bc84fed50894481a3d9a09d5a2eae616cad30eed687fbe0c31c642cd51d",
+      "byteLength": 6830,
+      "scope": "source-local ignored evidence; not a normal App execution or distribution receipt"
+    },
+    "existing9IndependentQA": {
+      "path": "output/source-review/stage2-s2-05-existing9-independent-tests-draft-20261029-v1/MANIFEST.json",
+      "sha256": "8940a0394a63372dff114d304f006f1483edfc6c4d9015ddaea80ca2b2234ce2",
+      "byteLength": 52522,
+      "scope": "source-local ignored evidence; not a normal App execution or distribution receipt"
+    },
+    "rootMaterialScope": {
+      "path": "output/source-review/stage2-s2-05-root-material-review-20261029-v1/ROOT-MATERIAL-ASSESSMENT.json",
+      "sha256": "645dcb7b86cfc5e0a76248e5dbde11cfb3b109d8eb5c0b1e55727a3bc5ccbd1c",
+      "byteLength": 18534,
+      "scope": "source-local ignored evidence; not a normal App execution or distribution receipt"
+    },
+    "finalSourceLeaf76": {
+      "path": "output/source-review/stage2-s2-05-implementation-draft-20261028-v1/source-form-final-four-review-v1/MANIFEST.json",
+      "sha256": "d656a698869be5712fa2e7cba4bda30501ab270411d6d3e407bee6393bf82e5c",
+      "byteLength": 15796,
+      "combined76Path": "output/source-review/stage2-s2-05-implementation-draft-20261028-v1/source-form-final-four-review-v1/COMBINED-76-PATHS.json",
+      "combined76SHA256": "82aa09dcc796bf387d85f31b3bbe6774ea3b9aca7f758552f61c83f2a73f7ac1",
+      "scope": "Owner final4 with resolved76 leaf adoption; exact final independent source-form and common normal App are separate."
+    },
+    "new4ProgramAndMeaningTests": {
+      "path": "output/source-review/stage2-s2-05-implementation-draft-20261028-v1/source-form-final-four-review-v1/validation/PORTABLE-FINAL-FOUR-RUNS.json",
+      "sha256": "774aa665cb911cd740b7e066216b4df6a96e9efb5b2e173ba57f5edc535d69f7",
+      "scope": "75ignored source tests in each of2modes; old9 independent83/297 kept separately. Not normal App execution."
+    },
+    "finalSourceFormIndependentEvidence": {
+      "path": "output/source-review/stage2-s2-05-final-four-independent-addendum-20261029-v1/MANIFEST.json",
+      "sha256": "53a2a6c73705b44f81f8d2a0c24de0d9d79f0d23a10275943093adb545aef101",
+      "byteLength": 115046,
+      "scope": "Sealed independent source-form readback; no root included-candidate hash or common normal App acceptance is inferred."
+    },
+    "olderTargetedSourceFormReadback": {
+      "path": "output/source-review/stage2-s2-05-source-form-final-independent-20261029-v1/MANIFEST.json",
+      "sha256": "1aedf8d955a984450feca7e26735e67241fb8212e6e074c0c26eabe9df1e6cf1",
+      "byteLength": 120489,
+      "scope": "Sealed independent source-form readback; no root included-candidate hash or common normal App acceptance is inferred."
+    },
+    "actualRootSourceReview": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-SOURCE-REVIEW.json",
+      "sha256": "2eb2c9e30b2be0fce85237977acf40dd60a6513ee553a7959a36047db230bd3e",
+      "byteLength": 5341,
+      "scope": "actual final193 candidate normal source/content/material review, all13"
+    },
+    "actualNormalApp": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-APP-REVIEW.json",
+      "sha256": "6331703799a49a9af46fd0d89f9cf7587cf8e6ef3fb11edd4039bd19cfbc3acd",
+      "byteLength": 1042,
+      "scope": "actual F/C original13, generated13, CUIpractice7/150min/search/bookmark/grading/save/review/licenses; no deployment claim"
+    }
+  },
+  "reviewers": [
+    "codex-root-source-material-and-normal-app-review",
+    "codex-independent-source-form-and-meaning-peer",
+    "codex-independent-normal-flow-peer"
+  ],
+  "releaseGate": {
+    "status": "not_admitted_pending_root_and_actual_normal_candidate",
+    "accepted": false,
+    "fullCheckReceipt": null,
+    "releaseApproval": null,
+    "note": "Source/content/readiness review is not permission or proof of deployment. Existing4booklets and pre2009 hardpending remain unchanged."
+  },
+  "distributionAdmission": false,
+  "rootFinalSourceReviewForActualCandidate": {
+    "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-05-root-normal-acceptance-20261029-v1/ROOT-SOURCE-REVIEW.json",
+    "sha256": "2eb2c9e30b2be0fce85237977acf40dd60a6513ee553a7959a36047db230bd3e",
+    "byteLength": 5341
+  }
+}

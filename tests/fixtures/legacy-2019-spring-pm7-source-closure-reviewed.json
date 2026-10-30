@@ -1,0 +1,623 @@
+{
+  "status": "independently_primary_viewed_full_Q7_reference_literal_and_roles",
+  "question": 7,
+  "sourceUnitCount": 38,
+  "coveredPages": [
+    35,
+    36,
+    37,
+    38
+  ],
+  "sourceUnits": [
+    {
+      "id": "q7-notice",
+      "pages": [
+        35
+      ],
+      "kind": "notice",
+      "visuallyVerified": true,
+      "literal": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。"
+    },
+    {
+      "id": "q7-heading",
+      "pages": [
+        35
+      ],
+      "kind": "question-heading",
+      "visuallyVerified": true,
+      "literal": "問7 製造業における情報システムの統合に関する次の記述を読んで，設問1〜3に答えよ。"
+    },
+    {
+      "id": "q7-company",
+      "pages": [
+        35
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "T社は，大手家電製品メーカであり，製品の設計及び需要予測は事業部ごとに行っている。各製造工場は，一つ以上の事業部の製品を製造している。"
+    },
+    {
+      "id": "q7-turnover-introduction",
+      "pages": [
+        35
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "2018年度に各製造工場が製造した製品の事業部別取扱高を，表1に示す。"
+    },
+    {
+      "id": "q7-table1-caption",
+      "pages": [
+        35
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表1 2018年度に各製造工場が製造した製品の事業部別取扱高"
+    },
+    {
+      "id": "q7-table1-unit",
+      "pages": [
+        35
+      ],
+      "kind": "unit",
+      "visuallyVerified": true,
+      "literal": "単位 億円"
+    },
+    {
+      "id": "q7-table1",
+      "pages": [
+        35
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        [
+          "製造工場",
+          "事業部"
+        ],
+        [
+          "P事業部",
+          "Q事業部",
+          "R事業部",
+          "S事業部"
+        ]
+      ],
+      "rows": [
+        [
+          "H製造工場",
+          "―",
+          "200",
+          "―",
+          "50"
+        ],
+        [
+          "I製造工場",
+          "500",
+          "―",
+          "―",
+          "―"
+        ],
+        [
+          "J製造工場",
+          "―",
+          "―",
+          "―",
+          "150"
+        ],
+        [
+          "K製造工場",
+          "―",
+          "―",
+          "300",
+          "―"
+        ],
+        [
+          "L製造工場",
+          "―",
+          "200",
+          "―",
+          "―"
+        ],
+        [
+          "M製造工場",
+          "―",
+          "―",
+          "―",
+          "100"
+        ],
+        [
+          "合計",
+          "500",
+          "400",
+          "300",
+          "300"
+        ]
+      ]
+    },
+    {
+      "id": "q7-table1-note",
+      "pages": [
+        35
+      ],
+      "kind": "note",
+      "visuallyVerified": true,
+      "literal": "注記 “―”は，当該製造工場が当該事業部の製品を製造していないことを示す。"
+    },
+    {
+      "id": "q7-system-introduction",
+      "pages": [
+        35,
+        36
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "T社は，事業部と製造工場ごとに情報システムを整備してきた経緯があり，設計システムには三つ，需要予測システムには三つ，調達システムには四つのシステムがある。各事業部が利用している設計システム及び需要予測システムを表2に，各製造工場が利用している調達システムを表3に示す。システムの名称が同一の場合は，事業部又は製造工場が同じシステムを共用していることを意味している。例えば，P事業部とS事業部は，設計システムとしてAシステムを共用している。"
+    },
+    {
+      "id": "q7-table2-caption",
+      "pages": [
+        36
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表2 各事業部が利用している設計システム及び需要予測システム"
+    },
+    {
+      "id": "q7-table2",
+      "pages": [
+        36
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "事業部",
+        "設計システム",
+        "需要予測システム"
+      ],
+      "rows": [
+        [
+          "P事業部",
+          "Aシステム",
+          "Eシステム"
+        ],
+        [
+          "Q事業部",
+          "Bシステム",
+          "Fシステム"
+        ],
+        [
+          "R事業部",
+          "Cシステム",
+          "Fシステム"
+        ],
+        [
+          "S事業部",
+          "Aシステム",
+          "Gシステム"
+        ]
+      ]
+    },
+    {
+      "id": "q7-table3-caption",
+      "pages": [
+        36
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表3 各製造工場が利用している調達システム"
+    },
+    {
+      "id": "q7-table3",
+      "pages": [
+        36
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "製造工場",
+        "調達システム"
+      ],
+      "rows": [
+        [
+          "H製造工場",
+          "Vシステム"
+        ],
+        [
+          "I製造工場",
+          "Wシステム"
+        ],
+        [
+          "J製造工場",
+          "Xシステム"
+        ],
+        [
+          "K製造工場",
+          "Yシステム"
+        ],
+        [
+          "L製造工場",
+          "Xシステム"
+        ],
+        [
+          "M製造工場",
+          "Xシステム"
+        ]
+      ]
+    },
+    {
+      "id": "q7-project",
+      "pages": [
+        36
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "T社では情報システムの運用保守コストの削減が求められており，本社の情報システム部門の主導によってプロジェクトを立ち上げ，設計システム，需要予測システム及び調達システムのそれぞれについて，複数のシステムを統合することとした。"
+    },
+    {
+      "id": "q7-q1-instruction",
+      "pages": [
+        36
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問1 データの受渡し（以下，データ連携という）に関する次の記述中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q7-data-relations",
+      "pages": [
+        36
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "調達システムは，製品の製造に必要な部品の在庫管理と発注を行っている。各製造工場が利用している調達システムは，その工場が製造する製品を担当している事業部が利用している設計システム及び需要予測システムとデータ連携している。設計システムと需要予測システムとの間のデータ連携はない。"
+    },
+    {
+      "id": "q7-q1-fields",
+      "pages": [
+        37
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "表1〜3によれば，最も多くの調達システムとデータ連携している設計システムは［a］システムであり，そのデータ連携先の調達システム数は［b］である。また，調達システムの中で，データ連携している設計システム数と需要予測システム数の合計が最も多いのは，［c］システムと［d］システムである。"
+    },
+    {
+      "id": "q7-a-bank-caption",
+      "pages": [
+        37
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "aに関する解答群"
+    },
+    {
+      "id": "q7-a-bank",
+      "pages": [
+        37
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "a"
+      ],
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ"
+      ]
+    },
+    {
+      "id": "q7-b-bank-caption",
+      "pages": [
+        37
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "bに関する解答群"
+    },
+    {
+      "id": "q7-b-bank",
+      "pages": [
+        37
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "b"
+      ],
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ",
+        "オ"
+      ]
+    },
+    {
+      "id": "q7-cd-bank-caption",
+      "pages": [
+        37
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "c，dに関する解答群"
+    },
+    {
+      "id": "q7-cd-bank",
+      "pages": [
+        37
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "c",
+        "d"
+      ],
+      "choices": [
+        "V",
+        "W",
+        "X",
+        "Y"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    },
+    {
+      "id": "q7-q2-instruction",
+      "pages": [
+        37
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問2 情報システムの運用保守コストに関する次の記述中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q7-fixed-cost",
+      "pages": [
+        37
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "本社の情報システム部門による調査の結果，情報システムの運用保守コストとして，設計システムのそれぞれには年間2億円，需要予測システムのそれぞれには年間3億円，調達システムのそれぞれには年間1億円が掛かっていることが分かった。"
+    },
+    {
+      "id": "q7-proportional-cost",
+      "pages": [
+        37
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "それらに加えて，調達システムのそれぞれには，各製造工場が製造する製品の年間の取扱高の0.1%分の運用保守コストが掛かっていることが分かった。"
+    },
+    {
+      "id": "q7-route-cost",
+      "pages": [
+        37
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "また，システム間のデータ連携のための経路（以下，データ連携経路という）の運用保守コストとして，データ連携経路一つ当たり年間0.1億円が掛かっていることが分かった。今後においても，今までデータ連携していないシステム間に新たなデータ連携経路を一つ作成した場合，データ連携経路の運用保守コストは年間0.1億円増加する。"
+    },
+    {
+      "id": "q7-original-total",
+      "pages": [
+        38
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "2018年度のT社の設計システム，需要予測システム，調達システム及びデータ連携経路の年間の運用保守コストの合計は［e］億円であった。"
+    },
+    {
+      "id": "q7-integrated-total",
+      "pages": [
+        38
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "設計システム，需要予測システム及び調達システムを全社でそれぞれ一つに統合できれば，これらのシステム及びデータ連携経路の年間の運用保守コストの合計は［f］億円となる。ここで，取扱高などの前提条件は変わらないものとする。また，一つのシステムを複数の事業部や製造工場で共用する場合でも，共用するシステムの運用保守コストは一つの事業部や製造工場が単独で利用する場合と変わらないものとする。"
+    },
+    {
+      "id": "q7-e-bank-caption",
+      "pages": [
+        38
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "eに関する解答群"
+    },
+    {
+      "id": "q7-e-bank",
+      "pages": [
+        38
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "e"
+      ],
+      "choices": [
+        "19.0",
+        "20.2",
+        "21.7",
+        "25.2"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    },
+    {
+      "id": "q7-f-bank-caption",
+      "pages": [
+        38
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "fに関する解答群"
+    },
+    {
+      "id": "q7-f-bank",
+      "pages": [
+        38
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "f"
+      ],
+      "choices": [
+        "6.0",
+        "6.2",
+        "7.7",
+        "9.7"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    },
+    {
+      "id": "q7-q3-instruction",
+      "pages": [
+        38
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問3 Gシステムの廃棄に関する次の記述中の{{blank}}に入れる適切な答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q7-g-retirement",
+      "pages": [
+        38
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "本社の情報システム部門は，Gシステムの保守サポート期間の終了が迫っているので，Gシステムを廃棄し，他の需要予測システムによって代替できるかどうかを検討した。"
+    },
+    {
+      "id": "q7-g-replacement",
+      "pages": [
+        38
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "新たなデータ連携経路を作成することなくGシステムとの代替が可能な需要予測システムは［g］。"
+    },
+    {
+      "id": "q7-g-bank-caption",
+      "pages": [
+        38
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "gに関する解答群"
+    },
+    {
+      "id": "q7-g-bank",
+      "pages": [
+        38
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "g"
+      ],
+      "choices": [
+        "Eシステムだけである",
+        "Fシステムだけである",
+        "Eシステム及びFシステムである",
+        "ない"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    }
+  ],
+  "sourceOrder": [
+    "q7-notice",
+    "q7-heading",
+    "q7-company",
+    "q7-turnover-introduction",
+    "q7-table1-caption",
+    "q7-table1-unit",
+    "q7-table1",
+    "q7-table1-note",
+    "q7-system-introduction",
+    "q7-table2-caption",
+    "q7-table2",
+    "q7-table3-caption",
+    "q7-table3",
+    "q7-project",
+    "q7-q1-instruction",
+    "q7-data-relations",
+    "q7-q1-fields",
+    "q7-a-bank-caption",
+    "q7-a-bank",
+    "q7-b-bank-caption",
+    "q7-b-bank",
+    "q7-cd-bank-caption",
+    "q7-cd-bank",
+    "q7-q2-instruction",
+    "q7-fixed-cost",
+    "q7-proportional-cost",
+    "q7-route-cost",
+    "q7-original-total",
+    "q7-integrated-total",
+    "q7-e-bank-caption",
+    "q7-e-bank",
+    "q7-f-bank-caption",
+    "q7-f-bank",
+    "q7-q3-instruction",
+    "q7-g-retirement",
+    "q7-g-replacement",
+    "q7-g-bank-caption",
+    "q7-g-bank"
+  ],
+  "sourcePagePins": [
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-035.png",
+      "sha256": "9b311ae01d526d892a97157f5e7fe9e27e726ec93476dacdf17273d082e4dfed"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-036.png",
+      "sha256": "546e6e2241862284cdb57801ee92e63e2e536c4737843dca8cead45f572d84d2"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-037.png",
+      "sha256": "009a9c99ad2daf97cc6e237b4a78614cf2a28e13a6fab5178b000f7811e6cc93"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-038.png",
+      "sha256": "2460078d9983154263297c629d180bebc2f0338d710617445983c2865c58de5b"
+    }
+  ],
+  "sourcePDFSHA256": "bfd415139913f156ea36b5de5f3d8a6fba7efd721b67c1be12ec45cc693df0dd",
+  "bindingPolicy": "Reference literals come only from primary images. Generated factory/turnover cells and linked numeric conclusions may vary in the same roles; paragraph/headings/anonymous instruction boxes/all banks and shared c,d group shape/order must remain.",
+  "unverified": [
+    "Actual final SSR/source geometry still pending comparison.",
+    "Raster alone does not identify Unicode dash/quote codepoints; role and visible glyph retained."
+  ],
+  "normalOrMaterialAdmission": false
+}

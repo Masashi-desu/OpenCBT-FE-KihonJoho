@@ -1,0 +1,140 @@
+{
+  "status": "primary_verified_target_units_not_whole_question_acceptance",
+  "question": 3,
+  "coveredScope": "F3 primary QS16 procedure source units, its immediate SQL continuation, QS17 cause and fbank",
+  "sourceUnits": [
+    {
+      "id": "q3-procedure-intro",
+      "pages": [
+        16
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "図3に示す身長度数分布表の作成は，次の(1)〜(3)の手順で行った。"
+    },
+    {
+      "id": "q3-procedure-1",
+      "pages": [
+        16
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(1) 図2に示す身長階級表をデータベースに作成した。"
+    },
+    {
+      "id": "q3-procedure-2",
+      "pages": [
+        16
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(2) 新たなSQL文を作成した。"
+    },
+    {
+      "id": "q3-procedure-3",
+      "pages": [
+        16
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(3) (2)で作成したSQL文の実行結果を用いて，図3に示す身長度数分布表を作成した。"
+    },
+    {
+      "id": "q3-query-intro",
+      "pages": [
+        16
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "調査の結果，(2)で作成したSQL文に誤りがあることが分かった。(2)で作成したSQL文は，次のとおりである。このSQL文は，対象とした全生徒を必ずいずれかの身長区分に分類して集計するために，身長階級表からは全レコードを，測定結果ビューからはON句に指定した結合条件に一致するレコードを抽出している。"
+    },
+    {
+      "id": "q3-wrong-query",
+      "pages": [
+        16
+      ],
+      "kind": "code",
+      "visuallyVerified": true,
+      "literal": "SELECT 身長階級, 階級下限, COUNT(*) AS 人数\nFROM 測定結果ビュー RIGHT OUTER JOIN 身長階級表 ON\n  身長 BETWEEN 階級下限 AND 階級上限\n  AND 年度 = '2019'\n  AND 性別 = '男'\nGROUP BY 身長階級, 階級下限, 階級上限\nORDER BY 階級下限 ASC",
+      "language": "sql"
+    },
+    {
+      "id": "q3-question3-cause",
+      "pages": [
+        17
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "図1を見ると，2019年度は男子全学年での最大身長が180.1cmであり，190cm以上の生徒は存在しないが，図3の身長度数分布表では，190cm以上の人数が1となっている。この原因は，(2)で作成したSQL文では［f］とすべき箇所をCOUNT(*)としていることである。その結果，測定結果ビューと身長階級表を結合した結果において，NULLとなっているレコードもカウントしているからである。"
+    },
+    {
+      "id": "q3-bank-f",
+      "pages": [
+        17
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "fに関する解答群",
+      "parts": [
+        "f"
+      ],
+      "choices": [
+        "COUNT(身長)",
+        "COUNT(身長階級)",
+        "MAX(身長)",
+        "MAX(身長階級)",
+        "身長",
+        "身長階級"
+      ],
+      "sourceArrangement": "2rows ×3entries; ア/イ/ウ then エ/オ/カ"
+    }
+  ],
+  "sourceOrder": [
+    "q3-procedure-intro",
+    "q3-procedure-1",
+    "q3-procedure-2",
+    "q3-procedure-3",
+    "q3-query-intro",
+    "q3-wrong-query",
+    "q3-question3-cause",
+    "q3-bank-f"
+  ],
+  "sourceUnitCount": 8,
+  "primary": [
+    {
+      "document": "qs",
+      "physicalPage": 16,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-016.png",
+      "bytes": 806110,
+      "sha256": "92b6cf19801c66f18f84ff4d0e5e070dbce58892c9b5445b3bc4a1af404dcc98"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 17,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-017.png",
+      "bytes": 255577,
+      "sha256": "f7dda4e2c6ebeeee83a1f6f8564fbf45952d5e6b92eea16a40c690e18fe7b937"
+    }
+  ],
+  "expectedFrom": "Manual primary-raster transcription; no producer expected output",
+  "typographyPolicy": "Linewrap/typographic whitespace only may be ignored; no paraphrase/elision/clause reorder. ， is the chosen comma transcription. {{blank}} means an unnamed empty source answer box.",
+  "bindingPolicy": {
+    "fixed": "Four procedure source units, full right-join query skeleton and source explanation direction; do not merge units.",
+    "bindable": [
+      {
+        "unit": "q3-wrong-query",
+        "position": "年度='2019' and 性別='男' literals only"
+      },
+      {
+        "unit": "q3-question3-cause",
+        "position": "year2019, 男子, maximum180.1 and empty boundary190 occurrences, consistently from same reviewed input; source reference literals above"
+      }
+    ]
+  },
+  "unverifiedOrOutsideThisGold": [
+    "QS13–15 all earlier source units/a/b/c/de banks not independently transcribed in this new gold",
+    "QS16 question3 lead-in and figure2/figure3 tables: seen in primary but not new literal table gold",
+    "Actual table/code rendering/rounding and all changed inputs remain separate meaning/geometry acceptance"
+  ],
+  "normalAppOrDistributionAdmission": false
+}

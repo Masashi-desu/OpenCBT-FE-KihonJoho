@@ -6,6 +6,7 @@ import { legacyAfternoonPublicNotes } from "./legacy-afternoon-public-notes";
 import { validate2017AutumnFixedMaterials } from "./legacy-2017-autumn-fixed-materials";
 import { validate2018SpringFixedMaterials } from "./legacy-2018-spring-material-validation";
 import { validate2018AutumnFixedMaterials } from "./legacy-2018-autumn-material-validation";
+import { validate2019SpringFixedMaterials } from "./legacy-2019-spring-material-validation";
 
 /** Fixed source material credits belong to their individual content/diagram
  * slots. Shared language references cannot inherit the main question's right. */
@@ -16,20 +17,22 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
   validate2017AutumnFixedMaterials(base,definition);
   validate2018SpringFixedMaterials(base,definition);
   validate2018AutumnFixedMaterials(base,definition);
+  validate2019SpringFixedMaterials(base,definition);
   const body = definition.build(values);
   if (base.id !== `question-template-source-${definition.source}` || base.choiceShuffleAllowed ||
     template.baseQuestionRef.questionId !== base.id || template.baseQuestionRef.revision !== base.revision ||
     base.choices.length !== body.choices.length || base.contexts.length !== (body.contexts ?? []).length)
     throw new DataError("SOURCE_FORMAT", "旧午後の基準問題と生成形式が一致しません。");
   let diagram = 0;
-  const content = (blocks: Block[], original: Content): Content => {
+  const content = (blocks: Block[], original: Content, fixedReferenceDiagramIds = false): Content => {
     if (blocks.length !== original.blocks.length)
       throw new DataError("SOURCE_FORMAT", "旧午後の本文・参照資料の単位が一致しません。");
     return { attribution: structuredClone(original.attribution), blocks: blocks.map((block, index) => {
       if (block.type !== "diagram") return structuredClone(block);
       const source = original.blocks[index];
       if (source.type !== "diagram") throw new DataError("SOURCE_FORMAT", "原資料の図位置が一致しません。");
-      return { ...structuredClone(block), id: `diagram-generated-${++diagram}`,
+      const generatedId = `diagram-generated-${++diagram}`;
+      return { ...structuredClone(block), id: fixedReferenceDiagramIds ? source.id : generatedId,
         attribution: structuredClone(source.attribution),
         alt: block.scene.kind === "source_figure" ? sourceFigureAlt(block.scene.profile, block.scene.values) : block.alt };
     }) };
@@ -43,7 +46,9 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
     affectsAnswer: true, answerDetails: body.explanation });
   question.prompt = content(body.prompt, base.prompt);
   question.contexts = (body.contexts ?? []).map((context, index) => ({ ...base.contexts[index],
-    title: context.title, content: content(context.blocks, base.contexts[index].content),
+    title: context.title, content: content(context.blocks, base.contexts[index].content,
+      definition.source === "2019h31h-fe-pm-9" &&
+      base.contexts[index].id === "context-2019h31h-fe-pm-9-independent-reference"),
     ...(context.presentation ? { presentation: context.presentation } : {}) }));
   question.contextRefs = question.contexts.map(context => context.id);
   question.choices = body.choices.map((blocks, index) => ({ id: `choice-value-${index + 1}`,
@@ -56,6 +61,7 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
   validate2017AutumnFixedMaterials(question,definition);
   validate2018SpringFixedMaterials(question,definition);
   validate2018AutumnFixedMaterials(question,definition);
+  validate2019SpringFixedMaterials(question,definition);
   return question;
 }
 
@@ -85,13 +91,15 @@ export function validateLegacyAfternoonFormat(question: Question, definition: Ge
   validate2017AutumnFixedMaterials(question,definition);
   validate2018SpringFixedMaterials(question,definition);
   validate2018AutumnFixedMaterials(question,definition);
+  validate2019SpringFixedMaterials(question,definition);
   // Reviewed source-owned errata/language appendices are fixed references,
   // not fixed images of a generated question. Their exact IDs/order are also
   // checked against the registered body below; catalog rights checks still run.
   const fixedReferences = ["2017h29h-fe-pm-12", "2017h29h-fe-pm-13", "2017h29a-fe-pm-5",
     "2017h29a-fe-pm-8", "2017h29a-fe-pm-11", "2017h29a-fe-pm-12", "2017h29a-fe-pm-13",
     "2018h30h-fe-pm-8", "2018h30h-fe-pm-10", "2018h30h-fe-pm-12", "2018h30h-fe-pm-13",
-    "2018h30a-fe-pm-8", "2018h30a-fe-pm-11", "2018h30a-fe-pm-12", "2018h30a-fe-pm-13"].includes(definition.source);
+    "2018h30a-fe-pm-8", "2018h30a-fe-pm-11", "2018h30a-fe-pm-12", "2018h30a-fe-pm-13",
+    "2019h31h-fe-pm-8", "2019h31h-fe-pm-9", "2019h31h-fe-pm-11", "2019h31h-fe-pm-12", "2019h31h-fe-pm-13"].includes(definition.source);
   const imageRefs = [...new Set(question.contexts.flatMap(context => context.content.blocks
     .flatMap(block => block.type === "image" ? [block.assetId] : [])))];
   if (question.choiceShuffleAllowed || (!fixedReferences && imageRefs.length) ||

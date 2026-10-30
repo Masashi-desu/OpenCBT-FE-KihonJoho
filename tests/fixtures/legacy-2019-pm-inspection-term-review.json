@@ -1,0 +1,141 @@
+{
+  "status": "independently_reviewed_source_scoped_terms",
+  "source": "2019h31h-fe-pm-5",
+  "terms": [
+    {
+      "term": "WebAPI",
+      "meaning": "Webを介してアプリケーションから利用するインタフェース。本問では表1の情報取得用APIと認証関連APIがあり、特定のHTTPメソッドやデータ形式までは指定されていない。",
+      "related": [
+        "API",
+        "情報取得用API"
+      ]
+    },
+    {
+      "term": "API",
+      "expansion": "Application Programming Interface",
+      "meaning": "アプリケーションが機能を呼び出すための窓口。引数と戻り値を仕様で確認する。",
+      "related": [
+        "WebAPI",
+        "依存関係"
+      ]
+    },
+    {
+      "term": "DB",
+      "expansion": "Database",
+      "meaning": "情報を管理するデータベース。本問では3サーバがそれぞれ個別のDBを管理し、未記載の直接アクセスは行わない。",
+      "related": [
+        "主キー"
+      ]
+    },
+    {
+      "term": "ID",
+      "expansion": "Identifier",
+      "meaning": "対象を識別する値。同じ文字列に見えても申込者ID・検査農産物ID・検査IDの対象は異なる。",
+      "related": [
+        "主キー",
+        "IDリスト"
+      ]
+    },
+    {
+      "term": "主キー",
+      "meaning": "各情報のレコードを識別する項目。本問の図2では下線で示す。空欄b/cは別情報を参照するIDで、各レコード自身の主キーとは区別する。",
+      "related": [
+        "ID",
+        "一対多"
+      ]
+    },
+    {
+      "term": "認証情報",
+      "meaning": "本問ではログイン後のアクセスID・利用者ID・ログイン日時・最終アクセス日時をもつ情報。利用者情報のパスワードを含むレコードとは異なる。",
+      "related": [
+        "利用者情報",
+        "アクセスID"
+      ]
+    },
+    {
+      "term": "利用者情報",
+      "meaning": "本問では利用者IDとパスワードをもつ情報。検査を依頼した申込者の情報ではなく、業務担当者のログインに使う。",
+      "related": [
+        "認証情報",
+        "ID"
+      ]
+    },
+    {
+      "term": "アクセスID",
+      "meaning": "ログインに成功すると認証サーバから取得する値。本問の各情報取得用APIは、この値が認証情報として管理されているか確認する。",
+      "related": [
+        "認証情報",
+        "情報取得用API"
+      ]
+    },
+    {
+      "term": "一対多",
+      "meaning": "一つの対象に複数の別の対象が対応する関係。本問では申込者から複数の検査農産物、検査農産物から最大5項目の検査結果へ対応する。",
+      "related": [
+        "主キー",
+        "ID"
+      ]
+    },
+    {
+      "term": "情報取得用API",
+      "meaning": "本問の情報を読み出すAPI。各サーバの返す情報・指定できるIDの種類・取得範囲は表1で区別する。登録ツールや認証関連APIとは役割が異なる。",
+      "related": [
+        "WebAPI",
+        "IDリスト",
+        "開始番号"
+      ]
+    },
+    {
+      "term": "IDリスト",
+      "meaning": "対象のIDを複数指定する引数。本問の該当get APIは10件まで指定し、存在する対象だけを返す。返却順が指定順であるとは定められていない。",
+      "related": [
+        "ID",
+        "情報取得用API"
+      ]
+    },
+    {
+      "term": "開始番号",
+      "meaning": "整列後の先頭を1件目とし、取得を始める位置を表す数。本問のlist APIはその位置から最多10件を返す。",
+      "related": [
+        "昇順",
+        "降順",
+        "ページング"
+      ]
+    },
+    {
+      "term": "昇順",
+      "meaning": "小さい値から大きい値への順序。本問の申込者一覧と検査農産物一覧は、それぞれのIDの昇順である。",
+      "related": [
+        "開始番号",
+        "降順"
+      ]
+    },
+    {
+      "term": "降順",
+      "meaning": "大きい値から小さい値への順序。本問の検査結果一覧APIは検査日・検査IDの降順、画面は最近の検査が先になる。",
+      "related": [
+        "開始番号",
+        "昇順"
+      ]
+    },
+    {
+      "term": "ページング",
+      "meaning": "情報を一定件数ずつ切り替えて表示すること。本問は開始番号1から最大10件、前へで10を減算し、次へで10を加算して表示のたびに取得する。",
+      "related": [
+        "開始番号"
+      ]
+    },
+    {
+      "term": "依存関係",
+      "meaning": "ある処理に必要な値を先の処理から受け取る関係。本問では検査結果から農産物ID、農産物情報から申込者IDをたどって必要な情報をそろえる。",
+      "related": [
+        "API",
+        "ID"
+      ]
+    }
+  ],
+  "total": 16,
+  "before451After467": "Existing451 values retained;new16scoped tosourcePM5.",
+  "noNewProtocolAssumptions": "REST/JSON/HTTPverbs/foreignKey constraints are not source premises;do not introduce them.",
+  "termScope": "API/DB/ID expansions are names;all problem-specific access/data/ordering statements are limited to this source. Real source-scoped dictionary/UI display tests remain pending."
+}

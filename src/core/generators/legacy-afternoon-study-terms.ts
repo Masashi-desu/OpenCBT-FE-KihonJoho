@@ -1,3 +1,4 @@
+import { spring2019AfternoonStudyTerms } from "./legacy-2019-spring-afternoon-study-terms";
 import { autumn2018AfternoonStudyTerms } from './legacy-2018-autumn-afternoon-study-terms';
 import type { Question } from "../types";
 import type { StudyTerm } from "../study-acronyms";
@@ -53,6 +54,8 @@ const spring2018Terms: Record<string, StudyTerm[]> = {
 };
 /** Only this reviewed booklet's actual source locators select its glossary. */
 export function legacyAfternoonStudyTerms(question: Question): StudyTerm[] | undefined {
+  const spring2019 = spring2019AfternoonStudyTerms(question);
+  if (spring2019 !== undefined) return spring2019;
   const autumn2018 = autumn2018AfternoonStudyTerms(question);
   if (autumn2018 !== undefined) return autumn2018;
   const refs = question.origin.sourceRefs;

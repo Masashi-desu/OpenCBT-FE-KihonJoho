@@ -1,0 +1,53 @@
+{
+  "source": "2019h31h-fe-pm-5",
+  "version": "3.2.0",
+  "fields": [
+    {
+      "name": "申込DBへ混入する他DB情報",
+      "minimum": 0,
+      "maximum": 1
+    },
+    {
+      "name": "誤った先頭の申込者API",
+      "minimum": 0,
+      "maximum": 1
+    }
+  ],
+  "reference": [
+    0,
+    0
+  ],
+  "answerVariation": "fixed",
+  "sourceAnswer": "aカ bオ cエ dイ eオ",
+  "outputs": [
+    {
+      "values": [
+        0,
+        0
+      ],
+      "sha256": "721d02df8b0db7f8e35538f4c697fad0a617452f296865248e09da4893fe5d58"
+    },
+    {
+      "values": [
+        0,
+        1
+      ],
+      "sha256": "d56cad849c738a05e481824fe49a14f05d59212264db4a8f7d9949cb22e7be69"
+    },
+    {
+      "values": [
+        1,
+        0
+      ],
+      "sha256": "dda0e645fb09b929fba119378bdaabf9f6002fcce5cfd6498b3465f50eeb150a"
+    },
+    {
+      "values": [
+        1,
+        1
+      ],
+      "sha256": "78e78c42d109bc08a7b522f0e95ade0ed53df7bc6bfacfb8581ac6a757dc3cdd"
+    }
+  ],
+  "notes": "Initial reviewed contract;hash detects later changes,independent semantic oracle remains mandatory."
+}

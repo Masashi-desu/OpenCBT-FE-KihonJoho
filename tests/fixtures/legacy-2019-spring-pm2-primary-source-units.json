@@ -1,0 +1,212 @@
+{
+  "status": "primary_verified_target_units_not_whole_question_acceptance",
+  "question": 2,
+  "coveredScope": "F2 physical QS10 figure/note/caption/exact instruction/5tuple source bank",
+  "sourceUnits": [
+    {
+      "id": "q2-figure1",
+      "pages": [
+        10
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "virtualData": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "physicalData": [
+        "E",
+        "A",
+        "D",
+        "G",
+        "B",
+        "F",
+        "C",
+        "H"
+      ],
+      "virtualLabels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        "m"
+      ],
+      "physicalLabels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        "n"
+      ],
+      "pageTable": {
+        "presenceBits": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "namedBoxes": [
+          "a1",
+          "a2",
+          "a3",
+          "a4"
+        ],
+        "hiddenRows": [
+          5,
+          6,
+          7,
+          8,
+          "m"
+        ]
+      },
+      "arrowLabels": [
+        "仮想ページ番号",
+        "仮想ページ番号",
+        "存在ビット",
+        "物理ページ番号",
+        "物理ページ番号"
+      ],
+      "geometryVerified": false
+    },
+    {
+      "id": "q2-figure1-note",
+      "pages": [
+        10
+      ],
+      "kind": "note",
+      "visuallyVerified": true,
+      "literal": "注記 網掛けの部分は表示していない。"
+    },
+    {
+      "id": "q2-figure1-caption",
+      "pages": [
+        10
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図1 仮想アドレス空間の仮想ページと物理アドレス空間の物理ページとの対応例",
+      "placement": "drawing → note → caption"
+    },
+    {
+      "id": "q2-question1",
+      "pages": [
+        10
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問1 図1中の{{blank}}に入れる正しい答えを，解答群の中から選べ。ここで，a1〜a4に入れる答えは，aに関する解答群の中から組合せとして正しいものを選ぶものとする。"
+    },
+    {
+      "id": "q2-bank-a",
+      "pages": [
+        10
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "aに関する解答群",
+      "parts": [
+        "a"
+      ],
+      "columns": [
+        "a1",
+        "a2",
+        "a3",
+        "a4"
+      ],
+      "choices": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          5,
+          7
+        ],
+        [
+          2,
+          5,
+          7,
+          3
+        ],
+        [
+          5,
+          1,
+          4,
+          7
+        ],
+        [
+          5,
+          2,
+          7,
+          3
+        ]
+      ],
+      "sourceArrangement": "5table rows, each4tuple values"
+    }
+  ],
+  "sourceOrder": [
+    "q2-figure1",
+    "q2-figure1-note",
+    "q2-figure1-caption",
+    "q2-question1",
+    "q2-bank-a"
+  ],
+  "sourceUnitCount": 5,
+  "primary": [
+    {
+      "document": "qs",
+      "physicalPage": 10,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-010.png",
+      "bytes": 533936,
+      "sha256": "0f6e9fb6d4b03c354c7ac856cff9adccbcfa9b138e71dad7f9e8787e5fe453ac"
+    }
+  ],
+  "expectedFrom": "Manual primary-raster transcription; no producer expected output",
+  "typographyPolicy": "Linewrap/typographic whitespace only may be ignored; no paraphrase/elision/clause reorder. ， is the chosen comma transcription. {{blank}} means an unnamed empty source answer box.",
+  "bindingPolicy": {
+    "fixed": [
+      "note",
+      "caption",
+      "question1 instruction",
+      "tuple4columns and5choices"
+    ],
+    "bindable": [
+      {
+        "unit": "q2-figure1",
+        "position": "physicalData A–H permutation and its corresponding mapping cells; m/n and presence/hidden roles fixed"
+      },
+      {
+        "unit": "q2-bank-a",
+        "position": "four numeric columns per option, role/count/order fixed; source reference tuples above are primary literal"
+      }
+    ]
+  },
+  "unverifiedOrOutsideThisGold": [
+    "QS9 preceding paragraphs and figure lead-in not transcribed in this new gold",
+    "QS11/12 b/c/de banks and source sequence: prior primary read confirms a→b→c→de; literal new-gold readback pending",
+    "All diagram boundary/arrowhead geometry"
+  ],
+  "normalAppOrDistributionAdmission": false
+}

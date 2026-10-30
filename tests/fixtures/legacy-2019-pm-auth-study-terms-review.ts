@@ -1,0 +1,28 @@
+/** Independently checked against source p5–8, RFC4513/8485 and IPA syllabus
+ * terminology; these learner explanations are authored anew, not quotations. */
+export const legacy2019PmAuthTermReview={source:"2019h31h-fe-pm-1",checkedOn:"2026-10-20",facts:[
+ {term:"IdP",expansion:"Identity Provider",must:["IDプロバイダ","社内LAN","Webブラウザ経由"]},
+ {term:"LDAP",expansion:"Lightweight Directory Access Protocol",must:["ディレクトリ情報","全てのLDAP利用がパスワードだけ","明示された利用者IDとパスワード"]},
+ {term:"シングルサインオン",expansion:"Single Sign-On",must:["一度の認証","同じパスワードを送ることを意味しない","署名付き"]},
+ {term:"PKI",expansion:"Public Key Infrastructure",must:["公開鍵基盤","証明書","基盤全体","個別の公開検証鍵"]},
+ {term:"CA",expansion:"Certification Authority",must:["認証局","発行する主体","公開鍵の値そのもの"]},
+ {term:"ICカード",expansion:"Integrated Circuit",must:["集積回路","物理的な認証器","所持","利用者IDやパスワードの総称ではなく"]},
+ {term:"ディジタル署名",must:["秘密鍵で作り","公開鍵で検証","改変を検知","情報を隠したり"]},
+ {term:"公開鍵",must:["他者へ渡して","公開検証鍵","パスワードとは区別"]},
+ {term:"秘密鍵",must:["秘密に管理","IdPが署名を作る","検証鍵は公開鍵"]},
+ {term:"共通鍵",must:["同じ秘密を共有","公開検証鍵と同じものではない"]},
+ {term:"改ざん",must:["書き換える","署名後に変更"]},
+ {term:"サービス妨害",must:["可用性","正常に提供され続けることは別"]},
+ {term:"通信経路の障害",must:["通信経路上の故障","正常動作を保証できない"]},
+ {term:"生体情報",must:["身体の特徴","利用者IDとパスワード"]},
+ {term:"パスワード",must:["秘密の文字列","三項目","含めない"]},
+ {term:"利用者ID",must:["識別する値","B社へも送信","秘密値そのものとは区別"]},
+ {term:"認証有効期限",must:["有効として扱う期限","署名対象","B社へ送信"]},
+ {term:"漏えい",must:["知られる","秘密にする機能ではない"]},
+ {term:"盗聴",must:["第三者が読み取る","防止を保証しない","HTTPS"]},
+ {term:"プロキシサーバ",must:["通信を仲介","経由するHTTPS通信に限る"]},
+ {term:"ファイアウォール",must:["許可・拒否","全て禁止","設定は変更できない"]},
+ {term:"認証済情報",must:["認証結果・認証有効期限・利用者ID","三項目","利用者認証情報とは異なる"]},
+ ],inherited:[{term:"PC",expansion:"Personal Computer"},{term:"LAN",expansion:"Local Area Network"},{term:"IP",expansion:"Internet Protocol"},{term:"HTTP",expansion:"Hypertext Transfer Protocol"},{term:"HTTPS",expansion:"Hypertext Transfer Protocol Secure"},{term:"TLS",expansion:"Transport Layer Security"},{term:"ID",expansion:"Identifier"}],
+ evidence:["原p5〜8の定義/通信条件/選択肢","https://www.rfc-editor.org/rfc/rfc4513.html#section-5.1.3","https://www.rfc-editor.org/rfc/rfc8485.html#section-1.1","IPA ITPassport syllabus6.5物理63/64のPKI/CA/ICカード/署名鍵/検証鍵"],
+ limits:"略語の意味と原条件を区別。規格本文は転記しない。HTTP over TLSという原のHTTPS定義を保ち、現辞書の名称補足は解答後だけに表示。年度source lookupの共有統合は未完。"}as const;

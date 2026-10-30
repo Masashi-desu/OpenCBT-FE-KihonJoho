@@ -1,0 +1,334 @@
+{
+  "status": "primary_verified_target_units_not_whole_question_acceptance",
+  "question": 4,
+  "coveredScope": "F4 primary QS18–20 text/units/underline and figure1 note/caption",
+  "sourceUnits": [
+    {
+      "id": "q4-title",
+      "pages": [
+        18
+      ],
+      "kind": "question-heading",
+      "visuallyVerified": true,
+      "literal": "問4 eラーニングシステムの構成変更に関する次の記述を読んで，設問1〜3に答えよ。"
+    },
+    {
+      "id": "q4-intro",
+      "pages": [
+        18
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "G社は，全国に設置した様々な規模の教室から教育コンテンツにアクセスできるWebベースのeラーニングシステムを構築し，このシステムを使った教育事業を展開している。"
+    },
+    {
+      "id": "q4-content-server",
+      "pages": [
+        18
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "eラーニングシステムは，1台のコンテンツサーバと1台のアプリケーションサーバで構成されている。コンテンツサーバは，教材や試験問題などの教育コンテンツを保持し，アプリケーションサーバを経由して，クライアントである教室のPCに教育コンテンツを送信する。"
+    },
+    {
+      "id": "q4-app-server",
+      "pages": [
+        18
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "アプリケーションサーバは，受講者の認証を行い，ログインしている受講者を管理する。"
+    },
+    {
+      "id": "q4-learner",
+      "pages": [
+        18
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "受講者は，クライアントを利用して，教室ごとに設置されているプロキシサーバとインターネットを経由して，eラーニングシステムにアクセスして学習する。"
+    },
+    {
+      "id": "q4-proposal",
+      "pages": [
+        18
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "最近，一部の受講者から，システム利用に関して，“応答に時間が掛かる”などの苦情が寄せられている。G社では，応答時間を短縮するために，アプリケーションサーバ1台の追加と負荷分散装置の導入を伴う新しいネットワーク構成を検討した。負荷分散装置は，クライアントからの要求を，同じ機能をもつ複数のサーバのうちのいずれかに振り分ける装置である。"
+    },
+    {
+      "id": "q4-network-heading",
+      "pages": [
+        18
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔検討したネットワーク構成〕"
+    },
+    {
+      "id": "q4-network-intro",
+      "pages": [
+        18
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "検討したネットワーク構成を，図1に示す。"
+    },
+    {
+      "id": "q4-figure1",
+      "pages": [
+        19
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "sourceAddressRoles": {
+        "DNSサーバ": "192.0.2.1",
+        "負荷分散装置外部側": "192.0.2.2",
+        "負荷分散装置内部側": "192.168.0.254",
+        "アプリケーションサーバ1": "192.168.0.1",
+        "アプリケーションサーバ2": "192.168.0.2",
+        "コンテンツサーバ": "192.168.0.3",
+        "プロキシサーバ": "198.51.100.1"
+      },
+      "geometryVerified": false
+    },
+    {
+      "id": "q4-figure1-note",
+      "pages": [
+        19
+      ],
+      "kind": "note",
+      "visuallyVerified": true,
+      "literal": "注記 x.x.x.xは，IPアドレスを表す。"
+    },
+    {
+      "id": "q4-figure1-caption",
+      "pages": [
+        19
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図1 検討したネットワーク構成",
+      "placement": "drawing → note → caption"
+    },
+    {
+      "id": "q4-settings-intro",
+      "pages": [
+        19
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "クライアントからプロキシサーバを経由して，eラーニングシステムにアクセスするために，DNSサーバ及び負荷分散装置には次の設定を行う。"
+    },
+    {
+      "id": "q4-dns-setting",
+      "pages": [
+        19
+      ],
+      "kind": "bullet",
+      "visuallyVerified": true,
+      "literal": "・DNSサーバに，eラーニングシステムのドメイン名とこれに対応するIPアドレスとして［a］を登録する。"
+    },
+    {
+      "id": "q4-lb-setting",
+      "pages": [
+        19
+      ],
+      "kind": "bullet",
+      "visuallyVerified": true,
+      "literal": "・負荷分散装置に，振り分け先IPアドレスとして［b］を登録する。"
+    },
+    {
+      "id": "q4-affinity-heading",
+      "pages": [
+        19
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔負荷分散装置を用いたアクセスの振り分け〕"
+    },
+    {
+      "id": "q4-affinity-and-types",
+      "pages": [
+        19
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "アプリケーションサーバは，ログインしている受講者を管理し，その受講者がどの教育コンテンツを閲覧中かなどの状況を保持する。したがって，負荷分散装置を用いてアプリケーションサーバの負荷分散を行う場合には，受講者がeラーニングシステムにログインしてからログアウトするまでは，その受講者が利用する1台のクライアントからアプリケーションサーバへの要求を，常に同一のアプリケーションサーバへ振り分ける必要がある。負荷分散装置には，送信元のIPアドレスの情報を基に要求を振り分けるタイプ（以下，装置タイプAという）と，OSI基本参照モデルのレイヤ4以上の情報を基に要求を振り分けるタイプ（以下，装置タイプBという）とがある。この二つのタイプそれぞれの装置の動作について，概要を次に示す。"
+    },
+    {
+      "id": "q4-typeA-heading",
+      "pages": [
+        20
+      ],
+      "kind": "numbered-heading",
+      "visuallyVerified": true,
+      "literal": "(1) 装置タイプA"
+    },
+    {
+      "id": "q4-typeA-a",
+      "pages": [
+        20
+      ],
+      "kind": "lettered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(a) 振り分け先が決まっていない送信元IPアドレスからの要求は，ラウンドロビン方式で決定したアプリケーションサーバに振り分けるとともに，送信元IPアドレスと振り分け先のアプリケーションサーバのIPアドレスとを記録する。"
+    },
+    {
+      "id": "q4-typeA-b",
+      "pages": [
+        20
+      ],
+      "kind": "lettered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(b) 振り分け先が決まっている送信元IPアドレスからの要求は，そのアプリケーションサーバに振り分ける。"
+    },
+    {
+      "id": "q4-typeA-bias",
+      "pages": [
+        20
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "装置タイプAを用いると，①多くのクライアントのある大規模な教室からのアクセスが，1台のアプリケーションサーバに集中して，アプリケーションサーバへの負荷に偏りが生じることが予想される。",
+      "inlineMarks": [
+        {
+          "literal": "①多くのクライアントのある大規模な教室からのアクセスが，1台のアプリケーションサーバに集中して，アプリケーションサーバへの負荷に偏りが生じる",
+          "sourceStyle": "underline",
+          "doNotAddVisibleLabels": [
+            "下線部",
+            "『",
+            "』"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q4-typeB-heading",
+      "pages": [
+        20
+      ],
+      "kind": "numbered-heading",
+      "visuallyVerified": true,
+      "literal": "(2) 装置タイプB"
+    },
+    {
+      "id": "q4-typeB-a",
+      "pages": [
+        20
+      ],
+      "kind": "lettered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(a) クライアントから送信された要求中のHTTPヘッダ内に［c］（以下，識別情報という）がない場合は，ラウンドロビン方式で決定したアプリケーションサーバに振り分ける。"
+    },
+    {
+      "id": "q4-typeB-b",
+      "pages": [
+        20
+      ],
+      "kind": "lettered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(b) アプリケーションサーバから送信された応答に含まれるHTTPヘッダ内の識別情報と，当該アプリケーションサーバのIPアドレスとを記録する。"
+    },
+    {
+      "id": "q4-typeB-c",
+      "pages": [
+        20
+      ],
+      "kind": "lettered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(c) クライアントから送信された要求中のHTTPヘッダ内の識別情報に対応するアプリケーションサーバのIPアドレスが(b)の処理によって記録されている場合は，そのアプリケーションサーバに振り分ける。"
+    },
+    {
+      "id": "q4-typeB-result",
+      "pages": [
+        20
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "装置タイプBを用いると，多くのクライアントのある大規模な教室からプロキシサーバを経由してアクセスがあっても，振り分け先の決定をクライアント単位で行える。"
+    },
+    {
+      "id": "q4-decision",
+      "pages": [
+        20
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "検討の結果，アプリケーションサーバの負荷に偏りが少なくなることから，装置タイプBを導入することにした。"
+    }
+  ],
+  "sourceOrder": [
+    "q4-title",
+    "q4-intro",
+    "q4-content-server",
+    "q4-app-server",
+    "q4-learner",
+    "q4-proposal",
+    "q4-network-heading",
+    "q4-network-intro",
+    "q4-figure1",
+    "q4-figure1-note",
+    "q4-figure1-caption",
+    "q4-settings-intro",
+    "q4-dns-setting",
+    "q4-lb-setting",
+    "q4-affinity-heading",
+    "q4-affinity-and-types",
+    "q4-typeA-heading",
+    "q4-typeA-a",
+    "q4-typeA-b",
+    "q4-typeA-bias",
+    "q4-typeB-heading",
+    "q4-typeB-a",
+    "q4-typeB-b",
+    "q4-typeB-c",
+    "q4-typeB-result",
+    "q4-decision"
+  ],
+  "sourceUnitCount": 26,
+  "primary": [
+    {
+      "document": "qs",
+      "physicalPage": 18,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-018.png",
+      "bytes": 617284,
+      "sha256": "3945ec4cff4a3c2477a2a22f67296f9c7e82c8935a4670b0c85d0a23ccd76dc5"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 19,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-019.png",
+      "bytes": 704967,
+      "sha256": "7855581b037db34825d68e6af488306b75b2020cdaf0d682a73ea87dc58aab26"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 20,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-020.png",
+      "bytes": 616243,
+      "sha256": "66b30e17a624bd714490edc20ff5f0cd249cccd8239d3b31a34fa21cedc38f2f"
+    }
+  ],
+  "expectedFrom": "Manual primary-raster transcription; no producer expected output",
+  "typographyPolicy": "Linewrap/typographic whitespace only may be ignored; no paraphrase/elision/reorder. ， is the chosen comma transcription. {{blank}} means unnamed empty source box.",
+  "bindingPolicy": {
+    "fixed": "All recorded prose/headings/type-A/B source instructions, underline scope, note and caption.",
+    "bindable": [
+      {
+        "unit": "q4-figure1",
+        "position": "The seven IP address role values only; source-reference addresses above. Rendered network topology/labels fixed."
+      }
+    ],
+    "outsideGoldReviewedVariablePositions": [
+      "QS22 original-role service time/arrival rate/waiting numeric values and four time choices; requires its existing independent meaning oracle, not new prose replacements."
+    ]
+  },
+  "unverifiedOrOutsideThisGold": [
+    "QS21/22 questions/banks/formula prose not transcribed in this new gold. Prior source read gives bank order a/b/c→設問2→設問3; literal fresh gold pending.",
+    "Actual network line/bus/IP geometry",
+    "Named label ［設問3］ in current implementation is not authorized as the original unnamed source instruction box by this partial gold"
+  ],
+  "normalAppOrDistributionAdmission": false
+}

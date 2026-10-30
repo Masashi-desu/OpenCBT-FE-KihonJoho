@@ -1,0 +1,853 @@
+{
+  "source": "2019h31h-fe-pm-10",
+  "questionSha256": "bfd415139913f156ea36b5de5f3d8a6fba7efd721b67c1be12ec45cc693df0dd",
+  "answerSha256": "8085576c2b5d6db18c9b9ecb00c7b0b9b120eb2be8ac977961b4c81e8c3a52d8",
+  "units": [
+    {
+      "unit": 1,
+      "page": 52,
+      "kind": "heading",
+      "text": "問10 次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。"
+    },
+    {
+      "unit": 2,
+      "page": 52,
+      "kind": "heading",
+      "text": "〔プログラムの説明〕"
+    },
+    {
+      "unit": 3,
+      "page": 52,
+      "kind": "paragraph",
+      "text": "地域の5か所に建物（以下，校舎という）をもち，中学生向けの進学指導を行っているP学習塾では，定期的にテストを実施している。全ての塾生は，国語，数学，英語，理科及び社会の5教科のテストを受ける。テスト結果は，1回分を学年別の結果ファイルに格納する。各校舎の各学年には1名以上の塾生が所属しており，1学年の人数は塾全体で999人を超えることはない。"
+    },
+    {
+      "unit": 4,
+      "page": 52,
+      "kind": "paragraph",
+      "text": "このプログラムは，結果ファイルに格納されたある学年のテスト結果を塾生ごとに集計して，5教科の得点の合計（以下，合計点という）の降順に並べた順位リストを印字する。"
+    },
+    {
+      "unit": 5,
+      "page": 52,
+      "kind": "paragraph",
+      "text": "(1) 結果ファイルは，図1に示すレコード様式の順ファイルであり，1学年分のレコードが格納されている。"
+    },
+    {
+      "unit": 6,
+      "page": 52,
+      "kind": "figure",
+      "text": "図1 結果ファイルのレコード様式"
+    },
+    {
+      "unit": 7,
+      "page": 52,
+      "kind": "paragraph",
+      "text": "① 塾生番号は，塾全体で一意となる番号である。"
+    },
+    {
+      "unit": 8,
+      "page": 52,
+      "kind": "paragraph",
+      "text": "② 校舎番号には，塾生番号で示される塾生が所属する校舎の番号が01〜05で格納されている。"
+    },
+    {
+      "unit": 9,
+      "page": 52,
+      "kind": "paragraph",
+      "text": "③ テスト結果には，塾生番号で示される塾生の各教科の得点が000〜100で格納されている。"
+    },
+    {
+      "unit": 10,
+      "page": 53,
+      "kind": "paragraph",
+      "text": "(2) 順位リストは，図2に示す印字様式である。見出しは印刷済みとする。"
+    },
+    {
+      "unit": 11,
+      "page": 53,
+      "kind": "figure",
+      "text": "図2 順位リストの印字様式"
+    },
+    {
+      "unit": 12,
+      "page": 53,
+      "kind": "paragraph",
+      "text": "① 全体順位には塾全体での順位を，校舎内順位には塾生が所属する校舎での順位を印字する。印字行は合計点の降順に並べる。"
+    },
+    {
+      "unit": 13,
+      "page": 53,
+      "kind": "paragraph",
+      "text": "② 同じ合計点の塾生は同じ順位とする。例えば，塾全体で合計点の高い塾生から，492点が1名，488点が2名，487点が1名いた場合は，図3のように順位付けして印字する。"
+    },
+    {
+      "unit": 14,
+      "page": 53,
+      "kind": "figure",
+      "text": "図3 順位リストの印字例"
+    },
+    {
+      "unit": 15,
+      "page": 53,
+      "kind": "heading",
+      "text": "〔プログラム〕（行番号）"
+    },
+    {
+      "unit": 16,
+      "page": [
+        53,
+        54,
+        55
+      ],
+      "kind": "code",
+      "text": "79 numbered COBOL source lines in program.json; page boundaries 1..17 / 18..60 / 61..79."
+    },
+    {
+      "unit": 17,
+      "page": 55,
+      "kind": "paragraph",
+      "text": "設問1 プログラム中の空欄に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "unit": 18,
+      "page": 55,
+      "kind": "choices",
+      "text": "aに関する解答群"
+    },
+    {
+      "unit": 19,
+      "page": 55,
+      "kind": "choices",
+      "text": "bに関する解答群"
+    },
+    {
+      "unit": 20,
+      "page": 56,
+      "kind": "choices",
+      "text": "c，dに関する解答群"
+    },
+    {
+      "unit": 21,
+      "page": 56,
+      "kind": "paragraph",
+      "text": "設問2 図4の表示様式に示すとおり，\"AVG:\"に続けて塾全体の平均点を表示し，\"BLD-AVG:\"に続けて校舎ごとの平均点を，校舎番号01〜05の昇順に表示するようにプログラムを変更する。表1中の空欄に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "unit": 22,
+      "page": 56,
+      "kind": "figure",
+      "text": "図4 表示様式"
+    },
+    {
+      "unit": 23,
+      "page": 56,
+      "kind": "table",
+      "text": "表1 プログラムの変更内容"
+    },
+    {
+      "unit": 24,
+      "page": 57,
+      "kind": "choices",
+      "text": "eに関する解答群"
+    },
+    {
+      "unit": 25,
+      "page": 57,
+      "kind": "choices",
+      "text": "fに関する解答群"
+    }
+  ],
+  "program": [
+    {
+      "number": 1,
+      "page": 53,
+      "text": "DATA DIVISION."
+    },
+    {
+      "number": 2,
+      "page": 53,
+      "text": "FILE SECTION."
+    },
+    {
+      "number": 3,
+      "page": 53,
+      "text": "SD SRT-FILE."
+    },
+    {
+      "number": 4,
+      "page": 53,
+      "text": "01 SRT-REC."
+    },
+    {
+      "number": 5,
+      "page": 53,
+      "text": "   02 SRT-NO         PIC 9(6)."
+    },
+    {
+      "number": 6,
+      "page": 53,
+      "text": "   02 SRT-BLD        PIC 9(2)."
+    },
+    {
+      "number": 7,
+      "page": 53,
+      "text": "   02 SRT-TOTAL      PIC 9(3)."
+    },
+    {
+      "number": 8,
+      "page": 53,
+      "text": "FD RSL-FILE."
+    },
+    {
+      "number": 9,
+      "page": 53,
+      "text": "01 RSL-REC."
+    },
+    {
+      "number": 10,
+      "page": 53,
+      "text": "   02 RSL-NO         PIC 9(6)."
+    },
+    {
+      "number": 11,
+      "page": 53,
+      "text": "   02 RSL-BLD        PIC 9(2)."
+    },
+    {
+      "number": 12,
+      "page": 53,
+      "text": "   02 RSL-SCR        PIC 9(3) OCCURS 5."
+    },
+    {
+      "number": 13,
+      "page": 53,
+      "text": "FD PRT-FILE."
+    },
+    {
+      "number": 14,
+      "page": 53,
+      "text": "01 PRT-REC."
+    },
+    {
+      "number": 15,
+      "page": 53,
+      "text": "   02 PRT-ALL-RANK   PIC ZZ9."
+    },
+    {
+      "number": 16,
+      "page": 53,
+      "text": "   02 PRT-SP1        PIC X(7)."
+    },
+    {
+      "number": 17,
+      "page": 53,
+      "text": "   02 PRT-NO         PIC 9(6)."
+    },
+    {
+      "number": 18,
+      "page": 54,
+      "text": "   02 PRT-SP2        PIC X(4)."
+    },
+    {
+      "number": 19,
+      "page": 54,
+      "text": "   02 PRT-BLD        PIC 9(2)."
+    },
+    {
+      "number": 20,
+      "page": 54,
+      "text": "   02 PRT-SP3        PIC X(8)."
+    },
+    {
+      "number": 21,
+      "page": 54,
+      "text": "   02 PRT-BLD-RANK   PIC ZZ9."
+    },
+    {
+      "number": 22,
+      "page": 54,
+      "text": "   02 PRT-SP4        PIC X(9)."
+    },
+    {
+      "number": 23,
+      "page": 54,
+      "text": "   02 PRT-TOTAL      PIC ZZ9."
+    },
+    {
+      "number": 24,
+      "page": 54,
+      "text": "WORKING-STORAGE SECTION."
+    },
+    {
+      "number": 25,
+      "page": 54,
+      "text": "77 SRT-FLAG          PIC X(1) VALUE SPACE."
+    },
+    {
+      "number": 26,
+      "page": 54,
+      "text": "   88 SRT-EOF        VALUE \"Y\"."
+    },
+    {
+      "number": 27,
+      "page": 54,
+      "text": "77 RSL-FLAG          PIC X(1) VALUE SPACE."
+    },
+    {
+      "number": 28,
+      "page": 54,
+      "text": "   88 RSL-EOF        VALUE \"Y\"."
+    },
+    {
+      "number": 29,
+      "page": 54,
+      "text": "77 ALL-ORD-NO        PIC 9(3) VALUE ZERO."
+    },
+    {
+      "number": 30,
+      "page": 54,
+      "text": "77 ALL-RANK          PIC 9(3) VALUE ZERO."
+    },
+    {
+      "number": 31,
+      "page": 54,
+      "text": "77 ALL-CR-TOTAL      PIC 9(3) VALUE 999."
+    },
+    {
+      "number": 32,
+      "page": 54,
+      "text": "01 BLD-INF."
+    },
+    {
+      "number": 33,
+      "page": 54,
+      "text": "   02 BLD-ORD-NO     PIC 9(3) OCCURS 5 VALUE ZERO."
+    },
+    {
+      "number": 34,
+      "page": 54,
+      "text": "   02 BLD-RANK       PIC 9(3) OCCURS 5 VALUE ZERO."
+    },
+    {
+      "number": 35,
+      "page": 54,
+      "text": "   02 BLD-CR-TOTAL   PIC 9(3) OCCURS 5 VALUE 999."
+    },
+    {
+      "number": 36,
+      "page": 54,
+      "text": "PROCEDURE DIVISION."
+    },
+    {
+      "number": 37,
+      "page": 54,
+      "text": "MAIN-PROC."
+    },
+    {
+      "number": 38,
+      "page": 54,
+      "text": "    OPEN INPUT  RSL-FILE"
+    },
+    {
+      "number": 39,
+      "page": 54,
+      "text": "         OUTPUT PRT-FILE."
+    },
+    {
+      "number": 40,
+      "page": 54,
+      "text": "    SORT SRT-FILE [a]"
+    },
+    {
+      "number": 41,
+      "page": 54,
+      "text": "         INPUT  PROCEDURE IS REL-PROC"
+    },
+    {
+      "number": 42,
+      "page": 54,
+      "text": "         OUTPUT PROCEDURE IS RET-PROC."
+    },
+    {
+      "number": 43,
+      "page": 54,
+      "text": "    CLOSE RSL-FILE PRT-FILE."
+    },
+    {
+      "number": 44,
+      "page": 54,
+      "text": "    STOP RUN."
+    },
+    {
+      "number": 45,
+      "page": 54,
+      "text": "REL-PROC."
+    },
+    {
+      "number": 46,
+      "page": 54,
+      "text": "    PERFORM UNTIL RSL-EOF"
+    },
+    {
+      "number": 47,
+      "page": 54,
+      "text": "        READ RSL-FILE AT END     SET RSL-EOF TO TRUE"
+    },
+    {
+      "number": 48,
+      "page": 54,
+      "text": "                     NOT AT END PERFORM CALC-PROC"
+    },
+    {
+      "number": 49,
+      "page": 54,
+      "text": "        END-READ"
+    },
+    {
+      "number": 50,
+      "page": 54,
+      "text": "    END-PERFORM."
+    },
+    {
+      "number": 51,
+      "page": 54,
+      "text": "CALC-PROC."
+    },
+    {
+      "number": 52,
+      "page": 54,
+      "text": "    MOVE RSL-NO  TO SRT-NO."
+    },
+    {
+      "number": 53,
+      "page": 54,
+      "text": "    MOVE RSL-BLD TO SRT-BLD."
+    },
+    {
+      "number": 54,
+      "page": 54,
+      "text": "    COMPUTE SRT-TOTAL = RSL-SCR(1) + RSL-SCR(2) +"
+    },
+    {
+      "number": 55,
+      "page": 54,
+      "text": "        RSL-SCR(3) + RSL-SCR(4) + RSL-SCR(5)."
+    },
+    {
+      "number": 56,
+      "page": 54,
+      "text": "    RELEASE SRT-REC."
+    },
+    {
+      "number": 57,
+      "page": 54,
+      "text": "RET-PROC."
+    },
+    {
+      "number": 58,
+      "page": 54,
+      "text": "    PERFORM UNTIL SRT-EOF"
+    },
+    {
+      "number": 59,
+      "page": 54,
+      "text": "        RETURN SRT-FILE AT END     SET SRT-EOF TO TRUE"
+    },
+    {
+      "number": 60,
+      "page": 54,
+      "text": "                       NOT AT END PERFORM PRT-PROC"
+    },
+    {
+      "number": 61,
+      "page": 55,
+      "text": "        END-RETURN"
+    },
+    {
+      "number": 62,
+      "page": 55,
+      "text": "    END-PERFORM."
+    },
+    {
+      "number": 63,
+      "page": 55,
+      "text": "PRT-PROC."
+    },
+    {
+      "number": 64,
+      "page": 55,
+      "text": "    [b]"
+    },
+    {
+      "number": 65,
+      "page": 55,
+      "text": "    IF SRT-TOTAL < ALL-CR-TOTAL THEN"
+    },
+    {
+      "number": 66,
+      "page": 55,
+      "text": "        MOVE SRT-TOTAL TO ALL-CR-TOTAL"
+    },
+    {
+      "number": 67,
+      "page": 55,
+      "text": "        [c]"
+    },
+    {
+      "number": 68,
+      "page": 55,
+      "text": "    END-IF."
+    },
+    {
+      "number": 69,
+      "page": 55,
+      "text": "    IF SRT-TOTAL < BLD-CR-TOTAL(SRT-BLD) THEN"
+    },
+    {
+      "number": 70,
+      "page": 55,
+      "text": "        MOVE SRT-TOTAL TO BLD-CR-TOTAL(SRT-BLD)"
+    },
+    {
+      "number": 71,
+      "page": 55,
+      "text": "        [d]"
+    },
+    {
+      "number": 72,
+      "page": 55,
+      "text": "    END-IF."
+    },
+    {
+      "number": 73,
+      "page": 55,
+      "text": "    INITIALIZE PRT-REC."
+    },
+    {
+      "number": 74,
+      "page": 55,
+      "text": "    MOVE ALL-RANK          TO PRT-ALL-RANK."
+    },
+    {
+      "number": 75,
+      "page": 55,
+      "text": "    MOVE SRT-NO            TO PRT-NO."
+    },
+    {
+      "number": 76,
+      "page": 55,
+      "text": "    MOVE SRT-BLD           TO PRT-BLD."
+    },
+    {
+      "number": 77,
+      "page": 55,
+      "text": "    MOVE BLD-RANK(SRT-BLD)  TO PRT-BLD-RANK."
+    },
+    {
+      "number": 78,
+      "page": 55,
+      "text": "    MOVE SRT-TOTAL         TO PRT-TOTAL."
+    },
+    {
+      "number": 79,
+      "page": 55,
+      "text": "    WRITE PRT-REC."
+    }
+  ],
+  "figures": [
+    {
+      "id": "figure1",
+      "page": 52,
+      "caption": "図1 結果ファイルのレコード様式",
+      "kind": "record-layout",
+      "leadingFields": [
+        {
+          "label": "塾生番号",
+          "digits": 6
+        },
+        {
+          "label": "校舎番号",
+          "digits": 2
+        }
+      ],
+      "groupHeader": "テスト結果",
+      "subjectFields": [
+        "国語",
+        "数学",
+        "英語",
+        "理科",
+        "社会"
+      ],
+      "subjectDigits": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "logicalRecordDigits": 23,
+      "notes": "7 primitive fields; the group header spans five subjects; no arrows/keys/extra fields."
+    },
+    {
+      "id": "figure2",
+      "page": 53,
+      "caption": "図2 順位リストの印字様式",
+      "kind": "monospace-print",
+      "headers": [
+        "全体順位",
+        "塾生番号",
+        "校舎番号",
+        "校舎内順位",
+        "合計点"
+      ],
+      "rows": [
+        [
+          "ZZ9",
+          "999999",
+          "99",
+          "ZZ9",
+          "ZZ9"
+        ],
+        [
+          "ZZ9",
+          "999999",
+          "99",
+          "ZZ9",
+          "ZZ9"
+        ]
+      ],
+      "ellipsis": true,
+      "notes": "Header already printed; preserve five ordered columns and two picture-pattern rows."
+    },
+    {
+      "id": "figure3",
+      "page": 53,
+      "caption": "図3 順位リストの印字例",
+      "kind": "monospace-print",
+      "headers": [
+        "全体順位",
+        "塾生番号",
+        "校舎番号",
+        "校舎内順位",
+        "合計点"
+      ],
+      "rows": [
+        [
+          1,
+          "182025",
+          "02",
+          1,
+          492
+        ],
+        [
+          2,
+          "181007",
+          "01",
+          1,
+          488
+        ],
+        [
+          2,
+          "182038",
+          "02",
+          2,
+          488
+        ],
+        [
+          4,
+          "185011",
+          "05",
+          1,
+          487
+        ]
+      ],
+      "ellipsis": true,
+      "notes": "Only the illustrated top four, not a full input file; the file requires each of five schools nonempty. Equal-total ordering is not given a secondary sort key."
+    },
+    {
+      "id": "figure4",
+      "page": 56,
+      "caption": "図4 表示様式",
+      "kind": "monospace-display",
+      "lines": [
+        "AVG:  ZZ9.9",
+        "BLD-AVG:  ZZ9.9  ZZ9.9  ZZ9.9  ZZ9.9  ZZ9.9"
+      ],
+      "notes": "One overall average followed by five school averages in school01..05 order; no solution values prefilled."
+    }
+  ],
+  "table": {
+    "page": 56,
+    "caption": "表1 プログラムの変更内容",
+    "columns": [
+      "処置",
+      "変更内容"
+    ],
+    "rows": [
+      {
+        "left": "行番号31と32の間に追加",
+        "right": [
+          "77 ALL-TOTAL      PIC 9(8) VALUE ZERO.",
+          "77 ALL-AVG        PIC 9(3)V9(1).",
+          "77 DSP-AVG        PIC ZZ9.9.",
+          "77 CNT            PIC 9(2)."
+        ]
+      },
+      {
+        "left": "行番号35と36の間に追加",
+        "right": [
+          "02 BLD-TOTAL      PIC 9(6) OCCURS 5 VALUE ZERO.",
+          "02 BLD-AVG        PIC 9(3)V9(1) OCCURS 5."
+        ]
+      },
+      {
+        "left": "行番号43と44の間に追加",
+        "right": [
+          "COMPUTE ALL-AVG = ALL-TOTAL / ALL-ORD-NO.",
+          "MOVE ALL-AVG TO DSP-AVG.",
+          "DISPLAY \"AVG: \" DSP-AVG.",
+          "DISPLAY \"BLD-AVG: \" WITH NO ADVANCING.",
+          "PERFORM VARYING CNT FROM 1 BY 1 UNTIL CNT > 5",
+          "    COMPUTE BLD-AVG(CNT) =",
+          "        [f]",
+          "    MOVE BLD-AVG(CNT) TO DSP-AVG",
+          "    DISPLAY DSP-AVG \" \" WITH NO ADVANCING",
+          "END-PERFORM."
+        ]
+      },
+      {
+        "left": "[e]に追加",
+        "right": [
+          "ADD SRT-TOTAL TO ALL-TOTAL BLD-TOTAL(SRT-BLD)."
+        ]
+      }
+    ]
+  },
+  "groups": {
+    "a": [
+      "ASCENDING KEY SRT-NO",
+      "ASCENDING KEY SRT-TOTAL",
+      "DESCENDING KEY SRT-NO",
+      "DESCENDING KEY SRT-TOTAL"
+    ],
+    "b": [
+      "ADD 1 TO ALL-ORD-NO BLD-ORD-NO(SRT-BLD)",
+      "ADD 1 TO ALL-RANK BLD-RANK(SRT-BLD)",
+      "INITIALIZE BLD-INF",
+      "MOVE ALL-ORD-NO TO BLD-ORD-NO(SRT-BLD)"
+    ],
+    "cd": [
+      "MOVE ALL-CR-TOTAL TO ALL-RANK",
+      "MOVE ALL-ORD-NO TO ALL-RANK",
+      "MOVE ALL-ORD-NO TO BLD-RANK(SRT-BLD)",
+      "MOVE BLD-CR-TOTAL(SRT-BLD) TO BLD-RANK(SRT-BLD)",
+      "MOVE BLD-ORD-NO(SRT-BLD) TO ALL-RANK",
+      "MOVE BLD-ORD-NO(SRT-BLD) TO BLD-RANK(SRT-BLD)"
+    ],
+    "e": [
+      "行番号50と51の間",
+      "行番号51と52の間",
+      "行番号62と63の間",
+      "行番号79の後ろ"
+    ],
+    "f": [
+      "BLD-TOTAL(CNT) / BLD-ORD-NO(CNT)",
+      "BLD-TOTAL(CNT) / BLD-ORD-NO(SRT-BLD)",
+      "BLD-TOTAL(CNT) / BLD-RANK(CNT)",
+      "BLD-TOTAL(CNT) / BLD-RANK(SRT-BLD)"
+    ]
+  },
+  "parts": [
+    {
+      "part": "a",
+      "subquestion": 1,
+      "group": "a",
+      "count": 4,
+      "official": "エ"
+    },
+    {
+      "part": "b",
+      "subquestion": 1,
+      "group": "b",
+      "count": 4,
+      "official": "ア"
+    },
+    {
+      "part": "c",
+      "subquestion": 1,
+      "group": "cd",
+      "count": 6,
+      "official": "イ"
+    },
+    {
+      "part": "d",
+      "subquestion": 1,
+      "group": "cd",
+      "count": 6,
+      "official": "カ"
+    },
+    {
+      "part": "e",
+      "subquestion": 2,
+      "group": "e",
+      "count": 4,
+      "official": "エ"
+    },
+    {
+      "part": "f",
+      "subquestion": 2,
+      "group": "f",
+      "count": 4,
+      "official": "ア"
+    }
+  ],
+  "profiles": [
+    "legacy-2019-ranking-record-layout",
+    "legacy-2019-ranking-print-layout",
+    "legacy-2019-ranking-print-example",
+    "legacy-2019-ranking-average-display",
+    "legacy-2019-ranking-change-table"
+  ],
+  "meanPrimary": {
+    "url": "https://gnucobol.sourceforge.io/HTML/gnucobpg.html",
+    "sha256": "1f06eb2a5b4e07b904747dd64f411c248fc9f2cab94255173f9cde7c3c530c8a",
+    "section": "7.6.7 ROUNDED rule2",
+    "checkedOn": "2026-10-23"
+  },
+  "inputPolicies": [
+    {
+      "value": 0,
+      "direction": "descending",
+      "comparison": "<",
+      "picture": "9(3)",
+      "sentinel": 999,
+      "quantity": "得点",
+      "total": "合計点",
+      "mean": "平均点",
+      "example": [
+        492,
+        488,
+        488,
+        487
+      ]
+    },
+    {
+      "value": 1,
+      "direction": "ascending",
+      "comparison": ">",
+      "picture": "S9(3)",
+      "sentinel": -1,
+      "quantity": "失点",
+      "total": "合計失点",
+      "mean": "平均失点",
+      "example": [
+        8,
+        12,
+        12,
+        13
+      ]
+    }
+  ],
+  "scope": "Hand-reviewed original and derived policy facts fixed before implementation. Not generated from producer outputs."
+}

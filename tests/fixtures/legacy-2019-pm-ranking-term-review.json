@@ -1,0 +1,399 @@
+{
+  "source": "2019h31h-fe-pm-10",
+  "terms": [
+    {
+      "term": "COBOL",
+      "meaning": "事務処理などを記述するプログラミング言語。本問では順ファイルのレコードを集計・整列し，帳票と平均を出力する。",
+      "expansion": "Common Business-Oriented Language",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "PICTURE",
+      "meaning": "COBOLでデータ項目の桁や形式を指定する句。PICはこの句の記述であり，9は数字桁，Vは仮想小数点，Sは符号，Zは先頭ゼロを空白にする編集記号として使われる。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "SORT",
+      "meaning": "指定したキーと昇順・降順に従ってレコードを整列する文。INPUT PROCEDUREから受け取り，OUTPUT PROCEDUREに順次渡す。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "ASCENDING KEY",
+      "meaning": "指定したキーを小さい値から大きい値へ並べる指定。失点の少ない順の条件で合計失点をキーにする。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "DESCENDING KEY",
+      "meaning": "指定したキーを大きい値から小さい値へ並べる指定。原問では合計点をキーにする。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "ADD",
+      "meaning": "数値を加算するCOBOLの文。ADD 1 TOに複数の項目を続けた場合，各受取り項目へそれぞれ1を加える。受取り項目を合算して同じ総和にする指定ではない。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "MOVE",
+      "meaning": "送り側の値を受取り側へ転送するCOBOLの文。本問の順位更新では，処理件数を順位項目へ転送する。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "INITIALIZE",
+      "meaning": "対象データ項目をカテゴリに応じて初期化する文。本問の追加句なしの指定では数値をゼロなどにし，宣言時VALUE値を自動的に再設定すると解釈しない。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "INPUT PROCEDURE",
+      "meaning": "SORTに渡すレコードを用意する手続。本問ではREADした5教科の値を合計し，RELEASEで渡す。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "OUTPUT PROCEDURE",
+      "meaning": "SORTの結果をRETURNで受け取って処理する手続。本問では成功したRETURNごとにPRT-PROCを呼ぶ。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "RELEASE",
+      "meaning": "SORTの入力として1レコードを渡す文。渡した後のソートレコード領域を，引き続き有効な現在レコードとして使用できると仮定しない。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "RETURN",
+      "meaning": "SORT又はMERGEの結果から次のレコードを受け取る文。本問ではNOT AT ENDのときだけ現在レコードを出力処理する。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "OCCURS",
+      "meaning": "同じ構成のデータ項目を繰り返し定義する句。本問の教科別・校舎別の項目は5要素で，添字1〜5を用いる。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "全体順位",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "全体順位",
+      "meaning": "塾全体で自分より厳密に良い合計値の人数に1を足した競争順位。同点は同順位で，次の順位は同点人数の分だけ飛ぶ。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "校舎内順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "校舎内順位",
+      "meaning": "自分が所属する校舎内で自分より厳密に良い合計値の人数に1を足した順位。他校舎の塾生を数えない。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "小数桁の切捨て"
+      ]
+    },
+    {
+      "term": "小数桁の切捨て",
+      "meaning": "本問の平均項目は小数1桁を格納する固定小数点で，ROUNDEDを指定していない。小数第2位以降を切り捨てて小数1桁とする。",
+      "sources": [
+        "2019h31h-fe-pm-10"
+      ],
+      "related": [
+        "COBOL",
+        "PICTURE",
+        "SORT",
+        "ASCENDING KEY",
+        "DESCENDING KEY",
+        "ADD",
+        "MOVE",
+        "INITIALIZE",
+        "INPUT PROCEDURE",
+        "OUTPUT PROCEDURE",
+        "RELEASE",
+        "RETURN",
+        "OCCURS",
+        "全体順位",
+        "校舎内順位"
+      ]
+    }
+  ],
+  "meanGround": {
+    "url": "https://gnucobol.sourceforge.io/HTML/gnucobpg.html",
+    "sha256": "1f06eb2a5b4e07b904747dd64f411c248fc9f2cab94255173f9cde7c3c530c8a",
+    "section": "7.6.7 ROUNDED rule2",
+    "checkedOn": "2026-10-23"
+  },
+  "checkedOn": "2026-10-23",
+  "inherited": [],
+  "oldPrefixCount": 477
+}

@@ -1,0 +1,1403 @@
+{
+  "status": "primary_visually_verified_all8page_text_units_not_render_or_admission",
+  "question": 8,
+  "primary": [
+    {
+      "document": "qs",
+      "physicalPage": 39,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-039.png",
+      "bytes": 545948,
+      "sha256": "2da59e8dd85f2316b302fe75d363b6448891c6ebbecd26e68878a705b14fc3d4"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 40,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-040.png",
+      "bytes": 584652,
+      "sha256": "e0b00c2bdab5e113af69d9127b235538ac1f9362cc27218b87a89377e4f7b38c"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 41,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-041.png",
+      "bytes": 597839,
+      "sha256": "080af5c94a785820a4018cbac8a5141e187ed228c452b2b047a23778a11e8f9a"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 42,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-042.png",
+      "bytes": 704863,
+      "sha256": "428f272fd5f0de951d4d595e81b8f38c1e82daa9e9f55287daf74536b205d5b1"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 43,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-043.png",
+      "bytes": 887696,
+      "sha256": "8c3a5d122598d0165b0ee212754ffef5d44b2a9612dba0dcc097be5d4540617d"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 44,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-044.png",
+      "bytes": 624755,
+      "sha256": "0fbeb1094a8db98ba9ac8a465dec1641506a05129ed1e9a1cc7a98a44f7d569d"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 45,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-045.png",
+      "bytes": 602646,
+      "sha256": "9b637800820f8053a91093b0cc63929348d11be3d88429a6a41307769a2f394a"
+    },
+    {
+      "document": "qs",
+      "physicalPage": 46,
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-046.png",
+      "bytes": 239557,
+      "sha256": "e8e20ada60802eb203906c755335488e0814399291833cb48b2b29f766e05795"
+    }
+  ],
+  "sourceUnits": [
+    {
+      "id": "q8-notice",
+      "pages": [
+        39
+      ],
+      "kind": "notice",
+      "visuallyVerified": true,
+      "literal": "次の問8は必須問題です。必ず解答してください。"
+    },
+    {
+      "id": "q8-title",
+      "pages": [
+        39
+      ],
+      "kind": "question-heading",
+      "visuallyVerified": true,
+      "literal": "問8 ハフマン符号化を用いた文字列圧縮に関する次の記述を読んで，設問1〜3に答えよ。"
+    },
+    {
+      "id": "q8-intro",
+      "pages": [
+        39
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "“A”〜“D”の4種類の文字から成る文字列をハフマン符号化によって圧縮する。ハフマン符号化では，出現回数の多い文字には短いビット列を，出現回数の少ない文字には長いビット列を割り当てる。ハフマン符号化による文字列の圧縮手順は，次の(1)〜(4)のとおりである。"
+    },
+    {
+      "id": "q8-step1",
+      "pages": [
+        39
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(1) 文字列中の文字の出現回数を求め，出現回数表を作成する。例えば，文字列“AAAABBCDCDDACCAAAAA”（以下，文字列αという）中の文字の出現回数表は，表1のとおりになる。"
+    },
+    {
+      "id": "q8-table1-caption",
+      "pages": [
+        39
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表1 文字列α中の文字の出現回数表",
+      "placement": "before table"
+    },
+    {
+      "id": "q8-table1",
+      "pages": [
+        39
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "文字",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rows": [
+        [
+          "出現回数",
+          "10",
+          "2",
+          "4",
+          "3"
+        ]
+      ]
+    },
+    {
+      "id": "q8-step2",
+      "pages": [
+        39
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(2) 文字の出現回数表に基づいてハフマン木を作成する。"
+    },
+    {
+      "id": "q8-tree-definition-intro",
+      "pages": [
+        39
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "ハフマン木の定義は，次のとおりである。"
+    },
+    {
+      "id": "q8-tree-definition-1",
+      "pages": [
+        39
+      ],
+      "kind": "bullet",
+      "visuallyVerified": true,
+      "literal": "・節と枝で構成する二分木である。"
+    },
+    {
+      "id": "q8-tree-definition-2",
+      "pages": [
+        39
+      ],
+      "kind": "bullet",
+      "visuallyVerified": true,
+      "literal": "・親である節は，子である節を常に二つもち，子の節の値の和を値としてもつ。"
+    },
+    {
+      "id": "q8-tree-definition-3",
+      "pages": [
+        39
+      ],
+      "kind": "bullet",
+      "visuallyVerified": true,
+      "literal": "・子をもたない節（以下，葉という）は文字に対応し，出現回数を値としてもつ。"
+    },
+    {
+      "id": "q8-tree-definition-4",
+      "pages": [
+        39
+      ],
+      "kind": "bullet",
+      "visuallyVerified": true,
+      "literal": "・親をもたない節（以下，根という）は，文字列の文字数を値としてもつ。"
+    },
+    {
+      "id": "q8-figure1-intro",
+      "pages": [
+        39
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "文字列αに対応するハフマン木の例を，図1に示す。"
+    },
+    {
+      "id": "q8-figure1",
+      "pages": [
+        40
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "tree": {
+        "root": 19,
+        "left": {
+          "value": 9,
+          "left": {
+            "letter": "C",
+            "value": 4
+          },
+          "right": {
+            "value": 5,
+            "left": {
+              "letter": "B",
+              "value": 2
+            },
+            "right": {
+              "letter": "D",
+              "value": 3
+            }
+          }
+        },
+        "right": {
+          "letter": "A",
+          "value": 10
+        }
+      },
+      "geometryVerified": false
+    },
+    {
+      "id": "q8-figure1-note",
+      "pages": [
+        40
+      ],
+      "kind": "note",
+      "visuallyVerified": true,
+      "literal": "注記 丸の中の数値は各節がもつ値を表す。“A”〜“D”は葉に対応する文字を表す。"
+    },
+    {
+      "id": "q8-figure1-caption",
+      "pages": [
+        40
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図1 文字列αに対応するハフマン木の例",
+      "placement": "drawing → note → caption"
+    },
+    {
+      "id": "q8-array-intro",
+      "pages": [
+        40
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "ハフマン木は，次の手順で配列によって実現する。"
+    },
+    {
+      "id": "q8-array-step-1",
+      "pages": [
+        40
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "① 節の値を格納する1次元配列を用意する。"
+    },
+    {
+      "id": "q8-array-step-2",
+      "pages": [
+        40
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "② 文字の出現回数表に基づいて，各文字に対応する葉の値を，配列の先頭の要素から順に格納する。"
+    },
+    {
+      "id": "q8-array-step-3",
+      "pages": [
+        40
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "③ 親が作成されていない節を二つ選択し，選択した順に左側の子，右側の子とする親の節を一つ作成する。この節の値を，配列中で値が格納されている最後の要素の次の要素に格納する。節の選択は節の値の小さい順に行い，同じ値をもつ節が二つ以上ある場合は，配列の先頭に近い要素に値が格納されている節を選択する。"
+    },
+    {
+      "id": "q8-array-step-4",
+      "pages": [
+        40
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "④ 親が作成されていない節が一つになるまで③を繰り返す。"
+    },
+    {
+      "id": "q8-step3",
+      "pages": [
+        40
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(3) ハフマン木から文字のビット列（以下，ビット表現という）を次の手順で作成する。"
+    },
+    {
+      "id": "q8-bits-step1",
+      "pages": [
+        40
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "① 親と左側の子をつなぐ枝に0，右側の子をつなぐ枝に1の値をもつビットを割り当てる。"
+    },
+    {
+      "id": "q8-bits-step2",
+      "pages": [
+        40
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "② 文字ごとに根から対応する葉までたどったとき，枝のビット値を順に左から並べたものを各文字のビット表現とする。"
+    },
+    {
+      "id": "q8-figure2-intro",
+      "pages": [
+        40
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "図2に示すとおり，根から矢印のようにたどると，文字列αの文字“B”のビット表現は010となる。"
+    },
+    {
+      "id": "q8-figure2",
+      "pages": [
+        41
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "treeReference": "q8-figure1",
+      "nodeValuesVisible": false,
+      "leftBranchBits": 0,
+      "rightBranchBits": 1,
+      "traceToB": "010",
+      "geometryVerified": false
+    },
+    {
+      "id": "q8-figure2-note",
+      "pages": [
+        41
+      ],
+      "kind": "note",
+      "visuallyVerified": true,
+      "literal": "注記 線分は枝を表し，枝の上の数値は各枝のビット値を表す。"
+    },
+    {
+      "id": "q8-figure2-caption",
+      "pages": [
+        41
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図2 文字列αにおける文字“B”のビット表現の作成例",
+      "placement": "drawing → note → caption"
+    },
+    {
+      "id": "q8-step4",
+      "pages": [
+        41
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(4) 文字列の全ての文字を(3)で得られたビット表現に置き換えて，ビット列を作成する。"
+    },
+    {
+      "id": "q8-question1",
+      "pages": [
+        41
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問1 次の記述中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q8-question1-description",
+      "pages": [
+        41
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "文字列“ABBBBBBBCCCDD”を，ハフマン符号化を用いて表現する。各文字とビット表現を示した表は［a］である。ハフマン符号化によって圧縮すると，文字“A”〜“D”をそれぞれ2ビットの固定長で表現したときの当該文字列の総ビット長に対する圧縮率は［b］となる。ここで，圧縮率は次式で計算した値の小数第3位を四捨五入して求める。"
+    },
+    {
+      "id": "q8-ratio",
+      "pages": [
+        41
+      ],
+      "kind": "formula",
+      "visuallyVerified": true,
+      "left": "圧縮率",
+      "numerator": "ハフマン符号化によって圧縮したときの総ビット長",
+      "denominator": "2ビットの固定長で表現したときの総ビット長",
+      "sourceForm": "fraction with horizontal division bar; no invented visible formula caption"
+    },
+    {
+      "id": "q8-bank-a",
+      "pages": [
+        41
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "aに関する解答群",
+      "parts": [
+        "a"
+      ],
+      "columns": [
+        "文字",
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "rowLabel": "ビット表現",
+      "choices": [
+        [
+          "010",
+          "1",
+          "00",
+          "011"
+        ],
+        [
+          "010",
+          "0",
+          "01",
+          "111"
+        ],
+        [
+          "100",
+          "0",
+          "101",
+          "11"
+        ],
+        [
+          "100",
+          "1",
+          "00",
+          "01"
+        ]
+      ],
+      "sourceArrangement": "2×2 small tables, ア/イ upper, ウ/エ lower"
+    },
+    {
+      "id": "q8-bank-b",
+      "pages": [
+        41
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "bに関する解答群",
+      "parts": [
+        "b"
+      ],
+      "choices": [
+        "0.77",
+        "0.85",
+        "0.88",
+        "0.92"
+      ],
+      "sourceArrangement": "one horizontal row"
+    },
+    {
+      "id": "q8-question2",
+      "pages": [
+        42
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問2 ハフマン木を作成するプログラム1の説明及びプログラム1を読んで，プログラム1中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q8-program1-description-heading",
+      "pages": [
+        42
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔プログラム1の説明〕"
+    },
+    {
+      "id": "q8-program1-description-1",
+      "pages": [
+        42
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(1) 四つの1次元配列parent，left，right及びfreqの同じ要素番号に対応する要素の組（以下，要素組という）によって，一つの節を表す。要素番号は0から始まる。四つの配列の大きさはいずれも十分に大きく，全ての要素は−1で初期化されている。"
+    },
+    {
+      "id": "q8-program1-description-2",
+      "pages": [
+        42
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(2) 図3に，図1に示したハフマン木を表現した場合の各配列の要素がもつ値を示す。配列parentには親を，配列leftには左側の子を，配列rightには右側の子を表す要素組の要素番号がそれぞれ格納され，配列freqには節の値が格納される。節が葉のとき，配列leftと配列rightの要素の値は，いずれも−1である。図3では，要素番号0〜3の要素組が，順に文字“A”〜“D”の葉に対応している。節が根のとき，配列parentの要素の値は−1である。"
+    },
+    {
+      "id": "q8-figure3",
+      "pages": [
+        42
+      ],
+      "kind": "figure",
+      "visuallyVerified": true,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "arrays": {
+        "parent": [
+          6,
+          4,
+          5,
+          4,
+          5,
+          6,
+          -1
+        ],
+        "left": [
+          -1,
+          -1,
+          -1,
+          -1,
+          1,
+          2,
+          5
+        ],
+        "right": [
+          -1,
+          -1,
+          -1,
+          -1,
+          3,
+          4,
+          0
+        ],
+        "freq": [
+          10,
+          2,
+          4,
+          3,
+          5,
+          9,
+          19
+        ]
+      },
+      "arrowSemantics": "child element group → parent element group",
+      "geometryVerified": false
+    },
+    {
+      "id": "q8-figure3-note",
+      "pages": [
+        42
+      ],
+      "kind": "note",
+      "visuallyVerified": true,
+      "literal": "注記 矢印{{sourceArrow}}は，始点，終点の二つの要素組に対応する節が子と親の関係にあることを示す。",
+      "inlineMarks": [
+        {
+          "marker": "{{sourceArrow}}",
+          "sourceStyle": "filled starting dot to arrowhead line",
+          "visibleText": null
+        }
+      ]
+    },
+    {
+      "id": "q8-figure3-caption",
+      "pages": [
+        42
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図3 図1に示したハフマン木を表現する四つの配列",
+      "placement": "drawing → note → caption"
+    },
+    {
+      "id": "q8-program1-description-3",
+      "pages": [
+        42
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(3) 副プログラムHuffmanは，次の①〜⑤を受け取り，ハフマン木を表現する配列を作成する。"
+    },
+    {
+      "id": "q8-huffman-input-1",
+      "pages": [
+        42
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "① 葉である節の個数size"
+    },
+    {
+      "id": "q8-huffman-input-2",
+      "pages": [
+        42
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "② 初期化された配列parent"
+    },
+    {
+      "id": "q8-huffman-input-3",
+      "pages": [
+        43
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "③ 初期化された配列left"
+    },
+    {
+      "id": "q8-huffman-input-4",
+      "pages": [
+        43
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "④ 初期化された配列right"
+    },
+    {
+      "id": "q8-huffman-input-5",
+      "pages": [
+        43
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "⑤ 初期化された後，文字の出現回数が要素番号0から順に格納された配列freq"
+    },
+    {
+      "id": "q8-program1-description-4",
+      "pages": [
+        43
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(4) 副プログラムSortNodeは，親が作成されていない節を抽出し，節の値の昇順に整列し，節を表す要素組の要素番号を順に配列nodeに格納し，その個数を変数nsizeに格納する。行番号19〜24で親が作成されていない節を表す要素組の要素番号を抽出し，行番号25で節の値の昇順に整列する。"
+    },
+    {
+      "id": "q8-program1-description-5",
+      "pages": [
+        43
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(5) 副プログラムSort（プログラムは省略）は，節を表す要素組の要素番号の配列nodeを受け取り，要素番号に対応する要素組が表す節の値が昇順となるように整列する。節の値が同じときの順序は並べ替える直前の順序に従う。"
+    },
+    {
+      "id": "q8-program1-description-6",
+      "pages": [
+        43
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(6) 副プログラムHuffman，SortNode及びSortの引数の仕様を，表2〜4に示す。"
+    },
+    {
+      "id": "q8-table2-caption",
+      "pages": [
+        43
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表2 副プログラムHuffmanの引数の仕様",
+      "placement": "before table"
+    },
+    {
+      "id": "q8-table2",
+      "pages": [
+        43
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "引数",
+        "データ型",
+        "入出力",
+        "説明"
+      ],
+      "rows": [
+        [
+          "size",
+          "整数型",
+          "入力／出力",
+          "節の個数"
+        ],
+        [
+          "parent[]",
+          "整数型",
+          "入力／出力",
+          "節の親を表す要素組の要素番号を格納した配列"
+        ],
+        [
+          "left[]",
+          "整数型",
+          "入力／出力",
+          "節の左側の子を表す要素組の要素番号を格納した配列"
+        ],
+        [
+          "right[]",
+          "整数型",
+          "入力／出力",
+          "節の右側の子を表す要素組の要素番号を格納した配列"
+        ],
+        [
+          "freq[]",
+          "整数型",
+          "入力／出力",
+          "節の値を格納した配列"
+        ]
+      ]
+    },
+    {
+      "id": "q8-table3-caption",
+      "pages": [
+        43
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表3 副プログラムSortNodeの引数の仕様",
+      "placement": "before table"
+    },
+    {
+      "id": "q8-table3",
+      "pages": [
+        43
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "引数",
+        "データ型",
+        "入出力",
+        "説明"
+      ],
+      "rows": [
+        [
+          "size",
+          "整数型",
+          "入力",
+          "節の個数"
+        ],
+        [
+          "parent[]",
+          "整数型",
+          "入力",
+          "節の親を表す要素組の要素番号を格納した配列"
+        ],
+        [
+          "freq[]",
+          "整数型",
+          "入力",
+          "節の値を格納した配列"
+        ],
+        [
+          "nsize",
+          "整数型",
+          "出力",
+          "配列node中の，整列対象とした節の個数"
+        ],
+        [
+          "node[]",
+          "整数型",
+          "出力",
+          "節の値の昇順に整列した，親が作成されていない節を表す要素組の要素番号を格納した配列"
+        ]
+      ]
+    },
+    {
+      "id": "q8-table4-caption",
+      "pages": [
+        44
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表4 副プログラムSortの引数の仕様",
+      "placement": "before table"
+    },
+    {
+      "id": "q8-table4",
+      "pages": [
+        44
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "引数",
+        "データ型",
+        "入出力",
+        "説明"
+      ],
+      "rows": [
+        [
+          "freq[]",
+          "整数型",
+          "入力",
+          "節の値を格納した配列"
+        ],
+        [
+          "nsize",
+          "整数型",
+          "入力",
+          "配列node中の，整列対象の節の個数"
+        ],
+        [
+          "node[]",
+          "整数型",
+          "入力／出力",
+          "節を表す要素組の要素番号を格納した配列"
+        ]
+      ]
+    },
+    {
+      "id": "q8-program1-heading",
+      "pages": [
+        44
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔プログラム1〕"
+    },
+    {
+      "id": "q8-program1-lines-label",
+      "pages": [
+        44
+      ],
+      "kind": "line-number-label",
+      "visuallyVerified": true,
+      "literal": "（行番号）"
+    },
+    {
+      "id": "q8-program1",
+      "pages": [
+        44
+      ],
+      "kind": "program",
+      "visuallyVerified": true,
+      "rows": [
+        {
+          "line": 1,
+          "level": 0,
+          "control": "○",
+          "literal": "副プログラム：Huffman(整数型：size, 整数型：parent[], 整数型：left[], 整数型：right[], 整数型：freq[])"
+        },
+        {
+          "line": 2,
+          "level": 0,
+          "control": "○",
+          "literal": "整数型：i, j, nsize"
+        },
+        {
+          "line": 3,
+          "level": 0,
+          "control": "○",
+          "literal": "整数型：node[]"
+        },
+        {
+          "line": 4,
+          "level": 0,
+          "control": "・",
+          "literal": "SortNode(size, parent, freq, nsize, node)"
+        },
+        {
+          "line": 5,
+          "level": 0,
+          "control": "■",
+          "literal": "［c］"
+        },
+        {
+          "line": 6,
+          "level": 1,
+          "control": "・",
+          "literal": "i ← node[0]  /* 最も小さい値をもつ要素組の要素番号 */"
+        },
+        {
+          "line": 7,
+          "level": 1,
+          "control": "・",
+          "literal": "j ← node[1]  /* 2番目に小さい値をもつ要素組の要素番号 */"
+        },
+        {
+          "line": 8,
+          "level": 1,
+          "control": "・",
+          "literal": "left[size] ← i"
+        },
+        {
+          "line": 9,
+          "level": 1,
+          "control": "・",
+          "literal": "right[size] ← j"
+        },
+        {
+          "line": 10,
+          "level": 1,
+          "control": "・",
+          "literal": "freq[size] ← freq[i] ＋ freq[j]  /* 子の値の合計 */"
+        },
+        {
+          "line": 11,
+          "level": 1,
+          "control": "・",
+          "literal": "parent[i] ← size  /* 子に親の節の要素番号を格納 */"
+        },
+        {
+          "line": 12,
+          "level": 1,
+          "control": "・",
+          "literal": "parent[j] ← size  /* 子に親の節の要素番号を格納 */"
+        },
+        {
+          "line": 13,
+          "level": 1,
+          "control": "・",
+          "literal": "size ← size ＋ 1"
+        },
+        {
+          "line": 14,
+          "level": 1,
+          "control": "・",
+          "literal": "SortNode(size, parent, freq, nsize, node)"
+        },
+        {
+          "line": 15,
+          "level": 0,
+          "control": "■",
+          "literal": ""
+        },
+        {
+          "line": 16,
+          "level": 0,
+          "control": "○",
+          "literal": "副プログラム：SortNode(整数型：size, 整数型：parent[], 整数型：freq[], 整数型：nsize, 整数型：node[])"
+        },
+        {
+          "line": 17,
+          "level": 0,
+          "control": "○",
+          "literal": "整数型：i"
+        },
+        {
+          "line": 18,
+          "level": 0,
+          "control": "・",
+          "literal": "nsize ← 0"
+        },
+        {
+          "line": 19,
+          "level": 0,
+          "control": "■",
+          "literal": "i：0, i < size, 1"
+        },
+        {
+          "line": 20,
+          "level": 1,
+          "control": "▲",
+          "literal": "［d］"
+        },
+        {
+          "line": 21,
+          "level": 2,
+          "control": "・",
+          "literal": "node[nsize] ← i"
+        },
+        {
+          "line": 22,
+          "level": 2,
+          "control": "・",
+          "literal": "nsize ← nsize ＋ 1"
+        },
+        {
+          "line": 23,
+          "level": 1,
+          "control": "▼",
+          "literal": ""
+        },
+        {
+          "line": 24,
+          "level": 0,
+          "control": "■",
+          "literal": ""
+        },
+        {
+          "line": 25,
+          "level": 0,
+          "control": "・",
+          "literal": "Sort(freq, nsize, node)"
+        }
+      ],
+      "controlPairs": [
+        [
+          5,
+          15
+        ],
+        [
+          19,
+          24
+        ],
+        [
+          20,
+          23
+        ]
+      ],
+      "sourceEndRowsHaveNoVisibleText": true,
+      "geometryVerified": false
+    },
+    {
+      "id": "q8-bank-cd",
+      "pages": [
+        45
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "c，dに関する解答群",
+      "parts": [
+        "c",
+        "d"
+      ],
+      "shared": true,
+      "choices": [
+        "nsize ≧ 0",
+        "nsize ≧ 1",
+        "nsize ≧ 2",
+        "parent[i] < 0",
+        "parent[i] > 0",
+        "size ≦ nsize",
+        "size ≧ nsize"
+      ],
+      "sourceArrangement": "row1 ア/イ/ウ; row2 エ/オ/カ; row3 キ"
+    },
+    {
+      "id": "q8-question3",
+      "pages": [
+        45
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問3 ハフマン木から文字のビット表現を作成して表示するプログラム2の説明及びプログラム2を読んで，プログラム2中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q8-program2-description-heading",
+      "pages": [
+        45
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔プログラム2の説明〕"
+    },
+    {
+      "id": "q8-program2-description-1",
+      "pages": [
+        45
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(1) ビット表現を求めたい文字に対応する葉を表す要素組の要素番号を，副プログラムEncodeの引数kに与えて呼び出すと，ハフマン木から文字のビット表現を作成して表示する。"
+    },
+    {
+      "id": "q8-program2-description-2",
+      "pages": [
+        45
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(2) 副プログラムEncodeの引数の仕様を，表5に示す。"
+    },
+    {
+      "id": "q8-table5-caption",
+      "pages": [
+        45
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表5 副プログラムEncodeの引数の仕様",
+      "placement": "before table"
+    },
+    {
+      "id": "q8-table5",
+      "pages": [
+        45
+      ],
+      "kind": "table",
+      "visuallyVerified": true,
+      "columns": [
+        "引数",
+        "データ型",
+        "入出力",
+        "説明"
+      ],
+      "rows": [
+        [
+          "k",
+          "整数型",
+          "入力",
+          "節を表す要素組の要素番号"
+        ],
+        [
+          "parent[]",
+          "整数型",
+          "入力",
+          "節の親を表す要素組の要素番号を格納した配列"
+        ],
+        [
+          "left[]",
+          "整数型",
+          "入力",
+          "節の左側の子を表す要素組の要素番号を格納した配列"
+        ]
+      ]
+    },
+    {
+      "id": "q8-program2-description-3",
+      "pages": [
+        45
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(3) 副プログラムEncodeは，行番号2の条件が成り立つとき，副プログラムEncodeを再帰的に呼び出す。これによって，ハフマン木を葉から根までたどっていく。"
+    },
+    {
+      "id": "q8-program2-description-4",
+      "pages": [
+        45
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(4) 根にたどり着くと次は葉に向かってたどっていく。現在の節が親の左側の子のときは0を，右側の子のときは1を表示する。"
+    },
+    {
+      "id": "q8-program2-description-5",
+      "pages": [
+        45
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(5) 関数printは，引数で与えられた文字列を表示する。"
+    },
+    {
+      "id": "q8-program2-heading",
+      "pages": [
+        46
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔プログラム2〕"
+    },
+    {
+      "id": "q8-program2-lines-label",
+      "pages": [
+        46
+      ],
+      "kind": "line-number-label",
+      "visuallyVerified": true,
+      "literal": "（行番号）"
+    },
+    {
+      "id": "q8-program2",
+      "pages": [
+        46
+      ],
+      "kind": "program",
+      "visuallyVerified": true,
+      "rows": [
+        {
+          "line": 1,
+          "level": 0,
+          "control": "○",
+          "literal": "副プログラム：Encode(整数型：k, 整数型：parent[], 整数型：left[])"
+        },
+        {
+          "line": 2,
+          "level": 0,
+          "control": "▲",
+          "literal": "［e］"
+        },
+        {
+          "line": 3,
+          "level": 1,
+          "control": "・",
+          "literal": "Encode(parent[k], parent, left)"
+        },
+        {
+          "line": 4,
+          "level": 1,
+          "control": "▲",
+          "literal": "［f］"
+        },
+        {
+          "line": 5,
+          "level": 2,
+          "control": "・",
+          "literal": "print(\"0\")  /* 0を表示する */"
+        },
+        {
+          "line": 6,
+          "level": 2,
+          "control": "・",
+          "literal": "print(\"1\")  /* 1を表示する */"
+        },
+        {
+          "line": 7,
+          "level": 1,
+          "control": "▼",
+          "literal": ""
+        },
+        {
+          "line": 8,
+          "level": 0,
+          "control": "▼",
+          "literal": ""
+        }
+      ],
+      "controlPairs": [
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "falseBranchDividerBetweenLines": [
+        5,
+        6
+      ],
+      "sourceEndRowsHaveNoVisibleText": true,
+      "geometryVerified": false
+    },
+    {
+      "id": "q8-bank-e",
+      "pages": [
+        46
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "eに関する解答群",
+      "parts": [
+        "e"
+      ],
+      "choices": [
+        "k ≧ 0",
+        "left[k] = −1",
+        "left[k] ≧ 0",
+        "parent[k] = −1",
+        "parent[k] ≧ 0"
+      ],
+      "sourceArrangement": "row1 ア/イ/ウ; row2 エ/オ"
+    },
+    {
+      "id": "q8-bank-f",
+      "pages": [
+        46
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "caption": "fに関する解答群",
+      "parts": [
+        "f"
+      ],
+      "choices": [
+        "left[k] = k",
+        "left[parent[k]] = k",
+        "parent[k] = k",
+        "parent[left[k]] = k"
+      ],
+      "sourceArrangement": "row1 ア/イ; row2 ウ/エ"
+    }
+  ],
+  "sourceOrder": [
+    "q8-notice",
+    "q8-title",
+    "q8-intro",
+    "q8-step1",
+    "q8-table1-caption",
+    "q8-table1",
+    "q8-step2",
+    "q8-tree-definition-intro",
+    "q8-tree-definition-1",
+    "q8-tree-definition-2",
+    "q8-tree-definition-3",
+    "q8-tree-definition-4",
+    "q8-figure1-intro",
+    "q8-figure1",
+    "q8-figure1-note",
+    "q8-figure1-caption",
+    "q8-array-intro",
+    "q8-array-step-1",
+    "q8-array-step-2",
+    "q8-array-step-3",
+    "q8-array-step-4",
+    "q8-step3",
+    "q8-bits-step1",
+    "q8-bits-step2",
+    "q8-figure2-intro",
+    "q8-figure2",
+    "q8-figure2-note",
+    "q8-figure2-caption",
+    "q8-step4",
+    "q8-question1",
+    "q8-question1-description",
+    "q8-ratio",
+    "q8-bank-a",
+    "q8-bank-b",
+    "q8-question2",
+    "q8-program1-description-heading",
+    "q8-program1-description-1",
+    "q8-program1-description-2",
+    "q8-figure3",
+    "q8-figure3-note",
+    "q8-figure3-caption",
+    "q8-program1-description-3",
+    "q8-huffman-input-1",
+    "q8-huffman-input-2",
+    "q8-huffman-input-3",
+    "q8-huffman-input-4",
+    "q8-huffman-input-5",
+    "q8-program1-description-4",
+    "q8-program1-description-5",
+    "q8-program1-description-6",
+    "q8-table2-caption",
+    "q8-table2",
+    "q8-table3-caption",
+    "q8-table3",
+    "q8-table4-caption",
+    "q8-table4",
+    "q8-program1-heading",
+    "q8-program1-lines-label",
+    "q8-program1",
+    "q8-bank-cd",
+    "q8-question3",
+    "q8-program2-description-heading",
+    "q8-program2-description-1",
+    "q8-program2-description-2",
+    "q8-table5-caption",
+    "q8-table5",
+    "q8-program2-description-3",
+    "q8-program2-description-4",
+    "q8-program2-description-5",
+    "q8-program2-heading",
+    "q8-program2-lines-label",
+    "q8-program2",
+    "q8-bank-e",
+    "q8-bank-f"
+  ],
+  "sourceUnitCount": 74,
+  "expectedFrom": "Manual primary-raster reading including all33programrows, comments, definition bullets, argument tables and all24unique/31slotref choices. No producer output imported.",
+  "typographyPolicy": "Linewrap/typographic whitespace only may be ignored. Source-code font minus/colon/operator codepoint choices are recorded, do not remove words/comments or invent visible closing labels. {{blank}} represents unnamed empty source box.",
+  "bindingPolicy": {
+    "fixed": "Alpha19letter example, all definitions/algorithm/notes/argument tables/programs and c/d/e/f banks remain fixed.",
+    "bindable": [
+      {
+        "unit": "q8-question1-description",
+        "position": "beta13letter literal only; the same A–D four-letter frequency role and original3rd-decimal rounding remain"
+      },
+      {
+        "unit": "q8-bank-a",
+        "position": "four options ×A/B/C/D codeword cells, same roles/count/order, calculated from same reviewed beta input"
+      },
+      {
+        "unit": "q8-bank-b",
+        "position": "four two-decimal compression-ratio values at their existing roles, from same reviewed beta input"
+      }
+    ]
+  },
+  "bankOrder": [
+    "q8-bank-a",
+    "q8-bank-b",
+    "q8-bank-cd",
+    "q8-bank-e",
+    "q8-bank-f"
+  ],
+  "primaryReference": {
+    "uniqueBankChoices": 24,
+    "slotChoiceRefs": 31,
+    "fields": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ]
+  },
+  "unverifiedOrOutsideThisGold": [
+    "New formal delta actual comparison not yet performed",
+    "All changed beta binding values require separate independent algorithm/option check",
+    "Exact actual SVG geometry, continuous rails, note placement dimensions/arrowheads/readability and ordinary App acceptance",
+    "Original raster does not prove exact Unicode encoding of math glyphs; compare visible syntax plus source-role operators without inventing semantics"
+  ],
+  "normalAppOrDistributionAdmission": false
+}

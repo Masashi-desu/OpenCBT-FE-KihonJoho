@@ -1,0 +1,981 @@
+{
+  "status": "independent_primary_full_Q10_literal_roles_and79program_lines",
+  "question": 10,
+  "coveredPages": [
+    52,
+    53,
+    54,
+    55,
+    56,
+    57
+  ],
+  "sourceUnitCount": 37,
+  "sourceUnits": [
+    {
+      "id": "q10-notice",
+      "pages": [
+        52
+      ],
+      "kind": "notice",
+      "visuallyVerified": true,
+      "literal": "選択した問題は，選択欄の選をマークしてください。マークがない場合は，採点されません。"
+    },
+    {
+      "id": "q10-heading",
+      "pages": [
+        52
+      ],
+      "kind": "question-heading",
+      "visuallyVerified": true,
+      "literal": "問10 次のCOBOLプログラムの説明及びプログラムを読んで，設問1，2に答えよ。"
+    },
+    {
+      "id": "q10-description-heading",
+      "pages": [
+        52
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔プログラムの説明〕"
+    },
+    {
+      "id": "q10-school-premises",
+      "pages": [
+        52
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "地域の5か所に建物（以下，校舎という）をもち，中学生向けの進学指導を行っているP学習塾では，定期的にテストを実施している。全ての塾生は，国語，数学，英語，理科及び社会の5教科のテストを受ける。テスト結果は，1回分を学年別の結果ファイルに格納する。各校舎の各学年には1名以上の塾生が所属しており，1学年の人数は塾全体で999人を超えることはない。"
+    },
+    {
+      "id": "q10-goal",
+      "pages": [
+        52
+      ],
+      "kind": "paragraph",
+      "visuallyVerified": true,
+      "literal": "このプログラムは，結果ファイルに格納されたある学年のテスト結果を塾生ごとに集計して，5教科の得点の合計（以下，合計点という）の降順に並べた順位リストを印字する。"
+    },
+    {
+      "id": "q10-record-introduction",
+      "pages": [
+        52
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(1) 結果ファイルは，図1に示すレコード様式の順ファイルであり，1学年分のレコードが格納されている。"
+    },
+    {
+      "id": "q10-figure1",
+      "pages": [
+        52
+      ],
+      "kind": "record-layout",
+      "visuallyVerified": true,
+      "headerLevels": [
+        [
+          "塾生番号 6桁",
+          "校舎番号 2桁",
+          "テスト結果"
+        ],
+        [
+          "国語 3桁",
+          "数学 3桁",
+          "英語 3桁",
+          "理科 3桁",
+          "社会 3桁"
+        ]
+      ],
+      "captionPosition": "below"
+    },
+    {
+      "id": "q10-figure1-caption",
+      "pages": [
+        52
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図1 結果ファイルのレコード様式"
+    },
+    {
+      "id": "q10-student-id",
+      "pages": [
+        52
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "① 塾生番号は，塾全体で一意となる番号である。"
+    },
+    {
+      "id": "q10-school-id",
+      "pages": [
+        52
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "② 校舎番号には，塾生番号で示される塾生が所属する校舎の番号が01〜05で格納されている。"
+    },
+    {
+      "id": "q10-score-range",
+      "pages": [
+        52
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "③ テスト結果には，塾生番号で示される塾生の各教科の得点が000〜100で格納されている。"
+    },
+    {
+      "id": "q10-print-introduction",
+      "pages": [
+        53
+      ],
+      "kind": "numbered-paragraph",
+      "visuallyVerified": true,
+      "literal": "(2) 順位リストは，図2に示す印字様式である。見出しは印刷済みとする。"
+    },
+    {
+      "id": "q10-figure2",
+      "pages": [
+        53
+      ],
+      "kind": "print-layout",
+      "visuallyVerified": true,
+      "columns": [
+        "全体順位",
+        "塾生番号",
+        "校舎番号",
+        "校舎内順位",
+        "合計点"
+      ],
+      "rows": [
+        [
+          "ZZ9",
+          "999999",
+          "99",
+          "ZZ9",
+          "ZZ9"
+        ],
+        [
+          "ZZ9",
+          "999999",
+          "99",
+          "ZZ9",
+          "ZZ9"
+        ],
+        [
+          "⋮",
+          "⋮",
+          "⋮",
+          "⋮",
+          "⋮"
+        ]
+      ],
+      "captionPosition": "below"
+    },
+    {
+      "id": "q10-figure2-caption",
+      "pages": [
+        53
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図2 順位リストの印字様式"
+    },
+    {
+      "id": "q10-print-order",
+      "pages": [
+        53
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "① 全体順位には塾全体での順位を，校舎内順位には塾生が所属する校舎での順位を印字する。印字行は合計点の降順に並べる。"
+    },
+    {
+      "id": "q10-ties",
+      "pages": [
+        53
+      ],
+      "kind": "circled-number-paragraph",
+      "visuallyVerified": true,
+      "literal": "② 同じ合計点の塾生は同じ順位とする。例えば，塾全体で合計点の高い塾生から，492点が1名，488点が2名，487点が1名いた場合は，図3のように順位付けして印字する。"
+    },
+    {
+      "id": "q10-figure3",
+      "pages": [
+        53
+      ],
+      "kind": "print-example",
+      "visuallyVerified": true,
+      "columns": [
+        "全体順位",
+        "塾生番号",
+        "校舎番号",
+        "校舎内順位",
+        "合計点"
+      ],
+      "rows": [
+        [
+          "1",
+          "182025",
+          "02",
+          "1",
+          "492"
+        ],
+        [
+          "2",
+          "181007",
+          "01",
+          "1",
+          "488"
+        ],
+        [
+          "2",
+          "182038",
+          "02",
+          "2",
+          "488"
+        ],
+        [
+          "4",
+          "185011",
+          "05",
+          "1",
+          "487"
+        ],
+        [
+          "⋮",
+          "⋮",
+          "⋮",
+          "⋮",
+          "⋮"
+        ]
+      ],
+      "captionPosition": "below",
+      "omittedRowsNotReconstructed": true
+    },
+    {
+      "id": "q10-figure3-caption",
+      "pages": [
+        53
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図3 順位リストの印字例"
+    },
+    {
+      "id": "q10-program-heading",
+      "pages": [
+        53
+      ],
+      "kind": "heading",
+      "visuallyVerified": true,
+      "literal": "〔プログラム〕"
+    },
+    {
+      "id": "q10-program-line-heading",
+      "pages": [
+        53
+      ],
+      "kind": "line-number-label",
+      "visuallyVerified": true,
+      "literal": "（行番号）"
+    },
+    {
+      "id": "q10-program",
+      "pages": [
+        53,
+        54,
+        55
+      ],
+      "kind": "program",
+      "visuallyVerified": true,
+      "rows": [
+        {
+          "line": 1,
+          "literal": "DATA DIVISION."
+        },
+        {
+          "line": 2,
+          "literal": "FILE SECTION."
+        },
+        {
+          "line": 3,
+          "literal": "SD SRT-FILE."
+        },
+        {
+          "line": 4,
+          "literal": "01 SRT-REC."
+        },
+        {
+          "line": 5,
+          "literal": "02 SRT-NO PIC 9(6)."
+        },
+        {
+          "line": 6,
+          "literal": "02 SRT-BLD PIC 9(2)."
+        },
+        {
+          "line": 7,
+          "literal": "02 SRT-TOTAL PIC 9(3)."
+        },
+        {
+          "line": 8,
+          "literal": "FD RSL-FILE."
+        },
+        {
+          "line": 9,
+          "literal": "01 RSL-REC."
+        },
+        {
+          "line": 10,
+          "literal": "02 RSL-NO PIC 9(6)."
+        },
+        {
+          "line": 11,
+          "literal": "02 RSL-BLD PIC 9(2)."
+        },
+        {
+          "line": 12,
+          "literal": "02 RSL-SCR PIC 9(3) OCCURS 5."
+        },
+        {
+          "line": 13,
+          "literal": "FD PRT-FILE."
+        },
+        {
+          "line": 14,
+          "literal": "01 PRT-REC."
+        },
+        {
+          "line": 15,
+          "literal": "02 PRT-ALL-RANK PIC ZZ9."
+        },
+        {
+          "line": 16,
+          "literal": "02 PRT-SP1 PIC X(7)."
+        },
+        {
+          "line": 17,
+          "literal": "02 PRT-NO PIC 9(6)."
+        },
+        {
+          "line": 18,
+          "literal": "02 PRT-SP2 PIC X(4)."
+        },
+        {
+          "line": 19,
+          "literal": "02 PRT-BLD PIC 9(2)."
+        },
+        {
+          "line": 20,
+          "literal": "02 PRT-SP3 PIC X(8)."
+        },
+        {
+          "line": 21,
+          "literal": "02 PRT-BLD-RANK PIC ZZ9."
+        },
+        {
+          "line": 22,
+          "literal": "02 PRT-SP4 PIC X(9)."
+        },
+        {
+          "line": 23,
+          "literal": "02 PRT-TOTAL PIC ZZ9."
+        },
+        {
+          "line": 24,
+          "literal": "WORKING-STORAGE SECTION."
+        },
+        {
+          "line": 25,
+          "literal": "77 SRT-FLAG PIC X(1) VALUE SPACE."
+        },
+        {
+          "line": 26,
+          "literal": "88 SRT-EOF VALUE \"E\"."
+        },
+        {
+          "line": 27,
+          "literal": "77 RSL-FLAG PIC X(1) VALUE SPACE."
+        },
+        {
+          "line": 28,
+          "literal": "88 RSL-EOF VALUE \"E\"."
+        },
+        {
+          "line": 29,
+          "literal": "77 ALL-ORD-NO PIC 9(3) VALUE ZERO."
+        },
+        {
+          "line": 30,
+          "literal": "77 ALL-RANK PIC 9(3) VALUE ZERO."
+        },
+        {
+          "line": 31,
+          "literal": "77 ALL-CR-TOTAL PIC 9(3) VALUE 999."
+        },
+        {
+          "line": 32,
+          "literal": "01 BLD-INF."
+        },
+        {
+          "line": 33,
+          "literal": "02 BLD-ORD-NO PIC 9(3) OCCURS 5 VALUE ZERO."
+        },
+        {
+          "line": 34,
+          "literal": "02 BLD-RANK PIC 9(3) OCCURS 5 VALUE ZERO."
+        },
+        {
+          "line": 35,
+          "literal": "02 BLD-CR-TOTAL PIC 9(3) OCCURS 5 VALUE 999."
+        },
+        {
+          "line": 36,
+          "literal": "PROCEDURE DIVISION."
+        },
+        {
+          "line": 37,
+          "literal": "MAIN-PROC."
+        },
+        {
+          "line": 38,
+          "literal": "OPEN INPUT RSL-FILE"
+        },
+        {
+          "line": 39,
+          "literal": "OUTPUT PRT-FILE."
+        },
+        {
+          "line": 40,
+          "literal": "SORT SRT-FILE ［a］"
+        },
+        {
+          "line": 41,
+          "literal": "INPUT PROCEDURE IS REL-PROC"
+        },
+        {
+          "line": 42,
+          "literal": "OUTPUT PROCEDURE IS RET-PROC."
+        },
+        {
+          "line": 43,
+          "literal": "CLOSE RSL-FILE PRT-FILE."
+        },
+        {
+          "line": 44,
+          "literal": "STOP RUN."
+        },
+        {
+          "line": 45,
+          "literal": "REL-PROC."
+        },
+        {
+          "line": 46,
+          "literal": "PERFORM UNTIL RSL-EOF"
+        },
+        {
+          "line": 47,
+          "literal": "READ RSL-FILE AT END SET RSL-EOF TO TRUE"
+        },
+        {
+          "line": 48,
+          "literal": "NOT AT END PERFORM CALC-PROC"
+        },
+        {
+          "line": 49,
+          "literal": "END-READ"
+        },
+        {
+          "line": 50,
+          "literal": "END-PERFORM."
+        },
+        {
+          "line": 51,
+          "literal": "CALC-PROC."
+        },
+        {
+          "line": 52,
+          "literal": "MOVE RSL-NO TO SRT-NO."
+        },
+        {
+          "line": 53,
+          "literal": "MOVE RSL-BLD TO SRT-BLD."
+        },
+        {
+          "line": 54,
+          "literal": "COMPUTE SRT-TOTAL = RSL-SCR(1) + RSL-SCR(2) +"
+        },
+        {
+          "line": 55,
+          "literal": "RSL-SCR(3) + RSL-SCR(4) + RSL-SCR(5)."
+        },
+        {
+          "line": 56,
+          "literal": "RELEASE SRT-REC."
+        },
+        {
+          "line": 57,
+          "literal": "RET-PROC."
+        },
+        {
+          "line": 58,
+          "literal": "PERFORM UNTIL SRT-EOF"
+        },
+        {
+          "line": 59,
+          "literal": "RETURN SRT-FILE AT END SET SRT-EOF TO TRUE"
+        },
+        {
+          "line": 60,
+          "literal": "NOT AT END PERFORM PRT-PROC"
+        },
+        {
+          "line": 61,
+          "literal": "END-RETURN"
+        },
+        {
+          "line": 62,
+          "literal": "END-PERFORM."
+        },
+        {
+          "line": 63,
+          "literal": "PRT-PROC."
+        },
+        {
+          "line": 64,
+          "literal": "［b］."
+        },
+        {
+          "line": 65,
+          "literal": "IF SRT-TOTAL < ALL-CR-TOTAL THEN"
+        },
+        {
+          "line": 66,
+          "literal": "MOVE SRT-TOTAL TO ALL-CR-TOTAL"
+        },
+        {
+          "line": 67,
+          "literal": "［c］"
+        },
+        {
+          "line": 68,
+          "literal": "END-IF."
+        },
+        {
+          "line": 69,
+          "literal": "IF SRT-TOTAL < BLD-CR-TOTAL(SRT-BLD) THEN"
+        },
+        {
+          "line": 70,
+          "literal": "MOVE SRT-TOTAL TO BLD-CR-TOTAL(SRT-BLD)"
+        },
+        {
+          "line": 71,
+          "literal": "［d］"
+        },
+        {
+          "line": 72,
+          "literal": "END-IF."
+        },
+        {
+          "line": 73,
+          "literal": "INITIALIZE PRT-REC."
+        },
+        {
+          "line": 74,
+          "literal": "MOVE ALL-RANK TO PRT-ALL-RANK."
+        },
+        {
+          "line": 75,
+          "literal": "MOVE SRT-NO TO PRT-NO."
+        },
+        {
+          "line": 76,
+          "literal": "MOVE SRT-BLD TO PRT-BLD."
+        },
+        {
+          "line": 77,
+          "literal": "MOVE BLD-RANK(SRT-BLD) TO PRT-BLD-RANK."
+        },
+        {
+          "line": 78,
+          "literal": "MOVE SRT-TOTAL TO PRT-TOTAL."
+        },
+        {
+          "line": 79,
+          "literal": "WRITE PRT-REC."
+        }
+      ],
+      "physicalRanges": {
+        "53": [
+          1,
+          17
+        ],
+        "54": [
+          18,
+          60
+        ],
+        "55": [
+          61,
+          79
+        ]
+      },
+      "sourceBoxRoles": {
+        "40": "a",
+        "64": "b",
+        "67": "c",
+        "71": "d"
+      },
+      "whitespacePolicy": "Token strings and numbered lines fixed; indentation must be separately compared to primary. Straight quotes denote the source E string; font quote shape is not a semantic code change."
+    },
+    {
+      "id": "q10-q1-instruction",
+      "pages": [
+        55
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問1 プログラム中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q10-a-caption",
+      "pages": [
+        55
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "aに関する解答群"
+    },
+    {
+      "id": "q10-a-bank",
+      "pages": [
+        55
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "a"
+      ],
+      "choices": [
+        "ASCENDING KEY SRT-NO",
+        "ASCENDING KEY SRT-TOTAL",
+        "DESCENDING KEY SRT-NO",
+        "DESCENDING KEY SRT-TOTAL"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    },
+    {
+      "id": "q10-b-caption",
+      "pages": [
+        55
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "bに関する解答群"
+    },
+    {
+      "id": "q10-b-bank",
+      "pages": [
+        55
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "b"
+      ],
+      "choices": [
+        "ADD 1 TO ALL-ORD-NO BLD-ORD-NO(SRT-BLD)",
+        "ADD 1 TO ALL-RANK BLD-RANK(SRT-BLD)",
+        "INITIALIZE BLD-INF",
+        "MOVE ALL-ORD-NO TO BLD-ORD-NO(SRT-BLD)"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    },
+    {
+      "id": "q10-cd-caption",
+      "pages": [
+        56
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "c，dに関する解答群"
+    },
+    {
+      "id": "q10-cd-bank",
+      "pages": [
+        56
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "c",
+        "d"
+      ],
+      "choices": [
+        "MOVE ALL-CR-TOTAL TO ALL-RANK",
+        "MOVE ALL-ORD-NO TO ALL-RANK",
+        "MOVE ALL-ORD-NO TO BLD-RANK(SRT-BLD)",
+        "MOVE BLD-CR-TOTAL(SRT-BLD) TO BLD-RANK(SRT-BLD)",
+        "MOVE BLD-ORD-NO(SRT-BLD) TO ALL-RANK",
+        "MOVE BLD-ORD-NO(SRT-BLD) TO BLD-RANK(SRT-BLD)"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ",
+        "オ",
+        "カ"
+      ]
+    },
+    {
+      "id": "q10-q2-instruction",
+      "pages": [
+        56
+      ],
+      "kind": "question-instruction",
+      "visuallyVerified": true,
+      "literal": "設問2 図4の表示様式に示すとおり，“AVG:”に続けて塾全体の平均点を表示し，“BLD-AVG:”に続けて校舎ごとの平均点を，校舎番号01〜05の昇順に表示するようにプログラムを変更する。表1中の{{blank}}に入れる正しい答えを，解答群の中から選べ。"
+    },
+    {
+      "id": "q10-figure4",
+      "pages": [
+        56
+      ],
+      "kind": "print-layout",
+      "visuallyVerified": true,
+      "lines": [
+        "AVG: ZZ9.9",
+        "BLD-AVG: ZZ9.9 ZZ9.9 ZZ9.9 ZZ9.9 ZZ9.9"
+      ],
+      "captionPosition": "below",
+      "displayStringWhitespaceExactCount": "DISPLAY quoted gap2 confirmed by independent original PNG cell measurement; final print layout geometry still separate"
+    },
+    {
+      "id": "q10-figure4-caption",
+      "pages": [
+        56
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "図4 表示様式"
+    },
+    {
+      "id": "q10-table1-caption",
+      "pages": [
+        56
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "表1 プログラムの変更内容"
+    },
+    {
+      "id": "q10-table1",
+      "pages": [
+        56
+      ],
+      "kind": "change-table",
+      "visuallyVerified": true,
+      "columns": [
+        "処置",
+        "変更内容"
+      ],
+      "rows": [
+        {
+          "operation": "行番号31と32の間に追加",
+          "lines": [
+            "77 ALL-TOTAL PIC 9(8) VALUE ZERO.",
+            "77 ALL-AVG PIC 9(3)V9(1).",
+            "77 DSP-AVG PIC ZZ9.9.",
+            "77 CNT PIC 9(2)."
+          ]
+        },
+        {
+          "operation": "行番号35と36の間に追加",
+          "lines": [
+            "02 BLD-TOTAL PIC 9(6) OCCURS 5 VALUE ZERO.",
+            "02 BLD-AVG PIC 9(3)V9(1) OCCURS 5 VALUE ZERO."
+          ]
+        },
+        {
+          "operation": "行番号43と44の間に追加",
+          "lines": [
+            "COMPUTE ALL-AVG = ALL-TOTAL / ALL-ORD-NO.",
+            "MOVE ALL-AVG TO DSP-AVG.",
+            "DISPLAY \"AVG:  \" DSP-AVG.",
+            "DISPLAY \"BLD-AVG:  \" WITH NO ADVANCING.",
+            "PERFORM VARYING CNT FROM 1 BY 1 UNTIL CNT > 5",
+            "COMPUTE BLD-AVG(CNT) =",
+            "［f］",
+            "MOVE BLD-AVG(CNT) TO DSP-AVG",
+            "DISPLAY DSP-AVG \"  \" WITH NO ADVANCING",
+            "END-PERFORM."
+          ],
+          "exactLiteralSpaceCountsVerified": "Q10-QUOTED-SPACE-PIXEL-PROOF.json: all three quoted gaps are2monospaced cells"
+        },
+        {
+          "operation": "［e］に追加",
+          "lines": [
+            "ADD SRT-TOTAL TO ALL-TOTAL BLD-TOTAL(SRT-BLD)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "q10-e-caption",
+      "pages": [
+        57
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "eに関する解答群"
+    },
+    {
+      "id": "q10-e-bank",
+      "pages": [
+        57
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "e"
+      ],
+      "choices": [
+        "行番号50と51の間",
+        "行番号51と52の間",
+        "行番号62と63の間",
+        "行番号79の後ろ"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    },
+    {
+      "id": "q10-f-caption",
+      "pages": [
+        57
+      ],
+      "kind": "caption",
+      "visuallyVerified": true,
+      "literal": "fに関する解答群"
+    },
+    {
+      "id": "q10-f-bank",
+      "pages": [
+        57
+      ],
+      "kind": "bank",
+      "visuallyVerified": true,
+      "parts": [
+        "f"
+      ],
+      "choices": [
+        "BLD-TOTAL(CNT) / BLD-ORD-NO(CNT)",
+        "BLD-TOTAL(CNT) / BLD-ORD-NO(SRT-BLD)",
+        "BLD-TOTAL(CNT) / BLD-RANK(CNT)",
+        "BLD-TOTAL(CNT) / BLD-RANK(SRT-BLD)"
+      ],
+      "labels": [
+        "ア",
+        "イ",
+        "ウ",
+        "エ"
+      ]
+    }
+  ],
+  "sourceOrder": [
+    "q10-notice",
+    "q10-heading",
+    "q10-description-heading",
+    "q10-school-premises",
+    "q10-goal",
+    "q10-record-introduction",
+    "q10-figure1",
+    "q10-figure1-caption",
+    "q10-student-id",
+    "q10-school-id",
+    "q10-score-range",
+    "q10-print-introduction",
+    "q10-figure2",
+    "q10-figure2-caption",
+    "q10-print-order",
+    "q10-ties",
+    "q10-figure3",
+    "q10-figure3-caption",
+    "q10-program-heading",
+    "q10-program-line-heading",
+    "q10-program",
+    "q10-q1-instruction",
+    "q10-a-caption",
+    "q10-a-bank",
+    "q10-b-caption",
+    "q10-b-bank",
+    "q10-cd-caption",
+    "q10-cd-bank",
+    "q10-q2-instruction",
+    "q10-figure4",
+    "q10-figure4-caption",
+    "q10-table1-caption",
+    "q10-table1",
+    "q10-e-caption",
+    "q10-e-bank",
+    "q10-f-caption",
+    "q10-f-bank"
+  ],
+  "sourcePagePins": [
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-052.png",
+      "sha256": "dcfd965189f4211bbc6530fab2c11215b295234b81fe61b07ee512f195f2b860"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-053.png",
+      "sha256": "6c7e331dfc0537d186ee19b411185510e6c445ecfdfac3d9243be94c3025818f"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-054.png",
+      "sha256": "ebcd0a3e3c74d0ee110d8434148a6c95bb6d5008e30be4940e41190141102bb5"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-055.png",
+      "sha256": "905e69734e196a6107b959fdd8960a2e8ca41b6107c199d95d2b194822c8a3be"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-056.png",
+      "sha256": "69364620d3dffec00228735a9eb2b932adf20eedef894f09b38f0c5108c8c3f8"
+    },
+    {
+      "path": "output/source-review/stage2-s2-05-booklet-lead-20261028-v1/pages/qs/page-057.png",
+      "sha256": "d8f816228521a571411415a6a0beba278872c99493142074b94f9dc8b5e08b33"
+    }
+  ],
+  "sourcePDFSHA256": "bfd415139913f156ea36b5de5f3d8a6fba7efd721b67c1be12ec45cc693df0dd",
+  "bindingPolicy": "Only declared ranking input condition may update code comparisons/sentinel/print wording consistently. Reference source has original descending total, all visible statements/figures/banks/79 numbered lines and change-table slots in source order.",
+  "unverified": [
+    "Only visible four example student records are original; ellipses are not reconstructed into an official complete file.",
+    "Full final producer/SSR comparison has not run at writing time.",
+    "Exact print-column/blank-box geometry must still be compared; quoted gap counts are now independently confirmed2."
+  ],
+  "normalOrMaterialAdmission": false,
+  "readbackCorrections": [
+    {
+      "field": "table1.columns[0]",
+      "initialMisread": "処理",
+      "primaryRecrop": "処置",
+      "reason": "Noninterpolated source crop clearly shows罒/且, not理; current Native header is correct."
+    }
+  ]
+}

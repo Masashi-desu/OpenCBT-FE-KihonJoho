@@ -1,0 +1,73 @@
+.spring2019-native{line-height:1.8;color:var(--text-primary)}
+.spring2019-bank-heading{margin:1.2em 0 .6em}
+.spring2019-bank-choice{display:grid;grid-template-columns:1.6em minmax(0,1fr);gap:.45em;margin:.45em 0;align-items:start}
+.spring2019-bank-choice p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.spring2019-bank-tables{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1em}
+.spring2019-native table{border-collapse:collapse;width:100%;color:var(--text-primary)}
+.spring2019-native th,.spring2019-native td{border:1px solid var(--line);padding:.3em .55em;white-space:pre-wrap;overflow-wrap:anywhere}
+.spring2019-native th{font-weight:500}
+@media(max-width:520px){.spring2019-bank-tables{grid-template-columns:minmax(0,1fr)}}
+.spring2019-program pre{white-space:pre;font-family:monospace;line-height:1.65;font-size:1em;width:max-content;min-width:100%}
+.spring2019-code-blank{display:inline-block;min-width:4em;text-align:center;border:1px solid var(--text-primary);line-height:1.5;padding:0 .6em;background:var(--surface)}
+.spring2019-print-body{min-width:66em}
+.spring2019-print-body pre{font-family:monospace;font-size:1em;line-height:1.7;white-space:pre;margin:0}
+.spring2019-print-body table{width:100%;table-layout:fixed}
+.spring2019-print-body th,.spring2019-print-body td{border:0;white-space:pre;padding:0 .4em;overflow-wrap:normal}
+.spring2019-print-body [data-example-callout]{border:1px dashed var(--text-primary)}
+.spring2019-print-body b{font-family:serif;font-weight:normal;margin-inline:.35em}
+.spring2019-print-omission td{height:2.1em;text-align:center}
+/* Gray distinguishes only the source maze's impassable cells. */
+.spring2019-maze{--visual-spring2019-maze-wall:color-mix(in srgb,var(--text-primary) 22%,var(--surface))}
+.spring2019-history pre{font-family:monospace;white-space:pre;width:max-content;min-width:100%;border:1px solid var(--text-primary);padding:.25em .6em}
+.spring2019-alpha{display:inline-block;margin-inline-start:60ch;line-height:1.2}
+/* Source bit-region shading identifies the selected range only. */
+.spring2019-bitregion{--visual-spring2019-bit-target:color-mix(in srgb,var(--text-primary) 25%,var(--surface))}
+.spring2019-worksheet{min-width:760px;table-layout:auto}
+.spring2019-sales{min-width:1100px}
+.spring2019-worksheet td{white-space:pre-wrap}
+.spring2019-rank-table{min-width:720px;text-align:center}
+.spring2019-sheet-bank code{white-space:pre-wrap;overflow-wrap:anywhere}
+.spring2019-sheet-macro{position:relative;width:max-content;min-width:67em}
+.spring2019-macro-rails{position:absolute;inset-block-start:0;inset-inline-start:0;overflow:visible;fill:var(--text-primary);stroke:var(--text-primary);stroke-width:.055}
+.spring2019-macro-line{height:1.9em;line-height:1.9;display:flex;align-items:center;white-space:pre;position:relative}
+.spring2019-macro-control{display:inline-block;width:1.3em;flex:none}
+.spring2019-macro-line code{font-family:monospace;font-size:1em;white-space:pre}
+.spring2019-program-heading{margin-block-end:.6em}
+.spring2019-classification .spring2019-class-merged-top{border-block-end:0;position:relative}
+.spring2019-classification .spring2019-class-merged-top span{position:absolute;inset-inline-start:1em;inset-block-start:1.1em}
+.spring2019-classification .spring2019-class-merged-middle{border-block:0}
+.spring2019-classification .spring2019-class-merged-bottom{border-block-start:0}
+.spring2019-source-notice{border:3px double var(--text-primary);padding:.65em 1em;line-height:1.8}
+.spring2019-source-heading{margin-block:1.2em .65em;font-weight:600}
+
+/* Source diagrams: the screen border/groups below reproduce the static exam
+ * figures. They are not interactive application controls. */
+.spring2019-report-screen {border: 1px solid var(--text-primary); padding: .6rem;}
+.spring2019-report-screen p {margin: .3rem 0;}
+.spring2019-report-screen table {width: 100%; table-layout: fixed;}
+.spring2019-product-identifiers {display:flex;justify-content:space-between;gap:1rem;white-space:nowrap;}
+.spring2019-applicant {display:flex;gap:3rem;}
+.spring2019-applicant dl {margin:.3rem 0;}
+.spring2019-applicant dl > div {display:flex;gap:.5rem;}
+.spring2019-applicant dt,.spring2019-applicant dd {margin:0;}
+.spring2019-report-controls {display:flex;justify-content:space-between;gap:1rem;margin-bottom:.5rem;}
+.spring2019-screen-button {display:inline-block;border:1px solid var(--text-primary);border-radius:.4rem;padding:0 .65rem;margin-left:.7rem;}
+
+.spring2019-report-screen p {text-align:left;}
+.managed-diagram .spring2019-source-program-heading {text-align:left;margin:.5rem 0;}
+.managed-diagram .spring2019-source-line-label {text-align:left;margin:0;padding-inline-start:calc(25px * var(--image-scale, 1));}
+
+.spring2019-bank-grid {display:grid;gap:.4rem 1rem;}
+.spring2019-bank-grid.columns-3 {grid-template-columns:repeat(3,minmax(8em,1fr));min-width:26em;}
+.spring2019-bank-grid.columns-4 {grid-template-columns:repeat(4,minmax(5em,1fr));min-width:23em;}
+.spring2019-bank-grid .spring2019-bank-choice {margin:0;}
+
+/* The original selection instruction encloses the printed 選 mark. */
+.spring2019-selection-mark{display:inline-block;border:1px solid currentColor;border-radius:50%;padding-inline:.25em;line-height:1.1}
+
+/* Source table1 puts its unit on a separate right-aligned line above the table. */
+.spring2019-table-unit{text-align:right;margin:.25em 0}
+
+/* The source places callout1 above the total-byte box; the number and format remain in the print line. */
+.spring2019-print-count{position:relative;padding-block-start:1.7em}
+.spring2019-print-count>b{position:absolute;inset-block-start:0;inset-inline-start:1.5em}

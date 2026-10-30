@@ -22,6 +22,7 @@ import { spring2018NativeFragment, type Spring2018Major } from "../core/generato
 import { legacy2018SpringPm6Definition, legacy2018SpringPm6ValidTuples } from "../core/generators/legacy-2018-spring-pm6";
 import { isLegacy2018AutumnNativeText, Legacy2018AutumnNativeText } from "./Legacy2018AutumnNativeText";
 import { Legacy2018AutumnCode } from "./Legacy2018AutumnCode";
+import { isLegacy2019SpringNativeText, Legacy2019SpringNativeText, legacy2019SpringInlineBlanks } from "./Legacy2019SpringNativeText";
 
 import {
   activityNetworkAlt,
@@ -507,6 +508,33 @@ function autumn2018TextMajor(attribution: Attribution) {
       ref.locator.questionNumber === String(number))) return undefined;
   return number;
 }
+/** All locators must identify the same major in this booklet. Similar text,
+ * mixed references and independently authored explanations never opt in. */
+function spring2019TextMajor(attribution: Attribution) {
+  const refs = attribution.sourceRefs, number = Number(refs[0]?.locator.questionNumber);
+  if (!Number.isInteger(number) || number < 1 || number > 13 || !refs.length ||
+    attribution.origin === "original" || !refs.every(ref =>
+      ref.sourceId === `source-ipa-2019h31h-fe-pm-${number}-qs` && ref.locator.year === 2019 &&
+      ref.locator.period === "春期" && ref.locator.timeSlot === "午後" &&
+      ref.locator.questionNumber === String(number))) return undefined;
+  return number;
+}
+/** QS14/16: these three figure tables put their captions below the data.
+ * Figure1 places its exact source note between the table and its caption. */
+function spring2019TableFooter(content: ContentData, index: number) {
+  if (spring2019TextMajor(content.attribution) !== 3) return undefined;
+  const block = content.blocks[index];
+  if (block?.type !== "table") return undefined;
+  if (block.caption === "図1 体格推移表") {
+    const next = content.blocks[index + 1];
+    if (next?.type === "paragraph" && next.text === "注記 行の並び順はSQL文の出力順と同じである。")
+      return {note: next.text};
+    return undefined;
+  }
+  if (block.caption === "図2 身長階級表" || block.caption === "図3 身長度数分布表")
+    return {note: undefined};
+  return undefined;
+}
 const spring2018EvmTables = new Set(legacy2018SpringPm6ValidTuples.flatMap(values =>
   legacy2018SpringPm6Definition.build([...values]).prompt.filter(block => block.type === "table")
     .map(block => JSON.stringify(block))));
@@ -527,6 +555,10 @@ export function Content({
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
         if (b.type === "paragraph") {
+          if (i > 0 && spring2019TableFooter(content, i - 1)?.note === b.text) return null;
+          const spring2019Number = spring2019TextMajor(content.attribution);
+          if (spring2019Number !== undefined && isLegacy2019SpringNativeText(b.text, spring2019Number))
+            return <Legacy2019SpringNativeText key={i} text={b.text} questionNumber={spring2019Number} />;
           if (autumn2018TextMajor(content.attribution) !== undefined && isLegacy2018AutumnNativeText(b.text))
             return <Legacy2018AutumnNativeText key={i} text={b.text} />;
           const springNumber = spring2018TextMajor(content.attribution);
@@ -564,12 +596,12 @@ export function Content({
         }
         if (b.type === "table" && spring2018TextMajor(content.attribution) === 6 && spring2018EvmTables.has(JSON.stringify(b)))
           return <Legacy2018SpringPm6SourceTable key={i} block={b} />;
-        if (b.type === "table")
-          return (
-            <CaptionFrame key={i} metadata={b}>
-            <div className="table-scroll">
-              <table>
-                <caption>{b.caption}</caption>
+        if (b.type === "table") {
+          const footer = spring2019TableFooter(content, i);
+          const table = (
+            <div className="table-scroll" tabIndex={footer ? 0 : undefined}>
+              <table aria-label={footer ? b.caption : undefined}>
+                {!footer && <caption>{b.caption}</caption>}
                 <thead>
                   <tr>
                     {b.columns.map((c, j) =>
@@ -627,9 +659,17 @@ export function Content({
                 </tbody>
               </table>
             </div>
-            </CaptionFrame>
           );
+          return <CaptionFrame key={i} metadata={b}>{footer ?
+            <figure className="spring2019-source-table">
+              {table}
+              {footer.note && <p data-source-table-note="true">{footer.note}</p>}
+              <figcaption>{b.caption}</figcaption>
+            </figure> : table}</CaptionFrame>;
+        }
         if (b.type === "code") {
+          if (spring2019TextMajor(content.attribution) !== undefined)
+            return <div className="spring2019-source-code" key={i}><pre><code>{legacy2019SpringInlineBlanks(b.text)}</code></pre></div>;
           // Text-form declarations and examples are source premises too; they
           // must remain visible before answering, including language="text".
           if (autumn2018TextMajor(content.attribution) !== undefined)

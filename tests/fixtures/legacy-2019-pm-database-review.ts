@@ -1,0 +1,20 @@
+/** Manually reviewed against all five physical source images p13–17. */
+export const legacy2019PmDatabaseReview={source:"2019h31h-fe-pm-3",pages:[13,14,15,16,17],reference:[0,0,0,0,0],capacity:72,
+  questionSha256:"bfd415139913f156ea36b5de5f3d8a6fba7efd721b67c1be12ec45cc693df0dd",answerSha256:"8085576c2b5d6db18c9b9ecb00c7b0b9b120eb2be8ac977961b4c81e8c3a52d8",
+  sourceAnswers:["ア","ウ","ア","エ","ウ","ア"],choiceGroups:[6,5,4,5,5,6],
+  originalTransitionRows:[["2010","1","男","153.2","169.5","140.2","47.3","71.3","42.1"],["2019","1","男","152.8","168.2","140.4","48.1","73.1","43.6"],["2019","2","男","153.2","179.9","142.8","53.2","89.6","45.6"],["2019","3","男","154.1","180.1","139.3","50.4","93.2","41.1"]],
+  originalClasses:[["140cm未満","0.0","139.9"],["140cm以上150cm未満","140.0","149.9"],["150cm以上160cm未満","150.0","159.9"],["160cm以上170cm未満","160.0","169.9"],["170cm以上180cm未満","170.0","179.9"],["180cm以上190cm未満","180.0","189.9"],["190cm以上","190.0","999.9"]],originalWrongFrequencies:[3,104,302,182,32,1,1],
+  originalChoices:{a:["LIKE '201_'","LIKE '2010'","LIKE '2019'","= '201%'","= '201_'","= '201*'"],b:["0","1","'男'","'女'","'ー'"],c:[["ASC","ASC"],["ASC","DESC"],["DESC","ASC"],["DESC","DESC"]],constraints:["UNIQUE","検査","参照","主キー","非NULL"],f:["COUNT(身長)","COUNT(身長階級)","MAX(身長)","MAX(身長階級)","身長","身長階級"]},
+  premises:["年に1回","身長の単位はcm","体重の単位はkg","0.1刻み","小数第2位を四捨五入","DECIMAL(x, y)","精度","位取り","PRIMARY KEY(年度, 受診者ID)","FOREIGN KEY(受診者ID)","REFERENCES 受診者情報表(受診者ID)","WHEN 0 THEN '男'","WHEN 1 THEN '女'","ELSE 'ー'","行の並び順はSQL文の出力順と同じ","受診者情報表に転入生の情報を登録した後","全レコード","ON句","NULL"],
+  preservedMedia:"全5頁の6欄a〜f。c1/c2は一組合せ欄c。二つのCREATE TABLE、ビューCREATE、集計SQL、9列表と省略行、3列階級表、2列の誤った人数表、RIGHT OUTER JOIN SQL。d/eの共通5択も各欄へ全件保持。",
+  domain:"3年代×2性別×年度2方向×学年2方向×身長・境界の5cm平行移動3条件＝72。10年範囲・単位/0.1精度・四捨五入・3学年・全階級・元の6/5/4/5/5/6択数を固定。身長は常に元の桁数で1小数表示、丸めを追加しない。",
+  dataLimit:"原資料は省略された集計結果だけを示す。未公開の全生徒データ、AVG/MAX/MINを完全再現する実行結果又は実DB試験済みとの主張はしない。図の固定査読値・順序・境界とSQL意味/独立の具体的反例で検算する。COUNTの検算用人工レコードを原生徒データと称さず、出題前の補助データとして追加しない。",
+  glyphLimit:{pages:[14,15],sourceTextLayerCharacters:[0,0],visualCheck:"CASE ELSEとbオの引用符内の横線を各3〜4倍の原PDF画像で確認したが、画像だけからー/−/―/一などの元Unicodeは特定できない。補助OCRは一と認識したが、転記承認の根拠にしない。",generatedNormalization:"両方を長音符ー（U+30FC）に統一した改変表記。元と同一Unicodeとの主張はしない。原問題は元の5ページ画像を保持する。",answerImpact:"同じ未定義区分記号として一貫させ、男/女を抽出するb正答、他の解答・数値への影響はない。"},
+  facts:[
+    {topic:"LIKE",url:"https://www.postgresql.org/docs/current/functions-matching.html",reviewed:"2026-10-19",fact:"LIKEの_は任意の1文字、等号ではワイルドカードでない。文字列全体が比較対象。"},
+    {topic:"key-constraints",url:"https://www.postgresql.org/docs/current/ddl-constraints.html",reviewed:"2026-10-19",fact:"主キーは一意性と非NULL、外部キー/参照制約は親行の対応するキーの存在。これらの意味を同義としない。"},
+    {topic:"right-outer-join",url:"https://www.postgresql.org/docs/current/queries-table-expressions.html",reviewed:"2026-10-19",fact:"右外部結合は一致のない右行も左列をNULLに補完して残す。ON条件をWHEREへ動かすことは同じでない。"},
+    {topic:"count",url:"https://www.postgresql.org/docs/current/functions-aggregate.html",reviewed:"2026-10-19",fact:"COUNT(*)は入力行数、COUNT(式)は式がNULLでない行数。MAXは人数の集計ではない。"},
+  ],
+  rights:{status:"source_reviewed_pending_parent_distribution_integration",pages:[13,14,15,16,17],source:"https://www.ipa.go.jp/shiken/faq.html",assessment:"原5頁の本文/全SQL/全表と全解答群を画像確認し、第三者引用・規格本文・API説明の素材は特定しなかった。SQLキーワード/振舞いの事実を外部ドキュメントの文章転載と扱わない。IPA教育用途条件を出典・改変表示付き教材同梱/ブラウザ/生成へ適用するプロジェクト判断。原図表依存部分はIPA派生、独自解説/検算実装は独自部分と分ける。別の大問/付属資料の許諾へ一般化せず、外部問い合わせは送らない。"},
+} as const;
