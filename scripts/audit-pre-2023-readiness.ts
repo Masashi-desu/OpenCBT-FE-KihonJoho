@@ -1,4 +1,5 @@
 import spring2019PMReview from "./source-evidence/stage2-2019-spring-pm-review.json";
+import autumn2019PMReview from "./source-evidence/stage2-2019-autumn-pm-review.json";
 import autumn2018PMReview from "./source-evidence/stage2-2018-autumn-pm-review.json";
 import autumn2017PMReview from "./source-evidence/stage2-2017-autumn-pm-review.json";
 import spring2017PMReview from "./source-evidence/stage2-2017-spring-pm-review.json";
@@ -72,6 +73,23 @@ export function spring2019BookletImportReviews(ledger: Spring2019BookletReadines
       checks, testFiles: question?.testFiles ?? [] };
   });
 }
+/** A pending source or normal-App review yields no passed checks. */
+export function autumn2019BookletImportReviews(ledger: Spring2019BookletReadinessLedger = autumn2019PMReview): ImportReview[] {
+  const hash = ledger.candidateContentSHA256;
+  const proof = (value: Spring2019BookletReadinessLedger["normalApp"]) => value.status === "pass" &&
+    value.candidateContentSHA256 === hash && !!value.evidence?.path && /^[0-9a-f]{64}$/.test(value.evidence.sha256);
+  const rootRecorded = ledger.status === "reviewed_source_and_normal_app" && ledger.collectionId === "2019r01a-fe-pm" && ledger.reviewAdmission.status === "reviewed" &&
+    typeof hash === "string" && /^[0-9a-f]{64}$/.test(hash) && proof(ledger.rootSourceReview) && proof(ledger.normalApp) &&
+    requiredReviews.every(kind => ledger.checks[kind] === "pass");
+  return ledger.majorNumbers.map(number => {
+    const question = ledger.questions.find(row => row.number === number);
+    const checks: ImportReview["checks"] = {};
+    if (rootRecorded && question) for (const kind of requiredReviews) if (question.checks[kind] === "pass") checks[kind] = "pass";
+    return { collectionId: ledger.collectionId, questionNumber: number, paperSha256: ledger.questionPaperSHA256,
+      checks, testFiles: question?.testFiles ?? [] };
+  });
+}
+
 export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportReview>(q => ({
   collectionId: aprilBReview.collectionId, questionNumber: q.number,
   paperSha256: aprilBReview.questionPaper.sha256,
@@ -117,7 +135,7 @@ export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportR
     number >= 5 && number <= 7 ? "tests/legacy-2018-autumn-pm5-7.test.ts" : `tests/legacy-2018-autumn-pm${number}.test.ts`,
     "tests/legacy-2018-autumn-booklet-facts.test.ts", "tests/legacy-2018-autumn-complete-integration.test.ts",
     "tests/legacy-2018-autumn-normal-flow.test.ts", "tests/legacy-2018-autumn-fixed-materials.test.ts"],
-}))).concat(spring2019BookletImportReviews());
+}))).concat(spring2019BookletImportReviews(), autumn2019BookletImportReviews());
 
 export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, reviews = pre2023Reviews, discovery: unknown = discoveryLedger) {
   evidence = losslessJSONCopy(evidence);

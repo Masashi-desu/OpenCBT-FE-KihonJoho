@@ -7,6 +7,7 @@ import { validate2017AutumnFixedMaterials } from "./legacy-2017-autumn-fixed-mat
 import { validate2018SpringFixedMaterials } from "./legacy-2018-spring-material-validation";
 import { validate2018AutumnFixedMaterials } from "./legacy-2018-autumn-material-validation";
 import { validate2019SpringFixedMaterials } from "./legacy-2019-spring-material-validation";
+import { validate2019AutumnFixedMaterials } from "./legacy-2019-autumn-material-validation";
 
 /** Fixed source material credits belong to their individual content/diagram
  * slots. Shared language references cannot inherit the main question's right. */
@@ -18,6 +19,13 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
   validate2018SpringFixedMaterials(base,definition);
   validate2018AutumnFixedMaterials(base,definition);
   validate2019SpringFixedMaterials(base,definition);
+  validate2019AutumnFixedMaterials(base,definition);
+  // Autumn preparation used the same source IDs before formal registration.
+  // Keep those private bases separate: their old profiles/credits must not be
+  // silently replaced by the newly registered producer during binding.
+  if (definition.source.startsWith("2019r01a-fe-pm-") &&
+    !matches(base, definition.build([...template.referenceParameters.values])))
+    throw new DataError("SOURCE_FORMAT", "旧午後の基準問題と生成形式が一致しません。");
   const body = definition.build(values);
   if (base.id !== `question-template-source-${definition.source}` || base.choiceShuffleAllowed ||
     template.baseQuestionRef.questionId !== base.id || template.baseQuestionRef.revision !== base.revision ||
@@ -62,6 +70,7 @@ export function bindLegacyAfternoonQuestion(base: Question, template: Template, 
   validate2018SpringFixedMaterials(question,definition);
   validate2018AutumnFixedMaterials(question,definition);
   validate2019SpringFixedMaterials(question,definition);
+  validate2019AutumnFixedMaterials(question,definition);
   return question;
 }
 
@@ -92,6 +101,7 @@ export function validateLegacyAfternoonFormat(question: Question, definition: Ge
   validate2018SpringFixedMaterials(question,definition);
   validate2018AutumnFixedMaterials(question,definition);
   validate2019SpringFixedMaterials(question,definition);
+  validate2019AutumnFixedMaterials(question,definition);
   // Reviewed source-owned errata/language appendices are fixed references,
   // not fixed images of a generated question. Their exact IDs/order are also
   // checked against the registered body below; catalog rights checks still run.
@@ -99,7 +109,7 @@ export function validateLegacyAfternoonFormat(question: Question, definition: Ge
     "2017h29a-fe-pm-8", "2017h29a-fe-pm-11", "2017h29a-fe-pm-12", "2017h29a-fe-pm-13",
     "2018h30h-fe-pm-8", "2018h30h-fe-pm-10", "2018h30h-fe-pm-12", "2018h30h-fe-pm-13",
     "2018h30a-fe-pm-8", "2018h30a-fe-pm-11", "2018h30a-fe-pm-12", "2018h30a-fe-pm-13",
-    "2019h31h-fe-pm-8", "2019h31h-fe-pm-9", "2019h31h-fe-pm-11", "2019h31h-fe-pm-12", "2019h31h-fe-pm-13"].includes(definition.source);
+    "2019h31h-fe-pm-8", "2019h31h-fe-pm-9", "2019h31h-fe-pm-11", "2019h31h-fe-pm-12", "2019h31h-fe-pm-13", "2019r01a-fe-pm-2", "2019r01a-fe-pm-8", "2019r01a-fe-pm-13"].includes(definition.source);
   const imageRefs = [...new Set(question.contexts.flatMap(context => context.content.blocks
     .flatMap(block => block.type === "image" ? [block.assetId] : [])))];
   if (question.choiceShuffleAllowed || (!fixedReferences && imageRefs.length) ||

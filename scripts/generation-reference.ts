@@ -8,6 +8,7 @@ import { sourceFigureDomains } from "../src/core/source-figures";
 import autumn2017FigureMeaning from "./source-evidence/2017-autumn-figure-meaning.json";
 import spring2018FigureMeaning from "./source-evidence/2018-spring-figure-meaning.json";
 import spring2019FigureMeaning from "./source-evidence/2019-spring-figure-meaning.json";
+import autumn2019FigureMeaning from "./source-evidence/2019-autumn-figure-meaning.json";
 
 const b = readDistributionBundle();
 const c = generationCoverage(b);
@@ -77,6 +78,7 @@ for (const group of groups) {
 md +=
   "\n## 登録図の入力契約\n\nrenderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts及びsrc/core/legacy-afternoon-figures.tsの有限契約を結合して生成する。旧午後の位置別上下限は外接域であり、許可する入力は後掲の査読済み有限組合せに限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／descに保持する。\n\n| profile | valuesの位置別の下限〜上限（0始まり） | 入力の意味・描画との対応 |\n| --- | --- | --- |\n";
 const figureMeaning: Record<string, string> = {
+  ...autumn2019FigureMeaning,
   ...autumn2017FigureMeaning,
   ...spring2018FigureMeaning,
   ...spring2019FigureMeaning,

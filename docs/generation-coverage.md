@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問254件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午後65大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問267件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午後78大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -234,6 +234,24 @@
 | [科目B問18 p.30](https://www.ipa.go.jp/shiken/syllabus/henkou/2022/ssf7ph000000h5tb-att/fe_kamoku_b_set_sample_qs.pdf#page=30) | generator-source-sample-2022-dec-b-18@3.2.0 | 業務用端末の利用変更によるリスク。客先常駐者に許可する端末：0〜1（0）、リスク項目の循環移動：0〜4（0） | 文章・箇条書き／10択 |
 | [科目B問19 p.32](https://www.ipa.go.jp/shiken/syllabus/henkou/2022/ssf7ph000000h5tb-att/fe_kamoku_b_set_sample_qs.pdf#page=32) | generator-source-sample-2022-dec-b-19@3.2.0 | 業務分担と最小権限。二つの空欄にする行：0〜2（0） | 文章・表／5択 |
 | [科目B問20 p.34](https://www.ipa.go.jp/shiken/syllabus/henkou/2022/ssf7ph000000h5tb-att/fe_kamoku_b_set_sample_qs.pdf#page=34) | generator-source-sample-2022-dec-b-20@3.2.0 | FW運用の職務分離。機能と接続経路の制限方式：0〜1（0）、運用担当者数：4〜8（6） | 文章・箇条書き・表／7択 |
+
+### 2019年度 秋期・午後
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午後問1 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=5) | generator-source-2019r01a-fe-pm-1@3.2.0 | 旧制度・午後：テレワークの導入。誤ったルール7の送信元網：0〜2（0） | 文章・図・表／23択・4解答欄 |
+| [旧午後問2 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=10) | generator-source-2019r01a-fe-pm-2@3.2.0 | 旧制度・午後：スレッド並列実行と高速化率。threadCount：2〜4（2）、parallelFractionCase：0〜4（4）、limitCase：0〜4（2）、halfRangeCase：0〜2（1）、indirectAddressCase：0〜4（0） | 画像・文章・コード・図／22択・5解答欄 |
+| [旧午後問3 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=15) | generator-source-2019r01a-fe-pm-3@3.2.0 | 旧制度・午後：書籍と貸出情報の関係データベース。fiscalStartYear：2017〜2019（2018）、minimumLoans：3〜5（4）、acquisitionScenario：0〜2（0） | 文章・図・コード／22択・5解答欄 |
+| [旧午後問4 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=20) | generator-source-2019r01a-fe-pm-4@3.2.0 | NATとNAT64によるアドレス及びポート番号の変換。networkProfile：0〜15（0）、portProfile：0〜5（0） | 図・文章・表／19択・5解答欄 |
+| [旧午後問5 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=24) | generator-source-2019r01a-fe-pm-5@3.2.0 | 旧制度・午後：ストレス判定処理の流れ図と最少テスト。testRowsCase：0〜36（0）、numericCase：0〜2（0） | 文章・表・図／18択・6解答欄 |
+| [旧午後問6 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=28) | generator-source-2019r01a-fe-pm-6@3.2.0 | 旧制度・午後：結合テストの進捗と品質管理。countScaleCase：0〜3（0）、actualBugCase：0〜4（0）、progressCauseCase：0〜2（0）、designCauseScopeCase：0〜1（0） | 文章・表・図・コード／23択・6解答欄 |
+| [旧午後問7 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=33) | generator-source-2019r01a-fe-pm-7@3.2.0 | 旧制度・午後：製品別の収益分析。amountScaleCase：0〜3（0）、safetyTargetCase：0〜4（0）、discountCase：0〜4（0） | 文章・表・コード／21択・5解答欄 |
+| [旧午後問8 p.38](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=38) | generator-source-2019r01a-fe-pm-8@3.2.0 | 旧制度・午後：Bitap法による文字列検索。検索文字列の配置：0〜3（0）、照合前半の条件：0〜2（0） | 画像・文章・図・表／31択・9解答欄 |
+| [旧午後問9 p.45](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=45) | generator-source-2019r01a-fe-pm-9@3.2.0 | 旧制度・午後：C言語のファイルダンプ。excerptOffset：0〜31（0）、lastByteCase：0〜2（0）、emptyFileFrom：0〜1（0） | 文章・表・コード／23択・6解答欄 |
+| [旧午後問10 p.50](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=50) | generator-source-2019r01a-fe-pm-10@3.2.0 | 旧制度・午後：COBOLの販売集計。discountStageCase：0〜3（0）、salesDistributionCase：0〜9（0） | 文章・表・コード／27択・6解答欄 |
+| [旧午後問11 p.57](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=57) | generator-source-2019r01a-fe-pm-11@3.2.0 | 旧制度・午後：Javaの非同期通知とスレッド同期。shutdownRegistryCase：0〜1（0）、notificationBatchCase：0〜3（0）、userDeviceMappingCase：0〜2（0） | 文章・コード・表／30択・6解答欄 |
+| [旧午後問12 p.64](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=64) | generator-source-2019r01a-fe-pm-12@3.2.0 | 旧制度・午後：CASL IIのパック10進数加算。numericExampleCase：0〜15（0）、sameSignCase：0〜1（0） | 文章・図・コード・表／44択・8解答欄 |
+| [旧午後問13 p.70](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_pm_qs.pdf#page=70) | generator-source-2019r01a-fe-pm-13@3.2.0 | 旧制度・午後：表計算のメロン仕分と価格算出。shipmentDataCase：0〜7（0）、unitPriceCase：0〜4（0） | 画像・文章・表・図／40択・6解答欄 |
 
 ### 2019年度 春期・午後
 
@@ -700,6 +718,27 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2019-spring-pm13-bank | 0：1〜16、1：0〜5 | 0：完全な販売明細と商品選択の条件1〜16。3333販売行・531登録会員を保ち、商品コード、単価・数量・合計、同額時の最終日の関係を同じ実データから計算する。生成例では531会員全員の指定商品購入が実データに含まれる。原の部分観測0は年度別原資料用であり、この生成域に含めない。1：群0=a、1=b、2=c、3=d、4=e、5=f。全33択の参照範囲・端数・順位/同額時日付・入替処理の役割を維持する。 |
 | legacy-2019-spring-pm13-product | 0：1〜16、1：0〜0 | 0：完全な販売明細と商品選択の条件1〜16。3333販売行・531登録会員を保ち、商品コード、単価・数量・合計、同額時の最終日の関係を同じ実データから計算する。生成例では531会員全員の指定商品購入が実データに含まれる。原の部分観測0は年度別原資料用であり、この生成域に含めない。1：固定単位0。図4の商品別管理へ商品コード・購入会員別金額・最終日と金額降順/同額時日付順を反映する。生成例の購入会員531・最終行533と、原資料の223・225を区別する。 |
 | legacy-2019-spring-pm13-macro | 0：1〜16、1：0〜0 | 0：完全な販売明細と商品選択の条件1〜16。3333販売行・531登録会員を保ち、商品コード、単価・数量・合計、同額時の最終日の関係を同じ実データから計算する。生成例では531会員全員の指定商品購入が実データに含まれる。原の部分観測0は年度別原資料用であり、この生成域に含めない。1：固定単位0。manageMembersの全33行、制御の入れ子・空欄d/e/fに対応する処理を保持する。各会員の最終日は明細から実代入される生成例で検算し、原一般仕様の未代入値の扱いを補造しない。 |
+| legacy-2019-autumn-pm1-telework-network-before | 0：0〜0 | 0：固定単位0。原のA社内LAN、FW、サーバ、PCとインターネットの接続を保持する。誤ったルールの送信元条件はこの導入前図を変えない。 |
+| legacy-2019-autumn-pm1-telework-network-after | 0：0〜0 | 0：固定単位0。原のVPN・VDI導入後の接続と機器アドレスを保持する。ルールの送信元条件は本文の表へ反映し、このネットワーク図へ正答の経路を加えない。 |
+| legacy-2019-autumn-pm2-parallel-split | 0：1〜4、1：0〜2 | 0：原プログラム番号。1：配列の分割範囲の条件。元の繰返しと二つのスレッドの開始・終了・処理式を同期し、実線のプログラム枠、破線の繰返し枠、二つの分割矢印を保持する。 |
+| legacy-2019-autumn-pm2-parallel-ip | 0：0〜4 | 0：間接参照配列の5条件。添字1〜10と先頭5要素を表示し、後半5要素は空欄eとして保持する。 |
+| legacy-2019-autumn-pm2-parallel-ip-option | 0：0〜4、1：0〜3 | 0：選択肢用の配列条件。1：4候補の位置。解答群の五つのセルを同じ候補順で表示し、配列の説明を解答前に補足しない。 |
+| legacy-2019-autumn-pm3-library-schema | 0：0〜1 | 0：原の構成図1又は複数冊対応の構成図2。表名、列順、主キーの実線下線と外部キーの破線下線を保持する。年度・貸出回数の生成条件は図のキー構造を変えない。 |
+| legacy-2019-autumn-pm4-nat-selection | 0：0〜0 | 0：固定単位0。静的NAT・動的NATについて、三つの利用場面を組み合わせる原の解答群を表示する。 |
+| legacy-2019-autumn-pm4-nat-rewrite-table | 0：0〜0 | 0：固定単位0。書換え対象・書換え前・書換え後の見出し、送信時／返信時、対応するIPアドレスとポート番号の行を保持する。 |
+| legacy-2019-autumn-pm4-nat-instruction | 0：0〜0 | 0：固定単位0。設問2の空欄と解答群を選ぶ指示を表示する。 |
+| legacy-2019-autumn-pm4-nat-dns64-statement | 0：0〜0 | 0：固定単位0。DNS64の問で与えられる名前解決とアドレス合成の前提・注記を保持する。 |
+| legacy-2019-autumn-pm4-nat64-packets | 0：0〜15、1：0〜5 | 0：16通りのネットワークアドレス条件。1：6通りのポート条件。四つのパケットの送信方向と16欄、IPv6のプレフィクスと12バイトの注記、空欄b/c/dを保持する。 |
+| legacy-2019-autumn-pm5-stress-range | 0：0〜36、1：0〜2 | 0：37通りのテストデータ配置。1：数値例の3条件。判定領域の固定閾値・目盛り・網掛けを保つ独立作図であり、テストデータの条件は本文の表へ反映する。原の質問票文面と原図の画像は用いない。 |
+| legacy-2019-autumn-pm5-stress-flow | 0：0〜36、1：0〜2 | 0：37通りのテストデータ配置。1：数値例の3条件。判定手順の接続、空欄a〜d、Yes/Noと代入を保持する。正答条件の埋込みや経路の強調は加えない。 |
+| legacy-2019-autumn-pm6-test-progress | 0：0〜3、1：0〜4、2：0〜2、3：0〜1 | 0：規模・件数の倍率条件0〜3。1：実績バグ数の条件0〜4。2：進捗遅延原因0〜2。3：設計誤りの範囲0/1。進捗の軸、計画と実績、担当単位と凡例を保持し、本文の表・条件へ同期する。 |
+| legacy-2019-autumn-pm8-bitap-text-array | 0：0〜3、1：0〜2 | 0：検索文字列の4配置。1：照合前半の3条件。文字列、パターン、配列・マスクと添字を同じ条件へ同期する。 |
+| legacy-2019-autumn-pm8-bitap-program1 | 0：0〜0 | 0：固定単位0。原BitapMatchのプログラム1を、16ビット・添字・ループ条件・空欄の位置を保って表示する。 |
+| legacy-2019-autumn-pm8-bitap-program2 | 0：0〜0 | 0：固定単位0。原BitapMatchのプログラム2を、初期化・比較・マスク・空欄の位置を保って表示する。 |
+| legacy-2019-autumn-pm8-bitap-program3 | 0：0〜0 | 0：固定単位0。原BitapMatchのプログラム3を、定義・ループと空欄の位置を保って表示する。 |
+| legacy-2019-autumn-pm12-packed-word | 0：0〜15、1：0〜1 | 0：数値例0〜15。1：図示する入力の符号条件（0は正、1は負）。16ビットのパック10進数で、3桁の数字と符号のニブル配置を本文の値へ同期する。 |
+| legacy-2019-autumn-pm12-packed-add | 0：0〜15、1：0〜1 | 0：数値例0〜15。1：同符号入力の符号条件（0は共に正、1は共に負）。二つの16ビット入力と和の数字・符号ニブルを本文の同符号加算例へ同期する。原fの正解なしと生成版の独立した解答群修正は、本文・解答群の区分として保持する。 |
+| legacy-2019-autumn-pm13-melon-packing | 0：0〜7、1：0〜4 | 0：出荷データ8条件。1：単価5条件。原のPackingマクロと空欄d/e/f、相対参照、5kg又は4個の条件、最後の未達箱を除く処理を保持する。原の非表示データの復元とは扱わない。 |
 | legacy-2017-pm3-waste-database | 0：0〜0 | 図の入力[0]は固定の4表・14見出し・14データセル・5主キー下線を表す。問題の4条件と4正答署名は別の問題パラメータで切り替える。 |
 
 旧午後の管理図は src/core/legacy-afternoon-figures.ts が登録された問題定義の有限入力から作る厳密なtuple辞書で検査する。上の上下限は外接域であり、個々の整数が範囲内でも未登録の組合せは拒否する。素材の出典と権利は基準問題の同じ本文・図・付属資料の単位から継承する。固定の問題本文画像は生成へ流用せず、登録された公式付属資料（正誤表・共通記法・API・言語仕様）だけを個別の素材条件・厳密なIDと位置で保持する。

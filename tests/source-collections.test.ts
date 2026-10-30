@@ -73,8 +73,8 @@ test("two synthetic collections coexist with the real same-year booklet and reta
   const b = legacyFixture();
   const sameYear = sourceCollections(b, "B").filter(s => s.title.startsWith("2019"));
   const sets = sameYear.filter(s => s.id.startsWith("set-question-test-legacy-"));
-  assert.deepEqual(sameYear.filter(s => !sets.includes(s)).map(s => [s.id, s.questionRefs.length]), [["set-annual-2019-spring-pm", 13]]);
-  assert.equal(sameYear.length, 3);
+  assert.deepEqual(sameYear.filter(s => !sets.includes(s)).map(s => [s.id, s.questionRefs.length]), [["set-annual-2019-spring-pm", 13], ["set-annual-2019-autumn-pm", 13]]);
+  assert.equal(sameYear.length, 4);
   assert.equal(sets.length, 2);
   for (const set of sets) {
     const selection: Selection = { subject: "B", kind: "annual", sourceCollectionId: set.id,

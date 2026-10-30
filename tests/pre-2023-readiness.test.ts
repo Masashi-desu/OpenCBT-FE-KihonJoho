@@ -5,14 +5,16 @@ import { fixture } from "./fixtures";
 import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope } from "../scripts/audit-pre-2023-readiness";
 
 const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-pre-2023.json", "utf8"));
+// Historical cohort assertions explicitly remove both later2019 booklets.
+// They do not redefine the current full distribution or its required scope.
 const initialBaseline = () => {
   const b = fixture();
-  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019h31h-fe-pm-)/.test(q.id));
-  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019h31h-fe-pm-)/.test(t.id));
+  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019(?:h31h|r01a)-fe-pm-)/.test(q.id));
+  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019(?:h31h|r01a)-fe-pm-)/.test(t.id));
   return b;
 };
 test("the requested expansion cannot pass using the 103 already-distributed questions", () => {
-  const reviews = pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm").map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
+  const reviews = pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm" && r.collectionId !== "2019r01a-fe-pm").map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   const report = auditPre2023Readiness(initialBaseline(), evidence(), reviews);
   assert.equal(report.status, "not_ready");
   assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062, originalSemanticsReviewed: 138, ready: 0 });
@@ -37,9 +39,9 @@ test("deleting an unimplemented collection or changing its count never makes the
 
 test("86 samples and four complete 13-major booklets clear seven collections while the remaining 2,924 units stay pending", () => {
   const beforeS205 = fixture();
-  beforeS205.questions = beforeS205.questions.filter(q => !q.id.includes("2019h31h-fe-pm-"));
-  beforeS205.templates = beforeS205.templates.filter(t => !t.id.includes("2019h31h-fe-pm-"));
-  const report = auditPre2023Readiness(beforeS205, evidence(), pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm"));
+  beforeS205.questions = beforeS205.questions.filter(q => !/2019(?:h31h|r01a)-fe-pm-/.test(q.id));
+  beforeS205.templates = beforeS205.templates.filter(t => !/2019(?:h31h|r01a)-fe-pm-/.test(t.id));
+  const report = auditPre2023Readiness(beforeS205, evidence(), pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm" && r.collectionId !== "2019r01a-fe-pm"));
   assert.equal(report.status, "not_ready");
   assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2924, originalSemanticsReviewed: 138, ready: 138 });
   assert.equal(report.collections.find(c => c.id === "2017h29h-fe-pm")!.ready, 13);
@@ -62,7 +64,7 @@ test("a review cannot silently move to a different PDF, question or collection",
 });
 
 test("an independently checked original alone does not clear its generator, rights or rendering", () => {
-  const reviews = pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm").map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
+  const reviews = pre2023Reviews.filter(r => r.collectionId !== "2019h31h-fe-pm" && r.collectionId !== "2019r01a-fe-pm").map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   const report = auditPre2023Readiness(initialBaseline(), evidence(), reviews);
   const collection = report.collections.find(c => c.id === "2022-apr-sample-b")!;
   assert.equal(collection.ready, 0);
@@ -101,9 +103,9 @@ test("the new13 registered majors remain pending when any one of the five scoped
     const reviews = structuredClone(pre2023Reviews);
     for (const review of reviews) if (review.collectionId === "2018h30a-fe-pm") delete review.checks[check];
     const oldBooklets = fixture();
-    oldBooklets.questions = oldBooklets.questions.filter(q => !q.id.includes("2019h31h-fe-pm-"));
-    oldBooklets.templates = oldBooklets.templates.filter(t => !t.id.includes("2019h31h-fe-pm-"));
-    const report = auditPre2023Readiness(oldBooklets, evidence(), reviews.filter(r => r.collectionId !== "2019h31h-fe-pm"));
+    oldBooklets.questions = oldBooklets.questions.filter(q => !/2019(?:h31h|r01a)-fe-pm-/.test(q.id));
+    oldBooklets.templates = oldBooklets.templates.filter(t => !/2019(?:h31h|r01a)-fe-pm-/.test(t.id));
+    const report = auditPre2023Readiness(oldBooklets, evidence(), reviews.filter(r => r.collectionId !== "2019h31h-fe-pm" && r.collectionId !== "2019r01a-fe-pm"));
     assert.equal(report.status, "not_ready");
     assert.equal(report.summary.ready, 125);
     assert.equal(report.summary.missingOriginals, 2924);
@@ -111,5 +113,31 @@ test("the new13 registered majors remain pending when any one of the five scoped
     assert.equal(collection.questions.length, 13);
     assert(collection.questions.every(q => q.pending.includes(check)));
     assert.equal(collection.ready, 0);
+  }
+});
+
+
+test("the complete current267-source catalog admits six13-major booklets while all67/3062 scope and2898 pending units stay visible", () => {
+  const report = auditPre2023Readiness(fixture(), evidence());
+  assert.equal(report.status, "not_ready");
+  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2898, originalSemanticsReviewed: 164, ready: 164 });
+  for (const id of ["2017h29h-fe-pm", "2017h29a-fe-pm", "2018h30h-fe-pm", "2018h30a-fe-pm", "2019h31h-fe-pm", "2019r01a-fe-pm"])
+    assert.equal(report.collections.find(c => c.id === id)!.ready, 13);
+  assert.equal(report.scopeDiscovery.status, "pending_materials_and_boundaries");
+  assert.equal(report.scopeDiscovery.incorporatedPendingUnits, 930);
+  assert.equal(report.scopeDiscovery.unknownBoundaryUnits, null);
+});
+
+test("each missing scoped review keeps all13 autumn2019 majors pending without hiding their registered originals", () => {
+  for (const check of ["transcription", "rights", "originalSemantics", "generatorSemantics", "rendering"] as const) {
+    const reviews = structuredClone(pre2023Reviews);
+    assert.equal(reviews.filter(r => r.collectionId === "2019r01a-fe-pm").length, 13);
+    for (const review of reviews) if (review.collectionId === "2019r01a-fe-pm") delete review.checks[check];
+    const report = auditPre2023Readiness(fixture(), evidence(), reviews), collection = report.collections.find(c => c.id === "2019r01a-fe-pm")!;
+    assert.equal(report.status, "not_ready");
+    assert.equal(report.summary.collections, 67); assert.equal(report.summary.requestedUnits, 3062);
+    assert.equal(report.summary.ready, 151); assert.equal(report.summary.missingOriginals, 2898);
+    assert.equal(collection.questions.length, 13); assert.equal(collection.ready, 0);
+    assert(collection.questions.every(q => q.pending.includes(check) && !q.pending.includes("missing_original")));
   }
 });

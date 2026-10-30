@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import discovery from '../scripts/source-evidence/pre-2009-official-discovery-review.json';
 import { auditPre2023Discovery as gate, finalizePre2023Readiness as finalStatus, DiscoveryGateError } from '../scripts/pre-2023-discovery-gate';
-import { auditPre2023Readiness } from '../scripts/audit-pre-2023-readiness';
+import { auditPre2023Readiness, autumn2019BookletImportReviews } from '../scripts/audit-pre-2023-readiness';
 import { fixture } from './fixtures';
 const clone=structuredClone;
 const ledger=():typeof discovery=>clone(discovery);
@@ -34,7 +34,8 @@ test('even all enumerated questions ready cannot bypass pending discovery; futur
  const futureToy={ready:true};assert.equal(finalStatus(false,true,futureToy),'not_ready');assert.equal(finalStatus(true,false,futureToy),'not_ready');assert.equal(finalStatus(true,true,futureToy),'ready');
  const evidence=JSON.parse(fs.readFileSync('scripts/source-evidence/ipa-pre-2023.json','utf8'));
  const actual=auditPre2023Readiness(fixture(),evidence);
- assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:2911,originalSemanticsReviewed:151,ready:151});
+ const autumnReady=autumn2019BookletImportReviews().every(r=>['transcription','rights','originalSemantics','generatorSemantics','rendering'].every(k=>(r.checks as Record<string,string>)[k]==='pass'))?13:0;
+ assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:2898,originalSemanticsReviewed:151+autumnReady,ready:151+autumnReady});
  assert.equal(actual.scopeDiscovery.ready,false);assert.equal(actual.scopeDiscovery.listedCollections,20);assert.equal(actual.status,'not_ready');
  assert.throws(()=>auditPre2023Readiness(fixture(),evidence,undefined,{}),invalid);
 });

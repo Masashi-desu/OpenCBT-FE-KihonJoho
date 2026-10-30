@@ -1,0 +1,25 @@
+/* Original NAT table/packet roles retain their own geometry at every zoom.
+   Shared UI colors come from tokens.css; other autumn figures style themselves. */
+.legacy-2019-autumn-source-figure { min-width: 0; max-width: 100%; }
+.legacy-2019-autumn-source-figure .nat-pan { overflow: auto; max-width: 100%; }
+.legacy-2019-autumn-source-figure .nat-svg {
+  display: block;
+  width: max(calc(1180px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1)));
+  max-width: none;
+  height: auto;
+  color: var(--diagram-ink);
+  font-size: 20px;
+}
+.legacy-2019-autumn-source-figure .nat-svg rect { fill: none; stroke: currentColor; stroke-width: 1.5; }
+.legacy-2019-autumn-source-figure .nat-svg line,
+.legacy-2019-autumn-source-figure .nat-svg path { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.legacy-2019-autumn-source-figure .nat-svg text { fill: currentColor; stroke: none; text-anchor: middle; font-family: sans-serif; }
+.legacy-2019-autumn-source-figure .nat-svg .nat-left { text-anchor: start; }
+.legacy-2019-autumn-source-figure .nat-table table { min-width: 700px; border-collapse: collapse; }
+.legacy-2019-autumn-source-figure .nat-table th,
+.legacy-2019-autumn-source-figure .nat-table td { border: 1px solid var(--line); padding: .35em .6em; white-space: nowrap; }
+.legacy-2019-autumn-source-figure .nat-blank { display: inline-block; min-width: 2em; padding-inline: .4em; border: 1px solid var(--text-primary); text-align: center; }
+.legacy-2019-autumn-source-figure .nat-notice { padding: .5em; border: 1px solid var(--line); }
+.legacy-2019-autumn-source-figure .nat-circle { display: inline-grid; place-items: center; width: 1.5em; height: 1.5em; border: 1px solid var(--text-primary); border-radius: 50%; }
+/* Keep SVG text unoutlined without an inline style element under the app CSP. */
+.legacy-2019-autumn-source-figure [data-telework-profile] text { stroke: none; }

@@ -333,9 +333,9 @@ test("GPU and every reference/rotated binding can be issued on all four random p
   assert.deepEqual(bundle, original);
 });
 
-// Only this source-reviewed 1081-input domain is admitted above the existing
-// exhaustive256 bound. Identity, version and both declared domains are pinned;
-// any future enlargement or another old-PM domain still fails for review.
+// Only these source-reviewed 1081/1125-input domains are admitted above the
+// existing exhaustive256 bound. Identity, version, both declared domains and
+// references are pinned; future enlargement still fails for review.
 function finiteSeedBudget(template: Template, contract: NonNullable<ReturnType<typeof contractFor>>, afternoon: boolean) {
   const fields = contract.fields,
     capacity = fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1);
@@ -350,6 +350,25 @@ function finiteSeedBudget(template: Template, contract: NonNullable<ReturnType<t
     assert.deepEqual(contract.reference, [0]);
     assert.deepEqual(template.referenceParameters.values, [0]);
     assert.equal(capacity, 1081);
+    return 32768;
+  }
+  if (template.id === "template-source-2019r01a-fe-pm-2") {
+    assert(afternoon);
+    assert.equal(contract.source, "2019r01a-fe-pm-2");
+    assert.equal(contract.version, "3.2.0");
+    assert.deepEqual(template.generatorRef, { id: "generator-source-2019r01a-fe-pm-2", version: "3.2.0" });
+    const reviewedFields = [
+      { name: "threadCount", minimum: 2, maximum: 4 },
+      { name: "parallelFractionCase", minimum: 0, maximum: 4 },
+      { name: "limitCase", minimum: 0, maximum: 4 },
+      { name: "halfRangeCase", minimum: 0, maximum: 2 },
+      { name: "indirectAddressCase", minimum: 0, maximum: 4 },
+    ];
+    assert.deepEqual(fields, reviewedFields);
+    assert.deepEqual(template.parameterDomain, { values: { length: 5, minimum: 0, maximum: 4 }, fields: reviewedFields });
+    assert.deepEqual(contract.reference, [2, 4, 2, 1, 0]);
+    assert.deepEqual(template.referenceParameters.values, [2, 4, 2, 1, 0]);
+    assert.equal(capacity, 1125);
     return 32768;
   }
   if (afternoon) assert(capacity <= 256, `${template.id}: all finite afternoon inputs require exhaustive coverage`);
@@ -384,12 +403,50 @@ test("only the exact reviewed2018 autumnQ13 domain expands exhaustive finite sam
   assert.throws(() => finiteSeedBudget(template, contract, false), { code: "ERR_ASSERTION" });
   for (const old of generationCoverage(bundle).rows.filter(r => isAfternoon(r.original) && r.linked[0].id !== template.id)) {
     const t = old.linked[0], c = structuredClone(contractFor(t)!);
-    assert.equal(finiteSeedBudget(t, c, true), 4096);
+    assert.equal(finiteSeedBudget(t, c, true), t.id === "template-source-2019r01a-fe-pm-2" ? 32768 : 4096);
     c.fields = [{ name: "未査読の拡大域", minimum: 0, maximum: 256 }];
     assert.throws(() => finiteSeedBudget(t, c, true), { code: "ERR_ASSERTION" });
   }
   const current = generationCoverage(bundle).rows.find(r => !isAfternoon(r.original) && contractFor(r.linked[0])!.fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1) > 256)!;
   assert.equal(finiteSeedBudget(current.linked[0], contractFor(current.linked[0])!, false), undefined);
+});
+
+test("only the exact reviewed2019 autumnQ2 five-field domain extends exhaustive coverage to all1125 inputs", async () => {
+  const bundle = fixture(), row = generationCoverage(bundle).rows.find(row => row.linked[0].id === "template-source-2019r01a-fe-pm-2")!,
+    template = row.linked[0], contract = contractFor(template)!;
+  assert.equal(finiteSeedBudget(template, contract, isAfternoon(row.original)), 32768);
+  const mutants: ((template: Template, contract: NonNullable<ReturnType<typeof contractFor>>) => void)[] = [
+    t => { t.id = "template-source-2019r01a-fe-pm-3"; },
+    t => { t.generatorRef.id = "generator-source-2019r01a-fe-pm-3"; },
+    t => { t.generatorRef.version = "3.3.0"; },
+    (_t, c) => { c.source = "2019r01a-fe-pm-3"; },
+    (_t, c) => { c.version = "3.3.0"; },
+    (_t, c) => { c.fields.push({ ...c.fields[0] }); },
+    (_t, c) => { c.fields.reverse(); },
+    t => { t.parameterDomain.values.length = 4; },
+    t => { t.parameterDomain.values.minimum = -1; },
+    t => { t.parameterDomain.values.maximum = 5; },
+    t => { t.referenceParameters.values = [2, 4, 2, 1, 1]; },
+    (_t, c) => { c.reference = [2, 4, 2, 1, 1]; },
+    ...contract.fields.flatMap((_, index) => [
+      (_t: Template, c: NonNullable<ReturnType<typeof contractFor>>) => { c.fields[index].name += "未査読"; },
+      (_t: Template, c: NonNullable<ReturnType<typeof contractFor>>) => { c.fields[index].minimum--; },
+      (_t: Template, c: NonNullable<ReturnType<typeof contractFor>>) => { c.fields[index].maximum++; },
+      (t: Template) => { t.parameterDomain.fields![index].maximum++; },
+    ]),
+  ];
+  for (const mutate of mutants) {
+    const t = structuredClone(template), c = structuredClone(contract); mutate(t, c);
+    assert.throws(() => finiteSeedBudget(t, c, true), { code: "ERR_ASSERTION" });
+  }
+  assert.throws(() => finiteSeedBudget(template, contract, false), { code: "ERR_ASSERTION" });
+  const candidates: number[][] = [];
+  for (let thread = 2; thread <= 4; thread++) for (let fraction = 0; fraction <= 4; fraction++)
+    for (let limit = 0; limit <= 4; limit++) for (let half = 0; half <= 2; half++)
+      for (let indirect = 0; indirect <= 4; indirect++) candidates.push([thread, fraction, limit, half, indirect]);
+  assert.equal(candidates.length, 1125);
+  candidates.forEach(values => checkParameters(template, values));
+  assert.equal((await seedsFor(template, candidates, finiteSeedBudget(template, contract, true))).size, 1125);
 });
 
 test("every small-domain binding survives every applicable issuance path and endless history, including all old afternoon inputs", async (ctx) => {
@@ -414,6 +471,7 @@ test("every small-domain binding survives every applicable issuance path and end
     });
     assert(candidates.length > 1, template.id);
     if (template.id === "template-source-2018h30a-fe-pm-13") assert.equal(candidates.length, 1081);
+    if (template.id === "template-source-2019r01a-fe-pm-2") assert.equal(candidates.length, 1125);
     const seeds = await seedsFor(template, candidates, maximumSeeds),
       routes = routesFor(bundle, row.original, template),
       precedents: Run[] = [],

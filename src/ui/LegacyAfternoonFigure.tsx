@@ -1,3 +1,4 @@
+import { Legacy2019AutumnPmSourceFigure } from "./Legacy2019AutumnPmSourceFigures";
 import spring2019FigureProfiles from "../core/generators/legacy-2019-spring-profiles.json";
 import { Legacy2019SpringAfternoonFigure } from "./Legacy2019SpringAfternoonFigure";
 import { readLegacyAfternoonFigure } from "../core/legacy-afternoon-figures";
@@ -64,6 +65,7 @@ const autumnFigures = [Legacy2017AutumnPm1Figure, Legacy2017AutumnPm2Figure, Leg
 export function LegacyAfternoonFigure({ profile, values, caption }: { profile: string; values: number[]; caption: string }) {
   if (readLegacyAfternoonFigure(profile, values).caption !== caption)
     throw new DataError("SOURCE_MATERIAL", "旧午後の図の見出しが一致しません。");
+  if (profile.startsWith("legacy-2019-autumn-pm")) return <div className="legacy-2019-autumn-source-figure"><Legacy2019AutumnPmSourceFigure {...{ profile, values, caption, alt: readLegacyAfternoonFigure(profile, values).alt }} /></div>;
   if (spring2019FigureProfiles.includes(profile)) return <Legacy2019SpringAfternoonFigure {...{ profile, values, caption }} />;
   if (profile === "legacy-2018-security-mandatory-notice" || profile === "legacy-2018-security-attack-evidence")
     return <Legacy2018SecurityText {...{ profile, values, caption }} />;

@@ -11,9 +11,9 @@ const initial: Selection = { subject: "A", kind: "annual", year: 2026, mode: "st
 
 test("the menu lists every publication before subject selection, including the B-only April sample", () => {
   const b = fixture(), groups = menuSourceGroups(b);
-  assert.deepEqual(groups.map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 春期・午後", "旧制度 · 2018年度 秋期・午後", "旧制度 · 2018年度 春期・午後", "旧制度 · 2017年度 秋期・午後", "旧制度 · 2017年度 春期・午後"]);
+  assert.deepEqual(groups.map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 秋期・旧午後", "旧制度 · 2019年度 春期・午後", "旧制度 · 2018年度 秋期・午後", "旧制度 · 2018年度 春期・午後", "旧制度 · 2017年度 秋期・午後", "旧制度 · 2017年度 春期・午後"]);
   const all = [...sourceCollections(b, "A"), ...sourceCollections(b, "B")];
-  assert.equal(all.length, 16); // Four A/B publications, three sample sets, and five old-PM booklets.
+  assert.equal(all.length, 17); // Four A/B publications, three sample sets, and six old-PM booklets.
   assert.deepEqual(groups.flatMap(g => g.collections.map(c => c.id)).sort(), all.map(c => c.id).sort());
   assert.equal(new Set(groups.flatMap(g => g.collections.map(c => c.id))).size, all.length);
   const partial2025 = groups.find(g => g.collections.some(c => c.id === "set-annual-2025-b"))!;
@@ -84,13 +84,13 @@ function withLegacySets() {
 
 test("legacy morning, afternoon, spring, autumn and special exams remain distinct choices and retain their own labels/time", () => {
   const b = withLegacySets(), groups = menuSourceGroups(b), legacy = groups.filter(g => g.timeSlot);
-  assert.equal(legacy.length, 11);
-  assert.equal(new Set(legacy.map(g => g.id)).size, 11);
+  assert.equal(legacy.length, 12);
+  assert.equal(new Set(legacy.map(g => g.id)).size, 12);
   const synthetic = legacy.filter(group => group.collections.every(collection => collection.id.startsWith("set-question-menu-test-")));
   assert.equal(synthetic.length, 6);
-  // All five actual booklets coexist with all six synthetic controls, including the same-year spring afternoon.
+  // All six actual booklets coexist with all six synthetic controls, including the same-year spring/autumn afternoon.
   const actualBooklets = legacy.filter(group => !synthetic.includes(group));
-  assert.deepEqual(actualBooklets.map(group => [group.year, group.period]), [[2019, "春期"], [2018, "秋期"], [2018, "春期"], [2017, "秋期"], [2017, "春期"]]);
+  assert.deepEqual(actualBooklets.map(group => [group.year, group.period]), [[2019, "秋期"], [2019, "春期"], [2018, "秋期"], [2018, "春期"], [2017, "秋期"], [2017, "春期"]]);
   for (const actual of actualBooklets) {
   assert.equal(actual.timeSlot, "午後");
   assert.equal(actual.collections[0].questionRefs.length, 13);

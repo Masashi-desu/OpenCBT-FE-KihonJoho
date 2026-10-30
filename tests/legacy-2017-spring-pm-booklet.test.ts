@@ -100,15 +100,15 @@ function assertScore(run: Run, selectedNumbers: readonly number[]) {
   }
 }
 
-test("実配布は既存189系列（2022年86問を含む）と旧午後5冊各13系列を一対一に保持する", async () => {
+test("実配布は既存189系列（2022年86問を含む）と旧午後6冊各13系列を一対一に保持する", async () => {
   const { bundle, collection, originals, bases, templates, refs } = realBooklet();
   assert.equal(baseline.rows.length, 189);
   const previousOriginals = baseline.rows.flatMap(row => row.originals.map(original => original.ref.questionId));
   assert.equal(previousOriginals.length, 189); assert.equal(new Set(previousOriginals).size, 189);
-  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind === "official_reprint").map(q => q.id)), sorted([...previousOriginals, ...numbers.map(originalId), ...numbers.map(n => `question-ipa-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019h31h-fe-pm-${n}`)]));
-  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind !== "official_reprint").map(q => q.id)), sorted([...baseline.rows.map(row => row.base.id), ...numbers.map(baseId), ...numbers.map(n => `question-template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019h31h-fe-pm-${n}`)]));
-  assert.deepEqual(sorted(bundle.templates.map(t => t.id)), sorted([...baseline.rows.map(row => row.template.id), ...numbers.map(templateId), ...numbers.map(n => `template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `template-source-2019h31h-fe-pm-${n}`)]));
-  assert.equal(bundle.questions.length, 508); assert.equal(bundle.templates.length, 254);
+  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind === "official_reprint").map(q => q.id)), sorted([...previousOriginals, ...numbers.map(originalId), ...numbers.map(n => `question-ipa-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019r01a-fe-pm-${n}`)]));
+  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind !== "official_reprint").map(q => q.id)), sorted([...baseline.rows.map(row => row.base.id), ...numbers.map(baseId), ...numbers.map(n => `question-template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019r01a-fe-pm-${n}`)]));
+  assert.deepEqual(sorted(bundle.templates.map(t => t.id)), sorted([...baseline.rows.map(row => row.template.id), ...numbers.map(templateId), ...numbers.map(n => `template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `template-source-2019r01a-fe-pm-${n}`)]));
+  assert.equal(bundle.questions.length, 534); assert.equal(bundle.templates.length, 267);
   for (const [setId, prefix, count] of [["set-sample-2022-apr-b", "sample-2022-apr-b", 6],
     ["set-sample-2022-dec-a", "sample-2022-dec-a", 60], ["set-sample-2022-dec-b", "sample-2022-dec-b", 20]] as const) {
     const set = one(bundle.sets, setId);

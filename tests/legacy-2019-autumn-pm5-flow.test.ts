@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {legacy2019AutumnStressDefinitions as defs} from '../src/core/generators/legacy-2019-autumn-pm5';
+// QS26 is one B diamond with three parallel exits, not nested if/else.
+const body=defs[0].build(defs[0].reference);
+function choice(part:number){const answer=body.partAnswers!.find(x=>'partId'in x&&x.partId===body.answerParts![part].id)!;assert.equal(answer.kind,'choice');if(answer.kind!=='choice')throw Error('choice');const choice=body.choices![Number(answer.choiceId.split('-').at(-1))-1][0];assert.equal(choice.type,'paragraph');if(choice.type!=='paragraph')throw Error('paragraph');return choice.text;}
+function condition(s:string,n:number){const pair=s.match(/^(\d+)点以上かつ(\d+)点以下$/);if(pair)return n>=Number(pair[1])&&n<=Number(pair[2]);const one=s.match(/^(\d+)点(以上|以下)$/);assert(one);return one[2]==='以上'?n>=Number(one[1]):n<=Number(one[1]);}
+test('Q5 source three-exit B and two-exit AC diamonds partition all128128 feasible A/B/C totals',()=>{let checked=0;const[a,b,c,d]=[0,1,2,3].map(choice);for(let A=17;A<=68;A++)for(let B=29;B<=116;B++)for(let C=9;C<=36;C++){const exits=[B>=77,condition(a,B),condition(b,B)];assert.equal(exits.filter(Boolean).length,1);const results:number[]=[];if(exits[0])results.push(1);if(exits[1])results.push(0);if(exits[2]){const ac=[condition(c,A+C),condition(d,A+C)];assert.equal(ac.filter(Boolean).length,1);results.push(ac[0]?1:0);}assert.deepEqual(results,[Number(B>=77||(B>=63&&A+C>=76))]);checked++;}assert.equal(checked,128128);});
+test('Q5 option カ overlaps an existing parallel exit and has an explicit conflicting-result witness',()=>{const A=17,B=77,C=9;assert.equal(B>=77,true);assert.equal(condition('63点以上かつ77点以下',B),true);assert.equal(condition(choice(2),A+C),false);assert.equal(condition(choice(3),A+C),true);assert.deepEqual([1,0],[Number(B>=77),0]);/* left exit assigns1; right exit reaches d and leaves0 */});

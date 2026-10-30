@@ -33,8 +33,8 @@ const selection: Selection = {
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
   const rows = generationCoverage(bundle).rows;
-  assert.equal(rows.length, 254);
-  assert.equal(rows.filter(row => row.original.answerParts).length, 65);
+  assert.equal(rows.length, 267);
+  assert.equal(rows.filter(row => row.original.answerParts).length, 78);
   for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {
       ...selection,
@@ -87,10 +87,15 @@ test("all bookmarked series append to one session and aggregate every answer wit
     assert.equal(completed.result!.revealedCount, 1);
     assert.equal(completed.result!.learningAccuracyPercent, 33.3);
     if (row.original.answerParts) {
-      const fields = row.original.answerParts.length,
-        unscored = row.original.correctAnswer.parts!.filter(answer => answer.kind === "no_correct_answer").length,
+      // A repaired generated field can have a different scoring status from its official source.
+      const fields = completed.issued[0].answerParts!.length,
+        unscored = completed.issued[0].correctAnswer.parts!.filter(answer => answer.kind === "no_correct_answer").length,
         scored = fields - unscored;
       assert(scored > 0, "The one-wrong exercise requires a scored answer slot");
+      if (row.original.id === "question-ipa-2019r01a-fe-pm-12") {
+        assert.equal(row.original.correctAnswer.parts!.filter(a => a.kind === "no_correct_answer").length, 1);
+        assert.equal(fields, 8); assert.equal(unscored, 0);
+      }
       assert.deepEqual(completed.result!.entries.map(entry => entry.parts!.length), [fields, fields, fields]);
       assert.deepEqual(completed.result!.partSummary, { total: fields * 3, correct: scored * 2 - 1,
         incorrect: 1, unanswered: scored, unscored: unscored * 3,

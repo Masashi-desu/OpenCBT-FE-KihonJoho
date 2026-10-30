@@ -1,0 +1,628 @@
+{
+  "schema": "reviewed-legacy-booklet/v1",
+  "collectionId": "2019r01a-fe-pm",
+  "checkedOn": "2026-10-30",
+  "status": "reviewed_source_and_normal_app",
+  "questionPaperSHA256": "03bce7f05aea913ec2341f6947b35c775be8731a443655119e8696ff52b99312",
+  "answerPaperSHA256": "a84f5f62f34a48500f4845028bff19bfab827ede632f2ebaf47559bc6ce4b78a",
+  "candidateContentSHA256": "02342dc0e5615f7d9421e6d01c62667dbb42572154eef2acbab45db4b528df11",
+  "reviewAdmission": {
+    "status": "reviewed",
+    "reviewer": "codex-root",
+    "note": "Root final source/material and normal F App with current F/C v6 taxonomy/typedhash validation accepted. C final visual/fullcheck/main/CI/live remain separate requirements."
+  },
+  "rootSourceReview": {
+    "status": "pass",
+    "candidateContentSHA256": "02342dc0e5615f7d9421e6d01c62667dbb42572154eef2acbab45db4b528df11",
+    "evidence": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-normal-acceptance-20261030-v1/ROOT-SOURCE-REVIEW-v6.json",
+      "sha256": "b4b3614fa084cf3fc28e7fe0f5bc94d977f24e25299ca93a2ba1aba6108b0f6b",
+      "byteLength": 2380
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "candidateContentSHA256": "02342dc0e5615f7d9421e6d01c62667dbb42572154eef2acbab45db4b528df11",
+    "evidence": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-normal-acceptance-20261030-v1/ROOT-APP-REVIEW-v6.json",
+      "sha256": "b08a5b3d59aa909c15ff54cf262ba93189d8f5435062148a7ff422989834101c",
+      "byteLength": 2062
+    }
+  },
+  "rootSuppliedSourceData": {
+    "records": 181,
+    "approvedRecords": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-q10-area-correction-20261030-v1/approved-records-181-v6.json",
+      "sha256": "18649543352254c56c21f060da6edf77300ee7f0cd7b6cbfc5baf1c248cf874e",
+      "byteLength": 3781151
+    },
+    "materialAssessment": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-source-admission-20261030-v1/ROOT-SOURCE-MATERIAL-ASSESSMENT.json",
+      "sha256": "264569b7af5921e39fa57d1cc135b5e77afb8cab9a3bcca6155ea7e7ccd48193",
+      "byteLength": 14749
+    },
+    "scope": "Actual Root local normal integration data; C/main/release/live acceptance remains separate"
+  },
+  "scope": "2019年度秋期・旧午後13大問。原77欄・76採点欄、独立修正した生成77採点欄。Q5原票/原図表、Q11原API77–78、Q12下JISをraw配布せず、Rootの部位別受入素材と独立資料を使用。",
+  "majorNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "answerFieldCounts": [
+    4,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    9,
+    6,
+    6,
+    6,
+    8,
+    6
+  ],
+  "sourceAndMaterialReview": {
+    "operationFields": 77,
+    "answerDefinitionGroups": 77,
+    "originalScoredFields": 76,
+    "generatedScoredFields": 77,
+    "unorderedGroups": 0,
+    "noCorrectAnswerFields": 1,
+    "tupleFields": [
+      {
+        "major": 4,
+        "partId": "part-a",
+        "columns": 3
+      },
+      {
+        "major": 7,
+        "partId": "part-c",
+        "columns": 2
+      },
+      {
+        "major": 9,
+        "partId": "part-b",
+        "columns": 2
+      }
+    ],
+    "materialReferences": 80,
+    "physicalAssetPaths": 76,
+    "requiredPreAnswerMaterialPages": {
+      "2": [
+        3,
+        4
+      ],
+      "8": [
+        3,
+        4
+      ],
+      "13": [
+        3,
+        4,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ]
+    },
+    "Q12OfficialMeasure": "設問２の枝問fは問題誤りにつき，問12を選択した受験者全員正解の措置済み",
+    "Q12AppPolicy": "annual f only unscored; the other seven fields still grade normally; generated repaired f is scored",
+    "rootMaterialAssessmentSHA256": "264569b7af5921e39fa57d1cc135b5e77afb8cab9a3bcca6155ea7e7ccd48193"
+  },
+  "sourceOnlyToNormalFindings": [
+    {
+      "issue": "official_reprint modified originals Q5/11/12 prompt container attribution was adapted instead of official",
+      "rootCorrection": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-source-admission-20261030-v1/ORIGINAL-PROVENANCE-CORRECTION.json",
+        "sha256": "7ab19fdbefe5d222f0d77bc9098a81e7242e637ef868b4fd40cb54aa20b57eaf",
+        "byteLength": 1137
+      },
+      "oldSourceSealRewritten": false
+    },
+    {
+      "issue": "annual generationBindings must be empty; mix refs/bindings must use bases and practice choice policy comes from annual",
+      "rootCorrection": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-source-admission-20261030-v1/SET-REGISTRATION-CORRECTION.json",
+        "sha256": "a1168edf27eaade141cc29002a21fd04ef5b141b96c91f987e543c70b1c2f9e4",
+        "byteLength": 626
+      },
+      "oldSourceSealRewritten": false
+    },
+    {
+      "issue": "same-source private carriers must not be silently rebuilt as formal bases",
+      "normalRegression": "all13 formal base success plus profile/caption/body/choice/explanation SOURCE_FORMAT rejection; no private import in portable test"
+    },
+    {
+      "issue": "Q10 COBOL learning.area was incorrectly management",
+      "rootCorrection": {
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-root-q10-area-correction-20261030-v1/NORMAL-V6-ADOPTION.json",
+        "sha256": "d1718b4caa7aa809c3cddc559d36a13ea7b49e82680e964987e119d3f61bc084",
+        "byteLength": 841
+      },
+      "changeScope": "two learning area scalars and one typed base hash; no body/answer/generator changes",
+      "regression": "all13 expected areas; Q10technology/Q6management/Q7strategy bookmarks/search/annual/mix/saved hashes verified6/6 actualF/C",
+      "oldSourceSealRewritten": false
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "originalId": "question-ipa-2019r01a-fe-pm-1",
+      "baseId": "question-template-source-2019r01a-fe-pm-1",
+      "templateId": "template-source-2019r01a-fe-pm-1",
+      "generatorId": "generator-source-2019r01a-fe-pm-1",
+      "operationFields": 4,
+      "answerGroups": 4,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm1.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 2,
+      "originalId": "question-ipa-2019r01a-fe-pm-2",
+      "baseId": "question-template-source-2019r01a-fe-pm-2",
+      "templateId": "template-source-2019r01a-fe-pm-2",
+      "generatorId": "generator-source-2019r01a-fe-pm-2",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 1125,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm2.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 3,
+      "originalId": "question-ipa-2019r01a-fe-pm-3",
+      "baseId": "question-template-source-2019r01a-fe-pm-3",
+      "templateId": "template-source-2019r01a-fe-pm-3",
+      "generatorId": "generator-source-2019r01a-fe-pm-3",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 27,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm3.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 4,
+      "originalId": "question-ipa-2019r01a-fe-pm-4",
+      "baseId": "question-template-source-2019r01a-fe-pm-4",
+      "templateId": "template-source-2019r01a-fe-pm-4",
+      "generatorId": "generator-source-2019r01a-fe-pm-4",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 96,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm4.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 5,
+      "originalId": "question-ipa-2019r01a-fe-pm-5",
+      "baseId": "question-template-source-2019r01a-fe-pm-5",
+      "templateId": "template-source-2019r01a-fe-pm-5",
+      "generatorId": "generator-source-2019r01a-fe-pm-5",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 111,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm5-7-9.test.ts",
+        "tests/legacy-2019-autumn-pm5-flow.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 6,
+      "originalId": "question-ipa-2019r01a-fe-pm-6",
+      "baseId": "question-template-source-2019r01a-fe-pm-6",
+      "templateId": "template-source-2019r01a-fe-pm-6",
+      "generatorId": "generator-source-2019r01a-fe-pm-6",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 120,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm5-7-9.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 7,
+      "originalId": "question-ipa-2019r01a-fe-pm-7",
+      "baseId": "question-template-source-2019r01a-fe-pm-7",
+      "templateId": "template-source-2019r01a-fe-pm-7",
+      "generatorId": "generator-source-2019r01a-fe-pm-7",
+      "operationFields": 5,
+      "answerGroups": 5,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 100,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm5-7-9.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 8,
+      "originalId": "question-ipa-2019r01a-fe-pm-8",
+      "baseId": "question-template-source-2019r01a-fe-pm-8",
+      "templateId": "template-source-2019r01a-fe-pm-8",
+      "generatorId": "generator-source-2019r01a-fe-pm-8",
+      "operationFields": 9,
+      "answerGroups": 9,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm8.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 9,
+      "originalId": "question-ipa-2019r01a-fe-pm-9",
+      "baseId": "question-template-source-2019r01a-fe-pm-9",
+      "templateId": "template-source-2019r01a-fe-pm-9",
+      "generatorId": "generator-source-2019r01a-fe-pm-9",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 192,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm5-7-9.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 10,
+      "originalId": "question-ipa-2019r01a-fe-pm-10",
+      "baseId": "question-template-source-2019r01a-fe-pm-10",
+      "templateId": "template-source-2019r01a-fe-pm-10",
+      "generatorId": "generator-source-2019r01a-fe-pm-10",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 40,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm10.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 11,
+      "originalId": "question-ipa-2019r01a-fe-pm-11",
+      "baseId": "question-template-source-2019r01a-fe-pm-11",
+      "templateId": "template-source-2019r01a-fe-pm-11",
+      "generatorId": "generator-source-2019r01a-fe-pm-11",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 24,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm11-native.test.ts",
+        "tests/legacy-2019-autumn-pm11-structure.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 12,
+      "originalId": "question-ipa-2019r01a-fe-pm-12",
+      "baseId": "question-template-source-2019r01a-fe-pm-12",
+      "templateId": "template-source-2019r01a-fe-pm-12",
+      "generatorId": "generator-source-2019r01a-fe-pm-12",
+      "operationFields": 8,
+      "answerGroups": 8,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 1,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 32,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm12-body.test.ts",
+        "tests/legacy-2019-autumn-pm12-exhaustive.test.ts",
+        "tests/legacy-2019-autumn-pm12-memory.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    },
+    {
+      "number": 13,
+      "originalId": "question-ipa-2019r01a-fe-pm-13",
+      "baseId": "question-template-source-2019r01a-fe-pm-13",
+      "templateId": "template-source-2019r01a-fe-pm-13",
+      "generatorId": "generator-source-2019r01a-fe-pm-13",
+      "operationFields": 6,
+      "answerGroups": 6,
+      "unorderedGroups": [],
+      "noCorrectAnswerFields": 0,
+      "generatedNoCorrectAnswerFields": 0,
+      "candidateValidInputs": 40,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "premises": "pass",
+        "choices": "pass",
+        "independentMeaning": "pass",
+        "normalApp": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2019-autumn-pm13-source-bank.test.ts",
+        "tests/legacy-2019-autumn-pm13.test.ts"
+      ],
+      "rootNormalAdditionalTestFiles": [
+        "tests/legacy-2019-autumn-normal-flow.test.ts",
+        "tests/legacy-2019-autumn-answer-display.test.ts",
+        "tests/legacy-2019-autumn-learning-area.test.ts"
+      ],
+      "pending": []
+    }
+  ],
+  "availableEvidence": {
+    "normalAPIObservation": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-normal-app-tests-candidate-20261030-v1/NORMAL-API-OBSERVATION.json",
+      "sha256": "7d833725a4708024dcac2590991f309354ad2772aafe78f212b09779b5af624f",
+      "byteLength": 3502
+    },
+    "nativeIndexedDBObservation": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-normal-app-tests-candidate-20261030-v1/NATIVE-STORAGE.json",
+      "sha256": "3ddf99aa490a0359645b85957bd323f913fbe6d18348e419a9f2b826ca2f7a95",
+      "byteLength": 49577
+    },
+    "meaningCandidateValidation": {
+      "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/stage2-s2-06-normal-meaning-tests-candidate-20261030-v1/VALIDATION.json",
+      "sha256": "2a72217cd5f5ba261ceb70bb850c959f9e894d2e2dc76195d7d4f4c889f66f18",
+      "byteLength": 4893
+    }
+  },
+  "notObservedByThisCandidate": [
+    "Final C visual verification",
+    "Final full npm check",
+    "main/CI/artifact/live release"
+  ],
+  "approvalAuthority": "Root source/material and ordinary F App acceptance only; publication is a separate phase",
+  "checks": {
+    "transcription": "pass",
+    "rights": "pass",
+    "originalSemantics": "pass",
+    "generatorSemantics": "pass",
+    "rendering": "pass"
+  }
+}
