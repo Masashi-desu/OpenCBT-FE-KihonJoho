@@ -1,6 +1,6 @@
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import {
   type Template,
   type Question,
@@ -483,3 +483,6 @@ function answerText(block: Question["prompt"]["blocks"][number]) {
   assert("text" in block);
   return block.text;
 }
+
+// Match executable App setup without changing raw shared fixture imports.
+before(installFixtureGenerators);

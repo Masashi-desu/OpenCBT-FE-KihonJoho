@@ -5,23 +5,40 @@ import { materialPages, visibleMaterialPage } from "../src/ui/MaterialViewer";
 
 test("material pages preserve every distributed question's complete reading order and saved data", () => {
   const bundle = fixture();
+  assert.equal(bundle.questions.length, 1468);
+  let commonCount = 0;
+  // These four official booklets have a common page-2 appendix. It follows
+  // the question body; question-specific material retains its prior order.
+  const commonSources = new Map([
+    ["2017h29a-fe-am", "source-ipa-2017h29a-fe-am-qs"],
+    ["2018h30h-fe-am", "source-ipa-2018h30h-fe-am-common-p2"],
+    ["2018h30a-fe-am", "source-ipa-2018h30a-fe-am-common-p2"],
+    ["2019r01a-fe-am", "source-ipa-2019r01a-fe-am-common-p2"],
+  ]);
   for (const question of bundle.questions) {
     const saved = structuredClone(question);
     const pages = materialPages(question);
+    const contexts = question.contextRefs.map(id => question.contexts.find(context => context.id === id)!);
+    const common = contexts.filter(context => [...commonSources].some(([book, sourceId]) =>
+      context.id === `context-${book}-common` &&
+      question.origin.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.timeSlot === "午前") &&
+      context.content.attribution.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.page === 2 && !ref.locator.questionNumber)));
+    const native = contexts.filter(context => !common.includes(context));
+    commonCount += common.length;
     const expected = [
-      ...question.contextRefs.flatMap((id) =>
-        question.contexts.find((context) => context.id === id)!.content.blocks,
-      ),
+      ...native.flatMap(context => context.content.blocks),
       ...question.prompt.blocks,
+      ...common.flatMap(context => context.content.blocks),
     ];
     assert.deepEqual(pages.flatMap((page) => page.content.blocks), expected, question.id);
     assert.deepEqual(
       pages.flatMap((page) => page.context ? [page.context] : []),
-      question.contextRefs.map((id) => question.contexts.find((context) => context.id === id)),
+      [...native, ...common],
       question.id,
     );
     assert.deepEqual(question, saved, question.id);
   }
+  assert.equal(commonCount, 624, "all originals and bases retain the four booklets' common material");
 });
 
 test("multipage originals keep all page images and the supplementary text available", () => {

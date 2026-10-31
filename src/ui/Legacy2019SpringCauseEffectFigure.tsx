@@ -1,0 +1,7 @@
+import {useId} from 'react';
+import {legacy2019SpringCauseEffectAlt} from '../core/generators/legacy-2019-spring-am-completion';
+export function Legacy2019SpringCauseEffectFigure({values,caption}:{values:number[];caption:string}){
+ const alt=legacy2019SpringCauseEffectAlt(values);
+ const id=useId().replace(/:/g,'');
+ return <figure className="managed-diagram source-figure profile-legacy-2019-spring-cause-effect"><div className="diagram-scroll" tabIndex={0} aria-label="問題の図。幅が足りない場合は左右にスクロールできます。"><svg className="source-figure-svg" viewBox="0 0 420 250" style={{width:'min(calc(560px * var(--image-scale, 1)), calc(100% * var(--image-scale, 1)))',marginInline:'auto'}} role="img" aria-labelledby={`${id}-title`} aria-describedby={`${id}-desc`}><title id={`${id}-title`}>{caption}</title><desc id={`${id}-desc`}>{alt}</desc><defs><marker id={`${id}-arrow`} viewBox="0 0 12 12" refX="11" refY="6" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 1 1 L 11 6 L 1 11 Z" fill="currentColor"/></marker></defs><g aria-hidden="true"><rect data-node="a" x={275} y={35} width={80} height={40} fill="var(--surface)"/><text data-node-label="a" x={315} y={55} textAnchor="middle">a</text><rect data-node="b" x={85} y={165} width={80} height={40} fill="var(--surface)"/><text data-node-label="b" x={125} y={185} textAnchor="middle">b</text><line data-edge="trunk-to-a" x1={85} y1={55} x2={275} y2={55} markerEnd={`url(#${id}-arrow)`}/><line data-edge="b-to-trunk" x1={125} y1={165} x2={190} y2={55} markerEnd={`url(#${id}-arrow)`}/></g></svg></div></figure>;
+}

@@ -22,6 +22,10 @@ test("generation preparation reads packed inputs, revises only the requested ser
     const before = readDistributionBundle(root);
     const oldPM = before.templates.filter(t => t.generatorRef.id.startsWith("generator-source-2017h29h-fe-pm-"));
     assert.equal(oldPM.length, 13, "selective refresh must include the complete new booklet in its preservation domain");
+    const oldAM = before.templates.filter(t => /^generator-source-(?:2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/.test(t.generatorRef.id));
+    assert.equal(oldAM.length, 467, "all admitted morning bases are booklet-managed preservation inputs");
+    assert.equal(before.questions.find(q => q.id === "question-ipa-sample-2022-apr-b-1")!.choiceShuffleAllowed, false);
+    assert.equal(before.questions.find(q => q.id === "question-template-source-sample-2022-apr-b-1")!.choiceShuffleAllowed, true);
     assert(before.catalog.files.sources.every(f => f.recordCount));
     execFileSync(path.resolve("node_modules/.bin/tsx"), [path.resolve("scripts/prepare-generation-data.ts"), "--refresh-sources=sample-2022-apr-b-1"], { cwd: temporary, stdio: "pipe" });
     const after = readDistributionBundle(root);
@@ -33,7 +37,12 @@ test("generation preparation reads packed inputs, revises only the requested ser
     assert.equal(after.templates.length, before.templates.length);
     assert.deepEqual(after.catalog.files.sources, before.catalog.files.sources);
     assert.deepEqual(after.catalog.files.assets, before.catalog.files.assets);
-    for (const template of oldPM) {
+    assert.deepEqual(after.catalog.files.rights, before.catalog.files.rights);
+    assert.deepEqual(after.sources, before.sources);
+    assert.deepEqual(after.assets, before.assets);
+    assert.deepEqual(after.rights, before.rights);
+    assert.deepEqual(after.sets.find(set => set.id === "set-mix-a"), before.sets.find(set => set.id === "set-mix-a"));
+    for (const template of [...oldPM, ...oldAM]) {
       const preserved = after.templates.find(row => row.id === template.id)!;
       assert(preserved);
       assert.equal(await contentHash(preserved), await contentHash(template), template.id);
@@ -49,6 +58,7 @@ test("generation preparation reads packed inputs, revises only the requested ser
       const revised = after.questions.find(n => n.id === q.id)!;
       if (q.id === "question-template-source-sample-2022-apr-b-1") {
         assert.equal(revised.revision, q.revision + 1);
+        assert.equal(revised.choiceShuffleAllowed, q.choiceShuffleAllowed, "A content refresh must preserve the generated base's shuffle policy");
         const template = after.templates.find(t => t.baseQuestionRef.questionId === q.id)!;
         assert.equal(template.baseQuestionRef.revision, revised.revision);
         assert.equal(template.originalContentSha256, await contentHash(revised));
@@ -59,7 +69,7 @@ test("generation preparation reads packed inputs, revises only the requested ser
     }
   } finally { fs.rmSync(temporary, { recursive: true, force: true }); }
 });
-test("generic generation refresh refuses explicit and bulk old-PM rebuilds before changing any packed input byte", () => {
+test("generic generation refresh refuses explicit and bulk booklet-managed rebuilds before changing any packed input byte", () => {
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), "opencbt-booklet-refresh-refusal-"));
   const root = path.join(temporary, "public/data");
   const snapshot = (directory: string): unknown[] => fs.readdirSync(directory, { withFileTypes: true })
@@ -75,6 +85,8 @@ test("generic generation refresh refuses explicit and bulk old-PM rebuilds befor
     for (const [argument, message] of [
       ["--refresh-sources=2017h29h-fe-pm-1", /Unknown refresh source 2017h29h-fe-pm-1/],
       ["--refresh-sources=2017h29a-fe-pm-1", /Unknown refresh source 2017h29a-fe-pm-1/],
+      ["--refresh-sources=2018h30h-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2018h30h-fe-am-1/],
+      ["--refresh-sources=2019r01a-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2019r01a-fe-am-1/],
       ["--refresh-all", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],
       ["--refresh-additional", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],
     ] as const) {

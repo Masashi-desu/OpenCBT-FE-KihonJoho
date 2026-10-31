@@ -1,0 +1,2627 @@
+{
+  "checkedOn": "2026-10-21",
+  "provenance": "Source-only finite design reviewed by owner and parent; not derived from the runtime build. Original pages and official keys visually verified.",
+  "sourceDesignSha256": "17db0f2839800d2275fe1b4f5e1ee433f2b9d8421bdaacf0abe45365f60fc650",
+  "parentApprovalSha256": "a65c638c83bfa83b9c4f13be03e631eea03288251e84bf2c9eca97e7be99f25a",
+  "httpClarificationSha256": "10d0b66f4df513f4557e0d9a81c7131f73d44bb27198809d9b152c4bbd796c4b",
+  "questionPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_qs.pdf",
+    "sha256": "4cd404654bb4f465befc78a3ac44c79bcd0f019b12b68f93a38d9836710c7cb0",
+    "byteLength": 4699691,
+    "pageCount": 40
+  },
+  "answerPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_ans.pdf",
+    "sha256": "074c4437b57dc5ba96b6f87da90d4b2fa905d436f4c606690010e1262f32e4e0",
+    "byteLength": 55562,
+    "pageCount": 1
+  },
+  "items": [
+    {
+      "source": "2019r01a-fe-am-3",
+      "title": "隣接行列と無向グラフ",
+      "physicalPage": 4,
+      "officialKey": "ウ",
+      "area": "technology",
+      "sourceForm": "6×6対称0/1行列、a〜f固定6ノード、線と弧を持つ原4グラフの選択。エッジ有=1/無=0、行列の行列とノードの対応という全注記を保持。",
+      "originalFacts": {
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        "choicesEdges": [
+          [
+            "ab",
+            "bd",
+            "cd",
+            "de",
+            "ce",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "ce",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ]
+        ],
+        "connected": true,
+        "loops": false
+      },
+      "domain": {
+        "cases": 3,
+        "input": "実接続が原ウの三角形付き6辺/4閉路6辺/独立閉路2個7辺の3条件。対象行列と全4グラフを連動し、原の2種の1辺置換誤答+余分1辺誤答を保持。",
+        "meaning": "三角形1個/三角形なしの4閉路/独立閉路2個という非同型の実接続条件が変化。原アとウは同型でも固定ラベル辺は不一致で、名前の置換だけの別条件は容量に数えない。",
+        "reference": [
+          0
+        ],
+        "answerVariation": "variable though correct display option staysウ;the correct graph changes",
+        "minimumAfterPreviousAnswerExclusion": 2
+      },
+      "independent": "固定手書き行列36セルと独立な辺集合比較。全4択の誤答役割は、実辺1本を消し同じ非辺1本を足す2種、完全一致、余分1辺。全6!の名前付替えで非同型3件を確認。基準4グラフだけは原の全辺集合と一致、生成時もラベル付き完全一致で一意性を検査。",
+      "precisionBurden": "6行6列0/1、6ノード、4選択図。基準/第2条件は6/6/6/7辺、第3条件は7/7/7/8辺で原同様に正答の辺数だけが単独にならない。解法補助表を解答前に追加しない。経験的な難易度等価性を主張しない。",
+      "renderRequirements": "全24ノード、条件ごとの25/25/29描画辺、交差ではない弧・全ラベルと行列の行列見出しを独立読取。altは可視ノードと辺のみ。"
+    },
+    {
+      "source": "2019r01a-fe-am-5",
+      "title": "平均・標準偏差から正規分布の図を選ぶ",
+      "physicalPage": 5,
+      "officialKey": "ア",
+      "area": "technology",
+      "sourceForm": "平均60/標準偏差10の問いと2×2原4密度図。ア:中心60と右70を結ぶ10幅、イ:55/60/65と左右全幅10、ウ:10/60の二峰、エ:50/60の左長裾を保持。",
+      "domain": {
+        "cases": 9,
+        "input": "平均60/70/80×標準偏差10/12/14",
+        "reference": [
+          60,
+          10
+        ],
+        "answerVariation": "variable despite same correct display option",
+        "minimumAfterPreviousAnswerExclusion": 8,
+        "roles": [
+          "正規N(mu,sd²)",
+          "正規N(mu,(sd/2)²)",
+          "二峰で非正規",
+          "非対称で非正規"
+        ]
+      },
+      "independent": "A/BはNISTの密度定義から数値積分で全18個の総面積/平均/標準偏差を確認。Cは少量の離れた狭い山と主峰の混合を2峰検出、Dは左右尺度の異なる連続密度で非対称確認。",
+      "originalLimit": "原Bの55/65は画像で確認したが、元の手描き図の非公開の正確な関数/全変曲点座標を逆算できたとはしない。新C/Dの構成密度は原の定性的な誤答役割を保つ独自設計で、原密度そのものとの一致を主張しない。",
+      "precisionBurden": "全マーカは2桁整数、追加小数/丸め/確率計算を要求しない。元の対称/広がり/二峰/歪みの読取負担。全4図の線幅/フォント/大きさを統一し、正答だけ桁数や精度を変えない。",
+      "renderRequirements": "原の各パネルの垂線/曲線/数値/10幅を同じ入力で更新。altに正答・標準偏差の答えを追記せず、可視軸マーカ・曲線の対称/山/裾を伝える。将来rendererの実形状/変曲点読取とnarrow/AXは未実装。",
+      "primary": [
+        "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-7",
+      "title": "BNFで定義した変数名",
+      "physicalPage": 6,
+      "officialKey": "エ",
+      "area": "technology",
+      "sourceForm": "数字10字/英字A〜F6字/英数字=英字|数字|_、変数名の再帰式という4定義行、原4択_B39/246/3E5/F5_1。",
+      "domain": {
+        "cases": 2,
+        "input": "最後の再帰生成式が<変数名><英数字>(原append) 又は<英数字><変数名>(prepend)。後者は4候補の字順も反転し4/3/3/4文字の負担と境界違反の役割を対称に保持。",
+        "reference": [
+          "append"
+        ],
+        "answerVariation": "variable",
+        "minimumAfterPreviousAnswerExclusion": 1,
+        "actualConditionDifference": "字句の先頭が英字である言語と、末尾が英字である言語。B_と_Bを相互の受理/拒否の証人とし、文字名だけの置換を容量にしない。"
+      },
+      "choiceRoles": [
+        "禁止境界の_",
+        "英字なし数値のみ",
+        "禁止境界の数字と内部英字",
+        "許可境界英字を持つ英数_の適合語"
+      ],
+      "independent": "再帰導出の言語集合と別の先頭/末尾述語を、17字アルファベットの長さ0〜4全177482件で一致確認。両条件全4択false/false/false/true。",
+      "sourceFormReviewRequired": "再帰式の左右順変更は承認前のsource-only提案。原と同じ4定義/2個の再帰要素/4択/文字数を保つが、原形式の抽象化として許容されるか親レビューを要する。区切り文字を_→$へ変えるだけの案は採用しない。",
+      "precisionBurden": "表記集合/再帰/字順の判定だけ。言語名を持ち込まずBNFが唯一の前提。"
+    },
+    {
+      "source": "2019r01a-fe-am-34",
+      "title": "HTTPプロキシ経由のTCP宛先ポート",
+      "physicalPage": 19,
+      "officialKey": "イ",
+      "area": "technology",
+      "sourceForm": "Aクライアント→8080のプロキシB→80のWebC、宛先ポートが常に指定値のTCPパケットを選ぶ。4択のパケット数は2/1/1/2。",
+      "domain": {
+        "cases": 2,
+        "input": "対象の宛先をproxy8080(原)又はorigin80にする。Bを正答に固定するためではなく、原の候補役割(対象要求+別側応答/対象要求のみ/応答のみ/他側要求+同側応答)を同じ意味位置へバインド。",
+        "reference": [
+          "proxy"
+        ],
+        "answerVariation": "variable though correct display option staysB",
+        "minimumAfterPreviousAnswerExclusion": 1,
+        "namesNotCapacity": "A/B/C名と2個のポート値は固定。単なる8080→3128や名称差替えを容量に数えない。"
+      },
+      "independent": "二つのsocket対を別にし、A→B要求宛先8080/B→C要求宛先80、B→A及びC→B応答宛先は対応接続の相手側ローカルポート。80/8080/49152/65535を両変数へ与える32組で全4択の常にを判定。応答が偶然指定値になる例も含め「絶対にならない」と誤解しない。",
+      "sourceFormReviewRequired": "対象80への切替で元4択の役割ごとに通信主体を連動する案で、未承認。いずれも元の2/1/1/2パケットと同じHTTP要求/応答を維持し、単一ポート回答問へ置換しない。",
+      "primary": [
+        "https://www.rfc-editor.org/rfc/rfc793.txt#section-3.1",
+        "https://www.rfc-editor.org/rfc/rfc7230.html#section-2.3"
+      ],
+      "precisionBurden": "数値計算なし。4桁8080/2桁80、常にという全称、要求と応答/接続の相手を区別。"
+    },
+    {
+      "source": "2019r01a-fe-am-45",
+      "title": "DFDの記号",
+      "physicalPage": 24,
+      "officialKey": "エ",
+      "area": "technology",
+      "sourceForm": "原DFD図1個、丸3/長方形2/二本の平行線1/有向矢印5の全結線、4択アクティビティ/データストア/データフロー/プロセスを保持。",
+      "domain": {
+        "cases": 3,
+        "input": "図中の対象記号を丸/二本平行線/矢印へ変える。",
+        "reference": [
+          "circle"
+        ],
+        "answerVariation": "variable",
+        "minimumAfterPreviousAnswerExclusion": 2,
+        "namesNotCapacity": "対象にしている図形とその概念が変化。無意味なシステム名/位置替えを追加容量にしない。"
+      },
+      "independent": "circle→process,parallel_lines→data_store,arrow→data_flowという査読対応から3×4全択真偽を固定。元の丸→プロセスは公式エとも一致。Yourdon系円とGane系角丸など別表記の一般化はせず、本図の記法に限定。",
+      "primary": [
+        "https://www.ibm.com/think/topics/data-flow-diagram",
+        "https://www.visual-paradigm.com/guide/data-flow-diagram/what-is-data-flow-diagram/"
+      ],
+      "criticalAltRule": "図のalt/descは丸・長方形・平行線・矢印と可視接続を述べる。答えであるプロセス/データストア/データフローの意味名を解答前の図altへ注入しない。意味の固定資料はoracle/解説側。",
+      "precisionBurden": "記号1個の意味判定。解法補助の記号対応表を本文に追加しない。"
+    },
+    {
+      "source": "2019r01a-fe-am-52",
+      "title": "アローダイアグラムのクリティカルパス",
+      "physicalPage": 26,
+      "officialKey": "ウ",
+      "area": "management",
+      "sourceForm": "空円6個、7実作業A〜Gと1破線ダミー、A〜G各所要日数、原凡例、4パス候補ACEF/ADG/BEF/BEG。ダミーの終点は上側G始点で、終点へ直結しない。",
+      "domain": {
+        "cases": 12,
+        "input": "元の実有向接続を固定しA〜Gの所要日数を1桁正整数で変化。3^7=2187通りをDFS全5経路/別の最早最遅時刻で列挙し、唯一の最長が原4候補の一つ、正答と次点差1又は2日、最長10〜19日へ限定。",
+        "reference": [
+          0
+        ],
+        "answerVariation": "variable",
+        "minimumAfterPreviousAnswerExclusion": 9,
+        "selection": "4正答パスそれぞれ3条件。原(1,5,3,3,4,5,4)はcase0。共通倍率だけの工数拡大も重複除外し12実条件を採用。"
+      },
+      "originalFacts": {
+        "activities": {
+          "A": 1,
+          "B": 5,
+          "C": 3,
+          "D": 3,
+          "E": 4,
+          "F": 5,
+          "G": 4
+        },
+        "displayPathTotals": [
+          13,
+          8,
+          14,
+          13
+        ],
+        "unlistedPath": [
+          "A",
+          "C",
+          "E",
+          "dummy",
+          "G"
+        ],
+        "unlistedPathTotal": 12,
+        "uniqueCritical": [
+          "B",
+          "E",
+          "F"
+        ],
+        "projectDuration": 14
+      },
+      "independent": "全経路長をDFS列挙した集合と、前向き最早/後向き最遅/全余裕0辺の集合を照合。候補にないACE(dummy)Gが最長になる171組や同率最長565組も拒否し、元4択の一意性を保つ。",
+      "precisionBurden": "各工期1桁整数、3又は4項の加算、追加率/端数/小数なし。元の正答差1日を基準に1〜2日へ制限。誤答は原の別経路であり正答±1を捏造しない。",
+      "renderRequirements": "円位置/全8結線/矢印/破線/7数字/作業名/凡例を同じ入力で保持。解答前に最早最遅やクリティカル色を追加しない。原にない円番号/ダミーの0数字も可視追加しない。ダミー0所要はモデル上の通常の定義として扱う。"
+    }
+  ],
+  "materials": {
+    "scope": "原6問の問い/全4択/全図表/凡例/注記を各cropと元頁で個別確認。第三者規格の引用/外部図の転載を特定していないが、注記不在だけで許諾を推定していない。",
+    "policy": "IPA公式FAQ教育目的条件を原問画像同梱/ブラウザ表示/出典と改変主体明示へ適用するプロジェクト判断であり、第三者部分の包括許諾ではない。実装時に素材別rights/source/assetへ落とすまで配布可と扱わない。",
+    "adjacency": "p26のAM51や他隣接問をcropへ含めない。原全頁はignoredレビュー用だけ。規格文言の別問・CASL/JIS/API付録へ判定を広げない。",
+    "externalPrimary": "NIST数学定義、IBM/VisualParadigm記法事実、IETFの当時TCP/HTTP仕様を独立解の裏付けとして読む。各社図/文章の転載許諾を推定しない。",
+    "contact": "外部への問い合わせメッセージ送信なし。公開一次資料のGET読取のみ。"
+  },
+  "results": {
+    "am3": [
+      {
+        "values": [
+          0
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        "edgeSet": [
+          "ab",
+          "bc",
+          "bd",
+          "cd",
+          "ce",
+          "ef"
+        ],
+        "choiceEdges": [
+          [
+            "ab",
+            "bd",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "ce",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ]
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctIndex": 2,
+        "edges": 6,
+        "cycleRank": 1,
+        "canonicalUnlabelled": "000010010101110"
+      },
+      {
+        "values": [
+          1
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        "edgeSet": [
+          "ab",
+          "bc",
+          "bd",
+          "ce",
+          "de",
+          "ef"
+        ],
+        "choiceEdges": [
+          [
+            "ab",
+            "bd",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ]
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctIndex": 2,
+        "edges": 6,
+        "cycleRank": 1,
+        "canonicalUnlabelled": "000010010011110"
+      },
+      {
+        "values": [
+          2
+        ],
+        "matrix": [
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        "edgeSet": [
+          "ab",
+          "bc",
+          "bd",
+          "cd",
+          "ce",
+          "de",
+          "ef"
+        ],
+        "choiceEdges": [
+          [
+            "ab",
+            "bd",
+            "be",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "be",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ],
+          [
+            "ab",
+            "bc",
+            "bd",
+            "be",
+            "cd",
+            "ce",
+            "de",
+            "ef"
+          ]
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctIndex": 2,
+        "edges": 7,
+        "cycleRank": 2,
+        "canonicalUnlabelled": "000010010111110"
+      }
+    ],
+    "am5": [
+      {
+        "values": [
+          60,
+          10
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            60.0,
+            10.0
+          ],
+          "markers": [
+            60,
+            70
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            60.0,
+            5.0
+          ],
+          "markers": [
+            55.0,
+            60,
+            65.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            10,
+            60
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            50,
+            60
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          60,
+          10
+        ]
+      },
+      {
+        "values": [
+          60,
+          12
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            60.0,
+            12.0
+          ],
+          "markers": [
+            60,
+            72
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            60.0,
+            6.0
+          ],
+          "markers": [
+            54.0,
+            60,
+            66.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            10,
+            60
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            48,
+            60
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          60,
+          12
+        ]
+      },
+      {
+        "values": [
+          60,
+          14
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            60.0,
+            14.0
+          ],
+          "markers": [
+            60,
+            74
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            60.0,
+            7.0
+          ],
+          "markers": [
+            53.0,
+            60,
+            67.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            10,
+            60
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            46,
+            60
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          60,
+          14
+        ]
+      },
+      {
+        "values": [
+          70,
+          10
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            70.0,
+            10.0
+          ],
+          "markers": [
+            70,
+            80
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            70.0,
+            5.0
+          ],
+          "markers": [
+            65.0,
+            70,
+            75.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            20,
+            70
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            60,
+            70
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          70,
+          10
+        ]
+      },
+      {
+        "values": [
+          70,
+          12
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            70.0,
+            12.0
+          ],
+          "markers": [
+            70,
+            82
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            70.0,
+            6.0
+          ],
+          "markers": [
+            64.0,
+            70,
+            76.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            20,
+            70
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            58,
+            70
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          70,
+          12
+        ]
+      },
+      {
+        "values": [
+          70,
+          14
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            70.0,
+            14.0
+          ],
+          "markers": [
+            70,
+            84
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            70.0,
+            7.0
+          ],
+          "markers": [
+            63.0,
+            70,
+            77.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            20,
+            70
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            56,
+            70
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          70,
+          14
+        ]
+      },
+      {
+        "values": [
+          80,
+          10
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            80.0,
+            10.0
+          ],
+          "markers": [
+            80,
+            90
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            80.0,
+            5.0
+          ],
+          "markers": [
+            75.0,
+            80,
+            85.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            30,
+            80
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            70,
+            80
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          80,
+          10
+        ]
+      },
+      {
+        "values": [
+          80,
+          12
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            80.0,
+            12.0
+          ],
+          "markers": [
+            80,
+            92
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            80.0,
+            6.0
+          ],
+          "markers": [
+            74.0,
+            80,
+            86.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            30,
+            80
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            68,
+            80
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          80,
+          12
+        ]
+      },
+      {
+        "values": [
+          80,
+          14
+        ],
+        "A": {
+          "normal": true,
+          "moments": [
+            1.0,
+            80.0,
+            14.0
+          ],
+          "markers": [
+            80,
+            94
+          ]
+        },
+        "B": {
+          "normal": true,
+          "moments": [
+            1.0,
+            80.0,
+            7.0
+          ],
+          "markers": [
+            73.0,
+            80,
+            87.0
+          ]
+        },
+        "C": {
+          "normal": false,
+          "modeCount": 2,
+          "markers": [
+            30,
+            80
+          ]
+        },
+        "D": {
+          "normal": false,
+          "asymmetric": true,
+          "markers": [
+            66,
+            80
+          ]
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "normal",
+          80,
+          14
+        ]
+      }
+    ],
+    "am7": [
+      {
+        "direction": "append",
+        "recursiveProduction": "<変数名><英数字>",
+        "choices": [
+          "_B39",
+          "246",
+          "3E5",
+          "F5_1"
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "languageMembersLength1to4": 31320,
+        "semanticBoundary": "first_letter",
+        "correctSemanticPayload": "F5_1"
+      },
+      {
+        "direction": "prepend",
+        "recursiveProduction": "<英数字><変数名>",
+        "choices": [
+          "93B_",
+          "642",
+          "5E3",
+          "1_5F"
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "languageMembersLength1to4": 31320,
+        "semanticBoundary": "last_letter",
+        "correctSemanticPayload": "1_5F"
+      }
+    ],
+    "am34": [
+      {
+        "target": "proxy",
+        "port": 8080,
+        "choices": [
+          [
+            "AB_request",
+            "CB_response"
+          ],
+          [
+            "AB_request"
+          ],
+          [
+            "BA_response"
+          ],
+          [
+            "BC_request",
+            "CB_response"
+          ]
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "socketPairAssignments": 16,
+        "responsesCanSometimesMatchButNotAlways": true,
+        "correctSemanticPayload": [
+          "AB_request"
+        ]
+      },
+      {
+        "target": "server",
+        "port": 80,
+        "choices": [
+          [
+            "BC_request",
+            "BA_response"
+          ],
+          [
+            "BC_request"
+          ],
+          [
+            "CB_response"
+          ],
+          [
+            "AB_request",
+            "BA_response"
+          ]
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "socketPairAssignments": 16,
+        "responsesCanSometimesMatchButNotAlways": true,
+        "correctSemanticPayload": [
+          "BC_request"
+        ]
+      }
+    ],
+    "am45": [
+      {
+        "target": "circle",
+        "fixedGraph": {
+          "processCircles": 3,
+          "externalRectangles": 2,
+          "storeParallelLinePairs": 1,
+          "directedFlows": 5
+        },
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "correctIndex": 3,
+        "correctSemanticPayload": "process"
+      },
+      {
+        "target": "parallel_lines",
+        "fixedGraph": {
+          "processCircles": 3,
+          "externalRectangles": 2,
+          "storeParallelLinePairs": 1,
+          "directedFlows": 5
+        },
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "correctIndex": 1,
+        "correctSemanticPayload": "data_store"
+      },
+      {
+        "target": "arrow",
+        "fixedGraph": {
+          "processCircles": 3,
+          "externalRectangles": 2,
+          "storeParallelLinePairs": 1,
+          "directedFlows": 5
+        },
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctIndex": 2,
+        "correctSemanticPayload": "data_flow"
+      }
+    ],
+    "am52": [
+      {
+        "values": [
+          0
+        ],
+        "durations": {
+          "A": 1,
+          "B": 5,
+          "C": 3,
+          "D": 3,
+          "E": 4,
+          "F": 5,
+          "G": 4
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 13
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 12
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 14
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 13
+          }
+        ],
+        "displayDurations": [
+          13,
+          8,
+          14,
+          13
+        ],
+        "earliest": [
+          0,
+          1,
+          5,
+          9,
+          9,
+          14
+        ],
+        "latest": [
+          0,
+          2,
+          5,
+          9,
+          10,
+          14
+        ],
+        "max": 14,
+        "criticalCount": 1,
+        "matching": [
+          2
+        ],
+        "slack": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 6,
+          "E": 0,
+          "F": 0,
+          "dummy": 1,
+          "G": 1
+        },
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctSemanticPayload": [
+          "B",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "values": [
+          1
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 3,
+          "D": 3,
+          "E": 2,
+          "F": 5,
+          "G": 3
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 11
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 9
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 8
+          }
+        ],
+        "displayDurations": [
+          11,
+          7,
+          10,
+          8
+        ],
+        "earliest": [
+          0,
+          1,
+          4,
+          6,
+          6,
+          11
+        ],
+        "latest": [
+          0,
+          1,
+          4,
+          6,
+          8,
+          11
+        ],
+        "max": 11,
+        "criticalCount": 1,
+        "matching": [
+          0
+        ],
+        "slack": {
+          "A": 0,
+          "B": 1,
+          "C": 0,
+          "D": 4,
+          "E": 0,
+          "F": 0,
+          "dummy": 2,
+          "G": 2
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "A",
+          "C",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "values": [
+          2
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 3,
+          "D": 3,
+          "E": 2,
+          "F": 5,
+          "G": 4
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 11
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 9
+          }
+        ],
+        "displayDurations": [
+          11,
+          8,
+          10,
+          9
+        ],
+        "earliest": [
+          0,
+          1,
+          4,
+          6,
+          6,
+          11
+        ],
+        "latest": [
+          0,
+          1,
+          4,
+          6,
+          7,
+          11
+        ],
+        "max": 11,
+        "criticalCount": 1,
+        "matching": [
+          0
+        ],
+        "slack": {
+          "A": 0,
+          "B": 1,
+          "C": 0,
+          "D": 3,
+          "E": 0,
+          "F": 0,
+          "dummy": 1,
+          "G": 1
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "A",
+          "C",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "values": [
+          3
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 3,
+          "D": 3,
+          "E": 2,
+          "F": 7,
+          "G": 3
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 13
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 9
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 12
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 8
+          }
+        ],
+        "displayDurations": [
+          13,
+          7,
+          12,
+          8
+        ],
+        "earliest": [
+          0,
+          1,
+          4,
+          6,
+          6,
+          13
+        ],
+        "latest": [
+          0,
+          1,
+          4,
+          6,
+          10,
+          13
+        ],
+        "max": 13,
+        "criticalCount": 1,
+        "matching": [
+          0
+        ],
+        "slack": {
+          "A": 0,
+          "B": 1,
+          "C": 0,
+          "D": 6,
+          "E": 0,
+          "F": 0,
+          "dummy": 4,
+          "G": 4
+        },
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "A",
+          "C",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "values": [
+          4
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 6,
+          "E": 2,
+          "F": 3,
+          "G": 3
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 8
+          }
+        ],
+        "displayDurations": [
+          7,
+          10,
+          8,
+          8
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          7,
+          10
+        ],
+        "latest": [
+          0,
+          1,
+          5,
+          7,
+          7,
+          10
+        ],
+        "max": 10,
+        "criticalCount": 1,
+        "matching": [
+          1
+        ],
+        "slack": {
+          "A": 0,
+          "B": 2,
+          "C": 3,
+          "D": 0,
+          "E": 2,
+          "F": 2,
+          "dummy": 2,
+          "G": 0
+        },
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "A",
+          "D",
+          "G"
+        ]
+      },
+      {
+        "values": [
+          5
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 6,
+          "E": 2,
+          "F": 3,
+          "G": 4
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 11
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 9
+          }
+        ],
+        "displayDurations": [
+          7,
+          11,
+          8,
+          9
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          7,
+          11
+        ],
+        "latest": [
+          0,
+          1,
+          5,
+          7,
+          7,
+          11
+        ],
+        "max": 11,
+        "criticalCount": 1,
+        "matching": [
+          1
+        ],
+        "slack": {
+          "A": 0,
+          "B": 2,
+          "C": 3,
+          "D": 0,
+          "E": 2,
+          "F": 3,
+          "dummy": 2,
+          "G": 0
+        },
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "A",
+          "D",
+          "G"
+        ]
+      },
+      {
+        "values": [
+          6
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 6,
+          "E": 2,
+          "F": 3,
+          "G": 6
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 13
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 11
+          }
+        ],
+        "displayDurations": [
+          7,
+          13,
+          8,
+          11
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          7,
+          13
+        ],
+        "latest": [
+          0,
+          1,
+          5,
+          7,
+          7,
+          13
+        ],
+        "max": 13,
+        "criticalCount": 1,
+        "matching": [
+          1
+        ],
+        "slack": {
+          "A": 0,
+          "B": 2,
+          "C": 3,
+          "D": 0,
+          "E": 2,
+          "F": 5,
+          "dummy": 2,
+          "G": 0
+        },
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "correctSemanticPayload": [
+          "A",
+          "D",
+          "G"
+        ]
+      },
+      {
+        "values": [
+          7
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 3,
+          "E": 2,
+          "F": 5,
+          "G": 3
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 9
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 8
+          }
+        ],
+        "displayDurations": [
+          9,
+          7,
+          10,
+          8
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          5,
+          10
+        ],
+        "latest": [
+          0,
+          2,
+          3,
+          5,
+          7,
+          10
+        ],
+        "max": 10,
+        "criticalCount": 1,
+        "matching": [
+          2
+        ],
+        "slack": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 3,
+          "E": 0,
+          "F": 0,
+          "dummy": 2,
+          "G": 2
+        },
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctSemanticPayload": [
+          "B",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "values": [
+          8
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 3,
+          "E": 2,
+          "F": 5,
+          "G": 4
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 9
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 9
+          }
+        ],
+        "displayDurations": [
+          9,
+          8,
+          10,
+          9
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          5,
+          10
+        ],
+        "latest": [
+          0,
+          2,
+          3,
+          5,
+          6,
+          10
+        ],
+        "max": 10,
+        "criticalCount": 1,
+        "matching": [
+          2
+        ],
+        "slack": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 2,
+          "E": 0,
+          "F": 0,
+          "dummy": 1,
+          "G": 1
+        },
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctSemanticPayload": [
+          "B",
+          "E",
+          "F"
+        ]
+      },
+      {
+        "values": [
+          9
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 3,
+          "E": 2,
+          "F": 3,
+          "G": 6
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 7
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 11
+          }
+        ],
+        "displayDurations": [
+          7,
+          10,
+          8,
+          11
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          5,
+          11
+        ],
+        "latest": [
+          0,
+          2,
+          3,
+          5,
+          5,
+          11
+        ],
+        "max": 11,
+        "criticalCount": 1,
+        "matching": [
+          3
+        ],
+        "slack": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 0,
+          "F": 3,
+          "dummy": 0,
+          "G": 0
+        },
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "correctSemanticPayload": [
+          "B",
+          "E",
+          "G"
+        ]
+      },
+      {
+        "values": [
+          10
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 3,
+          "E": 2,
+          "F": 5,
+          "G": 6
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 9
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 11
+          }
+        ],
+        "displayDurations": [
+          9,
+          10,
+          10,
+          11
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          5,
+          5,
+          11
+        ],
+        "latest": [
+          0,
+          2,
+          3,
+          5,
+          5,
+          11
+        ],
+        "max": 11,
+        "criticalCount": 1,
+        "matching": [
+          3
+        ],
+        "slack": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 1,
+          "E": 0,
+          "F": 1,
+          "dummy": 0,
+          "G": 0
+        },
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "correctSemanticPayload": [
+          "B",
+          "E",
+          "G"
+        ]
+      },
+      {
+        "values": [
+          11
+        ],
+        "durations": {
+          "A": 1,
+          "B": 3,
+          "C": 1,
+          "D": 3,
+          "E": 4,
+          "F": 3,
+          "G": 4
+        },
+        "paths": [
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "F"
+            ],
+            "duration": 9
+          },
+          {
+            "activities": [
+              "A",
+              "C",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "A",
+              "D",
+              "G"
+            ],
+            "duration": 8
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "F"
+            ],
+            "duration": 10
+          },
+          {
+            "activities": [
+              "B",
+              "E",
+              "dummy",
+              "G"
+            ],
+            "duration": 11
+          }
+        ],
+        "displayDurations": [
+          9,
+          8,
+          10,
+          11
+        ],
+        "earliest": [
+          0,
+          1,
+          3,
+          7,
+          7,
+          11
+        ],
+        "latest": [
+          0,
+          2,
+          3,
+          7,
+          7,
+          11
+        ],
+        "max": 11,
+        "criticalCount": 1,
+        "matching": [
+          3
+        ],
+        "slack": {
+          "A": 1,
+          "B": 0,
+          "C": 1,
+          "D": 3,
+          "E": 0,
+          "F": 1,
+          "dummy": 0,
+          "G": 0
+        },
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "correctSemanticPayload": [
+          "B",
+          "E",
+          "G"
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "This is one agent review plus parent review, not an external independent reviewer.",
+    "Original unknown density functions are not recovered; C/D preserve qualitative roles.",
+    "Finite inputs2/3 may exhaust history and finite128retry; shared Run/mix not integrated."
+  ],
+  "implementationApproval": {
+    "approvedOn": "2026-10-21",
+    "parentProof": "output/source-review/2019-autumn-next6-design-parent.json",
+    "parentProofSha256": "a65c638c83bfa83b9c4f13be03e631eea03288251e84bf2c9eca97e7be99f25a",
+    "httpClarification": "output/source-review/2019-autumn-next6-http-parent-clarification.json",
+    "httpClarificationSha256": "10d0b66f4df513f4557e0d9a81c7131f73d44bb27198809d9b152c4bbd796c4b",
+    "historicalItems": "items is the frozen pre-implementation design text;its sourceFormReviewRequired notes describe the historical approval gate,now approved by parent. Final implementation uses index0/1 forappend/prepend andproxy/server,not string parameters.",
+    "bnfMedia": "Always-visible4line managed diagram preserves the approved grammar/punctuation/recursion/words;collapsed native text-code is not used. Shared6profile registration is stillpending."
+  }
+}

@@ -1,0 +1,15 @@
+/* Source-owned geometry. Colors are inherited from the shared token source. */
+.pending-am-flow { min-width:36em; max-width:54em; margin:1em auto; color:var(--ink); }
+.pending-am-flow ol { list-style:none; padding:0; margin:0; }
+.pending-am-flow li { position:relative; display:grid; grid-template-columns:8em minmax(0,1fr); gap:1em; min-height:5.4em; margin:0; padding:0 0 1.4em; }
+.pending-am-flow li:last-child { min-height:3em; padding-bottom:0; }
+.pending-am-flow-node { height:3em; display:flex; align-items:center; justify-content:center; border:1px solid var(--ink); background:var(--surface); }
+.pending-am-flow p { margin:0; line-height:1.7; }
+.pending-am-flow-arrow { position:absolute; left:3.6em; top:3em; width:.8em; height:calc(100% - 3em); overflow:visible; }
+.pending-am-flow-arrow path { fill:none; stroke:var(--ink); stroke-width:1; vector-effect:non-scaling-stroke; }
+.pending-am-migration { margin:1em auto; width:max-content; min-width:29em; max-width:100%; color:var(--ink); }
+.pending-am-migration table { border-collapse:collapse; width:100%; }
+.pending-am-migration th,.pending-am-migration td { border:1px solid var(--ink); background:var(--surface); padding:.2em .65em; color:var(--ink); white-space:nowrap; }
+.pending-am-migration th { font-weight:400; text-align:center; }
+.pending-am-migration td { text-align:right; }
+.pending-am-migration td.pending-am-open-corner { border:none; background:transparent; }

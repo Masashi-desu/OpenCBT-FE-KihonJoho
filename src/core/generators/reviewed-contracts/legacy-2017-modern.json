@@ -1,0 +1,1281 @@
+{
+  "status": "parent_approved_full_metadata_and_old_identity_body_outcome_scalar_lift",
+  "sourceCommit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+  "metadataApprovalManifestSha256": "5bcabc6a22e5d525041cf9fdb7e16f904a3ce6a1f82f9bc5ddbe8913900fde33",
+  "rows": [
+    {
+      "canonical": {
+        "metadata": {
+          "source": "sample-2022-dec-a-15",
+          "title": "バッファサイズ",
+          "sourceAnswer": "エ",
+          "fields": [
+            {
+              "name": "連続送信時間のT倍",
+              "minimum": 1,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            1
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 速度S>R、次回までに排出可能という注記、タスク図と不等式4択を保持。時間をT/2などへ細分化せず1〜3Tの整数倍にする。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "8ca5b28aae31afc6f3c24a9e78199c844089d41d96f0a88a22a804d01ffd7007",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2017h29h-fe-am-17",
+          "title": "バッファサイズ",
+          "sourceAnswer": "エ",
+          "fields": [
+            {
+              "name": "連続送信時間のT倍",
+              "minimum": 1,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            1
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 速度S>R、次回までに排出可能という注記、タスク図と不等式4択を保持。時間をT/2などへ細分化せず1〜3Tの整数倍にする。 2017年度原問2017h29h-fe-am-17とsample-2022-dec-a-15の原画像を全図・前提・全4択の意味・公式正答で比較した。文章差は年度別査読へ固定し、旧原画像はそのまま保持する。生成基準の言い換えは改変として表示する。最終normalized canonicalを呼出側から注入し、入力契約と全22有限出力hashを年度ごとに凍結する。年度別出典/rightsを維持し、canonical入力の重複回避は共有統合待ち。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "9693e84fcd385b52d32b91f3e9119ac09b7ba157bbb0886b48b42cd5bae882d2",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "content-hash-v1",
+      "outputs": [
+        {
+          "values": [
+            1
+          ],
+          "sha256": "939930adc362b869b07b08d48f4bcfc55ccea0f69d5d8302c8629019ee4d8fa2"
+        },
+        {
+          "values": [
+            2
+          ],
+          "sha256": "dc37ffb03a462572c51839b0161ddd5890c4c4f5268b1b220ccee59f80957f4f"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "58d81630650af0bc34a2c016572fc14645e3bca4a551712879ebf222140acf7c"
+        }
+      ],
+      "rejections": [],
+      "dependencyInputs": [
+        {
+          "values": [
+            1
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-15",
+              "values": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-15",
+              "values": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-15",
+              "values": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "proof": "Old adapter is identity forwarding for body and rejection; accepted/rejected vectors come from fixed finite contract and reviewed 0/1 exactly-one condition."
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "sample-2022-dec-a-37",
+          "title": "電子メールの認証と保護",
+          "sourceAnswer": "エ",
+          "fields": [
+            {
+              "name": "問う条件",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            3
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 事例・条件から名称を選ぶ問いの方向と4択を維持する。別の条件を同じ役割の位置へバインド。全条件と全候補の対応を独立に検査。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "fcafa1439a4151ecea2ad1e6523d465a73944cbe389cd052cd3970ed0290920d",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2017h29h-fe-am-44",
+          "title": "電子メールの認証と保護",
+          "sourceAnswer": "エ",
+          "fields": [
+            {
+              "name": "問う条件",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            3
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 事例・条件から名称を選ぶ問いの方向と4択を維持する。別の条件を同じ役割の位置へバインド。全条件と全候補の対応を独立に検査。 2017年度原問2017h29h-fe-am-44とsample-2022-dec-a-37の原画像を全図・前提・全4択の意味・公式正答で比較した。文章差は年度別査読へ固定し、旧原画像はそのまま保持する。生成基準の言い換えは改変として表示する。最終normalized canonicalを呼出側から注入し、入力契約と全22有限出力hashを年度ごとに凍結する。年度別出典/rightsを維持し、canonical入力の重複回避は共有統合待ち。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "62f11c3d07d86fedc36bc7cfc646880dd3ee414252d83cb082a0b4acbf750950",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "content-hash-v1",
+      "outputs": [
+        {
+          "values": [
+            0
+          ],
+          "sha256": "20e81075da5ce3b058952b803e7ccf19ba4685fd170094a5b03a66e7ddec2c47"
+        },
+        {
+          "values": [
+            1
+          ],
+          "sha256": "ec87ffa7a7c0bd40fd666983521993efc510c794af953b67020f9d00df3f8e6a"
+        },
+        {
+          "values": [
+            2
+          ],
+          "sha256": "346c79b4d10eb92c1884209398e8e2b97e0a65be5b58bd611a0ba145ffc775d5"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "eeaada7853fe36acb33dcabd85aa2653817859cea5f1f513f4c888e3b6e3484d"
+        }
+      ],
+      "rejections": [],
+      "dependencyInputs": [
+        {
+          "values": [
+            0
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-37",
+              "values": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-37",
+              "values": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-37",
+              "values": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-37",
+              "values": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "proof": "Old adapter is identity forwarding for body and rejection; accepted/rejected vectors come from fixed finite contract and reviewed 0/1 exactly-one condition."
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "sample-2022-dec-a-43",
+          "title": "見積方法",
+          "sourceAnswer": "ウ",
+          "fields": [
+            {
+              "name": "問う対象",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            2
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明を選ぶ原形式を維持。対象と説明を結び付け、異なる概念を比較する。全対象・全選択肢の真偽を独立した査読資料で検査。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "93e4f8d4ac045ab21f3e38f9aaae3134133bf56245eeb77875abc28deeb534ee",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2017h29h-fe-am-52",
+          "title": "見積方法",
+          "sourceAnswer": "ウ",
+          "fields": [
+            {
+              "name": "問う対象",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            2
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明を選ぶ原形式を維持。対象と説明を結び付け、異なる概念を比較する。全対象・全選択肢の真偽を独立した査読資料で検査。 2017年度原問2017h29h-fe-am-52とsample-2022-dec-a-43の原画像を全図・前提・全4択の意味・公式正答で比較した。文章差は年度別査読へ固定し、旧原画像はそのまま保持する。生成基準の言い換えは改変として表示する。最終normalized canonicalを呼出側から注入し、入力契約と全22有限出力hashを年度ごとに凍結する。年度別出典/rightsを維持し、canonical入力の重複回避は共有統合待ち。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "413945144eff4fc9f45ebd05f4eda4fa4b796da336e667a99a72f3e75abc341b",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "content-hash-v1",
+      "outputs": [
+        {
+          "values": [
+            0
+          ],
+          "sha256": "afef3d884d4d23bbb5474b6591eecd1718b9ab7ae1b66fd5dc77df880cc3e01c"
+        },
+        {
+          "values": [
+            1
+          ],
+          "sha256": "0decd8af210ccd2df9d912ff499bf3c8fc1f7c7abd33d502598ca360ccd6494b"
+        },
+        {
+          "values": [
+            2
+          ],
+          "sha256": "b230bec28e47958aa52a8b1c9e35b6cfc8b8669b60de9a6ddb9d1360d54e7ef5"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "cdecdc9439e4677e1fc4df8f83798ff63e2160643542f4dc28cecbb6c726df39"
+        }
+      ],
+      "rejections": [],
+      "dependencyInputs": [
+        {
+          "values": [
+            0
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-43",
+              "values": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-43",
+              "values": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-43",
+              "values": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-43",
+              "values": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "proof": "Old adapter is identity forwarding for body and rejection; accepted/rejected vectors come from fixed finite contract and reviewed 0/1 exactly-one condition."
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "sample-2022-dec-a-52",
+          "title": "経営の概念",
+          "sourceAnswer": "ア",
+          "fields": [
+            {
+              "name": "問う対象",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            0
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明を選ぶ原形式を維持。対象と説明を結び付け、異なる概念を比較する。全対象・全選択肢の真偽を独立した査読資料で検査。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "098ed009d60ae37e37cc5ee1547f2a9372f604a13550be9d5804e00b61498032",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2017h29h-fe-am-67",
+          "title": "経営の概念",
+          "sourceAnswer": "ア",
+          "fields": [
+            {
+              "name": "問う対象",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            0
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明を選ぶ原形式を維持。対象と説明を結び付け、異なる概念を比較する。全対象・全選択肢の真偽を独立した査読資料で検査。 2017年度原問2017h29h-fe-am-67とsample-2022-dec-a-52の原画像を全図・前提・全4択の意味・公式正答で比較した。文章差は年度別査読へ固定し、旧原画像はそのまま保持する。生成基準の言い換えは改変として表示する。最終normalized canonicalを呼出側から注入し、入力契約と全22有限出力hashを年度ごとに凍結する。年度別出典/rightsを維持し、canonical入力の重複回避は共有統合待ち。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "af8d42bbe86aa3d225db84e8fef0a566253d515b2ff335a560bbd8fcdd76f7fe",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "content-hash-v1",
+      "outputs": [
+        {
+          "values": [
+            0
+          ],
+          "sha256": "83763402fc1e52738d7064d16f92ec80fbf71026cb879c4b6cdb065ec777a0c4"
+        },
+        {
+          "values": [
+            1
+          ],
+          "sha256": "39781855f75a781eec89dbad6aec76b403b046d798d533f20b195f0b7b934597"
+        },
+        {
+          "values": [
+            2
+          ],
+          "sha256": "e4770ea3582aedbb4f2717446a3df09b1ab08c32a34f9603fd3f52cdb886b807"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "55304340780556bac876c8e88ff64892bac5384cedc4fa027db57de7d3e534de"
+        }
+      ],
+      "rejections": [],
+      "dependencyInputs": [
+        {
+          "values": [
+            0
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-52",
+              "values": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-52",
+              "values": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-52",
+              "values": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-52",
+              "values": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "proof": "Old adapter is identity forwarding for body and rejection; accepted/rejected vectors come from fixed finite contract and reviewed 0/1 exactly-one condition."
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "sample-2022-dec-a-39",
+          "title": "モジュール結合度",
+          "sourceAnswer": "イ",
+          "fields": [
+            {
+              "name": "着目する条件・記述",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "reference": [
+            0
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "fb4e984529fe306efb6472cf4e93a39c23b5e512f4bcd1ee529eed1f24fb94e7",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2017h29a-fe-am-48",
+          "title": "モジュール結合度",
+          "sourceAnswer": "イ",
+          "fields": [
+            {
+              "name": "着目する条件・記述",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "reference": [
+            0
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。 2017年度原問2017h29a-fe-am-48とsample-2022-dec-a-39の原画像を全図・前提・全4択の意味・公式正答で比較した。文章差は年度別査読へ固定し、旧原画像はそのまま保持する。生成基準の言い換えは改変として表示する。最終normalized canonicalを呼出側から注入し、入力契約と全22有限出力hashを年度ごとに凍結する。年度別出典/rightsを維持し、canonical入力の重複回避は共有統合待ち。",
+          "version": "3.2.0"
+        },
+        "metadataSha256": "4e8632042a513bce8d5e9d7aa72284fd3d0eed51f270ccdbd6b70f3c09ca49cf",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "content-hash-v1",
+      "outputs": [
+        {
+          "values": [
+            0
+          ],
+          "sha256": "8eabfdcdec15852c4860f45557f7b3112ca080f940214329c254724c0cb17de4"
+        },
+        {
+          "values": [
+            1
+          ],
+          "sha256": "315faf4f44a12585bef668a7084fc77c1505c70fea2d2bc7709740179b550b26"
+        },
+        {
+          "values": [
+            2
+          ],
+          "sha256": "1b98a7936901d0cdc1768c0827c8cfe03d2534134d12c3e5107a8f50598351b8"
+        }
+      ],
+      "rejections": [],
+      "dependencyInputs": [
+        {
+          "values": [
+            0
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-39",
+              "values": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-39",
+              "values": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-39",
+              "values": [
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "proof": "Old adapter is identity forwarding for body and rejection; accepted/rejected vectors come from fixed finite contract and reviewed 0/1 exactly-one condition."
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "2024-a-14",
+          "title": "開発と運用の連携",
+          "sourceAnswer": "ウ",
+          "version": "3.5.0",
+          "fields": [
+            {
+              "name": "情報共有の時期",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "name": "運用テストへの開発支援",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "name": "運用要件への参加",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "name": "運用テストと引渡しの共同確認",
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "reference": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原の円滑かつ効果的に進める方法という肯定の問いを固定し、情報共有の時期/開発支援/運用要件への参加/運用テストと引渡しという4記述の役割を維持する。追加目的による正答の選別をやめ、各記述の実際の取組条件を0/1でバインドする。全16入力のうち適切な取組が一つだけの4入力を受理し、12入力を明示拒否。配置は生成入力に数えない。基準は原の全4択とウ正答を維持する。内容改訂により旧生成器3.2.0の保存履歴は最新版と非互換になり、旧回答/結果を新問題へ引き継がず再採点しない。 原の円滑かつ効果的に進める方法という問いを固定し、四つの取組条件を独立に変える。基準の全4択・ウ正答と、共有の時期/支援/要件参加/引渡しの原の役割を保持する。全16入力のうち一つだけが適切な4入力を受理する。"
+        },
+        "metadataSha256": "57b105504406db28e84f14ad50a5c5c1342d1ac1f9ac1746ff998b8dfba02bc0",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2017h29h-fe-am-56",
+          "title": "開発と運用の連携",
+          "sourceAnswer": "ウ",
+          "version": "3.5.0",
+          "fields": [
+            {
+              "name": "情報共有の時期",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "name": "運用テストへの開発支援",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "name": "運用要件への参加",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "name": "運用テストと引渡しの共同確認",
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "reference": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原の円滑かつ効果的に進める方法という肯定の問いを固定し、情報共有の時期/開発支援/運用要件への参加/運用テストと引渡しという4記述の役割を維持する。追加目的による正答の選別をやめ、各記述の実際の取組条件を0/1でバインドする。全16入力のうち適切な取組が一つだけの4入力を受理し、12入力を明示拒否。配置は生成入力に数えない。基準は原の全4択とウ正答を維持する。内容改訂により旧生成器3.2.0の保存履歴は最新版と非互換になり、旧回答/結果を新問題へ引き継がず再採点しない。 原の円滑かつ効果的に進める方法という問いを固定し、四つの取組条件を独立に変える。基準の全4択・ウ正答と、共有の時期/支援/要件参加/引渡しの原の役割を保持する。全16入力のうち一つだけが適切な4入力を受理する。 2017年度原問2017h29h-fe-am-56と2024-a-14の原画像を全図・前提・全4択の意味・公式正答で比較した。文章差は年度別査読へ固定し、旧原画像はそのまま保持する。生成基準の言い換えは改変として表示する。最終normalized canonicalを呼出側から注入し、入力契約と全22有限出力hashを年度ごとに凍結する。年度別出典/rightsを維持し、canonical入力の重複回避は共有統合待ち。"
+        },
+        "metadataSha256": "abaa79246cb09749ff2226e1b2000bfd5c161d06310fab85fb15000e442140cf",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "content-hash-v1",
+      "outputs": [
+        {
+          "values": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "sha256": "881f90f5d5343f9f6464ba8d04f1e3312510fd90fe2bd50a707a2545d8a7b5d2"
+        },
+        {
+          "values": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "sha256": "9da99bc50e2529afd533c40c859af1e4e6a36b3d28143df05a8d1d6fd4216662"
+        },
+        {
+          "values": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "sha256": "172ae4f883b531bf8965534ed5a22c9cf9dacd9e9f6bb21b3675e0ff260113b0"
+        },
+        {
+          "values": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "sha256": "4b8fe50145e40f2667794f5fd8953da01206554c9b07f71ab4e44a2a99b79cf6"
+        }
+      ],
+      "rejections": [
+        {
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        },
+        {
+          "values": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "error": {
+            "name": "Error",
+            "message": "PARAMETER_CONSTRAINT"
+          }
+        }
+      ],
+      "dependencyInputs": [
+        {
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                1,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                1,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                0,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                0,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                0,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                1,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                1,
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-14",
+              "values": [
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "proof": "Old adapter is identity forwarding for body and rejection; accepted/rejected vectors come from fixed finite contract and reviewed 0/1 exactly-one condition."
+    }
+  ],
+  "provenance": [
+    {
+      "path": "src/core/generators/legacy-2017-aliases.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 2920,
+      "sha256": "c1e4b895ba9528ea668ceb8360938820c815db7be16dda5b1e1899461994de69"
+    },
+    {
+      "path": "src/core/generators/legacy-2018-autumn-foundations-alias.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 3117,
+      "sha256": "2096d6bcce32ecef582fa4c929a5cdd1588aa95750d51515cc9e4878bb820ae3"
+    },
+    {
+      "path": "src/core/generators/legacy-2017-computing.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 18155,
+      "sha256": "21e3f9e733985ba9022e14b9ee06c3f783f4576a58746051264a8664609dd2c5"
+    },
+    {
+      "path": "src/core/generators/legacy-2017-computing-models.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 2846,
+      "sha256": "91bc670d889a00bc1462fc22ec781f9da5bc91ac14da1fdf2f10d1a27eaf9359"
+    },
+    {
+      "path": "src/core/generators/definition.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 4003,
+      "sha256": "9a2e5fe6c461faff368f627f723dbf61528044ec20edde4f3936bf7cbe8a7d7a"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 340,
+      "sha256": "3264ca52563c3918e825350c5c25610627bbccb80265a44674eaecd6dc95b9d4"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a-numerical.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 31829,
+      "sha256": "c158e865293a117814179718b75c9286d4511acd740805aa7bd457675592766c"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a-knowledge.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 40914,
+      "sha256": "b45fee5664db2d2cd1c106c6a08b95b70ae19a055ee61ce3c2ca9571d4eed158"
+    },
+    {
+      "path": "src/core/generators/development-operations.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 3998,
+      "sha256": "68d3e4ee0f05b8f9880d3f965f5b84290cb6f2c4ad9913f9aa9ff0301869d78f"
+    },
+    {
+      "path": "src/core/generators/index.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 10634,
+      "sha256": "f90efc5f60b38bd34eec8e500388d467143dc1dc6684acf994675f324f262746"
+    },
+    {
+      "path": "src/core/generators/corrections.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 1996,
+      "sha256": "e467ad2cb9a2eea25ab3fe9197babfc4f9d16d2ce6b59324e02364bd3fa856e9"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 6233,
+      "sha256": "27dfad24c574890412a260abfd98be4060273b4fb0c6b8ca1ead7ea77ed6dcd6"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-computing-contracts.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 7881,
+      "sha256": "2cffb454c0322c80b5584b1bdc1ccec8fb454e0eed69f7ca1443e093a22620d3"
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-autumn-foundations-canonical-review.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 2855,
+      "sha256": "dfac5ffc528c6950954317aab2181481cd01728e384a93434573d9aff6a6ee7c"
+    },
+    {
+      "path": "tests/fixtures/generator-composition-existing.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 201906,
+      "sha256": "f4328cf979e33dd27ab874d7b50f15cf08afbeee441c0bb1f9d7cd6bb34d7222"
+    }
+  ],
+  "limits": [
+    "Unregistered identity adapters; no body transformation or new expected body hash sampling.",
+    "Full own metadata and omitted answerVariation/domain retained; no version/raw fallback.",
+    "AM56 twelve semantic rejections read the corresponding canonical once and propagate exact Error/PARAMETER_CONSTRAINT/no code.",
+    "USB keeps raw JSON.stringify SHA, not sorted contentHash.",
+    "No production year/index/App/script/test runtime reverse import or startup field Cartesian expansion."
+  ]
+}

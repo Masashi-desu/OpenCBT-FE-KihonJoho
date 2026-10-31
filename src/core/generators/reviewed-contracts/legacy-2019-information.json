@@ -1,0 +1,177 @@
+{
+  "status": "parent_reviewed_complete_metadata_and_preexisting_body_scalar_lift",
+  "sourceCommit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+  "metadataApprovalRecordSha256": "28c7d844221fae33f393824dd823bb743b2d72af91ee55e2c021a824570f592c",
+  "canonical": {
+    "metadata": {
+      "source": "2017h29h-fe-am-31",
+      "title": "OSI層と接続機器の機能",
+      "sourceAnswer": "ア",
+      "version": "3.2.0",
+      "fields": [
+        {
+          "name": "層と中継機能",
+          "minimum": 0,
+          "maximum": 3
+        }
+      ],
+      "reference": [
+        0
+      ],
+      "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 春期午前問31。4有限条件を原の同じ位置へバインドし、問いの方向・肯定条件・4択の役割を保つ。計算回数/数値精度/丸めを増やさない。配置を候補容量に数えず、全条件を独立意味資料で検算する。"
+    },
+    "metadataSha256": "30fecd2371b470efe3d768df5c7fd51f8e0c8aefd5b81b55705d726f7c77c78f",
+    "outputs": [
+      {
+        "values": [
+          0
+        ],
+        "sha256": "dba01a3d065a1a437d67731f082417a33be2dff2c7fea24fa5fe9d260c98adb3"
+      },
+      {
+        "values": [
+          1
+        ],
+        "sha256": "849bfbcc68bbf668b2a0a5486cb91310359de728de3941f4aab8026b4f5dd532"
+      },
+      {
+        "values": [
+          2
+        ],
+        "sha256": "c9d3503078771f6a86564947b613a592be76f4459afb764db501592ad2d56326"
+      },
+      {
+        "values": [
+          3
+        ],
+        "sha256": "a5d1c9c8980428e439ad7dd14e57d6af638c0cfedc2577069918c15a28609d51"
+      }
+    ]
+  },
+  "adapter": {
+    "metadata": {
+      "source": "2019h31h-fe-am-31",
+      "title": "OSI層と接続機器の機能",
+      "sourceAnswer": "ア",
+      "version": "3.2.0",
+      "fields": [
+        {
+          "name": "層と中継機能",
+          "minimum": 0,
+          "maximum": 3
+        }
+      ],
+      "reference": [
+        0
+      ],
+      "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 春期午前問31。4有限条件を原の同じ位置へバインドし、問いの方向・肯定条件・4択の役割を保つ。計算回数/数値精度/丸めを増やさない。配置を候補容量に数えず、全条件を独立意味資料で検算する。 2019春午前31（物理15）と2017春午前31（物理17）の原本文・全4名称・注記なし・公式アを画像比較し実質同一と確認。再利用元2017h29h-fe-am-31の有効poolからのみ注入し、版/入力名/範囲/reference/正答固定宣言と全4内容hashを固定する。年度source/crop/権利/語を別に保持する。意味検査は年度fixtureと2017独立oracleの両方で行う。共有登録・canonical系列のミックス重複排除は未完。"
+    },
+    "metadataSha256": "0512e9bbefdc481aa21e2238786cec503442e695abfbe777b411323f552905e1",
+    "outputs": [
+      {
+        "values": [
+          0
+        ],
+        "sha256": "dba01a3d065a1a437d67731f082417a33be2dff2c7fea24fa5fe9d260c98adb3"
+      },
+      {
+        "values": [
+          1
+        ],
+        "sha256": "849bfbcc68bbf668b2a0a5486cb91310359de728de3941f4aab8026b4f5dd532"
+      },
+      {
+        "values": [
+          2
+        ],
+        "sha256": "c9d3503078771f6a86564947b613a592be76f4459afb764db501592ad2d56326"
+      },
+      {
+        "values": [
+          3
+        ],
+        "sha256": "a5d1c9c8980428e439ad7dd14e57d6af638c0cfedc2577069918c15a28609d51"
+      }
+    ]
+  },
+  "dependencyInputs": [
+    {
+      "values": [
+        0
+      ],
+      "reads": [
+        {
+          "source": "2017h29h-fe-am-31",
+          "values": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        1
+      ],
+      "reads": [
+        {
+          "source": "2017h29h-fe-am-31",
+          "values": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        2
+      ],
+      "reads": [
+        {
+          "source": "2017h29h-fe-am-31",
+          "values": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        3
+      ],
+      "reads": [
+        {
+          "source": "2017h29h-fe-am-31",
+          "values": [
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "bodyScalarSources": {
+    "canonical": {
+      "path": "tests/fixtures/legacy-2017-information-contracts.json",
+      "recordSource": "2017h29h-fe-am-31",
+      "rule": "Old2017canonical fixture has the same four SHA as oldlegacy2019InformationHashes; no new body sampling."
+    },
+    "adapter": "src/core/generators/legacy-2019-information-alias.ts"
+  },
+  "provenance": [
+    {
+      "path": "src/core/generators/legacy-2017-information.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "01259cd9dbcfb7f610d08ee8628579d77eff2fa2937d326ad3159ebbfcbb7241"
+    },
+    {
+      "path": "src/core/generators/legacy-2019-information-alias.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "cfab28393da6e5a591f21340dde9a58dae6df7dc93b5268acf25301ce31d07ae"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-information-contracts.json",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "28ec4bd8c2596fd5098ba61aa411cb93c039bb2949d28159d23e41390274deaf"
+    }
+  ],
+  "limits": "Unregistered source-specific composition input. Full metadata was explicitly reviewed; body digests are unchanged old fixed scalar values. Caller supplies exactly the effective canonical version; no year/index/script fallback. answerVariation is omitted, including OSI binding default variable. Independent meaning oracles remain separate."
+}

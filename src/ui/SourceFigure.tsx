@@ -1,13 +1,14 @@
-import {DataError} from "../core/errors";
-import {LegacyAfternoonFigure} from "./LegacyAfternoonFigure";
-import {isLegacyAfternoonFigure} from "../core/legacy-afternoon-figures";
-import {Legacy2017Pm3Figure} from "./Legacy2017Pm3Figure";
-import {managedLegacyFigure} from "../core/managed-legacy-figures";
-import type {Attribution} from "../core/types";
+import { Legacy2017Pm3Figure } from "./Legacy2017Pm3Figure";
+import { LegacyAfternoonFigure } from "./LegacyAfternoonFigure";
+import { isLegacyAfternoonFigure } from "../core/legacy-afternoon-figures";
+import { managedLegacyFigure } from "../core/managed-legacy-figures";
+import { DataError } from "../core/errors";
 import { useId, type ReactNode } from "react";
-import { DecemberAFigure } from "./DecemberAFigure";
-import type { Scene } from "../core/types";
+import { DecemberAFigure, type ArrayPanelTitleMode } from "./DecemberAFigure";
+import type { Scene, Attribution } from "../core/types";
 import { validateSourceFigure, sourceFigureAlt } from "../core/source-figures";
+import { isLegacyMorningFigure } from "../core/legacy-morning-figures";
+import { LegacyMorningFigure } from "./LegacyMorningFigure";
 import { scatterPoints } from "../core/generators/subject-a";
 import { sampleBigramCases } from "../core/generators/sample-2022-data";
 import { sampleMinimaxBoards, sampleMinimaxChildren, sampleMinimaxQueries } from "../core/generators/sample-2022-dec-data";
@@ -19,9 +20,24 @@ import {
   onehot,
 } from "../core/generators/subject-b";
 
+/** Source-local presentation uses the diagram material, independently of its
+ * generator alias or the parent Content credit. Other sources keep default SVG. */
+function arrayPanelTitleMode(attribution?: Attribution): ArrayPanelTitleMode {
+  const ref = attribution?.sourceRefs.length === 1 ? attribution.sourceRefs[0] : undefined;
+  const locator = ref?.locator;
+  return attribution?.origin !== "original" &&
+    ref?.sourceId === "source-ipa-2019r01a-fe-am-stage1-qs" &&
+    locator?.section === "令和元年度 秋期 基本情報技術者試験 午前 問9" &&
+    locator.page === 7 && locator.year === 2019 && locator.period === "秋期" &&
+    locator.questionNumber === "9" && locator.exam === "基本情報技術者試験" &&
+    locator.subject === "旧制度・午前" && locator.timeSlot === "午前"
+      ? "2019-autumn-am-9" : "default";
+}
+
 export function SourceFigure({
   scene,
   caption,
+  materialAttribution,
 }: {
   scene: Extract<Scene, { kind: "source_figure" }>;
   caption: string;
@@ -31,9 +47,13 @@ export function SourceFigure({
   const id = useId().replace(/:/g, ""),
     v = scene.values,
     profile = scene.profile;
-  if(isLegacyAfternoonFigure(profile))return <LegacyAfternoonFigure profile={profile} values={v} caption={caption}/>;
-  if(profile===managedLegacyFigure.profile){if(caption!==managedLegacyFigure.caption)throw new DataError("SOURCE_MATERIAL","登録図の見出しと一致しません");return <Legacy2017Pm3Figure profile={profile} values={v} caption={caption}/>;}
-  if (profile.startsWith("dec-a-")) return <DecemberAFigure profile={profile} values={v} caption={caption}/>;
+  if (isLegacyAfternoonFigure(scene.profile)) return <LegacyAfternoonFigure profile={scene.profile} values={scene.values} caption={caption} />;
+  if (isLegacyMorningFigure(profile)) return <LegacyMorningFigure profile={profile} values={v} caption={caption}/>;
+  if (profile === managedLegacyFigure.profile) {
+    if (caption !== managedLegacyFigure.caption) throw new DataError("SOURCE_MATERIAL", "登録図の見出しと一致しません");
+    return <Legacy2017Pm3Figure profile={profile} values={v} caption={caption}/>;
+  }
+  if (profile.startsWith("dec-a-")) return <DecemberAFigure profile={profile} values={v} caption={caption} panelTitleMode={profile === "dec-a-array" ? arrayPanelTitleMode(materialAttribution) : "default"}/>;
   let key = 0,
     height = 450;
   const parts: ReactNode[] = [];

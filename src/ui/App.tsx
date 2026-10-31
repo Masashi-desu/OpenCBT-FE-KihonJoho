@@ -54,7 +54,7 @@ import { loadCatalog, loadAsset } from "../core/catalog";
 import { BookmarkLearning } from "./BookmarkLearning";
 import { selectQuestions } from "../core/selection";
 import { mixProfile } from "../core/mix-profile";
-import { sourceQuestionLabel, questionSubjectLabel } from "../core/source-label";
+import { sourceQuestionLabel, questionSubjectLabel, displayQuestionNumber, originalBookletQuestionNumber } from "../core/source-label";
 import { isLegacyQuestion } from "../core/source-collections";
 import { menuSourceGroups, menuSourceGroup, chooseMenuSourceGroup, menuSubjectOptions, menuSubjectNotice, patchMenuSelection } from "../core/menu-selection";
 import { AnswerChoices, outcomeLabels } from "./AnswerChoices";
@@ -1664,8 +1664,10 @@ export function App() {
                       <div className="answer-question">
                         <div className="answer-question-heading">
                           <h1 ref={h1} tabIndex={-1}>
-                            問題 {currentIndex + 1}
-                            <small> / {run.issued.length}</small>
+                            問題 {displayQuestionNumber(q, currentIndex)}
+                            <small>{originalBookletQuestionNumber(q)
+                              ? `（${currentIndex + 1} / ${run.issued.length}）`
+                              : ` / ${run.issued.length}`}</small>
                           </h1>
                         </div>
                       </div>
@@ -1964,7 +1966,7 @@ export function App() {
                         navigate("review");
                       }}
                     >
-                      <span className="row-number">{i + 1}</span>
+                      <span className="row-number">{displayQuestionNumber(run.issued[i], i)}</span>
                       <span>
                         <strong>{questionName(run.issued[i])}</strong>
                         <small>
@@ -2438,7 +2440,7 @@ export function App() {
                     setDialog(null);
                   }}
                 >
-                  <strong>{i + 1}</strong>
+                  <strong>{displayQuestionNumber(run.issued[i], i)}</strong>
                   <span>
                     {hasCompleteAnswer(run.issued[i], e) ? (
                       <Check size={14} />

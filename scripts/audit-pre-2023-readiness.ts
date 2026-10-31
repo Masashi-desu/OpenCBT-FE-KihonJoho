@@ -1,4 +1,5 @@
 import spring2019PMReview from "./source-evidence/stage2-2019-spring-pm-review.json";
+import morningPartialReview from "./source-evidence/stage1-am-partial-release-review.json";
 import autumn2019PMReview from "./source-evidence/stage2-2019-autumn-pm-review.json";
 import autumn2018PMReview from "./source-evidence/stage2-2018-autumn-pm-review.json";
 import autumn2017PMReview from "./source-evidence/stage2-2017-autumn-pm-review.json";
@@ -47,6 +48,34 @@ export type ImportReview = {
   checks: Partial<Record<ReviewKind, "pass">>;
   testFiles: string[];
 };
+type MorningPartialLedger = {
+  schema:string; status:string; candidateSHA256:string|null; targetTotal:number; eligibleTotal:number; heldTotal:number;
+  rootSourceReview:{status:string;evidence:{path:string;sha256:string}|null};
+  normalApp:{status:string;evidence:{path:string;sha256:string}|null};
+  independent:{status:string;evidence:{path:string;sha256:string}|null};
+  collections:{id:string;questionPaperSHA256:string;expected:number;heldNumbers:number[];
+    questions:{number:number;checks:Record<string,string>;testFiles:string[]}[]}[];
+};
+/** Root review records cover published questions only. Held official numbers
+ * remain in pre2023Scope and receive no fabricated review or original. */
+export function morningPartialImportReviews(ledger:MorningPartialLedger=morningPartialReview):ImportReview[] {
+  const cohorts=[
+    ["2017h29h-fe-am",[55,66]],["2017h29a-fe-am",[55]],
+    ["2018h30h-fe-am",[39,47,62]],["2018h30a-fe-am",[39,65]],
+    ["2019h31h-fe-am",[41,51,67]],["2019r01a-fe-am",[55,57]],
+  ] as const;
+  const evidence=(v:MorningPartialLedger["normalApp"])=>v.status==="pass"&&!!v.evidence?.path&&/^[a-f0-9]{64}$/.test(v.evidence.sha256);
+  const exact=ledger.schema==="stage1-am-partial-release-review/v1" && ledger.targetTotal===480 && ledger.eligibleTotal===467 && ledger.heldTotal===13 &&
+    ledger.collections.length===6 && cohorts.every(([id,held])=>{
+      const c=ledger.collections.find(c=>c.id===id),eligible=Array.from({length:80},(_,i)=>i+1).filter(n=>!(held as readonly number[]).includes(n));
+      return c?.expected===80 && JSON.stringify(c.heldNumbers)===JSON.stringify(held) &&
+        JSON.stringify(c.questions.map(q=>q.number))===JSON.stringify(eligible);
+    });
+  const accepted=exact && ledger.status==="reviewed_source_and_normal_app" && typeof ledger.candidateSHA256==="string" && /^[a-f0-9]{64}$/.test(ledger.candidateSHA256) &&
+    [ledger.rootSourceReview,ledger.normalApp,ledger.independent].every(evidence);
+  return ledger.collections.flatMap(c=>c.questions.map(q=>({collectionId:c.id,questionNumber:q.number,paperSha256:c.questionPaperSHA256,
+    checks:accepted?Object.fromEntries(requiredReviews.filter(k=>q.checks[k]==="pass").map(k=>[k,"pass" as const])):{},testFiles:q.testFiles})));
+}
 type Spring2019BookletReadinessLedger = {
   collectionId: string; status: string; questionPaperSHA256: string; candidateContentSHA256: string | null;
   reviewAdmission: { status: string };
@@ -135,7 +164,7 @@ export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportR
     number >= 5 && number <= 7 ? "tests/legacy-2018-autumn-pm5-7.test.ts" : `tests/legacy-2018-autumn-pm${number}.test.ts`,
     "tests/legacy-2018-autumn-booklet-facts.test.ts", "tests/legacy-2018-autumn-complete-integration.test.ts",
     "tests/legacy-2018-autumn-normal-flow.test.ts", "tests/legacy-2018-autumn-fixed-materials.test.ts"],
-}))).concat(spring2019BookletImportReviews(), autumn2019BookletImportReviews());
+}))).concat(spring2019BookletImportReviews(), autumn2019BookletImportReviews(), morningPartialImportReviews());
 
 export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, reviews = pre2023Reviews, discovery: unknown = discoveryLedger) {
   evidence = losslessJSONCopy(evidence);
@@ -173,12 +202,15 @@ export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, 
       throw Error(`IMPORT_COUNT: ${c.id}`);
     const sourceSets = bundle.sets.filter(set => {
       if (set.distribution !== "included" || set.subject !== scope.subject || set.generationBindings.length ||
-        set.questionRefs.length !== scope.count) return false;
+        !set.questionRefs.length || set.questionRefs.length > scope.count) return false;
       const numbers = set.questionRefs.map(ref => {
         const q = bundle.questions.find(q => q.id === ref.questionId && q.revision === ref.revision && q.origin.kind === "official_reprint");
         return q?.origin.sourceRefs.find(ref => sources.get(ref.sourceId)?.sha256 === c.questionPaper.sha256)?.locator.questionNumber;
       });
-      return new Set(numbers).size === scope.count && c.questionNumbers.every(n => numbers.includes(String(n)));
+      // A published subset is a usable source collection. The independent
+      // scope below still retains every official number and its pending work.
+      return new Set(numbers).size === numbers.length && numbers.every(n =>
+        n !== undefined && c.questionNumbers.some(expected => String(expected) === n));
     });
     const questions = c.questionNumbers.map(number => {
       const matching = bundle.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref =>

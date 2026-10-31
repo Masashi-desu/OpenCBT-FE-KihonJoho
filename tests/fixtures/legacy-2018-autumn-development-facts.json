@@ -1,0 +1,1730 @@
+{
+  "status": "manually reviewed original/primary correspondence; expectations not sampled from producer",
+  "checkedOn": "2026-10-23",
+  "originalQuestionSha256": "15c0f1776ba5c22802089c4a74e2ba5484ff2c7f0015212929b0218cc7bbc62e",
+  "originalAnswerSha256": "b47e7a18180365a68355c7b4757ff91786d26c80ec39d233bc9616389e25655d",
+  "knowledge": [
+    {
+      "source": "2018h30a-fe-am-46",
+      "number": 46,
+      "page": 23,
+      "originalStem": "UML 2.0のシーケンス図とコミュニケーション図のどちらにも表現されるものはどれか。",
+      "originalChoices": [
+        "イベントとオブジェクトの状態",
+        "オブジェクトがある状態にとどまる最短時間及び最長時間",
+        "オブジェクトがメッセージを処理している期間",
+        "オブジェクト間で送受信されるメッセージ"
+      ],
+      "answer": "エ",
+      "roles": [
+        "状態とイベント",
+        "状態にいる時間制約",
+        "メッセージ処理の実行期間",
+        "オブジェクト間のメッセージ"
+      ],
+      "premises": [
+        "UML 2.0",
+        "両方の図に表現されるもの",
+        "追加のただし書き・図表なし"
+      ],
+      "cases": [
+        {
+          "values": [
+            0
+          ],
+          "prompt": "UML 2.0のシーケンス図とコミュニケーション図のどちらにも表現されるものはどれか。",
+          "choices": [
+            "イベントとオブジェクトの状態",
+            "オブジェクトがある状態にとどまる最短時間及び最長時間",
+            "オブジェクトがメッセージを処理している期間",
+            "オブジェクト間で送受信されるメッセージ"
+          ],
+          "truth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "correctIndex": 3
+        },
+        {
+          "values": [
+            1
+          ],
+          "prompt": "UML 2.0のシーケンス図とコミュニケーション図のどちらにも表現されるものはどれか。",
+          "choices": [
+            "オブジェクトの状態に入るときと、その状態から出るときに実行する動作",
+            "オブジェクトがある状態にとどまる最短時間及び最長時間",
+            "オブジェクトがメッセージを処理している期間",
+            "オブジェクト間で送受信されるメッセージ"
+          ],
+          "truth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "correctIndex": 3
+        },
+        {
+          "values": [
+            2
+          ],
+          "prompt": "UML 2.0のシーケンス図とコミュニケーション図のどちらにも表現されるものはどれか。",
+          "choices": [
+            "オブジェクトの内部で同時に有効となる、並行した領域の状態",
+            "オブジェクトがある状態にとどまる最短時間及び最長時間",
+            "オブジェクトがメッセージを処理している期間",
+            "オブジェクト間で送受信されるメッセージ"
+          ],
+          "truth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "correctIndex": 3
+        }
+      ]
+    },
+    {
+      "source": "2018h30a-fe-am-47",
+      "number": 47,
+      "page": 24,
+      "originalStem": "オブジェクト指向におけるクラスとインスタンスとの関係のうち、適切なものはどれか。",
+      "originalChoices": [
+        "インスタンスはクラスの仕様を定義したものである。",
+        "クラスの定義に基づいてインスタンスが生成される。",
+        "一つのインスタンスに対して、複数のクラスが対応する。",
+        "一つのクラスに対して、インスタンスはただ一つ存在する。"
+      ],
+      "answer": "イ",
+      "roles": [
+        "仕様の定義と具体例の逆転",
+        "定義から具体例を生成",
+        "一インスタンスの生成元の多重性",
+        "一クラスのインスタンス数を一つに限定"
+      ],
+      "premises": [
+        "クラスとインスタンスの関係",
+        "追加のただし書き・図表なし"
+      ],
+      "cases": [
+        {
+          "values": [
+            0
+          ],
+          "prompt": "オブジェクト指向におけるクラスとインスタンスとの関係のうち、適切なものはどれか。",
+          "choices": [
+            "インスタンスはクラスの仕様を定義したものである。",
+            "クラスの定義に基づいてインスタンスが生成される。",
+            "一つのインスタンスに対して、直接の生成元となるクラスが同時に複数対応する。",
+            "一つのクラスに対して、インスタンスはただ一つ存在する。"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        },
+        {
+          "values": [
+            1
+          ],
+          "prompt": "オブジェクト指向におけるクラスとインスタンスとの関係のうち、適切なものはどれか。",
+          "choices": [
+            "最初のインスタンスがクラスの属性を定める。",
+            "クラスの定義に基づいてインスタンスが生成される。",
+            "一つのインスタンスに対して、直接の生成元となるクラスが同時に複数対応する。",
+            "一つのクラスに対して、インスタンスはただ一つ存在する。"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        },
+        {
+          "values": [
+            2
+          ],
+          "prompt": "オブジェクト指向におけるクラスとインスタンスとの関係のうち、適切なものはどれか。",
+          "choices": [
+            "属性値の変更はクラスの仕様も変える。",
+            "クラスの定義に基づいてインスタンスが生成される。",
+            "一つのインスタンスに対して、直接の生成元となるクラスが同時に複数対応する。",
+            "一つのクラスに対して、インスタンスはただ一つ存在する。"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "source": "2018h30a-fe-am-48",
+      "number": 48,
+      "page": 24,
+      "originalStem": "モジュール間の情報の受渡しがパラメタだけで行われる、結合度が最も弱いモジュール結合はどれか。",
+      "originalChoices": [
+        "共通結合",
+        "制御結合",
+        "データ結合",
+        "内容結合"
+      ],
+      "answer": "ウ",
+      "roles": [
+        "共通領域への依存",
+        "処理を指定する制御値",
+        "必要なデータの受渡し",
+        "他モジュール内部への依存"
+      ],
+      "premises": [
+        "情報の受渡しはパラメタだけ",
+        "結合度が最も弱い",
+        "説明から結合名を選択",
+        "追加図表なし"
+      ],
+      "cases": [
+        {
+          "values": [
+            0
+          ],
+          "prompt": "モジュール間の情報の受渡しがパラメタだけで行われる、結合度が最も弱いモジュール結合はどれか。",
+          "choices": [
+            "共通結合",
+            "制御結合",
+            "データ結合",
+            "内容結合"
+          ],
+          "truth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "correctIndex": 2
+        },
+        {
+          "values": [
+            1
+          ],
+          "prompt": "モジュール間の情報の受渡しがパラメタだけで行われる、結合度が最も弱いモジュール結合はどれか。",
+          "choices": [
+            "外部結合",
+            "制御結合",
+            "データ結合",
+            "内容結合"
+          ],
+          "truth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "correctIndex": 2
+        },
+        {
+          "values": [
+            2
+          ],
+          "prompt": "モジュール間の情報の受渡しがパラメタだけで行われる、結合度が最も弱いモジュール結合はどれか。",
+          "choices": [
+            "共通結合",
+            "外部結合",
+            "データ結合",
+            "内容結合"
+          ],
+          "truth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "correctIndex": 2
+        },
+        {
+          "values": [
+            3
+          ],
+          "prompt": "モジュール間の情報の受渡しがパラメタだけで行われる、結合度が最も弱いモジュール結合はどれか。",
+          "choices": [
+            "共通結合",
+            "制御結合",
+            "データ結合",
+            "外部結合"
+          ],
+          "truth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "source": "2018h30a-fe-am-49",
+      "number": 49,
+      "page": 24,
+      "originalStem": "オブジェクト指向における“委譲”に関する説明として、適切なものはどれか。",
+      "originalChoices": [
+        "あるオブジェクトに対して操作を適用したとき、関連するオブジェクトに対してもその操作が自動的に適用される仕組み",
+        "あるオブジェクトに対する操作を、その内部で他のオブジェクトに依頼する仕組み",
+        "下位のクラスが上位のクラスの属性や操作を引き継ぐ仕組み",
+        "複数のオブジェクトを部分として用いて、新たな一つのオブジェクトを生成する仕組み"
+      ],
+      "answer": "イ",
+      "roles": [
+        "関連先への自動伝播",
+        "他オブジェクトへ依頼",
+        "クラス継承",
+        "部分から全体を構成"
+      ],
+      "premises": [
+        "オブジェクト指向",
+        "用語から説明を選ぶ",
+        "追加のただし書き・図表なし"
+      ],
+      "cases": [
+        {
+          "values": [
+            0
+          ],
+          "prompt": "オブジェクト指向における“委譲”に関する説明として、適切なものはどれか。",
+          "choices": [
+            "あるオブジェクトに対して操作を適用したとき、関連するオブジェクトに対してもその操作が自動的に適用される仕組み",
+            "あるオブジェクトに対する操作を、その内部で他のオブジェクトに依頼する仕組み",
+            "下位のクラスが上位のクラスの属性や操作を引き継ぐ仕組み",
+            "複数のオブジェクトを部分として用いて、新たな一つのオブジェクトを生成する仕組み"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        },
+        {
+          "values": [
+            1
+          ],
+          "prompt": "オブジェクト指向における“継承”に関する説明として、適切なものはどれか。",
+          "choices": [
+            "あるオブジェクトに対して操作を適用したとき、関連するオブジェクトに対してもその操作が自動的に適用される仕組み",
+            "あるオブジェクトに対する操作を、その内部で他のオブジェクトに依頼する仕組み",
+            "下位のクラスが上位のクラスの属性や操作を引き継ぐ仕組み",
+            "複数のオブジェクトを部分として用いて、新たな一つのオブジェクトを生成する仕組み"
+          ],
+          "truth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "correctIndex": 2
+        }
+      ]
+    },
+    {
+      "source": "2018h30a-fe-am-50",
+      "number": 50,
+      "page": 25,
+      "originalStem": "XP（Extreme Programming）のプラクティスの説明のうち、適切なものはどれか。",
+      "originalChoices": [
+        "顧客は単体テストの仕様に責任をもつ。",
+        "コードの結合とテストを継続的に繰り返す。",
+        "コードを作成して結合できることを確認した後、テストケースを作成する。",
+        "テストを通過したコードは、次のイテレーションまでリファクタリングしない。"
+      ],
+      "answer": "イ",
+      "roles": [
+        "顧客テストと単体テストの責任の混同",
+        "継続的結合とテスト",
+        "コード作成後へのテスト先送り",
+        "リファクタリングの時機・条件の誤り"
+      ],
+      "premises": [
+        "XPプラクティスの説明",
+        "追加のただし書き・図表なし"
+      ],
+      "cases": [
+        {
+          "values": [
+            0
+          ],
+          "prompt": "XP（Extreme Programming）のプラクティスの説明のうち、適切なものはどれか。",
+          "choices": [
+            "顧客は単体テストの仕様に責任をもつ。",
+            "コードの結合とテストを継続的に繰り返す。",
+            "コードを作成して結合できることを確認した後、テストケースを作成する。",
+            "テストを通過したコードは、次のイテレーションまでリファクタリングしない。"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        },
+        {
+          "values": [
+            1
+          ],
+          "prompt": "XP（Extreme Programming）のプラクティスの説明のうち、適切なものはどれか。",
+          "choices": [
+            "顧客は単体テストの仕様に責任をもつ。",
+            "コードの結合とテストを継続的に繰り返す。",
+            "コードを作成して結合できることを確認した後、テストケースを作成する。",
+            "リファクタリングでは、要求が変わらなくてもコードの外部から見た振舞いを変更する。"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        },
+        {
+          "values": [
+            2
+          ],
+          "prompt": "XP（Extreme Programming）のプラクティスの説明のうち、適切なものはどれか。",
+          "choices": [
+            "顧客は単体テストの仕様に責任をもつ。",
+            "コードの結合とテストを継続的に繰り返す。",
+            "コードを作成して結合できることを確認した後、テストケースを作成する。",
+            "変更前の単体テストが通っていれば、リファクタリング後の再実行は省略する。"
+          ],
+          "truth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "source": "2018h30a-fe-am-51",
+      "number": 51,
+      "page": 25,
+      "originalStem": "ソフトウェア開発プロジェクトにおいて、WBS（Work Breakdown Structure）を使用する目的として、適切なものはどれか。",
+      "originalChoices": [
+        "開発の期間と費用がトレードオフの関係にある場合に、総費用の最適化を図る。",
+        "作業の順序関係を明確にして、重点管理すべきクリティカルパスを把握する。",
+        "作業の日程を横棒（バー）で表して、作業の開始時点や終了時点、現時点の進捗を明確にする。",
+        "作業を階層的に詳細化して、管理可能な大きさに細分化する。"
+      ],
+      "answer": "エ",
+      "roles": [
+        "期間と費用の最適化",
+        "順序依存と最長経路",
+        "横棒による時点と進捗の表示",
+        "階層的な作業の分割"
+      ],
+      "premises": [
+        "ソフトウェア開発プロジェクト",
+        "WBSの使用目的",
+        "追加のただし書き・図表なし"
+      ],
+      "cases": [
+        {
+          "values": [
+            0
+          ],
+          "prompt": "ソフトウェア開発プロジェクトにおいて、WBS（Work Breakdown Structure）を使用する目的として、適切なものはどれか。",
+          "choices": [
+            "開発の期間と費用がトレードオフの関係にある場合に、総費用の最適化を図る。",
+            "作業の順序関係を明確にして、重点管理すべきクリティカルパスを把握する。",
+            "作業の日程を横棒（バー）で表して、作業の開始時点や終了時点、現時点の進捗を明確にする。",
+            "作業を階層的に詳細化して、管理可能な大きさに細分化する。"
+          ],
+          "truth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "correctIndex": 3
+        },
+        {
+          "values": [
+            1
+          ],
+          "prompt": "ソフトウェア開発プロジェクトにおいて、WBS（Work Breakdown Structure）を使用する目的として、適切なものはどれか。",
+          "choices": [
+            "開発の期間と費用がトレードオフの関係にある場合に、総費用の最適化を図る。",
+            "作業の順序関係を明確にして、重点管理すべきクリティカルパスを把握する。",
+            "各作業の計画期間と実績期間を別々の横棒で表して、開始日や完了日のずれを確認する。",
+            "作業を階層的に詳細化して、管理可能な大きさに細分化する。"
+          ],
+          "truth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "correctIndex": 3
+        }
+      ]
+    }
+  ],
+  "network": {
+    "scope": "source-only independent arithmetic; no production implementation or rendered SVG validation yet",
+    "edges": [
+      [
+        "A",
+        0,
+        1
+      ],
+      [
+        "B",
+        0,
+        4
+      ],
+      [
+        "C",
+        1,
+        3
+      ],
+      [
+        "D",
+        1,
+        2
+      ],
+      [
+        "E",
+        3,
+        5
+      ],
+      [
+        "F",
+        2,
+        5
+      ],
+      [
+        "G",
+        4,
+        5
+      ],
+      [
+        "H",
+        5,
+        6
+      ],
+      [
+        "dummy-upper",
+        2,
+        3
+      ],
+      [
+        "dummy-lower",
+        1,
+        4
+      ]
+    ],
+    "nodeCount": 7,
+    "realActivities": 8,
+    "zeroDummies": 2,
+    "originalFivePathDays": [
+      50,
+      50,
+      55,
+      45,
+      40
+    ],
+    "cases": [
+      {
+        "input": [
+          0
+        ],
+        "valuesByTask": {
+          "A": 10,
+          "B": 5,
+          "C": 10,
+          "D": 15,
+          "E": 20,
+          "F": 15,
+          "G": 25,
+          "H": 10
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 50
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 50
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 55
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 45
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 40
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 10,
+          "2": 25,
+          "3": 25,
+          "4": 10,
+          "5": 45,
+          "6": 55
+        },
+        "choices": [
+          40,
+          45,
+          50,
+          55
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "correctIndex": 3,
+        "answerDays": 55,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          1
+        ],
+        "valuesByTask": {
+          "A": 10,
+          "B": 5,
+          "C": 20,
+          "D": 10,
+          "E": 20,
+          "F": 10,
+          "G": 25,
+          "H": 10
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 60
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 40
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 50
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 45
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 40
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 10,
+          "2": 20,
+          "3": 30,
+          "4": 10,
+          "5": 50,
+          "6": 60
+        },
+        "choices": [
+          40,
+          45,
+          60,
+          50
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctIndex": 2,
+        "answerDays": 60,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          2
+        ],
+        "valuesByTask": {
+          "A": 10,
+          "B": 5,
+          "C": 10,
+          "D": 15,
+          "E": 15,
+          "F": 5,
+          "G": 40,
+          "H": 15
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 50
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 45
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 55
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 65
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 60
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 10,
+          "2": 25,
+          "3": 25,
+          "4": 10,
+          "5": 50,
+          "6": 65
+        },
+        "choices": [
+          60,
+          65,
+          50,
+          55
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "correctIndex": 1,
+        "answerDays": 65,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          3
+        ],
+        "valuesByTask": {
+          "A": 10,
+          "B": 20,
+          "C": 10,
+          "D": 15,
+          "E": 10,
+          "F": 10,
+          "G": 30,
+          "H": 20
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 50
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 55
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 55
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 60
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 70
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 10,
+          "2": 25,
+          "3": 25,
+          "4": 20,
+          "5": 50,
+          "6": 70
+        },
+        "choices": [
+          70,
+          60,
+          50,
+          55
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctIndex": 0,
+        "answerDays": 70,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          4
+        ],
+        "valuesByTask": {
+          "A": 15,
+          "B": 5,
+          "C": 10,
+          "D": 20,
+          "E": 15,
+          "F": 10,
+          "G": 20,
+          "H": 25
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 65
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 70
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 75
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 60
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 50
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 15,
+          "2": 35,
+          "3": 35,
+          "4": 15,
+          "5": 50,
+          "6": 75
+        },
+        "choices": [
+          50,
+          60,
+          65,
+          75
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "correctIndex": 3,
+        "answerDays": 75,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          5
+        ],
+        "valuesByTask": {
+          "A": 10,
+          "B": 5,
+          "C": 20,
+          "D": 10,
+          "E": 15,
+          "F": 10,
+          "G": 20,
+          "H": 5
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 50
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 35
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 40
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 35
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 30
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 10,
+          "2": 20,
+          "3": 30,
+          "4": 10,
+          "5": 45,
+          "6": 50
+        },
+        "choices": [
+          30,
+          35,
+          50,
+          40
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "correctIndex": 2,
+        "answerDays": 50,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          6
+        ],
+        "valuesByTask": {
+          "A": 10,
+          "B": 5,
+          "C": 10,
+          "D": 15,
+          "E": 10,
+          "F": 5,
+          "G": 40,
+          "H": 30
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 60
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 60
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 65
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 80
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 75
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 10,
+          "2": 25,
+          "3": 25,
+          "4": 10,
+          "5": 50,
+          "6": 80
+        },
+        "choices": [
+          75,
+          80,
+          60,
+          65
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "correctIndex": 1,
+        "answerDays": 80,
+        "allFivePathsIncluded": true
+      },
+      {
+        "input": [
+          7
+        ],
+        "valuesByTask": {
+          "A": 5,
+          "B": 15,
+          "C": 5,
+          "D": 10,
+          "E": 5,
+          "F": 5,
+          "G": 20,
+          "H": 10
+        },
+        "paths": [
+          {
+            "edges": [
+              "A",
+              "C",
+              "E",
+              "H"
+            ],
+            "days": 25
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "F",
+              "H"
+            ],
+            "days": 30
+          },
+          {
+            "edges": [
+              "A",
+              "D",
+              "dummy-upper",
+              "E",
+              "H"
+            ],
+            "days": 30
+          },
+          {
+            "edges": [
+              "A",
+              "dummy-lower",
+              "G",
+              "H"
+            ],
+            "days": 35
+          },
+          {
+            "edges": [
+              "B",
+              "G",
+              "H"
+            ],
+            "days": 45
+          }
+        ],
+        "eventEarliest": {
+          "0": 0,
+          "1": 5,
+          "2": 15,
+          "3": 15,
+          "4": 15,
+          "5": 35,
+          "6": 45
+        },
+        "choices": [
+          45,
+          35,
+          25,
+          30
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "correctIndex": 0,
+        "answerDays": 45,
+        "allFivePathsIncluded": true
+      }
+    ],
+    "validInputs": 8,
+    "expectedVisibleAnswerContents": 8,
+    "expectedAfterEachPreviousInputAndAnswerExclusion": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+    ],
+    "correctPositionCounts": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "rejectedResearchTuple": {
+      "values": [
+        10,
+        5,
+        10,
+        15,
+        20,
+        40,
+        25,
+        10
+      ],
+      "pathDays": [
+        50,
+        75,
+        55,
+        45,
+        40
+      ],
+      "reason": "F path 75 is not any offered candidate; do not admit arbitrary vectors into this finite case table"
+    },
+    "rendererOraclePlan": "Read actual circle positions, 8 activity names/days, 10 directed edge endpoints, 2 dashed edges and real marker defs; reconstruct paths from SVG and compare every option. Reject reversed/missing/duplicate/dashed-real edges, label swaps and altered marker path."
+  },
+  "progress": {
+    "scope": "source-only exact rational arithmetic; no newly asserted official rounding rule",
+    "originalPlannedPersonDays": [
+      2,
+      5,
+      1,
+      4,
+      2,
+      3
+    ],
+    "total": 17,
+    "originalCalendarYear": null,
+    "dayOneWeekday": "Monday inferred from the supplied table weekdays, not an actual year",
+    "workdayDates": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      8,
+      9,
+      10,
+      11,
+      12,
+      15,
+      16,
+      17,
+      18,
+      19,
+      22,
+      23
+    ],
+    "completionDatesFromPlan": [
+      2,
+      9,
+      10,
+      16,
+      18,
+      23
+    ],
+    "calendarRole": "Planned completion dates and five-day-week condition are preserved; elapsed days are not used as actual earned work in generated cases.",
+    "cases": [
+      {
+        "input": [
+          0
+        ],
+        "codingProgressPercent": 25,
+        "donePersonDays": "9",
+        "remainingPersonDays": "8",
+        "remainingPercentExact": "800/17",
+        "remainingPercentDecimal": 47.05882352941177,
+        "choices": [
+          30,
+          47,
+          52,
+          53
+        ],
+        "uniqueCandidateWithinOnePercentagePoint": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "candidateDistancesExact": [
+          "290/17",
+          "1/17",
+          "84/17",
+          "101/17"
+        ],
+        "floorAndNearestBothMatchIndex": 1,
+        "ceiling": 48,
+        "allChoiceTruthAtSourceIntegerPrecision": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answerPercent": 47
+      },
+      {
+        "input": [
+          1
+        ],
+        "codingProgressPercent": 50,
+        "donePersonDays": "10",
+        "remainingPersonDays": "7",
+        "remainingPercentExact": "700/17",
+        "remainingPercentDecimal": 41.1764705882353,
+        "choices": [
+          30,
+          41,
+          58,
+          59
+        ],
+        "uniqueCandidateWithinOnePercentagePoint": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "candidateDistancesExact": [
+          "190/17",
+          "3/17",
+          "286/17",
+          "303/17"
+        ],
+        "floorAndNearestBothMatchIndex": 1,
+        "ceiling": 42,
+        "allChoiceTruthAtSourceIntegerPrecision": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answerPercent": 41
+      },
+      {
+        "input": [
+          2
+        ],
+        "codingProgressPercent": 75,
+        "donePersonDays": "11",
+        "remainingPersonDays": "6",
+        "remainingPercentExact": "600/17",
+        "remainingPercentDecimal": 35.294117647058826,
+        "choices": [
+          30,
+          35,
+          64,
+          65
+        ],
+        "uniqueCandidateWithinOnePercentagePoint": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "candidateDistancesExact": [
+          "90/17",
+          "5/17",
+          "488/17",
+          "505/17"
+        ],
+        "floorAndNearestBothMatchIndex": 1,
+        "ceiling": 36,
+        "allChoiceTruthAtSourceIntegerPrecision": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answerPercent": 35
+      }
+    ],
+    "validInputs": 3,
+    "expectedVisibleAnswerContents": 3,
+    "expectedAfterEachPreviousInputAndAnswerExclusion": [
+      2,
+      2,
+      2
+    ],
+    "roundingLimit": "Original choice47 is approximate for800/17. No rounding instruction is stated. In all3 proposed cases only one offered integer lies within1 percentage point and within0.5, floor and nearest agree; ceiling is not offered. This is a source-format precision judgment, not a claimed official rounding rule.",
+    "generatedPremiseProposal": "表の順に作業を進め、コーディングより前の作業は完了し、その後の作業には着手していないものとする。",
+    "originalPremiseLimit": "One person and dated sequential-looking plan support the usual reading, but do not literally specify no overlap/earlier completion/later unstarted. Preserve original image; ask parent design review for the generated-only clarification.",
+    "counterexampleWithoutTaskStatePremise": {
+      "sameCoding25Percent": true,
+      "priorUnfinishedPersonDays": 1,
+      "laterDonePersonDays": 0,
+      "remainingPercent": "900/17",
+      "point": "Coding progress alone is insufficient if earlier completion is not assumed. This is not an assertion that the official question is wrong."
+    },
+    "distractorRoleLimits": "30 corresponds to a plausible omission of remaining coding work (post-coding5/17 rounded up);52/53 to completed9/17 rounded down/up. These are project review models, not documented IPA author intent. Preserve roles without describing either rounding mode as official."
+  },
+  "sourceReview": [
+    {
+      "page": 23,
+      "answer": "エ",
+      "area": "technology",
+      "stem": "UML 2.0のシーケンス図とコミュニケーション図のどちらにも表現されるものはどれか。",
+      "choices": [
+        "イベントとオブジェクトの状態",
+        "オブジェクトがある状態にとどまる最短時間及び最長時間",
+        "オブジェクトがメッセージを処理している期間",
+        "オブジェクト間で送受信されるメッセージ"
+      ],
+      "premises": [
+        "UML 2.0",
+        "両方の図に表現されるもの",
+        "追加のただし書き・図表なし"
+      ],
+      "roles": [
+        "状態とイベント",
+        "状態にいる時間制約",
+        "メッセージ処理の実行期間",
+        "オブジェクト間のメッセージ"
+      ],
+      "source": "2018h30a-fe-am-46",
+      "printedPage": 23,
+      "physicalPage": 23,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 24,
+      "answer": "イ",
+      "area": "technology",
+      "stem": "オブジェクト指向におけるクラスとインスタンスとの関係のうち、適切なものはどれか。",
+      "choices": [
+        "インスタンスはクラスの仕様を定義したものである。",
+        "クラスの定義に基づいてインスタンスが生成される。",
+        "一つのインスタンスに対して、複数のクラスが対応する。",
+        "一つのクラスに対して、インスタンスはただ一つ存在する。"
+      ],
+      "premises": [
+        "クラスとインスタンスの関係",
+        "追加のただし書き・図表なし"
+      ],
+      "roles": [
+        "仕様の定義と具体例の逆転",
+        "定義から具体例を生成",
+        "一インスタンスの生成元の多重性",
+        "一クラスのインスタンス数を一つに限定"
+      ],
+      "source": "2018h30a-fe-am-47",
+      "printedPage": 24,
+      "physicalPage": 24,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 24,
+      "answer": "ウ",
+      "area": "technology",
+      "stem": "モジュール間の情報の受渡しがパラメタだけで行われる、結合度が最も弱いモジュール結合はどれか。",
+      "choices": [
+        "共通結合",
+        "制御結合",
+        "データ結合",
+        "内容結合"
+      ],
+      "premises": [
+        "情報の受渡しはパラメタだけ",
+        "結合度が最も弱い",
+        "説明から結合名を選択",
+        "追加図表なし"
+      ],
+      "roles": [
+        "共通領域への依存",
+        "処理を指定する制御値",
+        "必要なデータの受渡し",
+        "他モジュール内部への依存"
+      ],
+      "source": "2018h30a-fe-am-48",
+      "printedPage": 24,
+      "physicalPage": 24,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 24,
+      "answer": "イ",
+      "area": "technology",
+      "stem": "オブジェクト指向における“委譲”に関する説明として、適切なものはどれか。",
+      "choices": [
+        "あるオブジェクトに対して操作を適用したとき、関連するオブジェクトに対してもその操作が自動的に適用される仕組み",
+        "あるオブジェクトに対する操作を、その内部で他のオブジェクトに依頼する仕組み",
+        "下位のクラスが上位のクラスの属性や操作を引き継ぐ仕組み",
+        "複数のオブジェクトを部分として用いて、新たな一つのオブジェクトを生成する仕組み"
+      ],
+      "premises": [
+        "オブジェクト指向",
+        "用語から説明を選ぶ",
+        "追加のただし書き・図表なし"
+      ],
+      "roles": [
+        "関連先への自動伝播",
+        "他オブジェクトへ依頼",
+        "クラス継承",
+        "部分から全体を構成"
+      ],
+      "source": "2018h30a-fe-am-49",
+      "printedPage": 24,
+      "physicalPage": 24,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 25,
+      "answer": "イ",
+      "area": "technology",
+      "stem": "XP（Extreme Programming）のプラクティスの説明のうち、適切なものはどれか。",
+      "choices": [
+        "顧客は単体テストの仕様に責任をもつ。",
+        "コードの結合とテストを継続的に繰り返す。",
+        "コードを作成して結合できることを確認した後、テストケースを作成する。",
+        "テストを通過したコードは、次のイテレーションまでリファクタリングしない。"
+      ],
+      "premises": [
+        "XPプラクティスの説明",
+        "追加のただし書き・図表なし"
+      ],
+      "roles": [
+        "顧客テストと単体テストの責任の混同",
+        "継続的結合とテスト",
+        "コード作成後へのテスト先送り",
+        "リファクタリングの時機・条件の誤り"
+      ],
+      "source": "2018h30a-fe-am-50",
+      "printedPage": 25,
+      "physicalPage": 25,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 25,
+      "answer": "エ",
+      "area": "management",
+      "stem": "ソフトウェア開発プロジェクトにおいて、WBS（Work Breakdown Structure）を使用する目的として、適切なものはどれか。",
+      "choices": [
+        "開発の期間と費用がトレードオフの関係にある場合に、総費用の最適化を図る。",
+        "作業の順序関係を明確にして、重点管理すべきクリティカルパスを把握する。",
+        "作業の日程を横棒（バー）で表して、作業の開始時点や終了時点、現時点の進捗を明確にする。",
+        "作業を階層的に詳細化して、管理可能な大きさに細分化する。"
+      ],
+      "premises": [
+        "ソフトウェア開発プロジェクト",
+        "WBSの使用目的",
+        "追加のただし書き・図表なし"
+      ],
+      "roles": [
+        "期間と費用の最適化",
+        "順序依存と最長経路",
+        "横棒による時点と進捗の表示",
+        "階層的な作業の分割"
+      ],
+      "source": "2018h30a-fe-am-51",
+      "printedPage": 25,
+      "physicalPage": 25,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 25,
+      "answer": "エ",
+      "area": "management",
+      "stem": "図のプロジェクトの日程計画において、プロジェクトの所要日数は何日か。",
+      "choices": [
+        "40",
+        "45",
+        "50",
+        "55"
+      ],
+      "premises": [
+        "無記名7節点/全8作業A〜H",
+        "上ラベル作業名・下ラベル所要日数",
+        "破線のダミー2本と凡例",
+        "A10/B5/C10/D15/E20/F15/G25/H10",
+        "原図の全有向接続を保持"
+      ],
+      "roles": [
+        "B-G-Hの経路日数",
+        "A-下dummy-G-Hの経路日数",
+        "A-C-E-HとA-D-F-Hは原値でともに50",
+        "A-D-上dummy-E-Hの経路日数"
+      ],
+      "source": "2018h30a-fe-am-52",
+      "printedPage": 25,
+      "physicalPage": 25,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    },
+    {
+      "page": 26,
+      "answer": "イ",
+      "area": "management",
+      "stem": "表は、1人で行うプログラム開発の開始時点での計画表である。6月1日に開発を開始し、6月11日の終了時点でコーディング作業の25%が終わった。6月11日の終了時点で残っている作業量は全体の何%か。ここで、開発は、土曜日と日曜日を除く週5日間で行うものとする。",
+      "choices": [
+        "30",
+        "47",
+        "52",
+        "53"
+      ],
+      "table": {
+        "columns": [
+          "作業",
+          "計画作業量（人日）",
+          "完了予定日"
+        ],
+        "rows": [
+          [
+            "仕様書作成",
+            "2",
+            "6月2日(火)"
+          ],
+          [
+            "プログラム設計",
+            "5",
+            "6月9日(火)"
+          ],
+          [
+            "テスト計画書作成",
+            "1",
+            "6月10日(水)"
+          ],
+          [
+            "コーディング",
+            "4",
+            "6月16日(火)"
+          ],
+          [
+            "コンパイル",
+            "2",
+            "6月18日(木)"
+          ],
+          [
+            "テスト",
+            "3",
+            "6月23日(火)"
+          ]
+        ]
+      },
+      "premises": [
+        "1人",
+        "開始時点の計画表",
+        "6月1日開始/6月11日終了時点",
+        "coding25%",
+        "残作業量の全体に対する割合",
+        "土日を除く週5日",
+        "暦年と端数処理は明示されていない"
+      ],
+      "roles": [
+        "30はcoding残を落とすモデルに近い整数",
+        "残作業量800/17%に近い整数",
+        "完了割合900/17%の切捨て整数に一致",
+        "完了割合900/17%の四捨五入/切上げ整数に一致"
+      ],
+      "source": "2018h30a-fe-am-53",
+      "printedPage": 26,
+      "physicalPage": 26,
+      "transcription": "Original page image remains authoritative; punctuation/line breaks normalized in this research transcription.",
+      "officialAnswerPage": 1
+    }
+  ],
+  "primaryAndLimits": {
+    "UML": "OMG UML2.0 Superstructure; interaction diagrams and direct instantiation/classifier1..1, not universal classification count",
+    "coupling": "NASA/JPL1976 data/common/control/external/content mechanisms; no imported universal modern ranking",
+    "XP": "Ron Jeffries2011 TDD/Design Improvement/CI and Fowler fact paraphrases; no copied primary prose or code",
+    "WBS": "NASA WBS/Schedule primary fact review; fixed WBS, chart comparison c only; original bar description not restricted to actual-only",
+    "precision": "Original53 no stated year/rounding rule; original integer47 approximates800/17. Generated25/50/75 keep17-person-day plan, exact fractional distances distinguish4integer choices; no official floor/nearest rule inferred."
+  }
+}

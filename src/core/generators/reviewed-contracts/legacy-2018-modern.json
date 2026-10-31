@@ -1,0 +1,1273 @@
+{
+  "status": "parent_approved_complete_metadata_and_old_ordered_group_scalar_lift",
+  "sourceCommit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+  "metadataApprovalManifestSha256": "62446b7ff9b687e5ae83940a0f95f1f85254ec5e767257d053ea18a471691672",
+  "rows": [
+    {
+      "canonical": {
+        "metadata": {
+          "source": "2026-a-2",
+          "title": "整列アルゴリズム",
+          "sourceAnswer": "ウ",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。"
+        },
+        "metadataSha256": "1c514674e5b772e5bd8f1d685ffcb5cbbac7066a40f40c76ebcacddd1e304646",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, directly rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2018h30a-fe-am-6",
+          "title": "整列アルゴリズム",
+          "sourceAnswer": "ウ",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。 2018秋期旧午前の原問画像を2026-a-2の公式原問画像と照合し、問い・前提・全選択肢が一致することを確認した。年度別の原問題・正答・出典を保持し、手で固定した入力域・基準入力・生成器版と管理済みbuildを再利用する。全入力の表示内容hashと独立意味の検査が変化した場合は年度別再査読を要求する。改変基準問題の言い換え・選択肢順は既存canonicalの査読を継承し、公式原択の再録とは区別する。"
+        },
+        "metadataSha256": "21ef6644a26a9540fbe64f5678b7c35d3e4d986aa9945da8da7ed791b41a783d",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved by parent now."
+      },
+      "group": {
+        "id": "2018h30a-fe-am-6-reviewed-body-group",
+        "codec": "json-ordered-values-body-v1",
+        "orderedInputs": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "sha256": "679b1c48d0323504d64e780d6c66f7d5af5e52baccb15497426365f05d37d3e4"
+      },
+      "dependencyInputs": [
+        {
+          "values": [
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                2,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                2,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                3,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                3,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2026-a-2",
+              "values": [
+                3,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2018-alias-review.ts",
+      "oldValueKey": "2018h30a-fe-am-6",
+      "originalWalker": "target outer0..3/rotation inner0..2"
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "2024-a-6",
+          "title": "画像の表現手法",
+          "sourceAnswer": "ア",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。"
+        },
+        "metadataSha256": "03cb39ee55a8854e45820218076d7948a1705f204f537c463f8f3fda00d57d2a",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, directly rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2018h30a-fe-am-25",
+          "title": "画像の表現手法",
+          "sourceAnswer": "ア",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。 2018秋期旧午前の原問画像を2024-a-6の公式原問画像と照合し、問い・前提・全選択肢が一致することを確認した。年度別の原問題・正答・出典を保持し、手で固定した入力域・基準入力・生成器版と管理済みbuildを再利用する。全入力の表示内容hashと独立意味の検査が変化した場合は年度別再査読を要求する。改変基準問題の言い換え・選択肢順は既存canonicalの査読を継承し、公式原択の再録とは区別する。"
+        },
+        "metadataSha256": "d36c3d7e7dbbd587c23c0ad1efee7174ce5c6fd179bf8e71d3c692ce1452e9d2",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved by parent now."
+      },
+      "group": {
+        "id": "2018h30a-fe-am-25-reviewed-body-group",
+        "codec": "json-ordered-values-body-v1",
+        "orderedInputs": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "sha256": "18d74ee10e9f3b8391142dc852c8c2723e0d4b1d172fae158c159b302d651d1b"
+      },
+      "dependencyInputs": [
+        {
+          "values": [
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                2,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                2,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                3,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                3,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-6",
+              "values": [
+                3,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2018-alias-review.ts",
+      "oldValueKey": "2018h30a-fe-am-25",
+      "originalWalker": "target outer0..3/rotation inner0..2"
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "2024-a-8",
+          "title": "LANの接続装置",
+          "sourceAnswer": "ウ",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。"
+        },
+        "metadataSha256": "226aea8073107dc91fd515469747cd6902c509efddc94e00fc5122667926269d",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, directly rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2018h30a-fe-am-32",
+          "title": "LANの接続装置",
+          "sourceAnswer": "ウ",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。 2018秋期旧午前の原問画像を2024-a-8の公式原問画像と照合し、問い・前提・全選択肢が一致することを確認した。年度別の原問題・正答・出典を保持し、手で固定した入力域・基準入力・生成器版と管理済みbuildを再利用する。全入力の表示内容hashと独立意味の検査が変化した場合は年度別再査読を要求する。改変基準問題の言い換え・選択肢順は既存canonicalの査読を継承し、公式原択の再録とは区別する。"
+        },
+        "metadataSha256": "d64287ff4194b892157a74da5541423517e15e7ab64379db5bf548b771fc488d",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved by parent now."
+      },
+      "group": {
+        "id": "2018h30a-fe-am-32-reviewed-body-group",
+        "codec": "json-ordered-values-body-v1",
+        "orderedInputs": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "sha256": "630f9a8106e6877e8083a87f420963d909b900dad28db3417eb2238b84fdf36e"
+      },
+      "dependencyInputs": [
+        {
+          "values": [
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                2,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                2,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                3,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                3,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2024-a-8",
+              "values": [
+                3,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2018-alias-review.ts",
+      "oldValueKey": "2018h30a-fe-am-32",
+      "originalWalker": "target outer0..3/rotation inner0..2"
+    },
+    {
+      "canonical": {
+        "metadata": {
+          "source": "2023-a-19",
+          "title": "経営の最高責任者",
+          "sourceAnswer": "エ",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。"
+        },
+        "metadataSha256": "c3cf3466aab061507233084c21de71d89719f165c48ff9bb6c8e488abc44c35b",
+        "completeMetadataOrigin": "Existing fixed full canonical metadata, directly rechecked by parent."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2018h30a-fe-am-74",
+          "title": "経営の最高責任者",
+          "sourceAnswer": "エ",
+          "reference": [
+            0,
+            0
+          ],
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問う対象・判定する条件",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "name": "選択肢の配置",
+              "minimum": 0,
+              "maximum": 2
+            }
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 知識問題の問いの方向・判定条件は原問題で固定し、登録した対象・状況を変更する。 2018秋期旧午前の原問画像を2023-a-19の公式原問画像と照合し、問い・前提・全選択肢が一致することを確認した。年度別の原問題・正答・出典を保持し、手で固定した入力域・基準入力・生成器版と管理済みbuildを再利用する。全入力の表示内容hashと独立意味の検査が変化した場合は年度別再査読を要求する。改変基準問題の言い換え・選択肢順は既存canonicalの査読を継承し、公式原択の再録とは区別する。"
+        },
+        "metadataSha256": "8a5ee3b875a52632fefd0dfb71d91c9c4468ae5c803f7a3df1ae6f2a3f7feb50",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved by parent now."
+      },
+      "group": {
+        "id": "2018h30a-fe-am-74-reviewed-body-group",
+        "codec": "json-ordered-values-body-v1",
+        "orderedInputs": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "sha256": "0d64d14f9a19d900a38d370383057804eee08b944e4c47c096118939e415a127"
+      },
+      "dependencyInputs": [
+        {
+          "values": [
+            0,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            0,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                2,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                2,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            0
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                3,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            1
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                3,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3,
+            2
+          ],
+          "reads": [
+            {
+              "source": "2023-a-19",
+              "values": [
+                3,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2018-alias-review.ts",
+      "oldValueKey": "2018h30a-fe-am-74",
+      "originalWalker": "target outer0..3/rotation inner0..2"
+    }
+  ],
+  "provenance": [
+    {
+      "path": "src/core/generators/legacy-2018-aliases.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "a4a5c191a62dbc5af636ffa6338ed4995afee571d6884372512f82fa56a9587e"
+    },
+    {
+      "path": "src/core/generators/legacy-2018-dec-aliases.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "c560b8c699e9e2d70fd6d6561d8fb1b8b404c2a4ab07c8ca99cd67eeab54d352"
+    },
+    {
+      "path": "src/core/generators/knowledge.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "fa57709def6af3e2d25430105cfe90e1a2d7a029d6ea85446f31446cd7738c91"
+    },
+    {
+      "path": "src/core/generators/knowledge-formats.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "4f005e2e6573a8f49605f5f68994e39f385e41aa25a98ec97d48b64b57821cf7"
+    },
+    {
+      "path": "src/core/generators/index.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "f90efc5f60b38bd34eec8e500388d467143dc1dc6684acf994675f324f262746"
+    },
+    {
+      "path": "src/core/generators/corrections.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "e467ad2cb9a2eea25ab3fe9197babfc4f9d16d2ce6b59324e02364bd3fa856e9"
+    },
+    {
+      "path": "src/core/generators/definition.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "9a2e5fe6c461faff368f627f723dbf61528044ec20edde4f3936bf7cbe8a7d7a"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "3264ca52563c3918e825350c5c25610627bbccb80265a44674eaecd6dc95b9d4"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a-knowledge.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "b45fee5664db2d2cd1c106c6a08b95b70ae19a055ee61ce3c2ca9571d4eed158"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a-numerical.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "c158e865293a117814179718b75c9286d4511acd740805aa7bd457675592766c"
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-alias-review.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "3a6af10450f5d130d85c69fdb210258056b4209ea290249f569030b03c6ce75d"
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-dec-alias-review.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "34a5923fdbd540895c635c20157f858fe814bc735524e117722e7fc31e82121a"
+    },
+    {
+      "path": "tests/fixtures/generator-composition-existing.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "f4328cf979e33dd27ab874d7b50f15cf08afbeee441c0bb1f9d7cd6bb34d7222"
+    },
+    {
+      "path": "tests/legacy-2018-aliases.test.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "ed561f60bed66ca4c0480150e92f4ac2135e1983d6b2eb713c636786c4052d4a"
+    },
+    {
+      "path": "tests/legacy-2018-dec-aliases.test.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "sha256": "4eb12a3f06376fb4b78000435958f02ffe5ddd8cac92c4c58c1e56530216b94b"
+    }
+  ],
+  "limits": [
+    "Source-local original ordered group codec and first-field-outer lexical traversal only; no per-case output expected digest is sampled.",
+    "Only metadata-approved effective canonical pool is accepted by new composition factory; legacy eager raw exports stay separate for compatibility.",
+    "No shared registry/App/annual entry/public registration; all47collections2132units remains incomplete."
+  ]
+}

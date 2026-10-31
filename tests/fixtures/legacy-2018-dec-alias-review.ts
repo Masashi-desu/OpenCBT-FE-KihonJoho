@@ -1,0 +1,47 @@
+import type {Legacy2018NumericReview} from "./legacy-2018-review";
+const materialReview="2018年度の原問題画像・公式解答画像と2022年12月科目Aの該当原画像を全条件・注記・表・4選択肢で照合。問番号・組版以外の実質同一性を確認。引用表示・第三者規格文言・写真・外部の図表転載を認めなかった。IPA FAQの教育用途条件で判断し、独自解説を別にする。";
+export const legacy2018DecemberReview:Legacy2018NumericReview[]=[
+  {collection:"2018h30h-fe-am",number:4,page:4,title:"オートマトンの出力記号列",answer:"ア",choices:["0001000110","0001001110","0010001000","0011111110"],reference:[0],premises:["入力・出力記号の集合は{0,1}","入力0011001110","S1が初期状態","矢印ラベルは入力/出力","3状態・全6遷移"],precision:"2018原問と2022DecA4は原図の6遷移・初期矢印・入力10桁・全4出力択・正答アが一致。旧原問には左から順の明記がなく、2022だけにある差異を確認。生成基準/生成問題では解答前に左から読む条件を明確化する改変とする。原値の正答を変えず、旧原問の注記が全文同一とは称さない。全6入力を独立したMealy機械の状態追跡で検算。",materialReview:"両公式PDFの原図・本文・全択と2018公式解答を画像照合。状態遷移図はIPA作問部分で、第三者図表や規格文言の引用表示を認めなかった。原問題は2018画像のまま。生成図は管理済みの独自描画を用い、生成版だけへの入力方向の明確化を改変記録・rights対象へ対応付ける。"},
+  {collection:"2018h30h-fe-am",number:17,page:11,title:"絶対パス名",answer:"エ",choices:["あるディレクトリから対象ファイルに至る幾つかのパス名のうち、最短のパス名","カレントディレクトリから対象ファイルに至るパス名","ホームディレクトリから対象ファイルに至るパス名","ルートディレクトリから対象ファイルに至るパス名"],reference:[0],premises:["ファイルシステムの絶対パス名を説明したもの","4つのパス名の説明"],precision:"原問で絶対パス名の定義を問う方向を維持し、正答はルート起点の固定定義。誤答の4組は同じ文章の言換えではなく、名前の省略/カレント変更/..の位置/ホーム移動という成立条件を変える。ルート起点なら/の後の..を含めても絶対パスである肯定反例を独立固定資料で確認し、..の有無だけで判定しない。",materialReview},
+  {collection:"2018h30h-fe-am",number:60,page:28,title:"情報セキュリティ監査の特性",answer:"イ",choices:["外部記憶媒体の無断持出しが禁止されていること","中断時間を定めたSLAの水準が保たれるように管理されていること","データ入力時のエラーチェックが適切に行われていること","データベースが暗号化されていること"],reference:[0],premises:["情報セキュリティ監査","可用性を確認するチェック項目","4つの監査項目"],precision:"元の可用性・SLAによる中断時間の条件を保持。機密性と完全性への変更時は全監査項目も対応させ、同時に二つの正答を置かない。JIS規格番号・本文引用の表示は原問題に認めなかった。生成時の特性説明は一般的な知識の独自の説明として起草されており、規格原文の転載許諾を得たという意味ではない。",materialReview},
+  {collection:"2018h30a-fe-am",number:7,page:5,title:"コーディング規則",answer:"エ",choices:["局所変数は、用途が異なる場合でもデータ型が同じならば、できるだけ同一の変数を使うようにする。","処理性能を向上させるために、ループの制御変数には浮動小数点型変数を使用する。","同様の計算を何度も繰り返すときは、関数の再帰呼出しを用いる。","領域割付け関数を使用するときは、割付けができなかったときの処理を記述する。"],reference:[0],premises:["プログラムのコーディング規則に規定する事項","適切なものを選ぶ4記述","領域割付け失敗時の処理"],precision:"元の4記述の役割を保持し、別入力では変数の用途・反復回数の型・割付け失敗という異なる規約の真偽を変更する。同一内容の正答言換えだけにしない。変更した選択肢は公式の再録と区別する。",materialReview},
+  {collection:"2018h30h-fe-am",number:41,page:20,title:"SQLインジェクションへの対策",answer:"ア",choices:["入力された文字が、データベースへの問合せや操作において、特別な意味をもつ文字として解釈されないようにする。","入力にHTMLタグが含まれていたら、HTMLタグとして解釈されない他の文字列に置き換える。","入力に上位ディレクトリを指定する文字列（../）が含まれているときは受け付けない。","入力の全体の長さが制限を超えているときは受け付けない。"],reference:[0],premises:["SQLインジェクション攻撃による被害を防ぐ方法","対策を説明する4択"],precision:"対策説明から選ぶ方向を保持。生成基準のプレースホルダ使用などの具体化は改変とし、公式原択と混同しない。SQL構文、HTML出力、パス境界、メモリ境界という異なる解釈の4候補を独立知識資料で検査。",materialReview},
+  {collection:"2018h30h-fe-am",number:65,page:31,title:"環境への取組",answer:"エ",choices:["CSR","エコマーク認定","環境アセスメント","グリーン購入"],reference:[3],premises:["国や地方公共団体","環境への配慮を積極的に行っていると評価されている製品・サービスを選んでいる","取組の名称を問う"],precision:"4取組の名称と事例→名称の原形式を保持。義務の有無や現行の法制度を推定する問いに変えず、取組の定義を区別する。",materialReview},
+  {collection:"2018h30h-fe-am",number:74,page:34,title:"電子商取引の説明",answer:"イ",choices:["Webコンテンツを構成するテキストや画像などのディジタルコンテンツに、統合的・体系的な管理、配信などの必要な処理を行うこと","インターネットショッピングで、売上の全体に対して、あまり売れない商品群の売上合計が無視できない割合になっていること","自分のWebサイトやブログに企業へのリンクを掲載し、他者がこれらのリンクを経由して商品を購入したときに、企業が紹介料を支払うこと","メーカや卸売業者から商品を直接発送することによって、在庫リスクを負うことなく自分のWebサイトで商品が販売できること"],reference:[1],premises:["ロングテールの説明","4つの異なるEC関連の説明"],precision:"名称→説明を選ぶ方向と4説明を維持。売れ筋単品と小口商品の集合の売上を区別し、在庫・成果報酬・内容管理を別概念として固定査読。",materialReview},
+  {collection:"2018h30h-fe-am",number:24,page:14,title:"注文データの入力チェック",answer:"エ",choices:["シーケンスチェック","重複チェック","フォーマットチェック","論理チェック"],reference:[3],premises:["注文データ5項目の型表","注文日が入力日以前の営業日かどうか","検査するチェック名を選ぶ"],precision:"連番・同一キー・文字形式・業務条件という4種類の検査対象を固定した独立事実資料で全択を確認。元の5項目型表を補助表へ変えず維持する。",materialReview},
+  {collection:"2018h30a-fe-am",number:31,page:16,title:"伝送効率を含む転送時間",answer:"エ",choices:["16","32","64","128"],reference:[4,1],premises:["1.5Mビット/秒の伝送路","12Mバイトのデータ","伝送効率50%","必要な伝送時間は何秒"],precision:"バイト/ビット8倍と効率0.5を二重に扱い、96Mbit÷0.75Mbit/s＝128秒。原16/32/64/128の倍率関係を維持。3MB刻み6〜18MB、1.5/3Mbpsの全10入力で丸めなし。",materialReview},
+];
+export const legacy2018DecemberComparison=[
+  {source:"2018h30h-fe-am-4",canonicalSource:"sample-2022-dec-a-4",sourcePage:4,canonicalPage:5,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"全6遷移/3状態/初期矢印/入力0011001110/4出力択は一致。2022の左から順に読む注記は2018にないため全文同一とはしない。原再録を変えず、生成基準だけ方向を明確化する改変とする。"},
+  {source:"2018h30h-fe-am-17",canonicalSource:"sample-2022-dec-a-18",sourcePage:11,canonicalPage:13,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"絶対パス名の説明の肯定の問いと、最短/カレント/ホーム/ルートの全4原択を原画像で照合。原値はroot起点の固定正答へ修正後、全4入力を再査読した。"},
+  {source:"2018h30h-fe-am-60",canonicalSource:"sample-2022-dec-a-48",sourcePage:28,canonicalPage:24,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"可用性を問う監査の問いと、無断持出し禁止/中断時間SLA/入力エラーチェック/DB暗号化の全4原択の文字と意味が一致。"},
+  {source:"2018h30a-fe-am-7",canonicalSource:"sample-2022-dec-a-9",sourcePage:5,canonicalPage:9,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"コーディング規則の肯定の問いと、局所変数流用/浮動小数点ループ変数/再帰反復/割付け失敗処理の全4記述を原画像で一致確認。"},
+  {source:"2018h30h-fe-am-41",canonicalSource:"sample-2022-dec-a-36",sourcePage:20,canonicalPage:20,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"SQLインジェクションへの肯定の対策の問いと、特殊文字/HTML/../入力拒否/入力長の全4原択が一致。"},
+  {source:"2018h30h-fe-am-65",canonicalSource:"sample-2022-dec-a-51",sourcePage:31,canonicalPage:25,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"国/地方公共団体による環境配慮製品・サービスの選定という事例とCSR/エコマーク認定/環境アセスメント/グリーン購入の全択が一致。"},
+  {source:"2018h30h-fe-am-74",canonicalSource:"sample-2022-dec-a-55",sourcePage:34,canonicalPage:27,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"ロングテールを説明する原問と内容管理/売上の裾野/成果報酬/無在庫直送の全4説明が一致。"},
+  {source:"2018h30h-fe-am-24",canonicalSource:"sample-2022-dec-a-20",sourcePage:14,canonicalPage:14,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"営業日/入力日以前の二条件、伝票番号/注文日/商品コード/数量/顧客コードの順と文字/文字/文字/数値/文字、全4チェック名が一致。"},
+  {source:"2018h30a-fe-am-31",canonicalSource:"sample-2022-dec-a-26",sourcePage:16,canonicalPage:16,canonicalQuestionSha256:"5a95b05825d1bae7c5fac7e17b0d102e5559530869b9c281d1292d0ff5dd610e",finding:"1.5Mビット/秒・12Mバイト・50%・秒単位の問いと16/32/64/128の4択を一致確認。"},
+];
+export const legacy2018DecemberCrops:Record<string,readonly[number,number]>={"2018h30h-fe-am-24":[0.085,0.340],"2018h30a-fe-am-31":[0.600,0.735],"2018h30h-fe-am-41":[0.085,0.345],"2018h30h-fe-am-65":[0.085,0.235],"2018h30h-fe-am-74":[0.085,0.365],"2018h30h-fe-am-60":[0.655,0.840],"2018h30a-fe-am-7":[0.445,0.710],"2018h30h-fe-am-17":[0.085,0.290],"2018h30h-fe-am-4":[0.445,0.820]};
+/** Explicit adapted baseline wording; official choices above remain untouched. */
+export const legacy2018DecemberBaselineChoices:Record<string,string[]>={
+  "2018h30h-fe-am-17":["対象ファイルへ至る幾つかのパス名のうち、最短のパス名","カレントディレクトリから対象ファイルへ至るパス名","ホームディレクトリから対象ファイルへ至るパス名","ルートディレクトリから対象ファイルへ至るパス名"],
+  "2018h30h-fe-am-60":["外部記憶媒体の無断持出しが禁止されていること","中断時間を定めたSLAの水準が保たれるよう管理されていること","データ入力時の誤り検査が適切に行われていること","保存データが暗号化されていること"],
+  "2018h30a-fe-am-7":["データ型が同じ局所変数は、用途が異なっても同じ変数にまとめる。","丸め誤差を避けるために、ループの回数は浮動小数点数の加算で管理する。","同じ計算を何度も繰り返す場合は、必ず再帰呼出しを用いる。","領域割付け関数を使用するときは、割付けできなかった場合の処理を記述する。"],
+  "2018h30h-fe-am-41":["SQLの構造と入力値を分離し、プレースホルダへ値をバインドする。","HTMLへ出力する値を、その出力先の文脈に合わせて適切にエスケープする。","パスを正規化し、アクセス対象が許可されたディレクトリの内側にあることを検証する。","コピー先の容量と入力長を検証し、確保したメモリの境界を越えて書き込まない。"],
+  "2018h30h-fe-am-74":["テキストや画像などのデジタルコンテンツの管理・配信などを統合的に行うこと","あまり売れない多数の商品群の売上合計が、売上全体の無視できない割合を占めること","掲載したリンクを経由して商品が購入されるなどの成果に応じ、紹介者へ報酬が支払われること","商品を製造者や卸売業者から購入者へ直接発送し、販売者が商品在庫を持たず販売すること"],
+};
+/** Frozen only after every binding passed the independent annual oracle. */
+export const legacy2018DecemberContentHashes:Record<string,string>={
+  "2018h30h-fe-am-4":"19ab5cd3a4eb625757d7187c9430688f39be040d024d125bbca6ccdb9351a40e",
+  "2018h30h-fe-am-17":"1e5122c96d7e8598322a9a7a35ebdfa4f4a032eec669fc6b348c80e4f63785d9",
+  "2018h30h-fe-am-60":"6a129508cefbceb717841ed1c70d119efabe83615f04fc63fd74712c2b105440",
+  "2018h30a-fe-am-7":"893dd8449682b493285aa52eecc0044b84bda21cb7fb6dac5b1d7b6c8b4a1a9e",
+  "2018h30h-fe-am-24":"939fb2689b3b9037f519fb9f9bb27401c68cc63535b899c46e8f01a8be40f83d",
+  "2018h30a-fe-am-31":"d8ce0853c283bedfe0b01718462800c2d65ca1ce2fbd724cbe8bc24aee80eaab",
+  "2018h30h-fe-am-41":"bada0ca1d371ba361928433a09492a62358d910b594f7388dbb3a14ce0cb8294",
+  "2018h30h-fe-am-65":"e5c72d040d0512aa697b3405f1a119a9e7647b7469e8b99f16ff0cedd78da2a2",
+  "2018h30h-fe-am-74":"1d291df53330058403b9e126c9d8a5e6212460743bc62f7686cee929cc0dcc74",
+};
+/** Frozen from the 2018 source figure, independently of the production formula. */
+export const legacy2018AutomatonReview={source:"2018h30h-fe-am-4",initial:"S1",alphabet:[0,1],states:["S1","S2","S3"],transitions:[{from:"S1",input:0,output:0,to:"S1"},{from:"S1",input:1,output:0,to:"S2"},{from:"S2",input:0,output:0,to:"S1"},{from:"S2",input:1,output:1,to:"S3"},{from:"S3",input:0,output:0,to:"S1"},{from:"S3",input:1,output:1,to:"S3"}],referenceInput:"0011001110",referenceOutput:"0001000110",extraGeneratedPremise:"入力記号は左から順に読み込まれる",sourceHasExplicitDirectionNote:false,canonicalHasExplicitDirectionNote:true};

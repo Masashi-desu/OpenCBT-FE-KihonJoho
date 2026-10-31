@@ -4,7 +4,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { generationContracts, bindQuestion, validateTemplateContract } from "../src/core/generation";
-import { additionalContracts } from "../src/core/generators";
+import { additionalContracts, additionalDefinition } from "../src/core/generators";
+import { ensureLegacyMorningGenerators } from "../src/core/generators/legacy-morning-install";
+import { isLegacyMorningSource } from "../src/core/generators/legacy-morning-format";
 import { legacyAfternoonDefinition } from "../src/core/generators/legacy-afternoon-definitions";
 import { validateSourceFormat } from "../src/core/generation-formats";
 import { readDistributionBundle, compactDistribution } from "./distribution-files";
@@ -44,13 +46,18 @@ const refreshSources = new Set(
     .split(",")
     .filter(Boolean),
 );
-for (const source of refreshSources)
+for (const source of refreshSources) {
+  // Morning booklets are admitted as a whole reviewed payload. Do not install
+  // their definitions into the generic rebuild loop or refresh their bases.
+  if (isLegacyMorningSource(source) && inputBundle.templates.some(t => t.generatorRef.id === `generator-source-${source}`))
+    throw Error(`BOOKLET_REVIEW_REQUIRED: ${source}; use its complete reviewed booklet staging workflow`);
   if (
     ![...generationContracts, ...additionalContracts].some(
       (c) => c.source === source,
     )
   )
     throw Error(`Unknown refresh source ${source}`);
+}
 let changed = false;
 const refreshedSubjects = new Set<string>();
 for (const c of [...generationContracts, ...additionalContracts]) {
@@ -130,6 +137,10 @@ for (const c of [...generationContracts, ...additionalContracts]) {
     `template-${c.id}`,
     new Date().toISOString(),
   );
+  // Refresh content while retaining the existing base's display-order policy.
+  // The official image uses fixed symbol labels, whereas a prose generated
+  // base may allow shuffling; bindQuestion now intentionally inherits policy.
+  if (existingQuestion) q.choiceShuffleAllowed = existingQuestion.choiceShuffleAllowed;
   if (existingQuestion)
     q.origin.changes = [
       ...existingQuestion.origin.changes.map(({ answerDetails: _obsoleteAnswerDetails, ...change }) => change),
@@ -165,8 +176,13 @@ for (const c of [...generationContracts, ...additionalContracts]) {
 // an explicit bulk refresh must fail before writing rather than silently drop
 // them or reconstruct them from an original image question.
 const handledTemplates = new Set(generated.map(g => g.template.id));
+// Install admitted morning definitions only after the generic refresh set was
+// fixed. They are needed for validation, never generic regeneration.
+await ensureLegacyMorningGenerators(inputBundle);
 for (const template of inputBundle.templates.filter(t => !handledTemplates.has(t.id))) {
-  const definition = legacyAfternoonDefinition(template.generatorRef.id);
+  const source = template.generatorRef.id.replace(/^generator-source-/, "");
+  const definition = legacyAfternoonDefinition(template.generatorRef.id) ??
+    (isLegacyMorningSource(source) ? additionalDefinition(template.generatorRef.id) : undefined);
   const question = inputBundle.questions.find(q => q.id === template.baseQuestionRef.questionId && q.revision === template.baseQuestionRef.revision);
   if (!definition || !question) throw Error(`Unmanaged existing template ${template.id}`);
   if (process.argv.includes("--refresh-all") || process.argv.includes("--refresh-additional") || refreshSources.has(definition.source))

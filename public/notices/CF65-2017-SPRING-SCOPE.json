@@ -1,0 +1,99 @@
+{
+  "schema": "common-framework65-material-scope-sidecar/v1",
+  "preparationOnly": true,
+  "source": "2017h29h-fe-am-65",
+  "image": {
+    "path": "assets/ipa-2017h29h-fe-am-65-p31.png",
+    "sha256": "8f08052a7dbbdd6242f1eb5cb66d5358dae0d3d3730cf2632559dda925966452",
+    "byteLength": 149191,
+    "mediaType": "image/png",
+    "pixelSize": [
+      1220,
+      420
+    ],
+    "altSHA256": "769aa866e107812bcee4ccdf7691607f743e8fe8f20f09913d3285150826b269"
+  },
+  "conditions": [
+    {
+      "scope": "IPA試験の問い/4択構成/組版と元画像",
+      "rightId": "rights-ipa-2017h29h-fe-am-65-preparation",
+      "sourceId": "source-ipa-2017h29h-fe-am-65-qs",
+      "basis": "IPA過去問題FAQ; 年度/期/午前/問65を維持",
+      "claimWholeImageCC": false
+    },
+    {
+      "scope": "画像内のガイダンス由来4択文・full alt中の当該文・native選択肢・派生表現",
+      "rightId": "rights-ipa-cf2013-guidance-q65-cc-by-sa-21jp-20261025",
+      "sourceId": "source-ipa-cf2013-guidance-q65-20261025",
+      "licenseId": "CC-BY-SA-2.1-JP",
+      "copyrightNotice": "©2013 IPA",
+      "licenseURI": "https://creativecommons.org/licenses/by-sa/2.1/jp/",
+      "scopeLimit": "p12項1(3)/p13技術要件(c)(d)のみ。隣接JIS引用は含めない。"
+    },
+    {
+      "scope": "project追加状況・依存解説の表現",
+      "rightId": "rights-common-framework65-adaptations-cc-by-sa-21jp",
+      "licenseId": "CC-BY-SA-2.1-JP",
+      "creator": "actorId:codex"
+    }
+  ],
+  "sourceRefs": [
+    {
+      "sourceId": "source-ipa-2017h29h-fe-am-65-qs",
+      "locator": {
+        "year": 2017,
+        "period": "春期",
+        "exam": "基本情報技術者試験",
+        "subject": "午前",
+        "timeSlot": "午前",
+        "questionNumber": "65",
+        "page": 31,
+        "section": "2017年度 春期 基本情報技術者試験 午前 問65"
+      }
+    },
+    {
+      "sourceId": "source-ipa-cf2013-guidance-q65-20261025",
+      "locator": {
+        "page": 12,
+        "section": "2.2.3.1 項1(3)及び項1(4)技術要件(c)(d)の対応説明"
+      }
+    },
+    {
+      "sourceId": "source-ipa-cf2013-guidance-q65-20261025",
+      "locator": {
+        "page": 13,
+        "section": "2.2.3.1 項1(3)及び項1(4)技術要件(c)(d)の対応説明"
+      }
+    }
+  ],
+  "rightsRefs": [
+    "rights-ipa-2017h29h-fe-am-65-preparation",
+    "rights-ipa-cf2013-guidance-q65-cc-by-sa-21jp-20261025"
+  ],
+  "originalBytesRetained": true,
+  "originalQuestionIsModified": false,
+  "nativeQuestionIsModified": true,
+  "fullLicenseFile": "CC-BY-SA-2.1-JP.txt",
+  "scopeNoticeFile": "COMMON-FRAMEWORK65-SCOPE.txt",
+  "dedicatedSources": [
+    {
+      "id": "source-ipa-2017h29h-fe-am-65-qs",
+      "scope": "当該年度・期の基本情報技術者試験 午前 問65（物理31頁）の本文・全4択・原問画像の出典確認だけ。素材の利用条件は問65専用IPA条件と限定したガイダンスCC条件で評価する。",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000fzx1-att/2017h29h_fe_am_qs.pdf",
+      "sha256": "31e5bc9c556b3da1e38ad8defe3bd34791b345550c899510cb245c1e0b5a5156"
+    },
+    {
+      "id": "source-ipa-2017h29h-fe-am-65-ans",
+      "scope": "当該年度・期の基本情報技術者試験 午前 解答例の物理1頁・問65の正答及び分野の確認だけ。問65の正答参照専用。",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000fzx1-att/2017h29h_fe_am_ans.pdf",
+      "sha256": "7277f378b34a3b38abc1cba611bdbbc8f21332f842f3a69ff2ff9b83dc0cb5dd"
+    }
+  ],
+  "parent77SourceIdsExcluded": [
+    "source-ipa-2017h29h-fe-am-qs",
+    "source-ipa-2017h29h-fe-am-ans"
+  ],
+  "implementationLogicLicense": "MIT",
+  "independentOtherExplanationsLicense": "CC0-1.0; this derivative explanation is separately BY-SA",
+  "copiedSnapshotPolicy": "Bundle sources/rights and generated instance attribution persist; no CC0 reset"
+}

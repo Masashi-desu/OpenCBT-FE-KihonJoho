@@ -1,6 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { additionalDefinitions } from "../src/core/generators";
+// This independent oracle covers current/sample canonical176.
+// AM467 is fully checked by stage1-am-meaning.test.ts.
+import { effectivePublicDefinitions as additionalDefinitions } from "../src/core/generators/effective-public";
 import { parametersForSeed } from "../src/core/generation";
 import { fixture } from "./fixtures";
 import type { GeneratedBody } from "../src/core/generators/definition";

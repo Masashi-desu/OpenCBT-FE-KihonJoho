@@ -1,6 +1,6 @@
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { bookmarkGroupSelection, filterBookmarks, makeBookmark, type BookmarkFilter } from "../src/core/bookmarks";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { selectQuestions } from "../src/core/selection";
@@ -80,3 +80,6 @@ test("changing filters or bookmarks after starting leaves the saved scope, issue
   await validateRun(next);
   assert.deepEqual(run, saved);
 });
+
+// Match executable App setup without changing raw shared fixture imports.
+before(installFixtureGenerators);

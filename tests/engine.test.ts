@@ -1,8 +1,8 @@
 import { currentSourceOriginals } from "./fixtures/current-source-scope";
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { refOf, type Selection } from "../src/core/types";
 import { validateBundle, validateFormula } from "../src/core/validation";
 import { parametersForSeed, bindArraySum } from "../src/core/generation";
@@ -16,6 +16,8 @@ import {
   validateRun,
 } from "../src/core/session";
 import { contentHash } from "../src/core/hash";
+before(installFixtureGenerators);
+
 const selection: Selection = {
   subject: "B",
   kind: "mix",
@@ -35,11 +37,15 @@ const legacyTemplate = () => ({
 test("distribution gate: real sources, official answer keys, JIS exclusion and Schema", async () => {
   const b = fixture();
   await validateBundle(b);
-  assert.equal(b.questions.length, 534);
+  assert.equal(b.questions.length, 1468);
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
-    267,
+    734,
   );
+  const morning = b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
+  assert.equal(morning.length, 467);
+  assert(morning.every(q => q.learning.tags.some(tag => tag === "legacy-morning" || /^legacy-201[789]$/.test(tag))), "AM source classifications remain attached");
+  assert.equal(b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, 78);
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {
     2023: { A: "ウウエエイウイエウウエウエウエイウウエア", B: "アクエエエア" },

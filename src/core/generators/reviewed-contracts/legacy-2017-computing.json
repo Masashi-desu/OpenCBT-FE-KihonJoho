@@ -1,0 +1,267 @@
+{
+  "status": "parent_reviewed_complete_metadata_and_preexisting_body_scalar_lift",
+  "sourceCommit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+  "metadataApprovalRecordSha256": "28c7d844221fae33f393824dd823bb743b2d72af91ee55e2c021a824570f592c",
+  "canonical": {
+    "metadata": {
+      "source": "2018h30a-fe-am-9",
+      "title": "命令出現率によるMIPS",
+      "sourceAnswer": "エ",
+      "fields": [
+        {
+          "name": "命令構成",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "name": "動作クロックの倍率",
+          "minimum": 1,
+          "maximum": 3
+        }
+      ],
+      "reference": [
+        0,
+        2
+      ],
+      "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 三命令種・クロック数・百分率表と四数値択を維持。6入力の平均クロックと整数MIPSを独立検算。誤答は原選択肢比率を保存した候補であり、一般の誤り公式とは主張しない。",
+      "version": "3.2.0"
+    },
+    "metadataSha256": "aba79c870d24970398e1ab7e389208a1756694b3d614e14f00e383c35cd0d114",
+    "outputs": [
+      {
+        "values": [
+          0,
+          1
+        ],
+        "sha256": "ebe03475fe5f0151ba16434f1108a297a986af6a6c72c7326317433994b6b74f"
+      },
+      {
+        "values": [
+          0,
+          2
+        ],
+        "sha256": "d478bb494d47997ddc518e49e475ce1df102a14ed6a237907038ce8a63ce3a7c"
+      },
+      {
+        "values": [
+          0,
+          3
+        ],
+        "sha256": "324ba09641190199fea620d9faf9ca2bfd95e5cfeadead3eaeeb680e51619a58"
+      },
+      {
+        "values": [
+          1,
+          1
+        ],
+        "sha256": "038c1087a86ce2653dee4852e4b9f31343b6671a40ffcad433b198e128683820"
+      },
+      {
+        "values": [
+          1,
+          2
+        ],
+        "sha256": "c8e162c3e1860b634e519d6d83b231a01e4365bd2a31183978d62a34fab8b1b6"
+      },
+      {
+        "values": [
+          1,
+          3
+        ],
+        "sha256": "f7fa741f4b118f5df09f9864e2028eff37e04f55485bdc0be8b72e13fac0ce11"
+      }
+    ]
+  },
+  "adapter": {
+    "metadata": {
+      "source": "2017h29h-fe-am-8",
+      "title": "命令出現率によるMIPS",
+      "sourceAnswer": "エ",
+      "fields": [
+        {
+          "name": "命令構成",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "name": "動作クロックの倍率",
+          "minimum": 1,
+          "maximum": 3
+        }
+      ],
+      "reference": [
+        0,
+        2
+      ],
+      "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 三命令種・クロック数・百分率表と四数値択を維持。6入力の平均クロックと整数MIPSを独立検算。誤答は原選択肢比率を保存した候補であり、一般の誤り公式とは主張しない。 2017春午前問8と2018秋午前問9の原画像・全3行表・全4択・公式エ正答を照合。両原問は同一で、2017固有の別出典/原画像を保持する。2018の査読済み6入力を呼出側の有効版poolから注入し、原の誤答比率0.1/0.5/0.7/1を維持する。別の誤り公式や四つの正答位置を強制せず、全6bodyhashを2017側でも独立計算後に固定する。",
+      "version": "3.2.0"
+    },
+    "metadataSha256": "d41d9dfab47cf5e8740705731a9ae1814757f5a71ee029a2948d11a004348a9c",
+    "outputs": [
+      {
+        "values": [
+          0,
+          1
+        ],
+        "sha256": "ebe03475fe5f0151ba16434f1108a297a986af6a6c72c7326317433994b6b74f"
+      },
+      {
+        "values": [
+          0,
+          2
+        ],
+        "sha256": "d478bb494d47997ddc518e49e475ce1df102a14ed6a237907038ce8a63ce3a7c"
+      },
+      {
+        "values": [
+          0,
+          3
+        ],
+        "sha256": "324ba09641190199fea620d9faf9ca2bfd95e5cfeadead3eaeeb680e51619a58"
+      },
+      {
+        "values": [
+          1,
+          1
+        ],
+        "sha256": "038c1087a86ce2653dee4852e4b9f31343b6671a40ffcad433b198e128683820"
+      },
+      {
+        "values": [
+          1,
+          2
+        ],
+        "sha256": "c8e162c3e1860b634e519d6d83b231a01e4365bd2a31183978d62a34fab8b1b6"
+      },
+      {
+        "values": [
+          1,
+          3
+        ],
+        "sha256": "f7fa741f4b118f5df09f9864e2028eff37e04f55485bdc0be8b72e13fac0ce11"
+      }
+    ]
+  },
+  "dependencyInputs": [
+    {
+      "values": [
+        0,
+        1
+      ],
+      "reads": [
+        {
+          "source": "2018h30a-fe-am-9",
+          "values": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        0,
+        2
+      ],
+      "reads": [
+        {
+          "source": "2018h30a-fe-am-9",
+          "values": [
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        0,
+        3
+      ],
+      "reads": [
+        {
+          "source": "2018h30a-fe-am-9",
+          "values": [
+            0,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        1,
+        1
+      ],
+      "reads": [
+        {
+          "source": "2018h30a-fe-am-9",
+          "values": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        1,
+        2
+      ],
+      "reads": [
+        {
+          "source": "2018h30a-fe-am-9",
+          "values": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        1,
+        3
+      ],
+      "reads": [
+        {
+          "source": "2018h30a-fe-am-9",
+          "values": [
+            1,
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "bodyScalarSources": {
+    "canonical": {
+      "path": "tests/fixtures/legacy-2017-computing-contracts.json",
+      "rule": "Same body because old approved wrapper forwards d.build(values) unchanged; no new canonical digest sampled."
+    },
+    "adapter": "tests/fixtures/legacy-2017-computing-contracts.json"
+  },
+  "provenance": [
+    {
+      "path": "src/core/generators/legacy-2018-numeric.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "36fd5abbc0efbf843d8b8101cf0b5d1b05424609791ed4e945fc64292feb0e74"
+    },
+    {
+      "path": "src/core/generators/legacy-2017-computing-alias.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "b88853fb98b2cade023d6c3a6c911bc9631a7514c261988d6a81322569a0e80a"
+    },
+    {
+      "path": "scripts/legacy-2017-canonical-pool.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "ba67f6eca0afc9edf92ea927618c5f587efaa21b91d00b72a1ee492c05558dfc"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-computing-contracts.json",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "2cffb454c0322c80b5584b1bdc1ccec8fb454e0eed69f7ca1443e093a22620d3"
+    }
+  ],
+  "limits": "Unregistered source-specific composition input. Full metadata was explicitly reviewed; body digests are unchanged old fixed scalar values. Caller supplies exactly the effective canonical version; no year/index/script fallback. answerVariation is omitted, including OSI binding default variable. Independent meaning oracles remain separate."
+}

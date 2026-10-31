@@ -1,0 +1,234 @@
+{
+  "status": "parent_approved_full_metadata_and_old_identity_body_outcome_scalar_lift",
+  "sourceCommit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+  "metadataApprovalManifestSha256": "5bcabc6a22e5d525041cf9fdb7e16f904a3ce6a1f82f9bc5ddbe8913900fde33",
+  "rows": [
+    {
+      "canonical": {
+        "metadata": {
+          "source": "2017h29h-fe-am-10",
+          "title": "インタフェース規格の特徴",
+          "sourceAnswer": "エ",
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問うインタフェース",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            3
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 全4原説明全文と名称→説明方向を維持し、実際のインタフェースを同じ位置へバインドする4入力。USBにもisochronousがあることだけで原ウをUSBの記述とせず、broadcastを含む全条件を査読する。5Gbit/sは転送モード値と明記し実効速度の保証へ置換しない。規格本文/符号表/図の転載はせず、IPA作問と一次資料での機能事実の検算を区別する。"
+        },
+        "metadataSha256": "cf27a7bb6a5d1bf36e9a6cf76ac867f2fdc4a4c6317db75f0b1c10cd37df5437",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly approved now; no older full pin asserted."
+      },
+      "adapter": {
+        "metadata": {
+          "source": "2018h30a-fe-am-12",
+          "title": "インタフェース規格の特徴",
+          "sourceAnswer": "エ",
+          "version": "3.2.0",
+          "fields": [
+            {
+              "name": "問うインタフェース",
+              "minimum": 0,
+              "maximum": 3
+            }
+          ],
+          "reference": [
+            3
+          ],
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 全4原説明全文と名称→説明方向を維持し、実際のインタフェースを同じ位置へバインドする4入力。USBにもisochronousがあることだけで原ウをUSBの記述とせず、broadcastを含む全条件を査読する。5Gbit/sは転送モード値と明記し実効速度の保証へ置換しない。規格本文/符号表/図の転載はせず、IPA作問と一次資料での機能事実の検算を区別する。 2018秋午前問12と2017春午前問10の原画像/全4択/公式エを照合した同一原問。2018固有の出典/画像/正答/rightsは別に保持する。有効版canonical poolを呼出側から明示注入し、4bodyと版/notes/契約の固定hashが変われば年度再査読を要求する。同一canonicalと入力がmixで二重出題されないよう統合する。"
+        },
+        "metadataSha256": "df8b6d155d27d4c2fcb3d5514f46982472aba615c927b2e3ac89671a38fa599a",
+        "completeMetadataOrigin": "Old constructor full metadata explicitly reviewed and approved now."
+      },
+      "codec": "json-stringify-sha256-v1",
+      "outputs": [
+        {
+          "values": [
+            0
+          ],
+          "sha256": "b0f2533ddf77b066d0e2926051699a79b1d2b0f736583f725a458b5d8862ec7f"
+        },
+        {
+          "values": [
+            1
+          ],
+          "sha256": "19170f788ae369d334b6c7dcdb24b98e960e86849f3d5d875d988ea41962cd00"
+        },
+        {
+          "values": [
+            2
+          ],
+          "sha256": "8a286e4aeb8ce92b71333761f7eba07ce2e59ab9a0420cd4fce58d03db309eca"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "08786aff29c9b16b132dfa5a6c5a01c7bf9f13fa8ef67405476c05d65179ce74"
+        }
+      ],
+      "rejections": [],
+      "dependencyInputs": [
+        {
+          "values": [
+            0
+          ],
+          "reads": [
+            {
+              "source": "2017h29h-fe-am-10",
+              "values": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            1
+          ],
+          "reads": [
+            {
+              "source": "2017h29h-fe-am-10",
+              "values": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            2
+          ],
+          "reads": [
+            {
+              "source": "2017h29h-fe-am-10",
+              "values": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "2017h29h-fe-am-10",
+              "values": [
+                3
+              ]
+            }
+          ]
+        }
+      ],
+      "expectationSource": "tests/fixtures/legacy-2018-autumn-foundations-canonical-review.ts",
+      "proof": "Old USB adapter forwards raw body; preserve raw JSON.stringify hashing (not sorted-content-hash). USB complete canonical metadata has no located older pin and needs explicit parent approval. Four older sorted hashes remain separately retained; do not convert between codecs by sampling a new producer."
+    }
+  ],
+  "provenance": [
+    {
+      "path": "src/core/generators/legacy-2017-aliases.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 2920,
+      "sha256": "c1e4b895ba9528ea668ceb8360938820c815db7be16dda5b1e1899461994de69"
+    },
+    {
+      "path": "src/core/generators/legacy-2018-autumn-foundations-alias.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 3117,
+      "sha256": "2096d6bcce32ecef582fa4c929a5cdd1588aa95750d51515cc9e4878bb820ae3"
+    },
+    {
+      "path": "src/core/generators/legacy-2017-computing.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 18155,
+      "sha256": "21e3f9e733985ba9022e14b9ee06c3f783f4576a58746051264a8664609dd2c5"
+    },
+    {
+      "path": "src/core/generators/legacy-2017-computing-models.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 2846,
+      "sha256": "91bc670d889a00bc1462fc22ec781f9da5bc91ac14da1fdf2f10d1a27eaf9359"
+    },
+    {
+      "path": "src/core/generators/definition.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 4003,
+      "sha256": "9a2e5fe6c461faff368f627f723dbf61528044ec20edde4f3936bf7cbe8a7d7a"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 340,
+      "sha256": "3264ca52563c3918e825350c5c25610627bbccb80265a44674eaecd6dc95b9d4"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a-numerical.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 31829,
+      "sha256": "c158e865293a117814179718b75c9286d4511acd740805aa7bd457675592766c"
+    },
+    {
+      "path": "src/core/generators/sample-2022-dec-a-knowledge.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 40914,
+      "sha256": "b45fee5664db2d2cd1c106c6a08b95b70ae19a055ee61ce3c2ca9571d4eed158"
+    },
+    {
+      "path": "src/core/generators/development-operations.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 3998,
+      "sha256": "68d3e4ee0f05b8f9880d3f965f5b84290cb6f2c4ad9913f9aa9ff0301869d78f"
+    },
+    {
+      "path": "src/core/generators/index.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 10634,
+      "sha256": "f90efc5f60b38bd34eec8e500388d467143dc1dc6684acf994675f324f262746"
+    },
+    {
+      "path": "src/core/generators/corrections.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 1996,
+      "sha256": "e467ad2cb9a2eea25ab3fe9197babfc4f9d16d2ce6b59324e02364bd3fa856e9"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-alias-contracts.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 6233,
+      "sha256": "27dfad24c574890412a260abfd98be4060273b4fb0c6b8ca1ead7ea77ed6dcd6"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-computing-contracts.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 7881,
+      "sha256": "2cffb454c0322c80b5584b1bdc1ccec8fb454e0eed69f7ca1443e093a22620d3"
+    },
+    {
+      "path": "tests/fixtures/legacy-2018-autumn-foundations-canonical-review.ts",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 2855,
+      "sha256": "dfac5ffc528c6950954317aab2181481cd01728e384a93434573d9aff6a6ee7c"
+    },
+    {
+      "path": "tests/fixtures/generator-composition-existing.json",
+      "commit": "f87038537bb5b41f97188f3fc4596105e85a9fbd",
+      "bytes": 201906,
+      "sha256": "f4328cf979e33dd27ab874d7b50f15cf08afbeee441c0bb1f9d7cd6bb34d7222"
+    }
+  ],
+  "limits": [
+    "Unregistered identity adapters; no body transformation or new expected body hash sampling.",
+    "Full own metadata and omitted answerVariation/domain retained; no version/raw fallback.",
+    "AM56 twelve semantic rejections read the corresponding canonical once and propagate exact Error/PARAMETER_CONSTRAINT/no code.",
+    "USB keeps raw JSON.stringify SHA, not sorted contentHash.",
+    "No production year/index/App/script/test runtime reverse import or startup field Cartesian expansion."
+  ]
+}

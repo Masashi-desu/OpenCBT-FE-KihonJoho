@@ -15,8 +15,10 @@ test("search covers every annual original once, preserves reading data and exclu
   const bundle = fixture(), before = JSON.stringify(bundle);
   const docs = questionSearchDocuments(bundle);
   const annualIds = new Set(bundle.sets.filter(set => set.generationBindings.length === 0).flatMap(set => set.questionRefs.map(ref => ref.questionId)));
-  assert.equal(docs.length, 267);
+  assert.equal(docs.length, 734);
   assert.deepEqual(new Set(docs.map(doc => doc.question.id)), annualIds);
+  assert.equal(docs.filter(doc => doc.question.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前")).length, 467);
+  assert.equal(docs.filter(doc => doc.question.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, 78);
   assert.equal(new Set(docs.map(doc => doc.id)).size, docs.length);
   assert(docs.every(doc => !bundle.templates.some(template => template.baseQuestionRef.questionId === doc.question.id)));
   assert.equal(JSON.stringify(bundle), before);
@@ -91,7 +93,7 @@ test("missing, corrupted, unpermitted or aborted optional explanations are omitt
   let called = false;
   assert.deepEqual(await detailSearchDocuments(bundle, base, controller.signal, (async () => { called = true; throw Error(); }) as typeof fetch), []);
   assert.equal(called, false);
-  assert.equal(questionSearchDocuments(bundle).length, 267);
+  assert.equal(questionSearchDocuments(bundle).length, 734);
 });
 
 test("optional search descriptors support old manifests and reject malformed or excessive content", () => {

@@ -1,0 +1,10 @@
+import type {Attribution,Question} from '../types';
+export const legacy2019AutumnAmCommonProfile='legacy-2019-autumn-am-common-gates';
+export const legacy2019AutumnAmCommonHeading='問題文中で共通に使用される表記ルール';
+export const legacy2019AutumnAmCommonPremise='各問題文中に注記がない限り，次の表記ルールが適用されているものとする。';
+export const legacy2019AutumnAmCommonNote='素子や回路の入力部又は出力部に示される○印は，論理状態の反転又は否定を表す。';
+export const legacy2019AutumnAmCommonRows=[{id:'and',label:'論理積素子（AND）'},{id:'nand',label:'否定論理積素子（NAND）'},{id:'or',label:'論理和素子（OR）'},{id:'nor',label:'否定論理和素子（NOR）'},{id:'xor',label:'排他的論理和素子（XOR）'},{id:'xnor',label:'論理一致素子'},{id:'buffer',label:'バッファ'},{id:'not',label:'論理否定素子（NOT）'},{id:'tristate',label:'スリーステートバッファ'}] as const;
+export function legacy2019AutumnAmCommonAlt(){return legacy2019AutumnAmCommonHeading+'。'+legacy2019AutumnAmCommonPremise+' 〔論理回路〕。図記号，説明の2列の表。'+legacy2019AutumnAmCommonRows.map((r,i)=>`${i+1}行目：${r.label}`).join('。')+'。論理積は入力側が平面，出力側が半円の図形。否定論理積はその出力に○。論理和は入力側がくぼみ，出力側が尖った曲線形。否定論理和はその出力に○。排他的論理和は論理和形の入力側に追加の曲線。論理一致は排他的論理和形の出力に○。ここまで各入力2本，出力1本。バッファは右向き三角形，論理否定素子は同じ三角形の出力に○，各入力1本，出力1本。スリーステートバッファは右向き三角形に左から入力，上から制御入力，右に出力。最終行の図記号は二つの長方形の例。上は入力部に○，下は出力部に○。'+legacy2019AutumnAmCommonNote;}
+type Context=Question['contexts'][number];
+export function legacy2019AutumnAmOriginalCommonContext(a:Attribution,assetId:string):Context{return{id:'context-2019r01a-fe-am-common',title:legacy2019AutumnAmCommonHeading,presentation:'text_figure',content:{attribution:structuredClone(a),blocks:[{type:'image',assetId,caption:legacy2019AutumnAmCommonHeading}]}};}
+export function legacy2019AutumnAmNativeCommonContext(a:Attribution):Context{return{id:'context-2019r01a-fe-am-common',title:legacy2019AutumnAmCommonHeading,presentation:'text_figure',content:{attribution:structuredClone(a),blocks:[{type:'paragraph',text:legacy2019AutumnAmCommonPremise},{type:'paragraph',text:'〔論理回路〕'},{type:'diagram',id:'diagram-2019r01a-fe-am-common',rendererRef:{id:'renderer-source-figures',version:'1.0.0'},caption:legacy2019AutumnAmCommonHeading,alt:legacy2019AutumnAmCommonAlt(),scene:{kind:'source_figure',profile:legacy2019AutumnAmCommonProfile,values:[0]},attribution:structuredClone(a)}]}};}

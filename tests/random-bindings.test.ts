@@ -1,6 +1,6 @@
-import test, { type TestContext } from "node:test";
+import test, { before, type TestContext } from "node:test";
 import assert from "node:assert/strict";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import facts from "./fixtures/knowledge-pairs.json";
 import { refOf, refKey, type Selection, type Template, type Bundle, type Question, type Run, type Instance } from "../src/core/types";
 import { bookmarkGroupSelection, makeBookmark } from "../src/core/bookmarks";
@@ -610,3 +610,6 @@ test("next-question draws revisit GPU and all bindings while retaining prior ans
     await validateRun(structuredClone(completed));
   }
 });
+
+// Match executable App setup without changing raw shared fixture imports.
+before(installFixtureGenerators);

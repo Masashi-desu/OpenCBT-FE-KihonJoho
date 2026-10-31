@@ -1,6 +1,6 @@
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { refOf, refKey, type Bundle, type Selection } from "../src/core/types";
 import { mixProfile, scaleAreaCounts } from "../src/core/mix-profile";
 import { selectQuestions } from "../src/core/selection";
@@ -182,3 +182,6 @@ test("existing saved year-only mixes retain their issued counts and answers with
   assert.throws(() => selectQuestions(b, { ...select("set-sample-2022-apr-b", "B"), mode: "endless" }), { code: "SELECTION" });
   assert.throws(() => selectQuestions(b, select("set-sample-2022-apr-b", "A")), { code: "MIX_PROFILE" });
 });
+
+// Match executable App setup without changing raw shared fixture imports.
+before(installFixtureGenerators);

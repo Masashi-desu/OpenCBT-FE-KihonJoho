@@ -1,8 +1,8 @@
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { bindQuestion } from "../src/core/generation";
 import { contentHash } from "../src/core/hash";
@@ -86,3 +86,6 @@ test("bookmark metadata displays all topics and index words after the area, esca
   assert(legacy.includes("マネジメント"));
   assert(!legacy.includes("bookmark-topic") && !legacy.includes("bookmark-keyword"));
 });
+
+// Match executable App setup without changing raw shared fixture imports.
+before(installFixtureGenerators);

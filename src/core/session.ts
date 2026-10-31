@@ -526,9 +526,18 @@ export async function validateRun(run: Run) {
     (run.selection.mode !== "endless" && run.selection.questionRefs !== undefined))
     throw new DataError("SESSION_CONFIG", "保存した問題群の科目・設定が一致しません");
   if (run.selection.mode === "endless") {
-    const bases = run.set.questionRefs.map((ref) => run.bundle.questions.find(
-      (q) => refKey(refOf(q)) === refKey(ref),
-    ));
+    // Index only the prefix each first-match lookup needs. This preserves find's
+    // first duplicate and does not inspect unused trailing snapshot records.
+    const questionsByRef = new Map<string, Question>();
+    let questionCursor = 0;
+    const bases = run.set.questionRefs.map((ref) => {
+      const key = refKey(ref);
+      while (!questionsByRef.has(key) && questionCursor < run.bundle.questions.length) {
+        const question = run.bundle.questions[questionCursor++], questionKey = refKey(refOf(question));
+        if (!questionsByRef.has(questionKey)) questionsByRef.set(questionKey, question);
+      }
+      return questionsByRef.get(key);
+    });
     if (bases.some((base) => !base || base.lifecycle !== "active" || base.distribution !== "included"))
       throw new DataError("REFERENCE", "周回する元問題を利用できません");
     const subject = bases.every((base) => base!.subject === bases[0]!.subject)
@@ -544,11 +553,27 @@ export async function validateRun(run: Run) {
       if (JSON.stringify(expected) !== JSON.stringify(actual))
         throw new DataError("SESSION_CONFIG", "保存した周回対象が一致しません");
     }
+    const bindingsByRef = new Map<string, Run["set"]["generationBindings"]>();
+    for (const binding of run.set.generationBindings) {
+      const key = refKey(binding.questionRef), group = bindingsByRef.get(key);
+      if (group) group.push(binding); else bindingsByRef.set(key, [binding]);
+    }
+    const templatesById = new Map<string, Map<number, Run["bundle"]["templates"][number]>>();
+    let templateCursor = 0;
     for (const ref of run.set.questionRefs) {
-      const bindings = run.set.generationBindings.filter((g) => refKey(g.questionRef) === refKey(ref)),
-        template = bindings.length === 1 && run.bundle.templates.find((t) =>
-          t.id === bindings[0].templateRef.id && t.revision === bindings[0].templateRef.revision,
-        );
+      const bindings = bindingsByRef.get(refKey(ref)) ?? [];
+      let template: Run["bundle"]["templates"][number] | undefined;
+      if (bindings.length === 1) {
+        const expected = bindings[0].templateRef;
+        template = templatesById.get(expected.id)?.get(expected.revision);
+        while (!template && templateCursor < run.bundle.templates.length) {
+          const candidate = run.bundle.templates[templateCursor++];
+          let revisions = templatesById.get(candidate.id);
+          if (!revisions) { revisions = new Map(); templatesById.set(candidate.id, revisions); }
+          if (!revisions.has(candidate.revision)) revisions.set(candidate.revision, candidate);
+          template = templatesById.get(expected.id)?.get(expected.revision);
+        }
+      }
       if (!template || refKey(template.baseQuestionRef) !== refKey(ref) ||
         template.lifecycle !== "active" || template.distribution !== "included")
         throw new DataError("BINDING_REF", "周回する生成定義が一致しません");

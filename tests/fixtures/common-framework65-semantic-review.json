@@ -1,0 +1,154 @@
+{
+  "sourceReview": "stage1-common-framework65-license-boundary-20261025; IPA guidance p12(3)/p13technical(c)(d)",
+  "stemSHA256": "9ea236052c2831ef11d90ff1d387f8144e3c7f696639ffc4231321a85ccd0767",
+  "targetCategory": "technical_development_constraints",
+  "cases": [
+    {
+      "case": 0,
+      "independentReview": "generator実装前に全4文の意味分類と真偽を固定。字句hashは実表示との接続だけに使い，正答判定は対象/役割の分類から行う。",
+      "choices": [
+        {
+          "textSHA256": "14ad1be71b896e58c80e227a6738440644c93f23c8c7acbc7fd71bb6a1ea7664",
+          "meaning": "業務機能間の情報流",
+          "category": "functional_information_flow",
+          "truth": false,
+          "reason": "業務に必要な処理間で何を渡すかという機能の内容。"
+        },
+        {
+          "textSHA256": "03064a5b8f3f18425ada1c04656498ff125ea7f93e7608a0b8211d01e7867ff7",
+          "meaning": "言語に合わせた開発上の基準/標準",
+          "category": "technical_development_constraints",
+          "truth": true,
+          "reason": "開発者が実装に当たり従う言語/開発標準の条件であり，業務処理そのものの要求とは別。"
+        },
+        {
+          "textSHA256": "45529a1ccfcd474d3b8e90d9788e5c07eec911db93623dbc32276203b0abf912",
+          "meaning": "システムに任せる機能の範囲",
+          "category": "functional_implementation_scope",
+          "truth": false,
+          "reason": "どの作業/判断をシステムで実現するかという機能の範囲。"
+        },
+        {
+          "textSHA256": "415431c34061de8ec2789a46c515f88902e2ac40b0f95b34dd813a83fe8ebc2a",
+          "meaning": "外部システムとの情報交換",
+          "category": "functional_external_interface",
+          "truth": false,
+          "reason": "外部へ提供又は外部から受け取る情報という機能の境界。"
+        }
+      ]
+    },
+    {
+      "case": 1,
+      "independentReview": "generator実装前に全4文の意味分類と真偽を固定。字句hashは実表示との接続だけに使い，正答判定は対象/役割の分類から行う。",
+      "choices": [
+        {
+          "textSHA256": "4dff4d1bb5ea9bf361d899ecfc001d6675a61feddf99a0fa2bd12d13623023a6",
+          "meaning": "機能間の処理順と受渡しデータ",
+          "category": "functional_information_flow",
+          "truth": false,
+          "reason": "業務に必要な処理間で何を渡すかという機能の内容。"
+        },
+        {
+          "textSHA256": "17d8f69deaf58a10e9eccb2e2fc84e0fdde656074f09ff1d63e0adf6783a2b87",
+          "meaning": "実装者向けの例外/異常通知の記述ルール",
+          "category": "technical_development_constraints",
+          "truth": true,
+          "reason": "開発者が実装に当たり従う言語/開発標準の条件であり，業務処理そのものの要求とは別。"
+        },
+        {
+          "textSHA256": "df60c48f347406c8ff10bfe0be001b517768e8c6dafe06bf67b24328fa7a7fdf",
+          "meaning": "人による確認と自動確認の分担",
+          "category": "functional_implementation_scope",
+          "truth": false,
+          "reason": "どの作業/判断をシステムで実現するかという機能の範囲。"
+        },
+        {
+          "textSHA256": "8e0c0c544fd008cec2772b1da67390039dd769e7c88b11a21eb77359d2167d44",
+          "meaning": "外部との送受信項目と方向",
+          "category": "functional_external_interface",
+          "truth": false,
+          "reason": "外部へ提供又は外部から受け取る情報という機能の境界。"
+        }
+      ]
+    },
+    {
+      "case": 2,
+      "independentReview": "generator実装前に全4文の意味分類と真偽を固定。字句hashは実表示との接続だけに使い，正答判定は対象/役割の分類から行う。",
+      "choices": [
+        {
+          "textSHA256": "cc1484e0e7857ae2962a6d5d30b2701f11006560fe5a171697b4f80f9b282e57",
+          "meaning": "入力と処理結果の機能間の受渡し",
+          "category": "functional_information_flow",
+          "truth": false,
+          "reason": "業務に必要な処理間で何を渡すかという機能の内容。"
+        },
+        {
+          "textSHA256": "543781649c0770fcfb5437ee558d476a1a4ea3f88dd91233e3cae9f400897c68",
+          "meaning": "開発時の警告設定/ビルド指定という実装制約",
+          "category": "technical_development_constraints",
+          "truth": true,
+          "reason": "開発者が実装に当たり従う言語/開発標準の条件であり，業務処理そのものの要求とは別。"
+        },
+        {
+          "textSHA256": "99869f1ffc5d76e4bd5aac3d240e49dbba95342fee743223adff33f5c70456bb",
+          "meaning": "手作業から自動処理にする範囲",
+          "category": "functional_implementation_scope",
+          "truth": false,
+          "reason": "どの作業/判断をシステムで実現するかという機能の範囲。"
+        },
+        {
+          "textSHA256": "3fae3bc35c1b9e93fcbbf057edf0f4601bf9f9fe2634dd93c96b8690ec52bbdd",
+          "meaning": "他システムとの交換内容と開始条件",
+          "category": "functional_external_interface",
+          "truth": false,
+          "reason": "外部へ提供又は外部から受け取る情報という機能の境界。"
+        }
+      ]
+    },
+    {
+      "case": 3,
+      "independentReview": "generator実装前に全4文の意味分類と真偽を固定。字句hashは実表示との接続だけに使い，正答判定は対象/役割の分類から行う。",
+      "choices": [
+        {
+          "textSHA256": "aea2733e4bea5d729689d8d899b29aa578d49317f6fd9132c11b68a2f7f5a7ee",
+          "meaning": "業務の機能間で受け継ぐ情報と順序",
+          "category": "functional_information_flow",
+          "truth": false,
+          "reason": "業務に必要な処理間で何を渡すかという機能の内容。"
+        },
+        {
+          "textSHA256": "97ac513dfdea2907f6496df22f85ee4c41ac7ed27ac79e92a93fec2f11dc9e30",
+          "meaning": "型と共通部品呼出しの実装規約",
+          "category": "technical_development_constraints",
+          "truth": true,
+          "reason": "開発者が実装に当たり従う言語/開発標準の条件であり，業務処理そのものの要求とは別。"
+        },
+        {
+          "textSHA256": "0c104ae0e35b4b0c71f05bd69a31073f87ae223caa5d59c57b027f237445e879",
+          "meaning": "人とシステムの判定担当の境界",
+          "category": "functional_implementation_scope",
+          "truth": false,
+          "reason": "どの作業/判断をシステムで実現するかという機能の範囲。"
+        },
+        {
+          "textSHA256": "1def209f6869f157b8de055795de2226b4cac86e9466a9f07d29ff6ae723d011",
+          "meaning": "他システムからの要求と応答のデータ形式",
+          "category": "functional_external_interface",
+          "truth": false,
+          "reason": "外部へ提供又は外部から受け取る情報という機能の境界。"
+        }
+      ]
+    }
+  ],
+  "capacity": {
+    "validCases": 4,
+    "distinctAnswerContents": 4,
+    "afterPreviousExcluded": 3,
+    "choicePermutationsDoNotCountAsCases": true
+  },
+  "exclusions": [
+    "隣接JIS品質特性列挙",
+    "項3のJIS機能要件定義引用",
+    "他の規格定義・新しい標準引用"
+  ]
+}

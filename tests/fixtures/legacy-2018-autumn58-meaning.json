@@ -1,0 +1,31 @@
+{
+  "reviewedOn": "2026-10-25",
+  "source": "2018h30a-fe-am-58",
+  "reviewMethod": "原p28及びANS1を実視読。8件の文章と事実を手動で固定し、生成器から期待値を作成しない。規格本文又はJIPDEC図表を再掲しない。",
+  "questionDirection": "監査人が指摘事項として監査報告書に記載すべき状況を一つ選ぶ",
+  "standardVersion": "JIS Q 27001:2014",
+  "referenceEvidence": [
+    {"url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f01f-att/2018h30a_fe_am_qs.pdf", "page": 28, "purpose": "原4事例・問い方向・条件の確認"},
+    {"url": "https://isms.jp/seminar/isms/20141003/shiryou_1.pdf", "pages": [23,25], "purpose": "リスク基準・評価・運用・監査の概念確認だけ。文章・図・表は問題や解説へ転載しない。"}
+  ],
+  "choices": [
+    {"role": "media", "cases": [
+      {"text": "USBメモリの使用を，定められた手順に従って許可していた。", "facts": {"procedureRespected": true, "permissionRespected": true}, "reason": "記述された許可手順に従う。USB利用自体を指摘対象とはしない。"},
+      {"text": "定めた手順に従い，業務用USBメモリへの書込みを禁止し，読取りだけを許可していた。", "facts": {"procedureRespected": true, "permissionRespected": true, "writeAllowed": false, "readAllowed": true}, "reason": "組織が定めた読取り専用の許可範囲という実条件。読取り限定が全組織で必須という主張ではない。"}
+    ]},
+    {"role": "incident", "cases": [
+      {"text": "個人情報の誤廃棄事故を主務官庁などに，規定されたとおりに報告していた。", "facts": {"requiredReportPerformed": true, "reportingRuleRespected": true}, "reason": "規定された相手・方法に従って報告した事例。"},
+      {"text": "個人情報の誤廃棄事故を，規定された期限内に主務官庁などへ報告し，再発防止策を実施していた。", "facts": {"requiredReportPerformed": true, "reportingRuleRespected": true, "deadlineMet": true, "recurrencePreventionImplemented": true}, "reason": "期限の充足と再発防止という実条件を加える。法令の具体的期限を創作していない。"}
+    ]},
+    {"role": "malware", "cases": [
+      {"text": "マルウェアスキャンでスパイウェアが検知され，駆除されていた。", "facts": {"detected": true, "removed": true}, "reason": "検知に続いて駆除されている。検知されたという事実だけを管理失敗とはしない。"},
+      {"text": "スパイウェアを検知した端末をネットワークから隔離し，駆除と安全確認後に接続を戻していた。", "facts": {"detected": true, "removed": true, "isolated": true, "restoredAfterSafetyCheck": true}, "reason": "感染拡大を抑える隔離と、安全確認後の復帰という実条件。"}
+    ]},
+    {"role": "risk", "cases": [
+      {"text": "リスクアセスメントを実施した後に，リスク受容基準を決めた。", "facts": {"criteriaBeforeAssessment": false, "acceptanceComparedToCriteria": null}, "reason": "評価後の基準設定では、評価を始める前の判断基準になっていない。受容時の照合実施までは原文にない。"},
+      {"text": "事前に定めたリスク受容基準に合うかどうかを確認せず，リスクを受容すると決めていた。", "facts": {"criteriaBeforeAssessment": true, "acceptanceComparedToCriteria": false}, "reason": "事前の基準設定と、受容時にその基準を適用することを区別する。"}
+    ]}
+  ],
+  "capacity": {"perRoleConditions": [2,2,2,2], "bodyConditions": 16, "choicePermutationsCounted": false, "synonymVariantsCounted": false},
+  "limits": "この8文章と16組合せの意味検査に限定。将来の別文章・規格改訂・他問の許諾又は意味の正しさを自動承認しない。"
+}

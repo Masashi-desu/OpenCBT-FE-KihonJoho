@@ -4,6 +4,8 @@ import type { Bundle, Block } from "../src/core/types";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { additionalDefinition } from "../src/core/generators";
 import { sourceFigureDomains } from "../src/core/source-figures";
+import legacyMorningDomains from "../src/core/legacy-morning-figure-domains.json";
+import { ensureLegacyMorningGenerators } from "../src/core/generators/legacy-morning-install";
 
 import autumn2017FigureMeaning from "./source-evidence/2017-autumn-figure-meaning.json";
 import spring2018FigureMeaning from "./source-evidence/2018-spring-figure-meaning.json";
@@ -11,6 +13,7 @@ import spring2019FigureMeaning from "./source-evidence/2019-spring-figure-meanin
 import autumn2019FigureMeaning from "./source-evidence/2019-autumn-figure-meaning.json";
 
 const b = readDistributionBundle();
+await ensureLegacyMorningGenerators(b);
 const c = generationCoverage(b);
 if (c.rows.some((r) => r.templates.length !== 1 || r.linked.length !== 1))
   throw Error("GENERATION_COVERAGE");
@@ -76,7 +79,7 @@ for (const group of groups) {
   }
 }
 md +=
-  "\n## 登録図の入力契約\n\nrenderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts及びsrc/core/legacy-afternoon-figures.tsの有限契約を結合して生成する。旧午後の位置別上下限は外接域であり、許可する入力は後掲の査読済み有限組合せに限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／descに保持する。\n\n| profile | valuesの位置別の下限〜上限（0始まり） | 入力の意味・描画との対応 |\n| --- | --- | --- |\n";
+  "\n## 登録図の入力契約\n\nrenderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は後掲の査読済み有限組合せに限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／descに保持する。\n\n| profile | valuesの位置別の下限〜上限（0始まり） | 入力の意味・描画との対応 |\n| --- | --- | --- |\n";
 const figureMeaning: Record<string, string> = {
   ...autumn2019FigureMeaning,
   ...autumn2017FigureMeaning,
@@ -241,6 +244,10 @@ const figureMeaning: Record<string, string> = {
   onehot:
     "0：登録4色列の選択。0=Red,Green,Blue,Red、1=Blue,Red,Blue,Green、2=Green,Green,Red,Blue、3=Blue,Green,Red,Green。初出順のOne-Hotと戻り値を描く",
 };
+for (const [profile, rows] of Object.entries(legacyMorningDomains)) {
+  if (figureMeaning[profile]) throw Error("図の入力意味の二重登録");
+  figureMeaning[profile] = `固定の有限組合せ${rows.length}件。各values全体と描画条件の一対一対応は後掲の「${profile}」を参照。位置ごとの範囲内でも未登録の組合せは拒否する。`;
+}
 const sceneText = (value: string) => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
   .replaceAll("|", "&#124;").replaceAll("*", "&#42;").replaceAll("_", "&#95;").replaceAll("`", "&#96;").replaceAll("\n", " ");
 
@@ -249,6 +256,12 @@ for (const [profile, domain] of Object.entries(sourceFigureDomains)) {
   md += `| ${profile} | ${domain.map(([min, max], i) => `${i}：${min}〜${max}`).join("、")} | ${sceneText(figureMeaning[profile])} |\n`;
 }
 md += "\n旧午後の管理図は src/core/legacy-afternoon-figures.ts が登録された問題定義の有限入力から作る厳密なtuple辞書で検査する。上の上下限は外接域であり、個々の整数が範囲内でも未登録の組合せは拒否する。素材の出典と権利は基準問題の同じ本文・図・付属資料の単位から継承する。固定の問題本文画像は生成へ流用せず、登録された公式付属資料（正誤表・共通記法・API・言語仕様）だけを個別の素材条件・厳密なIDと位置で保持する。\n";
+md += "\n## 旧午前図の有限入力と描画条件\n\n各組合せは管理済み描画の同一性・入力契約であり、独立した内容検算や素材の許諾判断の代用ではない。valuesは要素ごとの直積から作らず、ここに記録する完全な列だけを受け付ける。描画条件は同じ入力に結び付けて査読・固定した読み上げ用説明を示す。問題の解説や正答を先に表示するための資料ではない。\n";
+for (const [profile, rows] of Object.entries(legacyMorningDomains)) {
+  md += `\n### ${profile}\n\n<details><summary>許可する${rows.length}組と描画条件</summary>\n\n| values（順序付き） | 対応する描画条件 |\n| --- | --- |\n`;
+  for (const row of rows) md += `| \`${JSON.stringify(row.values)}\` | ${sceneText(row.alt)} |\n`;
+  md += "\n</details>\n";
+}
 md +=
   "\n## 再生成と検証\n\n一覧の更新はnpm run doc:generation、鮮度確認はnpm run doc:validateで行う。生成器の変更時には正答・誤答の独立検算と原資料の形式照合を行い、改訂とモジュール版を更新する。保存済みセッションの内容を新しい生成器で作り直さない。詳しい[生成仕様](/diagram-generation)、[出典表示](/attribution)、[検証記録](/verification)を参照する。\n";
 const target = "docs/generation-coverage.md";

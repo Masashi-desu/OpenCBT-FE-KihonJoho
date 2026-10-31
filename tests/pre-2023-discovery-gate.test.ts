@@ -35,7 +35,9 @@ test('even all enumerated questions ready cannot bypass pending discovery; futur
  const evidence=JSON.parse(fs.readFileSync('scripts/source-evidence/ipa-pre-2023.json','utf8'));
  const actual=auditPre2023Readiness(fixture(),evidence);
  const autumnReady=autumn2019BookletImportReviews().every(r=>['transcription','rights','originalSemantics','generatorSemantics','rendering'].every(k=>(r.checks as Record<string,string>)[k]==='pass'))?13:0;
- assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:2898,originalSemanticsReviewed:151+autumnReady,ready:151+autumnReady});
+ assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:2431,originalSemanticsReviewed:618+autumnReady,ready:618+autumnReady});
+ assert.equal(actual.capacity.find(row=>row.kind==='questions')!.requiredAtLeast,6330);
+ assert.equal(actual.collections.filter(c=>c.id.endsWith('-fe-am')&&[2017,2018,2019].some(y=>c.id.startsWith(String(y)))).reduce((n,c)=>n+c.count,0),480);
  assert.equal(actual.scopeDiscovery.ready,false);assert.equal(actual.scopeDiscovery.listedCollections,20);assert.equal(actual.status,'not_ready');
  assert.throws(()=>auditPre2023Readiness(fixture(),evidence,undefined,{}),invalid);
 });

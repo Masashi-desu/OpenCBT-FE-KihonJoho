@@ -1,7 +1,8 @@
 import {useId,type ReactNode} from "react";
 import {aTree,aGrid,aTransform,aNetworkDays,aNetworkEdges,aMultiplicityCases} from "../core/generators/sample-2022-dec-a-data";
 import {sourceFigureAlt} from "../core/source-figures";
-export function DecemberAFigure({profile,values:v,caption}:{profile:string;values:number[];caption:string}){
+export type ArrayPanelTitleMode = "default" | "2019-autumn-am-9";
+export function DecemberAFigure({profile,values:v,caption,panelTitleMode="default"}:{profile:string;values:number[];caption:string;panelTitleMode?:ArrayPanelTitleMode}){
   const id=useId().replace(/:/g,"");let key=0,height=450;const nodes:ReactNode[]=[];
   const text=(x:number,y:number,s:string|number,size=25)=>nodes.push(<text key={key++} x={x} y={y} style={{fontSize:size}} textAnchor="middle">{s}</text>);
   const line=(x1:number,y1:number,x2:number,y2:number,arrow=false,thick=false)=>nodes.push(<line key={key++} x1={x1} y1={y1} x2={x2} y2={y2} markerEnd={arrow?`url(#${id}-arrow)`:undefined} style={thick?{strokeWidth:7}:undefined}/>);
@@ -19,8 +20,9 @@ export function DecemberAFigure({profile,values:v,caption}:{profile:string;value
     for(const [a,b] of tree.edges)line(...pts[a] as [number,number],...pts[b] as [number,number]);tree.values.forEach((n,i)=>circle(pts[i][0],pts[i][1],String(n)));
   }else if(profile==="dec-a-array"){
     height=860;box(40,20,250,55,"開始",25);line(165,75,165,110,true);loop(55,110,"ループ1");text(165,162,"i：0，1，7（注）");line(165,185,165,220,true);loop(55,220,"ループ2");text(165,272,"j：0，1，7（注）");line(165,295,165,335,true);box(40,335,250,65,"");box(85,347,160,41,"a");line(165,400,165,445,true);loop(55,445,"ループ2",true);line(165,520,165,560,true);loop(55,560,"ループ1",true);line(165,635,165,680,true);box(40,680,250,55,"終了",25);text(165,785,"図1 流れ図");
+    const panelTitles=panelTitleMode === "2019-autumn-am-9" ? ["図2 配列Aの状態","図3 実行後の配列Bの状態"] : ["図2 配列A","図3 配列B"];
     const a=aGrid(v[1]),b=Array.from({length:8},()=>Array(8).fill(false));for(let i=0;i<8;i++)for(let j=0;j<8;j++){const [r,c]=aTransform(i,j,v[0]);b[r][c]=a[i][j];}
-    for(const [gi,grid] of [a,b].entries()){const x=380+gi*330,y=190,cell=30;for(let i=0;i<=8;i++){line(x,y+i*cell,x+8*cell,y+i*cell);line(x+i*cell,y,x+i*cell,y+8*cell);}for(let i=0;i<8;i++){text(x-19,y+i*cell+15,i,21);text(x+i*cell+15,y-22,i,21);for(let j=0;j<8;j++)if(grid[i][j])text(x+j*cell+15,y+i*cell+16,"＊",23);}line(x,y-55,x+8*cell,y-55,true);text(x+120,y-78,"j");line(x-43,y,x-43,y+8*cell,true);text(x-65,y+120,"i");text(x+120,y+280,gi?"図3 配列B":"図2 配列A");}
+    for(const [gi,grid] of [a,b].entries()){const x=380+gi*330,y=190,cell=30;for(let i=0;i<=8;i++){line(x,y+i*cell,x+8*cell,y+i*cell);line(x+i*cell,y,x+i*cell,y+8*cell);}for(let i=0;i<8;i++){text(x-19,y+i*cell+15,i,21);text(x+i*cell+15,y-22,i,21);for(let j=0;j<8;j++)if(grid[i][j])text(x+j*cell+15,y+i*cell+16,"＊",23);}line(x,y-55,x+8*cell,y-55,true);text(x+120,y-78,"j");line(x-43,y,x-43,y+8*cell,true);text(x-65,y+120,"i");text(x+120,y+280,panelTitles[gi]);}
   }else if(profile==="dec-a-hash"){
     height=410;text(430,40,"位置");text(570,40,"配列");for(const [i,label] of ["0","1","2","…","11","12"].entries()){if(i===3){line(510,75+i*44,510,119+i*44);line(630,75+i*44,630,119+i*44);text(430,97+i*44,label);text(570,97+i*44,"…");}else{box(510,75+i*44,120,44,"");text(430,97+i*44,label);}}
   }else if(profile==="dec-a-availability"){

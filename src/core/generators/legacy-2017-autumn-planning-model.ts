@@ -1,0 +1,8 @@
+export const legacy2017AutumnPlanningProfile='legacy-2017-sales-time-analysis';
+/** All values are tenths of an hour; counts remain discrete. Correlated finite
+ * conditions preserve the original simple divisions and require no rounding. */
+const sales=[{total:80,visit:50,preparation:15,other:15,count:5,target:6,saving:1},{total:80,visit:40,preparation:12,other:28,count:4,target:5,saving:1},{total:80,visit:40,preparation:16,other:24,count:4,target:5,saving:2}]as const;
+export function planningSalesValues(values:readonly number[]){if(values.length!==1||!Number.isInteger(values[0])||values[0]<0||values[0]>2)throw Error('FIGURE_DOMAIN');return sales[values[0]];}
+export function planningSalesSolution(values:readonly number[]){const x=planningSalesValues(values);if(x.visit%x.count||x.preparation%x.count)throw Error('PARAMETER_CONSTRAINT');const visit=x.visit/x.count*x.target,preparation=(x.preparation/x.count-x.saving)*x.target,other=x.total-visit-preparation,correct=x.other-other,models=[x.preparation-preparation,(x.target-x.count)*x.visit/x.count-x.count*x.saving,correct,(x.target-x.count)*x.visit/x.count];if(models.some(n=>!Number.isInteger(n)||n<0)||new Set(models).size!==4)throw Error('PARAMETER_CONSTRAINT');return{visit,preparation,other,correct,choices:models.sort((a,b)=>a-b)};}
+export const planningHours=(tenths:number)=>(tenths/10).toFixed(1);
+export function planningSalesAlt(values:readonly number[]){const x=planningSalesValues(values);return`1日の業務活動の時間分析表。総業務時間${planningHours(x.total)}時間の内訳は顧客訪問時間${planningHours(x.visit)}時間と社内業務時間${planningHours(x.preparation+x.other)}時間。社内業務時間の内訳は訪問準備時間${planningHours(x.preparation)}時間とその他業務時間${planningHours(x.other)}時間。別枠の1日の顧客訪問件数は${x.count}件。`;}

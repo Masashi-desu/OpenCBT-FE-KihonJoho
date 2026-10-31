@@ -1,7 +1,13 @@
-import {legacyAfternoonStudyTerms} from "./generators/legacy-afternoon-study-terms";
+import {stage1AmQa08SupplementTerms} from './stage1-am-qa08-supplement';
+import { legacyAfternoonStudyTerms } from "./generators/legacy-afternoon-study-terms";
 import type { Asset, Block, Question } from "./types";
 import concepts from "./study-concepts.json";
 import { studyAcronyms, type StudyTerm } from "./study-acronyms";
+import {
+  makeStage1AmStudyTerms,
+  stage1AmStudySourceKeys,
+  stage1AmRelatedTerms,
+} from "./stage1-am-study-terms";
 import {sample2022AStudyTerms} from "./sample-2022-a-study-terms";
 
 // Related terms whose roles were reviewed against these original questions.
@@ -93,6 +99,16 @@ const dictionary: StudyTerm[] = [
   ...extraTerms,
 ];
 
+const stage1AmTerms = [
+  ...stage1AmQa08SupplementTerms,
+  ...makeStage1AmStudyTerms({
+  acronyms: studyAcronyms,
+  concepts,
+  sample2022: sample2022AStudyTerms,
+  extra: extraTerms,
+  }),
+];
+
 const slashCompounds = studyAcronyms
   .filter((term) => term.term.includes("/"))
   .map((term) => ({ name: term.term, parts: term.term.split("/") }));
@@ -140,7 +156,9 @@ export function studyBlockText(block: Block, assets: Asset[] = []): string {
   }
 }
 
-function sourceKeys(question: Question): string[] {
+export function studySourceKeys(question: Question): string[] {
+  const oldMorning = stage1AmStudySourceKeys(question);
+  if (oldMorning !== undefined) return oldMorning;
   return question.origin.sourceRefs.flatMap(({ sourceId, locator: l }) => {
     const subject = l.subject?.replace("科目", "").toLowerCase();
     if(sourceId.startsWith("source-ipa-sample-")&&l.questionNumber)
@@ -156,9 +174,9 @@ export function questionStudyTerms(
   question: Question,
   assets: Asset[] = [],
 ): StudyTerm[] {
-  const legacyTerms=legacyAfternoonStudyTerms(question);
-  if(legacyTerms)return legacyTerms;
-  const sources = sourceKeys(question);
+  const legacyTerms = legacyAfternoonStudyTerms(question);
+  if (legacyTerms) return legacyTerms;
+  const sources = studySourceKeys(question);
   const explanation = normalize(
     question.explanation.blocks
       .map((b) => studyBlockText(b, assets))
@@ -186,10 +204,16 @@ export function questionStudyTerms(
       )
       .join("\n"),
   );
-  const related = new Set(sources.flatMap((s) => relatedBySource[s] ?? []));
+  const related = new Set([
+    ...sources.flatMap((s) => relatedBySource[s] ?? []),
+    ...stage1AmRelatedTerms(sources, stage1AmTerms),
+  ]);
   const selected = new Set<string>();
-  const available=dictionary.filter(term=>!term.sources||term.sources.some(s=>sources.includes(s)))
-    .filter((term,index,all)=>all.findIndex(other=>other.term===term.term)===index);
+  // A source-specific reviewed meaning takes priority for that source only.
+  // Current189 retain their existing candidate order and definition objects.
+  const available = [...stage1AmTerms, ...dictionary]
+    .filter((term) => !term.sources || term.sources.some((s) => sources.includes(s)))
+    .filter((term, index, all) => all.findIndex((other) => other.term === term.term) === index);
   for (const term of available) {
     if(term.term==="MAC"&&text.includes("メッセージ認証符号")&&!text.includes("MACアドレス"))continue;
     if (term.sources && !term.sources.some((s) => sources.includes(s)))

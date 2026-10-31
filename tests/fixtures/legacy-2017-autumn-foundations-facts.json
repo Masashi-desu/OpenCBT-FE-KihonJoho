@@ -1,0 +1,664 @@
+{
+  "source": "2017h29a-fe-am",
+  "numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+  ],
+  "capacities": [
+    4,
+    3,
+    3,
+    2,
+    4,
+    3,
+    3,
+    2,
+    3
+  ],
+  "knowledge": [
+    {
+      "number": 3,
+      "stem": "フィードバック制御の説明として、適切なものはどれか。",
+      "capacity": 3,
+      "allChoices": [
+        [
+          "あらかじめ定められた順序で制御を行う。",
+          "外乱の影響が出力に現れる前に制御を行う。",
+          "出力結果と目標値とを比較して、一致するように制御を行う。",
+          "出力結果を使用せず制御を行う。"
+        ],
+        [
+          "あらかじめ定めた時間間隔で、決められた手順の各動作を順に実行する。",
+          "外気温の変化を検出し、その影響が室温に現れる前に暖房の操作量を調整する。",
+          "出力結果と目標値とを比較して、一致するように制御を行う。",
+          "出力結果を測定せず、事前に計算した操作量を制御対象に与える。"
+        ],
+        [
+          "投入する材料の種類ごとに、あらかじめ決められた作業手順を順に実行する。",
+          "投入材料の温度を検出し、その影響が製品の温度に現れる前に加熱量を調整する。",
+          "出力結果と目標値とを比較して、一致するように制御を行う。",
+          "制御対象の出力を検出せず、一定の操作量を与え続ける。"
+        ]
+      ],
+      "roles": [
+        [
+          "predefined-sequence",
+          "disturbance-before-output",
+          "actual-output-and-target-comparison",
+          "no-output"
+        ],
+        [
+          "timed-sequence",
+          "external-air-before-room-effect",
+          "actual-output-and-target-comparison",
+          "precomputed-no-measurement"
+        ],
+        [
+          "material-selected-sequence",
+          "incoming-material-before-product-effect",
+          "actual-output-and-target-comparison",
+          "constant-no-detection"
+        ]
+      ],
+      "selectionTruth": [
+        [
+          false,
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          false,
+          true,
+          false
+        ],
+        [
+          false,
+          false,
+          true,
+          false
+        ]
+      ],
+      "interpretation": "Truth means the defining explanation or cause requested by this source. Some mechanisms can coexist; not a universal claim that all other mechanisms are forbidden."
+    },
+    {
+      "number": 6,
+      "stem": "再帰呼出しの説明はどれか。",
+      "capacity": 3,
+      "allChoices": [
+        [
+          "あらかじめ決められた順序ではなく、起きた事象に応じた処理を行うこと",
+          "関数の中で自分自身を用いた処理を行うこと",
+          "処理が終了した関数をメモリから消去させず、必要になったとき再び用いること",
+          "処理に失敗したときに、その処理を呼び出す直前の状態に戻すこと"
+        ],
+        [
+          "キーが押された事象に応じて、そのキーに対応する処理を開始すること",
+          "関数の中で自分自身を用いた処理を行うこと",
+          "関数の引数と戻り値の組を保存し、同じ引数での呼出しでは保存した戻り値を使うこと",
+          "処理に失敗したときに、処理開始前に保存しておいたデータの状態を復元すること"
+        ],
+        [
+          "通信データの到着を契機として、受信したデータに対応する処理を行うこと",
+          "関数の中で自分自身を用いた処理を行うこと",
+          "繰り返し利用する計算結果を保持し、同じ計算が必要になったときにその結果を用いること",
+          "トランザクションの処理に失敗したときに、そのトランザクションによる更新を取り消すこと"
+        ]
+      ],
+      "roles": [
+        [
+          "event-driven",
+          "self-call",
+          "resident-function-code",
+          "restore-before-call"
+        ],
+        [
+          "key-event",
+          "self-call",
+          "memoized-argument-return",
+          "restore-start-snapshot"
+        ],
+        [
+          "arrival-event",
+          "self-call",
+          "cached-calculation-result",
+          "transaction-rollback"
+        ]
+      ],
+      "selectionTruth": [
+        [
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          false,
+          true,
+          false,
+          false
+        ]
+      ],
+      "interpretation": "Truth means the defining explanation or cause requested by this source. Some mechanisms can coexist; not a universal claim that all other mechanisms are forbidden."
+    },
+    {
+      "number": 7,
+      "stem": "オブジェクト指向プログラミングにおける、多相性を実現するためのオーバライドの説明はどれか。",
+      "capacity": 3,
+      "allChoices": [
+        [
+          "オブジェクト内の詳細な仕様や構造を外部から隠すこと",
+          "スーパクラスで定義されたメソッドをサブクラスで再定義すること",
+          "同一クラス内に、メソッド名が同一で、引数の型、個数、並び順が異なる複数のメソッドを定義すること",
+          "複数のクラスの共通する性質をまとめて、抽象化したクラスを作ること"
+        ],
+        [
+          "オブジェクトのデータへの直接の書込みを外部から制限し、公開した操作を通じてデータを扱わせること",
+          "スーパクラスで定義されたメソッドをサブクラスで再定義すること",
+          "同一クラス内に、メソッド名が同じで引数の型が異なる複数のメソッドを定義すること",
+          "複数のクラスに共通するデータの性質を抽出して、共通のスーパクラスを作ること"
+        ],
+        [
+          "オブジェクトに対する操作の利用方法を公開し、その操作の実装を外部から隠すこと",
+          "スーパクラスで定義されたメソッドをサブクラスで再定義すること",
+          "同一クラス内に、メソッド名が同じで引数の個数が異なる複数のメソッドを定義すること",
+          "複数のクラスに共通する操作を抽出して、共通のスーパクラスを作ること"
+        ]
+      ],
+      "roles": [
+        [
+          "hide-details",
+          "inherited-method-redefinition",
+          "sameclass-overload-signatures",
+          "generalize-common-properties"
+        ],
+        [
+          "restrict-writes-through-public-operations",
+          "inherited-method-redefinition",
+          "sameclass-overload-types",
+          "extract-common-data"
+        ],
+        [
+          "hide-implementation-behind-interface",
+          "inherited-method-redefinition",
+          "sameclass-overload-arity",
+          "extract-common-operations"
+        ]
+      ],
+      "selectionTruth": [
+        [
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          false,
+          true,
+          false,
+          false
+        ]
+      ],
+      "interpretation": "Truth means the defining explanation or cause requested by this source. Some mechanisms can coexist; not a universal claim that all other mechanisms are forbidden."
+    },
+    {
+      "number": 10,
+      "stem": "外部割込みに分類されるものはどれか。",
+      "capacity": 3,
+      "allChoices": [
+        [
+          "インターバルタイマによって、指定時間が経過したときに生じる割込み",
+          "演算結果のオーバフローやゼロによる除算で生じる割込み",
+          "仮想記憶管理において、存在しないページへのアクセスによって生じる割込み",
+          "ソフトウェア割込み命令の実行によって生じる割込み"
+        ],
+        [
+          "入出力装置から、要求された入出力処理の完了をCPUへ通知する割込み",
+          "実行中の命令が不正な命令コードであったときに生じる割込み",
+          "実行中の命令が保護された記憶領域へアクセスしたときに生じる割込み",
+          "システムコールのためにソフトウェア割込み命令を実行したときに生じる割込み"
+        ],
+        [
+          "電源の異常を検出した外部装置からCPUへ通知する割込み",
+          "実行中の整数除算命令で、除数がゼロであったときに生じる割込み",
+          "実行中の命令が、主記憶上にない仮想記憶のページへアクセスしたときに生じる割込み",
+          "プログラムが明示的にソフトウェア割込み命令を実行したときに生じる割込み"
+        ]
+      ],
+      "roles": [
+        [
+          "external-timer",
+          "internal-arithmetic-exception",
+          "internal-page-not-resident",
+          "explicit-software-interrupt"
+        ],
+        [
+          "external-io-complete",
+          "internal-illegal-opcode",
+          "internal-memory-protection",
+          "explicit-software-interrupt"
+        ],
+        [
+          "external-power-device",
+          "internal-zero-divisor",
+          "internal-page-not-resident",
+          "explicit-software-interrupt"
+        ]
+      ],
+      "selectionTruth": [
+        [
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false
+        ]
+      ],
+      "interpretation": "Truth means the defining explanation or cause requested by this source. Some mechanisms can coexist; not a universal claim that all other mechanisms are forbidden."
+    }
+  ],
+  "parity": {
+    "choiceTexts": [
+      "CRC方式",
+      "垂直パリティチェック方式",
+      "水平パリティチェック方式",
+      "ハミング符号方式"
+    ],
+    "stems": [
+      "送信側では、ビット列をある生成多項式で割った余りをそのビット列に付加して送信し、受信側では、受信したビット列が同じ生成多項式で割り切れるか否かで誤りの発生を判断する誤り検査方式はどれか。",
+      "送信側では、文字ごとのビット列に含まれる1の個数が偶数になるように検査用の1ビットを付加して送信し、受信側では、各文字の検査用ビットを含む1の個数の偶奇を調べて誤りの発生を判断する誤り検査方式はどれか。",
+      "送信側では、複数の文字からなるブロックについて、各文字の同じビット位置ごとに1の個数が偶数になる検査ビットを求め、これらを検査用の文字として付加して送信し、受信側では、各ビット位置のパリティを調べて誤りの発生を判断する誤り検査方式はどれか。"
+    ],
+    "truth": [
+      [
+        true,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        true,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        true,
+        false
+      ]
+    ],
+    "independentMechanismFacts": [
+      {
+        "basis": "polynomial-remainder",
+        "transmitter": "addsremainder",
+        "receiver": "divisibilitybythesamepolynomial"
+      },
+      {
+        "basis": "character-unit",
+        "transmitter": "oneparitybitpercharacter",
+        "receiver": "evenoneswithinonewholecharacterincludingcheckbit"
+      },
+      {
+        "basis": "blocksamebitpositions",
+        "transmitter": "onecheckcharacterformedfromeachbitpositionoverdatacharacters",
+        "receiver": "parityacrosssamepositionofallcharacters"
+      }
+    ],
+    "hammingFalseReason": "検査ビットごとに異なる重なりを持つ対象ビット群を調べるハミングの検査構成ではなく、各文字単独又はブロック中同位置という範囲を本文へ明示する。誤り訂正を問う別形式へ変えない。",
+    "primaryRead": {
+      "url": "https://www.ugs.kochi-tech.ac.jp/knonaka/Netprocess2012-1.pdf",
+      "author": "高知工科大学 野中弘二",
+      "title": "通信処理概論 講義ノートその1",
+      "documentHeaderDate": "12.6.25（公開/更新日とはしない）",
+      "locator": "slide19 単位/7bitキャラクタに1bit/伝送ブロックのチェック文字",
+      "method": "一次検索cacheの当該説明を読取。web初回openは21頁PDFとして認識したが後続対象ページ/screenshotは502、直接curlはDNS失敗。",
+      "finding": "通信の文字単位に1bitを付ける検査と、ブロック中の同ビット位置からまとめた検査文字を付ける検査という用語対応をcacheで確認。",
+      "limits": "PDF対象頁の原画像/全本文/実HTTPbytesの確認は主張しない。資料図や本文を転載しない。別の図配置による水平/垂直という視覚方向だけを期待値にしない。"
+    },
+    "capacity": 3,
+    "numericBurden": "送受信機構の説明を方式名に対応させる知識選択。多項式の数値計算、符号語の計算を受験者へ新たに要求しない。小ビット列検算はテストのみ。"
+  },
+  "perl": {
+    "stem": "Perlの実行に関する記述のうち、適切なものはどれか。",
+    "allFourChoicesByCondition": [
+      [
+        "UNIX用として開発されており、Windows用の言語処理系はない。",
+        "実行にWebサーバを必要とする言語であり、CGIの開発に適している。",
+        "動的デバッグは、言語処理系から独立したプログラムを実行して行う。",
+        "プログラムをコンパイルしたファイルを事前に用意する必要はない。"
+      ],
+      [
+        "UNIX用として開発されており、Windows用の言語処理系はない。",
+        "CGIの開発に用いる言語であり、対話的なコマンドラインのプログラムは実行できない。",
+        "動的デバッグでは、事前に生成した機械語ファイルを、Perlの言語処理系を用いないデバッガで実行する。",
+        "プログラムをコンパイルしたファイルを事前に用意する必要はない。"
+      ]
+    ],
+    "truth": [
+      [
+        false,
+        false,
+        false,
+        true
+      ],
+      [
+        false,
+        false,
+        false,
+        true
+      ]
+    ],
+    "capacity": 2,
+    "answerVariation": "fixed",
+    "mechanismDifferences": [
+      {
+        "platform": "falseWindowsimplementationabsence",
+        "web": "falsemandatoryWebserver",
+        "debug": "falseindependentdebugprogram",
+        "precompiled": "notrequired"
+      },
+      {
+        "platform": "falseWindowsimplementationabsence",
+        "web": "falseCGIonlyandCLIimpossible",
+        "debug": "falseprecompiledmachinecodewithoutPerlprocessor",
+        "precompiled": "notrequired"
+      }
+    ],
+    "independentReference": "perl-primary-read.json: perlrun5.24.1 DESCRIPTION +perlwin32nativeport +perldebug ThePerlDebugger。全て一次本文をwebで読取。",
+    "explanationLimits": "実行時の内部形式へのコンパイルは行われる。事前コンパイル済みファイルの準備が不要という原Dを、コンパイルを一切しない/一行ずつだけ解釈するという主張へ置換しない。Web/CGI向けにも使えるがCLI実行と両立する。",
+    "format": "Perlの適切な実行記述を選ぶ肯定と原4枠。言語名/OS名だけの置換を容量にせず、Web使用範囲とdebug実行機構の条件差を同じ位置へbind。"
+  },
+  "originals": [
+    {
+      "source": "2017h29a-fe-am-1",
+      "number": 1,
+      "physicalPage": 3,
+      "officialAnswer": "ア",
+      "officialArea": "T",
+      "stem": "数値を2進数で表すレジスタがある。このレジスタに格納されている正の整数xを10倍にする操作はどれか。ここで、桁あふれは起こらないものとする。",
+      "allFourChoices": [
+        "xを2ビット左にシフトした値にxを加算し、更に1ビット左にシフトする。",
+        "xを2ビット左にシフトした値にxを加算し、更に2ビット左にシフトする。",
+        "xを3ビット左にシフトした値に、xを2ビット左にシフトした値を加算する。",
+        "xを3ビット左にシフトした値にxを加算し、更に1ビット左にシフトする。"
+      ],
+      "crop": [
+        0.07,
+        0.29
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-1-p3.webp",
+      "sha256": "f58df392adabd65ab5f50f7adfca636d131eadba4e4630e0c7a06f7e50cff2a5",
+      "width": 1032,
+      "height": 322,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-2",
+      "number": 2,
+      "physicalPage": 3,
+      "officialAnswer": "ア",
+      "officialArea": "T",
+      "stem": "送信側では、ビット列をある生成多項式で割った余りをそのビット列に付加して送信し、受信側では、受信したビット列が同じ生成多項式で割り切れるか否かで誤りの発生を判断する誤り検査方式はどれか。",
+      "allFourChoices": [
+        "CRC方式",
+        "垂直パリティチェック方式",
+        "水平パリティチェック方式",
+        "ハミング符号方式"
+      ],
+      "crop": [
+        0.32,
+        0.5
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-2-p3.webp",
+      "sha256": "992872ab152ddc21f0d42003caf1af2bd4b3d758f358b76191d1aa0cbda9ec0a",
+      "width": 1032,
+      "height": 264,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-3",
+      "number": 3,
+      "physicalPage": 3,
+      "officialAnswer": "ウ",
+      "officialArea": "T",
+      "stem": "フィードバック制御の説明として、適切なものはどれか。",
+      "allFourChoices": [
+        "あらかじめ定められた順序で制御を行う。",
+        "外乱の影響が出力に現れる前に制御を行う。",
+        "出力結果と目標値とを比較して、一致するように制御を行う。",
+        "出力結果を使用せず制御を行う。"
+      ],
+      "crop": [
+        0.52,
+        0.72
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-3-p3.webp",
+      "sha256": "87bc8fdac324afe79e5aa70d7428ff825b964d650169623c2167230575d586e5",
+      "width": 1032,
+      "height": 293,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-4",
+      "number": 4,
+      "physicalPage": 4,
+      "officialAnswer": "イ",
+      "officialArea": "T",
+      "stem": "図のような黒色で描かれた円に沿って車が走るように、左右の後輪に独立に取り付けられたモータL及びRの回転速度を制御する。センサL及びRは反射型光センサであり、センサが黒色に掛かる比率が大きいと出力値が小さくなり、黒色に掛かる比率が小さいと出力値が大きくなる。この車を円に沿って走行させるためのモータ回転速度の制御方法として、適切なものはどれか。ここで、二つのセンサの出力値が一致するときには、二つのモータの回転速度を初期値に戻すものとする。",
+      "allFourChoices": [
+        [
+          "上げる",
+          "下げる",
+          "上げる",
+          "下げる"
+        ],
+        [
+          "上げる",
+          "下げる",
+          "下げる",
+          "上げる"
+        ],
+        [
+          "下げる",
+          "上げる",
+          "上げる",
+          "下げる"
+        ],
+        [
+          "下げる",
+          "上げる",
+          "下げる",
+          "上げる"
+        ]
+      ],
+      "crop": [
+        0.07,
+        0.78
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-4-p4.webp",
+      "sha256": "5b0a2148be9192e26999c41ead0cf78168f08f15873cc11c4e8233002d34d735",
+      "width": 1032,
+      "height": 1036,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-5",
+      "number": 5,
+      "physicalPage": 5,
+      "officialAnswer": "ウ",
+      "officialArea": "T",
+      "stem": "A、B、C、Dの順に到着するデータに対して、一つのスタックだけを用いて出力可能なデータ列はどれか。",
+      "allFourChoices": [
+        "A、D、B、C",
+        "B、D、A、C",
+        "C、B、D、A",
+        "D、C、A、B"
+      ],
+      "crop": [
+        0.07,
+        0.24
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-5-p5.webp",
+      "sha256": "c8fe7407bcfac1626f3154ee24fb25a4a7aa01ce49dbc72b4e048f2ecf07e94f",
+      "width": 1032,
+      "height": 249,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-6",
+      "number": 6,
+      "physicalPage": 5,
+      "officialAnswer": "イ",
+      "officialArea": "T",
+      "stem": "再帰呼出しの説明はどれか。",
+      "allFourChoices": [
+        "あらかじめ決められた順序ではなく、起きた事象に応じた処理を行うこと",
+        "関数の中で自分自身を用いた処理を行うこと",
+        "処理が終了した関数をメモリから消去させず、必要になったとき再び用いること",
+        "処理に失敗したときに、その処理を呼び出す直前の状態に戻すこと"
+      ],
+      "crop": [
+        0.27,
+        0.46
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-6-p5.webp",
+      "sha256": "8ebcf52be84ae6f6ef1803370ac6e34a0a3fa8ef88b6bf4da74e1d066aad8e3a",
+      "width": 1032,
+      "height": 279,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-7",
+      "number": 7,
+      "physicalPage": 5,
+      "officialAnswer": "イ",
+      "officialArea": "T",
+      "stem": "オブジェクト指向プログラミングにおける、多相性を実現するためのオーバライドの説明はどれか。",
+      "allFourChoices": [
+        "オブジェクト内の詳細な仕様や構造を外部から隠すこと",
+        "スーパクラスで定義されたメソッドをサブクラスで再定義すること",
+        "同一クラス内に、メソッド名が同一で、引数の型、個数、並び順が異なる複数のメソッドを定義すること",
+        "複数のクラスの共通する性質をまとめて、抽象化したクラスを作ること"
+      ],
+      "crop": [
+        0.49,
+        0.73
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-7-p5.webp",
+      "sha256": "9a94d389a5b43d7a328ac1f39b766e3d5d1a2d0d3565890bff66607bca678b56",
+      "width": 1032,
+      "height": 351,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-8",
+      "number": 8,
+      "physicalPage": 6,
+      "officialAnswer": "エ",
+      "officialArea": "T",
+      "stem": "Perlの実行に関する記述のうち、適切なものはどれか。",
+      "allFourChoices": [
+        "UNIX用として開発されており、Windows用の言語処理系はない。",
+        "実行にWebサーバを必要とする言語であり、CGIの開発に適している。",
+        "動的デバッグは、言語処理系から独立したプログラムを実行して行う。",
+        "プログラムをコンパイルしたファイルを事前に用意する必要はない。"
+      ],
+      "crop": [
+        0.07,
+        0.26
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-8-p6.webp",
+      "sha256": "e9226bb35e28f965582ec8bf5a5384ba5e4bf123d2d08c5e1c296dcf58f4162e",
+      "width": 1032,
+      "height": 278,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    },
+    {
+      "source": "2017h29a-fe-am-10",
+      "number": 10,
+      "physicalPage": 6,
+      "officialAnswer": "ア",
+      "officialArea": "T",
+      "stem": "外部割込みに分類されるものはどれか。",
+      "allFourChoices": [
+        "インターバルタイマによって、指定時間が経過したときに生じる割込み",
+        "演算結果のオーバフローやゼロによる除算で生じる割込み",
+        "仮想記憶管理において、存在しないページへのアクセスによって生じる割込み",
+        "ソフトウェア割込み命令の実行によって生じる割込み"
+      ],
+      "crop": [
+        0.46,
+        0.65
+      ],
+      "image": "output/source-import/legacy-2017/autumn-foundations-source-only/original-autumn-am-10-p6.webp",
+      "sha256": "b987ad9e45067a85319dd65de17dd00c486034baab53cac8a20b7dea993dd7dd",
+      "width": 1032,
+      "height": 278,
+      "imageReview": "freshcrop personally inspected: whole stem/premises/all4choices; no adjacent9/11,AM4whole originalmodel+4rowtable",
+      "sourceOnly": true
+    }
+  ],
+  "primarySupplementary": {
+    "checkedOn": "2026-10-21",
+    "parity": {
+      "publisher": "農林水産省",
+      "url": "https://www.maff.go.jp/j/nousin/seko/kyotu_siyosyo/kikaisisin/attach/pdf/mizukanri-26.pdf",
+      "physicalPage": 26,
+      "printedPage": 715,
+      "pdfSha256": "3faedfd5695b987bfb6f1e55943644366955bc0ac605523393256edf36c34566",
+      "method": "実GET済み原PDFの当該頁画像/本文を読取",
+      "scope": "文字ごとの検査bit/ブロック同位置の検査文字という機構の事実のみ。本文/図/規格定義の転載はしない。公開/更新日は未確認。"
+    },
+    "perl": {
+      "version": "5.24.1",
+      "urls": [
+        "https://perldoc.perl.org/5.24.1/perlrun",
+        "https://perldoc.perl.org/5.24.1/perldebug",
+        "https://perldoc.perl.org/5.24.1/perlwin32"
+      ],
+      "method": "一次web本文のDESCRIPTION/The Perl Debugger/native Windows portを読取",
+      "scope": "CLI/内部compile/Windows/debug機構だけの独立説明。文書原文/コードは転載しない。実HTTPbytesと文書公開日は未確認。"
+    }
+  }
+}

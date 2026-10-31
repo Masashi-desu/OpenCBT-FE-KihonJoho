@@ -1,0 +1,82 @@
+{
+  "schema": "common-framework65-teaching-content-scope/v1",
+  "licenseId": "CC-BY-SA-2.1-JP",
+  "source": "IPA Common Framework2013 guidance selected explanatory portions",
+  "files": [
+    {
+      "path": "src/core/generators/common-framework65-cases.json",
+      "sha256": "c7340bf2b4bdb8abea91788fe15f2c1ce1076ea8ae434968cf6b9e808dcdf702",
+      "jsonPointers": [
+        "/cases/*/choices/*",
+        "/cases/*/explanation"
+      ],
+      "conditions": "CC guide+project BY-SA; original reference choice composition retains IPA FAQ"
+    },
+    {
+      "path": "src/core/generators/common-framework65.ts",
+      "sha256": "dbabdf23cdbd9ce8cc5065257ab1662df48da022d59edeec7ef42e24dc592f73",
+      "scope": "build().prompt original short question stem: IPA exam policy; independent implementation logic and metadata notes MIT"
+    }
+  ],
+  "outputs": "Corresponding issued JSON/HTML/alt/saved snapshot parts inherit their per-material Rights. Not all code, database or independent CC0 explanations.",
+  "booklets": [
+    {
+      "collection": "2017h29h-fe-am",
+      "sidecar": "CF65-2017-SPRING-SCOPE.json",
+      "cohort": {
+        "path": "2017h29h-fe-am/cohort-records.json",
+        "bytes": 44302,
+        "sha256": "2264244e5fd5edd16108306e2d983262b5de2e1055abd4af09d7360919eae787"
+      },
+      "successor": {
+        "path": "2017h29h-fe-am/successor-records.json",
+        "bytes": 2234431,
+        "sha256": "1e1c40e1b8368c52998122e4d9fcfb78dd0095b47557c3bb544906686c8974d7"
+      },
+      "ledger": {
+        "path": "2017h29h-fe-am/successor-all80-ledger.json",
+        "bytes": 515836,
+        "sha256": "c0fc070ec0d4e98ab4041d4aee0aa74d7e5520ac8ead82a3b93e7fea5d0f6197"
+      },
+      "newImage": {
+        "path": "asset-bytes/ipa-2017h29h-fe-am-65-p31.png",
+        "bytes": 149191,
+        "sha256": "8f08052a7dbbdd6242f1eb5cb66d5358dae0d3d3730cf2632559dda925966452"
+      }
+    },
+    {
+      "collection": "2019r01a-fe-am",
+      "sidecar": "CF65-2019-AUTUMN-SCOPE.json",
+      "cohort": {
+        "path": "2019r01a-fe-am/cohort-records.json",
+        "bytes": 56417,
+        "sha256": "1c00059392234e6e562de564cfe939df6f23255c46e956d0641dee788905a40d"
+      },
+      "successor": {
+        "path": "2019r01a-fe-am/successor-records.json",
+        "bytes": 2534676,
+        "sha256": "c76482df37f9fa3deff2a798bdd824f6739466aad5f7064dfecf01472a1e9386"
+      },
+      "ledger": {
+        "path": "2019r01a-fe-am/successor-all80-ledger.json",
+        "bytes": 300144,
+        "sha256": "32def010182bf09f46f6649cf3eee1eed9d4ec1f0f0d466f30f8eb06bfc88bcd"
+      },
+      "newImage": {
+        "path": "asset-bytes/ipa-2019r01a-fe-am-65.webp",
+        "bytes": 26576,
+        "sha256": "abca79eff1eb835a12c7db459d4dd3ead3ffc8a52bc35e5aa7c2e8847248455b"
+      }
+    }
+  ],
+  "licenseNotice": {
+    "path": "delivery-candidate/notices/CC-BY-SA-2.1-JP.txt",
+    "bytes": 16282,
+    "sha256": "751cddcd0e00a1e16a36d8136b980c30d2948d18c222b237c7fd13547bda64c0"
+  },
+  "scopeNotice": {
+    "path": "delivery-candidate/notices/COMMON-FRAMEWORK65-SCOPE.txt",
+    "bytes": 2094,
+    "sha256": "65ae8c1d8cc5c82422aa6312696b2b66396b1103755e2b6cfc4e917d998bec59"
+  }
+}

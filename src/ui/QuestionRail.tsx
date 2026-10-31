@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState, type CSSProperties } from "react";
 import type { Entry, Question } from "../core/types";
 import { hasCompleteAnswer } from "../core/answers";
+import { displayQuestionNumber } from "../core/source-label";
 
 export function QuestionRail({
   entries,
@@ -103,7 +104,8 @@ export function QuestionRail({
       {entries.map((entry, index) => {
         const answered = questions?.[index] ? hasCompleteAnswer(questions[index], entry) : Boolean(entry.selectedChoiceId);
         const current = index === currentIndex;
-        const label = `問題 ${index + 1}、${answered ? "解答済み" : "未解答"}${entry.reviewFlag ? "、見直し" : ""}`;
+        const number = displayQuestionNumber(questions?.[index], index);
+        const label = `問題 ${number}、${answered ? "解答済み" : "未解答"}${entry.reviewFlag ? "、見直し" : ""}`;
         return (
           <button
             key={index}
@@ -115,7 +117,7 @@ export function QuestionRail({
             disabled={disabled}
             onClick={() => onSelect(index)}
           >
-            {index + 1}
+            {number}
           </button>
         );
       })}

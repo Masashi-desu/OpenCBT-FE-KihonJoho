@@ -11,6 +11,8 @@ import {AnswerChoices} from '../src/ui/AnswerChoices';
 import {legacy2017Pm3Records} from '../scripts/import-legacy-2017-pm3';
 import metadata from './fixtures/legacy-2017-pm3-original-metadata.json';
 
+import morningDomains from '../src/core/legacy-morning-figure-domains.json';
+import coreDomains from '../src/core/source-figure-domains.json';
 import {legacyAfternoonFigureDomains} from '../src/core/legacy-afternoon-figures';
 import {fixture} from './fixtures/legacy-afternoon-main-preservation';
 import {legacy2017Pm3FigureAlt} from '../src/core/generators/legacy-2017-pm3-data';
@@ -18,7 +20,19 @@ const profile='legacy-2017-pm3-waste-database',caption='図1 データベース�
 const scene=(values:unknown=[0],p=profile)=>({kind:'source_figure' as const,profile:p,values:values as number[]});
 const refuse=(values:unknown,p=profile)=>assert.throws(()=>validateSourceFigure(scene(values,p)),{code:'FIGURE_PROFILE'});
 test('literal managed singleton joins exactly one frozen profile; duplicates and outside widening fail',()=>{
- assert.equal(Object.keys(sourceFigureDomains).filter(key=>!Object.hasOwn(legacyAfternoonFigureDomains,key)).length,31);assert.deepEqual(sourceFigureDomains[profile],[[0,0]]);
+ const keys=Object.keys(sourceFigureDomains),coreKeys=Object.keys(coreDomains),morningKeys=Object.keys(morningDomains),afternoonKeys=Object.keys(legacyAfternoonFigureDomains);
+ // The literal singleton extends the 30 current profiles; the reviewed AM/PM
+ // families are separate admissions and cannot silently widen that partition.
+ assert.equal(coreKeys.length,30);assert.equal(morningKeys.length,61);
+ const declared=[...coreKeys,...morningKeys,...afternoonKeys,profile];
+ assert.equal(new Set(declared).size,declared.length,'reviewed profile families cannot overlap');
+ assert.deepEqual([...keys].sort(),declared.sort(),'only declared current/AM/PM and the literal singleton are admitted');
+ assert.deepEqual(keys.filter(key=>!Object.hasOwn(legacyAfternoonFigureDomains,key)&&!Object.hasOwn(morningDomains,key)).sort(),[...coreKeys,profile].sort());
+ assert.deepEqual(sourceFigureDomains[profile],[[0,0]]);
+ for(const [key,rows]of Object.entries(morningDomains)){
+  validateSourceFigure(scene([...rows[0].values],key));
+  const outside=[...rows[0].values];outside[0]=Math.max(...rows.map(row=>row.values[0]))+1;refuse(outside,key);
+ }
  assert(Object.isFrozen(managedLegacyFigure));assert(Object.isFrozen(managedLegacyFigure.domain[0]));
  assert.throws(()=>{(sourceFigureDomains as Record<string,unknown>)[profile]=[[0,9]]});assert.throws(()=>{(sourceFigureDomains[profile][0] as unknown as number[])[1]=9});
  assert.throws(()=>joinManagedLegacyDomains({[profile]:[[0,0]]}),/Duplicate/);validateSourceFigure(scene());assert.equal(sourceFigureAlt(profile,[0]),legacy2017Pm3FigureAlt());

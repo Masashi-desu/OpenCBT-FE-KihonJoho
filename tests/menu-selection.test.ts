@@ -11,9 +11,9 @@ const initial: Selection = { subject: "A", kind: "annual", year: 2026, mode: "st
 
 test("the menu lists every publication before subject selection, including the B-only April sample", () => {
   const b = fixture(), groups = menuSourceGroups(b);
-  assert.deepEqual(groups.map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 秋期・旧午後", "旧制度 · 2019年度 春期・午後", "旧制度 · 2018年度 秋期・午後", "旧制度 · 2018年度 春期・午後", "旧制度 · 2017年度 秋期・午後", "旧制度 · 2017年度 春期・午後"]);
+  assert.deepEqual(groups.map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 秋期 午前", "旧制度 · 2019年度 秋期・旧午後", "旧制度 · 2019年度 春期 午前", "旧制度 · 2019年度 春期・午後", "旧制度 · 2018年度 秋期 午前", "旧制度 · 2018年度 秋期・午後", "旧制度 · 2018年度 春期 午前", "旧制度 · 2018年度 春期・午後", "旧制度 · 2017年度 秋期 午前", "旧制度 · 2017年度 秋期・午後", "旧制度 · 2017年度 春期 午前", "旧制度 · 2017年度 春期・午後"]);
   const all = [...sourceCollections(b, "A"), ...sourceCollections(b, "B")];
-  assert.equal(all.length, 17); // Four A/B publications, three sample sets, and six old-PM booklets.
+  assert.equal(all.length, 23); // Four A/B publications, three sample sets, and twelve old-AM/PM booklets.
   assert.deepEqual(groups.flatMap(g => g.collections.map(c => c.id)).sort(), all.map(c => c.id).sort());
   assert.equal(new Set(groups.flatMap(g => g.collections.map(c => c.id))).size, all.length);
   const partial2025 = groups.find(g => g.collections.some(c => c.id === "set-annual-2025-b"))!;
@@ -84,14 +84,16 @@ function withLegacySets() {
 
 test("legacy morning, afternoon, spring, autumn and special exams remain distinct choices and retain their own labels/time", () => {
   const b = withLegacySets(), groups = menuSourceGroups(b), legacy = groups.filter(g => g.timeSlot);
-  assert.equal(legacy.length, 12);
-  assert.equal(new Set(legacy.map(g => g.id)).size, 12);
+  assert.equal(legacy.length, 18);
+  assert.equal(new Set(legacy.map(g => g.id)).size, 18);
   const synthetic = legacy.filter(group => group.collections.every(collection => collection.id.startsWith("set-question-menu-test-")));
   assert.equal(synthetic.length, 6);
-  // All six actual booklets coexist with all six synthetic controls, including the same-year spring/autumn afternoon.
+  // All twelve actual booklets coexist with six synthetic controls, including the same-year spring/autumn slots.
   const actualBooklets = legacy.filter(group => !synthetic.includes(group));
-  assert.deepEqual(actualBooklets.map(group => [group.year, group.period]), [[2019, "秋期"], [2019, "春期"], [2018, "秋期"], [2018, "春期"], [2017, "秋期"], [2017, "春期"]]);
-  for (const actual of actualBooklets) {
+  assert.equal(actualBooklets.length, 12);
+  const afternoons = actualBooklets.filter(group => group.timeSlot === "午後");
+  assert.deepEqual(afternoons.map(group => [group.year, group.period]), [[2019, "秋期"], [2019, "春期"], [2018, "秋期"], [2018, "春期"], [2017, "秋期"], [2017, "春期"]]);
+  for (const actual of afternoons) {
   assert.equal(actual.timeSlot, "午後");
   assert.equal(actual.collections[0].questionRefs.length, 13);
   const original = chooseMenuSourceGroup(groups, initial, actual.id);
@@ -102,6 +104,20 @@ test("legacy morning, afternoon, spring, autumn and special exams remain distinc
   assert.equal(timed.questions.length, 7);
   assert.equal(timed.exam.timeLimitSeconds, 9000);
   assert.deepEqual(timed.questions.map(refOf), selectedQuestionRefs);
+  }
+  const mornings = actualBooklets.filter(group => group.timeSlot === "午前");
+  assert.deepEqual(mornings.map(group => [group.year, group.period, group.collections[0].questionRefs.length]), [
+    [2019, "秋期", 78], [2019, "春期", 77], [2018, "秋期", 78], [2018, "春期", 77], [2017, "秋期", 79], [2017, "春期", 78],
+  ]);
+  for (const group of mornings) {
+    const next = chooseMenuSourceGroup(groups, initial, group.id);
+    const options = menuSubjectOptions(group);
+    assert.deepEqual(options.map(option => [option.subject, option.title, option.available]), [["A", "旧制度・午前", true]]);
+    const selected = selectQuestions(b, { ...next, mode: "practice" }, a => a);
+    assert.equal(selected.exam.timeLimitSeconds, 9000, "official 150-minute limit is independent of the admitted subset size");
+    assert.equal(selected.questions.length, group.collections[0].questionRefs.length);
+    assert.deepEqual(selected.questions.map(refOf), group.collections[0].questionRefs);
+    assert(selected.questions.every(question => question.origin.sourceRefs[0].locator.timeSlot === "午前"));
   }
   for (const group of synthetic) {
     assert.equal(group.collections.length, 1); assert(group.title.startsWith("旧制度 · 2019年度"));

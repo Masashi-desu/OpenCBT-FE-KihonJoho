@@ -1,0 +1,46 @@
+import assert from 'node:assert/strict';
+import type {Block} from '../../src/core/types';
+import type {GeneratedBody} from '../../src/core/generators/definition';
+import {legacy2017DevelopmentStems as stems} from './legacy-2017-development-review';
+import {developmentPortFacts as ports,developmentPlacementFacts as placements,developmentPurposeFacts as purposes,developmentMethodFacts as methods,developmentArtifactFacts as artifacts,developmentConceptFacts as concepts,developmentBasicOOFacts as oo,developmentCoverageReference,developmentActivityReference,developmentActivityVectors} from './legacy-2017-development-facts';
+import {developmentSvg,readDevelopmentFlow,readDevelopmentCurve,developmentActivitySvg,readDevelopmentActivity} from './legacy-2017-development-svg';
+const text=(b:Block)=>{assert.equal(b.type,'paragraph');if(b.type!=='paragraph')throw Error();return b.text;};
+function diagram(b:Block,profile:string,values:number[]){assert(b.type==='diagram'&&b.scene.kind==='source_figure');if(b.type!=='diagram'||b.scene.kind!=='source_figure')throw Error();assert.equal(b.scene.profile,profile);assert.deepEqual(b.scene.values,values);assert.deepEqual(b.rendererRef,{id:'renderer-source-figures',version:'1.0.0'});return b;}
+/** Fixed reviewed explanations bind facts to their correct roles. Equality
+ * also rejects appending a contradictory claim to otherwise matching prose. */
+const explanation:Record<number,string>={
+ 43:'公開するWebサーバをDMZへ、重要データをもつデータベースサーバを内部セグメントへ分ける。外部からWebまでの通信と、Webからデータベースまでの必要な通信を、二つの境界でそれぞれ制限できる。データベースまでDMZや外部へ配置すると、内部へ分離する保護を失う。Webを内部へ置くと、この前提で禁止された外部と内部との直接通信が必要になる。Webを外部、データベースを内部へ置く案も、その二つの直接通信が禁止されるのでシステムを構成できない。',
+ 45:'ポートスキャナは、対象の通信ポートへの応答などから稼働しているサービスを調べ、不要なサービスの公開を確認する。アクセスログ解析は、記録済みのアクセス履歴を調べて不正利用の兆候を検出する。運用者へのID管理状況の確認は管理手順の監査であり、ネットワークのサービス列挙ともアクセス履歴の解析とも異なる。正規IDでログインしてコンテンツを直接確認する検査は、認証後のWebアプリケーションの内容を対象にする。四つの手段が実際に調べる対象を区別する。',
+ 46:'外部設計では、顧客や利用者から見える画面・帳票・外部との入出力などを具体化し、要求に合うかを顧客が確認する。画面レイアウト、帳票レイアウト、外部システムとの入出力項目仕様はその対象となる。開発計画・要員計画・工数見積りは開発を進めるための計画情報である。物理データベース・インデックス・ファイル配置は内部の実装方法、プログラムの流れ図・モジュール内部構造・サブルーチンの詳細フローは内部の処理設計を示す。この問いは外部設計の成果物を区別しており、顧客が他の文書を承認する場合を一律に否定する意味ではない。',
+ 48:'抽象化は共通する性質を取り出すこと、カプセル化はデータと操作をまとめ内部を隠すこと、継承は既存のクラスの性質を受け継ぐこと、クラスはオブジェクトの共通の構造や振舞いを定めるものである。仮想化・構造化・投影や射影、具体化・連続・反復、正規化・関数従属・索引付け・結合・分割を混ぜた組は、この四つのオブジェクト指向の基本概念の組合せにならない。クラスやカプセル化だけが含まれていても、組全体の適否を確認する。',
+ 53:'テストを進めた当初は累積バグ件数が増え、その後に新たな発見が少なくなって曲線が頭打ちへ近づく傾向が、品質が安定しつつある状況を示す。増え方が加速する曲線は発見が増え続けており、一定の傾きの直線も追加発見のペースが落ちていない。右下がりの曲線は累積件数が減ってしまい、発見済み件数を累積する軸の意味に合わない。頭打ちだけで未発見バグがないと証明できるわけではないので、テストの内容や進み方と併せて評価する。',
+};
+const coverageExplanation=[
+ '判定条件網羅（分岐網羅）では、二つの判定それぞれについて真と偽の分岐を一度以上通す。一件の実行では一つの判定の両方の分岐を通せないので、少なくとも2件が必要になる。例えば二つの判定がともに真となる場合と、ともに偽となる場合を一件ずつ選べば全分岐を通せるので、最少は2件である。A=2とB=0の四つの真偽の組合せ全てを求める複数条件網羅とは区別する。',
+ '複数条件網羅では、判定中の基本条件の真偽の全組合せをそろえる。A=2とB=0には真真・真偽・偽真・偽偽の4組があり、一つのテストで実現できるのはその一組だけなので、少なくとも4件が必要になる。この4件の中でX>1の真と偽も通せば全てを満たせるので、最少は4件である。判定全体が真と偽になるだけの2件とは網羅する対象が異なる。',
+];
+export function legacy2017DevelopmentOracle(source:string,b:GeneratedBody,values:number[]){
+ const n=Number(source.split('-').at(-1)),v=values[0];assert(stems[n],source);assert.equal(b.choices.length,4);assert.deepEqual(b.contexts??[],[]);assert.equal(b.partAnswers,undefined);let truth:boolean[]=[];
+ if(n===42){
+  const c=ports[v];assert(c);assert.equal(b.prompt.length,v===2?2:1);assert.equal(text(b.prompt[0]),stems[42].replace('80番',`${c.server}番`));if(v===2)assert.equal(text(b.prompt[1]),'ここで、PC側で使用する送信元ポート番号は49152以上に割り当てるものとする。');
+  truth=b.choices.map((blocks,i)=>{assert.equal(blocks.length,1);const table=blocks[0];assert(table.type==='table');if(table.type!=='table')throw Error();assert.equal(table.caption,'許可するルール');assert.deepEqual(table.columns,['送信元','宛先','送信元ポート番号','宛先ポート番号']);assert.equal(table.rows.length,2);assert.deepEqual(table.rows.map(row=>row.slice(0,2)),[['PC','Webサーバ'],['Webサーバ','PC']]);const reversedRequest=i<2,reversedResponse=i%2===1,client=`${c.pcMinimum}以上`,server=String(c.server);assert.deepEqual(table.rows,[['PC','Webサーバ',reversedRequest?server:client,reversedRequest?client:server],['Webサーバ','PC',reversedResponse?client:server,reversedResponse?server:client]]);return table.rows[0][2]===client&&table.rows[0][3]===server&&table.rows[1][2]===server&&table.rows[1][3]===client;});
+  assert.equal(b.explanation,`要求のPC→Webサーバでは、送信元がPC側の${c.pcMinimum}以上、宛先がサーバの${c.server}番となる。応答のWebサーバ→PCでは両者が入れ替わり、送信元が${c.server}番、宛先が${c.pcMinimum}以上になる。送信元と宛先のポートは通信方向と一緒に照合する。要求を${c.server}番の送信元に限定する表、又は応答の宛先まで${c.server}番とする表では、このPC側の通信口を保持した往復にならない。`);
+ }else if(n===43){
+  assert.equal(b.prompt.length,1);assert.equal(text(b.prompt[0]),stems[43]);const facts=placements[v];assert(facts);assert.deepEqual(b.choices.map(bs=>{assert.equal(bs.length,1);return text(bs[0]);}),facts.map(f=>f.text));
+  const connected=(a:string,c:string)=>a===c||new Set([a,c]).has('DMZ');truth=facts.map(f=>connected('external',f.web)&&connected(f.web,f.database)&&f.database==='internal');assert.equal(b.explanation,explanation[n]);
+ }else if(n===45){
+  assert.equal(b.prompt.length,1);const method=methods[v];assert(method);assert.equal(text(b.prompt[0]),stems[45].replace('ポートスキャナ',method.name));assert.deepEqual(b.choices.map(bs=>{assert.equal(bs.length,1);return text(bs[0]);}),purposes.map(f=>f.text));truth=purposes.map(f=>f.method===method.purpose);assert.equal(b.explanation,explanation[n]);
+ }else if(n===46){
+  assert.equal(b.prompt.length,1);assert.equal(text(b.prompt[0]),stems[46]);const facts=artifacts[v];assert(facts);assert.deepEqual(b.choices.map(bs=>{assert.equal(bs.length,1);return text(bs[0]);}),facts.map(f=>f.text));truth=facts.map(f=>f.role.startsWith('external-'));assert.equal(b.explanation,explanation[n]);
+ }else if(n===48){
+  assert.equal(b.prompt.length,1);assert.equal(text(b.prompt[0]),stems[48]);assert.equal(values.length,3);const facts=concepts.map((group,i)=>group[i===3?0:values[i]]);assert(facts.every(Boolean));assert.deepEqual(b.choices.map(bs=>{assert.equal(bs.length,1);return text(bs[0]);}),facts.map(f=>f.text));truth=facts.map(f=>new Set(f.concepts).size===4&&f.concepts.every(term=>term in oo));assert.equal(b.explanation,explanation[n]);
+ }else if(n===49){
+  assert.equal(b.prompt.length,2);assert.equal(text(b.prompt[0]),v?stems[49].replace('判定条件網羅（分岐網羅）','複数条件網羅'):stems[49]);const fig=diagram(b.prompt[1],'legacy-2017-coverage-two-decisions',[0]);assert.equal(fig.caption,'流れ図');const observed=readDevelopmentFlow(developmentSvg('legacy-2017-coverage-two-decisions',[0]));assert.equal(fig.alt,'上からX>1を判定し、真なら(X÷2)をXへ代入、偽なら代入を迂回して合流する。次にA=2 or B=0を判定し、真なら(X+1)をXへ代入、偽なら代入を迂回して下で合流する。両方の判定は全ての実行で到達する。');assert(observed.bothReached);assert.deepEqual(b.choices.map(bs=>{assert.equal(bs.length,1);return text(bs[0]);}),['1','2','3','4']);const ref=developmentCoverageReference(Boolean(v));assert.equal(ref.cases.length,8);assert(ref.cases.every(c=>c.visited.join(',')==='first,second'));truth=[1,2,3,4].map(n=>n===ref.minimum);assert.equal(b.explanation,coverageExplanation[v]);
+ }else if(n===51){
+  assert.equal(b.prompt.length,2);assert.equal(text(b.prompt[0]),stems[51]);const figure=b.prompt[1];assert(figure.type==='diagram'&&figure.scene.kind==='graph');if(figure.type!=='diagram'||figure.scene.kind!=='graph')throw Error();assert.deepEqual(figure.rendererRef,{id:'renderer-activity-network',version:'1.0.0'});assert.equal(figure.caption,'アローダイアグラム');const actual=readDevelopmentActivity(developmentActivitySvg(figure));assert.deepEqual(actual,developmentActivityVectors[v]);const ref=developmentActivityReference(actual);assert.equal(ref.paths.length,6);assert.equal(ref.earliest[6],ref.duration);const byName=new Map(ref.paths.map(p=>[p.tasks.filter(n=>!n.startsWith('dummy')).join(''),p.total]));const expected=[byName.get('ABEH')!,byName.get('ACFH')!,ref.duration,ref.duration+actual[1]];assert.equal(ref.duration-expected[0],15);assert.equal(ref.duration-expected[1],5);assert(expected.every(n=>Number.isInteger(n)&&n>=100&&n<1000));assert.deepEqual(b.choices.map(bs=>{assert.equal(bs.length,1);return text(bs[0]);}),expected.map(String));const sorted=[...expected].sort((a,c)=>a-c);assert(Math.min(...sorted.slice(1).map((n,i)=>n-sorted[i]))>=5);truth=expected.map(n=>n===ref.duration);
+  const order=['ABEH','ACFH','ADGH','ABFH','ACGH','ABGH'];assert.equal(b.explanation,'破線のダミー作業は依存関係を表し、日数は0として計算する。開始から完了までの経路は'+order.map(name=>name.split('').join('→')+'＝'+byName.get(name)+'日').join('、')+'。全ての作業が完了する最少日数は、このうち最大の'+ref.duration+'日となる。');
+ }else if(n===53){
+  assert.equal(b.prompt.length,1);assert.equal(text(b.prompt[0]),stems[53]);truth=b.choices.map((bs,i)=>{assert.equal(bs.length,1);const fig=diagram(bs[0],'legacy-2017-cumulative-bug-curve',[v,i]);assert.equal(fig.caption,'累積バグ件数とテスト項目消化件数');const result=readDevelopmentCurve(developmentSvg('legacy-2017-cumulative-bug-curve',[v,i]),v,i);assert.equal(fig.alt,'縦軸は累積バグ件数、横軸はテスト項目消化件数。'+['テスト消化につれて発見の増え方が加速する右上がりの曲線','テスト消化につれて累積件数が減少する右下がりの曲線','テスト消化に比例して累積件数が増え続ける直線','当初増えた後、追加のバグ発見が少なくなり、累積件数が頭打ちへ近づくS字状の曲線'][i]+'。');return result.role==='discovery-rate-falls-to-plateau';});assert.equal(b.explanation,explanation[n]);
+ }else throw Error('UNREVIEWED_SOURCE');
+ assert.equal(truth.filter(Boolean).length,1,source);assert.equal(b.correctIndex,truth.indexOf(true),source);return truth;
+}

@@ -1,0 +1,4705 @@
+{
+  "checkedOn": "2026-10-21",
+  "sourceDesignSha256": "4ec0b5276564552fa3301606f70673aed38e0aac57d974ff615f7d0679edb381",
+  "parentApprovalSha256": "3f7573ef6a9628c661369fbc0e4082600fe0261af42489b87650e1234ec34f11",
+  "originals": [
+    {
+      "source": "2019r01a-fe-am-40",
+      "number": 40,
+      "page": 22,
+      "area": "technology",
+      "officialAnswer": "ウ",
+      "stem": "ファイルの提供者は，ファイルの作成者が作成したファイル A を受け取り，ファイル A と，ファイル A に SHA-256 を適用して算出した値 B とを利用者に送信する。そのとき，利用者が情報セキュリティ上実現できることはどれか。ここで，利用者が受信した値 B はファイルの提供者から事前に電話で直接伝えられた値と同じであり，改ざんされていないことが確認できているものとする。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の作成者を確認できる。",
+          "role": "hash-onlyを署名作成/作成者認証と誤認"
+        },
+        {
+          "label": "イ",
+          "text": "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の提供者がファイル A の作成者であるかどうかを確認できる。",
+          "role": "hash-onlyを署名/提供者と作成者の同一性証明と誤認"
+        },
+        {
+          "label": "ウ",
+          "text": "ファイル A に SHA-256 を適用して値を算出し，その値と値 B を比較することによって，ファイル A の内容が改ざんされていないかどうかを検証できる。",
+          "role": "確認済み基準digestとの再計算比較"
+        },
+        {
+          "label": "エ",
+          "text": "ファイル A の内容が改ざんされていても，ファイル A に SHA-256 を適用して値を算出し，その値と値 B の差分を確認することによって，ファイル A の内容のうち改ざんされている部分を修復できる。",
+          "role": "digestを誤り訂正/修復情報と誤認"
+        }
+      ],
+      "beforeAnswerPremises": [
+        "作成者と提供者は別役割",
+        "AとSHA-256(A)=Bを提供者から受領",
+        "Bは提供者から事前に電話で直接伝えられた値と一致し未改ざん確認済み"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-41",
+      "number": 41,
+      "page": 22,
+      "area": "technology",
+      "officialAnswer": "イ",
+      "stem": "検索サイトの検索結果の上位に悪意のあるサイトが表示されるように細工する攻撃の名称はどれか。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "DNSキャッシュポイズニング",
+          "role": "名前解決cacheの偽情報"
+        },
+        {
+          "label": "イ",
+          "text": "SEOポイズニング",
+          "role": "検索順位の悪用"
+        },
+        {
+          "label": "ウ",
+          "text": "クロスサイトスクリプティング",
+          "role": "browserでのscript注入実行"
+        },
+        {
+          "label": "エ",
+          "text": "ソーシャルエンジニアリング",
+          "role": "対人の欺罔"
+        }
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short names in two-column source layout",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-42",
+      "number": 42,
+      "page": 23,
+      "area": "technology",
+      "officialAnswer": "ウ",
+      "stem": "1台のファイアウォールによって，外部セグメント，DMZ，内部セグメントの三つのセグメントに分割されたネットワークがあり，このネットワークにおいて，Webサーバと，重要なデータをもつデータベースサーバから成るシステムを使って，利用者向けのWebサービスをインターネットに公開する。インターネットからの不正アクセスから重要なデータを保護するためのサーバの設置方法のうち，最も適切なものはどれか。ここで，Webサーバでは，データベースサーバのフロントエンド処理を行い，ファイアウォールでは，外部セグメントとDMZとの間，及びDMZと内部セグメントとの間の通信は特定のプロトコルだけを許可し，外部セグメントと内部セグメントとの間の直接の通信は許可しないものとする。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "WebサーバとデータベースサーバをDMZに設置する。",
+          "role": "二つを同じ外部公開側区画へ配置"
+        },
+        {
+          "label": "イ",
+          "text": "Webサーバとデータベースサーバを内部セグメントに設置する。",
+          "role": "両方を内部区画へ配置"
+        },
+        {
+          "label": "ウ",
+          "text": "WebサーバをDMZに，データベースサーバを内部セグメントに設置する。",
+          "role": "公開frontend DMZ/重要backend内部の分離"
+        },
+        {
+          "label": "エ",
+          "text": "Webサーバを外部セグメントに，データベースサーバをDMZに設置する。",
+          "role": "frontendをfirewall外へ配置"
+        }
+      ],
+      "beforeAnswerPremises": [
+        "firewall1台/三segment",
+        "internetでWebサービスを公開",
+        "Webは重要データをもつDBのfrontend",
+        "外部–DMZ/DMZ–内部は特定protocolだけ許可",
+        "外部–内部の直接通信は禁止"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-43",
+      "number": 43,
+      "page": 23,
+      "area": "technology",
+      "officialAnswer": "イ",
+      "stem": "SIEM（Security Information and Event Management）の機能はどれか。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "隔離された仮想環境でファイルを実行して，C&Cサーバへの通信などの振る舞いを監視する。",
+          "role": "malware/file analysis"
+        },
+        {
+          "label": "イ",
+          "text": "様々な機器から集められたログを統合的に分析し，管理者による分析と対応を支援する。",
+          "role": "security log integration/analysis"
+        },
+        {
+          "label": "ウ",
+          "text": "ネットワーク上の様々な通信機器を集中的に制御し，ネットワーク構成やセキュリティ設定などを変更する。",
+          "role": "central network control"
+        },
+        {
+          "label": "エ",
+          "text": "パケットのヘッダ情報の検査だけではなく，通信先のアプリケーションプログラムを識別して通信を制御する。",
+          "role": "application-aware traffic control"
+        }
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-47",
+      "number": 47,
+      "page": 25,
+      "area": "technology",
+      "officialAnswer": "ア",
+      "stem": "エラー埋込法において，埋め込まれたエラー数を S，埋め込まれたエラーのうち発見されたエラー数を m，埋め込まれたエラーを含まないテスト開始前の潜在エラー数を T，発見された総エラー数を n としたとき，S，T，m，n の関係を表す式はどれか。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "m/S = (n−m)/T",
+          "role": "発見された元のエラーn−mと総数Tの割合を合わせる"
+        },
+        {
+          "label": "イ",
+          "text": "m/S = T/(n−m)",
+          "role": "元のエラー側の割合を逆数とする"
+        },
+        {
+          "label": "ウ",
+          "text": "m/S = n/T",
+          "role": "発見総数nから埋込分mを引かない"
+        },
+        {
+          "label": "エ",
+          "text": "m/S = T/n",
+          "role": "埋込分を引かず元のエラー側を逆数とする"
+        }
+      ],
+      "beforeAnswerPremises": [
+        "Sは埋め込まれたエラーの総数",
+        "mはS中の発見数",
+        "Tは埋込を含まないテスト開始前の潜在総数",
+        "nは発見総数（埋込mを含む）"
+      ],
+      "media": "paragraph stem + four equalities with two stacked fractions each, 2×2 source layout",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-48",
+      "number": 48,
+      "page": 25,
+      "area": "technology",
+      "officialAnswer": "エ",
+      "stem": "テストで使用するスタブ又はドライバの説明のうち，適切なものはどれか。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "スタブは，テスト対象モジュールからの戻り値の表示・印刷を行う。",
+          "role": "stubへcaller側の結果観測役割を割当"
+        },
+        {
+          "label": "イ",
+          "text": "スタブは，テスト対象モジュールを呼び出すモジュールである。",
+          "role": "stubをcallerと取り違え"
+        },
+        {
+          "label": "ウ",
+          "text": "ドライバは，テスト対象モジュールから呼び出されるモジュールである。",
+          "role": "driverをcalleeと取り違え"
+        },
+        {
+          "label": "エ",
+          "text": "ドライバは，引数を渡してテスト対象モジュールを呼び出す。",
+          "role": "driverのcaller役割"
+        }
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-49",
+      "number": 49,
+      "page": 25,
+      "area": "technology",
+      "officialAnswer": "イ",
+      "stem": "単一の入り口をもち，入力項目を用いた複数の判断を含むプログラムのテストケースを設計する。命令網羅と判定条件網羅の関係のうち，適切なものはどれか。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "判定条件網羅を満足しても，命令網羅を満足しない場合がある。",
+          "role": "強い基準を満たすが弱い基準を満たさないという存在命題"
+        },
+        {
+          "label": "イ",
+          "text": "判定条件網羅を満足するならば，命令網羅も満足する。",
+          "role": "強い基準から弱い基準への含意"
+        },
+        {
+          "label": "ウ",
+          "text": "命令網羅を満足しなくても，判定条件網羅を満足する場合がある。",
+          "role": "原アと同じ存在命題（論理重複）"
+        },
+        {
+          "label": "エ",
+          "text": "命令網羅を満足するならば，判定条件網羅も満足する。",
+          "role": "弱い基準から強い基準への逆含意"
+        }
+      ],
+      "beforeAnswerPremises": [
+        "単一の入り口",
+        "入力項目に基づく複数判断",
+        "命令網羅と判定条件網羅の関係"
+      ],
+      "media": "paragraph stem + four logical relationship sentences; no source CFG/diagram",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    },
+    {
+      "source": "2019r01a-fe-am-50",
+      "number": 50,
+      "page": 26,
+      "area": "technology",
+      "officialAnswer": "ウ",
+      "stem": "XP（eXtreme Programming）において，プラクティスとして提唱されているものはどれか。",
+      "choices": [
+        {
+          "label": "ア",
+          "text": "インスペクション",
+          "role": "形式的review技法"
+        },
+        {
+          "label": "イ",
+          "text": "構造化設計",
+          "role": "構造化した設計手法"
+        },
+        {
+          "label": "ウ",
+          "text": "ペアプログラミング",
+          "role": "XPのengineering practice"
+        },
+        {
+          "label": "エ",
+          "text": "ユースケースの活用",
+          "role": "要求/相互作用記述技法"
+        }
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short technique names in two-column source layout",
+      "captionOrThirdPartyCreditOnSource": null,
+      "sourceFormReviewedAgainstImages": true
+    }
+  ],
+  "cases": [
+    {
+      "source": "2019r01a-fe-am-40",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "ファイルの提供者は，ファイルの作成者が作成したファイル A を受け取り，ファイル A と，ファイル A に SHA-256 を適用して算出した値 B とを利用者に送信する。そのとき，利用者が情報セキュリティ上実現できることはどれか。ここで，利用者が受信した値 B はファイルの提供者から事前に電話で直接伝えられた値と同じであり，改ざんされていないことが確認できているものとする。",
+      "choices": [
+        "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の作成者を確認できる。",
+        "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の提供者がファイル A の作成者であるかどうかを確認できる。",
+        "ファイル A に SHA-256 を適用して値を算出し，その値と値 B を比較することによって，ファイル A の内容が改ざんされていないかどうかを検証できる。",
+        "ファイル A の内容が改ざんされていても，ファイル A に SHA-256 を適用して値を算出し，その値と値 B の差分を確認することによって，ファイル A の内容のうち改ざんされている部分を修復できる。"
+      ],
+      "parameters": {
+        "originMisconception": 0,
+        "recoveryMisconception": 0
+      },
+      "factIds": [
+        "40-origin-0",
+        "40-provider-identity",
+        "40-integrity",
+        "40-recovery-0"
+      ],
+      "changes": [
+        "作成者認証の誤機構：hashを署名と誤認／hash一致を本人性と誤認",
+        "修復の誤機構：digest差分で局所修復／digest単独の逆計算で一意復元"
+      ],
+      "beforeAnswerPremises": [
+        "作成者と提供者は別役割",
+        "AとSHA-256(A)=Bを提供者から受領",
+        "Bは提供者から事前に電話で直接伝えられた値と一致し未改ざん確認済み"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": "ウ"
+    },
+    {
+      "source": "2019r01a-fe-am-40",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "ファイルの提供者は，ファイルの作成者が作成したファイル A を受け取り，ファイル A と，ファイル A に SHA-256 を適用して算出した値 B とを利用者に送信する。そのとき，利用者が情報セキュリティ上実現できることはどれか。ここで，利用者が受信した値 B はファイルの提供者から事前に電話で直接伝えられた値と同じであり，改ざんされていないことが確認できているものとする。",
+      "choices": [
+        "ファイル A に SHA-256 を適用して算出した値と値 B が等しいことによって，ファイル A が作成者本人によって作成されたことを確認できる。",
+        "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の提供者がファイル A の作成者であるかどうかを確認できる。",
+        "ファイル A に SHA-256 を適用して値を算出し，その値と値 B を比較することによって，ファイル A の内容が改ざんされていないかどうかを検証できる。",
+        "ファイル A の内容が改ざんされていても，ファイル A に SHA-256 を適用して値を算出し，その値と値 B の差分を確認することによって，ファイル A の内容のうち改ざんされている部分を修復できる。"
+      ],
+      "parameters": {
+        "originMisconception": 1,
+        "recoveryMisconception": 0
+      },
+      "factIds": [
+        "40-origin-1",
+        "40-provider-identity",
+        "40-integrity",
+        "40-recovery-0"
+      ],
+      "changes": [
+        "作成者認証の誤機構：hashを署名と誤認／hash一致を本人性と誤認",
+        "修復の誤機構：digest差分で局所修復／digest単独の逆計算で一意復元"
+      ],
+      "beforeAnswerPremises": [
+        "作成者と提供者は別役割",
+        "AとSHA-256(A)=Bを提供者から受領",
+        "Bは提供者から事前に電話で直接伝えられた値と一致し未改ざん確認済み"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-40",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "ファイルの提供者は，ファイルの作成者が作成したファイル A を受け取り，ファイル A と，ファイル A に SHA-256 を適用して算出した値 B とを利用者に送信する。そのとき，利用者が情報セキュリティ上実現できることはどれか。ここで，利用者が受信した値 B はファイルの提供者から事前に電話で直接伝えられた値と同じであり，改ざんされていないことが確認できているものとする。",
+      "choices": [
+        "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の作成者を確認できる。",
+        "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の提供者がファイル A の作成者であるかどうかを確認できる。",
+        "ファイル A に SHA-256 を適用して値を算出し，その値と値 B を比較することによって，ファイル A の内容が改ざんされていないかどうかを検証できる。",
+        "ファイル A の内容が改ざんされていても，値 B だけから SHA-256 の計算を逆にたどることによって，元のファイル A の内容を一意に復元できる。"
+      ],
+      "parameters": {
+        "originMisconception": 0,
+        "recoveryMisconception": 1
+      },
+      "factIds": [
+        "40-origin-0",
+        "40-provider-identity",
+        "40-integrity",
+        "40-recovery-1"
+      ],
+      "changes": [
+        "作成者認証の誤機構：hashを署名と誤認／hash一致を本人性と誤認",
+        "修復の誤機構：digest差分で局所修復／digest単独の逆計算で一意復元"
+      ],
+      "beforeAnswerPremises": [
+        "作成者と提供者は別役割",
+        "AとSHA-256(A)=Bを提供者から受領",
+        "Bは提供者から事前に電話で直接伝えられた値と一致し未改ざん確認済み"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-40",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "ファイルの提供者は，ファイルの作成者が作成したファイル A を受け取り，ファイル A と，ファイル A に SHA-256 を適用して算出した値 B とを利用者に送信する。そのとき，利用者が情報セキュリティ上実現できることはどれか。ここで，利用者が受信した値 B はファイルの提供者から事前に電話で直接伝えられた値と同じであり，改ざんされていないことが確認できているものとする。",
+      "choices": [
+        "ファイル A に SHA-256 を適用して算出した値と値 B が等しいことによって，ファイル A が作成者本人によって作成されたことを確認できる。",
+        "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の提供者がファイル A の作成者であるかどうかを確認できる。",
+        "ファイル A に SHA-256 を適用して値を算出し，その値と値 B を比較することによって，ファイル A の内容が改ざんされていないかどうかを検証できる。",
+        "ファイル A の内容が改ざんされていても，値 B だけから SHA-256 の計算を逆にたどることによって，元のファイル A の内容を一意に復元できる。"
+      ],
+      "parameters": {
+        "originMisconception": 1,
+        "recoveryMisconception": 1
+      },
+      "factIds": [
+        "40-origin-1",
+        "40-provider-identity",
+        "40-integrity",
+        "40-recovery-1"
+      ],
+      "changes": [
+        "作成者認証の誤機構：hashを署名と誤認／hash一致を本人性と誤認",
+        "修復の誤機構：digest差分で局所修復／digest単独の逆計算で一意復元"
+      ],
+      "beforeAnswerPremises": [
+        "作成者と提供者は別役割",
+        "AとSHA-256(A)=Bを提供者から受領",
+        "Bは提供者から事前に電話で直接伝えられた値と一致し未改ざん確認済み"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-41",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "検索サイトの検索結果の上位に悪意のあるサイトが表示されるように細工する攻撃の名称はどれか。",
+      "choices": [
+        "DNSキャッシュポイズニング",
+        "SEOポイズニング",
+        "クロスサイトスクリプティング",
+        "ソーシャルエンジニアリング"
+      ],
+      "parameters": {
+        "scenario": "search-ranking"
+      },
+      "factIds": [
+        "41-dns",
+        "41-seo",
+        "41-xss",
+        "41-social"
+      ],
+      "changes": [
+        "説明される実際の攻撃操作を検索順位細工／DNS偽応答cache／browser script実行／電話の対人詐称へ同じ役割位置で変更。元4名称は固定。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": "イ"
+    },
+    {
+      "source": "2019r01a-fe-am-41",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "名前解決を行うDNSサーバに偽の応答を受け入れさせ，キャッシュに不正な名前とIPアドレスの対応を保存させる攻撃の名称はどれか。",
+      "choices": [
+        "DNSキャッシュポイズニング",
+        "SEOポイズニング",
+        "クロスサイトスクリプティング",
+        "ソーシャルエンジニアリング"
+      ],
+      "parameters": {
+        "scenario": "forged-dns-cache"
+      },
+      "factIds": [
+        "41-dns",
+        "41-seo",
+        "41-xss",
+        "41-social"
+      ],
+      "changes": [
+        "説明される実際の攻撃操作を検索順位細工／DNS偽応答cache／browser script実行／電話の対人詐称へ同じ役割位置で変更。元4名称は固定。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-41",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "Webサイトに入力された悪意のあるスクリプトを別の利用者のブラウザでそのサイトのコンテンツとして実行させる攻撃の名称はどれか。",
+      "choices": [
+        "DNSキャッシュポイズニング",
+        "SEOポイズニング",
+        "クロスサイトスクリプティング",
+        "ソーシャルエンジニアリング"
+      ],
+      "parameters": {
+        "scenario": "browser-injection"
+      },
+      "factIds": [
+        "41-dns",
+        "41-seo",
+        "41-xss",
+        "41-social"
+      ],
+      "changes": [
+        "説明される実際の攻撃操作を検索順位細工／DNS偽応答cache／browser script実行／電話の対人詐称へ同じ役割位置で変更。元4名称は固定。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-41",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "システム管理者を装って利用者に電話をかけ，緊急の確認が必要だと信じ込ませてパスワードを聞き出す攻撃の名称はどれか。",
+      "choices": [
+        "DNSキャッシュポイズニング",
+        "SEOポイズニング",
+        "クロスサイトスクリプティング",
+        "ソーシャルエンジニアリング"
+      ],
+      "parameters": {
+        "scenario": "human-impersonation"
+      },
+      "factIds": [
+        "41-dns",
+        "41-seo",
+        "41-xss",
+        "41-social"
+      ],
+      "changes": [
+        "説明される実際の攻撃操作を検索順位細工／DNS偽応答cache／browser script実行／電話の対人詐称へ同じ役割位置で変更。元4名称は固定。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-42",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "1台のファイアウォールによって，外部セグメント，DMZ，内部セグメントの三つのセグメントに分割されたネットワークがあり，このネットワークにおいて，Webサーバと，重要なデータをもつデータベースサーバから成るシステムを使って，利用者向けのWebサービスをインターネットに公開する。インターネットからの不正アクセスから重要なデータを保護するためのサーバの設置方法のうち，最も適切なものはどれか。ここで，Webサーバでは，データベースサーバのフロントエンド処理を行い，ファイアウォールでは，外部セグメントとDMZとの間，及びDMZと内部セグメントとの間の通信は特定のプロトコルだけを許可し，外部セグメントと内部セグメントとの間の直接の通信は許可しないものとする。",
+      "choices": [
+        "WebサーバとデータベースサーバをDMZに設置する。",
+        "Webサーバとデータベースサーバを内部セグメントに設置する。",
+        "WebサーバをDMZに，データベースサーバを内部セグメントに設置する。",
+        "Webサーバを外部セグメントに，データベースサーバをDMZに設置する。"
+      ],
+      "parameters": {
+        "colocatedZone": "DMZ",
+        "externalWebBackend": "DMZ"
+      },
+      "factIds": [],
+      "changes": [
+        "誤アは二serverの共置区画をDMZ／外部へ変更",
+        "誤エはWebを外部固定のままDBをDMZ／内部へ変更",
+        "正ウ/原イ/全通信前提/原の文章媒体を固定。未知のport ACLや侵入の確実性を追加しない。"
+      ],
+      "beforeAnswerPremises": [
+        "firewall1台/三segment",
+        "internetでWebサービスを公開",
+        "Webは重要データをもつDBのfrontend",
+        "外部–DMZ/DMZ–内部は特定protocolだけ許可",
+        "外部–内部の直接通信は禁止"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": "ウ"
+    },
+    {
+      "source": "2019r01a-fe-am-42",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "1台のファイアウォールによって，外部セグメント，DMZ，内部セグメントの三つのセグメントに分割されたネットワークがあり，このネットワークにおいて，Webサーバと，重要なデータをもつデータベースサーバから成るシステムを使って，利用者向けのWebサービスをインターネットに公開する。インターネットからの不正アクセスから重要なデータを保護するためのサーバの設置方法のうち，最も適切なものはどれか。ここで，Webサーバでは，データベースサーバのフロントエンド処理を行い，ファイアウォールでは，外部セグメントとDMZとの間，及びDMZと内部セグメントとの間の通信は特定のプロトコルだけを許可し，外部セグメントと内部セグメントとの間の直接の通信は許可しないものとする。",
+      "choices": [
+        "Webサーバとデータベースサーバを外部セグメントに設置する。",
+        "Webサーバとデータベースサーバを内部セグメントに設置する。",
+        "WebサーバをDMZに，データベースサーバを内部セグメントに設置する。",
+        "Webサーバを外部セグメントに，データベースサーバをDMZに設置する。"
+      ],
+      "parameters": {
+        "colocatedZone": "external",
+        "externalWebBackend": "DMZ"
+      },
+      "factIds": [],
+      "changes": [
+        "誤アは二serverの共置区画をDMZ／外部へ変更",
+        "誤エはWebを外部固定のままDBをDMZ／内部へ変更",
+        "正ウ/原イ/全通信前提/原の文章媒体を固定。未知のport ACLや侵入の確実性を追加しない。"
+      ],
+      "beforeAnswerPremises": [
+        "firewall1台/三segment",
+        "internetでWebサービスを公開",
+        "Webは重要データをもつDBのfrontend",
+        "外部–DMZ/DMZ–内部は特定protocolだけ許可",
+        "外部–内部の直接通信は禁止"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-42",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "1台のファイアウォールによって，外部セグメント，DMZ，内部セグメントの三つのセグメントに分割されたネットワークがあり，このネットワークにおいて，Webサーバと，重要なデータをもつデータベースサーバから成るシステムを使って，利用者向けのWebサービスをインターネットに公開する。インターネットからの不正アクセスから重要なデータを保護するためのサーバの設置方法のうち，最も適切なものはどれか。ここで，Webサーバでは，データベースサーバのフロントエンド処理を行い，ファイアウォールでは，外部セグメントとDMZとの間，及びDMZと内部セグメントとの間の通信は特定のプロトコルだけを許可し，外部セグメントと内部セグメントとの間の直接の通信は許可しないものとする。",
+      "choices": [
+        "WebサーバとデータベースサーバをDMZに設置する。",
+        "Webサーバとデータベースサーバを内部セグメントに設置する。",
+        "WebサーバをDMZに，データベースサーバを内部セグメントに設置する。",
+        "Webサーバを外部セグメントに，データベースサーバを内部セグメントに設置する。"
+      ],
+      "parameters": {
+        "colocatedZone": "DMZ",
+        "externalWebBackend": "internal"
+      },
+      "factIds": [],
+      "changes": [
+        "誤アは二serverの共置区画をDMZ／外部へ変更",
+        "誤エはWebを外部固定のままDBをDMZ／内部へ変更",
+        "正ウ/原イ/全通信前提/原の文章媒体を固定。未知のport ACLや侵入の確実性を追加しない。"
+      ],
+      "beforeAnswerPremises": [
+        "firewall1台/三segment",
+        "internetでWebサービスを公開",
+        "Webは重要データをもつDBのfrontend",
+        "外部–DMZ/DMZ–内部は特定protocolだけ許可",
+        "外部–内部の直接通信は禁止"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-42",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "1台のファイアウォールによって，外部セグメント，DMZ，内部セグメントの三つのセグメントに分割されたネットワークがあり，このネットワークにおいて，Webサーバと，重要なデータをもつデータベースサーバから成るシステムを使って，利用者向けのWebサービスをインターネットに公開する。インターネットからの不正アクセスから重要なデータを保護するためのサーバの設置方法のうち，最も適切なものはどれか。ここで，Webサーバでは，データベースサーバのフロントエンド処理を行い，ファイアウォールでは，外部セグメントとDMZとの間，及びDMZと内部セグメントとの間の通信は特定のプロトコルだけを許可し，外部セグメントと内部セグメントとの間の直接の通信は許可しないものとする。",
+      "choices": [
+        "Webサーバとデータベースサーバを外部セグメントに設置する。",
+        "Webサーバとデータベースサーバを内部セグメントに設置する。",
+        "WebサーバをDMZに，データベースサーバを内部セグメントに設置する。",
+        "Webサーバを外部セグメントに，データベースサーバを内部セグメントに設置する。"
+      ],
+      "parameters": {
+        "colocatedZone": "external",
+        "externalWebBackend": "internal"
+      },
+      "factIds": [],
+      "changes": [
+        "誤アは二serverの共置区画をDMZ／外部へ変更",
+        "誤エはWebを外部固定のままDBをDMZ／内部へ変更",
+        "正ウ/原イ/全通信前提/原の文章媒体を固定。未知のport ACLや侵入の確実性を追加しない。"
+      ],
+      "beforeAnswerPremises": [
+        "firewall1台/三segment",
+        "internetでWebサービスを公開",
+        "Webは重要データをもつDBのfrontend",
+        "外部–DMZ/DMZ–内部は特定protocolだけ許可",
+        "外部–内部の直接通信は禁止"
+      ],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-43",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "SIEM（Security Information and Event Management）の機能はどれか。",
+      "choices": [
+        "隔離された仮想環境でファイルを実行して，C&Cサーバへの通信などの振る舞いを監視する。",
+        "様々な機器から集められたログを統合的に分析し，管理者による分析と対応を支援する。",
+        "ネットワーク上の様々な通信機器を集中的に制御し，ネットワーク構成やセキュリティ設定などを変更する。",
+        "パケットのヘッダ情報の検査だけではなく，通信先のアプリケーションプログラムを識別して通信を制御する。"
+      ],
+      "parameters": {
+        "fileAnalysis": 0,
+        "trafficControl": 0
+      },
+      "factIds": [
+        "43-file-0",
+        "43-log",
+        "43-control",
+        "43-filter-0"
+      ],
+      "changes": [
+        "誤アのfile analysisを隔離実行の動的観測／非実行の静的解析へ変更",
+        "誤エのtraffic controlをapplication識別／HTTP攻撃要求の内容検査へ変更",
+        "本来の機能比較。SIEM統合製品やSOAR連携に他機能が存在し得ることを否定しない。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": "イ"
+    },
+    {
+      "source": "2019r01a-fe-am-43",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "SIEM（Security Information and Event Management）の機能はどれか。",
+      "choices": [
+        "ファイルを実行せずに，実行形式の命令列や文字列を調べて，そのファイルに含まれる不審な処理を分析する。",
+        "様々な機器から集められたログを統合的に分析し，管理者による分析と対応を支援する。",
+        "ネットワーク上の様々な通信機器を集中的に制御し，ネットワーク構成やセキュリティ設定などを変更する。",
+        "パケットのヘッダ情報の検査だけではなく，通信先のアプリケーションプログラムを識別して通信を制御する。"
+      ],
+      "parameters": {
+        "fileAnalysis": 1,
+        "trafficControl": 0
+      },
+      "factIds": [
+        "43-file-1",
+        "43-log",
+        "43-control",
+        "43-filter-0"
+      ],
+      "changes": [
+        "誤アのfile analysisを隔離実行の動的観測／非実行の静的解析へ変更",
+        "誤エのtraffic controlをapplication識別／HTTP攻撃要求の内容検査へ変更",
+        "本来の機能比較。SIEM統合製品やSOAR連携に他機能が存在し得ることを否定しない。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-43",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "SIEM（Security Information and Event Management）の機能はどれか。",
+      "choices": [
+        "隔離された仮想環境でファイルを実行して，C&Cサーバへの通信などの振る舞いを監視する。",
+        "様々な機器から集められたログを統合的に分析し，管理者による分析と対応を支援する。",
+        "ネットワーク上の様々な通信機器を集中的に制御し，ネットワーク構成やセキュリティ設定などを変更する。",
+        "WebアプリケーションへのHTTP要求の内容を検査して，SQLインジェクションなどの攻撃に該当する通信を遮断する。"
+      ],
+      "parameters": {
+        "fileAnalysis": 0,
+        "trafficControl": 1
+      },
+      "factIds": [
+        "43-file-0",
+        "43-log",
+        "43-control",
+        "43-filter-1"
+      ],
+      "changes": [
+        "誤アのfile analysisを隔離実行の動的観測／非実行の静的解析へ変更",
+        "誤エのtraffic controlをapplication識別／HTTP攻撃要求の内容検査へ変更",
+        "本来の機能比較。SIEM統合製品やSOAR連携に他機能が存在し得ることを否定しない。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-43",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "SIEM（Security Information and Event Management）の機能はどれか。",
+      "choices": [
+        "ファイルを実行せずに，実行形式の命令列や文字列を調べて，そのファイルに含まれる不審な処理を分析する。",
+        "様々な機器から集められたログを統合的に分析し，管理者による分析と対応を支援する。",
+        "ネットワーク上の様々な通信機器を集中的に制御し，ネットワーク構成やセキュリティ設定などを変更する。",
+        "WebアプリケーションへのHTTP要求の内容を検査して，SQLインジェクションなどの攻撃に該当する通信を遮断する。"
+      ],
+      "parameters": {
+        "fileAnalysis": 1,
+        "trafficControl": 1
+      },
+      "factIds": [
+        "43-file-1",
+        "43-log",
+        "43-control",
+        "43-filter-1"
+      ],
+      "changes": [
+        "誤アのfile analysisを隔離実行の動的観測／非実行の静的解析へ変更",
+        "誤エのtraffic controlをapplication識別／HTTP攻撃要求の内容検査へ変更",
+        "本来の機能比較。SIEM統合製品やSOAR連携に他機能が存在し得ることを否定しない。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-47",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "エラー埋込法において，埋め込まれたエラー数を S，埋め込まれたエラーのうち発見されたエラー数を m，埋め込まれたエラーを含まないテスト開始前の潜在エラー数を T，発見された総エラー数を n としたとき，S，T，m，n の関係を表す式はどれか。",
+      "choices": [
+        "m/S = (n−m)/T",
+        "m/S = T/(n−m)",
+        "m/S = n/T",
+        "m/S = T/n"
+      ],
+      "parameters": {
+        "seedPopulationTime": "before-total",
+        "nativePopulationTime": "before-total"
+      },
+      "factIds": [],
+      "changes": [
+        "Sの母集団時点：埋込総数／終了後未発見数",
+        "Tの母集団時点：開始前潜在総数／終了後未発見数",
+        "mは埋込中の発見数、nは埋込mを含む発見総数で固定。2個の分数を含む等式4個、ア/イ/ウ/エの誤答役割を保持。"
+      ],
+      "beforeAnswerPremises": [
+        "S: 埋め込まれたエラー数",
+        "T: 埋め込まれたエラーを含まないテスト開始前の潜在エラー数",
+        "m: 埋込エラー中の発見数（常に発見数）",
+        "n: 発見総数（常にmを含む）"
+      ],
+      "media": "paragraph stem + four equalities with two stacked fractions each, 2×2 source layout",
+      "diagram": null,
+      "officialAnswerForReference": "ア",
+      "formulaLayout": {
+        "original": "two rows × two columns, labelsア/イ thenウ/エ",
+        "generated": "each equation retains stacked numerator/denominator fractions; no helper numeric table or new diagram",
+        "leftNumerator": "m",
+        "leftDenominator": "S"
+      }
+    },
+    {
+      "source": "2019r01a-fe-am-47",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "エラー埋込法において，埋め込まれたエラーのうちテスト終了後に未発見のエラー数を S，埋め込まれたエラーのうち発見されたエラー数を m，埋め込まれたエラーを含まないテスト開始前の潜在エラー数を T，発見された総エラー数を n としたとき，S，T，m，n の関係を表す式はどれか。",
+      "choices": [
+        "m/(S+m) = (n-m)/(T)",
+        "m/(S+m) = (T)/(n-m)",
+        "m/(S+m) = n/(T)",
+        "m/(S+m) = (T)/n"
+      ],
+      "parameters": {
+        "seedPopulationTime": "after-undetected",
+        "nativePopulationTime": "before-total"
+      },
+      "factIds": [],
+      "changes": [
+        "Sの母集団時点：埋込総数／終了後未発見数",
+        "Tの母集団時点：開始前潜在総数／終了後未発見数",
+        "mは埋込中の発見数、nは埋込mを含む発見総数で固定。2個の分数を含む等式4個、ア/イ/ウ/エの誤答役割を保持。"
+      ],
+      "beforeAnswerPremises": [
+        "S: 埋め込まれたエラーのうちテスト終了後に未発見のエラー数",
+        "T: 埋め込まれたエラーを含まないテスト開始前の潜在エラー数",
+        "m: 埋込エラー中の発見数（常に発見数）",
+        "n: 発見総数（常にmを含む）"
+      ],
+      "media": "paragraph stem + four equalities with two stacked fractions each, 2×2 source layout",
+      "diagram": null,
+      "officialAnswerForReference": null,
+      "formulaLayout": {
+        "original": "two rows × two columns, labelsア/イ thenウ/エ",
+        "generated": "each equation retains stacked numerator/denominator fractions; no helper numeric table or new diagram",
+        "leftNumerator": "m",
+        "leftDenominator": "S+m"
+      }
+    },
+    {
+      "source": "2019r01a-fe-am-47",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "エラー埋込法において，埋め込まれたエラー数を S，埋め込まれたエラーのうち発見されたエラー数を m，埋め込まれたエラーを含まないテスト終了後の未発見エラー数を T，発見された総エラー数を n としたとき，S，T，m，n の関係を表す式はどれか。",
+      "choices": [
+        "m/S = (n-m)/(T+n-m)",
+        "m/S = (T+n-m)/(n-m)",
+        "m/S = n/(T+n)",
+        "m/S = (T+n)/n"
+      ],
+      "parameters": {
+        "seedPopulationTime": "before-total",
+        "nativePopulationTime": "after-undetected"
+      },
+      "factIds": [],
+      "changes": [
+        "Sの母集団時点：埋込総数／終了後未発見数",
+        "Tの母集団時点：開始前潜在総数／終了後未発見数",
+        "mは埋込中の発見数、nは埋込mを含む発見総数で固定。2個の分数を含む等式4個、ア/イ/ウ/エの誤答役割を保持。"
+      ],
+      "beforeAnswerPremises": [
+        "S: 埋め込まれたエラー数",
+        "T: 埋め込まれたエラーを含まないテスト終了後の未発見エラー数",
+        "m: 埋込エラー中の発見数（常に発見数）",
+        "n: 発見総数（常にmを含む）"
+      ],
+      "media": "paragraph stem + four equalities with two stacked fractions each, 2×2 source layout",
+      "diagram": null,
+      "officialAnswerForReference": null,
+      "formulaLayout": {
+        "original": "two rows × two columns, labelsア/イ thenウ/エ",
+        "generated": "each equation retains stacked numerator/denominator fractions; no helper numeric table or new diagram",
+        "leftNumerator": "m",
+        "leftDenominator": "S"
+      }
+    },
+    {
+      "source": "2019r01a-fe-am-47",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "エラー埋込法において，埋め込まれたエラーのうちテスト終了後に未発見のエラー数を S，埋め込まれたエラーのうち発見されたエラー数を m，埋め込まれたエラーを含まないテスト終了後の未発見エラー数を T，発見された総エラー数を n としたとき，S，T，m，n の関係を表す式はどれか。",
+      "choices": [
+        "m/(S+m) = (n-m)/(T+n-m)",
+        "m/(S+m) = (T+n-m)/(n-m)",
+        "m/(S+m) = n/(T+n)",
+        "m/(S+m) = (T+n)/n"
+      ],
+      "parameters": {
+        "seedPopulationTime": "after-undetected",
+        "nativePopulationTime": "after-undetected"
+      },
+      "factIds": [],
+      "changes": [
+        "Sの母集団時点：埋込総数／終了後未発見数",
+        "Tの母集団時点：開始前潜在総数／終了後未発見数",
+        "mは埋込中の発見数、nは埋込mを含む発見総数で固定。2個の分数を含む等式4個、ア/イ/ウ/エの誤答役割を保持。"
+      ],
+      "beforeAnswerPremises": [
+        "S: 埋め込まれたエラーのうちテスト終了後に未発見のエラー数",
+        "T: 埋め込まれたエラーを含まないテスト終了後の未発見エラー数",
+        "m: 埋込エラー中の発見数（常に発見数）",
+        "n: 発見総数（常にmを含む）"
+      ],
+      "media": "paragraph stem + four equalities with two stacked fractions each, 2×2 source layout",
+      "diagram": null,
+      "officialAnswerForReference": null,
+      "formulaLayout": {
+        "original": "two rows × two columns, labelsア/イ thenウ/エ",
+        "generated": "each equation retains stacked numerator/denominator fractions; no helper numeric table or new diagram",
+        "leftNumerator": "m",
+        "leftDenominator": "S+m"
+      }
+    },
+    {
+      "source": "2019r01a-fe-am-48",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "テストで使用するスタブ又はドライバの説明のうち，適切なものはどれか。",
+      "choices": [
+        "スタブは，テスト対象モジュールからの戻り値の表示・印刷を行う。",
+        "スタブは，テスト対象モジュールを呼び出すモジュールである。",
+        "ドライバは，テスト対象モジュールから呼び出されるモジュールである。",
+        "ドライバは，引数を渡してテスト対象モジュールを呼び出す。"
+      ],
+      "parameters": {
+        "callerResponsibility": 0,
+        "calleeResponsibility": 0
+      },
+      "factIds": [
+        "48-stub-caller-0",
+        "48-stub-direction",
+        "48-driver-callee-0",
+        "48-driver-call"
+      ],
+      "changes": [
+        "誤アのdriver責務を戻り値の観測／入力供給と結果収集へ変更",
+        "誤ウのstub責務をcalleeという方向／DB応答代行という作用へ変更",
+        "原イと正エは固定。一般の役割を問う元の4説明形式を保持。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": "エ"
+    },
+    {
+      "source": "2019r01a-fe-am-48",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "テストで使用するスタブ又はドライバの説明のうち，適切なものはどれか。",
+      "choices": [
+        "スタブは，テストデータを引数としてテスト対象モジュールに渡し，実行結果を収集する。",
+        "スタブは，テスト対象モジュールを呼び出すモジュールである。",
+        "ドライバは，テスト対象モジュールから呼び出されるモジュールである。",
+        "ドライバは，引数を渡してテスト対象モジュールを呼び出す。"
+      ],
+      "parameters": {
+        "callerResponsibility": 1,
+        "calleeResponsibility": 0
+      },
+      "factIds": [
+        "48-stub-caller-1",
+        "48-stub-direction",
+        "48-driver-callee-0",
+        "48-driver-call"
+      ],
+      "changes": [
+        "誤アのdriver責務を戻り値の観測／入力供給と結果収集へ変更",
+        "誤ウのstub責務をcalleeという方向／DB応答代行という作用へ変更",
+        "原イと正エは固定。一般の役割を問う元の4説明形式を保持。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-48",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "テストで使用するスタブ又はドライバの説明のうち，適切なものはどれか。",
+      "choices": [
+        "スタブは，テスト対象モジュールからの戻り値の表示・印刷を行う。",
+        "スタブは，テスト対象モジュールを呼び出すモジュールである。",
+        "ドライバは，テスト対象モジュールから要求されたデータベース検索に対し，あらかじめ決めた検索結果を返す。",
+        "ドライバは，引数を渡してテスト対象モジュールを呼び出す。"
+      ],
+      "parameters": {
+        "callerResponsibility": 0,
+        "calleeResponsibility": 1
+      },
+      "factIds": [
+        "48-stub-caller-0",
+        "48-stub-direction",
+        "48-driver-callee-1",
+        "48-driver-call"
+      ],
+      "changes": [
+        "誤アのdriver責務を戻り値の観測／入力供給と結果収集へ変更",
+        "誤ウのstub責務をcalleeという方向／DB応答代行という作用へ変更",
+        "原イと正エは固定。一般の役割を問う元の4説明形式を保持。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-48",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "テストで使用するスタブ又はドライバの説明のうち，適切なものはどれか。",
+      "choices": [
+        "スタブは，テストデータを引数としてテスト対象モジュールに渡し，実行結果を収集する。",
+        "スタブは，テスト対象モジュールを呼び出すモジュールである。",
+        "ドライバは，テスト対象モジュールから要求されたデータベース検索に対し，あらかじめ決めた検索結果を返す。",
+        "ドライバは，引数を渡してテスト対象モジュールを呼び出す。"
+      ],
+      "parameters": {
+        "callerResponsibility": 1,
+        "calleeResponsibility": 1
+      },
+      "factIds": [
+        "48-stub-caller-1",
+        "48-stub-direction",
+        "48-driver-callee-1",
+        "48-driver-call"
+      ],
+      "changes": [
+        "誤アのdriver責務を戻り値の観測／入力供給と結果収集へ変更",
+        "誤ウのstub責務をcalleeという方向／DB応答代行という作用へ変更",
+        "原イと正エは固定。一般の役割を問う元の4説明形式を保持。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four paragraph/name choices",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-49",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "単一の入り口をもち，入力項目を用いた複数の判断を含むプログラムのテストケースを設計する。命令網羅と判定条件網羅の関係のうち，適切なものはどれか。",
+      "choices": [
+        "判定条件網羅を満足しても，命令網羅を満足しない場合がある。",
+        "判定条件網羅を満足するならば，命令網羅も満足する。",
+        "命令網羅を満足しなくても，判定条件網羅を満足する場合がある。",
+        "命令網羅を満足するならば，判定条件網羅も満足する。"
+      ],
+      "parameters": {
+        "reverseImplicationMechanism": "one-suite"
+      },
+      "factIds": [
+        "49-strong-not-weak",
+        "49-strong-implies-weak",
+        "49-not-weak-but-strong",
+        "49-weak-implies-strong-0"
+      ],
+      "changes": [
+        "原アと原ウの同値な誤命題を保持",
+        "誤エの逆含意をそのまま主張／同じテストケースの反復で必ず強い網羅へ達すると主張、の実条件差",
+        "判定条件網羅は原用語のdecision coverage。条件網羅やMC/DCへ対象を変更しない。"
+      ],
+      "beforeAnswerPremises": [
+        "単一の入り口",
+        "入力項目に基づく複数判断",
+        "命令網羅と判定条件網羅の関係"
+      ],
+      "media": "paragraph stem + four logical relationship sentences; no source CFG/diagram",
+      "diagram": null,
+      "officialAnswerForReference": "イ"
+    },
+    {
+      "source": "2019r01a-fe-am-49",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "単一の入り口をもち，入力項目を用いた複数の判断を含むプログラムのテストケースを設計する。命令網羅と判定条件網羅の関係のうち，適切なものはどれか。",
+      "choices": [
+        "判定条件網羅を満足しても，命令網羅を満足しない場合がある。",
+        "判定条件網羅を満足するならば，命令網羅も満足する。",
+        "命令網羅を満足しなくても，判定条件網羅を満足する場合がある。",
+        "命令網羅を満足したテストケースを変更せずに繰り返して実行すれば，判定条件網羅も必ず満足する。"
+      ],
+      "parameters": {
+        "reverseImplicationMechanism": "unchanged-case-repetition"
+      },
+      "factIds": [
+        "49-strong-not-weak",
+        "49-strong-implies-weak",
+        "49-not-weak-but-strong",
+        "49-weak-implies-strong-1"
+      ],
+      "changes": [
+        "原アと原ウの同値な誤命題を保持",
+        "誤エの逆含意をそのまま主張／同じテストケースの反復で必ず強い網羅へ達すると主張、の実条件差",
+        "判定条件網羅は原用語のdecision coverage。条件網羅やMC/DCへ対象を変更しない。"
+      ],
+      "beforeAnswerPremises": [
+        "単一の入り口",
+        "入力項目に基づく複数判断",
+        "命令網羅と判定条件網羅の関係"
+      ],
+      "media": "paragraph stem + four logical relationship sentences; no source CFG/diagram",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-50",
+      "input": [
+        0
+      ],
+      "reference": true,
+      "stem": "XP（eXtreme Programming）において，プラクティスとして提唱されているものはどれか。",
+      "choices": [
+        "インスペクション",
+        "構造化設計",
+        "ペアプログラミング",
+        "ユースケースの活用"
+      ],
+      "parameters": {
+        "practice": "ペアプログラミング"
+      },
+      "factIds": [
+        "50-inspection",
+        "50-structured-design",
+        "50-practice-0",
+        "50-usecase"
+      ],
+      "changes": [
+        "正答位置のXP practiceを共同作業／test先行／頻繁な統合検証／外部動作維持の構造改善という別の実技法へ変更",
+        "問いはXPが提唱するpractice名の選択。誤答3位置は形式review/構造化設計/要求記述のまま。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short technique names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": "ウ"
+    },
+    {
+      "source": "2019r01a-fe-am-50",
+      "input": [
+        1
+      ],
+      "reference": false,
+      "stem": "XP（eXtreme Programming）において，プラクティスとして提唱されているものはどれか。",
+      "choices": [
+        "インスペクション",
+        "構造化設計",
+        "テストファースト",
+        "ユースケースの活用"
+      ],
+      "parameters": {
+        "practice": "テストファースト"
+      },
+      "factIds": [
+        "50-inspection",
+        "50-structured-design",
+        "50-practice-1",
+        "50-usecase"
+      ],
+      "changes": [
+        "正答位置のXP practiceを共同作業／test先行／頻繁な統合検証／外部動作維持の構造改善という別の実技法へ変更",
+        "問いはXPが提唱するpractice名の選択。誤答3位置は形式review/構造化設計/要求記述のまま。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short technique names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-50",
+      "input": [
+        2
+      ],
+      "reference": false,
+      "stem": "XP（eXtreme Programming）において，プラクティスとして提唱されているものはどれか。",
+      "choices": [
+        "インスペクション",
+        "構造化設計",
+        "継続的インテグレーション",
+        "ユースケースの活用"
+      ],
+      "parameters": {
+        "practice": "継続的インテグレーション"
+      },
+      "factIds": [
+        "50-inspection",
+        "50-structured-design",
+        "50-practice-2",
+        "50-usecase"
+      ],
+      "changes": [
+        "正答位置のXP practiceを共同作業／test先行／頻繁な統合検証／外部動作維持の構造改善という別の実技法へ変更",
+        "問いはXPが提唱するpractice名の選択。誤答3位置は形式review/構造化設計/要求記述のまま。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short technique names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": null
+    },
+    {
+      "source": "2019r01a-fe-am-50",
+      "input": [
+        3
+      ],
+      "reference": false,
+      "stem": "XP（eXtreme Programming）において，プラクティスとして提唱されているものはどれか。",
+      "choices": [
+        "インスペクション",
+        "構造化設計",
+        "リファクタリング",
+        "ユースケースの活用"
+      ],
+      "parameters": {
+        "practice": "リファクタリング"
+      },
+      "factIds": [
+        "50-inspection",
+        "50-structured-design",
+        "50-practice-3",
+        "50-usecase"
+      ],
+      "changes": [
+        "正答位置のXP practiceを共同作業／test先行／頻繁な統合検証／外部動作維持の構造改善という別の実技法へ変更",
+        "問いはXPが提唱するpractice名の選択。誤答3位置は形式review/構造化設計/要求記述のまま。"
+      ],
+      "beforeAnswerPremises": [],
+      "media": "paragraph stem + four short technique names in two-column source layout",
+      "diagram": null,
+      "officialAnswerForReference": null
+    }
+  ],
+  "facts": {
+    "checkedOn": "2026-10-21",
+    "method": "Manual independently reviewed fact register fixed from primary meanings and original images. No production generator imported; no generated correctAnswer copied. Supplemental documents are fact locators only, never proposed application assets.",
+    "records": {
+      "40-origin-0": {
+        "text": "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の作成者を確認できる。",
+        "kind": "unsupported-origin",
+        "reason": "公開hashの再計算だけから作成者の秘密鍵による署名は作れない。作成者を認証する鍵・署名が与えられていない。",
+        "primaryRefs": [
+          "nist-shs §1",
+          "nist-dss §3,§4"
+        ]
+      },
+      "40-origin-1": {
+        "text": "ファイル A に SHA-256 を適用して算出した値と値 B が等しいことによって，ファイル A が作成者本人によって作成されたことを確認できる。",
+        "kind": "unsupported-origin",
+        "reason": "同じbytesとhashは誰が作ったかを識別しない。基準hashとの一致は作成者本人性の証明にならない。",
+        "primaryRefs": [
+          "nist-shs §1",
+          "nist-dss §3,§4"
+        ]
+      },
+      "40-provider-identity": {
+        "text": "値 B に SHA-256 を適用して値 B からディジタル署名を算出し，そのディジタル署名を検証することによって，ファイル A の提供者がファイル A の作成者であるかどうかを確認できる。",
+        "kind": "unsupported-origin",
+        "reason": "hashをもう一度hashしても署名にはならず、提供者と作成者が同一人物だという根拠は得られない。",
+        "primaryRefs": [
+          "nist-dss §3,§4"
+        ]
+      },
+      "40-integrity": {
+        "text": "ファイル A に SHA-256 を適用して値を算出し，その値と値 B を比較することによって，ファイル A の内容が改ざんされていないかどうかを検証できる。",
+        "kind": "trusted-digest-integrity",
+        "reason": "未改ざん確認済みBと受領Aのdigestを比較する。これは暗号学的な完全性検証であり、衝突が数学的に存在しないことや著作者の確認を保証しない。",
+        "primaryRefs": [
+          "nist-shs §1,§3"
+        ]
+      },
+      "40-recovery-0": {
+        "text": "ファイル A の内容が改ざんされていても，ファイル A に SHA-256 を適用して値を算出し，その値と値 B の差分を確認することによって，ファイル A の内容のうち改ざんされている部分を修復できる。",
+        "kind": "unsupported-repair",
+        "reason": "digestの差分は変更位置や元のbytesを与える誤り訂正符号ではない。",
+        "primaryRefs": [
+          "nist-shs §1,§3"
+        ]
+      },
+      "40-recovery-1": {
+        "text": "ファイル A の内容が改ざんされていても，値 B だけから SHA-256 の計算を逆にたどることによって，元のファイル A の内容を一意に復元できる。",
+        "kind": "unsupported-repair",
+        "reason": "一般のファイル集合から256bitへの多対一写像で、digestだけから元データを一意復元することはできない。既知の小辞書を総当たり可能な場合と区別する。",
+        "primaryRefs": [
+          "nist-shs §1,§3"
+        ]
+      },
+      "41-dns": {
+        "text": "DNSキャッシュポイズニング",
+        "kind": "forged-dns-cache",
+        "reason": "resolverが偽DNS応答由来の対応をcacheに採用する操作。",
+        "primaryRefs": [
+          "rfc5452 §3,§4"
+        ]
+      },
+      "41-seo": {
+        "text": "SEOポイズニング",
+        "kind": "search-ranking",
+        "reason": "検索順位を悪用して悪意あるページへ誘導する操作。",
+        "primaryRefs": [
+          "mitre-seo description"
+        ]
+      },
+      "41-xss": {
+        "text": "クロスサイトスクリプティング",
+        "kind": "browser-injection",
+        "reason": "サイト由来に見えるscriptを被害者browserで実行する注入。",
+        "primaryRefs": [
+          "owasp-xss description"
+        ]
+      },
+      "41-social": {
+        "text": "ソーシャルエンジニアリング",
+        "kind": "human-impersonation",
+        "reason": "管理者等を詐称して人の判断を悪用し情報開示を促す。",
+        "primaryRefs": [
+          "cisa-social p1–2"
+        ]
+      },
+      "43-file-0": {
+        "text": "隔離された仮想環境でファイルを実行して，C&Cサーバへの通信などの振る舞いを監視する。",
+        "kind": "dynamic-file-analysis",
+        "reason": "隔離環境内のfile実行による振舞い観測はsandboxの動的解析。",
+        "primaryRefs": [
+          "nist-malware §3.5.2",
+          "jstqb-2018 §3.1"
+        ]
+      },
+      "43-file-1": {
+        "text": "ファイルを実行せずに，実行形式の命令列や文字列を調べて，そのファイルに含まれる不審な処理を分析する。",
+        "kind": "static-file-analysis",
+        "reason": "実行しない命令/文字列の検査は静的解析。複数機器のlog相関分析とは異なる。",
+        "primaryRefs": [
+          "jstqb-2018 §3.1"
+        ]
+      },
+      "43-log": {
+        "text": "様々な機器から集められたログを統合的に分析し，管理者による分析と対応を支援する。",
+        "kind": "integrated-security-log-analysis",
+        "reason": "複数機器logの収集・統合・相関分析による監視/対応支援がSIEMの中心的な役割。",
+        "primaryRefs": [
+          "nist-log §3.4"
+        ]
+      },
+      "43-control": {
+        "text": "ネットワーク上の様々な通信機器を集中的に制御し，ネットワーク構成やセキュリティ設定などを変更する。",
+        "kind": "central-network-control",
+        "reason": "通信機器に設定や転送制御を配布するnetwork control機構であり、log分析そのものの定義ではない。",
+        "primaryRefs": [
+          "rfc7426 §4.2,§4.3"
+        ]
+      },
+      "43-filter-0": {
+        "text": "パケットのヘッダ情報の検査だけではなく，通信先のアプリケーションプログラムを識別して通信を制御する。",
+        "kind": "application-aware-firewall",
+        "reason": "applicationを識別して通信を許可/遮断する機構はapplication-aware filtering。",
+        "primaryRefs": [
+          "nist-firewall §2.1"
+        ]
+      },
+      "43-filter-1": {
+        "text": "WebアプリケーションへのHTTP要求の内容を検査して，SQLインジェクションなどの攻撃に該当する通信を遮断する。",
+        "kind": "web-application-firewall",
+        "reason": "HTTP要求を検査してWeb攻撃を遮断する機構はWAF。SIEM製品と連携し得るがlog分析機能そのものではない。",
+        "primaryRefs": [
+          "nist-firewall §2.1.9",
+          "owasp-xss prevention"
+        ]
+      },
+      "48-stub-caller-0": {
+        "text": "スタブは，テスト対象モジュールからの戻り値の表示・印刷を行う。",
+        "kind": "caller-result-observation",
+        "reason": "テスト対象から戻る値を受けて表示するのはcaller側のtest harness/driverの責務。stubに補助log出力を実装できるかという問いではない。",
+        "primaryRefs": [
+          "istqb-release-2019 p8 driver",
+          "fowler-double Stubs"
+        ]
+      },
+      "48-stub-caller-1": {
+        "text": "スタブは，テストデータを引数としてテスト対象モジュールに渡し，実行結果を収集する。",
+        "kind": "caller-input-and-result",
+        "reason": "テスト対象を呼ぶための入力供給と実行結果収集というcaller責務で、calleeの代役であるstubの説明ではない。",
+        "primaryRefs": [
+          "istqb-release-2019 p8 driver",
+          "fowler-double Stubs"
+        ]
+      },
+      "48-stub-direction": {
+        "text": "スタブは，テスト対象モジュールを呼び出すモジュールである。",
+        "kind": "caller-direction",
+        "reason": "テスト対象を呼ぶ上位側の代役はdriver。stubは呼ばれたときの応答を供給する。",
+        "primaryRefs": [
+          "istqb-release-2019 p8 driver",
+          "fowler-double Stubs"
+        ]
+      },
+      "48-driver-callee-0": {
+        "text": "ドライバは，テスト対象モジュールから呼び出されるモジュールである。",
+        "kind": "callee-direction",
+        "reason": "テスト対象から呼ばれる側の代役はstub。driverの代表的責務は対象を呼ぶこと。",
+        "primaryRefs": [
+          "istqb-release-2019 p8 driver",
+          "fowler-double Stubs"
+        ]
+      },
+      "48-driver-callee-1": {
+        "text": "ドライバは，テスト対象モジュールから要求されたデータベース検索に対し，あらかじめ決めた検索結果を返す。",
+        "kind": "callee-controlled-response",
+        "reason": "要求された検索に指定済み結果を返す代役はstub型test doubleの責務。実DB全体を実装するfakeとの違いもあり、ここでは固定応答に限定する。",
+        "primaryRefs": [
+          "fowler-double Stubs/Fakes",
+          "istqb-release-2019 p8 driver"
+        ]
+      },
+      "48-driver-call": {
+        "text": "ドライバは，引数を渡してテスト対象モジュールを呼び出す。",
+        "kind": "driver-caller",
+        "reason": "driverが引数を用意してテスト対象を呼び出す。",
+        "primaryRefs": [
+          "istqb-release-2019 p8 driver"
+        ]
+      },
+      "49-strong-not-weak": {
+        "text": "判定条件網羅を満足しても，命令網羅を満足しない場合がある。",
+        "kind": "exists-decision-without-statement",
+        "reason": "判定結果を全て通すtestは実行可能命令を全て通す。この存在命題は成立しない。",
+        "primaryRefs": [
+          "jstqb-2018 §4.3.3",
+          "ipa-fe-syllabus p58 用語対応"
+        ]
+      },
+      "49-strong-implies-weak": {
+        "text": "判定条件網羅を満足するならば，命令網羅も満足する。",
+        "kind": "decision-implies-statement",
+        "reason": "判定条件網羅（decision coverage）から命令網羅への含意は成立する。条件網羅やMC/DCではない。",
+        "primaryRefs": [
+          "jstqb-2018 §4.3.3",
+          "ipa-fe-syllabus p58 用語対応"
+        ]
+      },
+      "49-not-weak-but-strong": {
+        "text": "命令網羅を満足しなくても，判定条件網羅を満足する場合がある。",
+        "kind": "exists-decision-without-statement",
+        "reason": "原アと語順が逆でも同じ「判定網羅かつ命令未網羅」の存在主張。両方とも成立しない。",
+        "primaryRefs": [
+          "jstqb-2018 §4.3.3"
+        ]
+      },
+      "49-weak-implies-strong-0": {
+        "text": "命令網羅を満足するならば，判定条件網羅も満足する。",
+        "kind": "statement-implies-decision",
+        "reason": "elseの無いif等で命令を全て通してもfalseの判定結果を通らない反例がある。",
+        "primaryRefs": [
+          "jstqb-2018 §4.3.3"
+        ]
+      },
+      "49-weak-implies-strong-1": {
+        "text": "命令網羅を満足したテストケースを変更せずに繰り返して実行すれば，判定条件網羅も必ず満足する。",
+        "kind": "statement-repeat-implies-decision",
+        "reason": "同一入力で同一経路を取るstatelessなプログラムを反復しても未実行の判定結果は増えない。反復で全プログラムに必ず達成できるという保証を反例で否定する。非決定的状態なら絶対に経路が変わらないとは言わない。",
+        "primaryRefs": [
+          "jstqb-2018 §4.3.3"
+        ]
+      },
+      "50-practice-0": {
+        "text": "ペアプログラミング",
+        "kind": "xp-practice",
+        "reason": "2人が協働してproduction codeを作る。",
+        "primaryRefs": [
+          "xp-jeffries Core Practices/pair-collaboration"
+        ],
+        "distinctMechanism": "pair-collaboration"
+      },
+      "50-practice-1": {
+        "text": "テストファースト",
+        "kind": "xp-practice",
+        "reason": "まず失敗する自動testを用意し、通る実装を加える。",
+        "primaryRefs": [
+          "xp-jeffries Core Practices/test-before-production"
+        ],
+        "distinctMechanism": "test-before-production"
+      },
+      "50-practice-2": {
+        "text": "継続的インテグレーション",
+        "kind": "xp-practice",
+        "reason": "変更を頻繁に統合し、統合後をtestして問題を早く見つける。",
+        "primaryRefs": [
+          "xp-jeffries Core Practices/frequent-integration"
+        ],
+        "distinctMechanism": "frequent-integration"
+      },
+      "50-practice-3": {
+        "text": "リファクタリング",
+        "kind": "xp-practice",
+        "reason": "外から見える振舞いを保ちつつ内部設計を改善する。",
+        "primaryRefs": [
+          "xp-jeffries Core Practices/behavior-preserving-design-improvement"
+        ],
+        "distinctMechanism": "behavior-preserving-design-improvement"
+      },
+      "50-inspection": {
+        "text": "インスペクション",
+        "kind": "formal-review-technique",
+        "reason": "形式的review技法の名称。review活動をXPで行えないという意味ではなく、問う定型practice名の区別。",
+        "primaryRefs": [
+          "jstqb-2018 §3.2.3",
+          "xp-jeffries Core Practices"
+        ]
+      },
+      "50-structured-design": {
+        "text": "構造化設計",
+        "kind": "structured-design-method",
+        "reason": "構造化した機能分割/設計の技法。XPのSimple DesignやDesign Improvementというpractice名と同一ではない。",
+        "primaryRefs": [
+          "xp-jeffries Simple Design/Design Improvement",
+          "ipa-fe-syllabus システム開発技術"
+        ]
+      },
+      "50-usecase": {
+        "text": "ユースケースの活用",
+        "kind": "requirements-description",
+        "reason": "利用者とsystemの相互作用を表す要求記述手法。XPのuser story/customer testと同一のpractice名ではないが併用を禁止しない。",
+        "primaryRefs": [
+          "jstqb-2018 §4.2.5",
+          "xp-jeffries Planning Game/Customer Tests"
+        ]
+      }
+    },
+    "independentModels": {
+      "40": "real SHA-256 recomputation plus equal-bytes/digest with two different creator roles; finite truncated toy hash demonstrates information-loss only, not a practical SHA-256 collision claim",
+      "42": "zone pairs from visible choices; direct FW boundary possibilities (not transitive packet routing) + public service feasibility + existence of FW separation, never adds port ACL. DMZ data compromise is not assumed automatic.",
+      "47": "independent initial seeded/native individuals + common detection fraction; substitute S/T time definitions, expand denominator-cleared polynomial identities; separately enumerate zero/full/interior detection and undefined denominators/accidental equalities",
+      "49": "single-entry forward CFG with two decisions, all accessible nodes and all finite suites; decision outcomes vs executable statement nodes; same-case repeated paths do not add coverage in deterministic counterexamples"
+    },
+    "limits": [
+      "NIST SP800-92 is cited only for log/SIEM roles. Its p3-4 informally calls a message digest a digital signature; that phrasing is not adopted for40, where FIPS180/186 distinction is used.",
+      "SIEM and security appliance product bundles can include/coordinate sandbox/firewall/network actions. We compare the stated primary mechanisms, not claim feature sets are disjoint.",
+      "41 names a direct technical mechanism in its scenario; SEO can participate in a broader social-engineering campaign, and XSS may be delivered by social engineering. No blanket disjointness claim.",
+      "47 error-seeding is a statistical estimation model; equal discoverability and non-interference are assumptions, not guarantees of real error populations. No artificial p=0/p=1 exclusion is added to pre-answer text.",
+      "48 caller/callee are test-support responsibilities, not prohibition of incidental logging, callbacks, or multifunction harness code.",
+      "49 finite CFG enumeration is independent regression evidence and gives counterexamples; general coverage implication is also supported by primary syllabus, not claimed proved for arbitrary machines by the finite enumeration.",
+      "50 practices are different engineering actions, not four alternate spellings of one term. Other methods can coexist with XP; absence from the canonical practice list does not prohibit use."
+    ]
+  },
+  "independentResults": {
+    "status": "source_only_independent_design_checks_pass_not_runtime_acceptance",
+    "sources": 8,
+    "conditions": 30,
+    "fourChoiceTruthJudgments": 120,
+    "originalOfficialKeyMatches": 8,
+    "results": [
+      {
+        "source": "2019r01a-fe-am-40",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "公開hashの再計算だけから作成者の秘密鍵による署名は作れない。作成者を認証する鍵・署名が与えられていない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "hashをもう一度hashしても署名にはならず、提供者と作成者が同一人物だという根拠は得られない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "未改ざん確認済みBと受領Aのdigestを比較する。これは暗号学的な完全性検証であり、衝突が数学的に存在しないことや著作者の確認を保証しない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "digestの差分は変更位置や元のbytesを与える誤り訂正符号ではない。"
+          }
+        ],
+        "bodySha256": "552d562f6810bd59efa3ce4a6da23adfe91dacb2e2357076de740448fd0678ae",
+        "answerMeaningSha256": "a78c9db9d8591600da0b3afdb11e4ecab1a22d3b1556cdace6ee6f2487a5aa0c"
+      },
+      {
+        "source": "2019r01a-fe-am-40",
+        "input": [
+          1
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "同じbytesとhashは誰が作ったかを識別しない。基準hashとの一致は作成者本人性の証明にならない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "hashをもう一度hashしても署名にはならず、提供者と作成者が同一人物だという根拠は得られない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "未改ざん確認済みBと受領Aのdigestを比較する。これは暗号学的な完全性検証であり、衝突が数学的に存在しないことや著作者の確認を保証しない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "digestの差分は変更位置や元のbytesを与える誤り訂正符号ではない。"
+          }
+        ],
+        "bodySha256": "94d129256e438f37c31ed241c04adf26a20deab2b6bffc724ec852af5d65a10a",
+        "answerMeaningSha256": "a78c9db9d8591600da0b3afdb11e4ecab1a22d3b1556cdace6ee6f2487a5aa0c"
+      },
+      {
+        "source": "2019r01a-fe-am-40",
+        "input": [
+          2
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "公開hashの再計算だけから作成者の秘密鍵による署名は作れない。作成者を認証する鍵・署名が与えられていない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "hashをもう一度hashしても署名にはならず、提供者と作成者が同一人物だという根拠は得られない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "未改ざん確認済みBと受領Aのdigestを比較する。これは暗号学的な完全性検証であり、衝突が数学的に存在しないことや著作者の確認を保証しない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "一般のファイル集合から256bitへの多対一写像で、digestだけから元データを一意復元することはできない。既知の小辞書を総当たり可能な場合と区別する。"
+          }
+        ],
+        "bodySha256": "45477a66a9450049e1fbdef271d01c6229c516b3c2d91130dc3c3b5d05a1cda9",
+        "answerMeaningSha256": "a78c9db9d8591600da0b3afdb11e4ecab1a22d3b1556cdace6ee6f2487a5aa0c"
+      },
+      {
+        "source": "2019r01a-fe-am-40",
+        "input": [
+          3
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "同じbytesとhashは誰が作ったかを識別しない。基準hashとの一致は作成者本人性の証明にならない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "hashをもう一度hashしても署名にはならず、提供者と作成者が同一人物だという根拠は得られない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "未改ざん確認済みBと受領Aのdigestを比較する。これは暗号学的な完全性検証であり、衝突が数学的に存在しないことや著作者の確認を保証しない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "一般のファイル集合から256bitへの多対一写像で、digestだけから元データを一意復元することはできない。既知の小辞書を総当たり可能な場合と区別する。"
+          }
+        ],
+        "bodySha256": "a635a5a9cb90f3b951c74a37d6daf2757ea373fdd7f3bb1d8afb04cc21a60904",
+        "answerMeaningSha256": "a78c9db9d8591600da0b3afdb11e4ecab1a22d3b1556cdace6ee6f2487a5aa0c"
+      },
+      {
+        "source": "2019r01a-fe-am-41",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "resolverが偽DNS応答由来の対応をcacheに採用する操作。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "検索順位を悪用して悪意あるページへ誘導する操作。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "サイト由来に見えるscriptを被害者browserで実行する注入。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "管理者等を詐称して人の判断を悪用し情報開示を促す。"
+          }
+        ],
+        "bodySha256": "09604ccf23b291d20e655609a27fefad33462aa2c3195de0614bdb44e775e2cb",
+        "answerMeaningSha256": "c067644a419ff82a6912109e06f7b04fef9a405d9f161bcbd066cd226f31a128"
+      },
+      {
+        "source": "2019r01a-fe-am-41",
+        "input": [
+          1
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "answer": "ア",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": true,
+            "reason": "resolverが偽DNS応答由来の対応をcacheに採用する操作。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "検索順位を悪用して悪意あるページへ誘導する操作。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "サイト由来に見えるscriptを被害者browserで実行する注入。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "管理者等を詐称して人の判断を悪用し情報開示を促す。"
+          }
+        ],
+        "bodySha256": "5c459ae4c76bc8c609913aa49c667ef9107b69f323859f40e172ed4febc821cf",
+        "answerMeaningSha256": "7615dbf32d28032b5c3d0fa45e7ff82c3e8101e34e1129eb1fad0efed62e9fff"
+      },
+      {
+        "source": "2019r01a-fe-am-41",
+        "input": [
+          2
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "resolverが偽DNS応答由来の対応をcacheに採用する操作。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "検索順位を悪用して悪意あるページへ誘導する操作。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "サイト由来に見えるscriptを被害者browserで実行する注入。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "管理者等を詐称して人の判断を悪用し情報開示を促す。"
+          }
+        ],
+        "bodySha256": "ba1bef109f391457409f5eadd2e737ed7725a11fd120714969f9508bb25d2c85",
+        "answerMeaningSha256": "649c3b3082205c3bd49627d90ee5710823b07340bdbc6022272ec68f51d66e16"
+      },
+      {
+        "source": "2019r01a-fe-am-41",
+        "input": [
+          3
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "answer": "エ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "resolverが偽DNS応答由来の対応をcacheに採用する操作。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "検索順位を悪用して悪意あるページへ誘導する操作。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "サイト由来に見えるscriptを被害者browserで実行する注入。"
+          },
+          {
+            "label": "エ",
+            "true": true,
+            "reason": "管理者等を詐称して人の判断を悪用し情報開示を促す。"
+          }
+        ],
+        "bodySha256": "418ebe508548075bc03f4a25f6296d09eae0fd4f587b717e4dfd4cc5da2314dd",
+        "answerMeaningSha256": "395b469c75cd2a2b7df3167c20ec700246dff871f68ffaafc2c53fa7655c18a2"
+      },
+      {
+        "source": "2019r01a-fe-am-42",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "両方をDMZに共置すると公開Webと重要DBの間にfirewallの区画境界を置けない。直ちに侵入されると断定せず、内部へDBを分離する原ウと比較する。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "外部–内部の直接通信は禁止なのでInternetからWebへの公開経路を満たさない。原構成にないDMZproxyを追加しない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "公開WebをDMZ、重要DBを内部へ分離する。区画間で限定されたprotocolを使い、外部–内部の直接通信禁止と両server間のfirewall境界を保てる。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "Webがfirewallの外側、DBが公開側DMZとなり、原ウより保護境界を使った分離が弱い。DMZは全port許可又は必ず侵入されるとは主張しない。"
+          }
+        ],
+        "bodySha256": "9d72987334c500dc15a25e0fb30024980929654265df9acfc73edb97d2e7ed3a",
+        "answerMeaningSha256": "9369de6772a7434027e558d69179066ba0f62c6c5734f634f68714bf1ad782c0"
+      },
+      {
+        "source": "2019r01a-fe-am-42",
+        "input": [
+          1
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "両方をfirewallの外側へ置くので、このfirewallによる公開Web入口や重要DBの保護を受けられない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "外部–内部の直接通信は禁止なのでInternetからWebへの公開経路を満たさない。原構成にないDMZproxyを追加しない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "公開WebをDMZ、重要DBを内部へ分離する。区画間で限定されたprotocolを使い、外部–内部の直接通信禁止と両server間のfirewall境界を保てる。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "Webがfirewallの外側、DBが公開側DMZとなり、原ウより保護境界を使った分離が弱い。DMZは全port許可又は必ず侵入されるとは主張しない。"
+          }
+        ],
+        "bodySha256": "53347119d6ddf2ae0a5fa2cd91cd49c5816e20f87c729b3105bbf7359c0f9cd4",
+        "answerMeaningSha256": "9369de6772a7434027e558d69179066ba0f62c6c5734f634f68714bf1ad782c0"
+      },
+      {
+        "source": "2019r01a-fe-am-42",
+        "input": [
+          2
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "両方をDMZに共置すると公開Webと重要DBの間にfirewallの区画境界を置けない。直ちに侵入されると断定せず、内部へDBを分離する原ウと比較する。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "外部–内部の直接通信は禁止なのでInternetからWebへの公開経路を満たさない。原構成にないDMZproxyを追加しない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "公開WebをDMZ、重要DBを内部へ分離する。区画間で限定されたprotocolを使い、外部–内部の直接通信禁止と両server間のfirewall境界を保てる。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "外部のWebと内部のDBとの直接通信は禁止されるので、WebがDBのfrontendとして動く条件を満たさない。未知のproxyや迂回路を追加しない。"
+          }
+        ],
+        "bodySha256": "6a3924cbdc9c57bb4135382d64a8d833f2a7a516c38c65c6374d8d8776bd9c7a",
+        "answerMeaningSha256": "9369de6772a7434027e558d69179066ba0f62c6c5734f634f68714bf1ad782c0"
+      },
+      {
+        "source": "2019r01a-fe-am-42",
+        "input": [
+          3
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "両方をfirewallの外側へ置くので、このfirewallによる公開Web入口や重要DBの保護を受けられない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "外部–内部の直接通信は禁止なのでInternetからWebへの公開経路を満たさない。原構成にないDMZproxyを追加しない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "公開WebをDMZ、重要DBを内部へ分離する。区画間で限定されたprotocolを使い、外部–内部の直接通信禁止と両server間のfirewall境界を保てる。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "外部のWebと内部のDBとの直接通信は禁止されるので、WebがDBのfrontendとして動く条件を満たさない。未知のproxyや迂回路を追加しない。"
+          }
+        ],
+        "bodySha256": "da41dfcc1e3fddb40c02d00e842a9e86c544e8d8f59ae5051606e4de8627d93e",
+        "answerMeaningSha256": "9369de6772a7434027e558d69179066ba0f62c6c5734f634f68714bf1ad782c0"
+      },
+      {
+        "source": "2019r01a-fe-am-43",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "隔離環境内のfile実行による振舞い観測はsandboxの動的解析。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "複数機器logの収集・統合・相関分析による監視/対応支援がSIEMの中心的な役割。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "通信機器に設定や転送制御を配布するnetwork control機構であり、log分析そのものの定義ではない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "applicationを識別して通信を許可/遮断する機構はapplication-aware filtering。"
+          }
+        ],
+        "bodySha256": "0c4495e768940d0e08ca9c6b1141a6972ea3fb9c8d8069be6067f6bf33b473e8",
+        "answerMeaningSha256": "c7371623ef3a5126b44a4b5498a8a111794a8175215afc2e967be89dc5793e58"
+      },
+      {
+        "source": "2019r01a-fe-am-43",
+        "input": [
+          1
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "実行しない命令/文字列の検査は静的解析。複数機器のlog相関分析とは異なる。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "複数機器logの収集・統合・相関分析による監視/対応支援がSIEMの中心的な役割。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "通信機器に設定や転送制御を配布するnetwork control機構であり、log分析そのものの定義ではない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "applicationを識別して通信を許可/遮断する機構はapplication-aware filtering。"
+          }
+        ],
+        "bodySha256": "8b74cc9e84c65e602e157a9cf6eb13e9797f0ad1d166e2e8ef442a35c68c922c",
+        "answerMeaningSha256": "c7371623ef3a5126b44a4b5498a8a111794a8175215afc2e967be89dc5793e58"
+      },
+      {
+        "source": "2019r01a-fe-am-43",
+        "input": [
+          2
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "隔離環境内のfile実行による振舞い観測はsandboxの動的解析。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "複数機器logの収集・統合・相関分析による監視/対応支援がSIEMの中心的な役割。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "通信機器に設定や転送制御を配布するnetwork control機構であり、log分析そのものの定義ではない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "HTTP要求を検査してWeb攻撃を遮断する機構はWAF。SIEM製品と連携し得るがlog分析機能そのものではない。"
+          }
+        ],
+        "bodySha256": "140997907bb7764cce8ad6273f390e4dbdef8cdebb441f8bc4c00ae03e36e6b8",
+        "answerMeaningSha256": "c7371623ef3a5126b44a4b5498a8a111794a8175215afc2e967be89dc5793e58"
+      },
+      {
+        "source": "2019r01a-fe-am-43",
+        "input": [
+          3
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "実行しない命令/文字列の検査は静的解析。複数機器のlog相関分析とは異なる。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "複数機器logの収集・統合・相関分析による監視/対応支援がSIEMの中心的な役割。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "通信機器に設定や転送制御を配布するnetwork control機構であり、log分析そのものの定義ではない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "HTTP要求を検査してWeb攻撃を遮断する機構はWAF。SIEM製品と連携し得るがlog分析機能そのものではない。"
+          }
+        ],
+        "bodySha256": "276c5c1ecb5fec0b9e9cc5c6faea14406f03b01fc3349c100184bccfd9cc3205",
+        "answerMeaningSha256": "c7371623ef3a5126b44a4b5498a8a111794a8175215afc2e967be89dc5793e58"
+      },
+      {
+        "source": "2019r01a-fe-am-47",
+        "input": [
+          0
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "answer": "ア",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": true,
+            "reason": "母集団の定義時点から元総数を回復し、共通発見率を一致させる。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "元エラー側の発見割合を逆数にしている。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "発見総数nには埋込発見mが含まれるのに元エラーだけの発見と混同している。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "埋込分を差し引かず割合の逆数も用いている。"
+          }
+        ],
+        "bodySha256": "958128af8d648aca9634f50ad8ba2ec67ab801b44c00a5160729f7e273252d66",
+        "answerMeaningSha256": "6a0a5258fd2907df3b9c0dfd2c0353e536f1287f3837a43b958e985ea8520ffd"
+      },
+      {
+        "source": "2019r01a-fe-am-47",
+        "input": [
+          1
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "answer": "ア",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": true,
+            "reason": "母集団の定義時点から元総数を回復し、共通発見率を一致させる。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "元エラー側の発見割合を逆数にしている。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "発見総数nには埋込発見mが含まれるのに元エラーだけの発見と混同している。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "埋込分を差し引かず割合の逆数も用いている。"
+          }
+        ],
+        "bodySha256": "64d432a57dd0605e4e441addce97dac37eb5ac6585c897d36f2c97c852440c6f",
+        "answerMeaningSha256": "efe7f293612714827743e8db5333fc23c09a8ecd227aeb8424c41cf4cca72e46"
+      },
+      {
+        "source": "2019r01a-fe-am-47",
+        "input": [
+          2
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "answer": "ア",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": true,
+            "reason": "母集団の定義時点から元総数を回復し、共通発見率を一致させる。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "元エラー側の発見割合を逆数にしている。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "発見総数nには埋込発見mが含まれるのに元エラーだけの発見と混同している。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "埋込分を差し引かず割合の逆数も用いている。"
+          }
+        ],
+        "bodySha256": "0092c356ce9ed8772571c90be8edfabe2662bedb2665633468bb85a0658003ef",
+        "answerMeaningSha256": "3412ca43fce4722bf4004a0b626e4f6cf4c599125a8416197102446f649c8022"
+      },
+      {
+        "source": "2019r01a-fe-am-47",
+        "input": [
+          3
+        ],
+        "truth": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "answer": "ア",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": true,
+            "reason": "母集団の定義時点から元総数を回復し、共通発見率を一致させる。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "元エラー側の発見割合を逆数にしている。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "発見総数nには埋込発見mが含まれるのに元エラーだけの発見と混同している。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "埋込分を差し引かず割合の逆数も用いている。"
+          }
+        ],
+        "bodySha256": "4b0c72fbf127e084c706b25847ae617a53a45a687a28b559e40381fefcdb86ad",
+        "answerMeaningSha256": "eb41db3c5f38a3d30411836f98ed09fe5cbb567ee9dc78d82d8b104bca8a0dcb"
+      },
+      {
+        "source": "2019r01a-fe-am-48",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "answer": "エ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "テスト対象から戻る値を受けて表示するのはcaller側のtest harness/driverの責務。stubに補助log出力を実装できるかという問いではない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "テスト対象を呼ぶ上位側の代役はdriver。stubは呼ばれたときの応答を供給する。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "テスト対象から呼ばれる側の代役はstub。driverの代表的責務は対象を呼ぶこと。"
+          },
+          {
+            "label": "エ",
+            "true": true,
+            "reason": "driverが引数を用意してテスト対象を呼び出す。"
+          }
+        ],
+        "bodySha256": "8744fa8a9f309c0d2035a1862be12fa4a93a64cce6a61f6f9ec9ae18fec74ac8",
+        "answerMeaningSha256": "f745eaadc14b17072ad11cd4439de45ef37775f590b21be186c6f8952a840c81"
+      },
+      {
+        "source": "2019r01a-fe-am-48",
+        "input": [
+          1
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "answer": "エ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "テスト対象を呼ぶための入力供給と実行結果収集というcaller責務で、calleeの代役であるstubの説明ではない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "テスト対象を呼ぶ上位側の代役はdriver。stubは呼ばれたときの応答を供給する。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "テスト対象から呼ばれる側の代役はstub。driverの代表的責務は対象を呼ぶこと。"
+          },
+          {
+            "label": "エ",
+            "true": true,
+            "reason": "driverが引数を用意してテスト対象を呼び出す。"
+          }
+        ],
+        "bodySha256": "bfee3c3ecc47f61b99955cfaf3dfc2067977a65bca40f1f3c05f2abea4888988",
+        "answerMeaningSha256": "f745eaadc14b17072ad11cd4439de45ef37775f590b21be186c6f8952a840c81"
+      },
+      {
+        "source": "2019r01a-fe-am-48",
+        "input": [
+          2
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "answer": "エ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "テスト対象から戻る値を受けて表示するのはcaller側のtest harness/driverの責務。stubに補助log出力を実装できるかという問いではない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "テスト対象を呼ぶ上位側の代役はdriver。stubは呼ばれたときの応答を供給する。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "要求された検索に指定済み結果を返す代役はstub型test doubleの責務。実DB全体を実装するfakeとの違いもあり、ここでは固定応答に限定する。"
+          },
+          {
+            "label": "エ",
+            "true": true,
+            "reason": "driverが引数を用意してテスト対象を呼び出す。"
+          }
+        ],
+        "bodySha256": "e57b3a6a75236824d138db4bea1e3f56bdd767df6920630fae5d1cfd142b14f8",
+        "answerMeaningSha256": "f745eaadc14b17072ad11cd4439de45ef37775f590b21be186c6f8952a840c81"
+      },
+      {
+        "source": "2019r01a-fe-am-48",
+        "input": [
+          3
+        ],
+        "truth": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "answer": "エ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "テスト対象を呼ぶための入力供給と実行結果収集というcaller責務で、calleeの代役であるstubの説明ではない。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "テスト対象を呼ぶ上位側の代役はdriver。stubは呼ばれたときの応答を供給する。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "要求された検索に指定済み結果を返す代役はstub型test doubleの責務。実DB全体を実装するfakeとの違いもあり、ここでは固定応答に限定する。"
+          },
+          {
+            "label": "エ",
+            "true": true,
+            "reason": "driverが引数を用意してテスト対象を呼び出す。"
+          }
+        ],
+        "bodySha256": "4c5f4f785da00b1151a8a2feef6e3ed7d277385f750dc800970db26b61b8e6c0",
+        "answerMeaningSha256": "f745eaadc14b17072ad11cd4439de45ef37775f590b21be186c6f8952a840c81"
+      },
+      {
+        "source": "2019r01a-fe-am-49",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "判定結果を全て通すtestは実行可能命令を全て通す。この存在命題は成立しない。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "判定条件網羅（decision coverage）から命令網羅への含意は成立する。条件網羅やMC/DCではない。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "原アと語順が逆でも同じ「判定網羅かつ命令未網羅」の存在主張。両方とも成立しない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "elseの無いif等で命令を全て通してもfalseの判定結果を通らない反例がある。"
+          }
+        ],
+        "bodySha256": "1e6a8ad4d699c62eae4f687e6ecfe6d4cc98af2c06e6d5ff1f47df8d2a4ce3a1",
+        "answerMeaningSha256": "58432833506c4b280a676b0210883ef8933a37744ee16c3fca55f15929612bdb"
+      },
+      {
+        "source": "2019r01a-fe-am-49",
+        "input": [
+          1
+        ],
+        "truth": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "answer": "イ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "判定結果を全て通すtestは実行可能命令を全て通す。この存在命題は成立しない。"
+          },
+          {
+            "label": "イ",
+            "true": true,
+            "reason": "判定条件網羅（decision coverage）から命令網羅への含意は成立する。条件網羅やMC/DCではない。"
+          },
+          {
+            "label": "ウ",
+            "true": false,
+            "reason": "原アと語順が逆でも同じ「判定網羅かつ命令未網羅」の存在主張。両方とも成立しない。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "同一入力で同一経路を取るstatelessなプログラムを反復しても未実行の判定結果は増えない。反復で全プログラムに必ず達成できるという保証を反例で否定する。非決定的状態なら絶対に経路が変わらないとは言わない。"
+          }
+        ],
+        "bodySha256": "0629804b75196ba23fa01516f4a733299cc4fbf21168bc5447efc7a77f8fdd0e",
+        "answerMeaningSha256": "58432833506c4b280a676b0210883ef8933a37744ee16c3fca55f15929612bdb"
+      },
+      {
+        "source": "2019r01a-fe-am-50",
+        "input": [
+          0
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "形式的review技法の名称。review活動をXPで行えないという意味ではなく、問う定型practice名の区別。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "構造化した機能分割/設計の技法。XPのSimple DesignやDesign Improvementというpractice名と同一ではない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "2人が協働してproduction codeを作る。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "利用者とsystemの相互作用を表す要求記述手法。XPのuser story/customer testと同一のpractice名ではないが併用を禁止しない。"
+          }
+        ],
+        "bodySha256": "19358467e1ef64338ac8c10ff0725ca44405320260567383942fbc6a9bcfd0ef",
+        "answerMeaningSha256": "b9c3e5c472f4ff3b49c02662959cea668b9fbfd2f6511e90b92ea2129cef458d"
+      },
+      {
+        "source": "2019r01a-fe-am-50",
+        "input": [
+          1
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "形式的review技法の名称。review活動をXPで行えないという意味ではなく、問う定型practice名の区別。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "構造化した機能分割/設計の技法。XPのSimple DesignやDesign Improvementというpractice名と同一ではない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "まず失敗する自動testを用意し、通る実装を加える。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "利用者とsystemの相互作用を表す要求記述手法。XPのuser story/customer testと同一のpractice名ではないが併用を禁止しない。"
+          }
+        ],
+        "bodySha256": "015cba1c8b3927ffa337de29ce39b31dd2bea9df834d4e69e9a8256c4055a43f",
+        "answerMeaningSha256": "59095d5a21736d8d0453c0ebd11a26e31f8305938b3b035c2a0a67d498bcb32c"
+      },
+      {
+        "source": "2019r01a-fe-am-50",
+        "input": [
+          2
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "形式的review技法の名称。review活動をXPで行えないという意味ではなく、問う定型practice名の区別。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "構造化した機能分割/設計の技法。XPのSimple DesignやDesign Improvementというpractice名と同一ではない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "変更を頻繁に統合し、統合後をtestして問題を早く見つける。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "利用者とsystemの相互作用を表す要求記述手法。XPのuser story/customer testと同一のpractice名ではないが併用を禁止しない。"
+          }
+        ],
+        "bodySha256": "096dabc09bc79f5657f678919cdb098519d0e2519e6f313cefecb76bc22d914b",
+        "answerMeaningSha256": "8fab980db0c14bd8cc42a2f1b13ca848f663c42eafe54ae536c33ac39134386c"
+      },
+      {
+        "source": "2019r01a-fe-am-50",
+        "input": [
+          3
+        ],
+        "truth": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "answer": "ウ",
+        "choiceReasons": [
+          {
+            "label": "ア",
+            "true": false,
+            "reason": "形式的review技法の名称。review活動をXPで行えないという意味ではなく、問う定型practice名の区別。"
+          },
+          {
+            "label": "イ",
+            "true": false,
+            "reason": "構造化した機能分割/設計の技法。XPのSimple DesignやDesign Improvementというpractice名と同一ではない。"
+          },
+          {
+            "label": "ウ",
+            "true": true,
+            "reason": "外から見える振舞いを保ちつつ内部設計を改善する。"
+          },
+          {
+            "label": "エ",
+            "true": false,
+            "reason": "利用者とsystemの相互作用を表す要求記述手法。XPのuser story/customer testと同一のpractice名ではないが併用を禁止しない。"
+          }
+        ],
+        "bodySha256": "0fe539ab3d00702c1745ed6d13a8d62f186f2c5d9ae76b0c4d09639ac0c41108",
+        "answerMeaningSha256": "16c4cdd99db9a66780ef24ce2bd3171ba9fc9097cc02ca4f980551424cf97aed"
+      }
+    ],
+    "formula47": [
+      {
+        "input": 0,
+        "denominatorClearedPolynomial": [
+          [],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                1
+              ],
+              "coefficient": -1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                2
+              ],
+              "coefficient": 1
+            }
+          ]
+        ],
+        "identities": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "initialPopulations": "seed/native1..24; discovery count0..seed; native found count exactly proportional integer",
+        "individualCases": 1912,
+        "edgeCases": {
+          "noDiscovery": 576,
+          "allDiscovery": 576,
+          "interior": 760
+        },
+        "byChoice": [
+          {
+            "holds": 1912,
+            "fails": 0,
+            "undefined": 0,
+            "counterexamples": [],
+            "accidentalEqualities": []
+          },
+          {
+            "holds": 576,
+            "fails": 760,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 2,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 2,
+                  "T": 4
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 2,
+                  "T": 6
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ]
+          },
+          {
+            "holds": 576,
+            "fails": 1336,
+            "undefined": 0,
+            "counterexamples": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ]
+          },
+          {
+            "holds": 6,
+            "fails": 1330,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 6,
+                "initialNative": 2,
+                "foundSeed": 3,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 3,
+                  "n": 4,
+                  "S": 6,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 12,
+                "initialNative": 4,
+                "foundSeed": 6,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 6,
+                  "n": 8,
+                  "S": 12,
+                  "T": 4
+                }
+              },
+              {
+                "initialSeed": 15,
+                "initialNative": 12,
+                "foundSeed": 10,
+                "foundNative": 8,
+                "visibleSymbols": {
+                  "m": 10,
+                  "n": 18,
+                  "S": 15,
+                  "T": 12
+                }
+              }
+            ]
+          }
+        ],
+        "limit": "General identities, not uniqueness at every numeric sample. Undefined denominators and accidental equalities are recorded, not hidden exclusions in question text."
+      },
+      {
+        "input": 1,
+        "denominatorClearedPolynomial": [
+          [],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                1
+              ],
+              "coefficient": -1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                2
+              ],
+              "coefficient": 1
+            }
+          ]
+        ],
+        "identities": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "initialPopulations": "seed/native1..24; discovery count0..seed; native found count exactly proportional integer",
+        "individualCases": 1912,
+        "edgeCases": {
+          "noDiscovery": 576,
+          "allDiscovery": 576,
+          "interior": 760
+        },
+        "byChoice": [
+          {
+            "holds": 1912,
+            "fails": 0,
+            "undefined": 0,
+            "counterexamples": [],
+            "accidentalEqualities": []
+          },
+          {
+            "holds": 576,
+            "fails": 760,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 4
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 6
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 0,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 0,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 0,
+                  "T": 3
+                }
+              }
+            ]
+          },
+          {
+            "holds": 576,
+            "fails": 1336,
+            "undefined": 0,
+            "counterexamples": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 0,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 0,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 0,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ]
+          },
+          {
+            "holds": 6,
+            "fails": 1330,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 0,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 0,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 0,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 6,
+                "initialNative": 2,
+                "foundSeed": 3,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 3,
+                  "n": 4,
+                  "S": 3,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 12,
+                "initialNative": 4,
+                "foundSeed": 6,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 6,
+                  "n": 8,
+                  "S": 6,
+                  "T": 4
+                }
+              },
+              {
+                "initialSeed": 15,
+                "initialNative": 12,
+                "foundSeed": 10,
+                "foundNative": 8,
+                "visibleSymbols": {
+                  "m": 10,
+                  "n": 18,
+                  "S": 5,
+                  "T": 12
+                }
+              }
+            ]
+          }
+        ],
+        "limit": "General identities, not uniqueness at every numeric sample. Undefined denominators and accidental equalities are recorded, not hidden exclusions in question text."
+      },
+      {
+        "input": 2,
+        "denominatorClearedPolynomial": [
+          [],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                1
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                2
+              ],
+              "coefficient": 1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                1
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                2
+              ],
+              "coefficient": 1
+            }
+          ]
+        ],
+        "identities": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "initialPopulations": "seed/native1..24; discovery count0..seed; native found count exactly proportional integer",
+        "individualCases": 1912,
+        "edgeCases": {
+          "noDiscovery": 576,
+          "allDiscovery": 576,
+          "interior": 760
+        },
+        "byChoice": [
+          {
+            "holds": 1912,
+            "fails": 0,
+            "undefined": 0,
+            "counterexamples": [],
+            "accidentalEqualities": []
+          },
+          {
+            "holds": 576,
+            "fails": 760,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 2,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 2,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 2,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 0
+                }
+              }
+            ]
+          },
+          {
+            "holds": 1152,
+            "fails": 760,
+            "undefined": 0,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 2,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 2,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 2,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 2
+                }
+              }
+            ]
+          },
+          {
+            "holds": 576,
+            "fails": 760,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 2,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 2,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 2,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 0
+                }
+              }
+            ]
+          }
+        ],
+        "limit": "General identities, not uniqueness at every numeric sample. Undefined denominators and accidental equalities are recorded, not hidden exclusions in question text."
+      },
+      {
+        "input": 3,
+        "denominatorClearedPolynomial": [
+          [],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                1
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                2
+              ],
+              "coefficient": 1
+            }
+          ],
+          [
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                0
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                1,
+                1,
+                2
+              ],
+              "coefficient": 1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                1
+              ],
+              "coefficient": -1
+            },
+            {
+              "powers_s_t_p": [
+                2,
+                0,
+                2
+              ],
+              "coefficient": 1
+            }
+          ]
+        ],
+        "identities": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "initialPopulations": "seed/native1..24; discovery count0..seed; native found count exactly proportional integer",
+        "individualCases": 1912,
+        "edgeCases": {
+          "noDiscovery": 576,
+          "allDiscovery": 576,
+          "interior": 760
+        },
+        "byChoice": [
+          {
+            "holds": 1912,
+            "fails": 0,
+            "undefined": 0,
+            "counterexamples": [],
+            "accidentalEqualities": []
+          },
+          {
+            "holds": 576,
+            "fails": 760,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 0,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 0,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 0,
+                  "T": 0
+                }
+              }
+            ]
+          },
+          {
+            "holds": 1152,
+            "fails": 760,
+            "undefined": 0,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 0,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 0,
+                "foundNative": 0,
+                "visibleSymbols": {
+                  "m": 0,
+                  "n": 0,
+                  "S": 1,
+                  "T": 2
+                }
+              }
+            ]
+          },
+          {
+            "holds": 576,
+            "fails": 760,
+            "undefined": 576,
+            "counterexamples": [
+              {
+                "initialSeed": 2,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 1,
+                  "T": 1
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 4,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 1,
+                  "T": 2
+                }
+              },
+              {
+                "initialSeed": 2,
+                "initialNative": 6,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 1,
+                  "T": 3
+                }
+              }
+            ],
+            "accidentalEqualities": [
+              {
+                "initialSeed": 1,
+                "initialNative": 1,
+                "foundSeed": 1,
+                "foundNative": 1,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 2,
+                  "S": 0,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 2,
+                "foundSeed": 1,
+                "foundNative": 2,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 3,
+                  "S": 0,
+                  "T": 0
+                }
+              },
+              {
+                "initialSeed": 1,
+                "initialNative": 3,
+                "foundSeed": 1,
+                "foundNative": 3,
+                "visibleSymbols": {
+                  "m": 1,
+                  "n": 4,
+                  "S": 0,
+                  "T": 0
+                }
+              }
+            ]
+          }
+        ],
+        "limit": "General identities, not uniqueness at every numeric sample. Undefined denominators and accidental equalities are recorded, not hidden exclusions in question text."
+      }
+    ],
+    "firewall42AllNinePairs": [
+      {
+        "web": "external",
+        "db": "external",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": true,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": false,
+        "dataBehindExplicitExternalInternalDirectDeny": false,
+        "distinctZones": false
+      },
+      {
+        "web": "external",
+        "db": "DMZ",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": true,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": false,
+        "dataBehindExplicitExternalInternalDirectDeny": false,
+        "distinctZones": true
+      },
+      {
+        "web": "external",
+        "db": "internal",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": true,
+        "frontendBackendNotDirectlyProhibited": false,
+        "publicFrontendBehindFW": false,
+        "dataBehindExplicitExternalInternalDirectDeny": true,
+        "distinctZones": true
+      },
+      {
+        "web": "DMZ",
+        "db": "external",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": true,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": true,
+        "dataBehindExplicitExternalInternalDirectDeny": false,
+        "distinctZones": true
+      },
+      {
+        "web": "DMZ",
+        "db": "DMZ",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": true,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": true,
+        "dataBehindExplicitExternalInternalDirectDeny": false,
+        "distinctZones": false
+      },
+      {
+        "web": "DMZ",
+        "db": "internal",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": true,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": true,
+        "dataBehindExplicitExternalInternalDirectDeny": true,
+        "distinctZones": true
+      },
+      {
+        "web": "internal",
+        "db": "external",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": false,
+        "frontendBackendNotDirectlyProhibited": false,
+        "publicFrontendBehindFW": false,
+        "dataBehindExplicitExternalInternalDirectDeny": false,
+        "distinctZones": true
+      },
+      {
+        "web": "internal",
+        "db": "DMZ",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": false,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": false,
+        "dataBehindExplicitExternalInternalDirectDeny": false,
+        "distinctZones": true
+      },
+      {
+        "web": "internal",
+        "db": "internal",
+        "internetCanReachPublicWebWithinSourceBoundaryPossibilities": false,
+        "frontendBackendNotDirectlyProhibited": true,
+        "publicFrontendBehindFW": false,
+        "dataBehindExplicitExternalInternalDirectDeny": true,
+        "distinctZones": false
+      }
+    ],
+    "firewall42Limits": [
+      "boundary means source says certain protocols may be permitted, not all ports are open",
+      "no transitive packet permission through DMZ is inferred",
+      "DB in DMZ is not assumed compromised automatically; the source compares better segregation/protection among the offered placements"
+    ],
+    "coverage49": {
+      "graphs": 37,
+      "allSuites": 368,
+      "strongWithoutWeak": 0,
+      "weakWithoutStrong": 116,
+      "allChoicesTruth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "repeatChecks": 2944,
+      "counterexamples": [
+        {
+          "edges": {
+            "0": [
+              1,
+              1
+            ],
+            "1": [
+              2
+            ],
+            "2": [
+              3,
+              3
+            ],
+            "3": [
+              4
+            ]
+          },
+          "suiteMask": 1,
+          "visited": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "decisionOutcomes": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "afterRepeatedUnchangedCases": "same coverage for all repetitions1..8"
+        },
+        {
+          "edges": {
+            "0": [
+              1,
+              1
+            ],
+            "1": [
+              2
+            ],
+            "2": [
+              3,
+              3
+            ],
+            "3": [
+              4
+            ]
+          },
+          "suiteMask": 2,
+          "visited": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "decisionOutcomes": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "afterRepeatedUnchangedCases": "same coverage for all repetitions1..8"
+        },
+        {
+          "edges": {
+            "0": [
+              1,
+              1
+            ],
+            "1": [
+              2
+            ],
+            "2": [
+              3,
+              3
+            ],
+            "3": [
+              4
+            ]
+          },
+          "suiteMask": 3,
+          "visited": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "decisionOutcomes": [
+            [
+              0,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "afterRepeatedUnchangedCases": "same coverage for all repetitions1..8"
+        }
+      ],
+      "scope": "finite acyclic CFGs with two decisions and all nodes reachable; fixed primary reference supports general coverage relation"
+    },
+    "capacity": [
+      {
+        "source": "2019r01a-fe-am-40",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 1,
+        "mode": "fixed",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-41",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 4,
+        "mode": "variable",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-42",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 1,
+        "mode": "fixed",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-43",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 1,
+        "mode": "fixed",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-47",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 4,
+        "mode": "variable",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-48",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 1,
+        "mode": "fixed",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-49",
+        "rawBodies": 2,
+        "uniqueAnswerMeanings": 1,
+        "mode": "fixed",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          1,
+          1
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      },
+      {
+        "source": "2019r01a-fe-am-50",
+        "rawBodies": 4,
+        "uniqueAnswerMeanings": 4,
+        "mode": "variable",
+        "afterLastInputAndApplicableAnswerExclusion": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "baselineIsNotPermanentlyExcluded": true,
+        "actualRun": "not exercised; series not registered"
+      }
+    ],
+    "sha256RecomputationExamples": [
+      {
+        "originalSha256": "729be57b4df4404baf3b35e0ecbecce49bca700caeb1d91717eb686f13a04549",
+        "changedSha256": "87a5bf1282372412c85febf97ae8ce386cfd27dcf956b0fc5bd0cda757c7af0c"
+      },
+      {
+        "originalSha256": "87a5bf1282372412c85febf97ae8ce386cfd27dcf956b0fc5bd0cda757c7af0c",
+        "changedSha256": "729be57b4df4404baf3b35e0ecbecce49bca700caeb1d91717eb686f13a04549"
+      },
+      {
+        "originalSha256": "542c8491bd0ead547b3ae307a1fcf588128fbc87678778f0abecfbb454c09277",
+        "changedSha256": "5c6f27b874a4445fc9bfea1b6e3c1056aa0c756e08278c4d100930c23e5e09ae"
+      },
+      {
+        "originalSha256": "5c6f27b874a4445fc9bfea1b6e3c1056aa0c756e08278c4d100930c23e5e09ae",
+        "changedSha256": "542c8491bd0ead547b3ae307a1fcf588128fbc87678778f0abecfbb454c09277"
+      },
+      {
+        "originalSha256": "b4ec7c88367a8640e093df8fb639e302810dd689fffadaaa4151f81e67b4b6e4",
+        "changedSha256": "392c0e2946edde79c8ef5c3e5960f8dd788cf4e25b958d43d29514655aa4dc24"
+      },
+      {
+        "originalSha256": "392c0e2946edde79c8ef5c3e5960f8dd788cf4e25b958d43d29514655aa4dc24",
+        "changedSha256": "b4ec7c88367a8640e093df8fb639e302810dd689fffadaaa4151f81e67b4b6e4"
+      },
+      {
+        "originalSha256": "7f9487a4db0eb2f5e39cc42316885d0322ca7787d14f470cd2d5f07cb05371a8",
+        "changedSha256": "603435c3bff04a08d9bedc582e5049c87e8d9d14fd0712ee232016b1e6367834"
+      },
+      {
+        "originalSha256": "603435c3bff04a08d9bedc582e5049c87e8d9d14fd0712ee232016b1e6367834",
+        "changedSha256": "7f9487a4db0eb2f5e39cc42316885d0322ca7787d14f470cd2d5f07cb05371a8"
+      },
+      {
+        "originalSha256": "3979f138243f5c7b3b219fe964b6ce24b03963a22fa3bd3f6c76b8bddd383a43",
+        "changedSha256": "655737847a1af3d7b174f79e38c8c11dfdcdb479109c3f4a4a37b4708be5cf96"
+      },
+      {
+        "originalSha256": "655737847a1af3d7b174f79e38c8c11dfdcdb479109c3f4a4a37b4708be5cf96",
+        "changedSha256": "3979f138243f5c7b3b219fe964b6ce24b03963a22fa3bd3f6c76b8bddd383a43"
+      },
+      {
+        "originalSha256": "1af4f15eaec1182d176757cc1eecedc44243becab1be0fd9e7e9af146466f150",
+        "changedSha256": "d62759edc7718095dfa91463131a740285f14e263ad10b3040f9a201619c1722"
+      },
+      {
+        "originalSha256": "d62759edc7718095dfa91463131a740285f14e263ad10b3040f9a201619c1722",
+        "changedSha256": "1af4f15eaec1182d176757cc1eecedc44243becab1be0fd9e7e9af146466f150"
+      },
+      {
+        "originalSha256": "e725627bb816c0ad0412a19f264aee88002f7ba13722426beec7d8d81c659c63",
+        "changedSha256": "12206358f197321c83e1b608caa84854798e35ba539113a83e96fa9185cfac27"
+      },
+      {
+        "originalSha256": "12206358f197321c83e1b608caa84854798e35ba539113a83e96fa9185cfac27",
+        "changedSha256": "e725627bb816c0ad0412a19f264aee88002f7ba13722426beec7d8d81c659c63"
+      },
+      {
+        "originalSha256": "8ed716f653d979136f6990aec0bc30a334b8c6e5d1e78d4a940ef276b061b4fc",
+        "changedSha256": "572fc1f88e1c1c716e1caadd8c0140d533e4b1ac6be4abb22313c2b478943085"
+      },
+      {
+        "originalSha256": "572fc1f88e1c1c716e1caadd8c0140d533e4b1ac6be4abb22313c2b478943085",
+        "changedSha256": "8ed716f653d979136f6990aec0bc30a334b8c6e5d1e78d4a940ef276b061b4fc"
+      },
+      {
+        "originalSha256": "0a2625d7b9f06113eb31701d2a25ef407d39b8d52e272e83a28bbfafa6b3b1f3",
+        "changedSha256": "6fdcecfebac2cdddceeea9e624c1b10be79d66b008eb6bd6b0b78700dbc1a5a4"
+      },
+      {
+        "originalSha256": "6fdcecfebac2cdddceeea9e624c1b10be79d66b008eb6bd6b0b78700dbc1a5a4",
+        "changedSha256": "0a2625d7b9f06113eb31701d2a25ef407d39b8d52e272e83a28bbfafa6b3b1f3"
+      },
+      {
+        "originalSha256": "fbed03fbfd8ccabd253d351cc4dd8185845b975ebd4b6daaa36fee778be24998",
+        "changedSha256": "023663c0cc96359844e5a3d7bcda5cfa6f6a407b7aad9ec885db4d72c0af821c"
+      },
+      {
+        "originalSha256": "023663c0cc96359844e5a3d7bcda5cfa6f6a407b7aad9ec885db4d72c0af821c",
+        "changedSha256": "fbed03fbfd8ccabd253d351cc4dd8185845b975ebd4b6daaa36fee778be24998"
+      },
+      {
+        "originalSha256": "9e00ea82eff690d015d44c50eaaf91fe24de22d8b1442c3ba7972ec348fe358e",
+        "changedSha256": "b084cf7bba002447a5d45728929fd4fc8f5b70494726e3f0d8cc21638438f9a1"
+      },
+      {
+        "originalSha256": "b084cf7bba002447a5d45728929fd4fc8f5b70494726e3f0d8cc21638438f9a1",
+        "changedSha256": "9e00ea82eff690d015d44c50eaaf91fe24de22d8b1442c3ba7972ec348fe358e"
+      },
+      {
+        "originalSha256": "e2c91b55e6bd4cbe743c369c73e6ba88216761365fbebce4e3e47c70371b9022",
+        "changedSha256": "dd2a9f187111fa548d7b53b2bdddcef97e14e40102cbf08718f3723ffcedcdba"
+      },
+      {
+        "originalSha256": "dd2a9f187111fa548d7b53b2bdddcef97e14e40102cbf08718f3723ffcedcdba",
+        "changedSha256": "e2c91b55e6bd4cbe743c369c73e6ba88216761365fbebce4e3e47c70371b9022"
+      },
+      {
+        "originalSha256": "6e097d2d346894d4da7b7a763c094595b3870aaa17e38b4c32ca9d267c6cd26c",
+        "changedSha256": "ea746f8be1b88a14358917d7d1037f2271f1184d4014e46b64774b4313041175"
+      },
+      {
+        "originalSha256": "ea746f8be1b88a14358917d7d1037f2271f1184d4014e46b64774b4313041175",
+        "changedSha256": "6e097d2d346894d4da7b7a763c094595b3870aaa17e38b4c32ca9d267c6cd26c"
+      },
+      {
+        "originalSha256": "e88027ac906df516ebc5e543ca175f4704adf5b5c17bd625165189be786f9b75",
+        "changedSha256": "07c25d91982f20b30a2f58aa2f5752e20f102ddb8bf64e0e495b9042f5849541"
+      },
+      {
+        "originalSha256": "07c25d91982f20b30a2f58aa2f5752e20f102ddb8bf64e0e495b9042f5849541",
+        "changedSha256": "e88027ac906df516ebc5e543ca175f4704adf5b5c17bd625165189be786f9b75"
+      },
+      {
+        "originalSha256": "fd00d9cff7ff8b5bde85bae5367496924c97407272a0fd60014077b816d8612f",
+        "changedSha256": "f696263fafbe121ea553482362f81fa31da26123a2bafd8757c400b0d9d9a1bd"
+      },
+      {
+        "originalSha256": "f696263fafbe121ea553482362f81fa31da26123a2bafd8757c400b0d9d9a1bd",
+        "changedSha256": "fd00d9cff7ff8b5bde85bae5367496924c97407272a0fd60014077b816d8612f"
+      },
+      {
+        "originalSha256": "7fd35ba291ccf25c81db790f0fc2f64f5077c907a23807b7bde5ee886959a31a",
+        "changedSha256": "b70ac2630a328f3c5608a8c5299f69101b50a61240b0e9f23bf04dbbf8533f5a"
+      },
+      {
+        "originalSha256": "b70ac2630a328f3c5608a8c5299f69101b50a61240b0e9f23bf04dbbf8533f5a",
+        "changedSha256": "7fd35ba291ccf25c81db790f0fc2f64f5077c907a23807b7bde5ee886959a31a"
+      },
+      {
+        "originalSha256": "58540716b576a3d95c2757527428d6c3dd2f16d7fe32e66a5a70cf6cc7eda2fd",
+        "changedSha256": "43f10554929ad68558a8b89a4fffbfcdbb5859e5bf51c892e228b58508e35b14"
+      },
+      {
+        "originalSha256": "43f10554929ad68558a8b89a4fffbfcdbb5859e5bf51c892e228b58508e35b14",
+        "changedSha256": "58540716b576a3d95c2757527428d6c3dd2f16d7fe32e66a5a70cf6cc7eda2fd"
+      },
+      {
+        "originalSha256": "e4f2c5eee2d1a5b7c7a731ec5a57421bbbd0ce16804b842ff9d2723dab6c4d79",
+        "changedSha256": "96741335472cf45d430b878ee95dbe23d0dd93c2a57f5fa400b4988e487b67fd"
+      },
+      {
+        "originalSha256": "96741335472cf45d430b878ee95dbe23d0dd93c2a57f5fa400b4988e487b67fd",
+        "changedSha256": "e4f2c5eee2d1a5b7c7a731ec5a57421bbbd0ce16804b842ff9d2723dab6c4d79"
+      },
+      {
+        "originalSha256": "c59b36542b0b49e522dd6c8c2daa023e1ff27c00f0ed45e4623ddfe8d1429188",
+        "changedSha256": "b332e4c83a0a9d955033c074a92d5c92064dd8bf4a613bbb1e592a1b07b2a4f7"
+      },
+      {
+        "originalSha256": "b332e4c83a0a9d955033c074a92d5c92064dd8bf4a613bbb1e592a1b07b2a4f7",
+        "changedSha256": "c59b36542b0b49e522dd6c8c2daa023e1ff27c00f0ed45e4623ddfe8d1429188"
+      },
+      {
+        "originalSha256": "9b02366e022b3bf8ea90265b4bfe0e4ea0adabb1f58d681c247e577e6c1e3f7e",
+        "changedSha256": "977644df11ed3ece1e54c7583544f419ff770325f9e513d4e504c54b7846f03c"
+      },
+      {
+        "originalSha256": "977644df11ed3ece1e54c7583544f419ff770325f9e513d4e504c54b7846f03c",
+        "changedSha256": "9b02366e022b3bf8ea90265b4bfe0e4ea0adabb1f58d681c247e577e6c1e3f7e"
+      },
+      {
+        "originalSha256": "076063b12bffb2c10a8dffbb859b2b219ec941e04afe7cb7a53d67b232309f2b",
+        "changedSha256": "ac7cc88ecb00f4d44d83dfb0610f68832b6da703c63219c8f4a6b58e2e256d55"
+      },
+      {
+        "originalSha256": "ac7cc88ecb00f4d44d83dfb0610f68832b6da703c63219c8f4a6b58e2e256d55",
+        "changedSha256": "076063b12bffb2c10a8dffbb859b2b219ec941e04afe7cb7a53d67b232309f2b"
+      },
+      {
+        "originalSha256": "de3bf69c98ea834f437461c0f1e4eadcd25078ec2cfa3fc49ae0931c9e65e1b6",
+        "changedSha256": "51ac6e7a1c37cd0fd39ed61be5079b7eb48aea7852bf1e21856426a0c894486d"
+      },
+      {
+        "originalSha256": "51ac6e7a1c37cd0fd39ed61be5079b7eb48aea7852bf1e21856426a0c894486d",
+        "changedSha256": "de3bf69c98ea834f437461c0f1e4eadcd25078ec2cfa3fc49ae0931c9e65e1b6"
+      },
+      {
+        "originalSha256": "697ac4b27e459effea72b4aa8dc13c0b38860313987fab35db770d7812af12f7",
+        "changedSha256": "ae0a12c56ec5aade6a063052859c43c26dec2af67066f29ac0e04bfa078ca6cf"
+      },
+      {
+        "originalSha256": "ae0a12c56ec5aade6a063052859c43c26dec2af67066f29ac0e04bfa078ca6cf",
+        "changedSha256": "697ac4b27e459effea72b4aa8dc13c0b38860313987fab35db770d7812af12f7"
+      },
+      {
+        "originalSha256": "1abc817e3bd03601e0260c7ed837c78e859b9b20a0f1c43d661538ef77e6a9c9",
+        "changedSha256": "9cc321c3cb5ba3a3441d3d5cf36dcade9574571808a6d99ee67b3cf8e05db335"
+      },
+      {
+        "originalSha256": "9cc321c3cb5ba3a3441d3d5cf36dcade9574571808a6d99ee67b3cf8e05db335",
+        "changedSha256": "1abc817e3bd03601e0260c7ed837c78e859b9b20a0f1c43d661538ef77e6a9c9"
+      },
+      {
+        "originalSha256": "35e178ae1d47c5f18deb0e57a0541be3ac92a48e8bad28780983d8d65520adde",
+        "changedSha256": "21308823deacacf28320f582f4a0b787628cb10aabb397313c29001033e05fbb"
+      },
+      {
+        "originalSha256": "21308823deacacf28320f582f4a0b787628cb10aabb397313c29001033e05fbb",
+        "changedSha256": "35e178ae1d47c5f18deb0e57a0541be3ac92a48e8bad28780983d8d65520adde"
+      },
+      {
+        "originalSha256": "fdfa769b2e6bf4d03d099cfbdbd9a47a2a5ec4ffdef7bb88e194387df3caefa6",
+        "changedSha256": "008642d1740c8c8ce9c90f37e80258c5dcccf0610ba5ddd297a0ced827a2ee71"
+      },
+      {
+        "originalSha256": "008642d1740c8c8ce9c90f37e80258c5dcccf0610ba5ddd297a0ced827a2ee71",
+        "changedSha256": "fdfa769b2e6bf4d03d099cfbdbd9a47a2a5ec4ffdef7bb88e194387df3caefa6"
+      },
+      {
+        "originalSha256": "5bef9f76ed93e72f9705279623e048a10d36755ad4331e3fa30206bf9e8349bc",
+        "changedSha256": "56eee7a4e461476f6f846602afb5b73bd7a881c4f0754480537019f2e776c5c0"
+      },
+      {
+        "originalSha256": "56eee7a4e461476f6f846602afb5b73bd7a881c4f0754480537019f2e776c5c0",
+        "changedSha256": "5bef9f76ed93e72f9705279623e048a10d36755ad4331e3fa30206bf9e8349bc"
+      },
+      {
+        "originalSha256": "a6b429822b78ceb9bcd61809d0b87ba4ae60c1455a765f43f6a481611d89b2c7",
+        "changedSha256": "7eb1b6771f6b0932ba449bd3555a70ac77b88d8c6679858947d60aa4d7944cc0"
+      },
+      {
+        "originalSha256": "7eb1b6771f6b0932ba449bd3555a70ac77b88d8c6679858947d60aa4d7944cc0",
+        "changedSha256": "a6b429822b78ceb9bcd61809d0b87ba4ae60c1455a765f43f6a481611d89b2c7"
+      },
+      {
+        "originalSha256": "d6e911fab76b6c6309271e5c6800b63d78be7a386b9758218db4ebb10e79c1fd",
+        "changedSha256": "0a4eeb9d4bfa8cfae8132356be3e63694f140e2208b443a10272848f7e0c0f92"
+      },
+      {
+        "originalSha256": "0a4eeb9d4bfa8cfae8132356be3e63694f140e2208b443a10272848f7e0c0f92",
+        "changedSha256": "d6e911fab76b6c6309271e5c6800b63d78be7a386b9758218db4ebb10e79c1fd"
+      },
+      {
+        "originalSha256": "f950948b449474771fa310fa358f2dd5f66f5d9456f92cc7537c34c227537b31",
+        "changedSha256": "3ea9aae6969984f4dfe17196afd5dc6b5b77fdad40f1e81cf7476c0834e48551"
+      },
+      {
+        "originalSha256": "3ea9aae6969984f4dfe17196afd5dc6b5b77fdad40f1e81cf7476c0834e48551",
+        "changedSha256": "f950948b449474771fa310fa358f2dd5f66f5d9456f92cc7537c34c227537b31"
+      },
+      {
+        "originalSha256": "c1397e3030b84f245115dfef7bea83b6cc0d23d1f654d5af34d8451d2b1f373e",
+        "changedSha256": "29afcca23de21cdaff9f0e297a83be667049cbf941b01e6c7cca89efc7dfa773"
+      },
+      {
+        "originalSha256": "29afcca23de21cdaff9f0e297a83be667049cbf941b01e6c7cca89efc7dfa773",
+        "changedSha256": "c1397e3030b84f245115dfef7bea83b6cc0d23d1f654d5af34d8451d2b1f373e"
+      },
+      {
+        "originalSha256": "f0bbcb850eef0288211f9c1923e599c09b21d5e28ea3bf0cfe56892aec2979a4",
+        "changedSha256": "f235877f1bcee9aaa1fda0295a299d56dd7d4c17be24b176d208247d82290fd1"
+      },
+      {
+        "originalSha256": "f235877f1bcee9aaa1fda0295a299d56dd7d4c17be24b176d208247d82290fd1",
+        "changedSha256": "f0bbcb850eef0288211f9c1923e599c09b21d5e28ea3bf0cfe56892aec2979a4"
+      }
+    ],
+    "toyInformationLoss": {
+      "map": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 0,
+        "5": 1,
+        "6": 2,
+        "7": 3
+      },
+      "scope": "pigeonhole illustration only; no SHA256 collision/one-wayness benchmark claimed"
+    },
+    "negativeCases": [
+      "40-wrong-visible-claim",
+      "41-wrong-visible-claim",
+      "43-wrong-visible-claim",
+      "48-wrong-visible-claim",
+      "49-wrong-visible-claim",
+      "50-wrong-visible-claim",
+      "42-wrong-correct-location",
+      "47-duplicated-identity",
+      "47-hidden-timepoint-change",
+      "47-arbitrary-call-syntax-rejected-without-execution"
+    ],
+    "guardedFilesUnchanged": 411,
+    "newImplemented": 0,
+    "remainingReleaseGates": [
+      "parent design approval",
+      "runtime/year-specific implementation and full independent tests",
+      "native/schema/strict pending profile review if relevant",
+      "full actual Question/base/template/source/right/assets and annual join",
+      "client Content+AnswerChoices/AX/math layouts/narrow200%/pan/credits",
+      "shared registry/settings/integration/release review; main/public untouched"
+    ]
+  }
+}

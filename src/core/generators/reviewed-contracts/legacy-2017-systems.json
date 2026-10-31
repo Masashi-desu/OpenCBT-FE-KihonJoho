@@ -1,0 +1,151 @@
+{
+  "status": "parent_reviewed_complete_metadata_and_preexisting_body_scalar_lift",
+  "sourceCommit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+  "metadataApprovalRecordSha256": "28c7d844221fae33f393824dd823bb743b2d72af91ee55e2c021a824570f592c",
+  "canonical": {
+    "metadata": {
+      "source": "2019h31h-fe-am-35",
+      "title": "ネットワークと業務可視化の技術",
+      "sourceAnswer": "ウ",
+      "reference": [
+        0
+      ],
+      "version": "3.2.0",
+      "fields": [
+        {
+          "name": "機能・条件",
+          "minimum": 0,
+          "maximum": 2
+        }
+      ],
+      "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原四説明の対象/機構を維持。追加はCDNの配置計画とBPM支援技術で、問う関心を変える3条件。SDN全般がOpenFlow必須、CDNの定義が配置手法そのもの、と一般化しない。"
+    },
+    "metadataSha256": "99efebcbf00c9ac94d2cb431ef3e1b94b78b0912e6cda74de1623f21dbb75f17",
+    "outputs": [
+      {
+        "values": [
+          0
+        ],
+        "sha256": "3c4579864de82d2691c936d04eccde3368c9225b70a48335a487ada66ea138a3"
+      },
+      {
+        "values": [
+          1
+        ],
+        "sha256": "1809ad112af40178e8f4e4bf97dc096f1ca390a342ba97ff1f1d183ec099c302"
+      },
+      {
+        "values": [
+          2
+        ],
+        "sha256": "591958b31066e5f578dbd6969d10fedc17c2a0076a634bdded58b20ced6d40a8"
+      }
+    ]
+  },
+  "adapter": {
+    "metadata": {
+      "source": "2017h29h-fe-am-35",
+      "title": "OpenFlowによるSDNの説明",
+      "sourceAnswer": "ウ",
+      "version": "3.2.0",
+      "fields": [
+        {
+          "name": "機能・条件",
+          "minimum": 0,
+          "maximum": 2
+        }
+      ],
+      "reference": [
+        0
+      ],
+      "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 2017春午前35の物理18と2019春午前35の物理16を全4択/原条件/公式ウ正答で画像比較。原イ/エの文面が異なるため同一原文aliasとはしない。2019の確定SDN/CDN配置/BPM支援という3実条件を有効poolから明示注入し、全3canonicalbodyhashを入口で検査した後、choicesだけ2017の全4原文へ置き換えるsource-specific adapter。問いの方向と実条件/正答/解説は保持する。変換後の3bodyhashは2017側で独立検証し別固定する。原画像/出典/権利は2017固有。両年度の意味が同じ入力を6種類のミックス容量とは数えず、共有dedupは統合待ち。旧版本文や互換fixtureは追加しない。"
+    },
+    "metadataSha256": "30e28b92057147502ff525c5be74de96248a7f5d418f5d2338a5d97a18f57083",
+    "outputs": [
+      {
+        "values": [
+          0
+        ],
+        "sha256": "9e3905e60d43dab50d208f581906dc13f818d3c63d71ee8153b3355aa8cba7e8"
+      },
+      {
+        "values": [
+          1
+        ],
+        "sha256": "7493e23e29956ab4af4feaf87206ccba2fe6e01f244943ddfcd6b5f3a4007cbd"
+      },
+      {
+        "values": [
+          2
+        ],
+        "sha256": "b67d3ef7b4b1a5adf0847609ba3c374c4a15c57572bbce5c30391447f61d5197"
+      }
+    ]
+  },
+  "dependencyInputs": [
+    {
+      "values": [
+        0
+      ],
+      "reads": [
+        {
+          "source": "2019h31h-fe-am-35",
+          "values": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        1
+      ],
+      "reads": [
+        {
+          "source": "2019h31h-fe-am-35",
+          "values": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "values": [
+        2
+      ],
+      "reads": [
+        {
+          "source": "2019h31h-fe-am-35",
+          "values": [
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "bodyScalarSources": {
+    "canonical": {
+      "path": "src/core/generators/legacy-2017-systems-adapter.ts",
+      "symbol": "legacy2017SystemsAdapterBinding.canonicalBodyHashes"
+    },
+    "adapter": "tests/fixtures/legacy-2017-systems-contracts.json"
+  },
+  "provenance": [
+    {
+      "path": "src/core/generators/legacy-2019-platform.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "6124b38e5ac1121ba1663be50e986239e0d2a4f667901480ab300113dce838a8"
+    },
+    {
+      "path": "src/core/generators/legacy-2017-systems-adapter.ts",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "13c63e3ce3a918bbecf4e07cf912c86143a119df10e5ea9ae6cff47528a2baf1"
+    },
+    {
+      "path": "tests/fixtures/legacy-2017-systems-contracts.json",
+      "commit": "d6b281c4d54e3b1227e90e73a85a1eb1f86c8414",
+      "sha256": "b7cd14ddb2fa2fbb43b6e352bc2e475b14e1003533fccae712c6ca4a0d5e79ff"
+    }
+  ],
+  "limits": "Unregistered source-specific composition input. Full metadata was explicitly reviewed; body digests are unchanged old fixed scalar values. Caller supplies exactly the effective canonical version; no year/index/script fallback. answerVariation is omitted, including OSI binding default variable. Independent meaning oracles remain separate."
+}

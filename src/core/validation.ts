@@ -1,4 +1,3 @@
-import {validateQuestionSelection} from "./question-selection";
 import * as validators from "../generated/validators.js";
 import mathSchema from "../../docs/public/schemas/formula.schema.json";
 import {
@@ -11,11 +10,14 @@ import {
 import { contentHash } from "./hash";
 import { DataError } from "./errors";
 import { validateAnswerDefinition } from "./answers";
+import { validateQuestionSelection } from "./question-selection";
 export { DataError } from "./errors";
 import { validateTemplateContract } from "./generation";
 import { validateSourceFormat } from "./generation-formats";
 import { validateSourceFigure } from "./source-figures";
 import { validateGenerationCoverage } from "./generation-coverage";
+import { ensureLegacyMorningGenerators } from "./generators/legacy-morning-install";
+import {reviewedMaterialRightsRefinement}from "./legacy-morning-material-inheritance";
 import {
   activityNetworkRenderer,
   readActivityNetwork,
@@ -292,8 +294,9 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
             )
           )
             fail("SOURCE_INHERITANCE", `${q.id}: 原問題の出典を継承する`);
+        const refined = reviewedMaterialRightsRefinement(q,root);
         for (const id of root.prompt.attribution.rightsRefs)
-          if (!q.prompt.attribution.rightsRefs.includes(id))
+          if (!q.prompt.attribution.rightsRefs.includes(id) && !refined.has(id))
             fail("RIGHTS_INHERITANCE", `${q.id}: 原部分の条件を継承する`);
       }
     }
@@ -318,6 +321,7 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
     )
       fail("ASSET_REF", q.id);
   }
+  await ensureLegacyMorningGenerators(b, executableTemplates);
   for (const t of b.templates) {
     const q = get("question", refKey(t.baseQuestionRef));
     attribute(t.attribution);
@@ -339,7 +343,7 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
       fail("RELEASE_GATE", `${a.id}: 未使用の画像を配布カタログへ残せません`);
   for (const s of b.sets) {
     if (s.distribution !== "included") fail("RELEASE_GATE", s.id);
-    validateQuestionSelection(b,s);
+    validateQuestionSelection(b, s);
     const subjects = new Set<Question["subject"]>();
     for (const r of s.questionRefs) {
       const question = get("question", refKey(r));

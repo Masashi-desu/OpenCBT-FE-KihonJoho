@@ -1,6 +1,6 @@
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { answerRun as answerCurrent } from "./fixtures/answer-run";
 import { compoundRun } from "./fixtures/compound-question";
 import { contentHash } from "../src/core/hash";
@@ -20,6 +20,8 @@ import {
   validateRun,
 } from "../src/core/session";
 
+before(installFixtureGenerators);
+
 const selection: Selection = {
   subject: "A",
   kind: "bookmark",
@@ -33,7 +35,8 @@ const selection: Selection = {
 test("all bookmarked series append to one session and aggregate every answer without replacing saved content", async () => {
   const bundle = fixture();
   const rows = generationCoverage(bundle).rows;
-  assert.equal(rows.length, 267);
+  assert.equal(rows.length, 734);
+  assert.equal(rows.filter(row => row.original.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前")).length, 467);
   assert.equal(rows.filter(row => row.original.answerParts).length, 78);
   for (const row of rows) {
     let run = startRun(await prepareRun(bundle, {

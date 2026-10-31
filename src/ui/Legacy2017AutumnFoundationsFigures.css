@@ -1,0 +1,24 @@
+.profile-legacy-2017-line-following-car {
+  /* visual-color: The question's black track has low reflectance in both themes. */
+  --visual-line-track: #000;
+  /* visual-color: The question's white ground has high reflectance in both themes. */
+  --visual-line-ground: #fff;
+}
+.profile-legacy-2017-line-following-car .physical-model {
+  color: var(--visual-line-track);
+}
+.profile-legacy-2017-line-following-car [data-physical-surface] {
+  fill: var(--visual-line-ground);
+  stroke: none;
+}
+.profile-legacy-2017-line-following-car .physical-model polygon,
+.profile-legacy-2017-line-following-car .physical-model [data-car-body],
+.profile-legacy-2017-line-following-car .physical-model [data-wheel],
+.profile-legacy-2017-line-following-car .physical-model [data-motor],
+.profile-legacy-2017-line-following-car .physical-model [data-control] {
+  fill: var(--visual-line-ground);
+}
+.profile-legacy-2017-line-following-car .physical-model [data-black-band] {
+  fill: var(--visual-line-track);
+  stroke: none;
+}

@@ -1,0 +1,34 @@
+import assert from "node:assert/strict";
+import {createElement} from "react";
+import {renderToStaticMarkup} from "react-dom/server";
+import type {GeneratedBody} from "../../src/core/generators/definition";
+import {Legacy2017StrategyFigure} from "../../src/ui/Legacy2017StrategyFigures";
+import {legacy2017StrategyReview as reviews,legacy2017StrategyStems as stems} from "./legacy-2017-strategy-review";
+import {hostingReviewed,byodReviewed,positionReviewed,ansoffReviewed,scorecardReviewed,mrpReviewed,kanbanReviewed} from "./legacy-2017-strategy-facts";
+import {legacy2017StrategyExplanationFacts as explanationFacts} from "./legacy-2017-strategy-explanations";
+const original=(n:number)=>reviews.find(r=>r.number===n)!.choices;
+const numbers=(s:string)=>Object.fromEntries([...s.matchAll(/\b(x1|y1|x2|y2|x|y|width|height)="(-?[\d.]+)"/g)].map(m=>[m[1],Number(m[2])]));
+const text=(s:string)=>s.replace(/<[^>]+>/g,"");
+const boxes=[{x:30,width:140,text:["大日程計画"]},{x:195,width:160,text:["総所要量計算"]},{x:380,width:220,text:["正味所要量計算","（不足分の計算）"]},{x:625,width:150,text:["発注量計算"]},{x:800,width:130,text:["手配計画"]},{x:955,width:130,text:["手配指示"]}];
+/** Read actual visible SVG boxes/text and line endpoints, not a target ID. */
+export function readMrpSvg(svg:string){
+ assert(svg.includes('viewBox="0 0 1115 230"'));const marker=svg.match(/<marker\b([^>]+)>([\s\S]*?)<\/marker>/)!;assert(marker);const markerId=marker[1].match(/\bid="([^"]+)"/)![1];for(const [tag,count]of [["marker",1],["path",1],["rect",7],["line",6],["text",8]]as const)assert.equal((svg.match(new RegExp("<"+tag+"\\b","g"))??[]).length,count);for(const a of ['viewBox="0 0 10 10"','refX="9"','refY="5"','markerWidth="7"','markerHeight="7"','orient="auto"'])assert(marker[1].includes(a));assert.match(marker[2],/<path d="M 1 1 L 9 5 L 1 9" fill="none" stroke="currentColor" stroke-width="1.5"/);const groups=[...svg.matchAll(/<g data-stage="(\d)">([\s\S]*?)<\/g>/g)];assert.equal(groups.length,6);
+ groups.forEach((m,i)=>{assert.equal(Number(m[1]),i);const rect=m[2].match(/<rect\b([^>]+)>/)!;assert(rect);assert.deepEqual(numbers(rect[1]),{x:boxes[i].x,y:40,width:boxes[i].width,height:70});const labels=[...m[2].matchAll(/<text\b([^>]+)>([^<]*)<\/text>/g)];assert.deepEqual(labels.map(t=>text(t[2])),boxes[i].text);for(const [j,t]of labels.entries())assert.deepEqual(numbers(t[1]),{x:boxes[i].x+boxes[i].width/2,y:labels.length===1?75:60+30*j});});
+ const arrows=[...svg.matchAll(/<line data-main-arrow="(\d)"([^>]+)>/g)];assert.equal(arrows.length,5);arrows.forEach((m,i)=>{assert.equal(Number(m[1]),i);assert.deepEqual(numbers(m[2]),{x1:boxes[i].x+boxes[i].width,y1:75,x2:boxes[i+1].x-3,y2:75});assert.equal(m[2].match(/marker-end="url\(#([^"]+)\)"/)?.[1],markerId);});
+ const aux=svg.match(/<line data-auxiliary-arrow="a"([^>]+)>/)!;assert(aux);assert.equal(aux[1].match(/marker-end="url\(#([^"]+)\)"/)?.[1],markerId);const a=numbers(aux[1]);assert.equal(a.x1,a.x2);assert.equal(a.y1,155);assert.equal(a.y2,113);const stage=boxes.findIndex(b=>b.x+b.width/2===a.x2);assert([1,2,3].includes(stage));
+ const input=svg.match(/<g data-input="a">([\s\S]*?)<\/g>/)!;assert(input);const rect=input[1].match(/<rect\b([^>]+)>/)!;assert.deepEqual(numbers(rect[1]),{x:a.x1-55,y:155,width:110,height:45});const label=input[1].match(/<text\b([^>]+)>([^<]*)<\/text>/)!;assert.equal(label[2],"a");assert.deepEqual(numbers(label[1]),{x:a.x1,y:177.5});return {stage,mainArrows:arrows.length,boxes:groups.length};
+}
+export function mrpSvg(values:number[]){return renderToStaticMarkup(createElement(Legacy2017StrategyFigure,{profile:"legacy-2017-mrp-flow",values,caption:"MRPの作業手順"}));}
+export function legacy2017StrategyOracle(source:string,b:GeneratedBody,values:number[]){
+ const n=Number(source.split("-").at(-1));assert.equal(source,`2017h29h-fe-am-${n}`);assert(reviews.some(r=>r.number===n));assert.equal(b.prompt.length,n===71?2:1);assert.equal(b.prompt[0].type,"paragraph");const stem=(b.prompt[0]as{text:string}).text;assert.equal(b.choices.length,4);const options=b.choices.map(c=>{assert.equal(c.length,1);assert.equal(c[0].type,"paragraph");return(c[0]as{text:string}).text;});assert.equal(new Set(options).size,4);
+ let truth:boolean[]=[];
+ if(n===63){assert.equal(stem,stems[n]);const r=hostingReviewed[values[0]];assert.deepEqual(options,r.texts);truth=r.mechanisms.map(m=>m==="provider-server-rights");}
+ if(n===64){assert.equal(stem,stems[n]);const r=byodReviewed[values[0]];assert.deepEqual(options,r.texts);truth=r.conditions.map(([owner,purpose])=>owner==="individual"&&purpose==="work");assert.equal(new Set(r.conditions.map(c=>JSON.stringify(c))).size,4);}
+ if(n===68){const target=stem.match(/^競争上のポジションで、(.+)の基本戦略はどれか。$/)![1];assert.equal(target,positionReviewed[values[0]].name);assert.deepEqual(options,original(n));truth=positionReviewed.map(r=>r.name===target);assert(positionReviewed.every(r=>r.mechanism.length>15));}
+ if(n===69){const match=stem.match(/^アンゾフが提唱した成長マトリクスにおいて、(既存|新規)市場に対して(既存|新規)製品で事業拡大する場合の戦略はどれか。$/)!;assert(match);assert.deepEqual([match[1],match[2]],[ansoffReviewed[values[0]].market,ansoffReviewed[values[0]].product]);assert.deepEqual(options,original(n));const r=ansoffReviewed.find(r=>r.market===match[1]&&r.product===match[2])!;truth=options.map(t=>t===r.strategy);}
+ if(n===70){assert.equal(stem,stems[n]);const facts=scorecardReviewed.map((pair,i)=>pair[values[i]]);assert.deepEqual(options,facts.map(f=>f.text));truth=facts.map(f=>f.goal.kind==="capability"&&f.measure.kind==="learning"&&f.goal.domain===f.measure.domain);}
+ if(n===71){const r=mrpReviewed[values[0]],diagram=b.prompt[1];assert.equal(stem,`図は、生産管理システムの手法であるMRP（資材所要量計画）の作業手順である。図中のaに入る、${r.target}に必要な情報はどれか。`);assert.deepEqual(options,original(n));assert.equal(diagram.type,"diagram");if(diagram.type!=="diagram")throw Error();assert.equal(diagram.scene.kind,"source_figure");if(diagram.scene.kind!=="source_figure")throw Error();assert.equal(diagram.scene.profile,"legacy-2017-mrp-flow");assert.deepEqual(diagram.scene.values,values);assert.equal(diagram.caption,"MRPの作業手順");assert.equal(diagram.alt,`大日程計画、総所要量計算、正味所要量計算（不足分の計算）、発注量計算、手配計画、手配指示の順に五つの矢印でつながる。aから${r.target}へ補助入力の矢印が入る。`);const observed=readMrpSvg(mrpSvg(diagram.scene.values));assert.deepEqual(observed,{stage:r.stage,mainArrows:5,boxes:6});const required=mrpReviewed.find(x=>x.stage===observed.stage)!.input;truth=options.map(t=>t===required);}
+ if(n===72){assert.equal(stem,stems[n]);const r=kanbanReviewed[values[0]];assert.deepEqual(options,r.texts);truth=r.mechanisms.map(m=>m==="downstream-pulls-needed-parts");}
+ for(const f of explanationFacts[n]){assert(b.explanation.includes(f.clause),`Missing explanation fact ${n}: ${f.clause}`);assert(!b.explanation.includes(f.wrong),`Contradictory explanation ${n}`);}
+ assert.equal(truth.filter(Boolean).length,1);assert.equal(b.correctIndex,truth.indexOf(true));assert(!b.answerParts&&!b.partAnswers&&!b.contexts);
+}

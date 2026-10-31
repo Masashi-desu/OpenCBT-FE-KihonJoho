@@ -8,6 +8,7 @@ import {
 import { Hand, Minus, PanelLeft, Plus } from "lucide-react";
 import type { Bundle, Content as QuestionContent, Question } from "../core/types";
 import { Content } from "./Content";
+import { isMorningCommonContext } from "../core/generators/legacy-morning-format";
 
 const zoomSteps = [50, 75, 100, 125, 150, 200, 300, 400];
 const zoomModes = [
@@ -21,6 +22,8 @@ type MaterialPage = {
   label: string;
   content: QuestionContent;
   context?: Question["contexts"][number];
+  commonReference?: boolean;
+  commonReferenceTitle?: boolean;
 };
 type PageBounds = { top: number; bottom: number };
 
@@ -51,7 +54,10 @@ export function materialPages(question?: Question): MaterialPage[] {
   if (!question) return [];
   const pages = question.contextRefs.map((id) => {
     const context = question.contexts.find((item) => item.id === id)!;
-    return { id, label: context.title, content: context.content, context };
+    const commonReference = isMorningCommonContext(question, context);
+    return { id, label: context.title, content: context.content, context, commonReference,
+      commonReferenceTitle: commonReference && context.content.blocks.some(b => b.type === "diagram" &&
+        b.scene.kind === "source_figure" && b.scene.profile === "legacy-2019-autumn-am-common-gates") };
   });
   const promptPages: MaterialPage[] = [];
   for (const block of question.prompt.blocks) {
@@ -63,7 +69,8 @@ export function materialPages(question?: Question): MaterialPage[] {
       });
     promptPages.at(-1)!.content.blocks.push(block);
   }
-  return [...pages, ...promptPages];
+  return [...pages.filter(p => !p.commonReference), ...promptPages,
+    ...pages.filter(p => p.commonReference)];
 }
 
 export function useMaterialViewer(question: Question | undefined, contentKey: string) {
@@ -310,7 +317,12 @@ export function MaterialPane({ viewer, bundle, assetUrls }: {
           {viewer.pages.map((page, index) => (
             <div className={`material-page${page.context ? " material-context" : ""}`} key={page.id}
               ref={(element) => { viewer.pageElements.current[index] = element; }}>
-              {page.context?.presentation === "text_figure" ? (
+              {page.commonReference ? (
+                <>
+                {page.commonReferenceTitle && <h3>{page.label}</h3>}
+                <Content content={page.content} bundle={bundle} assetUrls={assetUrls} showAttribution={false}/>
+                </>
+              ) : page.context?.presentation === "text_figure" ? (
                 <div className="text-figure-material">
                   <figure className="text-figure" aria-label={page.context.title}>
                     <div className="text-figure-body">

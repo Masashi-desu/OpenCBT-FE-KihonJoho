@@ -1,6 +1,6 @@
-import test from "node:test";
+import test, { before } from "node:test";
 import assert from "node:assert/strict";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { nextQuestionRef, selectQuestions } from "../src/core/selection";
 import { refKey, refOf, type Selection } from "../src/core/types";
@@ -86,7 +86,7 @@ test("endless current-subject pools retain all applicable series and explicit bo
         !row.original.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"))
       .map((row) => refKey(row.linked[0].baseQuestionRef)).sort();
     assert.deepEqual(clean.set.questionRefs.map(refKey).sort(), expected);
-    assert.equal(expected.length, subject === "A" ? 140 : 49);
+    assert.equal(expected.length, subject === "A" ? 607 : 49);
     assert(clean.set.questionRefs.every(ref => !ref.questionId.includes("2017h29h-fe-pm")));
     if (subject === "B") {
       // A deliberate bookmark pool uses the old majors instead of silently
@@ -249,3 +249,6 @@ test("resumed endless runs reject their own preceding seed even after a newer se
   );
   assert.deepEqual(previous, saved);
 });
+
+// Match executable App setup without changing raw shared fixture imports.
+before(installFixtureGenerators);

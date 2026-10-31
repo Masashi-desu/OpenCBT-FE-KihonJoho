@@ -1,0 +1,14 @@
+import {useId} from "react";
+import {legacy2018AutumnDevelopmentFigureAllowed,legacy2018AutumnDevelopmentFigureAlt} from "../core/generators/legacy-2018-autumn-development-math";
+/** Original blank events, directed work and two zero-duration dummies. */
+export function Legacy2018AutumnDevelopmentFigure({profile,values,caption}:{profile:string;values:number[];caption:string}){
+ if(!legacy2018AutumnDevelopmentFigureAllowed(profile,values))throw Error("PARAMETER_CONSTRAINT");
+ const id=useId().replace(/:/g,""),nodes=[[65,215],[240,215],[420,215],[500,80],[420,380],[650,215],[820,215]],edges=[[0,1],[0,4],[1,3],[1,2],[3,5],[2,5],[4,5],[5,6]],dummy=[[2,3],[1,4]];
+ const geometry=(from:number,to:number)=>{const[a,b]=[nodes[from],nodes[to]],dx=b[0]-a[0],dy=b[1]-a[1],length=Math.hypot(dx,dy),ux=dx/length,uy=dy/length;return{line:{x1:a[0]+18*ux,y1:a[1]+18*uy,x2:b[0]-18*ux,y2:b[1]-18*uy},mid:[(a[0]+b[0])/2,(a[1]+b[1])/2],normal:[uy,-ux]};};
+ return <figure className={`managed-diagram source-figure profile-${profile}`}><div className="diagram-scroll" tabIndex={0} aria-label="問題の図。幅が足りない場合は左右にスクロールできます。"><svg className="source-figure-svg" viewBox="0 0 920 490" role="img" aria-labelledby={`${id}-title`} aria-describedby={`${id}-desc`}><title id={`${id}-title`}>{caption}</title><desc id={`${id}-desc`}>{legacy2018AutumnDevelopmentFigureAlt(profile,values)}</desc><defs><marker id={`${id}-arrow`} viewBox="0 0 12 12" refX="11" refY="6" markerWidth="6" markerHeight="6" orient="auto"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="currentColor" strokeWidth="1.8"/></marker></defs><g aria-hidden="true">
+ {edges.map(([from,to],i)=>{const g=geometry(from,to),task="ABCDEFGH"[i],dayOffset=i===0?18:24;return <g key={task} data-work={task}><line {...g.line} markerEnd={`url(#${id}-arrow)`}/><text data-task={task} x={g.mid[0]+g.normal[0]*20} y={g.mid[1]+g.normal[1]*20} textAnchor="middle">{task}</text><text data-days={task} x={g.mid[0]-g.normal[0]*dayOffset} y={g.mid[1]-g.normal[1]*dayOffset} textAnchor="middle">{values[i]}</text></g>;})}
+ {dummy.map(([from,to],i)=><line key={i} data-dummy={i} {...geometry(from,to).line} strokeDasharray="10 7" markerEnd={`url(#${id}-arrow)`}/>)}
+ {nodes.map(([x,y],i)=><circle key={i} data-event={i} cx={x} cy={y} r="18" fill="var(--surface)"/>)}
+ <g data-legend="task-duration"><text x="720" y="352">凡例</text><line x1="708" y1="407" x2="832" y2="407" markerEnd={`url(#${id}-arrow)`}/><circle cx="690" cy="407" r="18" fill="var(--surface)"/><circle cx="850" cy="407" r="18" fill="var(--surface)"/><text x="770" y="386" textAnchor="middle">作業名</text><text x="770" y="436" textAnchor="middle">所要日数</text><line x1="682" y1="465" x2="745" y2="465" strokeDasharray="10 7" markerEnd={`url(#${id}-arrow)`}/><text x="760" y="465">：ダミー作業</text></g>
+ </g></svg></div><figcaption>{caption}</figcaption></figure>;
+}

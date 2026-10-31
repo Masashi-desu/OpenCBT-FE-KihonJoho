@@ -1,0 +1,4056 @@
+{
+  "checkedOn": "2026-10-21",
+  "sourceDesignSha256": "86efec1801c2301b3e54005e64d314cb67a11c69ee6939b27257165c77e4af28",
+  "parentApprovalSha256": "54bdf281afc4cabb9662604d3067ea35612c17df4eb7c0ba8038051c620a0a33",
+  "questionPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_qs.pdf",
+    "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/ipa-question.pdf",
+    "httpStatus": 200,
+    "sha256": "4cd404654bb4f465befc78a3ac44c79bcd0f019b12b68f93a38d9836710c7cb0",
+    "byteLength": 4699691
+  },
+  "answerPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_ans.pdf",
+    "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/ipa-answer.pdf",
+    "httpStatus": 200,
+    "sha256": "074c4437b57dc5ba96b6f87da90d4b2fa905d436f4c606690010e1262f32e4e0",
+    "byteLength": 55562
+  },
+  "originals": [
+    {
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "source": "2019r01a-fe-am-29",
+      "questionNumber": 29,
+      "page": 17,
+      "officialAnswer": "ウ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes",
+          "figure/table"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "CSMA/CD方式のLANに接続されたノードの送信動作として、適切なものはどれか。",
+      "notes": [],
+      "choices": [
+        "各ノードに論理的な順位付けを行い、送信権を順次受け渡し、これを受け取ったノードだけが送信を行う。",
+        "各ノードは伝送媒体が使用中かどうかを調べ、使用中でなければ送信を行う。衝突を検出したらランダムな時間の経過後に再度送信を行う。",
+        "各ノードを環状に接続して、送信権を制御するための特殊なフレームを巡回させ、これを受け取ったノードだけが送信を行う。",
+        "タイムスロットを割り当てられたノードだけが送信を行う。"
+      ],
+      "source": "2019r01a-fe-am-31",
+      "questionNumber": 31,
+      "page": 18,
+      "officialAnswer": "イ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "メディアコンバータ、リピータハブ、レイヤ2スイッチ、レイヤ3スイッチのうち、レイヤ3スイッチだけがもつ機能はどれか。",
+      "notes": [],
+      "choices": [
+        "データリンク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "ネットワーク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "物理層において、異なる伝送媒体を接続し、信号を相互に変換する機能",
+        "物理層において、入力信号を全てのLANポートに対して中継する機能"
+      ],
+      "source": "2019r01a-fe-am-32",
+      "questionNumber": 32,
+      "page": 18,
+      "officialAnswer": "イ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "LANに接続されている複数のPCをインターネットに接続するシステムがあり、装置AのWAN側インタフェースには1個のグローバルIPアドレスが割り当てられている。この1個のグローバルIPアドレスを使って複数のPCがインターネットを利用するのに必要な装置Aの機能はどれか。",
+      "notes": [],
+      "choices": [
+        "DHCP",
+        "NAPT（IPマスカレード）",
+        "PPPoE",
+        "パケットフィルタリング"
+      ],
+      "figure": {
+        "media": "home network drawing",
+        "boundary": "利用者宅内 encloses PCs/hub/device A/ONU; Internet outside",
+        "visibleLabels": [
+          "利用者宅内",
+          "PC",
+          "PC",
+          "ハブ",
+          "装置A",
+          "ONU",
+          "光ファイバケーブル",
+          "インターネット"
+        ],
+        "ellipsis": "vertical between two PCs, meaning multiple PCs",
+        "edges": [
+          "PC上→ハブ",
+          "PC下→ハブ",
+          "ハブ→装置A",
+          "装置A→ONU",
+          "ONU→インターネット"
+        ],
+        "fiberLabelOn": "ONU→インターネット",
+        "portAddressesOrDHCPHintsAdded": false
+      },
+      "source": "2019r01a-fe-am-33",
+      "questionNumber": 33,
+      "page": 19,
+      "officialAnswer": "イ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes",
+          "figure/table"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "攻撃者が用意したサーバXのIPアドレスが、A社WebサーバのFQDNに対応するIPアドレスとして、B社DNSキャッシュサーバに記憶された。これによって、意図せずサーバXに誘導されてしまう利用者はどれか。ここで、A社、B社の各従業員は自社のDNSキャッシュサーバを利用して名前解決を行う。",
+      "notes": [],
+      "choices": [
+        "A社WebサーバにアクセスしようとするA社従業員",
+        "A社WebサーバにアクセスしようとするB社従業員",
+        "B社WebサーバにアクセスしようとするA社従業員",
+        "B社WebサーバにアクセスしようとするB社従業員"
+      ],
+      "source": "2019r01a-fe-am-35",
+      "questionNumber": 35,
+      "page": 20,
+      "officialAnswer": "イ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "WPA3はどれか。",
+      "notes": [],
+      "choices": [
+        "HTTP通信の暗号化規格",
+        "TCP/IP通信の暗号化規格",
+        "Webサーバで使用するディジタル証明書の規格",
+        "無線LANのセキュリティ規格"
+      ],
+      "source": "2019r01a-fe-am-37",
+      "questionNumber": 37,
+      "page": 20,
+      "officialAnswer": "エ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "メッセージにRSA方式のディジタル署名を付与して2者間で送受信する。そのときのディジタル署名の検証鍵と使用方法はどれか。",
+      "notes": [],
+      "choices": [
+        "受信者の公開鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "受信者の秘密鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "送信者の公開鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "送信者の秘密鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。"
+      ],
+      "source": "2019r01a-fe-am-38",
+      "questionNumber": 38,
+      "page": 21,
+      "officialAnswer": "ウ",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    },
+    {
+      "stem": "情報セキュリティにおいてバックドアに該当するものはどれか。",
+      "notes": [],
+      "choices": [
+        "アクセスする際にパスワード認証などの正規の手続が必要なWebサイトに、当該手続を経ないでアクセス可能なURL",
+        "インターネットに公開されているサーバのTCPポートの中からアクティブになっているポートを探して、稼働中のサービスを特定するためのツール",
+        "ネットワーク上の通信パケットを取得して通信内容を見るために設けられたスイッチのLANポート",
+        "プログラムが確保するメモリ領域に、領域の大きさを超える長さの文字列を入力してあふれさせ、ダウンさせる攻撃"
+      ],
+      "source": "2019r01a-fe-am-39",
+      "questionNumber": 39,
+      "page": 21,
+      "officialAnswer": "ア",
+      "learningArea": "technology",
+      "sourceImageReview": "full page and isolated crop personally inspected; official answer p1 personally inspected",
+      "normalization": "line-break/spacing and comma typesetting normalized in this private transcription; source crop is authoritative for original glyphs",
+      "materialReview": {
+        "elements": [
+          "stem",
+          "all four choices",
+          "notes"
+        ],
+        "thirdPartyNoticesVisible": [],
+        "result": "No explicit third-party quotation or source notice identified on these eight isolated source crops; this is a bounded inspection, not proof of IPA sole authorship of all technical definitions. Supplemental standards/vendor text are fact-check references only; no raw third-party tables/diagrams/text are proposed for application assets.",
+        "policy": "ipa-faq: education consistent with exam system, source year/period/exam/time/question and modifications required; copyright retained; not MIT/CC0",
+        "distribution": "source_only_not_distributable_candidate"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        0
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": true,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        1
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        2
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        3
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        4
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        5
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        6
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        7
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Y",
+          "update Z",
+          "update X",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        8
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        9
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        10
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        11
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "update X",
+          "read W",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        12
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        13
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Y",
+          "update Z",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        14
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Y",
+          "update X",
+          "update Z"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        15
+      ],
+      "stem": "2相ロッキングプロトコルに従ってロックを獲得するトランザクションA、Bを図のように同時実行した場合に、デッドロックが発生しないデータ処理順序はどれか。",
+      "choices": [
+        [
+          "read W",
+          "update Z",
+          "update X",
+          "update Y"
+        ],
+        [
+          "read W",
+          "update Z",
+          "update Y",
+          "update X"
+        ],
+        [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        [
+          "update Z",
+          "update X",
+          "update Y",
+          "read W"
+        ]
+      ],
+      "choiceFactIds": null,
+      "originalReference": false,
+      "notes": [
+        "ここで、readとupdateの位置は、アプリケーションプログラムでの命令発行時点を表す。",
+        "また、データWへのreadは共有ロックを要求し、データX、Y、Zへのupdateは各データへの専有ロックを要求する。"
+      ],
+      "figure": {
+        "media": "time sequence drawing plus original four-row/four-column answer table",
+        "columnLabels": [
+          "A",
+          "B"
+        ],
+        "timeArrow": "down",
+        "A": [
+          "read W",
+          "update X",
+          "update Y",
+          "update Z"
+        ],
+        "B": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "nominalIssueOrder": [
+          "A1",
+          "B1",
+          "A2",
+          "B2",
+          "A3",
+          "B3",
+          "A4",
+          "B4"
+        ],
+        "verticalEdges": [
+          "A1→A2",
+          "A2→A3",
+          "A3→A4",
+          "B1→B2",
+          "B2→B3",
+          "B3→B4"
+        ],
+        "answerTableHeaders": [
+          "①",
+          "②",
+          "③",
+          "④"
+        ],
+        "answerRowLabels": [
+          "ア",
+          "イ",
+          "ウ",
+          "エ"
+        ],
+        "noHelperGraphBeforeAnswer": true
+      },
+      "rowRoleIds": [
+        "read-first cycle with early X request",
+        "read-first cycle with X last",
+        "acyclic serialization via X ownership",
+        "write-before-read cycle"
+      ],
+      "bits": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-31",
+      "input": [
+        0
+      ],
+      "stem": "CSMA/CD方式のLANに接続されたノードの送信動作として、適切なものはどれか。",
+      "choices": [
+        "各ノードに論理的な順位付けを行い、送信権を順次受け渡し、これを受け取ったノードだけが送信を行う。",
+        "各ノードは伝送媒体が使用中かどうかを調べ、使用中でなければ送信を行う。衝突を検出したらランダムな時間の経過後に再度送信を行う。",
+        "各ノードを環状に接続して、送信権を制御するための特殊なフレームを巡回させ、これを受け取ったノードだけが送信を行う。",
+        "タイムスロットを割り当てられたノードだけが送信を行う。"
+      ],
+      "choiceFactIds": [
+        "31-token-logical",
+        "31-cd",
+        "31-token-ring",
+        "31-time-slot"
+      ],
+      "originalReference": true,
+      "target": "CSMA/CD"
+    },
+    {
+      "source": "2019r01a-fe-am-31",
+      "input": [
+        1
+      ],
+      "stem": "CSMA/CA方式のLANに接続されたノードの送信動作として、適切なものはどれか。",
+      "choices": [
+        "各ノードに論理的な順位付けを行い、送信権を順次受け渡し、これを受け取ったノードだけが送信を行う。",
+        "各ノードは伝送媒体が空いていることを確認し、ランダムな待ち時間によって送信時期を調整してから送信を行う。衝突を送信中に直接検出する方式ではなく、衝突の発生確率を減らすようにする。",
+        "各ノードを環状に接続して、送信権を制御するための特殊なフレームを巡回させ、これを受け取ったノードだけが送信を行う。",
+        "タイムスロットを割り当てられたノードだけが送信を行う。"
+      ],
+      "choiceFactIds": [
+        "31-token-logical",
+        "31-ca",
+        "31-token-ring",
+        "31-time-slot"
+      ],
+      "originalReference": false,
+      "target": "CSMA/CA"
+    },
+    {
+      "source": "2019r01a-fe-am-32",
+      "input": [
+        0
+      ],
+      "stem": "メディアコンバータ、リピータハブ、レイヤ2スイッチ、レイヤ3スイッチのうち、レイヤ3スイッチだけがもつ機能はどれか。",
+      "choices": [
+        "データリンク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "ネットワーク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "物理層において、異なる伝送媒体を接続し、信号を相互に変換する機能",
+        "物理層において、入力信号を全てのLANポートに対して中継する機能"
+      ],
+      "choiceFactIds": [
+        "32-l2-forward",
+        "32-route",
+        "32-media",
+        "32-repeater"
+      ],
+      "originalReference": true,
+      "targetDevice": "L3",
+      "comparisonDevices": [
+        "media_converter",
+        "repeater_hub",
+        "L2",
+        "L3"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-32",
+      "input": [
+        1
+      ],
+      "stem": "メディアコンバータ、リピータハブ、レイヤ2スイッチ、レイヤ3スイッチのうち、レイヤ3スイッチだけがもつ機能はどれか。",
+      "choices": [
+        "データリンク層において、受信フレームの送信元MACアドレスと受信LANポートの対応を学習する機能",
+        "ネットワーク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "物理層において、異なる伝送媒体を接続し、信号を相互に変換する機能",
+        "物理層において、入力信号を全てのLANポートに対して中継する機能"
+      ],
+      "choiceFactIds": [
+        "32-l2-learn",
+        "32-route",
+        "32-media",
+        "32-repeater"
+      ],
+      "originalReference": false,
+      "targetDevice": "L3",
+      "comparisonDevices": [
+        "media_converter",
+        "repeater_hub",
+        "L2",
+        "L3"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        0
+      ],
+      "stem": "LANに接続されている複数のPCをインターネットに接続するシステムがあり、装置AのWAN側インタフェースには1個のグローバルIPアドレスが割り当てられている。この1個のグローバルIPアドレスを使って複数のPCがインターネットを利用するのに必要な装置Aの機能はどれか。",
+      "choices": [
+        "DHCP",
+        "NAPT（IPマスカレード）",
+        "PPPoE",
+        "パケットフィルタリング"
+      ],
+      "choiceFactIds": [
+        "33-dhcp",
+        "33-napt",
+        "33-pppoe",
+        "33-filter"
+      ],
+      "originalReference": true,
+      "requirement": "public_address_sharing",
+      "figure": {
+        "media": "home network drawing",
+        "boundary": "利用者宅内 encloses PCs/hub/device A/ONU; Internet outside",
+        "visibleLabels": [
+          "利用者宅内",
+          "PC",
+          "PC",
+          "ハブ",
+          "装置A",
+          "ONU",
+          "光ファイバケーブル",
+          "インターネット"
+        ],
+        "ellipsis": "vertical between two PCs, meaning multiple PCs",
+        "edges": [
+          "PC上→ハブ",
+          "PC下→ハブ",
+          "ハブ→装置A",
+          "装置A→ONU",
+          "ONU→インターネット"
+        ],
+        "fiberLabelOn": "ONU→インターネット",
+        "portAddressesOrDHCPHintsAdded": false
+      },
+      "globalWanAddresses": 1
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        1
+      ],
+      "stem": "LANに接続されている複数のPCをインターネットに接続するシステムがあり、装置AのWAN側インタフェースには1個のグローバルIPアドレスが割り当てられている。各PCにLAN側のIPアドレスなどのネットワーク設定を自動的に割り当てるのに必要な装置Aの機能はどれか。",
+      "choices": [
+        "DHCP",
+        "NAPT（IPマスカレード）",
+        "PPPoE",
+        "パケットフィルタリング"
+      ],
+      "choiceFactIds": [
+        "33-dhcp",
+        "33-napt",
+        "33-pppoe",
+        "33-filter"
+      ],
+      "originalReference": false,
+      "requirement": "configuration_assignment",
+      "figure": {
+        "media": "home network drawing",
+        "boundary": "利用者宅内 encloses PCs/hub/device A/ONU; Internet outside",
+        "visibleLabels": [
+          "利用者宅内",
+          "PC",
+          "PC",
+          "ハブ",
+          "装置A",
+          "ONU",
+          "光ファイバケーブル",
+          "インターネット"
+        ],
+        "ellipsis": "vertical between two PCs, meaning multiple PCs",
+        "edges": [
+          "PC上→ハブ",
+          "PC下→ハブ",
+          "ハブ→装置A",
+          "装置A→ONU",
+          "ONU→インターネット"
+        ],
+        "fiberLabelOn": "ONU→インターネット",
+        "portAddressesOrDHCPHintsAdded": false
+      },
+      "globalWanAddresses": 1
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        2
+      ],
+      "stem": "LANに接続されている複数のPCをインターネットに接続するシステムがあり、装置AのWAN側インタフェースには1個のグローバルIPアドレスが割り当てられている。インターネット接続事業者とは、Ethernet上にPPPセッションを確立する方式で接続する。このセッションを確立し、PPPのデータをEthernet上に運ぶのに必要な装置Aの機能はどれか。",
+      "choices": [
+        "DHCP",
+        "NAPT（IPマスカレード）",
+        "PPPoE",
+        "パケットフィルタリング"
+      ],
+      "choiceFactIds": [
+        "33-dhcp",
+        "33-napt",
+        "33-pppoe",
+        "33-filter"
+      ],
+      "originalReference": false,
+      "requirement": "ppp_over_ethernet",
+      "figure": {
+        "media": "home network drawing",
+        "boundary": "利用者宅内 encloses PCs/hub/device A/ONU; Internet outside",
+        "visibleLabels": [
+          "利用者宅内",
+          "PC",
+          "PC",
+          "ハブ",
+          "装置A",
+          "ONU",
+          "光ファイバケーブル",
+          "インターネット"
+        ],
+        "ellipsis": "vertical between two PCs, meaning multiple PCs",
+        "edges": [
+          "PC上→ハブ",
+          "PC下→ハブ",
+          "ハブ→装置A",
+          "装置A→ONU",
+          "ONU→インターネット"
+        ],
+        "fiberLabelOn": "ONU→インターネット",
+        "portAddressesOrDHCPHintsAdded": false
+      },
+      "globalWanAddresses": 1
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        3
+      ],
+      "stem": "LANに接続されている複数のPCをインターネットに接続するシステムがあり、装置AのWAN側インタフェースには1個のグローバルIPアドレスが割り当てられている。装置Aを通過するパケットについて、送信元・宛先のIPアドレスやポート番号に基づいて通過を許可又は禁止するのに必要な装置Aの機能はどれか。",
+      "choices": [
+        "DHCP",
+        "NAPT（IPマスカレード）",
+        "PPPoE",
+        "パケットフィルタリング"
+      ],
+      "choiceFactIds": [
+        "33-dhcp",
+        "33-napt",
+        "33-pppoe",
+        "33-filter"
+      ],
+      "originalReference": false,
+      "requirement": "packet_admission",
+      "figure": {
+        "media": "home network drawing",
+        "boundary": "利用者宅内 encloses PCs/hub/device A/ONU; Internet outside",
+        "visibleLabels": [
+          "利用者宅内",
+          "PC",
+          "PC",
+          "ハブ",
+          "装置A",
+          "ONU",
+          "光ファイバケーブル",
+          "インターネット"
+        ],
+        "ellipsis": "vertical between two PCs, meaning multiple PCs",
+        "edges": [
+          "PC上→ハブ",
+          "PC下→ハブ",
+          "ハブ→装置A",
+          "装置A→ONU",
+          "ONU→インターネット"
+        ],
+        "fiberLabelOn": "ONU→インターネット",
+        "portAddressesOrDHCPHintsAdded": false
+      },
+      "globalWanAddresses": 1
+    },
+    {
+      "source": "2019r01a-fe-am-35",
+      "input": [
+        0
+      ],
+      "stem": "攻撃者が用意したサーバXのIPアドレスが、A社WebサーバのFQDNに対応するIPアドレスとして、B社DNSキャッシュサーバに記憶された。これによって、意図せずサーバXに誘導されてしまう利用者はどれか。ここで、A社、B社の各従業員は自社のDNSキャッシュサーバを利用して名前解決を行う。",
+      "choices": [
+        "A社WebサーバにアクセスしようとするA社従業員",
+        "A社WebサーバにアクセスしようとするB社従業員",
+        "B社WebサーバにアクセスしようとするA社従業員",
+        "B社WebサーバにアクセスしようとするB社従業員"
+      ],
+      "choiceFactIds": [
+        "35-0",
+        "35-1",
+        "35-2",
+        "35-3"
+      ],
+      "originalReference": true,
+      "poisonedNameOwner": "A",
+      "poisonedCache": "B",
+      "resolverByEmployee": {
+        "A": "A",
+        "B": "B"
+      }
+    },
+    {
+      "source": "2019r01a-fe-am-35",
+      "input": [
+        1
+      ],
+      "stem": "攻撃者が用意したサーバXのIPアドレスが、A社WebサーバのFQDNに対応するIPアドレスとして、A社DNSキャッシュサーバに記憶された。これによって、意図せずサーバXに誘導されてしまう利用者はどれか。ここで、A社、B社の各従業員は自社のDNSキャッシュサーバを利用して名前解決を行う。",
+      "choices": [
+        "A社WebサーバにアクセスしようとするA社従業員",
+        "A社WebサーバにアクセスしようとするB社従業員",
+        "B社WebサーバにアクセスしようとするA社従業員",
+        "B社WebサーバにアクセスしようとするB社従業員"
+      ],
+      "choiceFactIds": [
+        "35-0",
+        "35-1",
+        "35-2",
+        "35-3"
+      ],
+      "originalReference": false,
+      "poisonedNameOwner": "A",
+      "poisonedCache": "A",
+      "resolverByEmployee": {
+        "A": "A",
+        "B": "B"
+      }
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        0
+      ],
+      "stem": "WPA3はどれか。",
+      "choices": [
+        "HTTP通信の暗号化規格",
+        "TCP/IP通信の暗号化規格",
+        "Webサーバで使用するディジタル証明書の規格",
+        "無線LANのセキュリティ規格"
+      ],
+      "choiceFactIds": [
+        "37-0-0",
+        "37-0-1",
+        "37-0-2",
+        "37-0-3"
+      ],
+      "originalReference": true,
+      "target": "WPA3"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        1
+      ],
+      "stem": "IPsecはどれか。",
+      "choices": [
+        "HTTPなどのアプリケーション通信を、アプリケーションデータの暗号化と認証によって保護するプロトコル",
+        "IP層でIPパケットを暗号化や認証によって保護するための規格群",
+        "Webサーバなどで利用する、公開鍵とその所有者を結び付けるディジタル証明書の形式を定めた規格",
+        "無線LANで共有パスワードを利用し、SAEによる認証を行うセキュリティ規格"
+      ],
+      "choiceFactIds": [
+        "37-1-0",
+        "37-1-1",
+        "37-1-2",
+        "37-1-3"
+      ],
+      "originalReference": false,
+      "target": "IPsec"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        2
+      ],
+      "stem": "X.509はどれか。",
+      "choices": [
+        "HTTPなどのアプリケーション通信で、ハンドシェイク後のアプリケーションデータを暗号化して保護するプロトコル",
+        "IP層で、AHやESPを用いてIPパケットにセキュリティ機能を提供するための規格群",
+        "発行者、主体、公開鍵、有効期間などのフィールドをもつディジタル証明書の形式を定めた規格",
+        "企業向けの無線LANで、高い機密性が必要なデータを保護するためのセキュリティ規格"
+      ],
+      "choiceFactIds": [
+        "37-2-0",
+        "37-2-1",
+        "37-2-2",
+        "37-2-3"
+      ],
+      "originalReference": false,
+      "target": "X.509"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        3
+      ],
+      "stem": "TLS 1.3はどれか。",
+      "choices": [
+        "HTTPなどのアプリケーション通信で、レコード層の暗号化と完全性保護によってデータを保護するプロトコル",
+        "IP層でAHを利用してパケットの完全性や送信元の認証を行うための規格",
+        "Webサーバなどの公開鍵証明書に、主体や公開鍵、有効期間などを記載する形式を定めた規格",
+        "無線LANでSAEを用いたパスワード認証を行うセキュリティ規格"
+      ],
+      "choiceFactIds": [
+        "37-3-0",
+        "37-3-1",
+        "37-3-2",
+        "37-3-3"
+      ],
+      "originalReference": false,
+      "target": "TLS 1.3"
+    },
+    {
+      "source": "2019r01a-fe-am-38",
+      "input": [
+        0
+      ],
+      "stem": "メッセージにRSA方式のディジタル署名を付与して2者間で送受信する。そのときのディジタル署名の検証鍵と使用方法はどれか。",
+      "choices": [
+        "受信者の公開鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "受信者の秘密鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "送信者の公開鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "送信者の秘密鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。"
+      ],
+      "choiceFactIds": [
+        "38-0-0",
+        "38-0-1",
+        "38-0-2",
+        "38-0-3"
+      ],
+      "originalReference": true,
+      "requestedOperation": "verify",
+      "messages": [
+        {
+          "id": "initial",
+          "sender": "sender",
+          "recipient": "receiver",
+          "signer": "sender"
+        }
+      ],
+      "targetMessage": "initial"
+    },
+    {
+      "source": "2019r01a-fe-am-38",
+      "input": [
+        1
+      ],
+      "stem": "2者間でメッセージを送受信する。受信者は、受け取ったことを示す受領通知にRSA方式のディジタル署名を付与し、元の送信者に返送する。この受領通知に付けられた署名の検証鍵と使用方法はどれか。ここで、選択肢中の送信者と受信者は、元のメッセージ送信時の役割を指す。",
+      "choices": [
+        "受信者の公開鍵であり、送信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "受信者の秘密鍵であり、受信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "送信者の公開鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "送信者の秘密鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。"
+      ],
+      "choiceFactIds": [
+        "38-1-0",
+        "38-1-1",
+        "38-1-2",
+        "38-1-3"
+      ],
+      "originalReference": false,
+      "requestedOperation": "verify",
+      "messages": [
+        {
+          "id": "initial",
+          "sender": "sender",
+          "recipient": "receiver",
+          "signer": null
+        },
+        {
+          "id": "reply",
+          "sender": "receiver",
+          "signer": "receiver",
+          "recipient": "sender"
+        }
+      ],
+      "targetMessage": "reply"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        0
+      ],
+      "stem": "情報セキュリティにおいてバックドアに該当するものはどれか。",
+      "choices": [
+        "アクセスする際にパスワード認証などの正規の手続が必要なWebサイトに、当該手続を経ないでアクセス可能なURL",
+        "インターネットに公開されているサーバのTCPポートの中からアクティブになっているポートを探して、稼働中のサービスを特定するためのツール",
+        "ネットワーク上の通信パケットを取得して通信内容を見るために設けられたスイッチのLANポート",
+        "プログラムが確保するメモリ領域に、領域の大きさを超える長さの文字列を入力してあふれさせ、ダウンさせる攻撃"
+      ],
+      "choiceFactIds": [
+        "39-0-0",
+        "39-0-1",
+        "39-0-2",
+        "39-0-3"
+      ],
+      "originalReference": true,
+      "target": "バックドア"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        1
+      ],
+      "stem": "情報セキュリティにおいてポートスキャナに該当するものはどれか。",
+      "choices": [
+        "Web管理画面で通常必要な認証を通らずに管理機能を利用できる、管理者へ知らせていない別の入口URL",
+        "複数のUDPポートへ要求を送り、その応答を調べて利用可能なサービスを探すためのツール",
+        "スイッチから送信される方向の通信パケットを複製して、解析装置に渡すためのLANポート",
+        "プログラムがヒープ上に確保したバッファの長さを超える文字列を書き込み、領域外へあふれさせてダウンさせる攻撃"
+      ],
+      "choiceFactIds": [
+        "39-1-0",
+        "39-1-1",
+        "39-1-2",
+        "39-1-3"
+      ],
+      "originalReference": false,
+      "target": "ポートスキャナ"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        2
+      ],
+      "stem": "情報セキュリティにおいてミラーポートに該当するものはどれか。",
+      "choices": [
+        "Webサイトの保守用として残された、通常のパスワード認証を迂回して管理機能へ入れるURL",
+        "複数のTCPポートへ接続確立要求を送り、戻った応答から待受中のポートを調べるツール",
+        "スイッチで受信する方向の通信パケットを複製して、解析装置へ渡すためのLANポート",
+        "プログラムのスタック上にある文字列バッファに容量を超える文字列を入力し、隣接領域へあふれさせてダウンさせる攻撃"
+      ],
+      "choiceFactIds": [
+        "39-2-0",
+        "39-2-1",
+        "39-2-2",
+        "39-2-3"
+      ],
+      "originalReference": false,
+      "target": "ミラーポート"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        3
+      ],
+      "stem": "情報セキュリティにおいてバッファオーバフロー攻撃に該当するものはどれか。",
+      "choices": [
+        "Webサイトの特別なURLパラメータを指定すると、通常必要な利用者認証を経ずに管理機能へアクセスできるURL",
+        "複数のTCPポートへの接続が成立するかを試し、サービスの待受状態を調べるためのツール",
+        "スイッチで受信する方向と送信する方向の通信パケットを複製し、解析装置へ渡すためのLANポート",
+        "プログラムの静的領域にある文字列バッファへ長すぎる文字列を入力し、領域外へあふれさせてダウンさせる攻撃"
+      ],
+      "choiceFactIds": [
+        "39-3-0",
+        "39-3-1",
+        "39-3-2",
+        "39-3-3"
+      ],
+      "originalReference": false,
+      "target": "バッファオーバフロー攻撃"
+    }
+  ],
+  "facts": {
+    "checkedOn": "2026-10-21",
+    "author": "year2019 source-only manual fact review; no production generator consulted",
+    "records": {
+      "31-token-logical": {
+        "text": "各ノードに論理的な順位付けを行い、送信権を順次受け渡し、これを受け取ったノードだけが送信を行う。",
+        "category": "logical_token",
+        "mechanism": "ordered token passing",
+        "primaryRefs": [
+          "cisco-ethernet",
+          "cisco-csma-ca"
+        ],
+        "limit": ""
+      },
+      "31-token-ring": {
+        "text": "各ノードを環状に接続して、送信権を制御するための特殊なフレームを巡回させ、これを受け取ったノードだけが送信を行う。",
+        "category": "ring_token",
+        "mechanism": "ring token circulation",
+        "primaryRefs": [
+          "cisco-ethernet"
+        ],
+        "limit": ""
+      },
+      "31-time-slot": {
+        "text": "タイムスロットを割り当てられたノードだけが送信を行う。",
+        "category": "time_division",
+        "mechanism": "assigned transmission slots",
+        "primaryRefs": [
+          "cisco-ethernet"
+        ],
+        "limit": ""
+      },
+      "31-cd": {
+        "text": "各ノードは伝送媒体が使用中かどうかを調べ、使用中でなければ送信を行う。衝突を検出したらランダムな時間の経過後に再度送信を行う。",
+        "category": "CSMA/CD",
+        "mechanism": "sense idle; transmit; detect collision; random wait then retransmit",
+        "primaryRefs": [
+          "rfc8325 §1.6,§6.1",
+          "cisco-ethernet"
+        ],
+        "limit": "Half-duplex shared Ethernet context; not a claim that full-duplex Ethernet uses CSMA/CD."
+      },
+      "31-ca": {
+        "text": "各ノードは伝送媒体が空いていることを確認し、ランダムな待ち時間によって送信時期を調整してから送信を行う。衝突を送信中に直接検出する方式ではなく、衝突の発生確率を減らすようにする。",
+        "category": "CSMA/CA",
+        "mechanism": "sense idle; random backoff before transmit; avoid rather than directly detect collisions",
+        "primaryRefs": [
+          "rfc8325 §1.6,§6.1",
+          "cisco-csma-ca"
+        ],
+        "limit": "Does not assert collision-free operation, mandatory RTS/CTS, nor apply this to every optional 802.11 access function."
+      },
+      "32-l2-forward": {
+        "text": "データリンク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "category": "l2_destination_forwarding",
+        "mechanism": "destination MAC/port lookup",
+        "primaryRefs": [
+          "rfc4188 §4 dot1dTpFdbTable",
+          "cisco-layer2"
+        ],
+        "limit": ""
+      },
+      "32-l2-learn": {
+        "text": "データリンク層において、受信フレームの送信元MACアドレスと受信LANポートの対応を学習する機能",
+        "category": "l2_source_learning",
+        "mechanism": "source MAC/ingress-port learning",
+        "primaryRefs": [
+          "rfc4188 §4 dot1dTpFdbPort/dot1dTpFdbStatus",
+          "cisco-layer2"
+        ],
+        "limit": ""
+      },
+      "32-route": {
+        "text": "ネットワーク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能",
+        "category": "network_routing",
+        "mechanism": "network destination routing",
+        "primaryRefs": [
+          "rfc1812 §2.2.3,§5.2",
+          "cisco-layer3"
+        ],
+        "limit": "Original pure functional categories are compared; no claim that integrated commercial converters cannot include switching functions."
+      },
+      "32-media": {
+        "text": "物理層において、異なる伝送媒体を接続し、信号を相互に変換する機能",
+        "category": "physical_media_conversion",
+        "mechanism": "physical signal conversion",
+        "primaryRefs": [
+          "source32 original classification"
+        ],
+        "limit": "Original pure functional categories are compared; no claim that integrated commercial converters cannot include switching functions."
+      },
+      "32-repeater": {
+        "text": "物理層において、入力信号を全てのLANポートに対して中継する機能",
+        "category": "physical_repeat",
+        "mechanism": "all-port bit/signal repetition",
+        "primaryRefs": [
+          "cisco-ethernet"
+        ],
+        "limit": "Original pure functional categories are compared; no claim that integrated commercial converters cannot include switching functions."
+      },
+      "33-dhcp": {
+        "text": "DHCP",
+        "category": "configuration_assignment",
+        "mechanism": "host configuration/address allocation",
+        "primaryRefs": [
+          "rfc2131 §1"
+        ],
+        "limit": ""
+      },
+      "33-napt": {
+        "text": "NAPT（IPマスカレード）",
+        "category": "public_address_sharing",
+        "mechanism": "IP and transport identifier translation",
+        "primaryRefs": [
+          "rfc3022 §2.2,§4"
+        ],
+        "limit": ""
+      },
+      "33-pppoe": {
+        "text": "PPPoE",
+        "category": "ppp_over_ethernet",
+        "mechanism": "Ethernet PPP session establishment/encapsulation",
+        "primaryRefs": [
+          "rfc2516 §3"
+        ],
+        "limit": ""
+      },
+      "33-filter": {
+        "text": "パケットフィルタリング",
+        "category": "packet_admission",
+        "mechanism": "packet header allow/deny",
+        "primaryRefs": [
+          "nist-firewalls §2.1.1"
+        ],
+        "limit": ""
+      },
+      "35-0": {
+        "text": "A社WebサーバにアクセスしようとするA社従業員",
+        "category": "dns_user",
+        "mechanism": {
+          "site": "A",
+          "employee": "A"
+        },
+        "primaryRefs": [
+          "rfc5452 §3",
+          "original own-resolver premise"
+        ],
+        "limit": ""
+      },
+      "35-1": {
+        "text": "A社WebサーバにアクセスしようとするB社従業員",
+        "category": "dns_user",
+        "mechanism": {
+          "site": "A",
+          "employee": "B"
+        },
+        "primaryRefs": [
+          "rfc5452 §3",
+          "original own-resolver premise"
+        ],
+        "limit": ""
+      },
+      "35-2": {
+        "text": "B社WebサーバにアクセスしようとするA社従業員",
+        "category": "dns_user",
+        "mechanism": {
+          "site": "B",
+          "employee": "A"
+        },
+        "primaryRefs": [
+          "rfc5452 §3",
+          "original own-resolver premise"
+        ],
+        "limit": ""
+      },
+      "35-3": {
+        "text": "B社WebサーバにアクセスしようとするB社従業員",
+        "category": "dns_user",
+        "mechanism": {
+          "site": "B",
+          "employee": "B"
+        },
+        "primaryRefs": [
+          "rfc5452 §3",
+          "original own-resolver premise"
+        ],
+        "limit": ""
+      },
+      "37-0-0": {
+        "text": "HTTP通信の暗号化規格",
+        "category": "application_channel_crypto",
+        "mechanism": "HTTP channel encryption",
+        "primaryRefs": [
+          "rfc8446 §1,§2,§5"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-0-1": {
+        "text": "TCP/IP通信の暗号化規格",
+        "category": "network_packet_security",
+        "mechanism": "TCP/IP traffic encryption",
+        "primaryRefs": [
+          "rfc4301 §3.1,§3.2"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-0-2": {
+        "text": "Webサーバで使用するディジタル証明書の規格",
+        "category": "certificate_format",
+        "mechanism": "Web certificate format",
+        "primaryRefs": [
+          "rfc5280 §3,§4.1"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-0-3": {
+        "text": "無線LANのセキュリティ規格",
+        "category": "wireless_security",
+        "mechanism": "wireless LAN protection",
+        "primaryRefs": [
+          "wifi-security",
+          "wifi-wpa3-press (issuer release 2018-06-26; Personal/Enterprise bullet items; web-extract read, direct HTTP403 recorded)"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-1-0": {
+        "text": "HTTPなどのアプリケーション通信を、アプリケーションデータの暗号化と認証によって保護するプロトコル",
+        "category": "application_channel_crypto",
+        "mechanism": "application data encryption/authentication",
+        "primaryRefs": [
+          "rfc8446 §1,§2,§5"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-1-1": {
+        "text": "IP層でIPパケットを暗号化や認証によって保護するための規格群",
+        "category": "network_packet_security",
+        "mechanism": "IP security architecture",
+        "primaryRefs": [
+          "rfc4301 §3.1,§3.2"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-1-2": {
+        "text": "Webサーバなどで利用する、公開鍵とその所有者を結び付けるディジタル証明書の形式を定めた規格",
+        "category": "certificate_format",
+        "mechanism": "public key/subject binding format",
+        "primaryRefs": [
+          "rfc5280 §3,§4.1"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-1-3": {
+        "text": "無線LANで共有パスワードを利用し、SAEによる認証を行うセキュリティ規格",
+        "category": "wireless_security",
+        "mechanism": "WPA3 Personal SAE",
+        "primaryRefs": [
+          "wifi-security",
+          "wifi-wpa3-press (issuer release 2018-06-26; Personal/Enterprise bullet items; web-extract read, direct HTTP403 recorded)"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-2-0": {
+        "text": "HTTPなどのアプリケーション通信で、ハンドシェイク後のアプリケーションデータを暗号化して保護するプロトコル",
+        "category": "application_channel_crypto",
+        "mechanism": "TLS handshake and encrypted application records",
+        "primaryRefs": [
+          "rfc8446 §1,§2,§5"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-2-1": {
+        "text": "IP層で、AHやESPを用いてIPパケットにセキュリティ機能を提供するための規格群",
+        "category": "network_packet_security",
+        "mechanism": "AH and ESP network security",
+        "primaryRefs": [
+          "rfc4301 §3.1,§3.2"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-2-2": {
+        "text": "発行者、主体、公開鍵、有効期間などのフィールドをもつディジタル証明書の形式を定めた規格",
+        "category": "certificate_format",
+        "mechanism": "X509 issuer/subject/key/validity fields",
+        "primaryRefs": [
+          "rfc5280 §3,§4.1"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-2-3": {
+        "text": "企業向けの無線LANで、高い機密性が必要なデータを保護するためのセキュリティ規格",
+        "category": "wireless_security",
+        "mechanism": "WPA3 Enterprise sensitive-data protection",
+        "primaryRefs": [
+          "wifi-security",
+          "wifi-wpa3-press (issuer release 2018-06-26; Personal/Enterprise bullet items; web-extract read, direct HTTP403 recorded)"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-3-0": {
+        "text": "HTTPなどのアプリケーション通信で、レコード層の暗号化と完全性保護によってデータを保護するプロトコル",
+        "category": "application_channel_crypto",
+        "mechanism": "TLS record confidentiality/integrity",
+        "primaryRefs": [
+          "rfc8446 §1,§2,§5"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-3-1": {
+        "text": "IP層でAHを利用してパケットの完全性や送信元の認証を行うための規格",
+        "category": "network_packet_security",
+        "mechanism": "AH integrity/authentication, not encryption",
+        "primaryRefs": [
+          "rfc4301 §3.1,§3.2"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-3-2": {
+        "text": "Webサーバなどの公開鍵証明書に、主体や公開鍵、有効期間などを記載する形式を定めた規格",
+        "category": "certificate_format",
+        "mechanism": "X509 certificate data structure",
+        "primaryRefs": [
+          "rfc5280 §3,§4.1"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "37-3-3": {
+        "text": "無線LANでSAEを用いたパスワード認証を行うセキュリティ規格",
+        "category": "wireless_security",
+        "mechanism": "WPA3 Personal password SAE",
+        "primaryRefs": [
+          "wifi-security",
+          "wifi-wpa3-press (issuer release 2018-06-26; Personal/Enterprise bullet items; web-extract read, direct HTTP403 recorded)"
+        ],
+        "limit": "TLS is not HTTP-only; IPsec is IP-layer security; X.509 is a certificate format, not itself an encrypted channel. The original broad v0 distractors are preserved only for the original WPA3 target."
+      },
+      "38-0-0": {
+        "text": "受信者の公開鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "receiver",
+          "kind": "public",
+          "operator": "sender",
+          "operation": "sign"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-0-1": {
+        "text": "受信者の秘密鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "receiver",
+          "kind": "private",
+          "operator": "receiver",
+          "operation": "verify"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-0-2": {
+        "text": "送信者の公開鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "sender",
+          "kind": "public",
+          "operator": "receiver",
+          "operation": "verify"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-0-3": {
+        "text": "送信者の秘密鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "sender",
+          "kind": "private",
+          "operator": "sender",
+          "operation": "sign"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-1-0": {
+        "text": "受信者の公開鍵であり、送信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "receiver",
+          "kind": "public",
+          "operator": "sender",
+          "operation": "verify"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-1-1": {
+        "text": "受信者の秘密鍵であり、受信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "receiver",
+          "kind": "private",
+          "operator": "receiver",
+          "operation": "sign"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-1-2": {
+        "text": "送信者の公開鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "sender",
+          "kind": "public",
+          "operator": "receiver",
+          "operation": "verify"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "38-1-3": {
+        "text": "送信者の秘密鍵であり、送信者がメッセージダイジェストからディジタル署名を作成する際に使用する。",
+        "category": "rsa_key_use",
+        "mechanism": {
+          "owner": "sender",
+          "kind": "private",
+          "operator": "sender",
+          "operation": "sign"
+        },
+        "primaryRefs": [
+          "rfc8017 §5.2,§8,§9"
+        ],
+        "limit": "The source uses a didactic digest-recovery wording. RFC8017 verification operates on encoded message representatives; do not teach raw modular exponentiation as a complete secure signature encoding or as a universal method for other signature algorithms."
+      },
+      "39-0-0": {
+        "text": "アクセスする際にパスワード認証などの正規の手続が必要なWebサイトに、当該手続を経ないでアクセス可能なURL",
+        "category": "authentication_bypass",
+        "mechanism": "normal-auth bypass URL",
+        "primaryRefs": [
+          "nist-backdoor"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-0-1": {
+        "text": "インターネットに公開されているサーバのTCPポートの中からアクティブになっているポートを探して、稼働中のサービスを特定するためのツール",
+        "category": "port_discovery_tool",
+        "mechanism": "TCP active-service discovery",
+        "primaryRefs": [
+          "nist-portscan"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-0-2": {
+        "text": "ネットワーク上の通信パケットを取得して通信内容を見るために設けられたスイッチのLANポート",
+        "category": "monitoring_copy_port",
+        "mechanism": "packet observation port",
+        "primaryRefs": [
+          "cisco-span"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-0-3": {
+        "text": "プログラムが確保するメモリ領域に、領域の大きさを超える長さの文字列を入力してあふれさせ、ダウンさせる攻撃",
+        "category": "buffer_boundary_overwrite",
+        "mechanism": "oversized string overwrite causing outage",
+        "primaryRefs": [
+          "nist-overflow"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-1-0": {
+        "text": "Web管理画面で通常必要な認証を通らずに管理機能を利用できる、管理者へ知らせていない別の入口URL",
+        "category": "authentication_bypass",
+        "mechanism": "undocumented management URL",
+        "primaryRefs": [
+          "nist-backdoor"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-1-1": {
+        "text": "複数のUDPポートへ要求を送り、その応答を調べて利用可能なサービスを探すためのツール",
+        "category": "port_discovery_tool",
+        "mechanism": "UDP response based discovery",
+        "primaryRefs": [
+          "nist-portscan"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-1-2": {
+        "text": "スイッチから送信される方向の通信パケットを複製して、解析装置に渡すためのLANポート",
+        "category": "monitoring_copy_port",
+        "mechanism": "egress-only copying",
+        "primaryRefs": [
+          "cisco-span"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-1-3": {
+        "text": "プログラムがヒープ上に確保したバッファの長さを超える文字列を書き込み、領域外へあふれさせてダウンさせる攻撃",
+        "category": "buffer_boundary_overwrite",
+        "mechanism": "heap buffer overwrite causing outage",
+        "primaryRefs": [
+          "nist-overflow"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-2-0": {
+        "text": "Webサイトの保守用として残された、通常のパスワード認証を迂回して管理機能へ入れるURL",
+        "category": "authentication_bypass",
+        "mechanism": "maintenance auth-bypass URL",
+        "primaryRefs": [
+          "nist-backdoor"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-2-1": {
+        "text": "複数のTCPポートへ接続確立要求を送り、戻った応答から待受中のポートを調べるツール",
+        "category": "port_discovery_tool",
+        "mechanism": "TCP connection-request probe",
+        "primaryRefs": [
+          "nist-portscan"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-2-2": {
+        "text": "スイッチで受信する方向の通信パケットを複製して、解析装置へ渡すためのLANポート",
+        "category": "monitoring_copy_port",
+        "mechanism": "ingress-only copying",
+        "primaryRefs": [
+          "cisco-span"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-2-3": {
+        "text": "プログラムのスタック上にある文字列バッファに容量を超える文字列を入力し、隣接領域へあふれさせてダウンさせる攻撃",
+        "category": "buffer_boundary_overwrite",
+        "mechanism": "stack buffer overwrite causing outage",
+        "primaryRefs": [
+          "nist-overflow"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-3-0": {
+        "text": "Webサイトの特別なURLパラメータを指定すると、通常必要な利用者認証を経ずに管理機能へアクセスできるURL",
+        "category": "authentication_bypass",
+        "mechanism": "special-parameter auth-bypass URL",
+        "primaryRefs": [
+          "nist-backdoor"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-3-1": {
+        "text": "複数のTCPポートへの接続が成立するかを試し、サービスの待受状態を調べるためのツール",
+        "category": "port_discovery_tool",
+        "mechanism": "TCP completed-connection probe",
+        "primaryRefs": [
+          "nist-portscan"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-3-2": {
+        "text": "スイッチで受信する方向と送信する方向の通信パケットを複製し、解析装置へ渡すためのLANポート",
+        "category": "monitoring_copy_port",
+        "mechanism": "bidirectional copying",
+        "primaryRefs": [
+          "cisco-span"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      },
+      "39-3-3": {
+        "text": "プログラムの静的領域にある文字列バッファへ長すぎる文字列を入力し、領域外へあふれさせてダウンさせる攻撃",
+        "category": "buffer_boundary_overwrite",
+        "mechanism": "static buffer overwrite causing outage",
+        "primaryRefs": [
+          "nist-overflow"
+        ],
+        "limit": "Only the described authentication bypass is a backdoor example; public URLs in general are not. Port scanners and monitoring ports can have legitimate uses. Overflow can cause an outage in these described cases, not necessarily for every possible oversized input."
+      }
+    },
+    "independentClassification": {
+      "37": {
+        "WPA3": "wireless_security",
+        "IPsec": "network_packet_security",
+        "X.509": "certificate_format",
+        "TLS 1.3": "application_channel_crypto"
+      },
+      "39": {
+        "バックドア": "authentication_bypass",
+        "ポートスキャナ": "port_discovery_tool",
+        "ミラーポート": "monitoring_copy_port",
+        "バッファオーバフロー攻撃": "buffer_boundary_overwrite"
+      }
+    },
+    "deviceCapabilities": {
+      "media_converter": [
+        "physical_media_conversion"
+      ],
+      "repeater_hub": [
+        "physical_repeat"
+      ],
+      "L2": [
+        "l2_destination_forwarding",
+        "l2_source_learning"
+      ],
+      "L3": [
+        "l2_destination_forwarding",
+        "l2_source_learning",
+        "network_routing"
+      ]
+    },
+    "sourceClassificationLimit": "Pure functional classes of the original question, not a universal feature inventory for integrated commercial products."
+  },
+  "designResults": [
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        1
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        2
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        3
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        4
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        5
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        6
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        7
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        8
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        9
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        10
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        11
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "update X",
+        "read W",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        12
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        13
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        14
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-29",
+      "input": [
+        15
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": [
+        "read W",
+        "update X",
+        "update Y",
+        "update Z"
+      ]
+    },
+    {
+      "source": "2019r01a-fe-am-31",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "各ノードは伝送媒体が使用中かどうかを調べ、使用中でなければ送信を行う。衝突を検出したらランダムな時間の経過後に再度送信を行う。"
+    },
+    {
+      "source": "2019r01a-fe-am-31",
+      "input": [
+        1
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "各ノードは伝送媒体が空いていることを確認し、ランダムな待ち時間によって送信時期を調整してから送信を行う。衝突を送信中に直接検出する方式ではなく、衝突の発生確率を減らすようにする。"
+    },
+    {
+      "source": "2019r01a-fe-am-32",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "ネットワーク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能"
+    },
+    {
+      "source": "2019r01a-fe-am-32",
+      "input": [
+        1
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "ネットワーク層において、宛先アドレスに従って適切なLANポートにパケットを中継する機能"
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "NAPT（IPマスカレード）"
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        1
+      ],
+      "truth": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "answerMeaning": "DHCP"
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        2
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": "PPPoE"
+    },
+    {
+      "source": "2019r01a-fe-am-33",
+      "input": [
+        3
+      ],
+      "truth": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "answerMeaning": "パケットフィルタリング"
+    },
+    {
+      "source": "2019r01a-fe-am-35",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "A社WebサーバにアクセスしようとするB社従業員"
+    },
+    {
+      "source": "2019r01a-fe-am-35",
+      "input": [
+        1
+      ],
+      "truth": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "answerMeaning": "A社WebサーバにアクセスしようとするA社従業員"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "answerMeaning": "無線LANのセキュリティ規格"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        1
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "IP層でIPパケットを暗号化や認証によって保護するための規格群"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        2
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": "発行者、主体、公開鍵、有効期間などのフィールドをもつディジタル証明書の形式を定めた規格"
+    },
+    {
+      "source": "2019r01a-fe-am-37",
+      "input": [
+        3
+      ],
+      "truth": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "answerMeaning": "HTTPなどのアプリケーション通信で、レコード層の暗号化と完全性保護によってデータを保護するプロトコル"
+    },
+    {
+      "source": "2019r01a-fe-am-38",
+      "input": [
+        0
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": "送信者の公開鍵であり、受信者がディジタル署名からメッセージダイジェストを算出する際に使用する。"
+    },
+    {
+      "source": "2019r01a-fe-am-38",
+      "input": [
+        1
+      ],
+      "truth": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "answerMeaning": "受信者の公開鍵であり、送信者がディジタル署名からメッセージダイジェストを算出する際に使用する。"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        0
+      ],
+      "truth": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "answerMeaning": "アクセスする際にパスワード認証などの正規の手続が必要なWebサイトに、当該手続を経ないでアクセス可能なURL"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        1
+      ],
+      "truth": [
+        false,
+        true,
+        false,
+        false
+      ],
+      "answerMeaning": "複数のUDPポートへ要求を送り、その応答を調べて利用可能なサービスを探すためのツール"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        2
+      ],
+      "truth": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "answerMeaning": "スイッチで受信する方向の通信パケットを複製して、解析装置へ渡すためのLANポート"
+    },
+    {
+      "source": "2019r01a-fe-am-39",
+      "input": [
+        3
+      ],
+      "truth": [
+        false,
+        false,
+        false,
+        true
+      ],
+      "answerMeaning": "プログラムの静的領域にある文字列バッファへ長すぎる文字列を入力し、領域外へあふれさせてダウンさせる攻撃"
+    }
+  ],
+  "primaryIndex": [
+    {
+      "id": "ipa-listing",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2019h31.html",
+      "retrievedAt": "2026-10-20T17:43:21.614833+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2019h31.html",
+      "contentType": "text/html",
+      "byteLength": 125944,
+      "sha256": "74ac6482d370c302c4fd87cafb85146b7e615ec9092f9be5f44f17ae9a019093",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/ipa-listing.html"
+    },
+    {
+      "id": "ipa-faq",
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "retrievedAt": "2026-10-20T17:43:21.615375+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ipa.go.jp/shiken/faq.html",
+      "contentType": "text/html",
+      "byteLength": 106219,
+      "sha256": "38bbf2df383d1d8ddd69479178fb6959b58166e176e0d3399527bc6ddc75cc87",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/ipa-faq.html"
+    },
+    {
+      "id": "ipa-question",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_qs.pdf",
+      "retrievedAt": "2026-10-20T17:43:21.615563+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_qs.pdf",
+      "contentType": "application/pdf",
+      "byteLength": 4699691,
+      "sha256": "4cd404654bb4f465befc78a3ac44c79bcd0f019b12b68f93a38d9836710c7cb0",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/ipa-question.pdf",
+      "signatureValid": true
+    },
+    {
+      "id": "ipa-answer",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_ans.pdf",
+      "retrievedAt": "2026-10-20T17:43:21.615738+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000dict-att/2019r01a_fe_am_ans.pdf",
+      "contentType": "application/pdf",
+      "byteLength": 55562,
+      "sha256": "074c4437b57dc5ba96b6f87da90d4b2fa905d436f4c606690010e1262f32e4e0",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/ipa-answer.pdf",
+      "signatureValid": true
+    },
+    {
+      "id": "cmu-2pl",
+      "url": "https://15445.courses.cs.cmu.edu/fall2019/slides/17-twophaselocking.pdf",
+      "retrievedAt": "2026-10-20T17:43:21.615931+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": null,
+      "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+    },
+    {
+      "id": "pg-locking",
+      "url": "https://www.postgresql.org/docs/9.6/explicit-locking.html",
+      "retrievedAt": "2026-10-20T17:43:21.616094+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.postgresql.org/docs/9.6/explicit-locking.html",
+      "contentType": "text/html; charset=utf-8",
+      "byteLength": 38268,
+      "sha256": "58778307ba3ef638c148b5118c43de6bebaabbadbbbcfdb3910f3b239b4df93a",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/pg-locking.html"
+    },
+    {
+      "id": "cisco-ethernet",
+      "url": "https://www.cisco.com/en/US/docs/internetworking/troubleshooting/guide/tr1904.html",
+      "retrievedAt": "2026-10-20T17:43:21.616327+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "cisco-csma-ca",
+      "url": "https://www.cisco.com/E-Learning/bulk/guest/celc/fwl/ch3/3_6_2/content.html",
+      "retrievedAt": "2026-10-20T17:43:21.690769+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "cisco-layer2",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst6500/ios/15-4SY/config_guide/sup6T/15_3_sy_swcg_6T/layer2.pdf",
+      "retrievedAt": "2026-10-20T17:43:21.706445+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "cisco-layer3",
+      "url": "https://www.cisco.com/en/US/docs/ios/lanswitch/configuration/guide/lsw_ml_sw_over_support_TSD_Island_of_Content_Chapter.html",
+      "retrievedAt": "2026-10-20T17:43:21.710195+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "cisco-span",
+      "url": "https://www.cisco.com/c/en/us/support/docs/switches/catalyst-6500-series-switches/10570-41.html",
+      "retrievedAt": "2026-10-20T17:43:21.712980+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "rfc3022",
+      "url": "https://www.rfc-editor.org/rfc/rfc3022.txt",
+      "retrievedAt": "2026-10-20T17:43:21.726664+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc3022.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 37675,
+      "sha256": "c57fe60c46eff630d4d82eece5bf624ba3ac80f16711e7acdb44a28e01331d86",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc3022.txt"
+    },
+    {
+      "id": "rfc2131",
+      "url": "https://www.rfc-editor.org/rfc/rfc2131.txt",
+      "retrievedAt": "2026-10-20T17:43:21.765011+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc2131.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 113738,
+      "sha256": "a043b705785b81762505ded4cf71d61392b2b1da2b4ce1e32c13bc984de5f4a5",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc2131.txt"
+    },
+    {
+      "id": "rfc2516",
+      "url": "https://www.rfc-editor.org/rfc/rfc2516.txt",
+      "retrievedAt": "2026-10-20T17:43:21.765452+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc2516.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 32537,
+      "sha256": "e20efb2fd445e50a076e3873daa7fb1b698bc1fc387902bd690c7a38afe77b95",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc2516.txt"
+    },
+    {
+      "id": "rfc5452",
+      "url": "https://www.rfc-editor.org/rfc/rfc5452.txt",
+      "retrievedAt": "2026-10-20T17:43:21.783439+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc5452.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 37432,
+      "sha256": "53af0365af1c491204ae27b523699b7732f79cf606ce84fab3b032df7a966c6b",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc5452.txt"
+    },
+    {
+      "id": "rfc8017",
+      "url": "https://www.rfc-editor.org/rfc/rfc8017.txt",
+      "retrievedAt": "2026-10-20T17:43:21.954734+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc8017.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 154696,
+      "sha256": "1e72dc473d18df3fc5598cdc12795a9f18f36f1aef15abc23a55eb0d58151d11",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc8017.txt"
+    },
+    {
+      "id": "rfc4301",
+      "url": "https://www.rfc-editor.org/rfc/rfc4301.txt",
+      "retrievedAt": "2026-10-20T17:43:22.009262+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc4301.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 262123,
+      "sha256": "a2411e90515f59665e1059b1bb66d8123bd9e384ccfc8b7ccca65db85d5d7736",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc4301.txt"
+    },
+    {
+      "id": "rfc5280",
+      "url": "https://www.rfc-editor.org/rfc/rfc5280.txt",
+      "retrievedAt": "2026-10-20T17:43:22.017714+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc5280.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 352580,
+      "sha256": "a2f2628c0a83b873fc4786abd921f9b2c02395954b655d190bf16b831633345d",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc5280.txt"
+    },
+    {
+      "id": "rfc8446",
+      "url": "https://www.rfc-editor.org/rfc/rfc8446.txt",
+      "retrievedAt": "2026-10-20T17:43:22.021451+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc8446.txt",
+      "contentType": "text/plain;charset=utf-8",
+      "byteLength": 337736,
+      "sha256": "47871bc8820a2c3b6ea89f061055577058862cf543686b82d10131239702b3bd",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc8446.txt"
+    },
+    {
+      "id": "wifi-security",
+      "url": "https://www.wi-fi.org/security",
+      "retrievedAt": "2026-10-20T17:43:22.040403+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://www.wi-fi.org/security",
+      "contentType": "text/html; charset=utf-8",
+      "byteLength": 145722,
+      "sha256": "e220afb45eddcf7a2f5d2d53ed9f29b2c78d4954b39a3fd6b7b40b77a1fa16a0",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/wifi-security.html"
+    },
+    {
+      "id": "wifi-wpa3-press",
+      "url": "https://www.globenewswire.com/news-release/2018/06/26/1529297/0/en/Wi-Fi-Alliance-introduces-Wi-Fi-CERTIFIED-WPA3-security.html",
+      "retrievedAt": "2026-10-20T17:43:22.189526+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 403,
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "nist-firewalls",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-41r1.pdf",
+      "retrievedAt": "2026-10-20T17:43:22.250274+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-41r1.pdf",
+      "contentType": "application/pdf",
+      "byteLength": 339557,
+      "sha256": "06642409a8f0dcc9de8725f2d76d6feedea2d4d1faa860c2ee18488863dd1f4f",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/nist-firewalls.pdf",
+      "signatureValid": true
+    },
+    {
+      "id": "nist-backdoor",
+      "url": "https://csrc.nist.gov/glossary/term/backdoor",
+      "retrievedAt": "2026-10-20T17:43:22.267949+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://csrc.nist.gov/glossary/term/backdoor",
+      "contentType": "text/html; charset=utf-8",
+      "byteLength": 48819,
+      "sha256": "7497b9ffef317bb9a6219f5aa4cb35fbef0ae002386157f0b017536baf141fc3",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/nist-backdoor.html"
+    },
+    {
+      "id": "nist-portscan",
+      "url": "https://csrc.nist.gov/glossary/term/port_scanning",
+      "retrievedAt": "2026-10-20T17:43:22.271823+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://csrc.nist.gov/glossary/term/port_scanning",
+      "contentType": "text/html; charset=utf-8",
+      "byteLength": 44522,
+      "sha256": "b0d486fba91df1fba5acd9f6113c18962f6093dcf167d98dd0dd0f19f5392a58",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/nist-portscan.html"
+    },
+    {
+      "id": "nist-overflow",
+      "url": "https://csrc.nist.gov/glossary/term/buffer_overflow_attack",
+      "retrievedAt": "2026-10-20T17:43:22.325642+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "finalUrl": "https://csrc.nist.gov/glossary/term/buffer_overflow_attack",
+      "contentType": "text/html; charset=utf-8",
+      "byteLength": 45693,
+      "sha256": "6eb3677889c46c2ea23e5e0feef441473b655b7886eb697b7b274a16972c06cf",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/nist-overflow.html"
+    },
+    {
+      "id": "rfc4188",
+      "url": "https://www.rfc-editor.org/rfc/rfc4188.txt",
+      "retrievedAt": "2026-10-20T17:44:46.919529+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "byteLength": 86877,
+      "sha256": "f85ce6fb0b5829a4aadc05d94b50c7e44c65dd9caa6936b3cd2ac48eb0b7af5a",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc4188.txt"
+    },
+    {
+      "id": "rfc1812",
+      "url": "https://www.rfc-editor.org/rfc/rfc1812.txt",
+      "retrievedAt": "2026-10-20T17:44:47.228710+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "byteLength": 415740,
+      "sha256": "72c2c27fecd3eef085f978a8c0ee5f364877708bfc0251af1c8437b56ad2f56d",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc1812.txt"
+    },
+    {
+      "id": "rfc8325",
+      "url": "https://www.rfc-editor.org/rfc/rfc8325.txt",
+      "retrievedAt": "2026-10-20T17:44:47.512562+00:00",
+      "distribution": "private_source_review_only_no_raw_external_material_in_application",
+      "httpStatus": 200,
+      "byteLength": 91530,
+      "sha256": "6a059ababe36062810b17a5d0f44424d783c9f77b8fd6c36e362d816d3b9e031",
+      "path": "output/source-import/legacy-2019/am-autumn-network-next8-source-only/primary/rfc8325.txt"
+    },
+    {
+      "id": "nsa-wpa3-2019",
+      "url": "https://media.defense.gov/2019/Jul/16/2002158109/0/0/0/CTR-CYBERSECURITY-TECHNICAL-REPORT-WPA3.PDF",
+      "retrievedAt": "2026-10-20T17:55:35.847226+00:00",
+      "distribution": "private source fact review only",
+      "error": "HTTP Error 403: Forbidden",
+      "httpStatus": 403
+    },
+    {
+      "id": "nist-scanning-2008",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf",
+      "retrievedAt": "2026-10-20T17:55:35.907982+00:00",
+      "distribution": "private source fact review only",
+      "error": "HTTP Error 403: Forbidden",
+      "httpStatus": 403
+    }
+  ],
+  "materialReview": {
+    "ipaParts": "今回の本文/全択/原2図・1表を各cropで目視し、教育利用条件を当日のIPA FAQ一次HTTPで確認。年/期/試験/午前/問番号・改変主体/改変内容の表示を伴う原問題・基準問題/独自作図の実装準備案。著作権放棄ではなくMIT/CC0へ変更しない。",
+    "specificThirdPartyNoticeOnTheseEightCrops": "注記/引用/出典・図の署名として特定できるものは見つからなかった。この限定の目視と事実照合を、第三者の全定義/規格本文の自由転載許諾へ広げない。",
+    "supplementalDocuments": "RFC/Cisco/Wi-Fi Alliance/NISTは技術的事実照合資料のみ。原文/図/コード/規格本文をアプリに転載しない。private evidenceへの保存は配布用assetではない。既存JIS/Java/BPR等の保留を解除しない。",
+    "applicationDistribution": "原/base/template/assets/source/rightの実レコードと必要表示/意味/Schema検証は未実装。配布可と判断しない。",
+    "newExternalContact": false
+  },
+  "limits": [
+    "年度準備用。共有登録/本番Run/mix/用語lookup/配布未完。",
+    "外部標準/vendor本文・図・コードの転載ではなく事実照合に限定。",
+    "生の剰余演算はRSA-PSS等の完全な署名手順や安全性の証明ではない。"
+  ]
+}
