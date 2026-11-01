@@ -7,7 +7,9 @@ import { fixture, installFixtureGenerators } from "./fixtures";
 import { additionalDefinitions } from "../src/core/generators";
 import amCapacity from "./fixtures/stage1-am-capacity-review.json";
 const amCapacityBySource = new Map(amCapacity.rows.map(r => [r.source, r]));
-import { stage3MorningDefinitions } from "../src/core/generators/stage3-morning-install";
+import { stage3MorningDefinitions, stage3AllMorningDefinitions } from "../src/core/generators/stage3-morning-install";
+import autumn2016FirstReview from "./fixtures/legacy-2016-autumn-am-01-40-review.json";
+import autumn2016LastReview from "./fixtures/legacy-2016-autumn-am-41-80-review.json";
 import stage3FundamentalsContracts from "./fixtures/legacy-2016-spring-fundamentals-input-contracts.json";
 import stage3MiddleReview from "./fixtures/legacy-2016-spring-am-09-32-review.json";
 import { knowledgeReview as stage3KnowledgeReview } from "./fixtures/legacy-2016-spring-am-33-56-oracle";
@@ -34,6 +36,19 @@ const stage3Counts = new Map<number, number>([
 const stage3FixedSignatures = new Map([[7,1],[9,1],[10,1],[11,1],[19,1],[21,4],[27,1],[29,4],
   [39,1],[40,1],[44,1],[45,1],[49,1],[53,1],[55,1],[77,12]]);
 const isStage3Source = (source: string) => /^2016h28h-fe-am-\d+$/.test(source);
+// These reviewed capacities are source-keyed so equal question numbers from
+// spring/autumn cannot overwrite each other. They are not field-max counts.
+const autumn2016Counts = new Map<string,number>([
+  ...autumn2016FirstReview.rows.map(r=>[r.source,r.finiteInputs] as [string,number]),
+  ...autumn2016LastReview.questions.map(r=>[`2016h28a-fe-am-${r.number}`,r.variableDesign.finiteConditions] as [string,number]),
+]);
+// Independent all-choice role review: these18 keep a fixed answer role. Q1
+// binds eight different masks into AND, hence eight actual choice signatures.
+// Q44/52 now ask distinct reviewed attack/schedule concepts and are variable.
+const autumn2016FixedSignatures = new Map<number,number>([[1,8],[3,1],[5,1],[13,1],[14,1],[18,1],
+  [19,1],[26,1],[37,1],[38,1],[39,1],[40,1],[41,1],[48,1],[49,1],[50,1],[78,1],[80,1]]);
+const isAutumn2016Source=(source:string)=>/^2016h28a-fe-am-\d+$/.test(source);
+const isNativeStage3Source=(source:string)=>isStage3Source(source)||isAutumn2016Source(source);
 import {
   bindQuestion,
   parametersForSeed,
@@ -160,6 +175,21 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
   }
   const compositeHTML = nativeAM && /<(?:table|ol|ul)\b/.test(html);
   if (!compositeHTML) {
+    if(profile.startsWith("legacy-2016-autumn-am-")){
+      assert.equal([...html.matchAll(/<svg\b/g)].length,1);
+      assert(html.includes('role="img"'));
+      assert(html.includes('class="legacy2016-figure"'));
+      if(profile.match(/-(?:marketing|bom|oc|inventory)$/)){
+        assert(html.includes('aria-label="'+escapeHTML(block.alt)+'"'));
+        assert(html.includes('<title>'+escapeHTML(block.caption)+'</title>'));
+      }else{
+        assert(/aria-labelledby="[^"]+"/.test(html));assert(/aria-describedby="[^"]+"/.test(html));
+        const title=/<title\b[^>]*>([\s\S]*?)<\/title>/.exec(html);assert(title);assert.equal(title[1],escapeHTML(block.caption));
+        const desc=/<desc\b[^>]*>([\s\S]*?)<\/desc>/.exec(html);assert(desc);assert.equal(desc[1],escapeHTML(block.alt));
+      }
+      assert.equal([...html.matchAll(/class="diagram-scroll"/g)].length,1);
+      assert(!/NaN|undefined|Infinity/.test(html));return;
+    }
     if (profile === "legacy-2016-spring-am-ppm" || profile === "legacy-2016-spring-am-pareto") {
       assert.equal([...html.matchAll(/<svg\b/g)].length, 1);
       assert(html.includes('role="img"'));
@@ -192,6 +222,18 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
   }
   // Common pages retain independently named glyphs and visible source explanations.
   if (html.includes('data-common-reference="')) {
+    if(profile==="legacy-2016-autumn-am-common-symbols"){
+      assert.equal([...html.matchAll(/<table\b/g)].length,2);
+      for(const kind of ['論理回路','回路記号'])assert(html.includes('<table aria-label="'+escapeHTML(block.caption+'（'+kind+'）')+'"'));
+      assert.deepEqual([...html.matchAll(/data-common-gate="([^"]+)"/g)].map(m=>m[1]),['and','nand','or','nor','xor','xnor','buffer','not','tristate']);
+      assert.deepEqual([...html.matchAll(/data-common-circuit="([^"]+)"/g)].map(m=>m[1]),['resistor','capacitor','diode','transistor','ground','amplifier']);
+      const rows=[...html.matchAll(/<tr><td><svg\b([^>]*)>[\s\S]*?<\/svg><\/td><td>([^<]+)<\/td><\/tr>/g)];assert.equal(rows.length,15);
+      for(const row of rows){assert(row[1].includes('role="img"'));assert(row[1].includes('aria-label="'+row[2]+'"'));}
+      assert(html.includes('data-emitter-arrow="outward" data-emitter-branch="lower"'));
+      assert(html.includes('data-emitter-arrow="inward" data-emitter-branch="upper"'));
+      assert(html.includes('data-positive-input="true"')&&html.includes('data-negative-input="true"'));
+      assert(html.includes('○')&&html.includes('論理状態の反転又は否定'));return;
+    }
     assert(scene.kind === "source_figure" && scene.profile.endsWith("-am-common-gates"));
     assert(html.includes('<table aria-label="' + escapeHTML(block.caption) + '"'));
     assert(html.includes('<th scope="col">図記号</th><th scope="col">説明</th>'));
@@ -272,7 +314,9 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     [...source.properties.profile.enum].sort(),
     Object.keys(sourceFigureDomains).sort(),
   );
-  const stage3ReferenceBlocks = stage3MorningDefinitions.flatMap(definition => {
+  assert.equal(stage3MorningDefinitions.length,75);
+  assert.equal(stage3AllMorningDefinitions.length,152);
+  const stage3ReferenceBlocks = stage3AllMorningDefinitions.flatMap(definition => {
     const body = definition.build([...definition.reference!]);
     return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
   });
@@ -320,12 +364,12 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
 });
 
-test("every one of 809 official sources has exactly one generator and is a mix candidate", async () => {
+test("every one of 886 official sources has exactly one generator and is a mix candidate", async () => {
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  assert.equal(c.total, 809);
-  assert.equal(c.covered, 809);
+  assert.equal(c.total, 886);
+  assert.equal(c.covered, 886);
   assert(
     c.rows.every((r) => r.templates.length === 1 && r.linked.length === 1),
   );
@@ -338,7 +382,8 @@ test("every one of 809 official sources has exactly one generator and is a mix c
       size: "full",
       bindingMode: "generated_values",
     });
-    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 682 : 49);
+    // Keep the previous 682 A families and append all 77 eligible autumn sources.
+    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 682 + 77 : 49);
   }
   const missing = structuredClone(b);
   missing.templates = missing.templates.filter(
@@ -374,6 +419,21 @@ test("installed registry adds exactly75 stage3 morning families with all688 revi
     assert.equal(d.fields.length,1); assert.equal(d.fields[0].minimum,0);
     assert.equal(d.fields[0].maximum,count-1); assert.deepEqual(d.reference,[0]);
     assert.equal(d.answerVariation === "fixed",stage3FixedSignatures.has(n));
+  }
+});
+test("installed registry adds exactly77 autumn2016 families with all441 independent finite conditions and keeps spring75 separate",()=>{
+  const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)).map(n=>'2016h28a-fe-am-'+n);
+  assert.equal(autumn2016FirstReview.rows.length,40);assert.equal(autumn2016LastReview.questions.length,37);
+  assert.equal(autumn2016FirstReview.rows.reduce((n,r)=>n+r.finiteInputs,0),236);
+  assert.equal(autumn2016LastReview.questions.reduce((n,r)=>n+r.variableDesign.finiteConditions,0),205);
+  assert.equal(autumn2016Counts.size,77);assert.deepEqual([...autumn2016Counts.keys()],expected);
+  assert.equal([...autumn2016Counts.values()].reduce((a,b)=>a+b,0),441);assert.equal(autumn2016FixedSignatures.size,18);
+  const admitted=additionalDefinitions.filter(d=>isAutumn2016Source(d.source));assert.equal(admitted.length,77);
+  assert.deepEqual(admitted.map(d=>d.source).sort(),[...expected].sort());
+  assert.deepEqual(stage3AllMorningDefinitions.filter(d=>isAutumn2016Source(d.source)).map(d=>d.source),expected);
+  for(const d of admitted){const n=Number(d.source.split('-').at(-1)),count=autumn2016Counts.get(d.source)!;
+    assert.equal(d.fields.length,1);assert.equal(d.fields[0].minimum,0);assert.equal(d.fields[0].maximum,count-1);assert.deepEqual(d.reference,[0]);
+    assert.equal(d.answerVariation==='fixed',autumn2016FixedSignatures.has(n));
   }
 });
 for (const d of additionalDefinitions)
@@ -431,7 +491,7 @@ for (const d of additionalDefinitions)
               assert.equal(block.rendererRef.version, activityNetworkRenderer.version);
               readActivityNetwork(block.scene);
             }
-            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isStage3Source(d.source));
+            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isNativeStage3Source(d.source));
           }
     }
     const reviewedAM = amCapacityBySource.get(d.source);
@@ -472,8 +532,8 @@ for (const d of additionalDefinitions)
       assert(finiteAnswers.size >= 1);
       assert([...answers].every(signature => finiteAnswers.has(signature)), d.source + " seeded answers remain inside reviewed finite capacity");
       assert(valid >= 2 && displays.size >= 2 && retainedReference, d.source + " must retain substantive conditions and reference");
-    } else if (isStage3Source(d.source)) {
-      const n=Number(d.source.split("-").at(-1)), count=stage3Counts.get(n)!;
+    } else if (isNativeStage3Source(d.source)) {
+      const n=Number(d.source.split("-").at(-1)),autumn=isAutumn2016Source(d.source),count=autumn?autumn2016Counts.get(d.source)!:stage3Counts.get(n)!;
       assert.equal(d.answerVariation,"fixed"); assert.equal(answerCanVary(t),false);
       const finiteAnswers=new Set<string>(), displays=new Set<string>();
       for(let index=0;index<count;index++) {
@@ -481,7 +541,7 @@ for (const d of additionalDefinitions)
         schema("question",q); validateSourceFormat(q,t);
         finiteAnswers.add(answerSignature(q)); displays.add(JSON.stringify([q.prompt,q.contexts,q.choices]));
       }
-      assert.equal(finiteAnswers.size,stage3FixedSignatures.get(n),d.source);
+      assert.equal(finiteAnswers.size,(autumn?autumn2016FixedSignatures:stage3FixedSignatures).get(n),d.source);
       assert.equal(displays.size,count,d.source + " must retain all substantively distinct conditions");
       assert([...answers].every(signature => finiteAnswers.has(signature)));
       for(const values of [[],[-1],[count],[.5],[0,0]])assert.throws(()=>d.build(values),/PARAMETER_CONSTRAINT/);

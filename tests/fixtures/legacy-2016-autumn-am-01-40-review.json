@@ -1,0 +1,937 @@
+{
+  "schemaVersion": 1,
+  "scope": "S3-002 / 2016年度秋期・旧午前 / 問1–40",
+  "reviewedAt": "2026-11-01T15:17:29.846354+00:00",
+  "preparedQuestions": 40,
+  "materialEligibleQuestions": 40,
+  "heldNumbers": [],
+  "finiteValidInputs": 236,
+  "sourceFacts": "tests/fixtures/legacy-2016-autumn-am-source-facts.json",
+  "independentOracle": "tests/fixtures/legacy-2016-autumn-am-01-40-oracle.ts",
+  "semanticTest": "tests/legacy-2016-autumn-am-01-40.test.ts",
+  "primarySha256": {
+    "questions": "e288f1f0d8f8287702bbbba0b00643b0c24bfdb92660172806bbe137e93df7e5",
+    "answers": "7ed521a518b3d9d04a27cda699a0b29de9f911eb569fdb3cb6bf1ba39589bf90"
+  },
+  "generatorVersion": "3.2.0",
+  "sourceFormatExceptions": [
+    {
+      "number": 15,
+      "scope": "generated base and all variants only",
+      "change": "2台の故障が独立というモデル条件を本文へ明示。",
+      "originalReprint": "原PDFには記述がなく，原再録へ追記しない。Root承認済み。"
+    },
+    {
+      "number": 28,
+      "scope": "nonzero generated set-operation variants only",
+      "change": "和/差/積集合に必要な列数/対応列型の前提を本文へ明示。原0の直積条件は不変。"
+    },
+    {
+      "number": [
+        25,
+        35
+      ],
+      "scope": "display typography only",
+      "change": "10^6/10^8を10⁶/10⁸へ表示。数値/計算条件の変更ではない。"
+    },
+    {
+      "number": 7,
+      "scope": "generated formula display syntax only",
+      "change": "LaTeXは許可済みASCIIのy=0/y>0とoperatorname{mod}で表示。数学的条件と日本語の完全altは不変。",
+      "regression": "全236bodyのquestion schema/全8数式のvalidateFormulaを実行し，日本語texと未許可bmodの変異を拒否。"
+    }
+  ],
+  "qualityFollowups": {
+    "QA04": {
+      "reviewer": "am2017 independent source reviewer",
+      "resolvedQuestions": [
+        14,
+        19,
+        26,
+        38,
+        39
+      ],
+      "finding": "近接する参照指標，E-Rモデル，HA，MAC，CA/TSA等の誤概念へ改めた全誤答と説明を再査読。元0/sourcekey/236は不変。",
+      "fixedLiteralTruth": "全誤答/対象変更/正答差替えのnegativeを保持。"
+    },
+    "Q18": "割込み開始=A実行の終端，c処理完了後の到着=B実行の始点を実SVG座標で検査。305/135への変異を拒否。",
+    "Q31": "headless実描画で破線が文字に重なる問題を発見し，文字下の位置と左右余白へ修正。全4階層tupleのactual SVGに座標assert。",
+    "Q7": "Root統合data:validateが非ASCII数式を拒否したため局所修正。schema又は許可命令を緩めず，全236問body/8数式のproduction validatorとnegativeを追加。"
+  },
+  "verification": {
+    "ownerTest": {
+      "tests": 27,
+      "pass": 27,
+      "fail": 0,
+      "skip": 0,
+      "cancelled": 0,
+      "exitCode": 0,
+      "log": "output/source-review/s3-002-2016-autumn-am/01-40/test-v4.log"
+    },
+    "typecheck": {
+      "command": "npx tsc --noEmit",
+      "exitCode": 2,
+      "log": "output/source-review/s3-002-2016-autumn-am/01-40/typecheck-v4.log",
+      "ownerFileErrors": 0,
+      "blockingParallelFile": "tests/stage3-booklet-successor-metadata.test.ts",
+      "errorLines": [
+        23,
+        58,
+        172
+      ],
+      "priorWholeTypecheck": {
+        "exitCode": 0,
+        "log": "output/source-review/s3-002-2016-autumn-am/01-40/typecheck-v3.log",
+        "before": "Q7 formula/27th schema regression added"
+      }
+    },
+    "rendering": "隔離headless galleryで図9問の原0と最大indexを実描画，18枚を目視。通常Appの受入証明ではない。"
+  },
+  "pending": [
+    "問題集全77のfresh records生成に今回のQA04/図修正を含める。",
+    "Rootによる通常App/全素材/保存/再開/採点/公開closure/新actual guardの受入。",
+    "全体check/公開判定。"
+  ],
+  "rows": [
+    {
+      "number": 1,
+      "source": "2016h28a-fe-am-1",
+      "pdfPage": 4,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "256通りの8ビット入力と4演算を独立に列挙し，保存する位置をマスクで比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 2,
+      "source": "2016h28a-fe-am-2",
+      "pdfPage": 4,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "1万製品の製造ライン/不良を実個数で構成し，条件付き比率を集計。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 3,
+      "source": "2016h28a-fe-am-3",
+      "pdfPage": 5,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "全256本の8入力列を独立状態機械で追跡。開始/終了状態，全bの返却，曲線方向と非決定性も検査。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 4,
+      "source": "2016h28a-fe-am-4",
+      "pdfPage": 5,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "BigIntの組合せ個数と厳密な比率。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 5,
+      "source": "2016h28a-fe-am-5",
+      "pdfPage": 6,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "時間の標本化→振幅の量子化→符号化の依存順序と全選択肢の構成。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 6,
+      "source": "2016h28a-fe-am-6",
+      "pdfPage": 6,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "独立中間順走査で全選択木を判定。直接の子だけでなく全子孫の順序を検査。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 7,
+      "source": "2016h28a-fe-am-7",
+      "pdfPage": 6,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "除数を全列挙して最大共通約数を求め，再帰生成器の剰余処理と独立に比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 8,
+      "source": "2016h28a-fe-am-8",
+      "pdfPage": 7,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 9,
+      "source": "2016h28a-fe-am-9",
+      "pdfPage": 7,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "実SVGのレジスタ名称と参照矢印数から直接/間接/指標/相対を判定。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 10,
+      "source": "2016h28a-fe-am-10",
+      "pdfPage": 7,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 11,
+      "source": "2016h28a-fe-am-11",
+      "pdfPage": 8,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "バイト/ワードアクセスに必要な記憶位置の個数を列挙して最小アドレス幅を判定。M/k=1024，データ線も表示。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 12,
+      "source": "2016h28a-fe-am-12",
+      "pdfPage": 8,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 13,
+      "source": "2016h28a-fe-am-13",
+      "pdfPage": 9,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 14,
+      "source": "2016h28a-fe-am-14",
+      "pdfPage": 9,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。hot standbyとactive-active/cold/warmの準備状態の区別。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 15,
+      "source": "2016h28a-fe-am-15",
+      "pdfPage": 10,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "独立な2台の稼働/停止状態を1万組で列挙。原再録と生成の補足条件を区別。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 16,
+      "source": "2016h28a-fe-am-16",
+      "pdfPage": 10,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "5分間隔の到着と処理/印刷終了を500ジョブの離散イベントで再現。上流律速も含む。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 17,
+      "source": "2016h28a-fe-am-17",
+      "pdfPage": 11,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 18,
+      "source": "2016h28a-fe-am-18",
+      "pdfPage": 11,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "退避→選択→回復の依存順序を全択検査し，実SVGの割込み/太線/破線/到着境界を座標比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 19,
+      "source": "2016h28a-fe-am-19",
+      "pdfPage": 12,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。最後の参照時刻と最初/更新/累積頻度/将来予測を区別。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 20,
+      "source": "2016h28a-fe-am-20",
+      "pdfPage": 12,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "六つのキーを原の順で線形探索挿入し，番地6→1の折返しと全挿入結果を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 21,
+      "source": "2016h28a-fe-am-21",
+      "pdfPage": 13,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "8ビットを個別にactive-low復号し，全選択肢の点灯/消灯SVGを独立比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 22,
+      "source": "2016h28a-fe-am-22",
+      "pdfPage": 13,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 23,
+      "source": "2016h28a-fe-am-23",
+      "pdfPage": 14,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "全8真理値行を独立の固定ゲート真理表で計算し，五ゲートの全選択肢を比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 24,
+      "source": "2016h28a-fe-am-24",
+      "pdfPage": 14,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "順序/重複/形式/項目間業務整合を固定した全文資料で区別。原表の文字/数値の型を保持。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 25,
+      "source": "2016h28a-fe-am-25",
+      "pdfPage": 15,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "BigIntの総ビット数で最大整数分を求め，答えの分数が収まり次の1分が超過することを証明。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 26,
+      "source": "2016h28a-fe-am-26",
+      "pdfPage": 15,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。実体型/行/属性/関係/物理実装の区別。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 27,
+      "source": "2016h28a-fe-am-27",
+      "pdfPage": 15,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "原の重複を含む6行の全行対で関数従属を検査。不成立の全択に具体的反例を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 28,
+      "source": "2016h28a-fe-am-28",
+      "pdfPage": 16,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "実SQLiteで全四演算を重複なしの重なり/非重なり/空集合データへ実行。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 29,
+      "source": "2016h28a-fe-am-29",
+      "pdfPage": 16,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "実SQLiteで原9社員/7部門と全変種を結合してCOUNT(*)を比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 30,
+      "source": "2016h28a-fe-am-30",
+      "pdfPage": 17,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "完了/未完了とinsert/delete/updateの独立状態モデルからREDO/UNDO後の目標状態を判定。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 31,
+      "source": "2016h28a-fe-am-31",
+      "pdfPage": 17,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "図の実階層数から機器を独立判定。リンク層変種でbridge/switchを重複正答化しない。実SVGの文字と破線位置も検査。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 32,
+      "source": "2016h28a-fe-am-32",
+      "pdfPage": 18,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 33,
+      "source": "2016h28a-fe-am-33",
+      "pdfPage": 18,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "BigIntの32ビット論理積によるネットワーク判定。全提示アドレスがネットワーク/ブロードキャストでないことも検査。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 34,
+      "source": "2016h28a-fe-am-34",
+      "pdfPage": 19,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "伝送遅延が等しい物理時系列を独立に解き，四時刻と六桁µs表記/応答フィールド/方向を比較。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "全有効tupleのSSR/visible labels/alt＋原0と最大indexのheadless実描画を目視確認。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 35,
+      "source": "2016h28a-fe-am-35",
+      "pdfPage": 20,
+      "officialKey": "イ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 8,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "二つの物理伝搬路と一つの中継遅延をBigInt有理数で計算し，原と同程度の0.01秒選択肢/間隔を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "元の桁数/計算手順/選択肢間隔を系列別に維持。全系列一律±1の誤答にしない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 36,
+      "source": "2016h28a-fe-am-36",
+      "pdfPage": 20,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "variable",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 37,
+      "source": "2016h28a-fe-am-37",
+      "pdfPage": 20,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 38,
+      "source": "2016h28a-fe-am-38",
+      "pdfPage": 21,
+      "officialKey": "ア",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。認証用ダイジェストと暗号化/復元/鍵合意の区別。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 39,
+      "source": "2016h28a-fe-am-39",
+      "pdfPage": 21,
+      "officialKey": "ウ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。CA/主体と公開鍵/TSA/利用者署名/失効の責務境界。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    },
+    {
+      "number": 40,
+      "source": "2016h28a-fe-am-40",
+      "pdfPage": 21,
+      "officialKey": "エ",
+      "materialStatus": "eligible_materials_reviewed",
+      "prepared": true,
+      "originalAndBasePair": "source-factsの原再録と生成reference[0]を別管理。原0全択/全注記を独立比較。",
+      "finiteInputs": 4,
+      "generatedAnswerVariation": "fixed",
+      "independentOracle": "生成器からimportしない手動固定の全選択肢/対象全文/正答キーと意味の査読根拠で真偽と正答一意性を確認。",
+      "conditionReview": {
+        "directionAndAnswerTarget": "原の肯定方向/解答対象/四択/媒体を保持。",
+        "orderedConditionsAndNotes": "source-factsとの原0比較および全候補の意味テスト。",
+        "choiceOrder": "原再録は固定。生成は共通recordsでsource-facts方針へ接続。",
+        "calculationBurden": "原と同じ概念内の実質的な条件又は誤答を変え，名称/並べ替えだけを候補に数えない。"
+      },
+      "figureReview": "原の文章/表/疑似言語/式の媒体を保持し独立内容テスト。",
+      "capacityReview": "全ての異なる既往2入力と直前の意味上正答signatureの回避条件で1入力以上残る。128固定seedで管理samplerが全候補へ到達。",
+      "normalAppAcceptance": "Root統合後の実画面/保存/採点/受入ゲートは別途必要。owner unit/ギャラリーだけで受入完了にしない。"
+    }
+  ]
+}

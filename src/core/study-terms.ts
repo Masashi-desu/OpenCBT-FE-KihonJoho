@@ -12,6 +12,9 @@ import {sample2022AStudyTerms} from "./sample-2022-a-study-terms";
 import {legacy2016SpringStudyTerms} from './generators/legacy-2016-spring-fundamentals-study-terms';
 import {legacy2016SpringAm5780StudyTerms} from './generators/legacy-2016-spring-am-57-80-study-terms';
 import {isSpring2016CommonContext} from './generators/legacy-2016-spring-am-common';
+import {isAutumn2016CommonContext} from './generators/legacy-2016-autumn-am-common';
+import {legacy2016AutumnAm0140StudyTerms} from './generators/legacy-2016-autumn-am-01-40-study-terms';
+import {legacy2016AutumnAm4180StudyTerms} from './generators/legacy-2016-autumn-am-41-80-study-terms';
 
 // Related terms whose roles were reviewed against these original questions.
 // They are definitions, not an assignment of a displayed choice letter.
@@ -111,7 +114,7 @@ const stage1AmTerms = [
   extra: extraTerms,
   }),
 ];
-const stage3AmTerms=[...legacy2016SpringStudyTerms,...legacy2016SpringAm5780StudyTerms];
+const stage3AmTerms=[...legacy2016SpringStudyTerms,...legacy2016SpringAm5780StudyTerms,...legacy2016AutumnAm0140StudyTerms,...legacy2016AutumnAm4180StudyTerms];
 
 const slashCompounds = studyAcronyms
   .filter((term) => term.term.includes("/"))
@@ -165,6 +168,10 @@ export function studySourceKeys(question: Question): string[] {
     sourceId==='source-ipa-2016h28h-fe-am-qs' && locator.year===2016 && locator.period==='春期' &&
       locator.timeSlot==='午前' && locator.questionNumber ? ['2016h28h-fe-am-'+locator.questionNumber] : []);
   if(spring2016.length) return [...new Set(spring2016)];
+  const autumn2016=question.origin.sourceRefs.flatMap(({sourceId,locator})=>
+    sourceId==='source-ipa-2016h28a-fe-am-qs'&&locator.year===2016&&locator.period==='秋期'&&
+      locator.timeSlot==='午前'&&locator.questionNumber?['2016h28a-fe-am-'+locator.questionNumber]:[]);
+  if(autumn2016.length)return[...new Set(autumn2016)];
   const oldMorning = stage1AmStudySourceKeys(question);
   if (oldMorning !== undefined) return oldMorning;
   return question.origin.sourceRefs.flatMap(({ sourceId, locator: l }) => {
@@ -192,7 +199,7 @@ export function questionStudyTerms(
   );
   const texts = [
     ...question.contextRefs.flatMap(
-      (id) => {const context=question.contexts.find(c=>c.id===id);return context && !isSpring2016CommonContext(question,context)?context.content.blocks:[];},
+      (id) => {const context=question.contexts.find(c=>c.id===id);return context && !isSpring2016CommonContext(question,context)&&!isAutumn2016CommonContext(question,context)?context.content.blocks:[];},
     ),
     ...question.prompt.blocks,
     ...question.choices.flatMap((c) => c.content.blocks),

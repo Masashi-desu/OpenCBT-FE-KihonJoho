@@ -10,6 +10,7 @@ import type { Bundle, Content as QuestionContent, Question } from "../core/types
 import { Content } from "./Content";
 import { isMorningCommonContext } from "../core/generators/legacy-morning-format";
 import { isSpring2016CommonContext } from '../core/generators/legacy-2016-spring-am-common';
+import { isAutumn2016CommonContext } from '../core/generators/legacy-2016-autumn-am-common';
 
 const zoomSteps = [50, 75, 100, 125, 150, 200, 300, 400];
 const zoomModes = [
@@ -55,7 +56,7 @@ export function materialPages(question?: Question): MaterialPage[] {
   if (!question) return [];
   const pages = question.contextRefs.map((id) => {
     const context = question.contexts.find((item) => item.id === id)!;
-    const commonReference = isMorningCommonContext(question, context)||isSpring2016CommonContext(question,context);
+    const commonReference = isMorningCommonContext(question, context)||isSpring2016CommonContext(question,context)||isAutumn2016CommonContext(question,context);
     return { id, label: context.title, content: context.content, context, commonReference,
       commonReferenceTitle: commonReference && context.content.blocks.some(b => b.type === "diagram" &&
         b.scene.kind === "source_figure" && b.scene.profile === "legacy-2019-autumn-am-common-gates") };

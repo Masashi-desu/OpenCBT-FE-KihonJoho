@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問809件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前542問、旧午後78大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問886件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前619問、旧午後78大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -840,6 +840,88 @@
 | [旧午前問79 p.37](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000fzx1-att/2017h29h_fe_am_qs.pdf#page=37) | generator-source-2017h29h-fe-am-79@3.2.0 | プログラムの著作権の保護範囲。保護条件の実記述：0〜2（0） | 文章／4択 |
 | [旧午前問80 p.37](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000fzx1-att/2017h29h_fe_am_qs.pdf#page=37) | generator-source-2017h29h-fe-am-80@3.2.0 | 営業秘密の三つの要件。本文から省かれた要件：0〜2（0） | 文章／4択 |
 
+### 2016年度 秋期・午前
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午前問1 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=4) | generator-source-2016h28a-fe-am-1@3.2.0 | ビット列の保持。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問2 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=4) | generator-source-2016h28a-fe-am-2@3.2.0 | 不良品の条件付き確率。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問3 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=5) | generator-source-2016h28a-fe-am-3@3.2.0 | 自動販売機の状態遷移。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問4 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=5) | generator-source-2016h28a-fe-am-4@3.2.0 | ビットパターンの個数。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問5 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=6) | generator-source-2016h28a-fe-am-5@3.2.0 | アナログからディジタルへの変換順序。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問6 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=6) | generator-source-2016h28a-fe-am-6@3.2.0 | 2分探索木の判定。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問7 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=6) | generator-source-2016h28a-fe-am-7@3.2.0 | 最大公約数の再帰。caseIndex：0〜7（0） | 文章・表・図・数式／4択 |
+| [旧午前問8 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=7) | generator-source-2016h28a-fe-am-8@3.2.0 | Webプログラムの実行環境。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問9 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=7) | generator-source-2016h28a-fe-am-9@3.2.0 | 主記憶のアドレス指定。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問10 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=7) | generator-source-2016h28a-fe-am-10@3.2.0 | CPUの命令実行方式。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問11 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=8) | generator-source-2016h28a-fe-am-11@3.2.0 | 必要なアドレス線。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問12 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=8) | generator-source-2016h28a-fe-am-12@3.2.0 | ディスクと主記憶の方式。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問13 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=9) | generator-source-2016h28a-fe-am-13@3.2.0 | 3層Webシステム。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問14 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=9) | generator-source-2016h28a-fe-am-14@3.2.0 | ホットスタンバイと負荷分散。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問15 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=10) | generator-source-2016h28a-fe-am-15@3.2.0 | 並列構成の稼働率。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問16 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=10) | generator-source-2016h28a-fe-am-16@3.2.0 | ジョブと印刷の待ち。caseIndex：0〜7（0） | 文章・表・図・箇条書き／4択 |
+| [旧午前問17 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=11) | generator-source-2016h28a-fe-am-17@3.2.0 | 仮想記憶と性能低下。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問18 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=11) | generator-source-2016h28a-fe-am-18@3.2.0 | プロセスの切替え。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問19 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=12) | generator-source-2016h28a-fe-am-19@3.2.0 | LRUの判断基準。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問20 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=12) | generator-source-2016h28a-fe-am-20@3.2.0 | 線形探索法によるハッシュ衝突。caseIndex：0〜7（0） | 文章・表・図・箇条書き／4択 |
+| [旧午前問21 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=13) | generator-source-2016h28a-fe-am-21@3.2.0 | アノードコモン7セグメントLED。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問22 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=13) | generator-source-2016h28a-fe-am-22@3.2.0 | メモリセルと保持方式。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問23 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=14) | generator-source-2016h28a-fe-am-23@3.2.0 | 3入力多数決回路。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問24 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=14) | generator-source-2016h28a-fe-am-24@3.2.0 | 入力データのチェック。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問25 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=15) | generator-source-2016h28a-fe-am-25@3.2.0 | 音声の記録可能時間。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問26 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=15) | generator-source-2016h28a-fe-am-26@3.2.0 | E-Rモデル。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問27 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=15) | generator-source-2016h28a-fe-am-27@3.2.0 | 6行の表の関数従属。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問28 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=16) | generator-source-2016h28a-fe-am-28@3.2.0 | 関係代数とSQL。caseIndex：0〜3（0） | 文章・表・図・コード／4択 |
+| [旧午前問29 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=16) | generator-source-2016h28a-fe-am-29@3.2.0 | SQL結合後の行数。caseIndex：0〜7（0） | 文章・表・図・コード／4択 |
+| [旧午前問30 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=17) | generator-source-2016h28a-fe-am-30@3.2.0 | ログによる復旧。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問31 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=17) | generator-source-2016h28a-fe-am-31@3.2.0 | 階層モデルと接続装置。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問32 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=18) | generator-source-2016h28a-fe-am-32@3.2.0 | TCP/IPプロトコル。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問33 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=18) | generator-source-2016h28a-fe-am-33@3.2.0 | 同一サブネットのIPv4。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問34 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=19) | generator-source-2016h28a-fe-am-34@3.2.0 | NTPの時計のずれ。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問35 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=20) | generator-source-2016h28a-fe-am-35@3.2.0 | 衛星通信の伝送遅延。caseIndex：0〜7（0） | 文章・表・図／4択 |
+| [旧午前問36 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=20) | generator-source-2016h28a-fe-am-36@3.2.0 | 自動入力の排除。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問37 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=20) | generator-source-2016h28a-fe-am-37@3.2.0 | 情報の完全性。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問38 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=21) | generator-source-2016h28a-fe-am-38@3.2.0 | メッセージダイジェストの目的。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問39 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=21) | generator-source-2016h28a-fe-am-39@3.2.0 | PKIの認証局。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問40 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=21) | generator-source-2016h28a-fe-am-40@3.2.0 | ICカードとPINの運用。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問41 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=22) | generator-source-2016h28a-fe-am-41@3.2.0 | rootkit。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問42 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=22) | generator-source-2016h28a-fe-am-42@3.2.0 | WAF。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問43 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=22) | generator-source-2016h28a-fe-am-43@3.2.0 | ビヘイビア法。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問44 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=23) | generator-source-2016h28a-fe-am-44@3.2.0 | パスワードリスト攻撃。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問45 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=23) | generator-source-2016h28a-fe-am-45@3.2.0 | マルウェアの通信ポート。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問46 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=23) | generator-source-2016h28a-fe-am-46@3.2.0 | フールプルーフ。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問47 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=24) | generator-source-2016h28a-fe-am-47@3.2.0 | カプセル化。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問48 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=24) | generator-source-2016h28a-fe-am-48@3.2.0 | 同値分割と境界値。caseIndex：0〜9（0） | 文章・表・図・箇条書き／4択 |
+| [旧午前問49 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=24) | generator-source-2016h28a-fe-am-49@3.2.0 | トップダウン結合テスト。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問50 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=25) | generator-source-2016h28a-fe-am-50@3.2.0 | リバースエンジニアリング。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問51 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=25) | generator-source-2016h28a-fe-am-51@3.2.0 | プロジェクトのプロセスグループ。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問52 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=25) | generator-source-2016h28a-fe-am-52@3.2.0 | クラッシング。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問53 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=25) | generator-source-2016h28a-fe-am-53@3.2.0 | ファンクションポイント。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問54 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=26) | generator-source-2016h28a-fe-am-54@3.2.0 | ピーク時要員。caseIndex：0〜11（0） | 文章・表・図／4択 |
+| [旧午前問58 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=27) | generator-source-2016h28a-fe-am-58@3.2.0 | 安全性の監査。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問59 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=28) | generator-source-2016h28a-fe-am-59@3.2.0 | 可用性の監査。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問60 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=28) | generator-source-2016h28a-fe-am-60@3.2.0 | BCPの監査。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問61 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=28) | generator-source-2016h28a-fe-am-61@3.2.0 | EA。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問62 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=29) | generator-source-2016h28a-fe-am-62@3.2.0 | 投資回収期間。caseIndex：0〜11（0） | 文章・表・図／4択 |
+| [旧午前問63 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=29) | generator-source-2016h28a-fe-am-63@3.2.0 | BPM。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問64 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=30) | generator-source-2016h28a-fe-am-64@3.2.0 | 重み付け総合評価。caseIndex：0〜10（0） | 文章・表・図／4択 |
+| [旧午前問65 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=30) | generator-source-2016h28a-fe-am-65@3.2.0 | CSR調達。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問66 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=30) | generator-source-2016h28a-fe-am-66@3.2.0 | 公平なベンダ選定。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問67 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=31) | generator-source-2016h28a-fe-am-67@3.2.0 | コストプラス法。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問68 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=31) | generator-source-2016h28a-fe-am-68@3.2.0 | 4Pと4C。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問69 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=32) | generator-source-2016h28a-fe-am-69@3.2.0 | CRMの目的。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問70 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=32) | generator-source-2016h28a-fe-am-70@3.2.0 | 技術のSカーブ。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問71 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=32) | generator-source-2016h28a-fe-am-71@3.2.0 | 制約下の最大利益。caseIndex：0〜11（0） | 文章・表・図／4択 |
+| [旧午前問72 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=33) | generator-source-2016h28a-fe-am-72@3.2.0 | 部品展開と発注量。caseIndex：0〜11（0） | 文章・表・図／4択 |
+| [旧午前問73 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=33) | generator-source-2016h28a-fe-am-73@3.2.0 | CGM。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問74 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=33) | generator-source-2016h28a-fe-am-74@3.2.0 | EDIの情報表現規約。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問75 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=34) | generator-source-2016h28a-fe-am-75@3.2.0 | CIO。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問76 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=34) | generator-source-2016h28a-fe-am-76@3.2.0 | マトリックス組織。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問77 p.35](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=35) | generator-source-2016h28a-fe-am-77@3.2.0 | OC曲線と合格判定個数。caseIndex：0〜9（0） | 文章・表・図／4択 |
+| [旧午前問78 p.36](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=36) | generator-source-2016h28a-fe-am-78@3.2.0 | 定量発注在庫モデル。caseIndex：0〜9（0） | 文章・表・図／4択 |
+| [旧午前問79 p.36](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=36) | generator-source-2016h28a-fe-am-79@3.2.0 | 法人著作。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問80 p.37](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=37) | generator-source-2016h28a-fe-am-80@3.2.0 | 電子計算機損壊等業務妨害。caseIndex：0〜3（0） | 文章・表・図／4択 |
+
 ### 2016年度 春期・午前
 
 | 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
@@ -967,6 +1049,21 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2016-spring-am-49 | 0：0〜7、1：0〜5、2：1〜5、3：2〜8、4：1〜4、5：2〜9 | 0・1：aとbの比較値、2・3：xへの二つの代入値、4・5：yへの二つの代入値。登録した4組の全6値だけを許し、命令網羅の分岐構成を保持する。 |
 | legacy-2016-spring-am-ppm | 0：0〜0 | 0：固定の2行2列。市場シェアと市場成長率の軸・強弱・高低を原の位置に保つ。 |
 | legacy-2016-spring-am-pareto | 0：0〜3、1：0〜11 | 0：棒と折れ線の4構成、1：査読した12組の棒の値の位置。原図同様に数値目盛を加えず、各棒と折れ線を同じ条件へ結び付ける。 |
+| legacy-2016-autumn-am-3-fsm | 0：0〜1、1：0〜1、2：0〜1、3：0〜2、4：0〜2、5：0〜2、6：0〜1、7：0〜1、8：0〜1、9：0〜1 | 0〜2：S0→S1、S1→S2、曲線の遷移に付く出力。3・4：曲線の始点・終点の状態番号。5：終了状態の番号。6〜8：S0・S1・S2の自己ループの出力。9：入力記号a・bの入替え。原の入力／出力ラベル、開始矢印、終了状態の二重円を同じtupleへ結び付ける。 |
+| legacy-2016-autumn-am-6-bst | 0：15〜35、1：12〜30、2：19〜45、3：10〜25、4：14〜30、5：0〜40、6：0〜50 | 0〜6：根から段ごとに左、右へ並べた7位置の節の値。位置iの左・右の子は2i+1・2i+2で、0は節なし。許可する木全体だけを受け付け、枝と左右の位置を保持する。 |
+| legacy-2016-autumn-am-9-address | 0：0〜3、1：20〜25、2：0〜25 | 0：方式0=間接、1=指標、2=相対、3=直接。1：命令のアドレス部。2：間接方式の参照先アドレス又は指標レジスタ／プログラムカウンタの内容（直接方式では固定0）。方式に応じた参照矢印又は加算器を描く。 |
+| legacy-2016-autumn-am-11-bus | 0：8〜32 | 0：データバスの本数8・16・32。アドレスバスの本数nは未知のまま、An−1からA0までの省略表記とD0〜D（本数−1）を保持する。 |
+| legacy-2016-autumn-am-18-switch | 0：0〜0 | 0：固定0。プロセスA・OS・プロセスBの状態と割込みからの切替え順を描き、OSの処理a・b・cは空欄のまま保持する。 |
+| legacy-2016-autumn-am-21-circuit | 0：0〜0 | 0：固定0。共通アノード、Vcc、独立した抵抗を介するP0〜P7とa〜g・Dtの接続、消灯／点灯の凡例を保持する。 |
+| legacy-2016-autumn-am-21-led | 0：6〜255 | 0：8ビットの点灯マスク。bit0〜6はa〜g、bit7はDtに対応し、1を塗りつぶして点灯、0を白抜きで消灯とする。出力ポートのビット値とは別の描画用点灯状態である。 |
+| legacy-2016-autumn-am-23-gates | 0：0〜5、1：0〜5、2：0〜5、3：0〜1、4：0〜4 | 0〜2：A・B、B・C、A・Cを入力とする各ゲート。3：第1・第2ゲートの出力を結ぶゲート。4：その出力と第3ゲートの出力を結ぶ最終ゲート。種類は0=AND、1=OR、2=XOR、3=NAND、4=NOR、5=XNORで、完全な登録tupleだけを許す。 |
+| legacy-2016-autumn-am-31-stack | 0：1〜5 | 0：装置Aが扱う下位層の数1・2・3・5。ノードの5層と二つのLANセグメントを固定し、装置Aの最上位層まで上がって戻る破線のデータ経路を同期する。 |
+| legacy-2016-autumn-am-34-ntp | 0：100〜200、1：200〜1000、2：400〜1200、3：900〜1500 | 0：PCの問合せ送信、1：サーバの問合せ受信、2：サーバの応答送信、3：PCの応答受信の各時刻のマイクロ秒部分。aa:bb:cc.の後に6桁で表示し、問合せ・応答の矢印と本文の時刻を同じ条件へ結び付ける。 |
+| legacy-2016-autumn-am-marketing | 0：0〜0、1：0〜0 | 0・1：固定0。4Pと4Cの左右の枠、四つの小枠、同じ高さを結ぶ4本の矢印とa〜dを保持する。問うa〜dの位置は本文で指定し、図に正答語を埋めない。 |
+| legacy-2016-autumn-am-bom | 0：0〜11、1：10〜20、2：1〜3、3：1〜2、4：1〜2、5：5〜10 | 0：査読した12条件の番号。1：製品Aの生産数、2：A直下のB数、3：A直下のC数、4：B直下のC数、5：Cの在庫数。D・Eを含む部品木の構造を保持し、本文の生産数・在庫と同じtupleを使う。 |
+| legacy-2016-autumn-am-oc | 0：0〜3、1：0〜9、2：0〜2、3：1〜3、4：2〜4 | 0：図の役割0=非交差・cラベル逆順、1=非交差・cラベル昇順、2=交差・cラベル昇順、3=交差・cラベル逆順。1：査読した10条件の番号。2〜4：本文に示す三つの合格判定個数c。図の座標を原資料のN・nの測定値とせず、軸・曲線とラベルの対応を保持する。 |
+| legacy-2016-autumn-am-inventory | 0：0〜9、1：100〜200、2：20〜50、3：60〜140、4：46〜120 | 0：査読した10条件の番号。1：模式図の最大在庫量の描画値、2：安全在庫S、3：発注点K、4：予測在庫X。原条件0は記号だけを表示し、生成条件1〜9は本文のS・Xと図のKへ数値を示す。最大在庫量の描画値を解答に必要な隠れた数値条件とせず、定量発注の同じ傾き、発注／納品、発注量E、調達期間、①と矢印を保持する。 |
+| legacy-2016-autumn-am-common-symbols | 0：0〜0 | 0：固定0。共通表記p3の9種類の論理回路記号、反転出力の注記と6種類の回路記号を、図記号と説明の2列表として保持する。 |
 | legacy-2017-pm2-temperature-monitor | 0：0〜2、1：0〜4 | 0：LED条件0〜2、1：原資料の単位0〜4（選択注意・構成図・LED・I/O動作表・割込み流れ）。登録した組合せだけを描く。 |
 | legacy-2017-pm4-wireless-timing | 0：0〜0 | 0：固定の通信時系列図。W1/W2の位置と送受信・ACKの矢印、手順の注記を保持。 |
 | legacy-2017-pm5-relations | 0：0〜0 | 0：固定の購買システム関係図。発注登録と注文書出力、担当範囲と矢印を保持。 |

@@ -16,18 +16,23 @@ const hash=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
  * metadata pack. No directory glob can admit a prepared/held question. */
 export function stage3CollectionFiles(baseline:Bundle, selected:Stage3MorningRecords, read:(name:string)=>Uint8Array) {
   assert.equal(selected.sets.length,1);const annual=structuredClone(selected.sets[0]);
-  assert.equal(annual.id,'set-annual-2016h28h-fe-am');
+  const collection=annual.id.slice('set-annual-'.length);
+  assert.equal(annual.id,'set-annual-'+collection);
+  assert(collection==='2016h28h-fe-am'||collection==='2016h28a-fe-am','only explicitly supported booklet identities');
   const numbers=annual.questionRefs.map(r=>Number(r.questionId.split('-').at(-1)));
   assert(numbers.length>0 && new Set(numbers).size===numbers.length);
+  assert(numbers.every(n=>Number.isInteger(n)&&n>=1&&n<=80));
+  assert.deepEqual(numbers,[...numbers].sort((a,b)=>a-b));
   const originalIds=new Set(annual.questionRefs.map(r=>r.questionId)),templates=new Set(selected.templates.map(t=>t.id));
   assert.equal(selected.questions.length,numbers.length*2);assert.equal(templates.size,numbers.length);
-  assert.deepEqual([...templates],numbers.map(n=>'template-source-2016h28h-fe-am-'+n));
+  assert.deepEqual([...templates],numbers.map(n=>'template-source-'+collection+'-'+n));
   assert.deepEqual(selected.questions.filter(q=>q.origin.kind==='official_reprint').map(q=>q.id),[...originalIds]);
-  const allowed=new Set([...originalIds,...numbers.map(n=>'question-template-source-2016h28h-fe-am-'+n)]);
+  const allowed=new Set([...originalIds,...numbers.map(n=>'question-template-source-'+collection+'-'+n)]);
   assert(selected.questions.every(q=>allowed.has(q.id)) && new Set(selected.questions.map(q=>q.id)).size===allowed.size);
-  assert(selected.templates.every((t,i)=>t.baseQuestionRef.questionId==='question-template-source-2016h28h-fe-am-'+numbers[i] &&
-    t.generatorRef.id==='generator-source-2016h28h-fe-am-'+numbers[i] && t.baseQuestionRef.revision===1));
-  assert.deepEqual(selected.exams.map(e=>e.id),['exam-2016h28h-fe-am-study','exam-2016h28h-fe-am-practice']);
+  assert(selected.templates.every((t,i)=>t.baseQuestionRef.questionId==='question-template-source-'+collection+'-'+numbers[i] &&
+    t.generatorRef.id==='generator-source-'+collection+'-'+numbers[i] && t.baseQuestionRef.revision===1));
+  assert.deepEqual([...originalIds],numbers.map(n=>'question-ipa-'+collection+'-'+n));
+  assert.deepEqual(selected.exams.map(e=>e.id),['exam-'+collection+'-study','exam-'+collection+'-practice']);
   assert(selected.exams.every(e=>e.questionCount===numbers.length && e.subject==='A'));
   assert.equal(selected.exams[1].timeLimitSeconds,9000);
   assert.deepEqual(annual.examConfigRefs,selected.exams.map(e=>({id:e.id,revision:e.revision})));

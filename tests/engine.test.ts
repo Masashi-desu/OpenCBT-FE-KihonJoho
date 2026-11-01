@@ -37,15 +37,15 @@ const legacyTemplate = () => ({
 test("distribution gate: real sources, official answer keys, JIS exclusion and Schema", async () => {
   const b = fixture();
   await validateBundle(b);
-  assert.equal(b.questions.length, 1618);
-  assert.equal(b.assets.length, 1282);
+  assert.equal(b.questions.length, 1772);
+  assert.equal(b.assets.length, 1361);
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
-    809,
+    886,
   );
   const morning = b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
-  assert.equal(morning.length, 542);
-  assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 75);
+  assert.equal(morning.length, 619);
+  assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 152);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => [2017, 2018, 2019].includes(ref.locator.year ?? 0))).length, 467);
   assert(morning.every(q => q.learning.tags.some(tag => tag === "legacy-morning" || /^legacy-201[6789]$/.test(tag))), "AM source classifications remain attached");
   assert.equal(b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, 78);

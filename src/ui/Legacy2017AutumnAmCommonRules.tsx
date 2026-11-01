@@ -11,6 +11,7 @@ function GateSymbol({kind,label}:{kind:Gate;label:string}){
   </g>
  </svg>;
 }
+export { GateSymbol as LegacyCommonGateSymbol };
 /** Literal source-owned common reference; no answer-specific helper content. */
 export function Legacy2017AutumnAmCommonRules({profile,values,caption}:{profile:string;values:number[];caption?:string}){
  if(profile!==legacy2017AutumnAmCommonProfile||!Array.isArray(values)||values.length!==1||values[0]!==0)throw Error('AM_COMMON_PROFILE');

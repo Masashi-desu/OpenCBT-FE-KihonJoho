@@ -47,7 +47,7 @@ const oldBindings = currentMix.generationBindings.filter(binding => !newTemplate
 const oldMix: SetRecord = { ...structuredClone(currentMix), revision: currentMix.revision - 1,
   generationBindings: oldBindings, questionRefs: oldBindings.map(binding => binding.questionRef) };
 // This is a transport control, not the historical release's chronology. Its
-// baseline already owns the later S3-001 cohort, so that cohort must stay in
+// baseline already owns the later S3-001/S3-002 cohorts, so those must stay in
 // the retained prefix when the explicit stage1 cohort is appended again.
 const transportedBindings = [...oldBindings, ...currentMix.generationBindings
   .filter(binding => newTemplateIds.has(binding.templateRef.id))];
@@ -77,16 +77,16 @@ const sorted = (bundle: Bundle, kind: Kind) => [...bundle[kind]].sort((a, b) => 
 const transport = () => stage1PartialReleaseRecordFiles(baseline, approved, readBaseline);
 
 test("partial-release transport appends467 families, preserves every old record and78 afternoon majors, and changes only mix-A", async () => {
-  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, 342);
-  assert.equal(baseline.templates.length, 342); assert.equal(baseline.assets.length, 811);
+  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, 419);
+  assert.equal(baseline.templates.length, 419); assert.equal(baseline.assets.length, 890);
   const before = sha(JSON.stringify({ baseline, approved })), result = transport();
   const decoded = await readCatalog(async (name, max) => {
     const bytes = result.files.get(name); assert(bytes && bytes.byteLength <= max); return bytes;
   });
   assert.equal(result.catalog.revision, baseline.catalog.revision + 1);
   assert.equal(result.catalogHash, sha(result.files.get("catalog.json")!));
-  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, 809);
-  assert.equal(decoded.templates.length, 809);
+  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, 886);
+  assert.equal(decoded.templates.length, 886);
   assert.deepEqual(Object.fromEntries(catalogKinds.map(kind => [kind,
     result.added[kind].filter(n => !baseline[kind].some(old => old.id === n.id)).length])),
     { questions: 934, sources: 78, rights: 51, assets: 471, sets: 6, exams: 12, templates: 467 });

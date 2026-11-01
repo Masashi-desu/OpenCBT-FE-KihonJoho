@@ -5,13 +5,13 @@ import { fixture } from "./fixtures";
 import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope } from "../scripts/audit-pre-2023-readiness";
 
 const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-pre-2023.json", "utf8"));
-// Explicit historical controls, never admission evidence for the current809.
+// Explicit historical controls, never admission evidence for the current886.
 // Both original data and review rows must belong to that historical subset.
 const through2018Collections = new Set(["2022-apr-sample-b", "2022-dec-sample-a", "2022-dec-sample-b",
   "2017h29h-fe-pm", "2017h29a-fe-pm", "2018h30h-fe-pm", "2018h30a-fe-pm"]);
 const historicalReviews = () => pre2023Reviews.filter(r => through2018Collections.has(r.collectionId));
 const withoutMorning = () => {
-  const b = fixture(), morning = /(?:2016h28h|2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/;
+  const b = fixture(), morning = /(?:2016h28[ha]|2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/;
   b.questions = b.questions.filter(q => !morning.test(q.id));
   b.templates = b.templates.filter(t => !morning.test(t.id));
   return b;
@@ -131,10 +131,10 @@ test("the new13 registered majors remain pending when any one of the five scoped
 });
 
 
-test("the current809-source catalog admits542 AM,86 sample and78 PM units while all67/3062 scope and2356 pending units stay visible", () => {
+test("the current886-source catalog admits619 AM,86 sample and78 PM units while all67/3062 scope and2279 pending units stay visible", () => {
   const report = auditPre2023Readiness(fixture(), evidence());
   assert.equal(report.status, "not_ready");
-  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2356, originalSemanticsReviewed: 706, ready: 706 });
+  assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2279, originalSemanticsReviewed: 783, ready: 783 });
   for (const id of ["2017h29h-fe-pm", "2017h29a-fe-pm", "2018h30h-fe-pm", "2018h30a-fe-pm", "2019h31h-fe-pm", "2019r01a-fe-pm"])
     assert.equal(report.collections.find(c => c.id === id)!.ready, 13);
   assert.equal(report.scopeDiscovery.status, "pending_materials_and_boundaries");
@@ -150,7 +150,7 @@ test("each missing scoped review keeps all13 autumn2019 majors pending without h
     const report = auditPre2023Readiness(fixture(), evidence(), reviews), collection = report.collections.find(c => c.id === "2019r01a-fe-pm")!;
     assert.equal(report.status, "not_ready");
     assert.equal(report.summary.collections, 67); assert.equal(report.summary.requestedUnits, 3062);
-    assert.equal(report.summary.ready, 693); assert.equal(report.summary.missingOriginals, 2356);
+    assert.equal(report.summary.ready, 770); assert.equal(report.summary.missingOriginals, 2279);
     assert.equal(collection.questions.length, 13); assert.equal(collection.ready, 0);
     assert(collection.questions.every(q => q.pending.includes(check) && !q.pending.includes("missing_original")));
   }

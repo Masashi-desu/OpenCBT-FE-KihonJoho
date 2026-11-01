@@ -1,0 +1,2480 @@
+{
+  "schema": "s3-002-2016-autumn-am-41-80-review/v1",
+  "checkedOn": "2026-11-02",
+  "scope": [
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "source": {
+    "questionUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf",
+    "questionSHA256": "e288f1f0d8f8287702bbbba0b00643b0c24bfdb92660172806bbe137e93df7e5",
+    "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_ans.pdf",
+    "answerSHA256": "7ed521a518b3d9d04a27cda699a0b29de9f911eb569fdb3cb6bf1ba39589bf90",
+    "independentAcquisitionMatchesShared": true,
+    "answerImageReviewed": "source-audit/pages/official-answers.png; 41–80全記号を目視し原転記と照合。"
+  },
+  "questions": [
+    {
+      "number": 41,
+      "page": 22,
+      "title": "rootkit",
+      "prompt": "サーバにバックドアを作り，サーバ内での侵入の痕跡を隠蔽するなどの機能をもつ不正なプログラムやツールのパッケージはどれか。",
+      "choices": [
+        "RFID",
+        "rootkit",
+        "TKIP",
+        "web beacon"
+      ],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "サーバにバックドアを作り，サーバ内での侵入の痕跡を隠蔽するなどの機能をもつ不正なプログラムやツールのパッケージはどれか。\nア RFID\nイ rootkit\nウ TKIP\nエ web beacon",
+      "crop": {
+        "byteLength": 171581,
+        "cropBox": [
+          171,
+          211,
+          1494,
+          381
+        ],
+        "height": 381,
+        "number": 41,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q41.png",
+        "pdfPage": 22,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "d0dffa589f16e4bc58ec3b61b20d4ba60b21ae2443f6f0f44ca85a8d55c6274d"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "rootkitの侵入痕跡隠蔽/バックドアとRFID・TKIP・web beaconの目的の区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 42,
+      "page": 22,
+      "title": "WAF",
+      "prompt": "WAFの説明はどれか。",
+      "choices": [
+        "Webサイトに対するアクセス内容を監視し，攻撃とみなされるパターンを検知したときに当該アクセスを遮断する。",
+        "Wi-Fiアライアンスが認定した無線LANの暗号化方式の規格であり，AES暗号に対応している。",
+        "様々なシステムの動作ログを一元的に蓄積，管理し，セキュリティ上の脅威となる事象をいち早く検知，分析する。",
+        "ファイアウォール機能を有し，ウイルス対策，侵入検知などを連携させ，複数のセキュリティ機能を統合的に管理する。"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "WAFの説明はどれか。\nア Webサイトに対するアクセス内容を監視し，攻撃とみなされるパターンを検知したときに当該アクセスを遮断する。\nイ Wi-Fiアライアンスが認定した無線LANの暗号化方式の規格であり，AES暗号に対応している。\nウ 様々なシステムの動作ログを一元的に蓄積，管理し，セキュリティ上の脅威となる事象をいち早く検知，分析する。\nエ ファイアウォール機能を有し，ウイルス対策，侵入検知などを連携させ，複数のセキュリティ機能を統合的に管理する。",
+      "crop": {
+        "byteLength": 479790,
+        "cropBox": [
+          171,
+          631,
+          1494,
+          812
+        ],
+        "height": 812,
+        "number": 42,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q42.png",
+        "pdfPage": 22,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "847d1e7245ebb911d07c812fd16ba31a8eb86f6f02f225158a6fd8ec5cde53b2"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "WAF・SIEM・UTM・WPA2の防御対象/処理範囲。正式名の意味を問う本文へ追加しない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 43,
+      "page": 22,
+      "title": "ビヘイビア法",
+      "prompt": "ウイルス検出におけるビヘイビア法に分類されるものはどれか。",
+      "choices": [
+        "あらかじめ検査対象に付加された，ウイルスに感染していないことを保証する情報と，検査対象から算出した情報とを比較する。",
+        "検査対象と安全な場所に保管してあるその原本とを比較する。",
+        "検査対象のハッシュ値と既知のウイルスファイルのハッシュ値とを比較する。",
+        "検査対象をメモリ上の仮想環境下で実行して，その挙動を監視する。"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "ウイルス検出におけるビヘイビア法に分類されるものはどれか。\nア あらかじめ検査対象に付加された，ウイルスに感染していないことを保証する情報と，検査対象から算出した情報とを比較する。\nイ 検査対象と安全な場所に保管してあるその原本とを比較する。\nウ 検査対象のハッシュ値と既知のウイルスファイルのハッシュ値とを比較する。\nエ 検査対象をメモリ上の仮想環境下で実行して，その挙動を監視する。",
+      "crop": {
+        "byteLength": 422581,
+        "cropBox": [
+          171,
+          1482,
+          1494,
+          848
+        ],
+        "height": 848,
+        "number": 43,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q43.png",
+        "pdfPage": 22,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "bff86d18b34378078119bca417fb2730ef3d5017dc15d04b97ef3528a967af68"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "隔離環境等で動作を観察するビヘイビア法と既知パターン/整合性等の検査を区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 44,
+      "page": 23,
+      "title": "パスワードリスト攻撃",
+      "prompt": "別のサービスやシステムから流出したアカウント認証情報を用いて，アカウント認証情報を使い回している利用者のアカウントを乗っ取る攻撃はどれか。",
+      "choices": [
+        "パスワードリスト攻撃",
+        "ブルートフォース攻撃",
+        "リバースブルートフォース攻撃",
+        "レインボー攻撃"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "別のサービスやシステムから流出したアカウント認証情報を用いて，アカウント認証情報を使い回している利用者のアカウントを乗っ取る攻撃はどれか。\nア パスワードリスト攻撃\nイ ブルートフォース攻撃\nウ リバースブルートフォース攻撃\nエ レインボー攻撃",
+      "crop": {
+        "byteLength": 245947,
+        "cropBox": [
+          171,
+          221,
+          1494,
+          452
+        ],
+        "height": 452,
+        "number": 44,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q44.png",
+        "pdfPage": 23,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "c1336fabd1f659afc4e5028925cab8868065c2d16bc7feb32ab7e5d244622d17"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "漏えい認証組の再使用，単一ID総当たり，固定PW多数ID，事前ハッシュ表の実際の試行対象。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 45,
+      "page": 23,
+      "title": "マルウェアの通信ポート",
+      "prompt": "PCへの侵入に成功したマルウェアがインターネット上の指令サーバと通信を行う場合に，宛先ポートとしてTCPポート番号80が多く使用される理由はどれか。",
+      "choices": [
+        "DNSのゾーン転送に使用されることから，通信がファイアウォールで許可されている可能性が高い。",
+        "WebサイトのHTTPS通信での閲覧に使用されることから，侵入検知システムで検知される可能性が低い。",
+        "Webサイトの閲覧に使用されることから，通信がファイアウォールで許可されている可能性が高い。",
+        "ドメイン名の名前解決に使用されることから，侵入検知システムで検知される可能性が低い。"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "PCへの侵入に成功したマルウェアがインターネット上の指令サーバと通信を行う場合に，宛先ポートとしてTCPポート番号80が多く使用される理由はどれか。\nア DNSのゾーン転送に使用されることから，通信がファイアウォールで許可されている可能性が高い。\nイ WebサイトのHTTPS通信での閲覧に使用されることから，侵入検知システムで検知される可能性が低い。\nウ Webサイトの閲覧に使用されることから，通信がファイアウォールで許可されている可能性が高い。\nエ ドメイン名の名前解決に使用されることから，侵入検知システムで検知される可能性が低い。",
+      "crop": {
+        "byteLength": 565651,
+        "cropBox": [
+          171,
+          713,
+          1494,
+          867
+        ],
+        "height": 867,
+        "number": 45,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q45.png",
+        "pdfPage": 23,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "feead6536bd8afb22c59460b376efe933a84018ae829b44c324e980d7ab80d66"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "IANA登録のHTTP/TLS/TCP/UDP等の用途と，サービス制限時の対象。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 46,
+      "page": 23,
+      "title": "フールプルーフ",
+      "prompt": "安全性や信頼性を確保するための設計のうち，フールプルーフに該当するものはどれか。",
+      "choices": [
+        "装置が故障したときは，システムが安全に停止するようにして，被害を最小限に抑える。",
+        "装置が故障したときは，利用できる機能を制限したり，処理能力を低下させたりしても，システムは稼働させる。",
+        "装置が故障しても，システム全体の機能に影響がないように，二重化などを行って冗長な構成とする。",
+        "利用者が誤った操作をしても，システムに異常が起こらないようにする。"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "安全性や信頼性を確保するための設計のうち，フールプルーフに該当するものはどれか。\nア 装置が故障したときは，システムが安全に停止するようにして，被害を最小限に抑える。\nイ 装置が故障したときは，利用できる機能を制限したり，処理能力を低下させたりしても，システムは稼働させる。\nウ 装置が故障しても，システム全体の機能に影響がないように，二重化などを行って冗長な構成とする。\nエ 利用者が誤った操作をしても，システムに異常が起こらないようにする。",
+      "crop": {
+        "byteLength": 475317,
+        "cropBox": [
+          171,
+          1620,
+          1494,
+          710
+        ],
+        "height": 710,
+        "number": 46,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q46.png",
+        "pdfPage": 23,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "eeabd25dab6353a690bb514832f33f28528aad0f50259b64fe3583a324666ccd"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "誤操作を予防する設計と故障後の安全動作・代替継続の区別。定義をstemへ先置きしない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 47,
+      "page": 24,
+      "title": "カプセル化",
+      "prompt": "オブジェクト指向におけるカプセル化を説明したものはどれか。",
+      "choices": [
+        "同じ性質をもつ複数のオブジェクトを抽象化して，整理すること",
+        "基底クラスの性質を派生クラスに受け継がせること",
+        "クラス間に共通する性質を抽出し，基底クラスを作ること",
+        "データとそれを操作する手続を一つのオブジェクトにして，データと手続の詳細をオブジェクトの外部から隠蔽すること"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "オブジェクト指向におけるカプセル化を説明したものはどれか。\nア 同じ性質をもつ複数のオブジェクトを抽象化して，整理すること\nイ 基底クラスの性質を派生クラスに受け継がせること\nウ クラス間に共通する性質を抽出し，基底クラスを作ること\nエ データとそれを操作する手続を一つのオブジェクトにして，データと手続の詳細をオブジェクトの外部から隠蔽すること",
+      "crop": {
+        "byteLength": 355920,
+        "cropBox": [
+          171,
+          209,
+          1494,
+          597
+        ],
+        "height": 597,
+        "number": 47,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q47.png",
+        "pdfPage": 24,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "e5fd6275cdacb814bbe3dffeebb839e21997db285f84064dcc5440a5b9806d91"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "オブジェクトの状態と操作の一体化・継承・汎化・分類の方向/構成。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 48,
+      "page": 24,
+      "title": "同値分割と境界値",
+      "prompt": "整数1～1,000を有効とする入力値が，1～100の場合は処理Aを，101～1,000の場合は処理Bを実行する入力処理モジュールを，同値分割法と境界値分析によってテストする。次の条件でテストするとき，テストデータの最小個数は幾つか。",
+      "steps": [
+        "有効同値クラスの1クラスにつき，一つの値をテストデータとする。ただし，テストする値は境界値でないものとする。",
+        "有効同値クラス，無効同値クラスの全ての境界値をテストデータとする。"
+      ],
+      "choices": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "整数1～1,000を有効とする入力値が，1～100の場合は処理Aを，101～1,000の場合は処理Bを実行する入力処理モジュールを，同値分割法と境界値分析によってテストする。次の条件でテストするとき，テストデータの最小個数は幾つか。\n〔条件〕\n1 有効同値クラスの1クラスにつき，一つの値をテストデータとする。ただし，テストする値は境界値でないものとする。\n2 有効同値クラス，無効同値クラスの全ての境界値をテストデータとする。\nア 5\nイ 6\nウ 7\nエ 8",
+      "crop": {
+        "byteLength": 423615,
+        "cropBox": [
+          171,
+          846,
+          1494,
+          805
+        ],
+        "height": 805,
+        "number": 48,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q48.png",
+        "pdfPage": 24,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "0784326619f28555c60da4da0feb1f3a8f881808928625a7ae8baf0c73c2f75d"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 10,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "原と同じ二有効区間/6境界+各内部代表2。端点・単位を表示し，区間幅変更でも整数同値類/計算数8を固定。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 49,
+      "page": 24,
+      "title": "トップダウン結合テスト",
+      "prompt": "階層構造のモジュール群から成るソフトウェアの結合テストを，上位のモジュールから行う。この場合に使用する，下位のモジュールの代替となるテスト用のモジュールはどれか。",
+      "choices": [
+        "エミュレータ",
+        "シミュレータ",
+        "スタブ",
+        "ドライバ"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "階層構造のモジュール群から成るソフトウェアの結合テストを，上位のモジュールから行う。この場合に使用する，下位のモジュールの代替となるテスト用のモジュールはどれか。\nア エミュレータ\nイ シミュレータ\nウ スタブ\nエ ドライバ",
+      "crop": {
+        "byteLength": 218236,
+        "cropBox": [
+          171,
+          1690,
+          1494,
+          640
+        ],
+        "height": 640,
+        "number": 49,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q49.png",
+        "pdfPage": 24,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "977f61db98fe9ccce70c5b47686638795d7a604f3e90e375fadf9a762221d776"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "NASA-GB-001-96 PDF63頁/印刷51頁の上位/下位モジュール・stub/driver関係。図表/英文は転載しない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 50,
+      "page": 25,
+      "title": "リバースエンジニアリング",
+      "prompt": "モデリングツールを使用して，本稼働中のデータベースの定義情報からE-R図などで表現した設計書を生成する手法はどれか。",
+      "choices": [
+        "コンカレントエンジニアリング",
+        "ソーシャルエンジニアリング",
+        "フォワードエンジニアリング",
+        "リバースエンジニアリング"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "モデリングツールを使用して，本稼働中のデータベースの定義情報からE-R図などで表現した設計書を生成する手法はどれか。\nア コンカレントエンジニアリング\nイ ソーシャルエンジニアリング\nウ フォワードエンジニアリング\nエ リバースエンジニアリング",
+      "crop": {
+        "byteLength": 243962,
+        "cropBox": [
+          171,
+          213,
+          1494,
+          593
+        ],
+        "height": 593,
+        "number": 50,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q50.png",
+        "pdfPage": 25,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "7075557fda41acb1e64dfe227fc10aa8a1e04505cf9899b75f3281ea3006bca1"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "実装/既存DBから設計モデル等を得る逆方向と順方向開発/生成の区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 51,
+      "page": 25,
+      "title": "プロジェクトのプロセスグループ",
+      "prompt": "プロジェクトマネジメントのプロセスのうち，計画プロセスグループ内で実施するプロセスはどれか。",
+      "choices": [
+        "スコープの定義",
+        "ステークホルダの特定",
+        "品質保証の実施",
+        "プロジェクト憲章の作成"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "プロジェクトマネジメントのプロセスのうち，計画プロセスグループ内で実施するプロセスはどれか。\nア スコープの定義\nイ ステークホルダの特定\nウ 品質保証の実施\nエ プロジェクト憲章の作成",
+      "crop": {
+        "byteLength": 200109,
+        "cropBox": [
+          171,
+          846,
+          1494,
+          452
+        ],
+        "height": 452,
+        "number": 51,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q51.png",
+        "pdfPage": 25,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "d49c2ad4cb953cafdde96a79e3b5480a9b593c43d76a4e8751d44a1c6a66b50a"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "成果物・境界・ステークホルダとの合意を定めるスコープ計画と，期間/費用/品質計画を区別。PMIの検索索引本文で限定照合。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 52,
+      "page": 25,
+      "title": "クラッシング",
+      "prompt": "プロジェクトのスケジュールを短縮するために，アクティビティに割り当てる資源を増やして，アクティビティの所要期間を短縮する技法はどれか。",
+      "choices": [
+        "クラッシング",
+        "クリティカルチェーン法",
+        "ファストトラッキング",
+        "モンテカルロ法"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "プロジェクトのスケジュールを短縮するために，アクティビティに割り当てる資源を増やして，アクティビティの所要期間を短縮する技法はどれか。\nア クラッシング\nイ クリティカルチェーン法\nウ ファストトラッキング\nエ モンテカルロ法",
+      "crop": {
+        "byteLength": 222522,
+        "cropBox": [
+          171,
+          1338,
+          1494,
+          448
+        ],
+        "height": 448,
+        "number": 52,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q52.png",
+        "pdfPage": 25,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "342c3813c64fc183c5c09bfb1eda5ab56affd7768a90e4bf47aac67480321c24"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "crashingは資源/費用と期間，fast trackingは逐次作業の並行，Monte Carloは確率試行，critical chainは資源制約/バッファ。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 53,
+      "page": 25,
+      "title": "ファンクションポイント",
+      "prompt": "ファンクションポイント法でシステムの開発規模を見積もる際に必要となる情報はどれか。",
+      "choices": [
+        "開発者数",
+        "画面数",
+        "プログラムステップ数",
+        "利用者数"
+      ],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "ファンクションポイント法でシステムの開発規模を見積もる際に必要となる情報はどれか。\nア 開発者数\nイ 画面数\nウ プログラムステップ数\nエ 利用者数",
+      "crop": {
+        "byteLength": 176569,
+        "cropBox": [
+          171,
+          1826,
+          1494,
+          504
+        ],
+        "height": 504,
+        "number": 53,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q53.png",
+        "pdfPage": 25,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "e2f6cff26e523ebe0976037a0e5f31149b7cdc742ae130ed468441aa1a09f2c5"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "FP五分類の機能種別/利用者視点と，ソース行数・テスト件数等の誤対応。IFPUG2014索引の内容確認。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 54,
+      "page": 26,
+      "title": "ピーク時要員",
+      "prompt": "開発期間10か月，開発工数200人月のプロジェクトを計画する。次の配分表を前提とすると，ピーク時の要員は何人か。ここで，各工程では開始から終了までの要員数は一定とする。",
+      "table": {
+        "columns": [
+          "項目／工程名",
+          "要件定義",
+          "設計",
+          "開発・テスト",
+          "システムテスト"
+        ],
+        "rows": [
+          [
+            "工数配分（%）",
+            "16",
+            "33",
+            "42",
+            "9"
+          ],
+          [
+            "期間配分（%）",
+            "20",
+            "30",
+            "40",
+            "10"
+          ]
+        ]
+      },
+      "choices": [
+        "18",
+        "20",
+        "21",
+        "22"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "開発期間10か月，開発工数200人月のプロジェクトを計画する。次の配分表を前提とすると，ピーク時の要員は何人か。ここで，各工程では開始から終了までの要員数は一定とする。\n項目／工程名｜要件定義｜設計｜開発・テスト｜システムテスト\n工数配分（%）｜16｜33｜42｜9\n期間配分（%）｜20｜30｜40｜10\nア 18\nイ 20\nウ 21\nエ 22",
+      "crop": {
+        "byteLength": 404554,
+        "cropBox": [
+          171,
+          203,
+          1494,
+          732
+        ],
+        "height": 732,
+        "number": 54,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q54.png",
+        "pdfPage": 26,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "6c9bc025a83897f2c015e265f08858af74c69610c966489434c8faf4f8598f42"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 12,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "開発10か月/200人月，期間割合20/30/40/10，工数配分を有限変更。人数は全工程整数。峰値一意，最終工程/全体平均/他工程が誤答。原20/21/22程度の一人差は原四択役割に由来し，全系列共通±1にはしない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 58,
+      "page": 27,
+      "title": "安全性の監査",
+      "prompt": "“システム管理基準”に基づいて，システムの信頼性，安全性，効率性を監査する際に，システムが不正な使用から保護されているかどうかという安全性の検証項目として，最も適切なものはどれか。",
+      "choices": [
+        "アクセス管理機能の検証",
+        "フェールソフト機能の検証",
+        "フォールトトレラント機能の検証",
+        "リカバリ機能の検証"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "“システム管理基準”に基づいて，システムの信頼性，安全性，効率性を監査する際に，システムが不正な使用から保護されているかどうかという安全性の検証項目として，最も適切なものはどれか。\nア アクセス管理機能の検証\nイ フェールソフト機能の検証\nウ フォールトトレラント機能の検証\nエ リカバリ機能の検証",
+      "crop": {
+        "byteLength": 336294,
+        "cropBox": [
+          171,
+          1545,
+          1494,
+          785
+        ],
+        "height": 785,
+        "number": 58,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q58.png",
+        "pdfPage": 27,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "05da03b3654bcd9b4513d02911b5ab6a75d59b5a9999a6727ebe37422fdfd623"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "一般のaccess control/availability/recovery/fault tolerance機能。METI2004の本文は403未取得で，本文の引用/翻案許可を認定しない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 59,
+      "page": 28,
+      "title": "可用性の監査",
+      "prompt": "情報セキュリティ監査において，可用性を確認するチェック項目はどれか。",
+      "choices": [
+        "外部記憶媒体の無断持出しが禁止されていること",
+        "中断時間を定めたSLAの水準が保たれるように管理されていること",
+        "データ入力時のエラーチェックが適切に行われていること",
+        "データベースが暗号化されていること"
+      ],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "情報セキュリティ監査において，可用性を確認するチェック項目はどれか。\nア 外部記憶媒体の無断持出しが禁止されていること\nイ 中断時間を定めたSLAの水準が保たれるように管理されていること\nウ データ入力時のエラーチェックが適切に行われていること\nエ データベースが暗号化されていること",
+      "crop": {
+        "byteLength": 280271,
+        "cropBox": [
+          171,
+          206,
+          1494,
+          526
+        ],
+        "height": 526,
+        "number": 59,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q59.png",
+        "pdfPage": 28,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "3549b8403534ce84e782271215c3b6b939acb3d03c91733bb77d0889e017cbde"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "可用性と利用時のアクセス，機密性，完全性，稼働中断時間/SLAの対象。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 60,
+      "page": 28,
+      "title": "BCPの監査",
+      "prompt": "事業継続計画（BCP）について監査を実施した結果，適切な状況と判断されるものはどれか。",
+      "choices": [
+        "従業員の緊急連絡先リストを作成し，最新版に更新している。",
+        "重要書類は複製せずに1か所で集中保管している。",
+        "全ての業務について，優先順位なしに同一水準のBCPを策定している。",
+        "平時にはBCPを従業員に非公開としている。"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "事業継続計画（BCP）について監査を実施した結果，適切な状況と判断されるものはどれか。\nア 従業員の緊急連絡先リストを作成し，最新版に更新している。\nイ 重要書類は複製せずに1か所で集中保管している。\nウ 全ての業務について，優先順位なしに同一水準のBCPを策定している。\nエ 平時にはBCPを従業員に非公開としている。",
+      "crop": {
+        "byteLength": 331808,
+        "cropBox": [
+          171,
+          772,
+          1494,
+          586
+        ],
+        "height": 586,
+        "number": 60,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q60.png",
+        "pdfPage": 28,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "4e5bc46568cbcd770d27176b4b7887c5b88cbe05837d8bbe9d52bd3b6772dde6"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "2013内閣府BCPの重要業務継続/早期復旧と，通常保守や単独のセキュリティ対策の区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 61,
+      "page": 28,
+      "title": "EA",
+      "prompt": "エンタープライズアーキテクチャ（EA）を説明したものはどれか。",
+      "choices": [
+        "オブジェクト指向設計を支援する様々な手法を統一して標準化したものであり，クラス図などのモデル図によってシステムの分析や設計を行うための技法である。",
+        "概念データモデルを，エンティティとリレーションシップで表現することによって，データ構造やデータ項目間の関係を明らかにするための技法である。",
+        "各業務と情報システムを，ビジネス，データ，アプリケーション，テクノロジの四つの体系で分析し，全体最適化の観点から見直すための技法である。",
+        "企業のビジネスプロセスを，データフロー，プロセス，ファイル，データ源泉／データ吸収の四つの基本要素で抽象化して表現するための技法である。"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "エンタープライズアーキテクチャ（EA）を説明したものはどれか。\nア オブジェクト指向設計を支援する様々な手法を統一して標準化したものであり，クラス図などのモデル図によってシステムの分析や設計を行うための技法である。\nイ 概念データモデルを，エンティティとリレーションシップで表現することによって，データ構造やデータ項目間の関係を明らかにするための技法である。\nウ 各業務と情報システムを，ビジネス，データ，アプリケーション，テクノロジの四つの体系で分析し，全体最適化の観点から見直すための技法である。\nエ 企業のビジネスプロセスを，データフロー，プロセス，ファイル，データ源泉／データ吸収の四つの基本要素で抽象化して表現するための技法である。",
+      "crop": {
+        "byteLength": 609479,
+        "cropBox": [
+          171,
+          1397,
+          1494,
+          933
+        ],
+        "height": 933,
+        "number": 61,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q61.png",
+        "pdfPage": 28,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "94c5e43606da90696fb69d49e04a714e9d7a8803ba8296f7f195f7e2f08ba6ad"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "EAの組織全体最適と個別のUML/ER/DFDの用途。IPA2023は既知概念の後年確認であり2016規格許諾の代用ではない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 62,
+      "page": 29,
+      "title": "投資回収期間",
+      "prompt": "2種類のIT機器a，bの購入を検討している。それぞれの耐用年数を考慮して投資の回収期間を設定し，この投資で得られる利益の全額を投資額の回収に充てることにした。a，bそれぞれにおいて，設定した回収期間で投資額を回収するために最低限必要となる年間利益に関する記述のうち，適切なものはどれか。ここで，年間利益は毎年均等に上げられ，利率は考慮しないものとする。",
+      "table": {
+        "columns": [
+          "",
+          "a",
+          "b"
+        ],
+        "rows": [
+          [
+            "投資額（万円）",
+            "90",
+            "300"
+          ],
+          [
+            "回収期間（年）",
+            "3",
+            "5"
+          ]
+        ]
+      },
+      "choices": [
+        "aとbは同額の年間利益を上げる必要がある。",
+        "aはbの2倍の年間利益を上げる必要がある。",
+        "bはaの1.5倍の年間利益を上げる必要がある。",
+        "bはaの2倍の年間利益を上げる必要がある。"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "2種類のIT機器a，bの購入を検討している。それぞれの耐用年数を考慮して投資の回収期間を設定し，この投資で得られる利益の全額を投資額の回収に充てることにした。a，bそれぞれにおいて，設定した回収期間で投資額を回収するために最低限必要となる年間利益に関する記述のうち，適切なものはどれか。ここで，年間利益は毎年均等に上げられ，利率は考慮しないものとする。\n｜a｜b\n投資額（万円）｜90｜300\n回収期間（年）｜3｜5\nア aとbは同額の年間利益を上げる必要がある。\nイ aはbの2倍の年間利益を上げる必要がある。\nウ bはaの1.5倍の年間利益を上げる必要がある。\nエ bはaの2倍の年間利益を上げる必要がある。",
+      "crop": {
+        "byteLength": 703553,
+        "cropBox": [
+          171,
+          211,
+          1494,
+          1106
+        ],
+        "height": 1106,
+        "number": 62,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q62.png",
+        "pdfPage": 29,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "9e7be3d2f14c5c8a47dc9c7d1e28646a0440cda2b014529c3a299d0be21871bb"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 12,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "毎年均等・利率を考慮しないを保持。年利益比1/0.5/1.5/2で割算の余分な桁・丸めなし。独立比は投資×相手年数の交差積。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 63,
+      "page": 29,
+      "title": "BPM",
+      "prompt": "企業活動におけるBPM（Business Process Management）の目的はどれか。",
+      "choices": [
+        "業務プロセスの継続的な改善",
+        "経営資源の有効活用",
+        "顧客情報の管理，分析",
+        "情報資源の分析，有効活用"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "企業活動におけるBPM（Business Process Management）の目的はどれか。\nア 業務プロセスの継続的な改善\nイ 経営資源の有効活用\nウ 顧客情報の管理，分析\nエ 情報資源の分析，有効活用",
+      "crop": {
+        "byteLength": 237340,
+        "cropBox": [
+          171,
+          1357,
+          1494,
+          973
+        ],
+        "height": 973,
+        "number": 63,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q63.png",
+        "pdfPage": 29,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "4d751fa445895a24f53aa242d8e7c01f3abed1659119ebad45f93bc1a52b2452"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "BPMの継続改善，ERPの統合基幹，CRMの顧客関係，BIの情報分析という目的の区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 64,
+      "page": 30,
+      "title": "重み付け総合評価",
+      "prompt": "改善の効果を定量的に評価するとき，複数の項目の評価点を統合し，定量化する方法として重み付け総合評価法がある。表の中で優先すべき改善案はどれか。",
+      "table": {
+        "columns": [
+          "評価項目",
+          "評価項目の重み",
+          "案1",
+          "案2",
+          "案3",
+          "案4"
+        ],
+        "rows": [
+          [
+            "省力化",
+            "4",
+            "6",
+            "8",
+            "2",
+            "5"
+          ],
+          [
+            "期間短縮",
+            "3",
+            "5",
+            "5",
+            "9",
+            "5"
+          ],
+          [
+            "資源削減",
+            "3",
+            "6",
+            "4",
+            "7",
+            "6"
+          ]
+        ]
+      },
+      "choices": [
+        "案1",
+        "案2",
+        "案3",
+        "案4"
+      ],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "改善の効果を定量的に評価するとき，複数の項目の評価点を統合し，定量化する方法として重み付け総合評価法がある。表の中で優先すべき改善案はどれか。\n評価項目｜評価項目の重み｜案1｜案2｜案3｜案4\n省力化｜4｜6｜8｜2｜5\n期間短縮｜3｜5｜5｜9｜5\n資源削減｜3｜6｜4｜7｜6\nア 案1\nイ 案2\nウ 案3\nエ 案4",
+      "crop": {
+        "byteLength": 410901,
+        "cropBox": [
+          171,
+          209,
+          1494,
+          716
+        ],
+        "height": 716,
+        "number": 64,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q64.png",
+        "pdfPage": 30,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "2f7ef9556bcfa1624277c48a3b528b96ab0c42d7e0eea4719e7b20000be20d1f"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 11,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "重み3項目×4案で原と同じ12回の乗算と加算。整数点/重みで一意最大。四択は案1..4で表示手掛かりを変えない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 65,
+      "page": 30,
+      "title": "CSR調達",
+      "prompt": "CSR調達に該当するものはどれか。",
+      "choices": [
+        "コストを最小化するために，最も安価な製品を選ぶ。",
+        "災害時に調達が不可能となる事態を避けるために，調達先を複数化する。",
+        "自然環境，人権などへの配慮を調達基準として示し，調達先に遵守を求める。",
+        "物品の購買に当たってEDIを利用し，迅速かつ正確な調達を行う。"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "CSR調達に該当するものはどれか。\nア コストを最小化するために，最も安価な製品を選ぶ。\nイ 災害時に調達が不可能となる事態を避けるために，調達先を複数化する。\nウ 自然環境，人権などへの配慮を調達基準として示し，調達先に遵守を求める。\nエ 物品の購買に当たってEDIを利用し，迅速かつ正確な調達を行う。",
+      "crop": {
+        "byteLength": 347623,
+        "cropBox": [
+          171,
+          965,
+          1494,
+          526
+        ],
+        "height": 526,
+        "number": 65,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q65.png",
+        "pdfPage": 30,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "2a05ac6b173d04c2ef7832cac4d8dd1fa9c03ec25cb7b066e373bb823a6bd631"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "CSRの人権/環境責任を具体的調達行動で判定し，コスト/標準化/災害分散とは区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 66,
+      "page": 30,
+      "title": "公平なベンダ選定",
+      "prompt": "RFIに回答した各ベンダに対してRFPを提示した。今後のベンダ選定に当たって，公正に手続を進めるためにあらかじめ実施しておくことはどれか。",
+      "choices": [
+        "RFIの回答内容の評価が高いベンダに対して，選定から外れたときに備えて，再提案できる救済措置を講じておく。",
+        "現行のシステムを熟知したベンダに対して，RFPの要求事項とは別に，そのベンダを選定しやすいように評価を高くしておく。",
+        "提案の評価基準や要求事項の適合度への重み付けをするルールを設けるなど，選定の手順を確立しておく。",
+        "ベンダ選定後，迅速に契約締結をするために，RFPを提示した全ベンダに内示書を発行して，契約書や作業範囲記述書の作成を依頼しておく。"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "RFIに回答した各ベンダに対してRFPを提示した。今後のベンダ選定に当たって，公正に手続を進めるためにあらかじめ実施しておくことはどれか。\nア RFIの回答内容の評価が高いベンダに対して，選定から外れたときに備えて，再提案できる救済措置を講じておく。\nイ 現行のシステムを熟知したベンダに対して，RFPの要求事項とは別に，そのベンダを選定しやすいように評価を高くしておく。\nウ 提案の評価基準や要求事項の適合度への重み付けをするルールを設けるなど，選定の手順を確立しておく。\nエ ベンダ選定後，迅速に契約締結をするために，RFPを提示した全ベンダに内示書を発行して，契約書や作業範囲記述書の作成を依頼しておく。",
+      "crop": {
+        "byteLength": 663473,
+        "cropBox": [
+          171,
+          1531,
+          1494,
+          799
+        ],
+        "height": 799,
+        "number": 66,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q66.png",
+        "pdfPage": 30,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "9dcdd2b80cc641682cd21c8760498c845aed33a846ab565616fd0b6e3f590ab5"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "2005 NMDAの公正・公平な調達と，デジタル庁解説PDF180頁の共通評価/全社への情報提供。後年の手続を2016法改正として導入しない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 67,
+      "page": 31,
+      "title": "コストプラス法",
+      "prompt": "コストプラス法による価格設定方法を表すものはどれか。",
+      "choices": [
+        "価格分析によって，利益最大，リスク最小を考慮し，段階的に価格を決める。",
+        "顧客に対する値引きを前提にし，当初からマージンを加えて価格を決める。",
+        "市場で競争可能と推定できるレベルで価格を決める。",
+        "製造原価，営業費を基準にし，希望マージンを織り込んで価格を決める。"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "コストプラス法による価格設定方法を表すものはどれか。\nア 価格分析によって，利益最大，リスク最小を考慮し，段階的に価格を決める。\nイ 顧客に対する値引きを前提にし，当初からマージンを加えて価格を決める。\nウ 市場で競争可能と推定できるレベルで価格を決める。\nエ 製造原価，営業費を基準にし，希望マージンを織り込んで価格を決める。",
+      "crop": {
+        "byteLength": 360380,
+        "cropBox": [
+          171,
+          221,
+          1494,
+          516
+        ],
+        "height": 516,
+        "number": 67,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q67.png",
+        "pdfPage": 31,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "0e85c8f1347e5e34a120054d346a4b5b4f5d879a2f70cefe0883444b3cd6e07a"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "原コストプラス/競争基準/価値ベースの価格形成基準。変数名に定義文を付記して答えを先に与えない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 68,
+      "page": 31,
+      "title": "4Pと4C",
+      "prompt": "売手の視点であるマーケティングミックスの4Pに対応する，買手の視点である4Cの中で，図のaに当てはまるものはどれか。ここで，ア～エはa～dのいずれかに対応する。",
+      "choices": [
+        "Communication（顧客との対話）",
+        "Convenience（顧客の利便性）",
+        "Cost（顧客の負担）",
+        "Customer Value（顧客にとっての価値）"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "売手の視点であるマーケティングミックスの4Pに対応する，買手の視点である4Cの中で，図のaに当てはまるものはどれか。ここで，ア～エはa～dのいずれかに対応する。\n4Pと4Cの二つの枠。左は上からProduct（製品），Price（価格），Place（場所），Promotion（販売促進）。右は上からa，b，c，d。左右の同じ行を右矢印で結ぶ。\nア Communication（顧客との対話）\nイ Convenience（顧客の利便性）\nウ Cost（顧客の負担）\nエ Customer Value（顧客にとっての価値）",
+      "crop": {
+        "byteLength": 571671,
+        "cropBox": [
+          171,
+          777,
+          1494,
+          1553
+        ],
+        "height": 1553,
+        "number": 68,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q68.png",
+        "pdfPage": 31,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "8a2f2b9bb70bbc579a00e7d1c4dc92dbb4b3eb2f320aa470e03b3d6b461e40d9"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "4P/4Cの4本対応矢印とa..dを保持。対象位置を四つに変え，全択の意味は維持。名称差替えや順序変更だけの可変化ではない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 69,
+      "page": 32,
+      "title": "CRMの目的",
+      "prompt": "CRMの目的はどれか。",
+      "choices": [
+        "顧客ロイヤリティの獲得と顧客生涯価値の最大化",
+        "在庫不足による販売機会損失の削減",
+        "製造に必要な資材の発注量と発注時期の決定",
+        "販売時点での商品ごとの販売情報の把握"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "CRMの目的はどれか。\nア 顧客ロイヤリティの獲得と顧客生涯価値の最大化\nイ 在庫不足による販売機会損失の削減\nウ 製造に必要な資材の発注量と発注時期の決定\nエ 販売時点での商品ごとの販売情報の把握",
+      "crop": {
+        "byteLength": 239725,
+        "cropBox": [
+          171,
+          217,
+          1494,
+          500
+        ],
+        "height": 500,
+        "number": 69,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q69.png",
+        "pdfPage": 32,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "72acfc79cb62ff2f4b0884bae3327f86a2a016c3bcecfe3cb0b63399be698ead"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "CRM/MRP/POS/SCMの対象情報と目的。製品固有機能の掲載/利用許可を導かない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 70,
+      "page": 32,
+      "title": "技術のSカーブ",
+      "prompt": "技術のSカーブの説明として，適切なものはどれか。",
+      "choices": [
+        "新しい技術の普及過程を示すものであり，その技術を応用した製品が市場に浸透すると，普及率の伸びが徐々に減少していくことを度数分布曲線で示す。",
+        "技術の進歩の過程を示すものであり，当初は緩やかに進歩するが，やがて急激に進歩し，その後，緩やかに停滞していく過程を示す。",
+        "技術の成熟過程を示すものであり，新技術が実際に普及するまでの間，時間経過とともに変化する認知度の推移を示す。",
+        "生産量と単位コストの関係を示すものであり，累積生産量が増加するに従い，単位コストが減少する過程を示す。"
+      ],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "技術のSカーブの説明として，適切なものはどれか。\nア 新しい技術の普及過程を示すものであり，その技術を応用した製品が市場に浸透すると，普及率の伸びが徐々に減少していくことを度数分布曲線で示す。\nイ 技術の進歩の過程を示すものであり，当初は緩やかに進歩するが，やがて急激に進歩し，その後，緩やかに停滞していく過程を示す。\nウ 技術の成熟過程を示すものであり，新技術が実際に普及するまでの間，時間経過とともに変化する認知度の推移を示す。\nエ 生産量と単位コストの関係を示すものであり，累積生産量が増加するに従い，単位コストが減少する過程を示す。",
+      "crop": {
+        "byteLength": 595028,
+        "cropBox": [
+          171,
+          757,
+          1494,
+          785
+        ],
+        "height": 785,
+        "number": 70,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q70.png",
+        "pdfPage": 32,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "11a5c139911a8ae967e1e05f50686d318fc894d76c1433f8944ee84ebd15b572"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "技術水準の初期緩慢・加速・成熟と，他の認知/採用/経験曲線の縦横軸の違い。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 71,
+      "page": 32,
+      "title": "制約下の最大利益",
+      "prompt": "ある工場では表に示す3製品を製造している。実現可能な最大利益は何円か。ここで，各製品の月間需要量には上限があり，また，製造工程に使える工場の時間は月間200時間までで，複数種類の製品を同時に並行して製造することはできないものとする。",
+      "table": {
+        "columns": [
+          "",
+          "製品X",
+          "製品Y",
+          "製品Z"
+        ],
+        "rows": [
+          [
+            "1個当たりの利益（円）",
+            "1,800",
+            "2,500",
+            "3,000"
+          ],
+          [
+            "1個当たりの製造所要時間（分）",
+            "6",
+            "10",
+            "15"
+          ],
+          [
+            "月間需要量上限（個）",
+            "1,000",
+            "900",
+            "500"
+          ]
+        ]
+      },
+      "choices": [
+        "2,625,000",
+        "3,000,000",
+        "3,150,000",
+        "3,300,000"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "ある工場では表に示す3製品を製造している。実現可能な最大利益は何円か。ここで，各製品の月間需要量には上限があり，また，製造工程に使える工場の時間は月間200時間までで，複数種類の製品を同時に並行して製造することはできないものとする。\n｜製品X｜製品Y｜製品Z\n1個当たりの利益（円）｜1,800｜2,500｜3,000\n1個当たりの製造所要時間（分）｜6｜10｜15\n月間需要量上限（個）｜1,000｜900｜500\nア 2,625,000\nイ 3,000,000\nウ 3,150,000\nエ 3,300,000",
+      "crop": {
+        "byteLength": 525096,
+        "cropBox": [
+          171,
+          1582,
+          1494,
+          748
+        ],
+        "height": 748,
+        "number": 71,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q71.png",
+        "pdfPage": 32,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "de1636ff23efb63a51f2555ff23316f876b55c78d5734dba8df5503ab8a17767"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 12,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "非並行/月時間/需要上限/分単位の表を保持。利益1800/2500/3000，時間6/10/15，容量600分刻み，数量100刻みで原程度の整数計算。誤答は優先順の取り違え，独立oracleは全X/Y生産数探索。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 72,
+      "page": 33,
+      "title": "部品展開と発注量",
+      "prompt": "図は，製品Aの構成部品を示し，括弧内の数字は上位の製品・部品1個当たりの所要数量である。この製品Aを10個生産する場合，部品Cの発注数量は何個になるか。ここで，現在の部品Cの在庫は5個である。",
+      "choices": [
+        "15",
+        "20",
+        "25",
+        "30"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "図は，製品Aの構成部品を示し，括弧内の数字は上位の製品・部品1個当たりの所要数量である。この製品Aを10個生産する場合，部品Cの発注数量は何個になるか。ここで，現在の部品Cの在庫は5個である。\n部品構成木：Aの子はB（2）とC（1），Bの子はD（1），E（1），C（1）。\nア 15\nイ 20\nウ 25\nエ 30",
+      "crop": {
+        "byteLength": 307692,
+        "cropBox": [
+          171,
+          213,
+          1494,
+          765
+        ],
+        "height": 765,
+        "number": 72,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q72.png",
+        "pdfPage": 33,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "574f1e1ab555d51a51556670e1aa44ad65442fe516410e5a788084376e74f434"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 12,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "原部品木の構造・全数量注記を保持。A数/B数/直下C/間接C/在庫を有限変更。誤答は直下C漏れ・在庫差引き漏れの組合せ。独立oracleは木を再帰展開。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 73,
+      "page": 33,
+      "title": "CGM",
+      "prompt": "CGM（Consumer Generated Media）の例はどれか。",
+      "choices": [
+        "企業が，経営状況や財務状況，業績動向に関する情報を，個人投資家向けに公開する自社のWebサイト",
+        "企業が，自社の商品の特徴や使用方法に関する情報を，一般消費者向けに発信する自社のWebサイト",
+        "行政機関が，政策，行政サービスに関する情報を，一般市民向けに公開する自組織のWebサイト",
+        "個人が，自らが使用した商品などの評価に関する情報を，不特定多数に向けて発信するブログやSNSなどのWebサイト"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "CGM（Consumer Generated Media）の例はどれか。\nア 企業が，経営状況や財務状況，業績動向に関する情報を，個人投資家向けに公開する自社のWebサイト\nイ 企業が，自社の商品の特徴や使用方法に関する情報を，一般消費者向けに発信する自社のWebサイト\nウ 行政機関が，政策，行政サービスに関する情報を，一般市民向けに公開する自組織のWebサイト\nエ 個人が，自らが使用した商品などの評価に関する情報を，不特定多数に向けて発信するブログやSNSなどのWebサイト",
+      "crop": {
+        "byteLength": 520263,
+        "cropBox": [
+          171,
+          1018,
+          1494,
+          806
+        ],
+        "height": 806,
+        "number": 73,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q73.png",
+        "pdfPage": 33,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "5fd8e378df4e1f79a6e52892b36631c261709a845a7716e0ee50a8f2e4561580"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "消費者が作成して発信する具体的メディア例と公式情報発信の区別。PRSJ後年用語集は一般概念確認に限る。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 74,
+      "page": 33,
+      "title": "EDIの情報表現規約",
+      "prompt": "EDIを実施するための情報表現規約で規定されるべきものはどれか。",
+      "choices": [
+        "企業間の取引の契約内容",
+        "システムの運用時間",
+        "伝送制御手順",
+        "メッセージの形式"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "EDIを実施するための情報表現規約で規定されるべきものはどれか。\nア 企業間の取引の契約内容\nイ システムの運用時間\nウ 伝送制御手順\nエ メッセージの形式",
+      "crop": {
+        "byteLength": 179713,
+        "cropBox": [
+          171,
+          1864,
+          1494,
+          466
+        ],
+        "height": 466,
+        "number": 74,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q74.png",
+        "pdfPage": 33,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "4f9d365b8c8794d37849c867eb52afeff60f90ee0203432d6a8f03399250c52c"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "EDIの情報表現（項目・桁・データ型・符号等）と，伝達・業務運用・契約の規約の層を区別。UNECE索引内容で照合，標準表の転載なし。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 75,
+      "page": 34,
+      "title": "CIO",
+      "prompt": "CIOの果たすべき役割はどれか。",
+      "choices": [
+        "各部門の代表として，自部門のシステム化案を情報システム部門に提示する。",
+        "情報技術に関する調査，利用研究，関連部門への教育などを実施する。",
+        "全社的観点から情報化戦略を立案し，経営戦略との整合性の確認や評価を行う。",
+        "豊富な業務経験，情報技術の知識，リーダシップをもち，プロジェクトの運営を管理する。"
+      ],
+      "key": "ウ",
+      "officialKey": "ウ",
+      "fullAlt": "CIOの果たすべき役割はどれか。\nア 各部門の代表として，自部門のシステム化案を情報システム部門に提示する。\nイ 情報技術に関する調査，利用研究，関連部門への教育などを実施する。\nウ 全社的観点から情報化戦略を立案し，経営戦略との整合性の確認や評価を行う。\nエ 豊富な業務経験，情報技術の知識，リーダシップをもち，プロジェクトの運営を管理する。",
+      "crop": {
+        "byteLength": 388377,
+        "cropBox": [
+          171,
+          213,
+          1494,
+          586
+        ],
+        "height": 586,
+        "number": 75,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q75.png",
+        "pdfPage": 34,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "f88f265b8e4d1386bc37d1502b2231e9e3df60f541a3c6de29726bd6d251668f"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "CIOの全社経営との整合/投資効果，個別PM，利用部門代表，技術調査教育の責任範囲。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 76,
+      "page": 34,
+      "title": "マトリックス組織",
+      "prompt": "マトリックス組織を説明したものはどれか。",
+      "choices": [
+        "業務遂行に必要な機能と利益責任を，製品別，顧客別又は地域別にもつことによって，自己完結的な経営活動が展開できる組織である。",
+        "構成員が，自己の専門とする職能部門と特定の事業を遂行する部門の両方に所属する組織である。",
+        "購買・生産・販売・財務など，仕事の専門性によって機能分化された部門をもつ組織である。",
+        "特定の課題の下に各部門から専門家を集めて編成し，期間と目標を定めて活動する一時的かつ柔軟な組織である。"
+      ],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "マトリックス組織を説明したものはどれか。\nア 業務遂行に必要な機能と利益責任を，製品別，顧客別又は地域別にもつことによって，自己完結的な経営活動が展開できる組織である。\nイ 構成員が，自己の専門とする職能部門と特定の事業を遂行する部門の両方に所属する組織である。\nウ 購買・生産・販売・財務など，仕事の専門性によって機能分化された部門をもつ組織である。\nエ 特定の課題の下に各部門から専門家を集めて編成し，期間と目標を定めて活動する一時的かつ柔軟な組織である。",
+      "crop": {
+        "byteLength": 566823,
+        "cropBox": [
+          171,
+          839,
+          1494,
+          1491
+        ],
+        "height": 1491,
+        "number": 76,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q76.png",
+        "pdfPage": 34,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "0e70b12b7a48cfbe2dd199511a9d1e09880c33287f9d654ac5841a923194d058"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "matrixの二軸所属と，事業部/職能別/プロジェクトの編成/利益責任/期限の区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 77,
+      "page": 35,
+      "title": "OC曲線と合格判定個数",
+      "prompt": "品質管理における検査特性曲線（OC曲線）は，通常，横軸にロットの不良率を，縦軸にはロットの合格率を目盛ったものである。大きさNのロットから，大きさnのサンプルを抜き取り，このサンプル中に見いだされた不良個数が合格判定個数c以下のときはロットを合格とし，cを超えたときはロットを不合格とする。Nとnを一定にしてcを0，1，2と変えたときの，OC曲線の変化の傾向を表す図はどれか。",
+      "choices": [],
+      "key": "イ",
+      "officialKey": "イ",
+      "fullAlt": "品質管理における検査特性曲線（OC曲線）は，通常，横軸にロットの不良率を，縦軸にはロットの合格率を目盛ったものである。大きさNのロットから，大きさnのサンプルを抜き取り，このサンプル中に見いだされた不良個数が合格判定個数c以下のときはロットを合格とし，cを超えたときはロットを不合格とする。Nとnを一定にしてcを0，1，2と変えたときの，OC曲線の変化の傾向を表す図はどれか。\n四つのOC曲線の図。各図は横軸右向き，縦軸上向き，原点0，三つの曲線。アは交差せず左からc＝2，1，0。イは交差せず左からc＝0，1，2。ウは左上付近で交差し右下側では左からc＝0，1，2。エは交差し右下側では左からc＝2，1，0。数値目盛はない。\n",
+      "crop": {
+        "byteLength": 737079,
+        "cropBox": [
+          171,
+          210,
+          1494,
+          2120
+        ],
+        "height": 2120,
+        "number": 77,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q77.png",
+        "pdfPage": 35,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "607588c507806de6bd06b8bfc3891497b814cf437c21c939224e8fbaec1506ed"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 10,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "原のグラフ4択・軸・ラベル・交差役割を保持。cの三つ組を10組変更，生産品N/n測定値を図座標から捏造しない。独立検算はN12/n6の924標本×13不良数×10条件=120120状態。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 78,
+      "page": 36,
+      "title": "定量発注在庫モデル",
+      "prompt": "図は，定量発注方式の在庫モデルを表している。発注aの直後に使用量の予測が変わって，納品aの直前の時点における在庫量予測が安全在庫量Sから①で示されるXになるとき，発注a時点での発注量Eに対する適切な変更はどれか。ここで，発注直後の発注量の変更は可能であり，納品直後の在庫量は最大在庫量を超えてはならないものとする。",
+      "choices": [
+        "E＋S−Xを追加発注する。",
+        "K＋S−Xを追加発注する。",
+        "K−Xだけの発注を取り消す。",
+        "X−Sだけの発注を取り消す。"
+      ],
+      "key": "エ",
+      "officialKey": "エ",
+      "fullAlt": "図は，定量発注方式の在庫モデルを表している。発注aの直後に使用量の予測が変わって，納品aの直前の時点における在庫量予測が安全在庫量Sから①で示されるXになるとき，発注a時点での発注量Eに対する適切な変更はどれか。ここで，発注直後の発注量の変更は可能であり，納品直後の在庫量は最大在庫量を超えてはならないものとする。\n縦軸は在庫量，横軸は時間，原点0。上から最大在庫量，発注点K，X，安全在庫量Sの線。二つの在庫減少の斜線と，納品a・bで最大へ戻る縦線。発注a・bはKになる時点。発注aから納品aは調達期間。発注量Eは最大からSの間の両矢印。Xを示す破線と左矢印に①。\nア E＋S−Xを追加発注する。\nイ K＋S−Xを追加発注する。\nウ K−Xだけの発注を取り消す。\nエ X−Sだけの発注を取り消す。",
+      "crop": {
+        "byteLength": 768797,
+        "cropBox": [
+          171,
+          205,
+          1494,
+          1460
+        ],
+        "height": 1460,
+        "number": 78,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q78.png",
+        "pdfPage": 36,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "2470f66c519b205fd9edd570dee3312a107be7a06e763a0f5056b2d2dc8078ab"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 10,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "原0の記号式/無数値図を保持。生成1..9は本文S/Xと図Kに値を可視表示。S<X<K，2X>K+S，原と同じ4式。原0は係数恒等式，生成はM=E+SでEを消去して独立検算。M>KとなるE>K-Sを100通り確認，2X=K+Sの偶然一致と一般恒等式を区別。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 79,
+      "page": 36,
+      "title": "法人著作",
+      "prompt": "プログラム開発において，法人の発意に基づく法人名義の著作物について，著作権法で規定されているものはどれか。",
+      "choices": [
+        "就業規則などに特段の取決めがない限り，権利は法人に帰属する。",
+        "担当した従業員に権利は帰属するが，法人に譲渡することができる。",
+        "担当した従業員に権利は帰属するが，法人はそのプログラムを使用できる。",
+        "法人が権利を取得する場合は，担当した従業員に相当の対価を支払う必要がある。"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "プログラム開発において，法人の発意に基づく法人名義の著作物について，著作権法で規定されているものはどれか。\nア 就業規則などに特段の取決めがない限り，権利は法人に帰属する。\nイ 担当した従業員に権利は帰属するが，法人に譲渡することができる。\nウ 担当した従業員に権利は帰属するが，法人はそのプログラムを使用できる。\nエ 法人が権利を取得する場合は，担当した従業員に相当の対価を支払う必要がある。",
+      "crop": {
+        "byteLength": 434608,
+        "cropBox": [
+          171,
+          1705,
+          1494,
+          625
+        ],
+        "height": 625,
+        "number": 79,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q79.png",
+        "pdfPage": 36,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "a68812c29c8ba22dfcd649ceb9b1308d6349892780388064685f214e7f90babd"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "2016文化庁著作権テキストPDF14頁/113–114頁の職務プログラム著作。15条2項の要件とプログラムの非公表要件を保持。現在の法改正や特許の対価を混入しない。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    },
+    {
+      "number": 80,
+      "page": 37,
+      "title": "電子計算機損壊等業務妨害",
+      "prompt": "コンピュータウイルスを用いて，企業で使用されているコンピュータの記憶内容を消去する行為を処罰の対象とする法律はどれか。",
+      "choices": [
+        "刑法",
+        "製造物責任法",
+        "不正アクセス禁止法",
+        "プロバイダ責任制限法"
+      ],
+      "key": "ア",
+      "officialKey": "ア",
+      "fullAlt": "コンピュータウイルスを用いて，企業で使用されているコンピュータの記憶内容を消去する行為を処罰の対象とする法律はどれか。\nア 刑法\nイ 製造物責任法\nウ 不正アクセス禁止法\nエ プロバイダ責任制限法",
+      "crop": {
+        "byteLength": 276838,
+        "cropBox": [
+          171,
+          213,
+          1494,
+          2117
+        ],
+        "height": 2117,
+        "number": 80,
+        "path": "/Users/kawanamasashi/.codex/worktrees/feat-pre-2023-questions/OpenCBT-FE-KihonJoho/output/source-review/s3-002-2016-autumn-am/41-80/crops/q80.png",
+        "pdfPage": 37,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "b2f30cca21b4c4eee9c78d606777418373e126f466dbe54396d05a4ae8a54332"
+      },
+      "sourceFormatReviewed": true,
+      "notesReviewed": "本文・全四択・表図・ここで/ただし/なお/注記を原画像で照合。追加注記がない問題も確認。",
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "candidate_root_final_review",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass;isolated_figure_preview_pass;root_App_pending",
+        "normalApp": "root_pending"
+      },
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "問いの方向/肯否・全四択/注記/媒体を保持。条件0は原本文・表・図条件。",
+        "quality": "2014犯罪白書/2011改正説明で刑法234条の2の電子計算機損壊等業務妨害を確認。2011に既遂罪が新設されたとは記録しない。2016当時の法律名を保持，現行拘禁刑への置換なし。",
+        "priorHistoryCapacity": "二つの異なる直前入力の全順序対を避けても候補が残る。固定正答系列以外は直前正答本文も避ける。通常エンジン/保存Appの検査はRoot担当。",
+        "revision": "新規未公開候補3.2.0; source0全照合済"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 55,
+      "reason": "ITIL固有のサービスデスク組織に関する具体的説明の用途別再利用条件未確認。",
+      "statuses": {
+        "material": "held_unconfirmed",
+        "source": "private_only",
+        "generator": "not_distributed",
+        "independent": "not_admitted",
+        "display": "not_admitted",
+        "normalApp": "not_registered"
+      }
+    },
+    {
+      "number": 56,
+      "reason": "JIS Q20000-1に依拠する具体的な活動表現の転載/改変条件未確認。",
+      "statuses": {
+        "material": "held_unconfirmed",
+        "source": "private_only",
+        "generator": "not_distributed",
+        "independent": "not_admitted",
+        "display": "not_admitted",
+        "normalApp": "not_registered"
+      }
+    },
+    {
+      "number": 57,
+      "reason": "ITIL可用性管理の指標例に関する具体的表現の用途別再利用条件未確認。",
+      "statuses": {
+        "material": "held_unconfirmed",
+        "source": "private_only",
+        "generator": "not_distributed",
+        "independent": "not_admitted",
+        "display": "not_admitted",
+        "normalApp": "not_registered"
+      }
+    }
+  ],
+  "rightsBoundary": {
+    "q58": "基準名への言及と一般的な安全性/アクセス管理等の概念，四択の一般機能短語として限定査読。特定第三者文章/図表の転載は特定されず，IPA公表問題としての条件を適用する候補。当時METI本文403は未取得として記録し，基準本文の転載/改変許可を認定しない。",
+    "q79q80": "2016年当時の法令/制度を知識検証に使用し，独自説明を作成。文化庁資料全体や他者の解説をMIT/IPA条件で再許諾しない。法令そのものは著作権法13条の範囲を区別する。",
+    "uses": {
+      "repository": "候補のみ。Rootの出典/素材条件/原と生成の区別/全データレビュー後に正式可否を決定。保留3問は本文/全択/画像/改変をsrc/fixtures/publicに置かない。",
+      "browser": "出典，素材別条件，改変，独自解説へ到達できることをRoot通常Appで確認後に判断。",
+      "adaptation": "原の問い方向/肯否/媒体/注記を保つ有限変数。独立意味・表示・容量検査とRoot査読が必要。"
+    }
+  },
+  "verification": {
+    "finiteBodies": 205,
+    "allChoices": 820,
+    "state": "owner_candidate_verified_root_admission_pending",
+    "privateCropsRequiredAtCI": false,
+    "normalAppAdmission": false,
+    "publication": "not_admitted_root_review_required",
+    "tests": 9,
+    "failed": 0,
+    "independentSampleStates": 120120,
+    "allFiniteFigureSSR": 63,
+    "isolatedBrowser": {
+      "widths": [
+        1200,
+        640,
+        320
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "states": 6,
+      "screenshots": 48,
+      "svgObservations": 84,
+      "textOutsideSVG": 0,
+      "documentHorizontalOverflow": false,
+      "scope": "実component SSRを隔離headlessで表示する専用preview。通常Appではない。全48画像を人が目視したとは扱わず，原0・最大条件の代表画像を目視し全bboxを機械検査。"
+    },
+    "typecheck": "noEmit_pass"
+  },
+  "acquisitions": [
+    {
+      "name": "reference-214ca561fc750f59.bin",
+      "url": "https://anzeninfo.mhlw.go.jp/yougo/yougo39_1.html",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://anzeninfo.mhlw.go.jp/yougo/yougo39_1.html",
+      "sha256": "45458632fbcc32c5b5a4b749d58b7db8a6001c85fb31b9eaf9ba4ce526d75250",
+      "byteLength": 19286,
+      "contentType": "text/html"
+    },
+    {
+      "name": "owasp-credential.html",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-88f54a564a0374d3.bin",
+      "url": "https://courses.lumenlearning.com/wm-introductiontobusiness/chapter/defining-the-marketing-mix/",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://courses.lumenlearning.com/wm-introductiontobusiness/chapter/defining-the-marketing-mix/",
+      "sha256": "561a75c47b1dac5f39e9febaf94e98b758c9b98633528b04542129b5dc8f9e62",
+      "byteLength": 41622,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "reference-eba597f2cb36b08d.bin",
+      "url": "https://csrc.nist.gov/glossary/term/access_control",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/glossary/term/access_control",
+      "sha256": "03bfedfbc3dc0566fd55e32c22791b3e84965c58b237e015b314c4b7f27c7c6b",
+      "byteLength": 74832,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "name": "reference-407b49d4092963c5.bin",
+      "url": "https://csrc.nist.gov/glossary/term/availability",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/glossary/term/availability",
+      "sha256": "bf6583174fa012c5fa4c62a4e9531b4b5e57fa694305304281525a96c5ba6b9b",
+      "byteLength": 69047,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "name": "reference-a69fd4db3ef5f768.bin",
+      "url": "https://csrc.nist.gov/pubs/sp/800/83/r1/final",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/sp/800/83/r1/final",
+      "sha256": "b1ff843d09260a9a73a113d2626c0d331a874214344ca095a24317f793defac5",
+      "byteLength": 45174,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "name": "oracle-mrp.html",
+      "url": "https://docs.oracle.com/cd/A60725_05/html/comnls/us/mrp/mrpover.htm",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/cd/A60725_05/html/comnls/us/mrp/mrpover.htm",
+      "sha256": "b05d798bf9dbf452829fecce61e613d74842d4e6b23e96e58de8c9ee468adbe2",
+      "byteLength": 5183
+    },
+    {
+      "name": "oracle-inheritance.html",
+      "url": "https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html",
+      "sha256": "8743c6e403c56e4eb1ef7c40d6e4c132746e902bdf989cd1a7dfc96d4445989a",
+      "byteLength": 19301
+    },
+    {
+      "name": "oracle-object.html",
+      "url": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html",
+      "sha256": "ca1d90bf5b95ec214f7668e017527e8accb5351c73a86772add492121a6a2e5b",
+      "byteLength": 21582
+    },
+    {
+      "name": "reference-6d86e2b4e9ed0b30.bin",
+      "url": "https://hakusyo1.moj.go.jp/jp/61/nfm/n61_2_1_3_3_1.html",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://hakusyo1.moj.go.jp/jp/61/nfm/n61_2_1_3_3_1.html",
+      "sha256": "e5b37a3b71bd7c8e1e0c45dfbcc707581d3692e12af01d1d183b0ad5ae9b1671",
+      "byteLength": 2229,
+      "contentType": "text/html"
+    },
+    {
+      "name": "reference-a6ecf67995dc39ed.bin",
+      "url": "https://ieeexplore.ieee.org/abstract/document/387142",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://ieeexplore.ieee.org/abstract/document/387142",
+      "sha256": "7f700af30d7dec8a0e568471c6a0a982ea4f729cfbb776bc78104981e628f4e3",
+      "byteLength": 48030,
+      "contentType": "text/html;charset=UTF-8"
+    },
+    {
+      "name": "ifpug-2014.pdf",
+      "url": "https://ifpug.org/wp-content/uploads/2021/10/MetricViewsFebruary2014.pdf",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-818783abb5c5b4f5.bin",
+      "url": "https://kouseisaiyou.mhlw.go.jp/humanrights.html",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://kouseisaiyou.mhlw.go.jp/humanrights.html",
+      "sha256": "edf4bbfa27624454fec85c1fbec733ab28a0c1382640e6917fe7115729de5da2",
+      "byteLength": 8335,
+      "contentType": "text/html"
+    },
+    {
+      "name": "reference-c308e5204d691d8f.bin",
+      "url": "https://ntrs.nasa.gov/api/citations/19980227761/downloads/19980227761.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://ntrs.nasa.gov/api/citations/19980227761/downloads/19980227761.pdf",
+      "sha256": "3ad60f9d4c28bb921f688a5d2ebe648ea77a968cd67bcd4fbf732ab10ffdeab0",
+      "byteLength": 14506801,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-b8feacda0ab8c329.bin",
+      "url": "https://openstax.org/books/introduction-business/pages/7-2-contemporary-structures",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/introduction-business/pages/7-2-contemporary-structures",
+      "sha256": "9c15cad67172a3a2b922fa1d7de447023414718e336bec9c7d02ed7b47e1bf59",
+      "byteLength": 298095,
+      "contentType": "text/html"
+    },
+    {
+      "name": "reference-63590c25754a02f0.bin",
+      "url": "https://openstax.org/books/organizational-behavior/pages/15-3-organizational-designs-and-structures",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/organizational-behavior/pages/15-3-organizational-designs-and-structures",
+      "sha256": "cd1d69a933c185c07bfe35c36a7c449e1c49c4a37c289d22574cee069e975705",
+      "byteLength": 326043,
+      "contentType": "text/html"
+    },
+    {
+      "name": "reference-b71579e98029f60e.bin",
+      "url": "https://owasp.org/www-community/Web_Application_Firewall",
+      "checkedOn": "2026-11-02",
+      "error": "HTTP Error 308: Permanent Redirect"
+    },
+    {
+      "name": "reference-18da798eefe03d89.bin",
+      "url": "https://prsj.or.jp/dictionary/cgm%EF%BC%88consumer-generated-media%EF%BC%89/",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://prsj.or.jp/dictionary/cgm%EF%BC%88consumer-generated-media%EF%BC%89/",
+      "sha256": "c29dbeefdfc206f786db677e2019a7284074efb127981794ca3098ad151a01d1",
+      "byteLength": 100772,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "reference-94ea1e26c43ec141.bin",
+      "url": "https://unece.org/DAM/trade/untdid/texts/d424_d.htm",
+      "checkedOn": "2026-11-02",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-ec8a8a843e2dd037.bin",
+      "url": "https://www.bdc.ca/en/articles-tools/marketing-sales-export/marketing/pricing-5-common-strategies",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.bdc.ca/en/articles-tools/marketing-sales-export/marketing/pricing-5-common-strategies",
+      "sha256": "192d1a21faedbb12f7bf9058b93d8bd3d9fb6ebbf0554410576a5ed409b01261",
+      "byteLength": 385337,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "name": "bcp-2013.pdf",
+      "url": "https://www.bousai.go.jp/kyoiku/kigyou/pdf/guideline03.pdf",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.bousai.go.jp/kyoiku/kigyou/pdf/guideline03.pdf",
+      "sha256": "28c4f4342cea5e6a1a3e9325da77c587bc39ecfee7aac6b64b0db5040ee1d70d",
+      "byteLength": 1511508
+    },
+    {
+      "name": "bunka-h28.pdf",
+      "url": "https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/pdf/h28_text.pdf",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/pdf/h28_text.pdf",
+      "sha256": "424009b8202e49e616624efab8bb24a01093880e8fd1403a2ab8cd75f3ca9f59",
+      "byteLength": 4110380
+    },
+    {
+      "name": "reference-aae32acf4180630e.bin",
+      "url": "https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e2a06143-ed29-4f1d-9c31-0f06fca67afc/573c839f/20250619_resources_standard_guidelines_guideline_03.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e2a06143-ed29-4f1d-9c31-0f06fca67afc/573c839f/20250619_resources_standard_guidelines_guideline_03.pdf",
+      "sha256": "a97f6bd3cc0fea5877b9a3489cf81ea55909b4bf14a74db7539a9f27a3ee620e",
+      "byteLength": 8645676,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-93645b0064df4771.bin",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.iana.org/assignments/service-names-port-numbers",
+      "sha256": "c04644498ec6f0148f3d02247612758039bd2e9db1b5677e8c43f90ac1e3e360",
+      "byteLength": 63305,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "reference-b3be22a473bf9aad.bin",
+      "url": "https://www.ibm.com/docs/en/db2/11.1.0?topic=flow-working-modes-data-flows",
+      "checkedOn": "2026-11-02",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-ee09eff22b29cb29.bin",
+      "url": "https://www.ibm.com/think/topics/business-intelligence",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.ibm.com/think/topics/business-intelligence",
+      "sha256": "f961bdea8db73329b8836e6d9e9538a7eae8dc6e03b35da95f9a06409dd3e167",
+      "byteLength": 184317,
+      "contentType": "text/html;charset=utf-8"
+    },
+    {
+      "name": "reference-809c205b2c52c290.bin",
+      "url": "https://www.ibm.com/think/topics/business-process-management",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.ibm.com/think/topics/business-process-management",
+      "sha256": "9e286dda30fbbab6809c6e5c60b16a6cc9e96a53d02b9ef7683bfd1c65ce4285",
+      "byteLength": 165408,
+      "contentType": "text/html;charset=utf-8"
+    },
+    {
+      "name": "reference-c28a9fc046cd9b87.bin",
+      "url": "https://www.ipa.go.jp/publish/wp-dx/gmcbt8000000botk-att/000108041.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.ipa.go.jp/publish/wp-dx/gmcbt8000000botk-att/000108041.pdf",
+      "sha256": "df7a8d35b3050a062dc0217b5249d77ead8f972d52458d84385f8fa081c49c2d",
+      "byteLength": 14391564,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "nist-oc.html",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section2/pmc243.htm",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-ea0725d0f4170a59.bin",
+      "url": "https://www.jipdec.or.jp/archives/publications/J0005023.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.jipdec.or.jp/archives/publications/J0005023.pdf",
+      "sha256": "c027f16f740b03b2dd6f35bc8d6287af36a14d662ec720a7e1c2ac5c9b5f53d5",
+      "byteLength": 20000000,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-d31928920f7397bf.bin",
+      "url": "https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei14/dl/081001-1d_0019.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei14/dl/081001-1d_0019.pdf",
+      "sha256": "24208ee8cf0696464fddb68caa213bb1993f47d8880e0a2d7095dab80d525dbe",
+      "byteLength": 389521,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-d253696d49ce7414.bin",
+      "url": "https://www.moj.go.jp/content/001377787.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.moj.go.jp/content/001377787.pdf",
+      "sha256": "f4b28faf26a3d5f01552765ab09077eb8dc6c2f453b7f474a2f99d1a0805616c",
+      "byteLength": 231140,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-6fd1b1ac3c24509b.bin",
+      "url": "https://www.nmda.or.jp/choutatsumodel/report-16/choutatsu-process.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.nmda.or.jp/choutatsumodel/report-16/choutatsu-process.pdf",
+      "sha256": "b776af75510fd9e0cf9c76d1b27ec493971a5e12da42bb1d807349f44883dcdc",
+      "byteLength": 1069407,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-eab3c116eb793dd3.bin",
+      "url": "https://www.nmda.or.jp/choutatsumodel/summary.pdf",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.nmda.or.jp/choutatsumodel/summary.pdf",
+      "sha256": "3a81c5e0408d17685a8a6b64973f9d5f3890fc222a80b4dfd29ed2b0ddbc2437",
+      "byteLength": 663727,
+      "contentType": "application/pdf"
+    },
+    {
+      "name": "reference-abdc693a15306472.bin",
+      "url": "https://www.ntt-west.co.jp/procure/activity/",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.ntt-west.co.jp/procure/activity/",
+      "sha256": "3864b478f757f217e0e54b566a32b038040cb7ef6008edb816ff10bec3401474",
+      "byteLength": 41799,
+      "contentType": "text/html"
+    },
+    {
+      "name": "reference-dcfaa54e2dcf71eb.bin",
+      "url": "https://www.oracle.com/erp/what-is-erp/",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.oracle.com/erp/what-is-erp/",
+      "sha256": "7c742f550f518c0c53f6c96eb5373a9740695e8620727dc870e82734a146cb58",
+      "byteLength": 66481,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "reference-a6066f9e7c2e8642.bin",
+      "url": "https://www.oracle.com/scm/what-is-supply-chain-management/",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.oracle.com/scm/what-is-supply-chain-management/",
+      "sha256": "25c9961a1b3dcd79e160cab9ca97daa0dfffaeaa5867ea676c69a5cec6440e19",
+      "byteLength": 48811,
+      "contentType": "text/html; charset=UTF-8"
+    },
+    {
+      "name": "pdma-scurve.html",
+      "url": "https://www.pdma.org/page/glossary_access3",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-d504596338cf3409.bin",
+      "url": "https://www.pmi.org/learning/library/critical-chain-project-management-theory-7118",
+      "checkedOn": "2026-11-02",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-6e1cf4c909da3a1d.bin",
+      "url": "https://www.pmi.org/learning/library/managing-crashed-fastracked-shorten-interval-project-7603",
+      "checkedOn": "2026-11-02",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "pmi-scope-2015.html",
+      "url": "https://www.pmi.org/learning/library/partnership-project-managers-business-analysts-9865",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-ece3bff52e6ed8c5.bin",
+      "url": "https://www.pmi.org/learning/library/stakeholder-management-pain-points-perils-prosperity-5955",
+      "checkedOn": "2026-11-02",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "reference-dde475b5131bba48.bin",
+      "url": "https://www.salesforce.com/crm/what-is-crm/",
+      "checkedOn": "2026-11-02",
+      "status": 200,
+      "finalURL": "https://www.salesforce.com/crm/what-is-crm/?bc=OTH",
+      "sha256": "32fe58b4a80a758320caf84d25702d4c8bb234c658254525e03290d9136b5b08",
+      "byteLength": 616491,
+      "contentType": "text/html; charset=utf-8"
+    }
+  ],
+  "reviewBoundaries": {
+    "source": "本人がPDF画像全40と正答表を照合，37 eligibleは別担当の独立factsと本文/四択/キー/pageを比較。held3の本文/改変/画像はignored outputだけ。",
+    "independentReviewer": "am2017_partial_releaseが別原資料転記/素材判定/全知識target・205条件oracle/図構造を査読。最終正式Root承認と区別する。",
+    "references": "原典の事実を知識照合に使用。引用ではない独自説明，取得成否・意味査読・権利の適用範囲をreference-reviewに分離。",
+    "QA04": "43/46の定義先置きを除去し，42/44/47/52/58/59/61/63/67/69/75/76等は元の問い方向のまま実対象/役割を変更。Q67価値ベースは名称から説明，Q75 case3はCIOを保持。",
+    "display": "全63図SSR＋3幅2themeの専用headless preview，Root通常Appのスクロール/倍率/保存/採点/出典到達は未承認。"
+  }
+}

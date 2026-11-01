@@ -14,7 +14,7 @@ test("stage1 retains six morning collections and three reviewed samples without 
   assert.equal(report.missingByCheck.rights, 13);
   assert.equal(report.fullScope.status, "not_ready");
   assert.equal(report.fullScope.summary.requestedUnits, 3062);
-  assert.deepEqual(report.fullScope.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2356, originalSemanticsReviewed: 706, ready: 706 });
+  assert.deepEqual(report.fullScope.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 2279, originalSemanticsReviewed: 783, ready: 783 });
   const held = [
     ["2017h29h-fe-am", [55, 66]], ["2017h29a-fe-am", [55]],
     ["2018h30h-fe-am", [39, 47, 62]], ["2018h30a-fe-am", [39, 65]],

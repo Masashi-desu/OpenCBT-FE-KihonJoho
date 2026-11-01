@@ -6,6 +6,7 @@ import { additionalDefinition } from "../src/core/generators";
 import { sourceFigureDomains } from "../src/core/source-figures";
 import legacyMorningDomains from "../src/core/legacy-morning-figure-domains.json";
 import { ensureLegacyMorningGenerators } from "../src/core/generators/legacy-morning-install";
+import { ensureStage3MorningGenerators } from "../src/core/generators/stage3-morning-install";
 
 import autumn2017FigureMeaning from "./source-evidence/2017-autumn-figure-meaning.json";
 import spring2018FigureMeaning from "./source-evidence/2018-spring-figure-meaning.json";
@@ -14,6 +15,7 @@ import autumn2019FigureMeaning from "./source-evidence/2019-autumn-figure-meanin
 
 const b = readDistributionBundle();
 await ensureLegacyMorningGenerators(b);
+ensureStage3MorningGenerators(b);
 const c = generationCoverage(b);
 if (c.rows.some((r) => r.templates.length !== 1 || r.linked.length !== 1))
   throw Error("GENERATION_COVERAGE");
@@ -92,6 +94,21 @@ const figureMeaning: Record<string, string> = {
   "legacy-2016-spring-am-49": "0・1：aとbの比較値、2・3：xへの二つの代入値、4・5：yへの二つの代入値。登録した4組の全6値だけを許し、命令網羅の分岐構成を保持する。",
   "legacy-2016-spring-am-ppm": "0：固定の2行2列。市場シェアと市場成長率の軸・強弱・高低を原の位置に保つ。",
   "legacy-2016-spring-am-pareto": "0：棒と折れ線の4構成、1：査読した12組の棒の値の位置。原図同様に数値目盛を加えず、各棒と折れ線を同じ条件へ結び付ける。",
+  "legacy-2016-autumn-am-3-fsm": "0〜2：S0→S1、S1→S2、曲線の遷移に付く出力。3・4：曲線の始点・終点の状態番号。5：終了状態の番号。6〜8：S0・S1・S2の自己ループの出力。9：入力記号a・bの入替え。原の入力／出力ラベル、開始矢印、終了状態の二重円を同じtupleへ結び付ける。",
+  "legacy-2016-autumn-am-6-bst": "0〜6：根から段ごとに左、右へ並べた7位置の節の値。位置iの左・右の子は2i+1・2i+2で、0は節なし。許可する木全体だけを受け付け、枝と左右の位置を保持する。",
+  "legacy-2016-autumn-am-9-address": "0：方式0=間接、1=指標、2=相対、3=直接。1：命令のアドレス部。2：間接方式の参照先アドレス又は指標レジスタ／プログラムカウンタの内容（直接方式では固定0）。方式に応じた参照矢印又は加算器を描く。",
+  "legacy-2016-autumn-am-11-bus": "0：データバスの本数8・16・32。アドレスバスの本数nは未知のまま、An−1からA0までの省略表記とD0〜D（本数−1）を保持する。",
+  "legacy-2016-autumn-am-18-switch": "0：固定0。プロセスA・OS・プロセスBの状態と割込みからの切替え順を描き、OSの処理a・b・cは空欄のまま保持する。",
+  "legacy-2016-autumn-am-21-circuit": "0：固定0。共通アノード、Vcc、独立した抵抗を介するP0〜P7とa〜g・Dtの接続、消灯／点灯の凡例を保持する。",
+  "legacy-2016-autumn-am-21-led": "0：8ビットの点灯マスク。bit0〜6はa〜g、bit7はDtに対応し、1を塗りつぶして点灯、0を白抜きで消灯とする。出力ポートのビット値とは別の描画用点灯状態である。",
+  "legacy-2016-autumn-am-23-gates": "0〜2：A・B、B・C、A・Cを入力とする各ゲート。3：第1・第2ゲートの出力を結ぶゲート。4：その出力と第3ゲートの出力を結ぶ最終ゲート。種類は0=AND、1=OR、2=XOR、3=NAND、4=NOR、5=XNORで、完全な登録tupleだけを許す。",
+  "legacy-2016-autumn-am-31-stack": "0：装置Aが扱う下位層の数1・2・3・5。ノードの5層と二つのLANセグメントを固定し、装置Aの最上位層まで上がって戻る破線のデータ経路を同期する。",
+  "legacy-2016-autumn-am-34-ntp": "0：PCの問合せ送信、1：サーバの問合せ受信、2：サーバの応答送信、3：PCの応答受信の各時刻のマイクロ秒部分。aa:bb:cc.の後に6桁で表示し、問合せ・応答の矢印と本文の時刻を同じ条件へ結び付ける。",
+  "legacy-2016-autumn-am-marketing": "0・1：固定0。4Pと4Cの左右の枠、四つの小枠、同じ高さを結ぶ4本の矢印とa〜dを保持する。問うa〜dの位置は本文で指定し、図に正答語を埋めない。",
+  "legacy-2016-autumn-am-bom": "0：査読した12条件の番号。1：製品Aの生産数、2：A直下のB数、3：A直下のC数、4：B直下のC数、5：Cの在庫数。D・Eを含む部品木の構造を保持し、本文の生産数・在庫と同じtupleを使う。",
+  "legacy-2016-autumn-am-oc": "0：図の役割0=非交差・cラベル逆順、1=非交差・cラベル昇順、2=交差・cラベル昇順、3=交差・cラベル逆順。1：査読した10条件の番号。2〜4：本文に示す三つの合格判定個数c。図の座標を原資料のN・nの測定値とせず、軸・曲線とラベルの対応を保持する。",
+  "legacy-2016-autumn-am-inventory": "0：査読した10条件の番号。1：模式図の最大在庫量の描画値、2：安全在庫S、3：発注点K、4：予測在庫X。原条件0は記号だけを表示し、生成条件1〜9は本文のS・Xと図のKへ数値を示す。最大在庫量の描画値を解答に必要な隠れた数値条件とせず、定量発注の同じ傾き、発注／納品、発注量E、調達期間、①と矢印を保持する。",
+  "legacy-2016-autumn-am-common-symbols": "0：固定0。共通表記p3の9種類の論理回路記号、反転出力の注記と6種類の回路記号を、図記号と説明の2列表として保持する。",
   ...autumn2019FigureMeaning,
   ...autumn2017FigureMeaning,
   ...spring2018FigureMeaning,

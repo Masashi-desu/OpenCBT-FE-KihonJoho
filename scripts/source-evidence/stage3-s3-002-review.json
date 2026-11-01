@@ -1,0 +1,1691 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-002",
+  "collectionId": "2016h28a-fe-am",
+  "status": "reviewed_source_and_normal_app",
+  "expectedTotal": 80,
+  "officialQuestionNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 55,
+      "status": "material_conditions_unconfirmed",
+      "bodyPublished": false,
+      "reason": "ITIL2011に基づくサービスデスク組織の具体的な説明について、第三者表現の対応範囲と本アプリでの転載・改変条件の確認が未完了。単にITILという名称があることだけを理由にはしない。"
+    },
+    {
+      "number": 56,
+      "status": "material_conditions_unconfirmed",
+      "bodyPublished": false,
+      "reason": "JIS Q20000-1:2012のPlan等の具体的活動を挙げる本文・選択肢について、規格内容の引用・転載・改変を認める条件が未確認。規格番号への言及だけとは区別する。"
+    },
+    {
+      "number": 57,
+      "status": "material_conditions_unconfirmed",
+      "bodyPublished": false,
+      "reason": "ITIL2011が挙げる可用性管理のKPI例の構成・表現について、一般概念・短語と第三者表現の範囲の切分け及び本アプリでの利用条件の確認が未完了。"
+    }
+  ],
+  "unprepared": [],
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "questionPaperSHA256": "e288f1f0d8f8287702bbbba0b00643b0c24bfdb92660172806bbe137e93df7e5",
+  "answerPaperSHA256": "7ed521a518b3d9d04a27cda699a0b29de9f911eb569fdb3cb6bf1ba39589bf90",
+  "candidateContentSHA256": "27aea56a0d426e8a4def8fd7aa661c614d112f887ee4e717c40c545c1122f355",
+  "rootSourceReview": {
+    "status": "pass",
+    "candidateContentSHA256": "27aea56a0d426e8a4def8fd7aa661c614d112f887ee4e717c40c545c1122f355",
+    "evidence": {
+      "path": "output/source-review/s3-002-2016-autumn-am/root-final/material-result-v1.json",
+      "sha256": "0305650512560635409ecb41fb81423689c3ca5181a2cce87052b4f698d63125"
+    },
+    "scope": "all80 source/keys, eligible77 rights and79 actual materials; three holds stay unresolved"
+  },
+  "independent": {
+    "status": "pass",
+    "candidateContentSHA256": "27aea56a0d426e8a4def8fd7aa661c614d112f887ee4e717c40c545c1122f355",
+    "evidence": {
+      "path": "output/source-review/s3-002-2016-autumn-am/root-final/independent-result-v1.json",
+      "sha256": "3be9f06fe89ecda934d436058d14bf341badd62dd71608da24755df02ef6c7d0"
+    },
+    "scope": "all441 finite candidate bodies/1764choices, separate reference solutions/truths"
+  },
+  "normalApp": {
+    "status": "pass",
+    "candidateContentSHA256": "27aea56a0d426e8a4def8fd7aa661c614d112f887ee4e717c40c545c1122f355",
+    "evidence": {
+      "path": "output/source-review/s3-002-2016-autumn-am/root-final/normal-app-result-v2.json",
+      "sha256": "4a42595cd5bdbcd3f509278d6f50a8cdca5f1fc713fcb0bc5e37df289ab8f311"
+    },
+    "scope": "v2 full77 original/generated UI flows, exact Q15 v3 clarification and Q18 v4 shared-matrix actual interactions/SSR/saved-state followup"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "originalId": "question-ipa-2016h28a-fe-am-1",
+      "baseId": "question-template-source-2016h28a-fe-am-1",
+      "templateId": "template-source-2016h28a-fe-am-1",
+      "generatorId": "generator-source-2016h28a-fe-am-1",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "originalId": "question-ipa-2016h28a-fe-am-2",
+      "baseId": "question-template-source-2016h28a-fe-am-2",
+      "templateId": "template-source-2016h28a-fe-am-2",
+      "generatorId": "generator-source-2016h28a-fe-am-2",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "originalId": "question-ipa-2016h28a-fe-am-3",
+      "baseId": "question-template-source-2016h28a-fe-am-3",
+      "templateId": "template-source-2016h28a-fe-am-3",
+      "generatorId": "generator-source-2016h28a-fe-am-3",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "originalId": "question-ipa-2016h28a-fe-am-4",
+      "baseId": "question-template-source-2016h28a-fe-am-4",
+      "templateId": "template-source-2016h28a-fe-am-4",
+      "generatorId": "generator-source-2016h28a-fe-am-4",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "originalId": "question-ipa-2016h28a-fe-am-5",
+      "baseId": "question-template-source-2016h28a-fe-am-5",
+      "templateId": "template-source-2016h28a-fe-am-5",
+      "generatorId": "generator-source-2016h28a-fe-am-5",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 6,
+      "originalId": "question-ipa-2016h28a-fe-am-6",
+      "baseId": "question-template-source-2016h28a-fe-am-6",
+      "templateId": "template-source-2016h28a-fe-am-6",
+      "generatorId": "generator-source-2016h28a-fe-am-6",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "originalId": "question-ipa-2016h28a-fe-am-7",
+      "baseId": "question-template-source-2016h28a-fe-am-7",
+      "templateId": "template-source-2016h28a-fe-am-7",
+      "generatorId": "generator-source-2016h28a-fe-am-7",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "originalId": "question-ipa-2016h28a-fe-am-8",
+      "baseId": "question-template-source-2016h28a-fe-am-8",
+      "templateId": "template-source-2016h28a-fe-am-8",
+      "generatorId": "generator-source-2016h28a-fe-am-8",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "originalId": "question-ipa-2016h28a-fe-am-9",
+      "baseId": "question-template-source-2016h28a-fe-am-9",
+      "templateId": "template-source-2016h28a-fe-am-9",
+      "generatorId": "generator-source-2016h28a-fe-am-9",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 10,
+      "originalId": "question-ipa-2016h28a-fe-am-10",
+      "baseId": "question-template-source-2016h28a-fe-am-10",
+      "templateId": "template-source-2016h28a-fe-am-10",
+      "generatorId": "generator-source-2016h28a-fe-am-10",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "originalId": "question-ipa-2016h28a-fe-am-11",
+      "baseId": "question-template-source-2016h28a-fe-am-11",
+      "templateId": "template-source-2016h28a-fe-am-11",
+      "generatorId": "generator-source-2016h28a-fe-am-11",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "originalId": "question-ipa-2016h28a-fe-am-12",
+      "baseId": "question-template-source-2016h28a-fe-am-12",
+      "templateId": "template-source-2016h28a-fe-am-12",
+      "generatorId": "generator-source-2016h28a-fe-am-12",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "originalId": "question-ipa-2016h28a-fe-am-13",
+      "baseId": "question-template-source-2016h28a-fe-am-13",
+      "templateId": "template-source-2016h28a-fe-am-13",
+      "generatorId": "generator-source-2016h28a-fe-am-13",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 14,
+      "originalId": "question-ipa-2016h28a-fe-am-14",
+      "baseId": "question-template-source-2016h28a-fe-am-14",
+      "templateId": "template-source-2016h28a-fe-am-14",
+      "generatorId": "generator-source-2016h28a-fe-am-14",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 15,
+      "originalId": "question-ipa-2016h28a-fe-am-15",
+      "baseId": "question-template-source-2016h28a-fe-am-15",
+      "templateId": "template-source-2016h28a-fe-am-15",
+      "generatorId": "generator-source-2016h28a-fe-am-15",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 16,
+      "originalId": "question-ipa-2016h28a-fe-am-16",
+      "baseId": "question-template-source-2016h28a-fe-am-16",
+      "templateId": "template-source-2016h28a-fe-am-16",
+      "generatorId": "generator-source-2016h28a-fe-am-16",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 17,
+      "originalId": "question-ipa-2016h28a-fe-am-17",
+      "baseId": "question-template-source-2016h28a-fe-am-17",
+      "templateId": "template-source-2016h28a-fe-am-17",
+      "generatorId": "generator-source-2016h28a-fe-am-17",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 18,
+      "originalId": "question-ipa-2016h28a-fe-am-18",
+      "baseId": "question-template-source-2016h28a-fe-am-18",
+      "templateId": "template-source-2016h28a-fe-am-18",
+      "generatorId": "generator-source-2016h28a-fe-am-18",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 19,
+      "originalId": "question-ipa-2016h28a-fe-am-19",
+      "baseId": "question-template-source-2016h28a-fe-am-19",
+      "templateId": "template-source-2016h28a-fe-am-19",
+      "generatorId": "generator-source-2016h28a-fe-am-19",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 20,
+      "originalId": "question-ipa-2016h28a-fe-am-20",
+      "baseId": "question-template-source-2016h28a-fe-am-20",
+      "templateId": "template-source-2016h28a-fe-am-20",
+      "generatorId": "generator-source-2016h28a-fe-am-20",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 21,
+      "originalId": "question-ipa-2016h28a-fe-am-21",
+      "baseId": "question-template-source-2016h28a-fe-am-21",
+      "templateId": "template-source-2016h28a-fe-am-21",
+      "generatorId": "generator-source-2016h28a-fe-am-21",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 22,
+      "originalId": "question-ipa-2016h28a-fe-am-22",
+      "baseId": "question-template-source-2016h28a-fe-am-22",
+      "templateId": "template-source-2016h28a-fe-am-22",
+      "generatorId": "generator-source-2016h28a-fe-am-22",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 23,
+      "originalId": "question-ipa-2016h28a-fe-am-23",
+      "baseId": "question-template-source-2016h28a-fe-am-23",
+      "templateId": "template-source-2016h28a-fe-am-23",
+      "generatorId": "generator-source-2016h28a-fe-am-23",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 24,
+      "originalId": "question-ipa-2016h28a-fe-am-24",
+      "baseId": "question-template-source-2016h28a-fe-am-24",
+      "templateId": "template-source-2016h28a-fe-am-24",
+      "generatorId": "generator-source-2016h28a-fe-am-24",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 25,
+      "originalId": "question-ipa-2016h28a-fe-am-25",
+      "baseId": "question-template-source-2016h28a-fe-am-25",
+      "templateId": "template-source-2016h28a-fe-am-25",
+      "generatorId": "generator-source-2016h28a-fe-am-25",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 26,
+      "originalId": "question-ipa-2016h28a-fe-am-26",
+      "baseId": "question-template-source-2016h28a-fe-am-26",
+      "templateId": "template-source-2016h28a-fe-am-26",
+      "generatorId": "generator-source-2016h28a-fe-am-26",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 27,
+      "originalId": "question-ipa-2016h28a-fe-am-27",
+      "baseId": "question-template-source-2016h28a-fe-am-27",
+      "templateId": "template-source-2016h28a-fe-am-27",
+      "generatorId": "generator-source-2016h28a-fe-am-27",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 28,
+      "originalId": "question-ipa-2016h28a-fe-am-28",
+      "baseId": "question-template-source-2016h28a-fe-am-28",
+      "templateId": "template-source-2016h28a-fe-am-28",
+      "generatorId": "generator-source-2016h28a-fe-am-28",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 29,
+      "originalId": "question-ipa-2016h28a-fe-am-29",
+      "baseId": "question-template-source-2016h28a-fe-am-29",
+      "templateId": "template-source-2016h28a-fe-am-29",
+      "generatorId": "generator-source-2016h28a-fe-am-29",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 30,
+      "originalId": "question-ipa-2016h28a-fe-am-30",
+      "baseId": "question-template-source-2016h28a-fe-am-30",
+      "templateId": "template-source-2016h28a-fe-am-30",
+      "generatorId": "generator-source-2016h28a-fe-am-30",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 31,
+      "originalId": "question-ipa-2016h28a-fe-am-31",
+      "baseId": "question-template-source-2016h28a-fe-am-31",
+      "templateId": "template-source-2016h28a-fe-am-31",
+      "generatorId": "generator-source-2016h28a-fe-am-31",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 32,
+      "originalId": "question-ipa-2016h28a-fe-am-32",
+      "baseId": "question-template-source-2016h28a-fe-am-32",
+      "templateId": "template-source-2016h28a-fe-am-32",
+      "generatorId": "generator-source-2016h28a-fe-am-32",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 33,
+      "originalId": "question-ipa-2016h28a-fe-am-33",
+      "baseId": "question-template-source-2016h28a-fe-am-33",
+      "templateId": "template-source-2016h28a-fe-am-33",
+      "generatorId": "generator-source-2016h28a-fe-am-33",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 34,
+      "originalId": "question-ipa-2016h28a-fe-am-34",
+      "baseId": "question-template-source-2016h28a-fe-am-34",
+      "templateId": "template-source-2016h28a-fe-am-34",
+      "generatorId": "generator-source-2016h28a-fe-am-34",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 35,
+      "originalId": "question-ipa-2016h28a-fe-am-35",
+      "baseId": "question-template-source-2016h28a-fe-am-35",
+      "templateId": "template-source-2016h28a-fe-am-35",
+      "generatorId": "generator-source-2016h28a-fe-am-35",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 36,
+      "originalId": "question-ipa-2016h28a-fe-am-36",
+      "baseId": "question-template-source-2016h28a-fe-am-36",
+      "templateId": "template-source-2016h28a-fe-am-36",
+      "generatorId": "generator-source-2016h28a-fe-am-36",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 37,
+      "originalId": "question-ipa-2016h28a-fe-am-37",
+      "baseId": "question-template-source-2016h28a-fe-am-37",
+      "templateId": "template-source-2016h28a-fe-am-37",
+      "generatorId": "generator-source-2016h28a-fe-am-37",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 38,
+      "originalId": "question-ipa-2016h28a-fe-am-38",
+      "baseId": "question-template-source-2016h28a-fe-am-38",
+      "templateId": "template-source-2016h28a-fe-am-38",
+      "generatorId": "generator-source-2016h28a-fe-am-38",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 39,
+      "originalId": "question-ipa-2016h28a-fe-am-39",
+      "baseId": "question-template-source-2016h28a-fe-am-39",
+      "templateId": "template-source-2016h28a-fe-am-39",
+      "generatorId": "generator-source-2016h28a-fe-am-39",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 40,
+      "originalId": "question-ipa-2016h28a-fe-am-40",
+      "baseId": "question-template-source-2016h28a-fe-am-40",
+      "templateId": "template-source-2016h28a-fe-am-40",
+      "generatorId": "generator-source-2016h28a-fe-am-40",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-01-40.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 41,
+      "originalId": "question-ipa-2016h28a-fe-am-41",
+      "baseId": "question-template-source-2016h28a-fe-am-41",
+      "templateId": "template-source-2016h28a-fe-am-41",
+      "generatorId": "generator-source-2016h28a-fe-am-41",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 42,
+      "originalId": "question-ipa-2016h28a-fe-am-42",
+      "baseId": "question-template-source-2016h28a-fe-am-42",
+      "templateId": "template-source-2016h28a-fe-am-42",
+      "generatorId": "generator-source-2016h28a-fe-am-42",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 43,
+      "originalId": "question-ipa-2016h28a-fe-am-43",
+      "baseId": "question-template-source-2016h28a-fe-am-43",
+      "templateId": "template-source-2016h28a-fe-am-43",
+      "generatorId": "generator-source-2016h28a-fe-am-43",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 44,
+      "originalId": "question-ipa-2016h28a-fe-am-44",
+      "baseId": "question-template-source-2016h28a-fe-am-44",
+      "templateId": "template-source-2016h28a-fe-am-44",
+      "generatorId": "generator-source-2016h28a-fe-am-44",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 45,
+      "originalId": "question-ipa-2016h28a-fe-am-45",
+      "baseId": "question-template-source-2016h28a-fe-am-45",
+      "templateId": "template-source-2016h28a-fe-am-45",
+      "generatorId": "generator-source-2016h28a-fe-am-45",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 46,
+      "originalId": "question-ipa-2016h28a-fe-am-46",
+      "baseId": "question-template-source-2016h28a-fe-am-46",
+      "templateId": "template-source-2016h28a-fe-am-46",
+      "generatorId": "generator-source-2016h28a-fe-am-46",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 47,
+      "originalId": "question-ipa-2016h28a-fe-am-47",
+      "baseId": "question-template-source-2016h28a-fe-am-47",
+      "templateId": "template-source-2016h28a-fe-am-47",
+      "generatorId": "generator-source-2016h28a-fe-am-47",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 48,
+      "originalId": "question-ipa-2016h28a-fe-am-48",
+      "baseId": "question-template-source-2016h28a-fe-am-48",
+      "templateId": "template-source-2016h28a-fe-am-48",
+      "generatorId": "generator-source-2016h28a-fe-am-48",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 49,
+      "originalId": "question-ipa-2016h28a-fe-am-49",
+      "baseId": "question-template-source-2016h28a-fe-am-49",
+      "templateId": "template-source-2016h28a-fe-am-49",
+      "generatorId": "generator-source-2016h28a-fe-am-49",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 50,
+      "originalId": "question-ipa-2016h28a-fe-am-50",
+      "baseId": "question-template-source-2016h28a-fe-am-50",
+      "templateId": "template-source-2016h28a-fe-am-50",
+      "generatorId": "generator-source-2016h28a-fe-am-50",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 51,
+      "originalId": "question-ipa-2016h28a-fe-am-51",
+      "baseId": "question-template-source-2016h28a-fe-am-51",
+      "templateId": "template-source-2016h28a-fe-am-51",
+      "generatorId": "generator-source-2016h28a-fe-am-51",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 52,
+      "originalId": "question-ipa-2016h28a-fe-am-52",
+      "baseId": "question-template-source-2016h28a-fe-am-52",
+      "templateId": "template-source-2016h28a-fe-am-52",
+      "generatorId": "generator-source-2016h28a-fe-am-52",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 53,
+      "originalId": "question-ipa-2016h28a-fe-am-53",
+      "baseId": "question-template-source-2016h28a-fe-am-53",
+      "templateId": "template-source-2016h28a-fe-am-53",
+      "generatorId": "generator-source-2016h28a-fe-am-53",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 54,
+      "originalId": "question-ipa-2016h28a-fe-am-54",
+      "baseId": "question-template-source-2016h28a-fe-am-54",
+      "templateId": "template-source-2016h28a-fe-am-54",
+      "generatorId": "generator-source-2016h28a-fe-am-54",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 58,
+      "originalId": "question-ipa-2016h28a-fe-am-58",
+      "baseId": "question-template-source-2016h28a-fe-am-58",
+      "templateId": "template-source-2016h28a-fe-am-58",
+      "generatorId": "generator-source-2016h28a-fe-am-58",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 59,
+      "originalId": "question-ipa-2016h28a-fe-am-59",
+      "baseId": "question-template-source-2016h28a-fe-am-59",
+      "templateId": "template-source-2016h28a-fe-am-59",
+      "generatorId": "generator-source-2016h28a-fe-am-59",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 60,
+      "originalId": "question-ipa-2016h28a-fe-am-60",
+      "baseId": "question-template-source-2016h28a-fe-am-60",
+      "templateId": "template-source-2016h28a-fe-am-60",
+      "generatorId": "generator-source-2016h28a-fe-am-60",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 61,
+      "originalId": "question-ipa-2016h28a-fe-am-61",
+      "baseId": "question-template-source-2016h28a-fe-am-61",
+      "templateId": "template-source-2016h28a-fe-am-61",
+      "generatorId": "generator-source-2016h28a-fe-am-61",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 62,
+      "originalId": "question-ipa-2016h28a-fe-am-62",
+      "baseId": "question-template-source-2016h28a-fe-am-62",
+      "templateId": "template-source-2016h28a-fe-am-62",
+      "generatorId": "generator-source-2016h28a-fe-am-62",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 63,
+      "originalId": "question-ipa-2016h28a-fe-am-63",
+      "baseId": "question-template-source-2016h28a-fe-am-63",
+      "templateId": "template-source-2016h28a-fe-am-63",
+      "generatorId": "generator-source-2016h28a-fe-am-63",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 64,
+      "originalId": "question-ipa-2016h28a-fe-am-64",
+      "baseId": "question-template-source-2016h28a-fe-am-64",
+      "templateId": "template-source-2016h28a-fe-am-64",
+      "generatorId": "generator-source-2016h28a-fe-am-64",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 65,
+      "originalId": "question-ipa-2016h28a-fe-am-65",
+      "baseId": "question-template-source-2016h28a-fe-am-65",
+      "templateId": "template-source-2016h28a-fe-am-65",
+      "generatorId": "generator-source-2016h28a-fe-am-65",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 66,
+      "originalId": "question-ipa-2016h28a-fe-am-66",
+      "baseId": "question-template-source-2016h28a-fe-am-66",
+      "templateId": "template-source-2016h28a-fe-am-66",
+      "generatorId": "generator-source-2016h28a-fe-am-66",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 67,
+      "originalId": "question-ipa-2016h28a-fe-am-67",
+      "baseId": "question-template-source-2016h28a-fe-am-67",
+      "templateId": "template-source-2016h28a-fe-am-67",
+      "generatorId": "generator-source-2016h28a-fe-am-67",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 68,
+      "originalId": "question-ipa-2016h28a-fe-am-68",
+      "baseId": "question-template-source-2016h28a-fe-am-68",
+      "templateId": "template-source-2016h28a-fe-am-68",
+      "generatorId": "generator-source-2016h28a-fe-am-68",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 69,
+      "originalId": "question-ipa-2016h28a-fe-am-69",
+      "baseId": "question-template-source-2016h28a-fe-am-69",
+      "templateId": "template-source-2016h28a-fe-am-69",
+      "generatorId": "generator-source-2016h28a-fe-am-69",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 70,
+      "originalId": "question-ipa-2016h28a-fe-am-70",
+      "baseId": "question-template-source-2016h28a-fe-am-70",
+      "templateId": "template-source-2016h28a-fe-am-70",
+      "generatorId": "generator-source-2016h28a-fe-am-70",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 71,
+      "originalId": "question-ipa-2016h28a-fe-am-71",
+      "baseId": "question-template-source-2016h28a-fe-am-71",
+      "templateId": "template-source-2016h28a-fe-am-71",
+      "generatorId": "generator-source-2016h28a-fe-am-71",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 72,
+      "originalId": "question-ipa-2016h28a-fe-am-72",
+      "baseId": "question-template-source-2016h28a-fe-am-72",
+      "templateId": "template-source-2016h28a-fe-am-72",
+      "generatorId": "generator-source-2016h28a-fe-am-72",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 73,
+      "originalId": "question-ipa-2016h28a-fe-am-73",
+      "baseId": "question-template-source-2016h28a-fe-am-73",
+      "templateId": "template-source-2016h28a-fe-am-73",
+      "generatorId": "generator-source-2016h28a-fe-am-73",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 74,
+      "originalId": "question-ipa-2016h28a-fe-am-74",
+      "baseId": "question-template-source-2016h28a-fe-am-74",
+      "templateId": "template-source-2016h28a-fe-am-74",
+      "generatorId": "generator-source-2016h28a-fe-am-74",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 75,
+      "originalId": "question-ipa-2016h28a-fe-am-75",
+      "baseId": "question-template-source-2016h28a-fe-am-75",
+      "templateId": "template-source-2016h28a-fe-am-75",
+      "generatorId": "generator-source-2016h28a-fe-am-75",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 76,
+      "originalId": "question-ipa-2016h28a-fe-am-76",
+      "baseId": "question-template-source-2016h28a-fe-am-76",
+      "templateId": "template-source-2016h28a-fe-am-76",
+      "generatorId": "generator-source-2016h28a-fe-am-76",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 77,
+      "originalId": "question-ipa-2016h28a-fe-am-77",
+      "baseId": "question-template-source-2016h28a-fe-am-77",
+      "templateId": "template-source-2016h28a-fe-am-77",
+      "generatorId": "generator-source-2016h28a-fe-am-77",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 78,
+      "originalId": "question-ipa-2016h28a-fe-am-78",
+      "baseId": "question-template-source-2016h28a-fe-am-78",
+      "templateId": "template-source-2016h28a-fe-am-78",
+      "generatorId": "generator-source-2016h28a-fe-am-78",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 79,
+      "originalId": "question-ipa-2016h28a-fe-am-79",
+      "baseId": "question-template-source-2016h28a-fe-am-79",
+      "templateId": "template-source-2016h28a-fe-am-79",
+      "generatorId": "generator-source-2016h28a-fe-am-79",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
+      "number": 80,
+      "originalId": "question-ipa-2016h28a-fe-am-80",
+      "baseId": "question-template-source-2016h28a-fe-am-80",
+      "templateId": "template-source-2016h28a-fe-am-80",
+      "generatorId": "generator-source-2016h28a-fe-am-80",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/legacy-2016-autumn-am-common.test.ts",
+        "tests/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    }
+  ],
+  "limits": [
+    "77 eligible questions are source/material/content/App accepted; fixed actual guard, full F/C checks, CI/live/publication remain separate.",
+    "All80 obligations and holds55–57 remain; global67/3062 scope is not complete.",
+    "Static/pure metadata never replaces actual filesystem admission and actual release evidence."
+  ]
+}

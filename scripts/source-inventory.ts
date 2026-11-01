@@ -2,7 +2,7 @@ import type { Bundle } from "../src/core/types";
 
 // Declared source scope is independent of the current catalog: removing both an
 // original and its template must not make an incomplete release pass validation.
-export const legacyMorningScope = ["2016h28h-fe-am", "2017h29h-fe-am", "2017h29a-fe-am", "2018h30h-fe-am", "2018h30a-fe-am", "2019h31h-fe-am", "2019r01a-fe-am"] as const;
+export const legacyMorningScope = ["2016h28h-fe-am", "2017h29h-fe-am", "2017h29a-fe-am", "2018h30h-fe-am", "2018h30a-fe-am", "2019h31h-fe-am", "2019r01a-fe-am", "2016h28a-fe-am"] as const;
 export const sourceScope = [2023, 2024, 2025, 2026].flatMap((year) =>
   (["a", "b"] as const).flatMap((subject) =>
     Array.from(
@@ -13,6 +13,9 @@ export const sourceScope = [2023, 2024, 2025, 2026].flatMap((year) =>
 ).concat(Array.from({ length: 6 }, (_, i) => `sample-2022-apr-b-${i + 1}`), Array.from({ length: 20 }, (_, i) => `sample-2022-dec-b-${i + 1}`),Array.from({length:60},(_,i)=>`sample-2022-dec-a-${i+1}`), Array.from({length:13},(_,i)=>`2017h29h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2017h29a-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2018h30h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2018h30a-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2019h31h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2019r01a-fe-pm-${i+1}`));
 sourceScope.push(...legacyMorningScope.flatMap(id => Array.from({length:80}, (_, i) => `${id}-${i+1}`)));
 export const sourceExclusions: Record<string, {reason:string;sourceId:string;checkedOn:string}> = {
+  "2016h28a-fe-am-55": {reason:"ITIL2011に基づくサービスデスク組織の具体的な説明について、第三者表現の対応範囲と本アプリでの転載・改変条件の確認が未完了",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
+  "2016h28a-fe-am-56": {reason:"JIS Q20000-1:2012の具体的活動を挙げる本文・選択肢について、規格内容の引用・転載・改変を認める条件が未確認",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
+  "2016h28a-fe-am-57": {reason:"ITIL2011が挙げる可用性管理のKPI例について、一般概念・短語と第三者表現の範囲及び本アプリでの利用条件の確認が未完了",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-46": {reason:"ソフトウェア方式設計に関する規格・共通フレーム等の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-56": {reason:"インシデント等の記録に関する規格要求の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-60": {reason:"旧システム監査基準の目的に関する原版と具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},

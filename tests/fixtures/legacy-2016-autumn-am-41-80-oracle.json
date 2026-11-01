@@ -1,0 +1,1327 @@
+{
+  "schema": "independently-reviewed-all-choice-truth/v1",
+  "checkedOn": "2026-11-01",
+  "method": "手書きの概念/全択真偽を一次知識資料へ照合。正答ID/producerから真偽を生成しない。statement hashは改変検出専用。",
+  "questions": {
+    "41": {
+      "principle": "侵入後のOS等の変更・不正活動の隠蔽はrootkit。RFIDは無線識別，TKIPは暗号化関連，beaconは閲覧等の計測。",
+      "truths": [
+        "0100",
+        "0100",
+        "0010",
+        "1000"
+      ],
+      "statementSHA256": [
+        [
+          "986f5ce8131b3561e13bd205a3a676b7471caa25926b47097c8e65eeb6a8ea58",
+          "189ca7f3ff5335190ea4ecedaaad8e9613c8165bf99d563a82b1033af59c0e37",
+          "603ae5bf102292c336f47dcb5aad4d66121588af0a94d80e7615e1c859c53ef7",
+          "f0bc54219d659c348c6e17ea5ba690f5f77acd5c11f1481be86eab7b1b62c533"
+        ],
+        [
+          "29bcfe275dab1335da467f4b2ba59768593773d04aa1f3adae37ce3391db7b93",
+          "189ca7f3ff5335190ea4ecedaaad8e9613c8165bf99d563a82b1033af59c0e37",
+          "6713661be4d5b42d2e34870a337abd0482655ff2a879fff84280ae0cb85c311b",
+          "8a6420021ade45a0fa4c0805823f3c2aa363a9598eba596904098d294109b43f"
+        ],
+        [
+          "26f2faf23e18ec5a0c1c0c52071c71ef3baa266ba4bdb223935b1db942483368",
+          "f0bc54219d659c348c6e17ea5ba690f5f77acd5c11f1481be86eab7b1b62c533",
+          "189ca7f3ff5335190ea4ecedaaad8e9613c8165bf99d563a82b1033af59c0e37",
+          "986f5ce8131b3561e13bd205a3a676b7471caa25926b47097c8e65eeb6a8ea58"
+        ],
+        [
+          "189ca7f3ff5335190ea4ecedaaad8e9613c8165bf99d563a82b1033af59c0e37",
+          "603ae5bf102292c336f47dcb5aad4d66121588af0a94d80e7615e1c859c53ef7",
+          "41f4e541ce2e2362fc49bb48f3e4a1bc4e3bb9074d64db793795ce005a71848b",
+          "c5e8d49dcdc45532026e6e17b2674359a36ae1a7d5bb8c243272078064b5c8eb"
+        ]
+      ],
+      "references": [
+        "https://csrc.nist.gov/pubs/sp/800/83/r1/final"
+      ],
+      "promptSHA256": [
+        "d1d312306193cf442c28c7a3b7e2c870ffbc14751c82fe43787b83ffb1f48fe8",
+        "e7e28bd422808dfe625f49e10f8994ef9db9bf65a26a2b116d24f95070c55b8c",
+        "abe716250dbafb87d284f50c873222db8acf5d88550cd1aef0d847db31dc3c60",
+        "a81f91e516553d60c144c49f62a6bb52be7beb6f126940cf4157448badebd641"
+      ]
+    },
+    "42": {
+      "principle": "原条件と三つの生成条件の照合対象：WAF要求検査／SIEMログ相関／UTM複合防御／WPA2無線保護。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "1000",
+        "0100",
+        "1000",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "2e821499c8444e7a7362a4447eef3cb08d237c04f054b9170c87a186c59599d2",
+          "162c09eabe4717d4347df8d49d0386848becfa1a45343f0098ab5b2256306401",
+          "4644695b914ade660498fe5347a3c73dfc59ecf94f24330bc7870b476a5d1ba2",
+          "d602b03cc2ff76c50bc6a69ca87199fff4d653f2b9a7cb6c519a8ca06930878e"
+        ],
+        [
+          "e92cbab3c3c538d3a9659355dc34e256487505929f901d20f676a3ec163af576",
+          "1d120e6c79b472d038eb2fdd36ea8fdba08e3807639c2e43b383fe13fc566ba4",
+          "fdf4ee5cf614e01cca561a33f3d9277eaf7983d02ddc6227c358986e9f8e292c",
+          "5b3b41a459ab63d82eb340d374abd302342e2190834015d9bdae9911706af231"
+        ],
+        [
+          "dda190ff8230ed170fb4541ae727608c72b3b2ad2e5e75a04370fc77f2c6f0aa",
+          "26bccf37df479d7c316853aed35b8e4ae8c0da5b5291e783712304eaba16769f",
+          "a9f7be74dd0632015125ee8e0b661964f92c002868a0da9801683351661f108c",
+          "9bc3e069c806e4e6caaeacd0be5bf68971f133678f97ded0f88696723a11959d"
+        ],
+        [
+          "a94dacd4c6c94dee310a6b332758f52a92e613d47dcdaec6d736221500af89c6",
+          "432e55a6a6cb822aed6028272b97e223f2a30fbf130c43742e896a4f543f7a01",
+          "a63a14201f4f779e74ba8b161dd2d66a9920fb6213d47a73edcd5dbf1c1de637",
+          "a13bcbef6cefd35dcfcabd2fbef34548f81c504fa4677a8517b66ab71af0868b"
+        ]
+      ],
+      "references": [
+        "https://owasp.org/www-community/Web_Application_Firewall"
+      ],
+      "promptSHA256": [
+        "4bd46fb056e5d4ccfc411a06b9e085fcd9d3946aa4aa63542eda48bf62996319",
+        "feafc9d33cd4595cb88cffbbc609ced0887ce4c151ed27ae5c3976eb1d203833",
+        "8e100fda41d344bbabc87c8803b6c4a3d3f7b1c7643143e20fe5a0c89b3f084e",
+        "862f43c29cae8a95116f39daaffa7f3f6dd8d2952c2212a2d724fcff26b7a261"
+      ],
+      "caseTargets": [
+        "WAF要求検査",
+        "SIEMログ相関",
+        "UTM複合防御",
+        "WPA2無線保護"
+      ]
+    },
+    "43": {
+      "principle": "ビヘイビア法の判定対象は実行時の振る舞い。原本，署名，ハッシュ，既知パターンの照合だけではない。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "2901472d3c36fce1f86c813b12472ae57b03e4f1fa1d4373cf7b04c91fdbe2de",
+          "879b75804e863169986604b252083dc9302e8708c7a561da12cdfede8ada155e",
+          "9b65db508082bd16b6d4c5c0413bedc3c33570d5b0f173808bfddbb15f9d02c7",
+          "bb17fd589e1b85c276c9e94ac5eaee37a07e9aa5389538cacee0047931b9e071"
+        ],
+        [
+          "6f984ee1b7ac5ae653833d0397c6287936e34261e93d7f9747f7fa70ef322990",
+          "b2df2c80f1eb21204d51bf8e9e091016c4be69511d849c051abbb2fdb26b6165",
+          "c6bf8ba18a14ef6a0c32b377bca5259839f861276bbd569469c95b3847b69f05",
+          "bf5f2f2c66307b911ff126ac381e8200b0cef622427411aaf903ca1f62f65d3c"
+        ],
+        [
+          "41aeed93f6e7a109136e4896b7a677efac8735964a89373e7c1e576b30e88441",
+          "12e2579a265862f6a2844d2386214bdf67f65399c23984baa6591a37aa43f44d",
+          "c1e43dc3a834c059783539589184406c4742546ce43376341e61f745be782dac",
+          "0996fb29bc32effbfaec9be4b63b04e79ad600d28d84c95d26274a75707cd0e5"
+        ],
+        [
+          "a73e7ccade9eddba018b425e75d99d4dce67f95cad2b22f2d4a6493afbed55ed",
+          "8d02879cf74cd2704f6b308d3a17b3004d4b35b928d60e4bfe841136e596a49a",
+          "12b0fb214be420ec0b4e5b241e40e2358eff317e200701624496fe5dea91a310",
+          "bcec87d7f8fa5fdaaad2ea39d96e092d08616ec82c8b8f597b981759fcfbf3da"
+        ]
+      ],
+      "references": [
+        "https://csrc.nist.gov/pubs/sp/800/83/r1/final"
+      ],
+      "promptSHA256": [
+        "baa9725b9c21508f146d8af1d674223ee89d6f7f0c3ec49b5657e63a572810b1",
+        "5a8b3559c8e6f10d2ef6072c16d21610f849b0d4f6bc5873e3507bf148c2405f",
+        "ce46f4c74bef6e3de233bbb50b411ea1a3a12fffe7d8037a2d30f7002d9d922e",
+        "1c2eec17fa410c6a7d1ccf61914613bffc0c339dc396300249667f1bbaeefd87"
+      ]
+    },
+    "44": {
+      "principle": "原条件と三つの生成条件の照合対象：漏えいID/PWの組の再利用／単一IDへの全PW候補／事前ハッシュ対応表／固定PWの多数IDへの試行。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "1000",
+        "0100",
+        "1000",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "a71b66a66b293bedffc3fbc0e9c407a7386678f4ed8587fc13e176397908debf",
+          "469429fe6dd7ab3933d0380c9b2cbbce3975905cb2a486b661c8adf457ddba86",
+          "5436db1ac0403ce362bafc32627ad31e6dd6acfe7975fc7ef0a3cb5e0fda9893",
+          "b4936d56261ec2b1564f225064f8c70b8d502031be4c46b9706f2a31dccfabea"
+        ],
+        [
+          "a71b66a66b293bedffc3fbc0e9c407a7386678f4ed8587fc13e176397908debf",
+          "469429fe6dd7ab3933d0380c9b2cbbce3975905cb2a486b661c8adf457ddba86",
+          "5436db1ac0403ce362bafc32627ad31e6dd6acfe7975fc7ef0a3cb5e0fda9893",
+          "b4936d56261ec2b1564f225064f8c70b8d502031be4c46b9706f2a31dccfabea"
+        ],
+        [
+          "b4936d56261ec2b1564f225064f8c70b8d502031be4c46b9706f2a31dccfabea",
+          "a71b66a66b293bedffc3fbc0e9c407a7386678f4ed8587fc13e176397908debf",
+          "469429fe6dd7ab3933d0380c9b2cbbce3975905cb2a486b661c8adf457ddba86",
+          "5436db1ac0403ce362bafc32627ad31e6dd6acfe7975fc7ef0a3cb5e0fda9893"
+        ],
+        [
+          "a71b66a66b293bedffc3fbc0e9c407a7386678f4ed8587fc13e176397908debf",
+          "469429fe6dd7ab3933d0380c9b2cbbce3975905cb2a486b661c8adf457ddba86",
+          "5436db1ac0403ce362bafc32627ad31e6dd6acfe7975fc7ef0a3cb5e0fda9893",
+          "b4936d56261ec2b1564f225064f8c70b8d502031be4c46b9706f2a31dccfabea"
+        ]
+      ],
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Credential_Stuffing_Prevention_Cheat_Sheet.html"
+      ],
+      "promptSHA256": [
+        "526c8846053a9be21d60d9a963ecf3e626b91b57a90306ce34f0fdf43cf7b637",
+        "628b3c12a2564f3fbe234e93b80e8ede433de288e92b62892c5b6abad1bdc543",
+        "841faf177d3e6d34206ebc554b85e03981f30fe1b645ba10690b51dba86c55e1",
+        "8afabda8fddb31d776a2df605ff2ad5e7fdc4b8f23a88f3fb7b901a0fd1a5520"
+      ],
+      "caseTargets": [
+        "漏えいID/PWの組の再利用",
+        "単一IDへの全PW候補",
+        "事前ハッシュ対応表",
+        "固定PWの多数IDへの試行"
+      ]
+    },
+    "45": {
+      "principle": "通常のWeb用途はHTTP80/HTTPS443。番号だけで暗号化，匿名化，検査不能を保証しない。DNS53と区別。",
+      "truths": [
+        "0010",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "161f23ef02522566c4d5127747973b566e1accf1a6497025221a7e6815568195",
+          "a899ba9004518d94d6149cc63df0837cc4900a5af90a7104dd58614c67b73b3c",
+          "c1ef4913352bcf2721e2cde2af9f818eb97304517c4e26b20c4f9ef6971cc7c1",
+          "553711cc9a0c4b953b13be6e465e2e05c2ae043bc2b9cc0ce4bf2eb1046f493b"
+        ],
+        [
+          "015d467e30466da9db5688547d46a18370969d02e9358fe33ab3f3b9c4c01da4",
+          "165ca2be4caa7956b9d194337922c2981c4051f9a7cd4495ed9acf53c8ecbe5c",
+          "6e44803db348d3b2570abbab8d8d7830f88a2042ac3d8e93f3c8a4408d43f192",
+          "8176c30468cec86384d58ab772019cbc9f8e80977b6c63d1c408d2806c346c44"
+        ],
+        [
+          "0ed83af599de02c5eca7bb2892a4ea12c63111ca07cb676a23e539a934cb848d",
+          "22bf136b48a648c10930c3d6d4cacd7ebd0e8dcc520ee6a16957f83559088501",
+          "f6bb91a180d7afd8da0c6e8e588c81de4e8e4552387e0ca13492d732638e2d4a",
+          "6def0a99a2155cbdcbf87e1f97873571b2762f9a29a9eba2c7720e6510ee16e6"
+        ],
+        [
+          "8fcdd35a052e0ffc2506a8ee3ca934a5a539eac6f20d535f1904829d77b8da9e",
+          "b7cdbb2817bbbce3c69e039ea6d4078bdfd77c1bf99ecaecbccdc97a47d61ad5",
+          "b7d26f8eb582cbf6c3d887f0e7be900c619e95b3e91a99ff6adfa97b398877e3",
+          "8ee077347de8598406e22a826ce286d09708609293ba33c3ab678552645661ff"
+        ]
+      ],
+      "references": [
+        "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+      ],
+      "promptSHA256": [
+        "d17d21ff308960f1831423353e31c1139a572edc3e9094b2b944779fa4c39f20",
+        "4125e73f78c74133248a6744a724d050e93910994b05339f7f25666245ab5b64",
+        "bc678e319934cea21a24eca0a3a4c0f0764cb13f805986ad175bb7ab73898a70",
+        "d1deddef02e54c3a71d2a6f99dfbbfdbec535a6e73acb587c4adb8944b25e650"
+      ]
+    },
+    "46": {
+      "principle": "誤操作を防止/危険につなげないのがfoolproof。故障時の安全停止/縮退/冗長化とは別。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "952c9c92d2c738c4467f393b8337b6a1da3dbe9085ab8cf8d6aa59d085c106a1",
+          "db136d6af20a5353339ee4bd568a680944ee397d8ee3c6cf95f11d248c93f514",
+          "7899b71d835236cc14f5183f2271e6a3e6664017c4c3e8abb3cb427bf92389a2",
+          "3e7b86e6fd32cab5e4d4222fd4f3cc6c7d114533d49e7eb45f6a638be77f795f"
+        ],
+        [
+          "8d8dc78066ba5f91f551765e6ed5b494fb5242e62ea34fcba9cc6da3073b8527",
+          "588104210502097d1a5615bb865b5a7936e1c370079db02ed85df68d613f1eca",
+          "89f4d2fb8565402c3056055a580b4b8359f59775d3799676dc86bef826775452",
+          "e1bfe02f1d3b85b666e09ad3b96d5c49932524ac54c460ccd48480f253806a1c"
+        ],
+        [
+          "488b48913bab537cada14a98f0208905a224d17aacb1a0a9f12971dd3700083f",
+          "c3081806db7543120f1dca4e3927bb9ac1249e99497cbea8b05eb8d1e317b773",
+          "100cb4db84450c0cc741941a7b74b49168ba5ea4c950613f12eea362e23f6c7d",
+          "f4a306e4fdb59de5cb688de2b728861523a34cb5dcaeff95aad44ee94528299d"
+        ],
+        [
+          "eaf2343199efd4a13ae4be8028236e9dd03d9646466a6425b2669e068b1ff4f4",
+          "f5f4d4c4d0fbafdd8e1e3ee3a1006b1622049011f24307ebe908dfaa8f77324f",
+          "77bbbfe391f0ff18ca27d252cb8c2f737ee5097f1ea2790e7dd90a73dc9af062",
+          "913785dfba0b5cbcce78e307c183a35fc38c9c079719668a3510f12b16a6c5f1"
+        ]
+      ],
+      "references": [
+        "https://anzeninfo.mhlw.go.jp/yougo/yougo39_1.html",
+        "https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei14/dl/081001-1d_0019.pdf"
+      ],
+      "promptSHA256": [
+        "f599123c463306c4ff4fc0031a0b8761bb1eac96d263d39f607766962362c7a2",
+        "ba723f0c38d37a19d43a95296bf84090a1b7eb0d08dab1e0c3d23abd708861ed",
+        "0346ba7a8b7d593b66e66d67e9621a4a8fcf1d07755f093f5fe5ad51a8c297c7",
+        "650389f235d54f95900fe739c880081b58a077b8c449e03970b1e327e3d8742e"
+      ]
+    },
+    "47": {
+      "principle": "原条件と三つの生成条件の照合対象：カプセル化／継承／汎化／クラス分類。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "52c28f98da8b40e38e9ed0e0f588d13c7de35101be7816ef448ae74eda118530",
+          "966139465c32515ae392de475c46d0570db215a435ff2d8a31d3ff3c47be197b",
+          "6d712572a19db51f3aab5caf95c04064173cb1c0b2611cc0fa4cf57f0811f5d9",
+          "456e48ee38d6adaf5708056e8e17d3af8edce759fd346b3dd27f576857679186"
+        ],
+        [
+          "0e3565534a90190ea984ec04673669a0eb9f1a35a52e2aeec1882fe908c14631",
+          "ac054d8c983c33122ca3ae1d186ce7fb81b8551999cb86fd734c8efc233de417",
+          "9d75c310b30c5a9457dc5458e72c6d6107dc2b464b577f16c98bccfed52450a3",
+          "e2a11fcfc34b41cd093067458170a52d7b7160464232bec3bbfdf1e4cc17dfa0"
+        ],
+        [
+          "ab87ec67f287f42e64fe4ba33ec6f828465c76408e16dccbbe5b1a6e1804d998",
+          "62b8acff4ac6a876be0d73223af907047a69fc3ebb19e07c302e8d6770f45dd5",
+          "531af7c26c77e9721ab140539fd64273b6cb71ce889182bd17e1d74247f809b6",
+          "bf47258059fb06ccd9c1af84f7292a9ca993d740655d9fe47e9d67a4510b8744"
+        ],
+        [
+          "603e589196af9ac9ec4855e85c9449d250955aa4a72598617632a22125308b77",
+          "a072cdf61bcf2c6274557ef889e369f94434cbc6329f605aebc483ecebf6168f",
+          "3363c8ad61b9d5e6d49bc01e13767a147db4beace9cec60af48798a63fa7a73d",
+          "15c3d2823a7b25ad4a2c28f7c36848ebe214d268c0d9a855a76a745440b9b02b"
+        ]
+      ],
+      "references": [
+        "https://docs.oracle.com/javase/tutorial/java/concepts/object.html",
+        "https://docs.oracle.com/javase/tutorial/java/concepts/inheritance.html"
+      ],
+      "promptSHA256": [
+        "a6ffb63940085bacf64744051bac7eb0f47f06340382e76f36de7bbd03b8ccbc",
+        "7debf689a7539ba24798790e2a4960bb1a327273f32b056b15b88c49a436ac40",
+        "c05c24c80c8b1fc6fe6608ce14b0b49681643162d0c672fa5a02db630da34562",
+        "1ddff97d6136fc23973babbe69c82f9e87b4005d278826b30bef86c60bd828be"
+      ],
+      "caseTargets": [
+        "カプセル化",
+        "継承",
+        "汎化",
+        "クラス分類"
+      ]
+    },
+    "49": {
+      "principle": "呼ばれる下位の代替はstub。上位の呼出し元の代替はdriver。",
+      "truths": [
+        "0010",
+        "0100",
+        "1000",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "e759a01183fef2d0ea954fa2f1072556c4ef70bcd990c5c77f551add6f5dcada",
+          "4bfe363b9367156919925708ceaf0c4dc5fb269e0fe478c7e6654cf4f1615ec0",
+          "ced16d5db29c7733bab927430304b719912d413f3e3d2c7bd7ff6b956c2901bd",
+          "31fd66c488ede732aa455522b402003876bed540f236ced44223e26f149d4702"
+        ],
+        [
+          "31fd66c488ede732aa455522b402003876bed540f236ced44223e26f149d4702",
+          "ced16d5db29c7733bab927430304b719912d413f3e3d2c7bd7ff6b956c2901bd",
+          "577ef8260482f4a8e2de7dfad4074b88e0bd3112c09e1aade7342d26e4c201c7",
+          "edf84d9c952a38e255499ce0a3f7ea25600d776d738927ea41129d4201450924"
+        ],
+        [
+          "ced16d5db29c7733bab927430304b719912d413f3e3d2c7bd7ff6b956c2901bd",
+          "23dcbcd45a7f54c6c23bdf93755decbab42bb4f8378706dd0c4e3bae98dbdfc7",
+          "e759a01183fef2d0ea954fa2f1072556c4ef70bcd990c5c77f551add6f5dcada",
+          "10c96ac8d830cab1c6c8205d67956534eca121ea0f734d4b616834a33fe024df"
+        ],
+        [
+          "577ef8260482f4a8e2de7dfad4074b88e0bd3112c09e1aade7342d26e4c201c7",
+          "31fd66c488ede732aa455522b402003876bed540f236ced44223e26f149d4702",
+          "ced16d5db29c7733bab927430304b719912d413f3e3d2c7bd7ff6b956c2901bd",
+          "3d1f33a3be312d334b089d93f60b801c7c3d2f9d4deb9153b9d3f60c484f0a7d"
+        ]
+      ],
+      "references": [
+        "https://ntrs.nasa.gov/api/citations/19980227761/downloads/19980227761.pdf"
+      ],
+      "promptSHA256": [
+        "bbdcc5e4df8bf5037d59b7c5ce541cb74e0aeee4caefe839e6f71ef717f97006",
+        "2ce0d5b705669e34db337a2fca463cdfc3cdc9f921811a9a24ea92b0e6dc6960",
+        "5598081ab4aeef7d0dd71e8e866230b0d5cbbb8fb93546a9c2b4291b513b86f8",
+        "db9b1841d3d9b0023fe3310ace1d7dfda25bad05244ccee2f6151ff036d1f7f2"
+      ]
+    },
+    "50": {
+      "principle": "実装/実データ定義→設計情報はreverse。設計→実装のforward，並行化，対人攻撃は別。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "dbe8426f53b2b08853ecaa689abec78b9d36e677bf3db529237dd503faf2fcce",
+          "c6651dbae44623d61b3da5859db786b87026bfc66f107548e285451ff74f720a",
+          "08815c05812d2d66bd3ef8a302f1558bd996c5ddcae24d8e2c696f5787c16f2b",
+          "828701224eba797815ce650cd88f0f31e4d03beecc53ad9988f146b25ea4d7a5"
+        ],
+        [
+          "828701224eba797815ce650cd88f0f31e4d03beecc53ad9988f146b25ea4d7a5",
+          "c6651dbae44623d61b3da5859db786b87026bfc66f107548e285451ff74f720a",
+          "08815c05812d2d66bd3ef8a302f1558bd996c5ddcae24d8e2c696f5787c16f2b",
+          "dbe8426f53b2b08853ecaa689abec78b9d36e677bf3db529237dd503faf2fcce"
+        ],
+        [
+          "08815c05812d2d66bd3ef8a302f1558bd996c5ddcae24d8e2c696f5787c16f2b",
+          "828701224eba797815ce650cd88f0f31e4d03beecc53ad9988f146b25ea4d7a5",
+          "dbe8426f53b2b08853ecaa689abec78b9d36e677bf3db529237dd503faf2fcce",
+          "c6651dbae44623d61b3da5859db786b87026bfc66f107548e285451ff74f720a"
+        ],
+        [
+          "dbe8426f53b2b08853ecaa689abec78b9d36e677bf3db529237dd503faf2fcce",
+          "c6651dbae44623d61b3da5859db786b87026bfc66f107548e285451ff74f720a",
+          "828701224eba797815ce650cd88f0f31e4d03beecc53ad9988f146b25ea4d7a5",
+          "08815c05812d2d66bd3ef8a302f1558bd996c5ddcae24d8e2c696f5787c16f2b"
+        ]
+      ],
+      "references": [
+        "https://www.ibm.com/docs/en/db2/11.1.0?topic=flow-working-modes-data-flows"
+      ],
+      "promptSHA256": [
+        "1a54b2cf4c00864a1813745a918d0dabd8be1a3fa9c307bbbe57f35090c631b8",
+        "ba940bcf3dc6ee45dd631c466e3c77957b6aa3a30d25eab1d81acbf4c7e13123",
+        "f290059a3b46b60efae4d7938438c63869641108aa1f60e2c2657a9f9cd515f9",
+        "d94f1d343048b684c868ee9dd009218cf884defe01052da7a71fcbc6355b3af0"
+      ]
+    },
+    "51": {
+      "principle": "2016当時のplanningにscope定義，duration見積，risk特定，cost見積。charterとstakeholder特定はinitiating，品質保証/作業指揮はexecuting。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "dfc7221a7dae278c94b8889fb2a7f1bc2e5cd1e940827e08656f31947bfee1f8",
+          "71fbad6b61661697f91c72a7d1508309ad87c0dd4dad440c1be29582af7601e2",
+          "57c878f3e6847c1a190de7e95a8a3039a30bd9a06b5dae624182a89e6d08e94e",
+          "d00e311584b3aea979bf1b919a29803969dff2c37179c637ed509a23117a7efb"
+        ],
+        [
+          "23af64a88a73567e450ae02565f1b010d969a2b96c87fa3f58ddde9f4f255e31",
+          "d00e311584b3aea979bf1b919a29803969dff2c37179c637ed509a23117a7efb",
+          "57c878f3e6847c1a190de7e95a8a3039a30bd9a06b5dae624182a89e6d08e94e",
+          "71fbad6b61661697f91c72a7d1508309ad87c0dd4dad440c1be29582af7601e2"
+        ],
+        [
+          "547a15963b656130f762c0325296ec05867ae33d178674519dd70fb887aee772",
+          "6969c8adf20da58a191e76f47997a279b4a9c88e54dadde4b98c68e562263ece",
+          "d00e311584b3aea979bf1b919a29803969dff2c37179c637ed509a23117a7efb",
+          "57c878f3e6847c1a190de7e95a8a3039a30bd9a06b5dae624182a89e6d08e94e"
+        ],
+        [
+          "71fbad6b61661697f91c72a7d1508309ad87c0dd4dad440c1be29582af7601e2",
+          "57c878f3e6847c1a190de7e95a8a3039a30bd9a06b5dae624182a89e6d08e94e",
+          "0de9414f543a82644b6bd6696bddce31cceabf2e705389d1f25d023def6fa78b",
+          "d00e311584b3aea979bf1b919a29803969dff2c37179c637ed509a23117a7efb"
+        ]
+      ],
+      "references": [
+        "https://www.pmi.org/learning/library/partnership-project-managers-business-analysts-9865",
+        "https://www.pmi.org/learning/library/stakeholder-management-pain-points-perils-prosperity-5955"
+      ],
+      "promptSHA256": [
+        "ef1e87c8cb2f6fe0e58e489d14eed2440e8481087fba40d90233adad4e815107",
+        "3070835c3125f5d24df50b5cf96f58d4079dc0c9413d9fcf04a4098d69735d71",
+        "85a13df13cfaf46bcbb7c7c1870ddb9b51970587ea7f2d95be27480b77d3eaf6",
+        "6038c69d62c971ecb3f1246e5117efb756cbae77068c19514fae3498466e6735"
+      ]
+    },
+    "52": {
+      "principle": "原条件と三つの生成条件の照合対象：資源追加で短縮／逐次作業の並行化／確率分布に従う多数試行／資源制約とバッファ。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "bd8663e8e18f7fac32e1f3643a485f5e65c9c921b1907a45d547217aee405afa",
+          "76d6fcde6fa8b6e8cad28be4d545437ca32281602ac4c22ed8dce52564a45b33",
+          "5c4c75dacb711810208151d3a59d4b5a9224402b05f1810a97f9f0c301045f6a",
+          "494f0b18982dca491992bb5c86b715699de5f56b8e4c7cc52fac8e23f69780f0"
+        ],
+        [
+          "5c4c75dacb711810208151d3a59d4b5a9224402b05f1810a97f9f0c301045f6a",
+          "bd8663e8e18f7fac32e1f3643a485f5e65c9c921b1907a45d547217aee405afa",
+          "494f0b18982dca491992bb5c86b715699de5f56b8e4c7cc52fac8e23f69780f0",
+          "76d6fcde6fa8b6e8cad28be4d545437ca32281602ac4c22ed8dce52564a45b33"
+        ],
+        [
+          "bd8663e8e18f7fac32e1f3643a485f5e65c9c921b1907a45d547217aee405afa",
+          "494f0b18982dca491992bb5c86b715699de5f56b8e4c7cc52fac8e23f69780f0",
+          "5c4c75dacb711810208151d3a59d4b5a9224402b05f1810a97f9f0c301045f6a",
+          "76d6fcde6fa8b6e8cad28be4d545437ca32281602ac4c22ed8dce52564a45b33"
+        ],
+        [
+          "494f0b18982dca491992bb5c86b715699de5f56b8e4c7cc52fac8e23f69780f0",
+          "5c4c75dacb711810208151d3a59d4b5a9224402b05f1810a97f9f0c301045f6a",
+          "76d6fcde6fa8b6e8cad28be4d545437ca32281602ac4c22ed8dce52564a45b33",
+          "bd8663e8e18f7fac32e1f3643a485f5e65c9c921b1907a45d547217aee405afa"
+        ]
+      ],
+      "references": [
+        "https://www.pmi.org/learning/library/managing-crashed-fastracked-shorten-interval-project-7603",
+        "https://www.pmi.org/learning/library/critical-chain-project-management-theory-7118"
+      ],
+      "promptSHA256": [
+        "361ce74c16888b53b5175dab190380c87cc7e42f7625c22fa5b580e7360595cf",
+        "24a9a69a8132da51570e658b787aee117e18117494da1801f9965de6cfd56da4",
+        "33a966681e3cdc682fe3c83f9303730b031e2537369b4c476ded09f78cc6e967",
+        "54c798faec08f189ff4b219499f11b588b46dcabedb409251a3b3a0b3f0cbef7"
+      ],
+      "caseTargets": [
+        "資源追加で短縮",
+        "逐次作業の並行化",
+        "確率分布に従う多数試行",
+        "資源制約とバッファ"
+      ]
+    },
+    "53": {
+      "principle": "FPの機能分類は外部入力/出力/照会/論理ファイル等。画面や帳票から機能を把握。人数/言語構文/行数だけを測らない。",
+      "truths": [
+        "0100",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "eab9be0fa8983c94ced1614aa4f5e1d5434508d71b4325b1b2706829f57d8adc",
+          "ce084554c595e1d03cf3619355e7e4095357a90f8f2748694d56c2659c4a0703",
+          "e6a59c78b0124812d2e9fd0f342c1d0495b9af854bc95f1b130d94c13a206124",
+          "f13f6059b22d69b5925620e8ea161d8bdb213eea599dc1daf12c28877c041c2e"
+        ],
+        [
+          "fea1ca3702a28c31e102b7ff806f8d7aacd5d53b88210aa18c5db32a42d4ac10",
+          "bd9ac6c108cfee947e61374c41f7ab804680811fc37280ecf3a90c6a391cf6a4",
+          "72be142ac536a2d587e065954e39d7381a2abd4b1eb7f067278a8a72fd073bd6",
+          "782ba452b25b39f26c594d8467d96ebace2ccde8bfca5dbe14b0d81e7fcbb400"
+        ],
+        [
+          "9f561d6aef9ea03e8b58ed504f667d5ac121ddd388055b8575b1c3b1693639bd",
+          "0338512e82777a836d26be05817c870a4b1e56fd82ed6227d104e33ce30b35a0",
+          "a3235dff4a348ec674a8b4e0e229343aa52ad78711729db45071ced52af764cd",
+          "bf3683ad940bd0667c681f6a4b1d05a2c170925343c127fcee1258d244a22f8a"
+        ],
+        [
+          "d4828afe9762eb94f6ffe224b86cb163162891a1fbd2e6fc4da3176691f19186",
+          "f417b0b17e463d3f4bd7ab9a79332625d135cb69f7e8b288254f44a65d1e0f86",
+          "4f483d2edec7d685f1eb8b803e06420572a356f1c099e053eb3e5de4f39c9ae9",
+          "faa987d5fa591439309fbabf4972ef45e3ae8aac4de520f225d4a62711d5dcf7"
+        ]
+      ],
+      "references": [
+        "https://ifpug.org/wp-content/uploads/2021/10/MetricViewsFebruary2014.pdf"
+      ],
+      "promptSHA256": [
+        "7588727aa318870395447fd0fd6ea23bfd1e46dc0f6a007e76e01fca92364fd1",
+        "3dbc1cdf455aabaa9f77846b871e03f79fa6618519f6a334547a761f3bae3946",
+        "3bf2c92b9f0d51b1ad3310cace984d47e6aba9b568282f8db4abb62bf82c9a43",
+        "683f2c1bb88f8c80162b5a5937b6f8610405cfde9411d8861eddcc4267b2e83b"
+      ]
+    },
+    "58": {
+      "principle": "原条件と三つの生成条件の照合対象：不正な使用の制限／障害後の回復／機能制限で継続／故障による機能影響の抑制。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "ce9deafde17e5ea8a22dda5885d2045b993f4bf6c16b31ea8baff977adf683a7",
+          "b11496c2ad313eba53f7341140af7ac121a051aaefe6afe6289a847df35374d7",
+          "8d6c31b387367edb8f66efe9ff85e7629d41a206de844334431489af0af58018",
+          "107318608717c77d0210c739d712aadcf5af4eea076afc59b7b6fa24da511b2a"
+        ],
+        [
+          "2835e5a798b3a1e79a97971fb8fb6e6bfd0ca3df9577b4e8f0ad7fdf135d3fbc",
+          "397bb113601db57289fd35162d8978d13799fd070ac38958d5e3971afbc1b357",
+          "05504895d08b0f33e2ba701bc7843c6a9e548c1da2d164806514e25ae2ba704b",
+          "995150ead88f25d09195ce80b6dd0ebef218e7b73cde2578481e0a8ba3993c01"
+        ],
+        [
+          "2835e5a798b3a1e79a97971fb8fb6e6bfd0ca3df9577b4e8f0ad7fdf135d3fbc",
+          "05504895d08b0f33e2ba701bc7843c6a9e548c1da2d164806514e25ae2ba704b",
+          "397bb113601db57289fd35162d8978d13799fd070ac38958d5e3971afbc1b357",
+          "995150ead88f25d09195ce80b6dd0ebef218e7b73cde2578481e0a8ba3993c01"
+        ],
+        [
+          "397bb113601db57289fd35162d8978d13799fd070ac38958d5e3971afbc1b357",
+          "2835e5a798b3a1e79a97971fb8fb6e6bfd0ca3df9577b4e8f0ad7fdf135d3fbc",
+          "995150ead88f25d09195ce80b6dd0ebef218e7b73cde2578481e0a8ba3993c01",
+          "05504895d08b0f33e2ba701bc7843c6a9e548c1da2d164806514e25ae2ba704b"
+        ]
+      ],
+      "references": [
+        "https://csrc.nist.gov/glossary/term/access_control"
+      ],
+      "promptSHA256": [
+        "d4c00c524c57b5a843cbec6ab2c8027a7f9475f596d231512c86b88ea7df9aa5",
+        "c77366ccd80e16e5a04c6d8bcb09016040035de36dcf149d98c782c62534cec2",
+        "f2d4b831b2d113a60a1d18b92d8c92bf5b12070d0d1a6b019c89e73b91e13687",
+        "5650139f1bfa10469d13ed109141049ab772397da4543da5ac931aa2f75659a0"
+      ],
+      "caseTargets": [
+        "不正な使用の制限",
+        "障害後の回復",
+        "機能制限で継続",
+        "故障による機能影響の抑制"
+      ]
+    },
+    "59": {
+      "principle": "原条件と三つの生成条件の照合対象：可用性／機密性／完全性／可用性の中断時間管理。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "0100",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "f7b0a193d150e97ac7d032dfe97dfbd85b5032631f1d9c19b80e24d60a80a399",
+          "c776afe2964844bd7437395e9a74d52fcb9c5315870e8b2319f052faab141921",
+          "437c7f09df8d4b87ab33362f36dcdcebd164afcc1f998dab392c4b738a764beb",
+          "0cec1b7ff1db472223029e93e90463d3a6ba056d546bedf94181fb49b6e57a03"
+        ],
+        [
+          "daf41443d45e64e97c43b9cd73c109facdfd1a93d380bc99e6407593db4d6c49",
+          "17d44a8e87cb140cbc97054976c35c43caa3d4e2c2071a690f5f19d65f7a7a68",
+          "986076700a51e45729884545f80bbb2c1dc3912e15f15cabda0c31f5524d5d39",
+          "37b8fc7797c0780d44a8311c12f496e4fc02b7674ad19b47b485af168fa6af2d"
+        ],
+        [
+          "6f000c630d3b27d434c096bb01ec70d63c863fbb3ea6d590f701154fb21e39d9",
+          "ed8637bd0cabe1e0a878176ad2edadb62269f36d68f39b9f14dd81efdbbbfee3",
+          "f17b3e1fe2d69585cdb33d2445c11a76078750c8eb752dd78aefa1c3f44987ee",
+          "ecd099ac073fcf102e13fe634af4d6288b95d6ff09c28b18a03f90d5e4141c05"
+        ],
+        [
+          "2c00862c4c5f216abd9fc9e56773256df1b16aec64c9e588ad549483ca5ffdc2",
+          "1fd04d6975f525afbec22cd24faa2d3d3d896da1283d9d618488b952d113c429",
+          "9c2cae6112f6b3b43684f150274cf108cc3d6eb1eca6f4328f8535a38a753f81",
+          "33069864d011cc2abd5cc6f1414491b85cab0b83f61cc8874c68bd69d5bee27f"
+        ]
+      ],
+      "references": [
+        "https://csrc.nist.gov/glossary/term/availability"
+      ],
+      "promptSHA256": [
+        "ea68696d695e10b881ff7cbd78e93a2ad5ffb54fc0b8a784f3a19f9bf4c05fd3",
+        "cff42251a4bf7b624769a1bb5726904b8396bd5cbeb4e8f887c9c5a30e45f4b3",
+        "3dfe2014e205ae158a9a6990488c5d3cbc87e65d4c5bee159cbd4f4634828598",
+        "42a7b0330a4c776094478241af86a529bca5e264c4b4481c76e95e3acfd4b6b1"
+      ],
+      "caseTargets": [
+        "可用性",
+        "機密性",
+        "完全性",
+        "可用性の中断時間管理"
+      ]
+    },
+    "60": {
+      "principle": "BCPは更新した連絡先，優先業務，代替資源，周知，訓練/改善。陳腐化，非公開，単一点保管，一律優先は不適切。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "2f5988e9b5f513110d22e78082f101da5b423fcc24c473cc6a642098be9e7205",
+          "9c4e8e0524e7600822f538e46bab87ba0a0086b06177ab4b33d57d02ccb9173c",
+          "85a75bf8d7d30b5851eaad6e946b793ad4d1954744b0d7b0b262b4ecd1e529dd",
+          "09baec708926fa2229069f5e65ae8828638b52d277593675150fa8512818b960"
+        ],
+        [
+          "aafa5aca5c69470b7e7287e296933f89bb6eb85b431464b0a524cf9c4867b8cd",
+          "d900b641ed3a384cb7362c3bdc873b6e2d46aede691ca4d3eb83208a13db3c0a",
+          "3049a96a6098193a771a3fb4c6b4ddb382ead15af64e4d2326fd18ad69019640",
+          "57729e12d00875c5404249117014d66f270ca780da5d927f4e68baea849c0860"
+        ],
+        [
+          "ac9955e818ddda538cd620524e3f45267cee08fc374d293b09750c9b54a319ae",
+          "2d7c61f7688972b516df9097f1e619f50da1e255a291513602d5a4d4ddb072c7",
+          "3012f344d40decf71e7bca3bee6614a7c143d45321006a2d56ced0a44d4a5a99",
+          "19ecbcf5e564cd582bf9cef86089e4ff78d7e3601656be775543fb1811c588f8"
+        ],
+        [
+          "ae7c9a500e3dbf754d4723b11eeb0fd34ba542425f5714f61951519db48810e6",
+          "635b5403e63a60e3a8eb9bcfaa2f603e24af421bde86c41f8c3d5f5eb1c20be4",
+          "3c1c7c5f0b313cafe746dd3b90324df9e9910ae908b7c5f6b92d57bbe2a5f4fc",
+          "b5987194afe797bc8408af9a8555d3976c8b077e15bb20ad496ed7dc7f4e8db1"
+        ]
+      ],
+      "references": [
+        "https://www.bousai.go.jp/kyoiku/kigyou/pdf/guideline03.pdf"
+      ],
+      "promptSHA256": [
+        "7f9e3cbe53f179496ab075156a7c5dfaffe3c94283c8d3153bad75ff56d14e58",
+        "a43c6c4dadbef98816204f8c1b2842c8aa1438fbcc5d75b730435820b319dfe6",
+        "02bef0d4eade85490204eb60b2ad2a4487a936f9ed802479a9fc2498eaedb43a",
+        "be6fa1e80b641f2b8de3f000fd201a98f4efd7077169b791bafa5c76d997eabc"
+      ]
+    },
+    "61": {
+      "principle": "原条件と三つの生成条件の照合対象：EA／UML／ER／DFD。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "0010",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "cf64327cdd83d99b127ef4973a9ab493ad9125aceff95c3156b243c3c66af757",
+          "a6ff0cea42e5d7df76b375465cb1640348583bc7ca0abae28e9ed2d347f7152a",
+          "1fa0dc608bac0e8db5dbf093cf583dd29a2f8369f8075ad7e9340a5c5598455e",
+          "e43ef431d648a9b80cefa872d848339543078d38ac644b348346b01e774ff464"
+        ],
+        [
+          "56ddf97997d7ece9484c8ea4aa284e80d8251a182c43c36c8b91828eb272ad10",
+          "8fbc0d68dc90707fcac83e12de653e5f5e455fbe28e1bc6c0831a46e2dd9cfb6",
+          "603591ceb673dced3033eb3bbc2e50904fdef099330b7e8f300097959aa4050c",
+          "6564f6f8afd016757374a2577a0d8467272d024ba0252a015758ef7edc80acb2"
+        ],
+        [
+          "b592ea52d51543c931d67fd8d67818e634a1e2fa7077557ce53ad6b7f1208287",
+          "abf9dc5c96f14baa1f81f25bf36cd3a12a08c5d3ab9c48a1f6fb42fe7ca1ef1c",
+          "2d77deda664d7dda66024f87974c4008cb9cc08510ceb1f9db1fa2bcb1fdbf5f",
+          "dc718f6c7b5c6558f69f4027bc755d3b307e51735d243ea5caa672302188050e"
+        ],
+        [
+          "8953d77e0d781e68a2cf19aad7744bdf95790a8724a6677fbfe9b6a9ded537b9",
+          "bb154d1cbf38349f75f467eb5795091087f8cd1d9922a07dbcfcf0440cd94254",
+          "c9162be72c05f90dd71bc724a2be9493e1ee63c34f6ce03bbbca72b317c9cb9a",
+          "92e31f50a2d18f0fd4590556d535512a433e7b96a5dc3470faec728b71afb83c"
+        ]
+      ],
+      "references": [
+        "https://www.ipa.go.jp/publish/wp-dx/gmcbt8000000botk-att/000108041.pdf",
+        "https://docs.oracle.com/javase/tutorial/java/concepts/object.html"
+      ],
+      "promptSHA256": [
+        "655bf2caafa0c7d054dc0fec27f92f7a202a209755f175ea5a0ba06a17bc7deb",
+        "5c114d50786fe16b13845923c58e9c37c7137a6d219e78a20e05b5d175c29210",
+        "5c7942556ad2d087081481233a3af60395d4a0a978f8603f04f6a6a4812714c6",
+        "efce8330be99c29d44573c28aaa15eaef213fda0eb2f70883289fd42fb21aa04"
+      ],
+      "caseTargets": [
+        "EA",
+        "UML",
+        "ER",
+        "DFD"
+      ]
+    },
+    "63": {
+      "principle": "原条件と三つの生成条件の照合対象：BPM／ERP／CRM／BI。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "6f271a3affe72b813934b9187248ee0506f421177c93e4a075fd34ad4143690b",
+          "1c08ded750e97e4c6a866bb7e3d005324ddde2fb8f829673c6c5e4cde30d3ca1",
+          "f08000bb60948b691462c68d7b7872aa66b8e05db2460c9b53c661e6e1a7e698",
+          "09e27f18f5186b088b69814b9f10daf21e094671b413be698b42dfc815c74cf0"
+        ],
+        [
+          "f9b0372a2c602e1c19603de7b7e2795aadfdfe98affe17c56edbf377c3b3052c",
+          "f6c245566b8b002c8d5a539437eddfa707cbf141608554d40daf4139730c8135",
+          "12c096513e3c3542bdecc0ced7c4d2a447e3c4e6b500b8a8b0f1243af008a3ca",
+          "cfd88a1dfd02ad52418aad9357dd151497850a2a96c20233d91d16670747c24c"
+        ],
+        [
+          "ceb3d5bfdc320fc8323d91d917f840d160bc1f8035c57979903dad9282c00412",
+          "9742da6481a64a4632b7802689d66b246dd1268e13f559ba521fb6f798efb989",
+          "8e29894327c905a0d784aa95eb03fa33e28d39a2acaa618576807ed33247932a",
+          "7623363c708f0aad0fa55e0386f52a733c7ffc15d847c82235e7e062c63e789c"
+        ],
+        [
+          "0e0bf04fbc223afa8bb3c85bbb23bf7e503c8f4cd529024e9e221ba86d73cbdb",
+          "345b070f6b0e750ad0dc47907cea04b3a4cccd4ecbfe5d6d760df013f41d072d",
+          "935220d2117637644316d0817a5dde8ed8e2274388e6a0d6a14970024c0cf2d6",
+          "682e475babe416fffc57161ab9b7dcce5b0c43ddd092a2187af5933deddb13f1"
+        ]
+      ],
+      "references": [
+        "https://www.ibm.com/think/topics/business-process-management",
+        "https://www.oracle.com/erp/what-is-erp/",
+        "https://www.salesforce.com/crm/what-is-crm/",
+        "https://www.ibm.com/think/topics/business-intelligence"
+      ],
+      "promptSHA256": [
+        "3a517e950057bbd21a95676faf152ffe871b3cb36bb292336c6f549cc393fafb",
+        "5fd2107a7f5e402f293d472c5a7fd65280f042a50715a0e37eb750a4093c552f",
+        "1dea729b3ea0def6c7c7d04b1166deece0e90bddbf1ae3a0eb768fd88290138e",
+        "9818c2f79f281a069e0746bf20221f4401d40aee2b45d552c290343e8ab03673"
+      ],
+      "caseTargets": [
+        "BPM",
+        "ERP",
+        "CRM",
+        "BI"
+      ]
+    },
+    "65": {
+      "principle": "CSR調達は環境/人権等の社会的責任を供給者にも求める。最安値，災害分散，EDIだけは別目的。",
+      "truths": [
+        "0010",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "00a01a8e1afaf9c1808b91b41f6a15ee60d7040e1dccb681c42304db4eb96a31",
+          "c4f3f44aff79b684af6a443bc4d70e7fdf588a4f8a8a914ab54eaa7ba148c4b2",
+          "c183fa057370ae27cdd72f3c7b010d866642e08608661b2b92942941641c6b77",
+          "ca6bff8d7edba19911524599eb63cd7c011c35bd79d54a7cf227cf847b32c1b0"
+        ],
+        [
+          "05e7ebe8896894c47b59398621cc6ae3187d092f045d1cd3e95290c8c207f031",
+          "984b7acf2375d3ac32bb9418b167d7f24ee3f68eafc601a97ec317c8ae15c6bb",
+          "03eb029c0c77a45ccf32deae6aeed8f52dc1febd94dbe7b01b5e0f5b45c46833",
+          "1e15894a4d9ce871bdf8bead12b55c55229dd1a702e69810f63fca9a23bff860"
+        ],
+        [
+          "c7003713a3c5b7d8c349d4da6bf87ae359105b6d1dc70065eea8c6a39775fe7a",
+          "75bfe7fc95030a97a1efc5d0a0308bb7e93f001a5f8e826cce99eb78e4adabe9",
+          "3839a86166dc8dd5c591cf6116167db10588b824d4fac6c7128f187202a34d35",
+          "42ab150edcfcb15f8573d8f03ee143e59de15d366b52a54790e13e1d81082d18"
+        ],
+        [
+          "2d330ba1b81d20b2464809dfd679a442b136288ffbb9e1f7e0c3d7e620d16416",
+          "4779406f1508d3798cd3890ac033bbf44815bc321c7a074eb4eb29f217b87a2e",
+          "c020d1751ea267c1d4da07b69f51aa35e52e9c53e3361de30dd92323d9e79261",
+          "70d9e1a6b4f1ea4eac3d808a1f2bb2acce7a9f76d6bf110ec29158e5fd1b2c20"
+        ]
+      ],
+      "references": [
+        "https://www.ntt-west.co.jp/procure/activity/",
+        "https://kouseisaiyou.mhlw.go.jp/humanrights.html"
+      ],
+      "promptSHA256": [
+        "f6375cfcc97c33f1c27aa910188eafa175faa06d9f637668aefb7e82562fde43",
+        "9b735da91e980ae197a1a582c8c1499c2a9d46013da37290fb0408281cc641b9",
+        "67c871e285b71d32f561fb4eb90f868dfdc93c1055a38ac01a7214743b642e4e",
+        "ceaa6b72701a6120b237c315ab5c40e3fd097362a4ac35a38b806bbe1c3c2494"
+      ]
+    },
+    "66": {
+      "principle": "公正なRFP比較は事前の共通基準/重み/手順。特定社加点，特例，未選定社への受注確約は不可。",
+      "truths": [
+        "0010",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "0a4b3d5bfa9259f8f72a96428d9d5460943ebe9f6f3fac6fbaa00651d909230a",
+          "44f412b009106233504f0331579538edec538302c12696a8f8b83fa9024e31d9",
+          "dfa17427a87049d041491eec1a3f3788e78b9ab7878dd7dd242793fc705e03df",
+          "07dc45e72f833de76c20efc0be43803ee4892e7f7bfe5a2246c136394e9fb5ed"
+        ],
+        [
+          "da03b7953eb6c17404855f6240a7a8e2747154e450b6b5c4d6ebb21f83c5cb79",
+          "6e225628adcf84918ccf6a98c7d006749cf44c52cbf0859e57fe3efdb05be725",
+          "fa465569e07e1ef9f09ad7d2fcc77b29b63e6f28840c0e5e7df4fc352bdfe26b",
+          "233a29ac24a79cd4cf493beeedf928c3ca19d05fd774e6cd903aa373beef169d"
+        ],
+        [
+          "e570bae903663e8b318823cbe920c878395df23e91df2710f651d2ce826e854b",
+          "4fd6f1a368090174daefc5889d339a6b02b53e977224d029f80e4a8be3d28dc9",
+          "de147577cc9368a7714f819985ab9d7a1d59aedbbb132071fb25be733ff01735",
+          "b61de301a0bcccac3e7e41805abd8bdf8ee971a5a0ae235e5744aaffe80056f6"
+        ],
+        [
+          "c05a5b6203d494f6de4e63bfad0b93a9041eeadf8a3b0a3661025bf3c4c01b4a",
+          "33a1276ee5ce2295dfaecf14ea2bcbe0357a2f91d59cb508abac9e9995489a07",
+          "91201a2648cea0c5dc454d4e7d2a8af59a17b38f34b1cb8a13bc030791932111",
+          "aa2e5036ac05c7fa97b4980efbb445239ab8ca1fdb48401daf64526bb0cca9c9"
+        ]
+      ],
+      "references": [
+        "https://www.nmda.or.jp/choutatsumodel/report-16/choutatsu-process.pdf",
+        "https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e2a06143-ed29-4f1d-9c31-0f06fca67afc/573c839f/20250619_resources_standard_guidelines_guideline_03.pdf"
+      ],
+      "promptSHA256": [
+        "79a81fe830e9b1968eab1a495561a59db1519e0726e52ad509bbf74c0c7a7393",
+        "6ce82a688271132f62ddaaf98707f9f919e9e8ee762d6ff703ecfa660f3166fd",
+        "4074dabf179889b116a9ce593f1d2556e442106303c2b30c744c7d97e1c69d60",
+        "6fd17211498663f983a7740d2c8279d4db63166fa2920baa64295d12025f3f3b"
+      ]
+    },
+    "67": {
+      "principle": "原条件と三つの生成条件の照合対象：コストプラス／競争志向／顧客価値／材料/労務/販売費を基礎とするコストプラス。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "b489af6d425d2929063d0e41328f6e320161cf034a8f9fdaa280c144390a5346",
+          "a786dda57e24681f9af83d65aecdac04e9493dcaddfb5e9d6f838f18386aad07",
+          "90daa2655f977aacd57060b01ecaceeb644acd1f1dc8dab744da5b1e2fc37f7b",
+          "332dcd41d08414422eea6b66bba79f879a490b6defbb50499fbc06b5c58063eb"
+        ],
+        [
+          "5fa9c72d092f740d9b3c69280269582f0a1200e3bbf6a4a8879f35a99160e950",
+          "f09d7ebeaaf986e4e11a7de6ed5546667dc4c9af88f55e13ad0aff05a6e7c99e",
+          "174a25ce2702f4825a8e7e5dcfb074b28d9c9f12bdfa38a07c97c647d834c3b7",
+          "e8a9f011c946ae0e5442765b0024db15bf6ded67c12c953b64d5c934806dbe9d"
+        ],
+        [
+          "e956b4226ee4c3113d40b8d5366ece958b6d53b17ee58beb2930288531b58440",
+          "40a6ed559f34a244b2a50768bd74eeea1b256a792b34250c0956d241c54fe9d1",
+          "4d86090ef435d94e4c0fac1c4df6bd881178aa7e32fde384d59b6085553b3b93",
+          "22db1036b2a1cd540a6ef6b15a7e34ed26a933298bde4d16c240daa1d0f3441c"
+        ],
+        [
+          "f20459997cb1c990735709c43bc0b587e765362afc6cbd9153333753fe55cb54",
+          "4f3ad1e7a23b81425cee83647cd20b71a3c783db835d7cf3dd1283b6109a2948",
+          "88c326e5aa9d74b208a3db761d97bfcf2bd861d390942e2d44317703d44555f7",
+          "d1daa6b29bb9573f81dd60fc5780a59a13519056c5850aac110f4aebdfd4d852"
+        ]
+      ],
+      "references": [
+        "https://www.bdc.ca/en/articles-tools/marketing-sales-export/marketing/pricing-5-common-strategies"
+      ],
+      "promptSHA256": [
+        "a507567ce709d25996579014c9708e78d128097c6eb5ceda48395bd185c043c9",
+        "3f27478992b43ef52f92967bfb87b2d2abdb0007113d99e28493b035d8ad7278",
+        "875009598030913f487759591df60a08ba7b6720b6ec10e5bdc2019360bb1b40",
+        "9a56f82e5b1261453fcec8b8be3d4cf407f15d63d44364c48f7fca51e5c0d504"
+      ],
+      "caseTargets": [
+        "コストプラス",
+        "競争志向",
+        "顧客価値",
+        "材料/労務/販売費を基礎とするコストプラス"
+      ]
+    },
+    "69": {
+      "principle": "原条件と三つの生成条件の照合対象：CRM／MRP／POS／SCM。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "bd8373b0483a48bf64b14702bd6d248be7b938bd66c5b2f516b05bed1d8890b6",
+          "0ffe06f4e480f5502c8b84da23eb54b310986c928ac799226181cc2afc6dbce1",
+          "2fad1d0a1717e5dedc101ba1184dd562249316b09a6814ba738ec0f94f2b5a1c",
+          "f5aa57af7f1fc707541ab527db71fc7ff6afc25515c0314c14275358829bd47f"
+        ],
+        [
+          "aa734f9c881583a3fda1acb10d253dc137e6b5f5566f4caf4e46cbe31282a1fe",
+          "e1015f13db89ee63640247f641cf515bb6445ca69cfb72292c686bcacadf288b",
+          "8e4452b9c19c2cc6996dd040b7208e3047ab47733712fc2e2a4c5f67082623bf",
+          "d047d9b6548b468a438e7f495737c5b9a79cbeb7c9f7afb004103e7f49be1a3f"
+        ],
+        [
+          "c5875e8952cc0700a6051b83c8b423d28adf6774b20ea151e90b391fa5286e2f",
+          "8f36d304c9ce779743782abfbf1e34120163f6ac8b418f2374521600272592b4",
+          "7b1923b59e1fb0d2af1a1eeddb2857bcb3733f44a3b5ad8a97ef8bbdc5504737",
+          "c0e397cda1d86af0c9e055343583e3075029243546c58968a113ead11a842e29"
+        ],
+        [
+          "5a48b248a5a3d5eb5c632b5460f223c8d7289424ec32fd98f426b2d870018a75",
+          "08e1e0cf572cc021a64ccbd6578f49988397c4f82c29b5556f7e365c57db844e",
+          "367a8388552c4e65352e3d1eef6d93719188b6ef6f45c0728d2e7214a31a6a01",
+          "66ac5cba77f8fcb963dc8c41d9d8d3806d4b22dba57148507595b523b6087acf"
+        ]
+      ],
+      "references": [
+        "https://www.salesforce.com/crm/what-is-crm/",
+        "https://docs.oracle.com/cd/A60725_05/html/comnls/us/mrp/mrpover.htm",
+        "https://www.oracle.com/scm/what-is-supply-chain-management/"
+      ],
+      "promptSHA256": [
+        "d63b5681a43ca35ffa04509423e7716d793366d8409f598f38114c475323e39d",
+        "7e4e4bc11e04ffad835f92376891e0467b8a95da35790f574242b8f4f42193d9",
+        "869102731685380264aed69f4342c38bdce0eacfe96b04b419c2f8ecce35c928",
+        "76c4bf7d9bc79854a935355f0bfdab0bb4076db5d4b2394ebc3d7ab8c1ce60aa"
+      ],
+      "caseTargets": [
+        "CRM",
+        "MRP",
+        "POS",
+        "SCM"
+      ]
+    },
+    "70": {
+      "principle": "technology S-curveは初期緩慢→加速→成熟停滞。普及率/認知だけや生産累積と単価の経験曲線とは別。",
+      "truths": [
+        "0100",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "f9b8d51ebb2041bf53ee654098da09aa59af61e2d61eb7844a41685b527581f8",
+          "b99deb4fccade7767d598051e2e382e6d14f55360ef43fb41b5cd2ead99bcfde",
+          "2cc7c6af5f3ef542c95ec67385d10330d8861f88dc805ec1a2fdbac44c6b905e",
+          "137942db126555c825a74a33101f088d9688c94e45c3a3ceea3a682551990b09"
+        ],
+        [
+          "833c7e81b3fb502cef6a67b10f700a46bcd762b0259aa6954f615d18b0cf1cd4",
+          "166b13aa0bf3afb0387c801964f22f0661f226dc5a7511f276313393950182a0",
+          "2c67359163a17584a797a1f57032dba176eddba376e7fbb0e74cac8282d4a24a",
+          "7469fdc30706e44b3d16a4fcff6426c02338c7b23c3d1b6f0dd8272f1f8da6c7"
+        ],
+        [
+          "3f18048982ca989a70ce314774447d2d9e646837ecaf89c7256449be7616aa3c",
+          "c090028c061d29c86648894b6668c0bf81b047fe0ee6f1365754e7c2d3c9eaaa",
+          "9df09301915826ba7049d33939893833c45e136165f3cc1a485a1da362891680",
+          "9a573f3abcd644d0f2f929f94c6bca24b555d07f2264aaa141e995de6c428268"
+        ],
+        [
+          "8f1608b592d7c26fcc42726bafd42743c7d537846d1827fa21e31a7578508283",
+          "f78e50297c18f45afbb5f5b66dc5749bf026fc844c467b9a7f814c47ded2d394",
+          "bdaca1ab6f78535fc3f1fac95158af2184c8f1372e9f80d043a9b12da180824b",
+          "e8654651d703ee362b77ba9571294102816b64fb70720ceb44df68ae5de98f6d"
+        ]
+      ],
+      "references": [
+        "https://www.pdma.org/page/glossary_access3",
+        "https://ieeexplore.ieee.org/abstract/document/387142"
+      ],
+      "promptSHA256": [
+        "3ec93dde58a1a90ac04e49db217ee69ee9cd6f2ed2e8f1c9aa7b7b74945b4be8",
+        "228f053466dc43667ec8461faffd886e794fbf6317996d8b75a59aff005e19dd",
+        "8bbbf86dce1c585ad644f2a4d5e355bcaf260d0a55f1f5569e299e4b70be1658",
+        "766a23e65be5558e62a95120b520b706833f9d4214eca43919ea780905ba2cfd"
+      ]
+    },
+    "73": {
+      "principle": "CGMは消費者/利用者による投稿等。企業/行政が自らの公式情報を提供するだけとは区別。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "1018dcbb87585cbad2bc3d262678fa3b827220c521849e2719d697fd23d528d4",
+          "a87d5b0cd9393e93288dca090c5de3ef34d1172c1297a1a6ccdd507ffc201c96",
+          "e2cadea2f5ddb2848e92bbec63e04a9fc6c0da74133f4ba53d4166947515a697",
+          "b5a40e7f40734f67e70897debbd61ae4b8fa9434a85cffbf22bd18efec18f3c6"
+        ],
+        [
+          "018cd84b39b8b68eee5433506080a8af9c926c055fd11cc597fd462170417cab",
+          "625fcb9e3cedabbe2cceed63e3c32f3cb82ae58f11c8d471b84d604767dad7a0",
+          "4b68a9a7a2a340852460f3cf803415b490ac51fc298ecafb9bb0e16cbdd1df96",
+          "d69d747ecb3c1aecb15789170b3f6300c09bccc179aeec6b7ea1acbf095a028f"
+        ],
+        [
+          "ea66408b66295a849f7079a9d4396fa3b6a425654584e6008aa195f10b9c0428",
+          "f5f8616fd4f82840fb5a2747a28982870df5290881427fff28393a8b851452c6",
+          "1ce320a6f14a550dabb5393f42c45daa320d68b65b7874681642073935607a59",
+          "d3d3977d8eb47c7522f0802e918dd2eab6fa78ffc37019d81fee918cd4eb85cb"
+        ],
+        [
+          "5b30a4ffebe550f96fd4771b7e634dd4b4ba6f643723320e029d4f064d7fd2e5",
+          "bb0da7cced963bc4f043a8d30d869d30f0ebc1ae7c68eaf31001db06ba30559c",
+          "51abd14e1660b893c291a4002f7b2d445df9371224b8c695cef0cd6f169e09fb",
+          "8f79ea5db13b2e8a7ceb9acbb406907420de2987772e2ba4e724f738b5a2d427"
+        ]
+      ],
+      "references": [
+        "https://prsj.or.jp/dictionary/cgm%EF%BC%88consumer-generated-media%EF%BC%89/"
+      ],
+      "promptSHA256": [
+        "4b834a5055d3797cf99fbfc877658537f2787c5cc9e1dbcf0f2337243e7cc4e7",
+        "164f6b123ff04ab857e9b4104164271f904cabd8fa62a5c1d6c82c394463de00",
+        "6827ebf6864191d0b225a12c0478de3acd18e5aff949364529f64da875c7f590",
+        "ec8a1fc21925dd523e74a727b538ea7dbc4e052e2a0bbbd1cee547a74316baa9"
+      ]
+    },
+    "74": {
+      "principle": "EDI情報表現はメッセージ構造/項目表現。取引契約，運用時間，伝送制御は別層。",
+      "truths": [
+        "0001",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "24a0da0253c3a2164b5b9ebe1ae72d4d358e61108193aa5bfb59156255f437f2",
+          "c2a63a422cfe103ce303a342fba2b27b55777d88754a547de1b2878bdae636eb",
+          "ae9ff274d79201a9ef89a44209dc1f1165eb5d45f216a51346766d82e7548fb2",
+          "d5172f1fff613916b6e4f775e46a6ffe0e7939b3dc5e79bba00b638472a73bd2"
+        ],
+        [
+          "e5dc3c8f0ded76b9ef98aad0709603505fd7e20722dd62cd796c9ca9927bae5c",
+          "6e2a88064e740731db312693bfab6ad8b47fbfbaed9eeb4fb28ed35b867b97cc",
+          "95121c3552d1c0829a5a703d4ee23dcd222e1626dc08d8c891a489c1d18c9ad2",
+          "75ab7cd24b7a2b5f87db56da1dcff2511bcdbde90c81642a01db00250d39984e"
+        ],
+        [
+          "b6f14d355723be5f65be54ddb2fd3a750f7ac73a8482db6a356894890ca41d11",
+          "54f9d12b946109024c638fdadd7e747130e7e61d08e2e89069bea5574a76584e",
+          "a8b94f66cfb4450c9abff4fa1ab46bf13f637fe7511979d5adc548038d7c66fc",
+          "8fa0d7fa1bfb4f5ae44677e043e0396fe62cfc26b1ba67e797152585eb365663"
+        ],
+        [
+          "29ee804a65ba66ca674779ec6e7ced630cf073addfed3e1859be7e4cac129870",
+          "7c1659926cbf9b567a380891ebd635daaa6d18c8da8c251cc02174604bd8f201",
+          "ce0f5e74d230ad3ee0f155333e027ef5b8dcfc055d5f31072c0ee89e0730df43",
+          "c2a63a422cfe103ce303a342fba2b27b55777d88754a547de1b2878bdae636eb"
+        ]
+      ],
+      "references": [
+        "https://unece.org/DAM/trade/untdid/texts/d424_d.htm"
+      ],
+      "promptSHA256": [
+        "b8cee1db7cd461d3b7c9ec0626f76acaa8121b5aeb3ea0fbadcb4288e96b0d31",
+        "65f44bf2defb6cb4aad94d4398e4a99284268a32154db496f7f6b7d7150d2221",
+        "db91720c6bf419167011f0cbf93fdda3c0ff0829cc2f02a02f6f200c124e6017",
+        "197da1b33d770552162be9be4515f7f4eb98635f0be0993fa2ec46b898e5b518"
+      ]
+    },
+    "75": {
+      "principle": "原条件と三つの生成条件の照合対象：CIO／プロジェクトマネージャ／利用部門代表／CIOの全社施策/投資効果。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "0010",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "67763aab3e75f2e2106a9c23cc01ac0c716d38c4657e53c43336c8ce6f24651f",
+          "15a011deb8ab3ca01da19dcf8a1f9dcd5cef19a02a03e3e462ef01c73905c28a",
+          "9930438dbebf6450b0c3d82897a5b1768afab5c1e323e9fc0c0cf50ddf96d32d",
+          "52e981e7493dc00a8e3d1dc36ae2bbeed9b827221a5988479028ebd95370fbeb"
+        ],
+        [
+          "95c8e972f672400d1221e0d039e832dd26f86d60d3cddfa7a9729b599eb97cd3",
+          "1d3a1f8f678aeddcbe9e73ab8faf5f7331da6ebf48b6f00f0ece8a7515a49063",
+          "4d8fb86da1b6f5bc03d38d38668a0f767897a72acc4e391a08a5d65f27b2e4e4",
+          "fb21b135884c03fb67fdba6776b43976582dc0d490a66e2dbcec5fae6e48b893"
+        ],
+        [
+          "004a6ec4d4acb01ca8a5bdc9cc80e997b856b37d30c515e7bfafdefda2eec7a3",
+          "c7e65286cd47d8d4b396fa084fd8f0886533540a0cf51a1b41e8d8aaa352d07b",
+          "727c45d27ab706fbddb381eb265a409b3be8eaf8227ff45cf9f123b6042a06e3",
+          "ea87040699ec81e43355c25977e4423e87a51b85e1f3ec5518b714f7b6474646"
+        ],
+        [
+          "4a8cf17dffbd6adb3ff7e20f3c7613055e406f47fca5db887067cd710e817339",
+          "9ea088cc7cbd15f0d9ae729b3977eec7c450fea7717f0d9420cd032748d4cb1b",
+          "37ab2c1e97ca2669b8226b728b50c9d8478489fbddf91597406131c9627828db",
+          "5c40aad69768823757e02a4f4dd0686c38708f7061e47895b4235f51c5d7b574"
+        ]
+      ],
+      "references": [
+        "https://www.jipdec.or.jp/archives/publications/J0005023.pdf",
+        "https://www.nmda.or.jp/choutatsumodel/summary.pdf"
+      ],
+      "promptSHA256": [
+        "a4dcb5b7a07534b7fc1dc0fbaccc90f54f4adc29871df6afde172cc88b00dd4f",
+        "cda07dd511c714b7a2ee9103cfddac9cd98669a9d087c6a8cf5aa1ba3fb2fe79",
+        "b44a8a4cf1110257a181850ef3245ce05e101024b7e2306275a053838376a128",
+        "825ffc0536ea4b77aa7b50234cca12b9ebf61b38db6610360f2989fa30724654"
+      ],
+      "caseTargets": [
+        "CIO",
+        "プロジェクトマネージャ",
+        "利用部門代表",
+        "CIOの全社施策/投資効果"
+      ]
+    },
+    "76": {
+      "principle": "原条件と三つの生成条件の照合対象：マトリックス／事業部制／機能別／プロジェクト。問いの方向を保持し，全四択の機能・手順・役割を独立に対応づけ，一意に該当するものを検査する。",
+      "truths": [
+        "0100",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "d2f1e9d8d07381e08cdfd79a72f8ecbceeeec1026a2f2e3c3f316a1982f8f280",
+          "7c9c8732aca5ae179f36e0e5efbaf5dd347b919716e4b17c34a3c245fd116d47",
+          "c83a53aa440042c18b487c3905f8f744656c142a47153549972496fb41e70532",
+          "e948030096844948a818b572b59408ad6c942cded43ed6dd91275cf4c9a8a604"
+        ],
+        [
+          "b02221e86918758830492c89d50d72b45cdee9528d9050a6ed4414b2bc6c53bf",
+          "6141f49d48636a18b16d8017110b958d7ac2851abe563e996c771d7108694693",
+          "7ed631015e07f742d92bfb845b14bbf3ef7c2ed7804b935ac8a8991c61a5d2e7",
+          "5a1170ea26782f9a91cce00d6a75625c67ebedfff951d7bf57ddb74b751aacf9"
+        ],
+        [
+          "ea0595d255f9b8988f28b7ba1f866ecdc8499bf6feada9439bb63bb8bebcbdb3",
+          "d805648e0fffc7faa96387c6930627dec6b18e7f85cc04a64c117b9507e16cbf",
+          "75582911a0e1d8e7e09119b80ae30100eb8765f110cafa9d94916d5438f50c68",
+          "819c8212584cb2e23929b217fd5b33b35b31b23b3654c015fd428fc2a11c118a"
+        ],
+        [
+          "90f9c4ebab5156195b6e0cb0a07653ee1c5566fef8825f50bc7e4452f277a9cb",
+          "8972f3ce156ceeb35bbed0800b54ef7bb70e703aab21ea91115883cbbb75234d",
+          "de590b2d6d881a4c0491f5c7a51557c30d57bcf5cb691594fe13fd1398fde535",
+          "a9beb14aeb2c53e39779023bfb8f04782969623fc779b36da41d1212502113b7"
+        ]
+      ],
+      "references": [
+        "https://openstax.org/books/introduction-business/pages/7-2-contemporary-structures",
+        "https://openstax.org/books/organizational-behavior/pages/15-3-organizational-designs-and-structures"
+      ],
+      "promptSHA256": [
+        "e86ee04af64c36bdfaa73e1d9b23e73fa38b71650789f0bd88eecae86a83588b",
+        "3dba5b67a8ba0f1f69a5bb63fa0be95e9f67539d0a1a3c3496de057ebd4d1c23",
+        "b566fae82d0671b047b7442498a872d15075d378ea130fc38555bcaa81d58f1a",
+        "b4c391aa30335c888d6a1a8305e464eca54cca536fbcfcc973c2792c629a5ff0"
+      ],
+      "caseTargets": [
+        "マトリックス",
+        "事業部制",
+        "機能別",
+        "プロジェクト"
+      ]
+    },
+    "79": {
+      "principle": "2016著作権法15条2項:法人発意/業務従事者の職務上program/別段定め無し→法人著作者。programは公表要件不要。特許の対価と混同しない。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "dd15a793bf83a57ead9335f7ae7516761ac4c6808083aa4f4cdab6b278ed0731",
+          "f4f21a0949ec044d6a9b3b64cd77f2511fe2d6696cf7d7a9b66e32888548e59e",
+          "2498eb476be9a903b7391a985c5312dc9893c6ab304ccd18337b79f5f3485655",
+          "9945b1ad833e80ce03c3acbd639086f77dea0481aaa5edd2730f64424b20d305"
+        ],
+        [
+          "7d1b97ead7f390055d27104ebf469c575211c3a86742d1f0b4acc81f83ddae7a",
+          "223d77e1a995f9054f8d56c958fac36136812b76f992bdae212bfc589f6b311f",
+          "b25fc4e3d6d35d636cd4a58f5964ff4edf50a480e7a9b88a6c29d7db355baab2",
+          "9e47dac31d67fa50b08c9048d110a17ac6d71881472a33033190a534736b0c53"
+        ],
+        [
+          "f96053dc5b03c4e86e9339978ca4cd18e4afda08a343007f2fe60c2c15dbabe0",
+          "cfa26c2bd38ae731ba3829aa40c90eaed05b22c95bfef230503e19fbf15ba9f3",
+          "0043e2ac4d85f12a9cf92d4cf826ee5ea8c5c859f30826e07bb6190abb3e3560",
+          "0c8147f23e06627be61d9affdee2be6008d1181842bf0db1a648d76cb8cac471"
+        ],
+        [
+          "1844120edd6e7323c33486b279660215abd9fafff8bcee43c19e8a53301ae263",
+          "cc5cefc5845b246fed282d8050719297e3efa874ab004a62381e1eb56bcabbc6",
+          "4e58e13a55399f919e37e962900cff28b4d932105d83addf56e4980c3c813b37",
+          "72f3becbe85a728ccdd5b1bb1b647b470e16a242e61efac69f884b916d96f381"
+        ]
+      ],
+      "references": [
+        "https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/pdf/h28_text.pdf"
+      ],
+      "promptSHA256": [
+        "d5eced36721fac290fdbb50d11ad1b7ef91e733f2cfaaf21610c6ac5c5da25d7",
+        "67b335f64e784bb4c938d5111a81c98b05d17ce1c1691b6fb1cd56ff48d82ce1",
+        "4d61fb9d6c15182b4c6afe12bcbce0bd2dcc74267a23ac4855a9e6b5c248c283",
+        "3a44a1657f49ff3c40cb503436dcd644aa1ad31d06766e2dc6ea385b4da1a6d5"
+      ]
+    },
+    "80": {
+      "principle": "2016刑法234-2は業務計算機/記録の損壊や不正指令等による業務妨害。製品民事責任/知財/アクセス制御侵害とは要件が別。",
+      "truths": [
+        "1000",
+        "1000",
+        "0100",
+        "0010"
+      ],
+      "statementSHA256": [
+        [
+          "540475b5594965d3b40ca0965a1d5c369b51c8f2317e27ed007e18d503d5b00f",
+          "57f039380aa6617fc3d39c1f492a849249f438fb3aaeae74e5e5910de84db032",
+          "1fadbe5ffc7c35b7fdb7f6f11aa2285c6720e6d325db154f3357165d0c573618",
+          "887a34bb77ce58a9ea31c93a1aef39cfd4f91efde42113b885539088fe3a8200"
+        ],
+        [
+          "540475b5594965d3b40ca0965a1d5c369b51c8f2317e27ed007e18d503d5b00f",
+          "57f039380aa6617fc3d39c1f492a849249f438fb3aaeae74e5e5910de84db032",
+          "271413b4d965a5b8114e2bfd3691014ef04090c9dbfec3392b2b4b474bc7d2cc",
+          "887a34bb77ce58a9ea31c93a1aef39cfd4f91efde42113b885539088fe3a8200"
+        ],
+        [
+          "57f039380aa6617fc3d39c1f492a849249f438fb3aaeae74e5e5910de84db032",
+          "540475b5594965d3b40ca0965a1d5c369b51c8f2317e27ed007e18d503d5b00f",
+          "3c5ec3383b2b59a09896e69932db7b982a71e9f6f37d22b2c0ed833921ca7a69",
+          "887a34bb77ce58a9ea31c93a1aef39cfd4f91efde42113b885539088fe3a8200"
+        ],
+        [
+          "271413b4d965a5b8114e2bfd3691014ef04090c9dbfec3392b2b4b474bc7d2cc",
+          "57f039380aa6617fc3d39c1f492a849249f438fb3aaeae74e5e5910de84db032",
+          "540475b5594965d3b40ca0965a1d5c369b51c8f2317e27ed007e18d503d5b00f",
+          "1fadbe5ffc7c35b7fdb7f6f11aa2285c6720e6d325db154f3357165d0c573618"
+        ]
+      ],
+      "references": [
+        "https://hakusyo1.moj.go.jp/jp/61/nfm/n61_2_1_3_3_1.html",
+        "https://www.moj.go.jp/content/001377787.pdf"
+      ],
+      "promptSHA256": [
+        "b906b89712abc47f12bec4fe6132010eb9044433c244bcc47734dd27157c2174",
+        "45f13729e4ad0d7d9588ece6e92eef7171eb3bb279a8d9300388892da4389b0e",
+        "851c868436e09e7f54b866ea9b206369cb8683bd284c52948094209aaf1f7d01",
+        "c57a72bdacdd2f2ef80f3c79a9cd9ae1a8f02f1dfa263335d525f356f6c329c3"
+      ]
+    }
+  }
+}
