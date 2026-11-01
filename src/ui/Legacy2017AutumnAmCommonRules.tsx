@@ -17,9 +17,9 @@ export function Legacy2017AutumnAmCommonRules({profile,values,caption}:{profile:
  return <LegacyCommonGateTable collection="2017h29a-fe-am" caption={caption}/>;
 }
 /** The source pixels confirm the same table text/structure in these three booklets. */
-export function LegacyCommonGateTable({collection,caption}:{collection:"2017h29a-fe-am"|"2018h30h-fe-am"|"2018h30a-fe-am";caption?:string}){
- return <section className="legacy2017-autumn-am-common" data-common-reference={collection+"-p2"}>
-  <h3>{legacy2017AutumnAmCommonHeading}</h3><p>{legacy2017AutumnAmCommonPremise}</p>
+export function LegacyCommonGateTable({collection,caption}:{collection:"2016h28h-fe-am"|"2017h29a-fe-am"|"2018h30h-fe-am"|"2018h30a-fe-am";caption?:string}){
+ return <section className="legacy2017-autumn-am-common" data-common-reference={collection+(collection==='2016h28h-fe-am'?'-p3':'-p2')}>
+  <h3>{collection==='2016h28h-fe-am'?'2. 論理回路':legacy2017AutumnAmCommonHeading}</h3>{collection!=='2016h28h-fe-am'&&<p>{legacy2017AutumnAmCommonPremise}</p>}
   <div className="table-scroll"><table aria-label={caption}><thead><tr><th scope="col">図記号</th><th scope="col">説明</th></tr></thead>
    <tbody>{legacy2017AutumnAmCommonRows.map(r=><tr key={r.id}><td><GateSymbol kind={r.id} label={r.label}/></td><td>{r.label}</td></tr>)}</tbody>
   </table></div><p>{legacy2017AutumnAmCommonNote}</p>

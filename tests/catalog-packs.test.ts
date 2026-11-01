@@ -20,10 +20,14 @@ test("generation preparation reads packed inputs, revises only the requested ser
     fs.cpSync(path.resolve("public/data"), root, { recursive: true });
     compactDistribution(root, 0);
     const before = readDistributionBundle(root);
+    execFileSync(path.resolve('node_modules/.bin/tsx'),[path.resolve('scripts/prepare-generation-data.ts')],{cwd:temporary,stdio:'pipe'});
+    assert.deepEqual(readDistributionBundle(root),before,'no-argument preparation preserves every admitted record and catalog hash');
     const oldPM = before.templates.filter(t => t.generatorRef.id.startsWith("generator-source-2017h29h-fe-pm-"));
     assert.equal(oldPM.length, 13, "selective refresh must include the complete new booklet in its preservation domain");
     const oldAM = before.templates.filter(t => /^generator-source-(?:2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/.test(t.generatorRef.id));
     assert.equal(oldAM.length, 467, "all admitted morning bases are booklet-managed preservation inputs");
+    const stage3AM=before.templates.filter(t=>/^generator-source-2016h28h-fe-am-/.test(t.generatorRef.id));
+    assert.equal(stage3AM.length,75,'the current stage3 publication is inside the preservation domain');
     assert.equal(before.questions.find(q => q.id === "question-ipa-sample-2022-apr-b-1")!.choiceShuffleAllowed, false);
     assert.equal(before.questions.find(q => q.id === "question-template-source-sample-2022-apr-b-1")!.choiceShuffleAllowed, true);
     assert(before.catalog.files.sources.every(f => f.recordCount));
@@ -42,7 +46,7 @@ test("generation preparation reads packed inputs, revises only the requested ser
     assert.deepEqual(after.assets, before.assets);
     assert.deepEqual(after.rights, before.rights);
     assert.deepEqual(after.sets.find(set => set.id === "set-mix-a"), before.sets.find(set => set.id === "set-mix-a"));
-    for (const template of [...oldPM, ...oldAM]) {
+    for (const template of [...oldPM, ...oldAM, ...stage3AM]) {
       const preserved = after.templates.find(row => row.id === template.id)!;
       assert(preserved);
       assert.equal(await contentHash(preserved), await contentHash(template), template.id);
@@ -57,8 +61,8 @@ test("generation preparation reads packed inputs, revises only the requested ser
     for (const q of before.questions) {
       const revised = after.questions.find(n => n.id === q.id)!;
       if (q.id === "question-template-source-sample-2022-apr-b-1") {
+        assert.equal(revised.choiceShuffleAllowed,q.choiceShuffleAllowed,"A content refresh must preserve the generated base's shuffle policy");
         assert.equal(revised.revision, q.revision + 1);
-        assert.equal(revised.choiceShuffleAllowed, q.choiceShuffleAllowed, "A content refresh must preserve the generated base's shuffle policy");
         const template = after.templates.find(t => t.baseQuestionRef.questionId === q.id)!;
         assert.equal(template.baseQuestionRef.revision, revised.revision);
         assert.equal(template.originalContentSha256, await contentHash(revised));
@@ -87,6 +91,8 @@ test("generic generation refresh refuses explicit and bulk booklet-managed rebui
       ["--refresh-sources=2017h29a-fe-pm-1", /Unknown refresh source 2017h29a-fe-pm-1/],
       ["--refresh-sources=2018h30h-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2018h30h-fe-am-1/],
       ["--refresh-sources=2019r01a-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2019r01a-fe-am-1/],
+      ["--refresh-sources=2016h28h-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2016h28h-fe-am-1/],
+      ["--refresh-sources=2016h28h-fe-am-66", /Unknown refresh source 2016h28h-fe-am-66/],
       ["--refresh-all", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],
       ["--refresh-additional", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],
     ] as const) {

@@ -1,3 +1,5 @@
+import './ui/Legacy2016SpringFundamentals.css';
+import './ui/Legacy2018AmChoiceMatrix.css';
 import { createRoot } from "react-dom/client";
 import { App } from "./ui/App";
 import { applyTheme, readTheme } from "./ui/theme";

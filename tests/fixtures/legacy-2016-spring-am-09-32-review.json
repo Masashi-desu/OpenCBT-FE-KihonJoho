@@ -1,0 +1,1732 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-01",
+  "collection": "2016h28h-fe-am",
+  "scope": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "source": "Independent hand transcription and source graph/table facts fixed from official PDF rendered images pages7–15; not produced from generator outputs",
+  "reviewer": "Codex AI, not independent human expert",
+  "questionPdfSha256": "d68dd03ec4beccc2a80c482ada27c67e4370c2bdacd600d9d3fc10b18ea6ef34",
+  "answerPdfSha256": "3fdd9ff26142d487e509b0de25d2fcb24485d442eafd81103d5e2609310f83f9",
+  "held": [],
+  "rows": [
+    {
+      "number": 9,
+      "pdfPage": 7,
+      "printedPage": 7,
+      "cropBox": [
+        115,
+        130,
+        1045,
+        555
+      ],
+      "prompt": "PCのクロック周波数に関する記述のうち，適切なものはどれか。",
+      "choices": [
+        "CPUのクロック周波数と，主記憶を接続するシステムバスのクロック周波数は同一でなくてもよい。",
+        "CPUのクロック周波数の逆数が，1秒間に実行できる命令数を表す。",
+        "CPUのクロック周波数を2倍にすると，システム全体としての実行性能も2倍になる。",
+        "使用しているCPUの種類とクロック周波数が等しければ，2種類のPCのプログラム実行性能は同等になる。"
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-07.png",
+      "renderSha256": "90c85cecd25e30233c392e08728b1f6f04afe6074c3cef6f4398b0582083d2f3",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q09.png",
+      "cropSha256": "46397ba81036a5b32847b2d521b9c73c66d4aebf262042c03122c0547b33bb15",
+      "fullAlt": "問9。PCのクロック周波数に関する記述のうち，適切なものはどれか。\n\nア，CPUのクロック周波数と，主記憶を接続するシステムバスのクロック周波数は同一でなくてもよい。。\nイ，CPUのクロック周波数の逆数が，1秒間に実行できる命令数を表す。。\nウ，CPUのクロック周波数を2倍にすると，システム全体としての実行性能も2倍になる。。\nエ，使用しているCPUの種類とクロック周波数が等しければ，2種類のPCのプログラム実行性能は同等になる。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-9",
+      "page": 7,
+      "alt": "問9。PCのクロック周波数に関する記述のうち，適切なものはどれか。\n\nア，CPUのクロック周波数と，主記憶を接続するシステムバスのクロック周波数は同一でなくてもよい。。\nイ，CPUのクロック周波数の逆数が，1秒間に実行できる命令数を表す。。\nウ，CPUのクロック周波数を2倍にすると，システム全体としての実行性能も2倍になる。。\nエ，使用しているCPUの種類とクロック周波数が等しければ，2種類のPCのプログラム実行性能は同等になる。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q09.png",
+        "sha256": "46397ba81036a5b32847b2d521b9c73c66d4aebf262042c03122c0547b33bb15",
+        "width": 930,
+        "height": 425,
+        "byteLength": 180933,
+        "cropBox": [
+          115,
+          130,
+          1045,
+          555
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 10,
+      "pdfPage": 7,
+      "printedPage": 7,
+      "cropBox": [
+        115,
+        620,
+        1045,
+        1130
+      ],
+      "prompt": "RISCプロセッサの5段パイプラインの命令実行制御の順序はどれか。ここで，このパイプラインのステージは次の五つとする。",
+      "choices": [
+        "③，④，②，⑤，①",
+        "③，⑤，②，④，①",
+        "④，③，②，⑤，①",
+        "④，⑤，③，②，①"
+      ],
+      "list": [
+        "① 書込み",
+        "② 実行とアドレス生成",
+        "③ 命令デコードとレジスタファイル読出し",
+        "④ 命令フェッチ",
+        "⑤ メモリアクセス"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-07.png",
+      "renderSha256": "90c85cecd25e30233c392e08728b1f6f04afe6074c3cef6f4398b0582083d2f3",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q10.png",
+      "cropSha256": "daf0e3d0f9f6bb4bac659352f6e43fad01e17face01c371456566ae32a697144",
+      "fullAlt": "問10。RISCプロセッサの5段パイプラインの命令実行制御の順序はどれか。ここで，このパイプラインのステージは次の五つとする。\n① 書込み\n② 実行とアドレス生成\n③ 命令デコードとレジスタファイル読出し\n④ 命令フェッチ\n⑤ メモリアクセス\nア，③，④，②，⑤，①。\nイ，③，⑤，②，④，①。\nウ，④，③，②，⑤，①。\nエ，④，⑤，③，②，①。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-10",
+      "page": 7,
+      "alt": "問10。RISCプロセッサの5段パイプラインの命令実行制御の順序はどれか。ここで，このパイプラインのステージは次の五つとする。\n① 書込み\n② 実行とアドレス生成\n③ 命令デコードとレジスタファイル読出し\n④ 命令フェッチ\n⑤ メモリアクセス\nア，③，④，②，⑤，①。\nイ，③，⑤，②，④，①。\nウ，④，③，②，⑤，①。\nエ，④，⑤，③，②，①。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q10.png",
+        "sha256": "daf0e3d0f9f6bb4bac659352f6e43fad01e17face01c371456566ae32a697144",
+        "width": 930,
+        "height": 510,
+        "byteLength": 133812,
+        "cropBox": [
+          115,
+          620,
+          1045,
+          1130
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source list",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 11,
+      "pdfPage": 8,
+      "printedPage": 8,
+      "cropBox": [
+        115,
+        130,
+        1045,
+        595
+      ],
+      "prompt": "キャッシュメモリの効果として，適切なものはどれか。",
+      "choices": [
+        "主記憶からキャッシュメモリへの命令の読出しと，主記憶からキャッシュメモリへのデータの読出しを同時に行うことによって，データ転送を高速に行う。",
+        "主記憶から読み出したデータをキャッシュメモリに保持し，CPUが後で同じデータを読み出すときのデータ転送を高速に行う。",
+        "主記憶から読み出したデータをキャッシュメモリに保持し，命令を並列に処理することによって演算を高速に行う。",
+        "主記憶から読み出した命令をキャッシュメモリに保持し，キャッシュメモリ上でデコードして実行することによって演算を高速に行う。"
+      ],
+      "officialKey": "イ",
+      "officialIndex": 1,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-08.png",
+      "renderSha256": "d0573df8e93666f440820b4ca51baf414b4dabae3f8adcea22cfc18a7953906a",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q11.png",
+      "cropSha256": "26a2c8eaa92334077b98f254843e15ee0d2ca673a8dc06b936f47df46faff2a7",
+      "fullAlt": "問11。キャッシュメモリの効果として，適切なものはどれか。\n\nア，主記憶からキャッシュメモリへの命令の読出しと，主記憶からキャッシュメモリへのデータの読出しを同時に行うことによって，データ転送を高速に行う。。\nイ，主記憶から読み出したデータをキャッシュメモリに保持し，CPUが後で同じデータを読み出すときのデータ転送を高速に行う。。\nウ，主記憶から読み出したデータをキャッシュメモリに保持し，命令を並列に処理することによって演算を高速に行う。。\nエ，主記憶から読み出した命令をキャッシュメモリに保持し，キャッシュメモリ上でデコードして実行することによって演算を高速に行う。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-11",
+      "page": 8,
+      "alt": "問11。キャッシュメモリの効果として，適切なものはどれか。\n\nア，主記憶からキャッシュメモリへの命令の読出しと，主記憶からキャッシュメモリへのデータの読出しを同時に行うことによって，データ転送を高速に行う。。\nイ，主記憶から読み出したデータをキャッシュメモリに保持し，CPUが後で同じデータを読み出すときのデータ転送を高速に行う。。\nウ，主記憶から読み出したデータをキャッシュメモリに保持し，命令を並列に処理することによって演算を高速に行う。。\nエ，主記憶から読み出した命令をキャッシュメモリに保持し，キャッシュメモリ上でデコードして実行することによって演算を高速に行う。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q11.png",
+        "sha256": "26a2c8eaa92334077b98f254843e15ee0d2ca673a8dc06b936f47df46faff2a7",
+        "width": 930,
+        "height": 465,
+        "byteLength": 236243,
+        "cropBox": [
+          115,
+          130,
+          1045,
+          595
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 12,
+      "pdfPage": 8,
+      "printedPage": 8,
+      "cropBox": [
+        115,
+        640,
+        1045,
+        910
+      ],
+      "prompt": "表示解像度が1,000×800ドットで，色数が65,536色（2¹⁶色）の画像を表示するのに最低限必要なビデオメモリ容量は何Mバイトか。ここで，1Mバイト＝1,000kバイト，1kバイト＝1,000バイトとする。",
+      "choices": [
+        "1.6",
+        "3.2",
+        "6.4",
+        "12.8"
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-08.png",
+      "renderSha256": "d0573df8e93666f440820b4ca51baf414b4dabae3f8adcea22cfc18a7953906a",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q12.png",
+      "cropSha256": "819817914966c9c6f7b33b85c5aaf8da6fb8b5cccdb4b59b1176f1272447defc",
+      "fullAlt": "問12。表示解像度が1,000×800ドットで，色数が65,536色（2¹⁶色）の画像を表示するのに最低限必要なビデオメモリ容量は何Mバイトか。ここで，1Mバイト＝1,000kバイト，1kバイト＝1,000バイトとする。\n\nア，1.6。\nイ，3.2。\nウ，6.4。\nエ，12.8。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-12",
+      "page": 8,
+      "alt": "問12。表示解像度が1,000×800ドットで，色数が65,536色（2¹⁶色）の画像を表示するのに最低限必要なビデオメモリ容量は何Mバイトか。ここで，1Mバイト＝1,000kバイト，1kバイト＝1,000バイトとする。\n\nア，1.6。\nイ，3.2。\nウ，6.4。\nエ，12.8。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q12.png",
+        "sha256": "819817914966c9c6f7b33b85c5aaf8da6fb8b5cccdb4b59b1176f1272447defc",
+        "width": 930,
+        "height": 270,
+        "byteLength": 94709,
+        "cropBox": [
+          115,
+          640,
+          1045,
+          910
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 28,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "original decimal one-place limit; no extra rounding",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 13,
+      "pdfPage": 8,
+      "printedPage": 8,
+      "cropBox": [
+        115,
+        975,
+        1045,
+        1155
+      ],
+      "prompt": "システムが単位時間内にジョブを処理する能力の評価尺度はどれか。",
+      "choices": [
+        "MIPS値",
+        "応答時間",
+        "スループット",
+        "ターンアラウンドタイム"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-08.png",
+      "renderSha256": "d0573df8e93666f440820b4ca51baf414b4dabae3f8adcea22cfc18a7953906a",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q13.png",
+      "cropSha256": "eb4769d4e491b2025964e9867c5c778827aaad27e6d84a8711ab080bb911b9c1",
+      "fullAlt": "問13。システムが単位時間内にジョブを処理する能力の評価尺度はどれか。\n\nア，MIPS値。\nイ，応答時間。\nウ，スループット。\nエ，ターンアラウンドタイム。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-13",
+      "page": 8,
+      "alt": "問13。システムが単位時間内にジョブを処理する能力の評価尺度はどれか。\n\nア，MIPS値。\nイ，応答時間。\nウ，スループット。\nエ，ターンアラウンドタイム。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q13.png",
+        "sha256": "eb4769d4e491b2025964e9867c5c778827aaad27e6d84a8711ab080bb911b9c1",
+        "width": 930,
+        "height": 180,
+        "byteLength": 58853,
+        "cropBox": [
+          115,
+          975,
+          1045,
+          1155
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 14,
+      "pdfPage": 9,
+      "printedPage": 9,
+      "cropBox": [
+        115,
+        135,
+        1045,
+        1035
+      ],
+      "prompt": "図のように，1台のサーバ，3台のクライアント及び2台のプリンタがLANで接続されている。このシステムはクライアントからの指示に基づいて，サーバにあるデータをプリンタに出力する。各装置の稼働率が表のとおりであるとき，このシステムの稼働率を表す計算式はどれか。ここで，クライアントは3台のうち1台でも稼働していればよく，プリンタは2台のうちどちらかが稼働していればよい。",
+      "choices": [
+        "ab³c²",
+        "a(1−b³)(1−c²)",
+        "a(1−b)³(1−c)²",
+        "a(1−(1−b)³)(1−(1−c)²)"
+      ],
+      "diagramLiteral": "水平のLANバスから上へサーバ1台，下へ左からクライアント3台，プリンタ2台がそれぞれ枝分かれして接続されている。サーバとクライアントは矩形，プリンタは下辺が波形の文書形。",
+      "tables": [
+        {
+          "caption": "装置の稼働率",
+          "columns": [
+            "装置",
+            "稼働率"
+          ],
+          "rows": [
+            [
+              "サーバ",
+              "a"
+            ],
+            [
+              "クライアント",
+              "b"
+            ],
+            [
+              "プリンタ",
+              "c"
+            ],
+            [
+              "LAN",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "officialKey": "エ",
+      "officialIndex": 3,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-09.png",
+      "renderSha256": "c8d7984d640ddf8b4e6373a7f2637b6786f2602e44ff594c7b1efef8acfbeedf",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q14.png",
+      "cropSha256": "9707c1b9d7f3ea1e7a9de0c8760ee9d2e3dc96b08b52b66af2721262d9c95e83",
+      "fullAlt": "問14。図のように，1台のサーバ，3台のクライアント及び2台のプリンタがLANで接続されている。このシステムはクライアントからの指示に基づいて，サーバにあるデータをプリンタに出力する。各装置の稼働率が表のとおりであるとき，このシステムの稼働率を表す計算式はどれか。ここで，クライアントは3台のうち1台でも稼働していればよく，プリンタは2台のうちどちらかが稼働していればよい。\n水平のLANバスから上へサーバ1台，下へ左からクライアント3台，プリンタ2台がそれぞれ枝分かれして接続されている。サーバとクライアントは矩形，プリンタは下辺が波形の文書形。\n表装置の稼働率。見出しは装置，稼働率。行1はサーバ，a。行2はクライアント，b。行3はプリンタ，c。行4はLAN，1。\nア，ab³c²。\nイ，a(1−b³)(1−c²)。\nウ，a(1−b)³(1−c)²。\nエ，a(1−(1−b)³)(1−(1−c)²)。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-14",
+      "page": 9,
+      "alt": "問14。図のように，1台のサーバ，3台のクライアント及び2台のプリンタがLANで接続されている。このシステムはクライアントからの指示に基づいて，サーバにあるデータをプリンタに出力する。各装置の稼働率が表のとおりであるとき，このシステムの稼働率を表す計算式はどれか。ここで，クライアントは3台のうち1台でも稼働していればよく，プリンタは2台のうちどちらかが稼働していればよい。\n水平のLANバスから上へサーバ1台，下へ左からクライアント3台，プリンタ2台がそれぞれ枝分かれして接続されている。サーバとクライアントは矩形，プリンタは下辺が波形の文書形。\n表装置の稼働率。見出しは装置，稼働率。行1はサーバ，a。行2はクライアント，b。行3はプリンタ，c。行4はLAN，1。\nア，ab³c²。\nイ，a(1−b³)(1−c²)。\nウ，a(1−b)³(1−c)²。\nエ，a(1−(1−b)³)(1−(1−c)²)。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q14.png",
+        "sha256": "9707c1b9d7f3ea1e7a9de0c8760ee9d2e3dc96b08b52b66af2721262d9c95e83",
+        "width": 930,
+        "height": 900,
+        "byteLength": 270333,
+        "cropBox": [
+          115,
+          135,
+          1045,
+          1035
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 6,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "LAN diagram and table",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "故障独立（改変baseの解答前だけ）",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 15,
+      "pdfPage": 9,
+      "printedPage": 9,
+      "cropBox": [
+        115,
+        1090,
+        1045,
+        1380
+      ],
+      "prompt": "システムの稼働率に関する記述のうち，適切なものはどれか。",
+      "choices": [
+        "MTBFが異なってもMTTRが等しければ，システムの稼働率は等しい。",
+        "MTBFとMTTRの和が等しければ，システムの稼働率は等しい。",
+        "MTBFを変えずにMTTRを短くできれば，システムの稼働率は向上する。",
+        "MTTRが変わらずMTBFが長くなれば，システムの稼働率は低下する。"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-09.png",
+      "renderSha256": "c8d7984d640ddf8b4e6373a7f2637b6786f2602e44ff594c7b1efef8acfbeedf",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q15.png",
+      "cropSha256": "2d662da8440ac34a8d3aded505f8f173be32c13a8ef2d784209c13f8724c3aec",
+      "fullAlt": "問15。システムの稼働率に関する記述のうち，適切なものはどれか。\n\nア，MTBFが異なってもMTTRが等しければ，システムの稼働率は等しい。。\nイ，MTBFとMTTRの和が等しければ，システムの稼働率は等しい。。\nウ，MTBFを変えずにMTTRを短くできれば，システムの稼働率は向上する。。\nエ，MTTRが変わらずMTBFが長くなれば，システムの稼働率は低下する。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-15",
+      "page": 9,
+      "alt": "問15。システムの稼働率に関する記述のうち，適切なものはどれか。\n\nア，MTBFが異なってもMTTRが等しければ，システムの稼働率は等しい。。\nイ，MTBFとMTTRの和が等しければ，システムの稼働率は等しい。。\nウ，MTBFを変えずにMTTRを短くできれば，システムの稼働率は向上する。。\nエ，MTTRが変わらずMTBFが長くなれば，システムの稼働率は低下する。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q15.png",
+        "sha256": "2d662da8440ac34a8d3aded505f8f173be32c13a8ef2d784209c13f8724c3aec",
+        "width": 930,
+        "height": 290,
+        "byteLength": 149061,
+        "cropBox": [
+          115,
+          1090,
+          1045,
+          1380
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "候補1〜3のみMTBF及びMTTRの正値条件を解答前へ明示。原基準候補0と原cropは不変。",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 16,
+      "pdfPage": 10,
+      "printedPage": 10,
+      "cropBox": [
+        115,
+        140,
+        1045,
+        465
+      ],
+      "prompt": "組込みリアルタイムOSで用いられる，優先度に基づくプリエンプティブなスケジューリングの利用方法として，適切なものはどれか。",
+      "choices": [
+        "各タスクの実行時間を均等配分する場合に利用される。",
+        "起動が早いタスクから順番に処理を行う場合に利用される。",
+        "重要度及び緊急度に応じて処理を行う場合に利用される。",
+        "処理時間が短いタスクから順番に処理を行う場合に利用される。"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-10.png",
+      "renderSha256": "de73071132d9b2dd39afa09087fdd1b318a7cd4c09e0651eae5a410bd6959e59",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q16.png",
+      "cropSha256": "fe08287f76f040b15e1cba02984b111d73614f8d70caa033da4f0cd03c1aceaa",
+      "fullAlt": "問16。組込みリアルタイムOSで用いられる，優先度に基づくプリエンプティブなスケジューリングの利用方法として，適切なものはどれか。\n\nア，各タスクの実行時間を均等配分する場合に利用される。。\nイ，起動が早いタスクから順番に処理を行う場合に利用される。。\nウ，重要度及び緊急度に応じて処理を行う場合に利用される。。\nエ，処理時間が短いタスクから順番に処理を行う場合に利用される。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-16",
+      "page": 10,
+      "alt": "問16。組込みリアルタイムOSで用いられる，優先度に基づくプリエンプティブなスケジューリングの利用方法として，適切なものはどれか。\n\nア，各タスクの実行時間を均等配分する場合に利用される。。\nイ，起動が早いタスクから順番に処理を行う場合に利用される。。\nウ，重要度及び緊急度に応じて処理を行う場合に利用される。。\nエ，処理時間が短いタスクから順番に処理を行う場合に利用される。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q16.png",
+        "sha256": "fe08287f76f040b15e1cba02984b111d73614f8d70caa033da4f0cd03c1aceaa",
+        "width": 930,
+        "height": 325,
+        "byteLength": 168466,
+        "cropBox": [
+          115,
+          140,
+          1045,
+          465
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 17,
+      "pdfPage": 10,
+      "printedPage": 10,
+      "cropBox": [
+        115,
+        540,
+        1045,
+        915
+      ],
+      "prompt": "入出力管理におけるバッファの機能として，適切なものはどれか。",
+      "choices": [
+        "入出力装置が利用可能になったことを，入出力装置が処理装置に伝える。",
+        "入出力装置と処理装置との間に特別な記憶域を設け，処理速度の違いを緩和する。",
+        "入出力装置と処理装置との間のデータ交換に階層を設けることによって，入出力装置固有の仕様を意識せずに利用できる。",
+        "入出力装置をファイルと同じように取り扱えるようにする。"
+      ],
+      "officialKey": "イ",
+      "officialIndex": 1,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-10.png",
+      "renderSha256": "de73071132d9b2dd39afa09087fdd1b318a7cd4c09e0651eae5a410bd6959e59",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q17.png",
+      "cropSha256": "f7d32f96ef3e8c0b98dd3b10a58b369bda32142efbf3750ee811251f4cab1596",
+      "fullAlt": "問17。入出力管理におけるバッファの機能として，適切なものはどれか。\n\nア，入出力装置が利用可能になったことを，入出力装置が処理装置に伝える。。\nイ，入出力装置と処理装置との間に特別な記憶域を設け，処理速度の違いを緩和する。。\nウ，入出力装置と処理装置との間のデータ交換に階層を設けることによって，入出力装置固有の仕様を意識せずに利用できる。。\nエ，入出力装置をファイルと同じように取り扱えるようにする。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-17",
+      "page": 10,
+      "alt": "問17。入出力管理におけるバッファの機能として，適切なものはどれか。\n\nア，入出力装置が利用可能になったことを，入出力装置が処理装置に伝える。。\nイ，入出力装置と処理装置との間に特別な記憶域を設け，処理速度の違いを緩和する。。\nウ，入出力装置と処理装置との間のデータ交換に階層を設けることによって，入出力装置固有の仕様を意識せずに利用できる。。\nエ，入出力装置をファイルと同じように取り扱えるようにする。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q17.png",
+        "sha256": "f7d32f96ef3e8c0b98dd3b10a58b369bda32142efbf3750ee811251f4cab1596",
+        "width": 930,
+        "height": 375,
+        "byteLength": 186637,
+        "cropBox": [
+          115,
+          540,
+          1045,
+          915
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 18,
+      "pdfPage": 10,
+      "printedPage": 10,
+      "cropBox": [
+        115,
+        970,
+        1045,
+        1195
+      ],
+      "prompt": "UNIXにおいて，あるコマンドの標準出力を，直接別のコマンドの標準入力につなげる機能はどれか。",
+      "choices": [
+        "パイプ",
+        "バックグラウンドジョブ",
+        "ブレース展開",
+        "リダイレクト"
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-10.png",
+      "renderSha256": "de73071132d9b2dd39afa09087fdd1b318a7cd4c09e0651eae5a410bd6959e59",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q18.png",
+      "cropSha256": "75029482b6314df5f9f8ea6ec6f612d0f0b435fc7efa8c781c3af1e4d7a4f568",
+      "fullAlt": "問18。UNIXにおいて，あるコマンドの標準出力を，直接別のコマンドの標準入力につなげる機能はどれか。\n\nア，パイプ。\nイ，バックグラウンドジョブ。\nウ，ブレース展開。\nエ，リダイレクト。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-18",
+      "page": 10,
+      "alt": "問18。UNIXにおいて，あるコマンドの標準出力を，直接別のコマンドの標準入力につなげる機能はどれか。\n\nア，パイプ。\nイ，バックグラウンドジョブ。\nウ，ブレース展開。\nエ，リダイレクト。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q18.png",
+        "sha256": "75029482b6314df5f9f8ea6ec6f612d0f0b435fc7efa8c781c3af1e4d7a4f568",
+        "width": 930,
+        "height": 225,
+        "byteLength": 68969,
+        "cropBox": [
+          115,
+          970,
+          1045,
+          1195
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 19,
+      "pdfPage": 11,
+      "printedPage": 11,
+      "cropBox": [
+        115,
+        140,
+        1045,
+        605
+      ],
+      "prompt": "コンパイラにおける最適化の説明として，適切なものはどれか。",
+      "choices": [
+        "オブジェクトコードを生成する代わりに，インタプリタ用の中間コードを生成する。",
+        "コンパイルを実施するコンピュータとは異なるアーキテクチャをもったコンピュータで動作するオブジェクトコードを生成する。",
+        "ソースコードを解析して，実行時の処理効率を高めたオブジェクトコードを生成する。",
+        "プログラムの実行時に，呼び出されたサブプログラム名やある時点での変数の内容を表示するようなオブジェクトコードを生成する。"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-11.png",
+      "renderSha256": "b20bd865cb001e846922da547585f666fbd14c8ceb6fd3244d2c6a9ff0b2af4d",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q19.png",
+      "cropSha256": "e8b1f1d7370bf0284de9e2479652757a0d3b7fa03c4303b55b0f8183a1d0b2b1",
+      "fullAlt": "問19。コンパイラにおける最適化の説明として，適切なものはどれか。\n\nア，オブジェクトコードを生成する代わりに，インタプリタ用の中間コードを生成する。。\nイ，コンパイルを実施するコンピュータとは異なるアーキテクチャをもったコンピュータで動作するオブジェクトコードを生成する。。\nウ，ソースコードを解析して，実行時の処理効率を高めたオブジェクトコードを生成する。。\nエ，プログラムの実行時に，呼び出されたサブプログラム名やある時点での変数の内容を表示するようなオブジェクトコードを生成する。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-19",
+      "page": 11,
+      "alt": "問19。コンパイラにおける最適化の説明として，適切なものはどれか。\n\nア，オブジェクトコードを生成する代わりに，インタプリタ用の中間コードを生成する。。\nイ，コンパイルを実施するコンピュータとは異なるアーキテクチャをもったコンピュータで動作するオブジェクトコードを生成する。。\nウ，ソースコードを解析して，実行時の処理効率を高めたオブジェクトコードを生成する。。\nエ，プログラムの実行時に，呼び出されたサブプログラム名やある時点での変数の内容を表示するようなオブジェクトコードを生成する。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q19.png",
+        "sha256": "e8b1f1d7370bf0284de9e2479652757a0d3b7fa03c4303b55b0f8183a1d0b2b1",
+        "width": 930,
+        "height": 465,
+        "byteLength": 197659,
+        "cropBox": [
+          115,
+          140,
+          1045,
+          605
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks",
+        "fixedTarget": "最適化だけを問う。原0のstem/全4択/公式正答を保持。候補1〜3はインタプリタ/リンカ/文法診断/前処理/ロード/デバッガ/字句解析/動的リンクという実処理の異なる誤答を変える。",
+        "answerVariation": "fixed",
+        "reviewCorrection": "Rootの独立査読で旧case1 targetが正答定義をstemに漏らす不備を指摘。旧可変targetを削除し全4候補を最適化に固定。生成器から期待値を作らず全16択の処理分類と真偽理由を手動でoracleへ固定。"
+      }
+    },
+    {
+      "number": 20,
+      "pdfPage": 11,
+      "printedPage": 11,
+      "cropBox": [
+        115,
+        645,
+        1045,
+        1010
+      ],
+      "prompt": "リンカの機能として，適切なものはどれか。",
+      "choices": [
+        "作成したプログラムをライブラリに登録する。",
+        "実行に先立ってロードモジュールを主記憶にロードする。",
+        "相互参照の解決などを行い，複数の目的モジュールなどから一つのロードモジュールを生成する。",
+        "プログラムの実行を監視し，ステップごとに実行結果を記録する。"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-11.png",
+      "renderSha256": "b20bd865cb001e846922da547585f666fbd14c8ceb6fd3244d2c6a9ff0b2af4d",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q20.png",
+      "cropSha256": "fc8b7afd20b98d36b8498fb011a419aee36667d1c8dd4499d3c038c9c7de7093",
+      "fullAlt": "問20。リンカの機能として，適切なものはどれか。\n\nア，作成したプログラムをライブラリに登録する。。\nイ，実行に先立ってロードモジュールを主記憶にロードする。。\nウ，相互参照の解決などを行い，複数の目的モジュールなどから一つのロードモジュールを生成する。。\nエ，プログラムの実行を監視し，ステップごとに実行結果を記録する。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-20",
+      "page": 11,
+      "alt": "問20。リンカの機能として，適切なものはどれか。\n\nア，作成したプログラムをライブラリに登録する。。\nイ，実行に先立ってロードモジュールを主記憶にロードする。。\nウ，相互参照の解決などを行い，複数の目的モジュールなどから一つのロードモジュールを生成する。。\nエ，プログラムの実行を監視し，ステップごとに実行結果を記録する。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q20.png",
+        "sha256": "fc8b7afd20b98d36b8498fb011a419aee36667d1c8dd4499d3c038c9c7de7093",
+        "width": 930,
+        "height": 365,
+        "byteLength": 134265,
+        "cropBox": [
+          115,
+          645,
+          1045,
+          1010
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 21,
+      "pdfPage": 11,
+      "printedPage": 11,
+      "cropBox": [
+        115,
+        1080,
+        1045,
+        1360
+      ],
+      "prompt": "静的テストツールの機能に分類されるものはどれか。",
+      "choices": [
+        "ソースコードを解析して，プログラムの誤りを検出する。",
+        "テスト対象モジュールに必要なドライバ又はスタブを生成する。",
+        "テストによって実行した経路から網羅度を算出する。",
+        "プログラムの特定の経路をテストするためのデータを生成する。"
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-11.png",
+      "renderSha256": "b20bd865cb001e846922da547585f666fbd14c8ceb6fd3244d2c6a9ff0b2af4d",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q21.png",
+      "cropSha256": "e9171c84e03f2ef0ce19a94da5cd088f0e59c3d8c53277a91fc66b1191640345",
+      "fullAlt": "問21。静的テストツールの機能に分類されるものはどれか。\n\nア，ソースコードを解析して，プログラムの誤りを検出する。。\nイ，テスト対象モジュールに必要なドライバ又はスタブを生成する。。\nウ，テストによって実行した経路から網羅度を算出する。。\nエ，プログラムの特定の経路をテストするためのデータを生成する。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-21",
+      "page": 11,
+      "alt": "問21。静的テストツールの機能に分類されるものはどれか。\n\nア，ソースコードを解析して，プログラムの誤りを検出する。。\nイ，テスト対象モジュールに必要なドライバ又はスタブを生成する。。\nウ，テストによって実行した経路から網羅度を算出する。。\nエ，プログラムの特定の経路をテストするためのデータを生成する。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q21.png",
+        "sha256": "e9171c84e03f2ef0ce19a94da5cd088f0e59c3d8c53277a91fc66b1191640345",
+        "width": 930,
+        "height": 280,
+        "byteLength": 127659,
+        "cropBox": [
+          115,
+          1080,
+          1045,
+          1360
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 22,
+      "pdfPage": 12,
+      "printedPage": 12,
+      "cropBox": [
+        115,
+        140,
+        1045,
+        435
+      ],
+      "prompt": "RFIDの活用事例として，適切なものはどれか。",
+      "choices": [
+        "紙に印刷されたディジタルコードをリーダで読み取ることによる情報の入力",
+        "携帯電話とヘッドフォンとの間の音声データ通信",
+        "赤外線を利用した近距離データ通信",
+        "微小な無線チップによる人又は物の識別及び管理"
+      ],
+      "officialKey": "エ",
+      "officialIndex": 3,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-12.png",
+      "renderSha256": "520a928c919d8aabdb35632a528af51ef96cb6f790af34bf4e921b17099841b1",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q22.png",
+      "cropSha256": "00704fa9cf1bd66a2c4e6f7da3383663fe7eb5d77b4cd44dc5dca6b33ca7ef42",
+      "fullAlt": "問22。RFIDの活用事例として，適切なものはどれか。\n\nア，紙に印刷されたディジタルコードをリーダで読み取ることによる情報の入力。\nイ，携帯電話とヘッドフォンとの間の音声データ通信。\nウ，赤外線を利用した近距離データ通信。\nエ，微小な無線チップによる人又は物の識別及び管理。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-22",
+      "page": 12,
+      "alt": "問22。RFIDの活用事例として，適切なものはどれか。\n\nア，紙に印刷されたディジタルコードをリーダで読み取ることによる情報の入力。\nイ，携帯電話とヘッドフォンとの間の音声データ通信。\nウ，赤外線を利用した近距離データ通信。\nエ，微小な無線チップによる人又は物の識別及び管理。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q22.png",
+        "sha256": "00704fa9cf1bd66a2c4e6f7da3383663fe7eb5d77b4cd44dc5dca6b33ca7ef42",
+        "width": 930,
+        "height": 295,
+        "byteLength": 119222,
+        "cropBox": [
+          115,
+          140,
+          1045,
+          435
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 23,
+      "pdfPage": 12,
+      "printedPage": 12,
+      "cropBox": [
+        115,
+        490,
+        1045,
+        830
+      ],
+      "prompt": "図の論理回路と等価な回路はどれか。",
+      "choices": [
+        "OR回路",
+        "AND回路",
+        "XOR回路",
+        "NOR回路"
+      ],
+      "choiceMedia": "diagrams",
+      "diagramLiteral": "入力AとBをNAND回路G1へ入れる。G1の出力とAをNAND回路G2へ，G1の出力とBをNAND回路G3へ入れる。G2とG3の出力をNAND回路G4へ入れ，出力をYとする。接続点は黒丸。G1〜G4のラベルは原図にはなく説明上だけの識別子。",
+      "choiceDiagramLiterals": [
+        "入力AとBをORゲートへ入れ，出力Yとする。",
+        "入力AとBをANDゲートへ入れ，出力Yとする。",
+        "入力AとBをXORゲートへ入れ，出力Yとする。",
+        "入力AとBをNORゲートへ入れ，出力Yとする。"
+      ],
+      "officialKey": "ウ",
+      "officialIndex": 2,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-12.png",
+      "renderSha256": "520a928c919d8aabdb35632a528af51ef96cb6f790af34bf4e921b17099841b1",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q23.png",
+      "cropSha256": "6b60229161c9068a8415264f125e66fa75250ebce7e2afbfc43e169ee33ceeb9",
+      "fullAlt": "問23。図の論理回路と等価な回路はどれか。\n入力AとBをNAND回路G1へ入れる。G1の出力とAをNAND回路G2へ，G1の出力とBをNAND回路G3へ入れる。G2とG3の出力をNAND回路G4へ入れ，出力をYとする。接続点は黒丸。G1〜G4のラベルは原図にはなく説明上だけの識別子。\nア，入力AとBをORゲートへ入れ，出力Yとする。。\nイ，入力AとBをANDゲートへ入れ，出力Yとする。。\nウ，入力AとBをXORゲートへ入れ，出力Yとする。。\nエ，入力AとBをNORゲートへ入れ，出力Yとする。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-23",
+      "page": 12,
+      "alt": "問23。図の論理回路と等価な回路はどれか。\n入力AとBをNAND回路G1へ入れる。G1の出力とAをNAND回路G2へ，G1の出力とBをNAND回路G3へ入れる。G2とG3の出力をNAND回路G4へ入れ，出力をYとする。接続点は黒丸。G1〜G4のラベルは原図にはなく説明上だけの識別子。\nア，入力AとBをORゲートへ入れ，出力Yとする。。\nイ，入力AとBをANDゲートへ入れ，出力Yとする。。\nウ，入力AとBをXORゲートへ入れ，出力Yとする。。\nエ，入力AとBをNORゲートへ入れ，出力Yとする。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q23.png",
+        "sha256": "6b60229161c9068a8415264f125e66fa75250ebce7e2afbfc43e169ee33ceeb9",
+        "width": 930,
+        "height": 340,
+        "byteLength": 70572,
+        "cropBox": [
+          115,
+          490,
+          1045,
+          830
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "circuit diagram and diagram choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 24,
+      "pdfPage": 12,
+      "printedPage": 12,
+      "cropBox": [
+        115,
+        875,
+        1045,
+        1080
+      ],
+      "prompt": "HTML文書の文字の大きさ，文字の色，行間などの視覚表現の情報を扱う標準仕様はどれか。",
+      "choices": [
+        "CMS",
+        "CSS",
+        "RSS",
+        "Wiki"
+      ],
+      "officialKey": "イ",
+      "officialIndex": 1,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-12.png",
+      "renderSha256": "520a928c919d8aabdb35632a528af51ef96cb6f790af34bf4e921b17099841b1",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q24-v2.png",
+      "cropSha256": "7765e4661c6b5e8aab5c4eb4827282f5252d343e9457723a89273ba038aa2fcc",
+      "fullAlt": "問24。HTML文書の文字の大きさ，文字の色，行間などの視覚表現の情報を扱う標準仕様はどれか。\n\nア，CMS。\nイ，CSS。\nウ，RSS。\nエ，Wiki。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "rejectedCropAttempts": [
+        {
+          "path": "output/source-review/s3-001-2016-spring-am/q09-32/q24.png",
+          "sha256": "ac8e8a6e933f1244b9de4ae822746303b637157d4036e57ea8fd3c2a61897a09",
+          "reason": "Q24 first prompt line cut",
+          "disposition": "rejected_private_only_never_copy"
+        }
+      ],
+      "source": "2016h28h-fe-am-24",
+      "page": 12,
+      "alt": "問24。HTML文書の文字の大きさ，文字の色，行間などの視覚表現の情報を扱う標準仕様はどれか。\n\nア，CMS。\nイ，CSS。\nウ，RSS。\nエ，Wiki。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q24-v2.png",
+        "sha256": "7765e4661c6b5e8aab5c4eb4827282f5252d343e9457723a89273ba038aa2fcc",
+        "width": 930,
+        "height": 205,
+        "byteLength": 61254,
+        "cropBox": [
+          115,
+          875,
+          1045,
+          1080
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 25,
+      "pdfPage": 13,
+      "printedPage": 13,
+      "cropBox": [
+        115,
+        140,
+        1045,
+        560
+      ],
+      "prompt": "3次元グラフィックス処理におけるクリッピングの説明はどれか。",
+      "choices": [
+        "CG映像作成における最終段階として，物体のデータをディスプレイに描画できるように映像化する処理である。",
+        "画像表示領域にウィンドウを定義し，ウィンドウの外側を除去し，内側の見える部分だけを取り出す処理である。",
+        "スクリーンの画素数が有限であるために図形の境界近くに生じる，階段状のギザギザを目立たなくする処理である。",
+        "立体感を生じさせるために，物体の表面に陰影を付ける処理である。"
+      ],
+      "officialKey": "イ",
+      "officialIndex": 1,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-13.png",
+      "renderSha256": "02c3627f7cbc792aaea7cfb5ce85c6941ba6d4413ea86635d649ae8d10fbf540",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q25.png",
+      "cropSha256": "194f9f7dc140993a7ef39cd06caae640889f861f3fdc6545a9aff7108dc96416",
+      "fullAlt": "問25。3次元グラフィックス処理におけるクリッピングの説明はどれか。\n\nア，CG映像作成における最終段階として，物体のデータをディスプレイに描画できるように映像化する処理である。。\nイ，画像表示領域にウィンドウを定義し，ウィンドウの外側を除去し，内側の見える部分だけを取り出す処理である。。\nウ，スクリーンの画素数が有限であるために図形の境界近くに生じる，階段状のギザギザを目立たなくする処理である。。\nエ，立体感を生じさせるために，物体の表面に陰影を付ける処理である。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-25",
+      "page": 13,
+      "alt": "問25。3次元グラフィックス処理におけるクリッピングの説明はどれか。\n\nア，CG映像作成における最終段階として，物体のデータをディスプレイに描画できるように映像化する処理である。。\nイ，画像表示領域にウィンドウを定義し，ウィンドウの外側を除去し，内側の見える部分だけを取り出す処理である。。\nウ，スクリーンの画素数が有限であるために図形の境界近くに生じる，階段状のギザギザを目立たなくする処理である。。\nエ，立体感を生じさせるために，物体の表面に陰影を付ける処理である。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q25.png",
+        "sha256": "194f9f7dc140993a7ef39cd06caae640889f861f3fdc6545a9aff7108dc96416",
+        "width": 930,
+        "height": 420,
+        "byteLength": 209974,
+        "cropBox": [
+          115,
+          140,
+          1045,
+          560
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 26,
+      "pdfPage": 13,
+      "printedPage": 13,
+      "cropBox": [
+        115,
+        625,
+        1045,
+        960
+      ],
+      "prompt": "関係モデルとその実装である関係データベースの対応に関する記述のうち，適切なものはどれか。",
+      "choices": [
+        "関係は，表に対応付けられる。",
+        "属性も列も，左から右に順序付けられる。",
+        "タプルも行も，ともに重複しない。",
+        "定義域は，文字型又は文字列型に対応付けられる。"
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-13.png",
+      "renderSha256": "02c3627f7cbc792aaea7cfb5ce85c6941ba6d4413ea86635d649ae8d10fbf540",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q26.png",
+      "cropSha256": "311d1ca86f0c41a43550646d8c0dcf6738e8f1a640012df469e76b71e4ef89be",
+      "fullAlt": "問26。関係モデルとその実装である関係データベースの対応に関する記述のうち，適切なものはどれか。\n\nア，関係は，表に対応付けられる。。\nイ，属性も列も，左から右に順序付けられる。。\nウ，タプルも行も，ともに重複しない。。\nエ，定義域は，文字型又は文字列型に対応付けられる。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-26",
+      "page": 13,
+      "alt": "問26。関係モデルとその実装である関係データベースの対応に関する記述のうち，適切なものはどれか。\n\nア，関係は，表に対応付けられる。。\nイ，属性も列も，左から右に順序付けられる。。\nウ，タプルも行も，ともに重複しない。。\nエ，定義域は，文字型又は文字列型に対応付けられる。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q26.png",
+        "sha256": "311d1ca86f0c41a43550646d8c0dcf6738e8f1a640012df469e76b71e4ef89be",
+        "width": 930,
+        "height": 335,
+        "byteLength": 117048,
+        "cropBox": [
+          115,
+          625,
+          1045,
+          960
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 27,
+      "pdfPage": 13,
+      "printedPage": 13,
+      "cropBox": [
+        115,
+        1015,
+        1045,
+        1480
+      ],
+      "prompt": "関係XとYを結合した後，関係Zを得る関係代数演算はどれか。",
+      "choices": [
+        "射影と選択",
+        "射影と和",
+        "選択",
+        "選択と和"
+      ],
+      "tables": [
+        {
+          "caption": "X",
+          "columns": [
+            "学生番号",
+            "氏名",
+            "学部コード"
+          ],
+          "rows": [
+            [
+              "1",
+              "山田太郎",
+              "A"
+            ],
+            [
+              "2",
+              "情報一郎",
+              "B"
+            ],
+            [
+              "3",
+              "鈴木花子",
+              "A"
+            ],
+            [
+              "4",
+              "技術五郎",
+              "B"
+            ],
+            [
+              "5",
+              "小林次郎",
+              "A"
+            ],
+            [
+              "6",
+              "試験桃子",
+              "A"
+            ]
+          ]
+        },
+        {
+          "caption": "Y",
+          "columns": [
+            "学部コード",
+            "学部名"
+          ],
+          "rows": [
+            [
+              "A",
+              "工学部"
+            ],
+            [
+              "B",
+              "情報学部"
+            ],
+            [
+              "C",
+              "文学部"
+            ]
+          ]
+        },
+        {
+          "caption": "Z",
+          "columns": [
+            "学部名",
+            "学生番号",
+            "氏名"
+          ],
+          "rows": [
+            [
+              "情報学部",
+              "2",
+              "情報一郎"
+            ],
+            [
+              "情報学部",
+              "4",
+              "技術五郎"
+            ]
+          ]
+        }
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-13.png",
+      "renderSha256": "02c3627f7cbc792aaea7cfb5ce85c6941ba6d4413ea86635d649ae8d10fbf540",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q27.png",
+      "cropSha256": "1df8737bd68cc11bfb0d3ac904db04f9b50e4093d47be1c5835fae008abdf485",
+      "fullAlt": "問27。関係XとYを結合した後，関係Zを得る関係代数演算はどれか。\n表X。見出しは学生番号，氏名，学部コード。行1は1，山田太郎，A。行2は2，情報一郎，B。行3は3，鈴木花子，A。行4は4，技術五郎，B。行5は5，小林次郎，A。行6は6，試験桃子，A。\n表Y。見出しは学部コード，学部名。行1はA，工学部。行2はB，情報学部。行3はC，文学部。\n表Z。見出しは学部名，学生番号，氏名。行1は情報学部，2，情報一郎。行2は情報学部，4，技術五郎。\nア，射影と選択。\nイ，射影と和。\nウ，選択。\nエ，選択と和。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-27",
+      "page": 13,
+      "alt": "問27。関係XとYを結合した後，関係Zを得る関係代数演算はどれか。\n表X。見出しは学生番号，氏名，学部コード。行1は1，山田太郎，A。行2は2，情報一郎，B。行3は3，鈴木花子，A。行4は4，技術五郎，B。行5は5，小林次郎，A。行6は6，試験桃子，A。\n表Y。見出しは学部コード，学部名。行1はA，工学部。行2はB，情報学部。行3はC，文学部。\n表Z。見出しは学部名，学生番号，氏名。行1は情報学部，2，情報一郎。行2は情報学部，4，技術五郎。\nア，射影と選択。\nイ，射影と和。\nウ，選択。\nエ，選択と和。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q27.png",
+        "sha256": "1df8737bd68cc11bfb0d3ac904db04f9b50e4093d47be1c5835fae008abdf485",
+        "width": 930,
+        "height": 465,
+        "byteLength": 205455,
+        "cropBox": [
+          115,
+          1015,
+          1045,
+          1480
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 6,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "three relation tables",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 28,
+      "pdfPage": 14,
+      "printedPage": 14,
+      "cropBox": [
+        115,
+        140,
+        1045,
+        425
+      ],
+      "prompt": "トランザクションが，データベースに対する更新処理を完全に行うか，全く処理しなかったかのように取り消すか，のどちらかの結果になることを保証する特性はどれか。",
+      "choices": [
+        "一貫性（consistency）",
+        "原子性（atomicity）",
+        "耐久性（durability）",
+        "独立性（isolation）"
+      ],
+      "officialKey": "イ",
+      "officialIndex": 1,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-14.png",
+      "renderSha256": "d4f86feae13b387038499c1f090842a5acba4aca7a670564a6f99f2a8e3c96ef",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q28.png",
+      "cropSha256": "2b23f1c8a4d268e2c099ca545eaab6a4902f3210cbfa370f5cf2a079487a71a0",
+      "fullAlt": "問28。トランザクションが，データベースに対する更新処理を完全に行うか，全く処理しなかったかのように取り消すか，のどちらかの結果になることを保証する特性はどれか。\n\nア，一貫性（consistency）。\nイ，原子性（atomicity）。\nウ，耐久性（durability）。\nエ，独立性（isolation）。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-28",
+      "page": 14,
+      "alt": "問28。トランザクションが，データベースに対する更新処理を完全に行うか，全く処理しなかったかのように取り消すか，のどちらかの結果になることを保証する特性はどれか。\n\nア，一貫性（consistency）。\nイ，原子性（atomicity）。\nウ，耐久性（durability）。\nエ，独立性（isolation）。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q28.png",
+        "sha256": "2b23f1c8a4d268e2c099ca545eaab6a4902f3210cbfa370f5cf2a079487a71a0",
+        "width": 930,
+        "height": 285,
+        "byteLength": 111211,
+        "cropBox": [
+          115,
+          140,
+          1045,
+          425
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 29,
+      "pdfPage": 14,
+      "printedPage": 14,
+      "cropBox": [
+        115,
+        480,
+        1045,
+        980
+      ],
+      "prompt": "関係データベースにおいて，外部キーを定義する目的として，適切なものはどれか。",
+      "choices": [
+        "関係する相互のテーブルにおいて，レコード間の参照一貫性が維持される制約をもたせる。",
+        "関係する相互のテーブルの格納場所を近くに配置することによって，検索，更新を高速に行う。",
+        "障害によって破壊されたレコードを，テーブル間の相互の関係から可能な限り復旧させる。",
+        "レコードの削除，追加の繰返しによる，レコード格納エリアのフラグメンテーションを防止する。"
+      ],
+      "officialKey": "ア",
+      "officialIndex": 0,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-14.png",
+      "renderSha256": "d4f86feae13b387038499c1f090842a5acba4aca7a670564a6f99f2a8e3c96ef",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q29.png",
+      "cropSha256": "a704e25224f38ed9e7cb8c153c0e66f40273b0fd24cda645f5615d0a6166f9d9",
+      "fullAlt": "問29。関係データベースにおいて，外部キーを定義する目的として，適切なものはどれか。\n\nア，関係する相互のテーブルにおいて，レコード間の参照一貫性が維持される制約をもたせる。。\nイ，関係する相互のテーブルの格納場所を近くに配置することによって，検索，更新を高速に行う。。\nウ，障害によって破壊されたレコードを，テーブル間の相互の関係から可能な限り復旧させる。。\nエ，レコードの削除，追加の繰返しによる，レコード格納エリアのフラグメンテーションを防止する。。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-29",
+      "page": 14,
+      "alt": "問29。関係データベースにおいて，外部キーを定義する目的として，適切なものはどれか。\n\nア，関係する相互のテーブルにおいて，レコード間の参照一貫性が維持される制約をもたせる。。\nイ，関係する相互のテーブルの格納場所を近くに配置することによって，検索，更新を高速に行う。。\nウ，障害によって破壊されたレコードを，テーブル間の相互の関係から可能な限り復旧させる。。\nエ，レコードの削除，追加の繰返しによる，レコード格納エリアのフラグメンテーションを防止する。。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q29.png",
+        "sha256": "a704e25224f38ed9e7cb8c153c0e66f40273b0fd24cda645f5615d0a6166f9d9",
+        "width": 930,
+        "height": 500,
+        "byteLength": 194539,
+        "cropBox": [
+          115,
+          480,
+          1045,
+          980
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 30,
+      "pdfPage": 14,
+      "printedPage": 14,
+      "cropBox": [
+        115,
+        1050,
+        1045,
+        1320
+      ],
+      "prompt": "DBMSにおいて，複数のトランザクション処理プログラムが同一データベースを同時に更新する場合，論理的な矛盾を生じさせないために用いる技法はどれか。",
+      "choices": [
+        "再編成",
+        "正規化",
+        "整合性制約",
+        "排他制御"
+      ],
+      "officialKey": "エ",
+      "officialIndex": 3,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-14.png",
+      "renderSha256": "d4f86feae13b387038499c1f090842a5acba4aca7a670564a6f99f2a8e3c96ef",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q30-v2.png",
+      "cropSha256": "2c67798661242ed5184d847b4a0c7deea1cde522bbf51d8bcd68c40405f7c803",
+      "fullAlt": "問30。DBMSにおいて，複数のトランザクション処理プログラムが同一データベースを同時に更新する場合，論理的な矛盾を生じさせないために用いる技法はどれか。\n\nア，再編成。\nイ，正規化。\nウ，整合性制約。\nエ，排他制御。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "rejectedCropAttempts": [
+        {
+          "path": "output/source-review/s3-001-2016-spring-am/q09-32/q30.png",
+          "sha256": "c4c74ec0724768c45d23916a9ec214b7ef370515ce96fd4eda6e469e4344f77e",
+          "reason": "Q30 bottom two choices cut",
+          "disposition": "rejected_private_only_never_copy"
+        }
+      ],
+      "source": "2016h28h-fe-am-30",
+      "page": 14,
+      "alt": "問30。DBMSにおいて，複数のトランザクション処理プログラムが同一データベースを同時に更新する場合，論理的な矛盾を生じさせないために用いる技法はどれか。\n\nア，再編成。\nイ，正規化。\nウ，整合性制約。\nエ，排他制御。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q30-v2.png",
+        "sha256": "2c67798661242ed5184d847b4a0c7deea1cde522bbf51d8bcd68c40405f7c803",
+        "width": 930,
+        "height": 270,
+        "byteLength": 90903,
+        "cropBox": [
+          115,
+          1050,
+          1045,
+          1320
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 31,
+      "pdfPage": 15,
+      "printedPage": 15,
+      "cropBox": [
+        115,
+        140,
+        1045,
+        350
+      ],
+      "prompt": "64kビット／秒の回線を用いて10⁶バイトのファイルを送信するとき，伝送におよそ何秒掛かるか。ここで，回線の伝送効率は80%とする。",
+      "choices": [
+        "19.6",
+        "100",
+        "125",
+        "156"
+      ],
+      "officialKey": "エ",
+      "officialIndex": 3,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-15.png",
+      "renderSha256": "fc02b3176fef469d5a3cef82b6eaaf6fbb6021674b5cb0de024e8c64a5fdf3e2",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q31.png",
+      "cropSha256": "871a56584d59fa9efde893e28a11cc36b0d9f8932a6d50c61ee25d4607487a96",
+      "fullAlt": "問31。64kビット／秒の回線を用いて10⁶バイトのファイルを送信するとき，伝送におよそ何秒掛かるか。ここで，回線の伝送効率は80%とする。\n\nア，19.6。\nイ，100。\nウ，125。\nエ，156。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-31",
+      "page": 15,
+      "alt": "問31。64kビット／秒の回線を用いて10⁶バイトのファイルを送信するとき，伝送におよそ何秒掛かるか。ここで，回線の伝送効率は80%とする。\n\nア，19.6。\nイ，100。\nウ，125。\nエ，156。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q31.png",
+        "sha256": "871a56584d59fa9efde893e28a11cc36b0d9f8932a6d50c61ee25d4607487a96",
+        "width": 930,
+        "height": 210,
+        "byteLength": 70455,
+        "cropBox": [
+          115,
+          140,
+          1045,
+          350
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 8,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "original decimal one-place limit; no extra rounding",
+        "additionalPremises": "1kビット=1000ビット（改変baseの解答前だけ）",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    },
+    {
+      "number": 32,
+      "pdfPage": 15,
+      "printedPage": 15,
+      "cropBox": [
+        115,
+        380,
+        1045,
+        635
+      ],
+      "prompt": "複数のLANを接続するために用いる装置で，OSI基本参照モデルのデータリンク層のプロトコル情報に基づいてデータを中継する装置はどれか。",
+      "choices": [
+        "ゲートウェイ",
+        "ブリッジ",
+        "リピータ",
+        "ルータ"
+      ],
+      "officialKey": "イ",
+      "officialIndex": 1,
+      "materialReview": {
+        "thirdPartyFinding": "原問画像の出典・規格引用表示なし。規格名や機能事実の記述と規格本文転載を区別。IPA一般条件の今回確認はroot担当。",
+        "repository": "candidate_pending_root_source_rights_gate",
+        "browser": "candidate_pending_root_source_rights_gate",
+        "adaptation": "candidate_pending_root_source_rights_gate"
+      },
+      "renderPath": "output/source-review/s3-001-2016-spring-am/q09-32/render/page-15.png",
+      "renderSha256": "fc02b3176fef469d5a3cef82b6eaaf6fbb6021674b5cb0de024e8c64a5fdf3e2",
+      "cropPath": "output/source-review/s3-001-2016-spring-am/q09-32/q32.png",
+      "cropSha256": "37712d2f146755fe290ebc21d8c19aaf6ce1ba1fa9b180d58cfd802c798036a9",
+      "fullAlt": "問32。複数のLANを接続するために用いる装置で，OSI基本参照モデルのデータリンク層のプロトコル情報に基づいてデータを中継する装置はどれか。\n\nア，ゲートウェイ。\nイ，ブリッジ。\nウ，リピータ。\nエ，ルータ。",
+      "visualReview": "PDF fullpage and final crop inspected from actual images; all prompt/notes/figures/tables/choices complete, no neighboring question",
+      "noAnswerInAlt": true,
+      "source": "2016h28h-fe-am-32",
+      "page": 15,
+      "alt": "問32。複数のLANを接続するために用いる装置で，OSI基本参照モデルのデータリンク層のプロトコル情報に基づいてデータを中継する装置はどれか。\n\nア，ゲートウェイ。\nイ，ブリッジ。\nウ，リピータ。\nエ，ルータ。",
+      "crop": {
+        "path": "output/source-review/s3-001-2016-spring-am/q09-32/q32.png",
+        "sha256": "37712d2f146755fe290ebc21d8c19aaf6ce1ba1fa9b180d58cfd802c798036a9",
+        "width": 930,
+        "height": 255,
+        "byteLength": 82030,
+        "cropBox": [
+          115,
+          380,
+          1045,
+          635
+        ]
+      },
+      "generationReview": {
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "inputContract": "one scalar caseIndex, candidate0 is exact source baseline; internal conditions are explicitly finite",
+        "media": "source prose and four choices",
+        "questionDirection": "appropriate/identification as source, no reversal to negative wording",
+        "precision": "not numerical or symbolic exact",
+        "additionalPremises": "no additional premise",
+        "independentOracle": "tests/fixtures/legacy-2016-spring-am-09-32-oracle.ts",
+        "limits": "AI self-review, not independent expert/legal approval; normal App binding/renderer integration and production rights gate are root tasks"
+      }
+    }
+  ],
+  "sourceMetadataFrom": "tests/fixtures/legacy-2016-spring-fundamentals-source-facts.json#/metadata",
+  "primaryQuestionURL": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf",
+  "primaryAnswerURL": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_ans.pdf",
+  "answerImageReview": "all24 official keys manually matched from actual answer PDF render, row9–20 first grid and row21–32 second grid",
+  "qualityLimits": [
+    "All24 are implementation candidates, not registered or published yet.",
+    "128 finite actual conditions are enumerated; choice ordering is not counted as diversity.",
+    "Source crops are ignored private outputs; parent source/rights/material acceptance required before copying.",
+    "Bodies/answers match reference images. Generated diagrams are newly drawn adaptations, not copied PDF diagrams.",
+    "No explicit third-party quotation or credit found in these24 question images. This is a visual finding, not a blanket grant for all FE materials."
+  ],
+  "independentPrimaryFacts": [
+    {
+      "url": "https://www.postgresql.org/docs/9.5/tutorial-transactions.html",
+      "checkedOn": "2026-11-01",
+      "scope": "all-or-nothing, visibility, persistence facts only; no documentation prose or tables reused"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/9.5/ddl-constraints.html",
+      "checkedOn": "2026-11-01",
+      "scope": "foreign keys and referential integrity; no normative quotation"
+    },
+    {
+      "url": "https://www.w3.org/TR/html401/present/styles.html",
+      "checkedOn": "2026-11-01",
+      "scope": "CSS presentation facts only"
+    },
+    {
+      "url": "https://clang.llvm.org/docs/CommandGuide/clang.html",
+      "checkedOn": "2026-11-01",
+      "scope": "compiler stages, optimization and static analysis facts only"
+    },
+    {
+      "url": "https://github.freertos.org/Documentation/02-Kernel/02-Kernel-features/01-Tasks-and-co-routines/04-Task-scheduling",
+      "checkedOn": "2026-11-01",
+      "scope": "priority preemption versus round-robin; no current product behavior substituted for2016 question"
+    },
+    {
+      "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/loop-optimizations-where-blocks-are-required.html",
+      "checkedOn": "2026-11-01",
+      "scope": "cache temporal locality and main-memory miss; primary search excerpt only"
+    },
+    {
+      "url": "https://support.gs1.org/support/solutions/articles/43000734278-what-is-the-difference-between-low-high-and-ultra-high-frequencies-",
+      "checkedOn": "2026-11-01",
+      "scope": "RFID radio-frequency identification facts; primary search excerpt only"
+    },
+    {
+      "url": "https://www.gnu.org/software/bash/manual/bash.html",
+      "checkedOn": "2026-11-01",
+      "scope": "primary search excerpt for pipe/redirection/brace expansion; subsection fetches timed out, not claimed fully read"
+    }
+  ],
+  "validation": {
+    "semanticFiniteInputs": 128,
+    "negativeMutations": 160,
+    "nativeManagedSceneCases": 26,
+    "targetedTests": "tests/legacy-2016-spring-am-09-32.test.ts",
+    "display": "actual all26 SVG rendered with resvg in both token themes, unique6LAN+4logic+4choice figures inspected in each theme; SSR all26 shapes/accessible names checked. No normal App browser verification yet.",
+    "targetedCaseCount": 7
+  }
+}

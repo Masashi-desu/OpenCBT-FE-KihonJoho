@@ -19,6 +19,7 @@ import {decemberAReview} from "../tests/fixtures/dec-2022-a-review";
 import discoveryLedger from "./source-evidence/pre-2009-official-discovery-review.json";
 import { auditPre2023Discovery, finalizePre2023Readiness } from "./pre-2023-discovery-gate";
 import { assertLegacyEvidenceValues, losslessJSONCopy, pre2009HardPending, pre2009InventoryScope, readPre2009InventoryAdmission } from "./pre-2023-inventory-admission";
+import { stage3ImportReviews } from './stage3-import-review';
 
 // Independent of both the acquisition file and distribution catalog. Deleting
 // an unimplemented collection must not turn the requested expansion green.
@@ -164,7 +165,7 @@ export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportR
     number >= 5 && number <= 7 ? "tests/legacy-2018-autumn-pm5-7.test.ts" : `tests/legacy-2018-autumn-pm${number}.test.ts`,
     "tests/legacy-2018-autumn-booklet-facts.test.ts", "tests/legacy-2018-autumn-complete-integration.test.ts",
     "tests/legacy-2018-autumn-normal-flow.test.ts", "tests/legacy-2018-autumn-fixed-materials.test.ts"],
-}))).concat(spring2019BookletImportReviews(), autumn2019BookletImportReviews(), morningPartialImportReviews());
+}))).concat(spring2019BookletImportReviews(), autumn2019BookletImportReviews(), morningPartialImportReviews(), stage3ImportReviews());
 
 export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, reviews = pre2023Reviews, discovery: unknown = discoveryLedger) {
   evidence = losslessJSONCopy(evidence);

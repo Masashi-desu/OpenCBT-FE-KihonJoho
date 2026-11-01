@@ -46,6 +46,14 @@ assert.equal(newTemplateIds.size, 467);
 const oldBindings = currentMix.generationBindings.filter(binding => !newTemplateIds.has(binding.templateRef.id));
 const oldMix: SetRecord = { ...structuredClone(currentMix), revision: currentMix.revision - 1,
   generationBindings: oldBindings, questionRefs: oldBindings.map(binding => binding.questionRef) };
+// This is a transport control, not the historical release's chronology. Its
+// baseline already owns the later S3-001 cohort, so that cohort must stay in
+// the retained prefix when the explicit stage1 cohort is appended again.
+const transportedBindings = [...oldBindings, ...currentMix.generationBindings
+  .filter(binding => newTemplateIds.has(binding.templateRef.id))];
+const transportedMix: SetRecord = { ...structuredClone(currentMix),
+  generationBindings: transportedBindings, questionRefs: transportedBindings.map(binding => binding.questionRef) };
+const expectedTransport = { ...current, sets: current.sets.map(set => set.id === transportedMix.id ? transportedMix : set) };
 const oldLookup = new Map(allNodes); oldLookup.set(oldMix.id, oldMix);
 const oldRoots = (["questions", "templates", "sets", "exams"] as const)
   .flatMap(kind => current[kind].filter(node => !seedIds.has(node.id)).map(node => node.id));
@@ -69,16 +77,16 @@ const sorted = (bundle: Bundle, kind: Kind) => [...bundle[kind]].sort((a, b) => 
 const transport = () => stage1PartialReleaseRecordFiles(baseline, approved, readBaseline);
 
 test("partial-release transport appends467 families, preserves every old record and78 afternoon majors, and changes only mix-A", async () => {
-  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, 267);
-  assert.equal(baseline.templates.length, 267); assert.equal(baseline.assets.length, 734);
+  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, 342);
+  assert.equal(baseline.templates.length, 342); assert.equal(baseline.assets.length, 811);
   const before = sha(JSON.stringify({ baseline, approved })), result = transport();
   const decoded = await readCatalog(async (name, max) => {
     const bytes = result.files.get(name); assert(bytes && bytes.byteLength <= max); return bytes;
   });
   assert.equal(result.catalog.revision, baseline.catalog.revision + 1);
   assert.equal(result.catalogHash, sha(result.files.get("catalog.json")!));
-  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, 734);
-  assert.equal(decoded.templates.length, 734);
+  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, 809);
+  assert.equal(decoded.templates.length, 809);
   assert.deepEqual(Object.fromEntries(catalogKinds.map(kind => [kind,
     result.added[kind].filter(n => !baseline[kind].some(old => old.id === n.id)).length])),
     { questions: 934, sources: 78, rights: 51, assets: 471, sets: 6, exams: 12, templates: 467 });
@@ -87,7 +95,7 @@ test("partial-release transport appends467 families, preserves every old record 
       const next = decoded[kind].find(node => node.id === old.id)!; assert(next, old.id);
       if (old.id !== "set-mix-a") assert.deepEqual(next, old, `${kind}: ${old.id}`);
     }
-    assert.deepEqual(sorted(decoded, kind), sorted(current, kind), `${kind} returns the current cohort without replacing old values`);
+    assert.deepEqual(sorted(decoded, kind), sorted(expectedTransport, kind), `${kind} retains every current record and the transport baseline's binding prefix`);
   }
   const pm = decoded.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"));
   assert.equal(pm.length, 78);

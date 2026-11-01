@@ -7,6 +7,33 @@ import { fixture, installFixtureGenerators } from "./fixtures";
 import { additionalDefinitions } from "../src/core/generators";
 import amCapacity from "./fixtures/stage1-am-capacity-review.json";
 const amCapacityBySource = new Map(amCapacity.rows.map(r => [r.source, r]));
+import { stage3MorningDefinitions } from "../src/core/generators/stage3-morning-install";
+import stage3FundamentalsContracts from "./fixtures/legacy-2016-spring-fundamentals-input-contracts.json";
+import stage3MiddleReview from "./fixtures/legacy-2016-spring-am-09-32-review.json";
+import { knowledgeReview as stage3KnowledgeReview } from "./fixtures/legacy-2016-spring-am-33-56-oracle";
+import stage3FinalReview from "./fixtures/legacy-2016-spring-am-57-80-review.json";
+const stage3NumericCounts = new Map([[34,4],[35,4],[49,4],[54,4]]);
+function stage3MiddleCount(number: number): number {
+  const numeric=stage3NumericCounts.get(number);
+  if(numeric !== undefined)return numeric;
+  const review=stage3KnowledgeReview[number];
+  assert(review,"every stage3 knowledge family needs its independent contract");
+  return review.targets.length;
+}
+// These capacities come from the independently reviewed input/meaning records,
+// never from counting the production field maxima or recording its answers.
+const stage3Counts = new Map<number, number>([
+  ...stage3FundamentalsContracts.counts.map((count, index) => [index + 1, count] as [number, number]),
+  ...stage3MiddleReview.rows.map(row => [row.number, row.generationReview.finiteInputs] as [number, number]),
+  ...[33,34,35,36,37,38,39,40,41,42,43,44,45,47,48,49,50,51,52,53,54,55]
+    .map(number => [number, stage3MiddleCount(number)] as [number, number]),
+  ...stage3FinalReview.questions.map(row => [row.number, row.generation.finiteInputs] as [number, number]),
+]);
+// Fixed denotes the reviewed question's answer role. 21/29 bind operands into
+// that role;77 varies the actual correct drawing. Those signatures still vary.
+const stage3FixedSignatures = new Map([[7,1],[9,1],[10,1],[11,1],[19,1],[21,4],[27,1],[29,4],
+  [39,1],[40,1],[44,1],[45,1],[49,1],[53,1],[55,1],[77,12]]);
+const isStage3Source = (source: string) => /^2016h28h-fe-am-\d+$/.test(source);
 import {
   bindQuestion,
   parametersForSeed,
@@ -133,6 +160,33 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
   }
   const compositeHTML = nativeAM && /<(?:table|ol|ul)\b/.test(html);
   if (!compositeHTML) {
+    if (profile === "legacy-2016-spring-am-ppm" || profile === "legacy-2016-spring-am-pareto") {
+      assert.equal([...html.matchAll(/<svg\b/g)].length, 1);
+      assert(html.includes('role="img"'));
+      assert(html.includes('aria-label="' + escapeHTML(block.alt) + '"'));
+      assert(html.includes('<title>' + escapeHTML(block.caption) + '</title>'));
+      assert(!html.includes("NaN"));
+      if (profile === "legacy-2016-spring-am-ppm") {
+        assert.equal([...html.matchAll(/<rect\b/g)].length,1);
+        assert(html.includes('x="155" y="65" width="260" height="260"'));
+        assert(html.includes('d="M285 65V325M155 195H415"'));
+        for(const text of ["事業の強み（市場シェア）","事業の魅力度（市場成長率）","強","弱","高","低"])
+          assert(html.includes('>' + text + '</text>'));
+      } else {
+        assert(scene.kind === "source_figure");
+        const rectangles=[...html.matchAll(/<rect\b([^>]*)>/g)];
+        assert.equal(rectangles.length,scene.values[0] === 1 ? 4 : 5);
+        for(const rect of rectangles)for(const coordinate of ["x","y","width","height"]){
+          const value=new RegExp('\\b'+coordinate+'="([^"]+)"').exec(rect[1]);
+          assert(value && Number.isFinite(Number(value[1])));
+          if(coordinate === "width" || coordinate === "height")assert(Number(value[1]) > 0);
+        }
+        const lines=[...html.matchAll(/<polyline\b[^>]*points="([^"]+)"/g)];
+        assert.equal(lines.length,1);assert.equal(lines[0][1].split(" ").length,6);
+        assert(html.includes('data-role="axes"'));assert(!html.includes("<text"));
+      }
+      return;
+    }
     assert(html.includes("<desc"));
     return;
   }
@@ -162,11 +216,14 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
 test("native AM semantic drawings reject missing names, cells, source marks and headers", () => {
   const b = fixture();
   const profiles = ["legacy-2019-database-diagnosis", "legacy-2019-data-feedback",
-    "legacy-2019-truth-table", "legacy-2019-score-relation"];
+    "legacy-2019-truth-table", "legacy-2019-score-relation",
+    "legacy-2016-spring-am-ppm", "legacy-2016-spring-am-pareto"];
   for (const profile of profiles) {
     const source = profile === "legacy-2019-database-diagnosis" ? "2019h31h-fe-am-15" :
       profile === "legacy-2019-data-feedback" ? "2019h31h-fe-am-64" :
-      profile === "legacy-2019-truth-table" ? "2019r01a-fe-am-22" : "2019r01a-fe-am-26";
+      profile === "legacy-2019-truth-table" ? "2019r01a-fe-am-22" :
+        profile === "legacy-2019-score-relation" ? "2019r01a-fe-am-26" :
+          profile === "legacy-2016-spring-am-ppm" ? "2016h28h-fe-am-69" : "2016h28h-fe-am-77";
     const t = b.templates.find(t => t.generatorRef.id === `generator-source-${source}`)!;
     const base = b.questions.find(q => q.id === t.baseQuestionRef.questionId)!;
     const q = bindQuestion(base, t, t.referenceParameters.values, "native-markup-negative", "2026-10-31T00:00:00Z");
@@ -176,6 +233,16 @@ test("native AM semantic drawings reject missing names, cells, source marks and 
     assert(block);
     const html = diagramMarkup(block);
     assertDiagramMarkup(block, html, true);
+    if(profile.startsWith("legacy-2016-")){
+      for(const corrupt of [html.replace('role="img"','role="presentation"'),
+        html.replace('aria-label="'+escapeHTML(block.alt)+'"','aria-label="欠落した説明"'),
+        html.replace(/<title>[^<]*<\/title>/,'<title>別の表題</title>'),
+        html.replace(/<rect\b[^>]*><\/rect>/,'')]){
+        assert.notEqual(corrupt,html,profile + " mutation must alter its intended source feature");
+        assert.throws(()=>assertDiagramMarkup(block,corrupt,true),Error);
+      }
+      continue;
+    }
     const mutations = [html.replace('aria-label="', 'data-lost-name="'),
       html.replace(/(<(?:figcaption|caption)\b[^>]*>)[\s\S]*?(<\/(?:figcaption|caption)>)/, "$1欠落した表題$2")];
     if (profile === "legacy-2019-score-relation") {
@@ -205,6 +272,10 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     [...source.properties.profile.enum].sort(),
     Object.keys(sourceFigureDomains).sort(),
   );
+  const stage3ReferenceBlocks = stage3MorningDefinitions.flatMap(definition => {
+    const body = definition.build([...definition.reference!]);
+    return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
+  });
   for (const [profile, domain] of Object.entries(sourceFigureDomains)) {
     // Legacy AM drawings include correlated finite tuples, whose coordinate
     // minima need not form a valid drawing together.
@@ -214,8 +285,10 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
       const body = definition.build(definition.fields.map(field => field.minimum));
       return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
     }).find(block => block.type === "diagram" && block.scene.kind === "source_figure" && block.scene.profile === profile);
+    const stage3 = stage3ReferenceBlocks.find(block => block.type === "diagram" && block.scene.kind === "source_figure" && block.scene.profile === profile);
     const values = morning?.[0].values ?? (afternoon?.type === "diagram" && afternoon.scene.kind === "source_figure"
-      ? [...afternoon.scene.values] : domain.map(([minimum]) => minimum));
+      ? [...afternoon.scene.values] : stage3?.type === "diagram" && stage3.scene.kind === "source_figure"
+        ? [...stage3.scene.values] : domain.map(([minimum]) => minimum));
     validateSourceFigure({ kind: "source_figure", profile, values });
     assert.throws(
       () =>
@@ -247,12 +320,12 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
 });
 
-test("every one of 734 official sources has exactly one generator and is a mix candidate", async () => {
+test("every one of 809 official sources has exactly one generator and is a mix candidate", async () => {
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  assert.equal(c.total, 734);
-  assert.equal(c.covered, 734);
+  assert.equal(c.total, 809);
+  assert.equal(c.covered, 809);
   assert(
     c.rows.every((r) => r.templates.length === 1 && r.linked.length === 1),
   );
@@ -265,7 +338,7 @@ test("every one of 734 official sources has exactly one generator and is a mix c
       size: "full",
       bindingMode: "generated_values",
     });
-    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 607 : 49);
+    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 682 : 49);
   }
   const missing = structuredClone(b);
   missing.templates = missing.templates.filter(
@@ -288,6 +361,20 @@ test("installed registry retains all467 reviewed AM families and their variable/
   assert.deepEqual(admitted.map(d => d.source).sort(), amCapacity.rows.map(r => r.source).sort());
   assert.equal(amCapacity.rows.filter(r => r.answerCanVary).length, 322);
   assert.equal(amCapacity.rows.filter(r => !r.answerCanVary).length, 145);
+});
+test("installed registry adds exactly75 stage3 morning families with all688 reviewed finite conditions", () => {
+  const admitted = additionalDefinitions.filter(d => isStage3Source(d.source));
+  assert.equal(admitted.length, 75); assert.equal(stage3Counts.size, 75);
+  assert.deepEqual(admitted.map(d => Number(d.source.split("-").at(-1))).sort((a,b) => a-b),
+    [...stage3Counts.keys()].sort((a,b) => a-b));
+  assert.equal([...stage3Counts.values()].reduce((a,b) => a+b,0),688);
+  assert.equal(stage3FixedSignatures.size,16);
+  for (const d of admitted) {
+    const n=Number(d.source.split("-").at(-1)), count=stage3Counts.get(n)!;
+    assert.equal(d.fields.length,1); assert.equal(d.fields[0].minimum,0);
+    assert.equal(d.fields[0].maximum,count-1); assert.deepEqual(d.reference,[0]);
+    assert.equal(d.answerVariation === "fixed",stage3FixedSignatures.has(n));
+  }
 });
 for (const d of additionalDefinitions)
   test(`${d.source}: baseline, source answer and 64 seeded parameter sets`, async () => {
@@ -344,7 +431,7 @@ for (const d of additionalDefinitions)
               assert.equal(block.rendererRef.version, activityNetworkRenderer.version);
               readActivityNetwork(block.scene);
             }
-            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source));
+            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isStage3Source(d.source));
           }
     }
     const reviewedAM = amCapacityBySource.get(d.source);
@@ -385,6 +472,19 @@ for (const d of additionalDefinitions)
       assert(finiteAnswers.size >= 1);
       assert([...answers].every(signature => finiteAnswers.has(signature)), d.source + " seeded answers remain inside reviewed finite capacity");
       assert(valid >= 2 && displays.size >= 2 && retainedReference, d.source + " must retain substantive conditions and reference");
+    } else if (isStage3Source(d.source)) {
+      const n=Number(d.source.split("-").at(-1)), count=stage3Counts.get(n)!;
+      assert.equal(d.answerVariation,"fixed"); assert.equal(answerCanVary(t),false);
+      const finiteAnswers=new Set<string>(), displays=new Set<string>();
+      for(let index=0;index<count;index++) {
+        const q=bindQuestion(base,t,[index],"fixed-stage3-capacity","2026-11-01T00:00:00Z");
+        schema("question",q); validateSourceFormat(q,t);
+        finiteAnswers.add(answerSignature(q)); displays.add(JSON.stringify([q.prompt,q.contexts,q.choices]));
+      }
+      assert.equal(finiteAnswers.size,stage3FixedSignatures.get(n),d.source);
+      assert.equal(displays.size,count,d.source + " must retain all substantively distinct conditions");
+      assert([...answers].every(signature => finiteAnswers.has(signature)));
+      for(const values of [[],[-1],[count],[.5],[0,0]])assert.throws(()=>d.build(values),/PARAMETER_CONSTRAINT/);
     } else if (d.source === "2024-a-20") {
       assert.equal(d.source, "2024-a-20");
       assert.equal(answers.size, 1);

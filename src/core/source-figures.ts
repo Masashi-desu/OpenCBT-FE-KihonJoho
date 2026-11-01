@@ -14,11 +14,12 @@ import {aTree,aGrid,aTransform,aNetworkDays,aNetworkEdges,aMultiplicityCases} fr
 import { sampleMinimaxBoards, sampleMinimaxChildren, sampleMinimaxQueries } from "./generators/sample-2022-dec-data";
 import { managedLegacyFigure, managedLegacyFigureAlt, validateManagedLegacyValues, joinManagedLegacyDomains } from "./managed-legacy-figures";
 import { isLegacyMorningFigure, legacyMorningFigureAlt } from "./legacy-morning-figures";
+import { spring2016FigureDomains, isSpring2016Figure, readSpring2016Figure } from './spring-2016-figures';
 import morningDomains from "./legacy-morning-figure-domains.json";
 import { legacyAfternoonFigureDomains, isLegacyAfternoonFigure, readLegacyAfternoonFigure } from "./legacy-afternoon-figures";
 export const sourceFigureDomains = joinManagedLegacyDomains(
   Object.fromEntries(
-    [...Object.entries(domains), ...Object.entries(legacyAfternoonFigureDomains), ...Object.entries(morningDomains).map(([profile, rows]) =>
+    [...Object.entries(domains), ...Object.entries(spring2016FigureDomains), ...Object.entries(legacyAfternoonFigureDomains), ...Object.entries(morningDomains).map(([profile, rows]) =>
       [profile, rows[0].values.map((_, i) => [Math.min(...rows.map(r => r.values[i])), Math.max(...rows.map(r => r.values[i]))])] as [string, number[][]])].map(([profile, bounds]) => [
       profile,
       bounds.map((bound) => {
@@ -35,6 +36,7 @@ export const sourceFigureDomains = joinManagedLegacyDomains(
 export function validateSourceFigure(scene: Scene) {
   if (scene.kind !== "source_figure")
     throw new DataError("FIGURE_PROFILE", "図プロファイルの型が不正です");
+  if (isSpring2016Figure(scene.profile)) { readSpring2016Figure(scene); return; }
   if (isLegacyAfternoonFigure(scene.profile)) {
     readLegacyAfternoonFigure(scene.profile, scene.values);
     return;
@@ -58,6 +60,7 @@ export function validateSourceFigure(scene: Scene) {
     throw new DataError("FIGURE_PROFILE", "登録図の入力域と一致しません");
 }
 export function sourceFigureAlt(profile: string, v: number[]) {
+  if (isSpring2016Figure(profile)) return readSpring2016Figure({kind:'source_figure',profile,values:v});
   if (isLegacyAfternoonFigure(profile)) return readLegacyAfternoonFigure(profile, v).alt;
   if (isLegacyMorningFigure(profile)) return legacyMorningFigureAlt(profile, v);
   if (profile === managedLegacyFigure.profile) return managedLegacyFigureAlt(v);

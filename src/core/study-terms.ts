@@ -9,6 +9,9 @@ import {
   stage1AmRelatedTerms,
 } from "./stage1-am-study-terms";
 import {sample2022AStudyTerms} from "./sample-2022-a-study-terms";
+import {legacy2016SpringStudyTerms} from './generators/legacy-2016-spring-fundamentals-study-terms';
+import {legacy2016SpringAm5780StudyTerms} from './generators/legacy-2016-spring-am-57-80-study-terms';
+import {isSpring2016CommonContext} from './generators/legacy-2016-spring-am-common';
 
 // Related terms whose roles were reviewed against these original questions.
 // They are definitions, not an assignment of a displayed choice letter.
@@ -108,6 +111,7 @@ const stage1AmTerms = [
   extra: extraTerms,
   }),
 ];
+const stage3AmTerms=[...legacy2016SpringStudyTerms,...legacy2016SpringAm5780StudyTerms];
 
 const slashCompounds = studyAcronyms
   .filter((term) => term.term.includes("/"))
@@ -157,6 +161,10 @@ export function studyBlockText(block: Block, assets: Asset[] = []): string {
 }
 
 export function studySourceKeys(question: Question): string[] {
+  const spring2016=question.origin.sourceRefs.flatMap(({sourceId,locator}) =>
+    sourceId==='source-ipa-2016h28h-fe-am-qs' && locator.year===2016 && locator.period==='春期' &&
+      locator.timeSlot==='午前' && locator.questionNumber ? ['2016h28h-fe-am-'+locator.questionNumber] : []);
+  if(spring2016.length) return [...new Set(spring2016)];
   const oldMorning = stage1AmStudySourceKeys(question);
   if (oldMorning !== undefined) return oldMorning;
   return question.origin.sourceRefs.flatMap(({ sourceId, locator: l }) => {
@@ -184,7 +192,7 @@ export function questionStudyTerms(
   );
   const texts = [
     ...question.contextRefs.flatMap(
-      (id) => question.contexts.find((c) => c.id === id)?.content.blocks ?? [],
+      (id) => {const context=question.contexts.find(c=>c.id===id);return context && !isSpring2016CommonContext(question,context)?context.content.blocks:[];},
     ),
     ...question.prompt.blocks,
     ...question.choices.flatMap((c) => c.content.blocks),
@@ -207,11 +215,12 @@ export function questionStudyTerms(
   const related = new Set([
     ...sources.flatMap((s) => relatedBySource[s] ?? []),
     ...stage1AmRelatedTerms(sources, stage1AmTerms),
+    ...stage3AmTerms.filter(t=>t.sources?.some(s=>sources.includes(s))).map(t=>t.term),
   ]);
   const selected = new Set<string>();
   // A source-specific reviewed meaning takes priority for that source only.
   // Current189 retain their existing candidate order and definition objects.
-  const available = [...stage1AmTerms, ...dictionary]
+  const available = [...stage3AmTerms, ...stage1AmTerms, ...dictionary]
     .filter((term) => !term.sources || term.sources.some((s) => sources.includes(s)))
     .filter((term, index, all) => all.findIndex((other) => other.term === term.term) === index);
   for (const term of available) {

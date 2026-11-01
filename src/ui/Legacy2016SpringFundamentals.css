@@ -1,0 +1,17 @@
+.legacy2016-figure { display:block; width:calc(min(100%, var(--source-figure-width, 720px)) * var(--image-scale, 1)); max-width:none; height:auto; color:var(--diagram-ink); }
+.legacy2016-answer-table { margin:0; padding:0; border:0; min-width:0; }
+.legacy2016-answer-table table { border-collapse:collapse; width:100%; color:var(--ink); background:var(--diagram-surface); }
+.legacy2016-answer-table th,.legacy2016-answer-table td { border:1px solid var(--diagram-border); padding:.75rem; text-align:center; }
+.legacy2016-answer-table thead .open-corner { border-left:0; border-top:0; background:transparent; }
+.legacy2016-answer-table tbody tr { cursor:pointer; }
+.legacy2016-answer-table:disabled tbody tr { cursor:default; }
+.legacy2016-answer-table tr.selected { background:var(--selected-surface); color:var(--ink); box-shadow:inset 0 0 0 2px var(--selected-border); }
+/* Reveal uses the same semantic positive colors as ordinary answer choices,
+   after selected so the correct row remains visible in every response state. */
+.legacy2016-answer-table tbody tr.correct { background:var(--positive-surface); color:var(--ink); }
+.legacy2016-answer-table tbody tr.correct > th,.legacy2016-answer-table tbody tr.correct > td { border-color:var(--positive-border); }
+.legacy2016-answer-table tr:focus-within { outline:2px solid var(--focus); outline-offset:-2px; }
+/* The source has a narrow symbol column and two equally wide q/r columns. */
+.legacy2016-answer-table table { table-layout:fixed; }
+.legacy2016-answer-table tr > :first-child { width:14.5%; }
+.legacy2016-answer-table tr > :nth-child(2),.legacy2016-answer-table tr > :nth-child(3) { width:42.75%; }

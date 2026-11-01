@@ -96,11 +96,11 @@ function tiny(): Bundle {
   return { ...actualBundle, questions: [a, aa, b, bb, c, cc], templates: [tb, tc, ta], sets: [mix("b", [tb]), mix("a", [ta, tc])] };
 }
 
-test("indexed coverage retains every original/template identity, order and count of the actual734-family catalog", t => {
+test("indexed coverage retains every original/template identity, order and count of the actual809-family catalog", t => {
   const slowStart = performance.now(), expected = scanCoverage(actualBundle), slowMS = performance.now() - slowStart;
   const fastStart = performance.now(), actual = generationCoverage(actualBundle), fastMS = performance.now() - fastStart;
-  assert.equal(expected.total, 734); assert.equal(expected.covered, 734);
-  compare(actualBundle, "actual734");
+  assert.equal(expected.total, 809); assert.equal(expected.covered, 809);
+  compare(actualBundle, "actual809");
   // Timing is diagnostic only; machine speed and load never decide acceptance.
   t.diagnostic(JSON.stringify({ scanMS: slowMS, indexedMS: fastMS, originals: actual.total, templates: actualBundle.templates.length }));
 });

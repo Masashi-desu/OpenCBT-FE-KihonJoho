@@ -20,6 +20,8 @@ const morningSources = ([
   ["2019h31h-fe-am", [41, 51, 67]], ["2019r01a-fe-am", [55, 57]],
 ] as const).flatMap(([id, held]) => Array.from({ length: 80 }, (_, i) => i + 1)
   .filter(n => !(held as readonly number[]).includes(n)).map(n => `${id}-${n}`));
+const stage3MorningSources = Array.from({ length: 80 }, (_, i) => i + 1)
+  .filter(n => ![46, 56, 60, 63, 66].includes(n)).map(n => `2016h28h-fe-am-${n}`);
 const numbers = Array.from({ length: 13 }, (_, index) => index + 1);
 const fieldCounts = [5, 5, 5, 4, 5, 6, 8, 7, 7, 7, 7, 6, 6];
 const collectionId = "set-annual-2017-spring-pm";
@@ -108,16 +110,17 @@ function assertScore(run: Run, selectedNumbers: readonly number[]) {
   }
 }
 
-test("実配布は既存189系列・旧午後6冊各13系列を保持し、掲載可能な旧午前467系列を一対一に追加する", async () => {
+test("実配布は既存189系列・旧午後6冊各13系列・旧午前467系列を保持し、2016春午前75系列を一対一に追加する", async () => {
   const { bundle, collection, originals, bases, templates, refs } = realBooklet();
   assert.equal(baseline.rows.length, 189);
   const previousOriginals = baseline.rows.flatMap(row => row.originals.map(original => original.ref.questionId));
   assert.equal(previousOriginals.length, 189); assert.equal(new Set(previousOriginals).size, 189);
-  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind === "official_reprint").map(q => q.id)), sorted([...previousOriginals, ...morningSources.map(source => `question-ipa-${source}`), ...numbers.map(originalId), ...numbers.map(n => `question-ipa-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019r01a-fe-pm-${n}`)]));
-  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind !== "official_reprint").map(q => q.id)), sorted([...baseline.rows.map(row => row.base.id), ...morningSources.map(source => `question-template-source-${source}`), ...numbers.map(baseId), ...numbers.map(n => `question-template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019r01a-fe-pm-${n}`)]));
-  assert.deepEqual(sorted(bundle.templates.map(t => t.id)), sorted([...baseline.rows.map(row => row.template.id), ...morningSources.map(source => `template-source-${source}`), ...numbers.map(templateId), ...numbers.map(n => `template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `template-source-2019r01a-fe-pm-${n}`)]));
+  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind === "official_reprint").map(q => q.id)), sorted([...previousOriginals, ...[...morningSources, ...stage3MorningSources].map(source => `question-ipa-${source}`), ...numbers.map(originalId), ...numbers.map(n => `question-ipa-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-ipa-2019r01a-fe-pm-${n}`)]));
+  assert.deepEqual(sorted(bundle.questions.filter(q => q.origin.kind !== "official_reprint").map(q => q.id)), sorted([...baseline.rows.map(row => row.base.id), ...[...morningSources, ...stage3MorningSources].map(source => `question-template-source-${source}`), ...numbers.map(baseId), ...numbers.map(n => `question-template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019r01a-fe-pm-${n}`)]));
+  assert.deepEqual(sorted(bundle.templates.map(t => t.id)), sorted([...baseline.rows.map(row => row.template.id), ...[...morningSources, ...stage3MorningSources].map(source => `template-source-${source}`), ...numbers.map(templateId), ...numbers.map(n => `template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `template-source-2019r01a-fe-pm-${n}`)]));
   assert.equal(morningSources.length, 467);
-  assert.equal(bundle.questions.length, 1468); assert.equal(bundle.templates.length, 734);
+  assert.equal(stage3MorningSources.length, 75);
+  assert.equal(bundle.questions.length, 1618); assert.equal(bundle.templates.length, 809);
   for (const [setId, prefix, count] of [["set-sample-2022-apr-b", "sample-2022-apr-b", 6],
     ["set-sample-2022-dec-a", "sample-2022-dec-a", 60], ["set-sample-2022-dec-b", "sample-2022-dec-b", 20]] as const) {
     const set = one(bundle.sets, setId);

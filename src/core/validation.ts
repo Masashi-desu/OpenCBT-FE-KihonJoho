@@ -17,6 +17,7 @@ import { validateSourceFormat } from "./generation-formats";
 import { validateSourceFigure } from "./source-figures";
 import { validateGenerationCoverage } from "./generation-coverage";
 import { ensureLegacyMorningGenerators } from "./generators/legacy-morning-install";
+import { ensureStage3MorningGenerators } from "./generators/stage3-morning-install";
 import {reviewedMaterialRightsRefinement}from "./legacy-morning-material-inheritance";
 import {
   activityNetworkRenderer,
@@ -322,6 +323,7 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
       fail("ASSET_REF", q.id);
   }
   await ensureLegacyMorningGenerators(b, executableTemplates);
+  ensureStage3MorningGenerators(b, executableTemplates);
   for (const t of b.templates) {
     const q = get("question", refKey(t.baseQuestionRef));
     attribute(t.attribution);

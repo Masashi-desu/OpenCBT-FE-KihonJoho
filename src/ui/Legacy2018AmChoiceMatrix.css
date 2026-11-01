@@ -1,0 +1,19 @@
+.legacy-am-matrix {border:0;padding:0;margin:0;min-width:0;color:var(--text-primary);}
+.legacy-am-matrix-viewport {max-width:100%;overflow:auto;position:relative;}
+.legacy-am-matrix-viewport:focus-visible {outline:2px solid var(--focus);outline-offset:-2px;}
+.legacy-am-matrix-table {border-collapse:collapse;table-layout:fixed;width:100%;min-width:42rem;background:var(--surface);font-size:1em;}
+.legacy-am-matrix-table.columns-3 {min-width:44rem;}
+.legacy-am-matrix-table .matrix-label-column {width:2.6rem;}
+.legacy-am-matrix-table th,.legacy-am-matrix-table td {border:1px solid var(--line);vertical-align:middle;overflow-wrap:anywhere;}
+.legacy-am-matrix-table thead th {padding:.65rem;font-weight:400;text-align:center;}
+.legacy-am-matrix-table.columns-2 col:nth-child(2) {width:calc((100% - 2.6rem) * .466);}
+.legacy-am-matrix-table .matrix-open-corner {border-top:0;border-left:0;background:var(--surface);padding:0;}
+.legacy-am-matrix-table .matrix-row-label {padding:0;font-weight:400;position:relative;text-align:center;}
+.legacy-am-matrix-table .matrix-row-label label {display:block;padding:.8rem .3rem;cursor:pointer;}
+.legacy-am-matrix-table td {padding:0;}
+.legacy-am-matrix-table .matrix-cell-label {display:block;padding:.7rem;cursor:pointer;}
+.legacy-am-matrix-table p {margin:0;}
+.legacy-am-matrix-table tbody tr.selected {background:var(--selected-surface);box-shadow:inset 0 0 0 2px var(--selected-border);}
+.legacy-am-matrix-table tbody tr.correct {background:var(--positive-surface);box-shadow:inset 0 0 0 2px var(--positive-border);}
+.legacy-am-matrix-table tbody tr:focus-within {outline:2px solid var(--focus);outline-offset:-2px;}
+.legacy-am-matrix:disabled label {cursor:default;}

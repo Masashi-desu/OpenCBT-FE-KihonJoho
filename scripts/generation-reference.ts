@@ -79,8 +79,19 @@ for (const group of groups) {
   }
 }
 md +=
-  "\n## 登録図の入力契約\n\nrenderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は後掲の査読済み有限組合せに限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／descに保持する。\n\n| profile | valuesの位置別の下限〜上限（0始まり） | 入力の意味・描画との対応 |\n| --- | --- | --- |\n";
+  "\n## 登録図の入力契約\n\nrenderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は査読済みの登録tuple又はprofile別モデルの制約に限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／desc又は明示したアクセシブル名に保持する。\n\n| profile | valuesの位置別の下限〜上限（0始まり） | 入力の意味・描画との対応 |\n| --- | --- | --- |\n";
 const figureMeaning: Record<string, string> = {
+  "legacy-2016-spring-dfa": "0：左から中央へ移る入力ビット0又は1。反対のビットで左の自己ループ及び中央から右へ遷移し、右は0・1で自己ループする。",
+  "legacy-2016-spring-bst": "0：査読した151種類の10節の木の位置。左右関係と空欄a・bを同じ木へ結び付ける。",
+  "legacy-2016-spring-factorial": "0：固定の再帰定義。n>0の式は空欄a、n=0の値は1。",
+  "legacy-2016-spring-division": "0：qの初期値0〜3、1：qの増分1〜3。rの減算と戻り先は固定し、選択肢のq・rの式を同じ条件へ同期する。",
+  "legacy-2016-spring-am-common-gates": "0：固定の共通表記p3。9種類の論理図記号・説明と反転の注記を保持する。",
+  "legacy-2016-spring-am-14-lan": "0：クライアント台数2〜4、1：プリンタ台数2〜3。登録した組合せだけをLANの枝へ描く。",
+  "legacy-2016-spring-am-23-logic": "0〜3：第1〜第4ゲートの種類（0=AND、1=NAND、2=OR、3=NOR）。査読した接続・種類の完全な組だけを許す。",
+  "legacy-2016-spring-am-23-gate": "0：選択肢のゲート（0=OR、1=AND、2=XOR、3=NOR）。A・Bを入力、Yを出力とする。",
+  "legacy-2016-spring-am-49": "0・1：aとbの比較値、2・3：xへの二つの代入値、4・5：yへの二つの代入値。登録した4組の全6値だけを許し、命令網羅の分岐構成を保持する。",
+  "legacy-2016-spring-am-ppm": "0：固定の2行2列。市場シェアと市場成長率の軸・強弱・高低を原の位置に保つ。",
+  "legacy-2016-spring-am-pareto": "0：棒と折れ線の4構成、1：査読した12組の棒の値の位置。原図同様に数値目盛を加えず、各棒と折れ線を同じ条件へ結び付ける。",
   ...autumn2019FigureMeaning,
   ...autumn2017FigureMeaning,
   ...spring2018FigureMeaning,

@@ -87,7 +87,7 @@ test("saved snapshots need only issued generators, while distribution and hashes
 
 test("all old bookmark revisions resolve the current source and current generator without a migration allowlist", () => {
   const latest = fixture(), rows = generationCoverage(latest).rows;
-  assert.equal(rows.length, 734, "every current and newly admitted source participates");
+  assert.equal(rows.length, 809, "every current and newly admitted source participates");
   let retainedCurrentDetails = 0;
   for (const row of rows) {
     const current = makeBookmark(latest, refOf(row.original), 0);

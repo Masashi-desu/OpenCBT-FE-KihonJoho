@@ -5,6 +5,8 @@ import { Content } from "./Content";
 import { tableChoiceName, diagramChoiceName } from "./tableChoiceName";
 import { legacyAfternoonSourceChoices } from "../core/generators/legacy-afternoon-definitions";
 import { isLegacy2017Pm4OriginalTable } from "./Legacy2017Pm4Text";
+import { Legacy2016SpringFundamentalsAnswerChoices, isSpring2016DivisionQuestion } from './Legacy2016SpringFundamentalsAnswerChoices';
+import { Legacy2018AmChoiceMatrix } from './Legacy2018AmChoiceMatrix';
 
 export const outcomeLabels = { correct: "正解", incorrect: "不正解", unanswered: "未解答", unscored: "採点対象外" } as const;
 export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled, revealed, showResponse = false, onAnswer, onPartAnswer }: {
@@ -12,6 +14,12 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
   bundle: Bundle; assetUrls: Record<string, string>; disabled: boolean; revealed: boolean; showResponse?: boolean;
   onAnswer?: (choiceId: string | undefined) => void; onPartAnswer?: (partId: string, choiceId: string | undefined) => void;
 }) {
+  if (q.origin.kind!=='official_reprint' && q.origin.sourceRefs.some(r=>r.sourceId==='source-ipa-2016h28h-fe-am-qs' && r.locator.questionNumber==='35'))
+    return <Legacy2018AmChoiceMatrix question={q} entry={entry} bundle={bundle} assetUrls={assetUrls} disabled={disabled}
+      revealed={revealed} showResponse={showResponse} onAnswer={onAnswer} onPartAnswer={onPartAnswer}/>;
+  if (isSpring2016DivisionQuestion(q)) return <Legacy2016SpringFundamentalsAnswerChoices
+    question={q} entry={entry} bundle={bundle} assetUrls={assetUrls} disabled={disabled}
+    revealed={revealed} showResponse={showResponse} onAnswer={onAnswer} onPartAnswer={onPartAnswer}/>;
   const grade = revealed && q.answerParts ? gradeAnswer(q, entry) : undefined;
   const field = (part?: AnswerPart) => {
     const order = part ? entry.choiceOrder.filter(id => part.choiceIds.includes(id)) : entry.choiceOrder;

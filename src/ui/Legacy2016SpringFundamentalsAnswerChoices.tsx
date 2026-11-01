@@ -1,0 +1,16 @@
+import {useId,type ComponentProps,type MouseEvent} from 'react';
+import {AnswerChoices} from './AnswerChoices';import {labels,type Question} from '../core/types';
+type Props=ComponentProps<typeof AnswerChoices>;
+function focusStable(input:HTMLInputElement|null){if(!input)return;const positions:{e:HTMLElement;left:number;top:number}[]=[];for(let e:HTMLElement|null=input;e;e=e.parentElement)positions.push({e,left:e.scrollLeft,top:e.scrollTop});input.focus({preventScroll:true});for(const p of positions){p.e.scrollLeft=p.left;p.e.scrollTop=p.top;}}
+export const isSpring2016DivisionQuestion=(q:Question)=>q.origin.kind!=='official_reprint'&&q.origin.sourceRefs.some(r=>r.sourceId==='source-ipa-2016h28h-fe-am-qs'&&r.locator.questionNumber==='8');
+/** Shared q/r header with four symbolic rows; every cell's blank space selects. */
+export function Legacy2016SpringFundamentalsAnswerChoices(props:Props){
+ const uid=useId().replace(/[^a-z0-9]/gi,''),{question:q,entry,disabled,revealed,onAnswer}=props;
+ if(!isSpring2016DivisionQuestion(q))return <AnswerChoices {...props}/>;
+ if(q.choiceShuffleAllowed||entry.choiceOrder.length!==4||entry.choiceOrder.some((id,i)=>id!==q.choices[i]?.id))throw Error('SOURCE_FORMAT');
+ const choose=(id:string,toggle=true)=>{if(!disabled)onAnswer?.(toggle&&entry.selectedChoiceId===id?undefined:id);};
+ const rowClick=(event:MouseEvent<HTMLTableRowElement>,id:string)=>{if(disabled||(event.target as Element).closest('input,label'))return;focusStable(event.currentTarget.querySelector('input'));choose(id);};
+ return <fieldset className="legacy2016-answer-table" disabled={disabled}><legend className="sr-only">解答を選択</legend><table><thead><tr><td className="open-corner" aria-hidden="true"/><th scope="col">qの値</th><th scope="col">rの値</th></tr></thead><tbody>
+ {entry.choiceOrder.map((id,i)=>{const choice=q.choices.find(x=>x.id===id)!,b=choice.content.blocks[0];if(b.type!=='table'||b.rows.length!==1||b.columns.join('|')!=='qの値|rの値')throw Error('SOURCE_FORMAT');const selected=entry.selectedChoiceId===id,correct=revealed&&q.correctAnswer.choiceId===id,inputId=`${uid}-row-${i}`;return <tr key={id} className={`${selected?'selected':''} ${correct?'correct':''}`} onClick={e=>rowClick(e,id)}><th scope="row"><input className="sr-only" id={inputId} type="radio" name={`answer-${q.id}`} value={id} checked={selected} disabled={disabled} aria-label={`${labels[i]} qの値 ${b.rows[0][0]}、rの値 ${b.rows[0][1]}${correct?' 正答':''}`} onChange={()=>{}} onClick={e=>{e.stopPropagation();choose(id);}} onKeyDown={e=>{if(e.key===' '){e.preventDefault();if(!e.repeat)choose(id);}else if(['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(e.key)){e.preventDefault();if(disabled)return;const next=e.key==='Home'?0:e.key==='End'?3:(i+(['ArrowDown','ArrowRight'].includes(e.key)?1:3))%4;const input=e.currentTarget.closest('tbody')?.querySelectorAll('input')[next] as HTMLInputElement|undefined;focusStable(input??null);choose(entry.choiceOrder[next],false);}}}/><label htmlFor={inputId} onClick={e=>{e.preventDefault();e.stopPropagation();if(disabled)return;focusStable(e.currentTarget.parentElement?.querySelector('input')??null);choose(id);}}>{labels[i]}</label></th><td>{b.rows[0][0]}</td><td>{b.rows[0][1]}</td></tr>;})}
+ </tbody></table></fieldset>;
+}

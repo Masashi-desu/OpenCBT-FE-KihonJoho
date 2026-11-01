@@ -1,0 +1,753 @@
+{
+  "basis": "handfixed actualsourceimages; whitespaceonlynormalization; no authortruth/solverexpected",
+  "questions": {
+    "1": {
+      "prompt": "数値を2進数で格納するレジスタがある。このレジスタに正の整数 x を設定した後，“レジスタの値を2ビット左にシフトして，x を加える”操作を行うと，レジスタの値は x の何倍になるか。ここで，あふれ（オーバフロー）は，発生しないものとする。",
+      "choices": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "semanticInputs": {
+        "shiftBits": 2,
+        "addOriginalXTimes": 1,
+        "xDomain": "positive_integer",
+        "overflow": false
+      }
+    },
+    "2": {
+      "prompt": "次の状態遷移図で表現されるオートマトンで受理されるビット列はどれか。ここで，ビット列は左から順に読み込まれるものとする。",
+      "choices": [
+        "0000",
+        "0111",
+        "1010",
+        "1111"
+      ],
+      "diagram": {
+        "type": "state-transition",
+        "start": "left",
+        "accept": [
+          "right"
+        ],
+        "edges": [
+          [
+            "left",
+            "0",
+            "left"
+          ],
+          [
+            "left",
+            "1",
+            "middle"
+          ],
+          [
+            "middle",
+            "1",
+            "middle"
+          ],
+          [
+            "middle",
+            "0",
+            "right"
+          ],
+          [
+            "right",
+            "0",
+            "right"
+          ],
+          [
+            "right",
+            "1",
+            "right"
+          ]
+        ],
+        "visibleStateLabels": [],
+        "layout": [
+          "left",
+          "middle",
+          "right"
+        ],
+        "doubleCircle": "right"
+      }
+    },
+    "3": {
+      "prompt": "UNIXにおける正規表現 [A-Z]+[0-9]* が表現する文字列の集合の要素となるものはどれか。ここで，正規表現は次の規則に従う。",
+      "choices": [
+        "456789",
+        "ABC+99",
+        "ABC99*",
+        "ABCDEF"
+      ],
+      "rules": [
+        "[A-Z] は，大文字の英字1文字を表す。",
+        "[0-9] は，数字1文字を表す。",
+        "+ は，直前の正規表現の1回以上の繰返しであることを表す。",
+        "* は，直前の正規表現の0回以上の繰返しであることを表す。"
+      ]
+    },
+    "4": {
+      "prompt": "PCM方式によって音声をサンプリング（標本化）して8ビットのディジタルデータに変換し，圧縮せずにリアルタイムで転送したところ，転送速度は64,000ビット／秒であった。このときのサンプリング間隔は何マイクロ秒か。",
+      "choices": [
+        "15.6",
+        "46.8",
+        "125",
+        "128"
+      ],
+      "semanticInputs": {
+        "bitsPerSample": 8,
+        "bitsPerSecond": 64000,
+        "compressed": false,
+        "realTime": true,
+        "outputUnit": "マイクロ秒",
+        "rounding": "not_specified"
+      }
+    },
+    "5": {
+      "prompt": "10個の節（ノード）から成る次の2分木の各節に，1から10までの値を一意に対応するように割り振ったとき，節 a，b の値の組合せはどれになるか。ここで，各節に割り振る値は，左の子及びその子孫に割り振る値よりも大きく，右の子及びその子孫に割り振る値よりも小さくするものとする。",
+      "choices": [
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "choiceColumns": [
+        "a",
+        "b"
+      ],
+      "diagram": {
+        "type": "binary-tree",
+        "nodes": {
+          "": "5",
+          "L": "4",
+          "LL": "",
+          "LLL": "",
+          "LLR": "",
+          "R": "a",
+          "RR": "",
+          "RRL": "b",
+          "RRR": "",
+          "RRRR": ""
+        },
+        "nodeCount": 10,
+        "valueSet": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "unique": true,
+        "leftDescendants": "strictly_less",
+        "rightDescendants": "strictly_greater"
+      }
+    },
+    "6": {
+      "prompt": "2次元の整数型配列 a の各要素 a(i，j) の値は，2i+j である。このとき，a(a(1，1)×2，a(2，2)+1) の値は幾つか。",
+      "choices": [
+        12,
+        13,
+        18,
+        19
+      ],
+      "semanticInputs": {
+        "elementFormula": "2*i+j",
+        "dimensions": 2,
+        "elementType": "integer",
+        "firstIndex": {
+          "inner": [
+            1,
+            1
+          ],
+          "multiply": 2
+        },
+        "secondIndex": {
+          "inner": [
+            2,
+            2
+          ],
+          "add": 1
+        },
+        "storageOrder": "not_specified",
+        "indexUpperBounds": "not_specified"
+      }
+    },
+    "7": {
+      "prompt": "n の階乗を再帰的に計算する関数 F(n) の定義において，a に入れるべき式はどれか。ここで，n は非負の整数とする。",
+      "choices": [
+        "n+F(n-1)",
+        "n-1+F(n)",
+        "n×F(n-1)",
+        "(n-1)×F(n)"
+      ],
+      "definition": [
+        {
+          "condition": "n>0",
+          "value": "[空欄a]"
+        },
+        {
+          "condition": "n=0",
+          "value": "1"
+        }
+      ]
+    },
+    "8": {
+      "prompt": "x と y を自然数とするとき，流れ図で表される手続を実行した結果として，適切なものはどれか。",
+      "choices": [
+        [
+          "x÷yの余り",
+          "x÷yの商"
+        ],
+        [
+          "x÷yの商",
+          "x÷yの余り"
+        ],
+        [
+          "y÷xの余り",
+          "y÷xの商"
+        ],
+        [
+          "y÷xの商",
+          "y÷xの余り"
+        ]
+      ],
+      "choiceColumns": [
+        "qの値",
+        "rの値"
+      ],
+      "diagram": {
+        "type": "flowchart",
+        "initialization": [
+          "q←0",
+          "r←x"
+        ],
+        "condition": "r<y",
+        "yes": "終了",
+        "no": [
+          "r←r-y",
+          "q←q+1"
+        ],
+        "backTo": "condition_not_initialization",
+        "layout": {
+          "yes": "right",
+          "no": "down",
+          "loop": "left"
+        }
+      }
+    }
+  },
+  "graphIDsAreReviewOnly": true,
+  "noAnswerInOriginalAlt": true,
+  "officialKeys": [
+    "ウ",
+    "ウ",
+    "エ",
+    "ウ",
+    "ア",
+    "エ",
+    "ウ",
+    "イ"
+  ],
+  "fullalts": [
+    {
+      "number": 1,
+      "literal": "問1。\n数値を2進数で格納するレジスタがある。このレジスタに正の整数 x を設定した後，“レジスタの値を2ビット左にシフトして，x を加える”操作を行うと，レジスタの値は x の何倍になるか。ここで，あふれ（オーバフロー）は，発生しないものとする。\nア，3。\nイ，4。\nウ，5。\nエ，6。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": null,
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 2,
+      "literal": "問2。\n次の状態遷移図で表現されるオートマトンで受理されるビット列はどれか。ここで，ビット列は左から順に読み込まれるものとする。\n図は左、中央、右の無名の3状態。外部から左状態へ太い開始矢印が入る。左状態は0で自己ループし、1の右向き矢印で中央状態へ移る。中央状態は1で自己ループし、0の右向き矢印で右状態へ移る。右状態は二重円で、0，1と一緒に記された一つの自己ループがある。\nア，0000。\nイ，0111。\nウ，1010。\nエ，1111。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": "図は左、中央、右の無名の3状態。外部から左状態へ太い開始矢印が入る。左状態は0で自己ループし、1の右向き矢印で中央状態へ移る。中央状態は1で自己ループし、0の右向き矢印で右状態へ移る。右状態は二重円で、0，1と一緒に記された一つの自己ループがある。",
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 3,
+      "literal": "問3。\nUNIXにおける正規表現 [A-Z]+[0-9]* が表現する文字列の集合の要素となるものはどれか。ここで，正規表現は次の規則に従う。\n[A-Z] は，大文字の英字1文字を表す。\n[0-9] は，数字1文字を表す。\n+ は，直前の正規表現の1回以上の繰返しであることを表す。\n* は，直前の正規表現の0回以上の繰返しであることを表す。\nア，456789。\nイ，ABC+99。\nウ，ABC99*。\nエ，ABCDEF。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": null,
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 4,
+      "literal": "問4。\nPCM方式によって音声をサンプリング（標本化）して8ビットのディジタルデータに変換し，圧縮せずにリアルタイムで転送したところ，転送速度は64,000ビット／秒であった。このときのサンプリング間隔は何マイクロ秒か。\nア，15.6。\nイ，46.8。\nウ，125。\nエ，128。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": null,
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 5,
+      "literal": "問5。\n10個の節（ノード）から成る次の2分木の各節に，1から10までの値を一意に対応するように割り振ったとき，節 a，b の値の組合せはどれになるか。ここで，各節に割り振る値は，左の子及びその子孫に割り振る値よりも大きく，右の子及びその子孫に割り振る値よりも小さくするものとする。\n2分木の図。根の円に5。根の左の子の円に4、右の子の円にa。4の左に空欄の子が一つあり、その子の左と右に空欄の葉が一つずつある。aの右に空欄の子が一つあり、その子の左の葉がb、右の子は空欄の円である。この右の子の右に空欄の葉が一つある。ほかの子は描かれていない。図には空欄の6円を含めて10個の円がある。\nア，a=6，b=7。\nイ，a=6，b=8。\nウ，a=7，b=8。\nエ，a=7，b=9。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": "2分木の図。根の円に5。根の左の子の円に4、右の子の円にa。4の左に空欄の子が一つあり、その子の左と右に空欄の葉が一つずつある。aの右に空欄の子が一つあり、その子の左の葉がb、右の子は空欄の円である。この右の子の右に空欄の葉が一つある。ほかの子は描かれていない。図には空欄の6円を含めて10個の円がある。",
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 6,
+      "literal": "問6。\n2次元の整数型配列 a の各要素 a(i，j) の値は，2i+j である。このとき，a(a(1，1)×2，a(2，2)+1) の値は幾つか。\nア，12。\nイ，13。\nウ，18。\nエ，19。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": null,
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 7,
+      "literal": "問7。\nn の階乗を再帰的に計算する関数 F(n) の定義において，a に入れるべき式はどれか。ここで，n は非負の整数とする。\nn>0のとき，F(n)=空欄a。空欄aは未記入の矩形である。\nn=0のとき，F(n)=1。\nア，n+F(n-1)。\nイ，n-1+F(n)。\nウ，n×F(n-1)。\nエ，(n-1)×F(n)。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": null,
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    },
+    {
+      "number": 8,
+      "literal": "問8。\nx と y を自然数とするとき，流れ図で表される手続を実行した結果として，適切なものはどれか。\n流れ図。開始から初期化q←0，r←xへ進み、条件r<yを判定する。Yesは右へ進んで終了する。Noは下へ進んでr←r-y，q←q+1をこの順に実行する。左側の戻り線は条件判定の直前へ戻り、初期化には戻らない。\n選択肢は一つの共有表で、上段の見出しは左からqの値、rの値。見出しの左は空白で左上角は開いている。以下は各行の記号、qの値、rの値の順に読む。\nア，qの値はx÷yの余り，rの値はx÷yの商。\nイ，qの値はx÷yの商，rの値はx÷yの余り。\nウ，qの値はy÷xの余り，rの値はy÷xの商。\nエ，qの値はy÷xの商，rの値はy÷xの余り。",
+      "source": "independent_actual_image_fixed_facts_plus_hand_authored_graph_relations",
+      "diagramLiteral": "流れ図。開始から初期化q←0，r←xへ進み、条件r<yを判定する。Yesは右へ進んで終了する。Noは下へ進んでr←r-y，q←q+1をこの順に実行する。左側の戻り線は条件判定の直前へ戻り、初期化には戻らない。",
+      "beforeReveal": true,
+      "noKeyOrChoiceTruthOrResearchNotes": true
+    }
+  ],
+  "crops": [
+    {
+      "number": 1,
+      "pdfPage": 4,
+      "renderPath": "render/page-04.png",
+      "renderSha256": "3409543a9e5a2d63e9663ad880f007f7cb0d9b5c89964770f1d57157b006aa91",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        150,
+        1160,
+        470
+      ],
+      "cropPath": "crops/q01.png",
+      "sha256": "75b74ead8533adc3dfc0d2ec58a98a7c86487a37dfcf9801b1a0e867d0257488",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed"
+    },
+    {
+      "number": 2,
+      "pdfPage": 4,
+      "renderPath": "render/page-04.png",
+      "renderSha256": "3409543a9e5a2d63e9663ad880f007f7cb0d9b5c89964770f1d57157b006aa91",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        540,
+        1160,
+        1000
+      ],
+      "cropPath": "crops/q02-v2.png",
+      "sha256": "5b3a26fc90570e43ecb6737a0bcffca948a1ba57eb5b0f7e0bbf9ae9206b5095",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed",
+      "rejectedAttempt": {
+        "path": "crops/q02.png",
+        "sha256": "914fe154d28b065f08e9bcb2d3e37e983069dc15213da66e23905cb66ba3f552",
+        "reason": "隣問3の冒頭混入"
+      }
+    },
+    {
+      "number": 3,
+      "pdfPage": 4,
+      "renderPath": "render/page-04.png",
+      "renderSha256": "3409543a9e5a2d63e9663ad880f007f7cb0d9b5c89964770f1d57157b006aa91",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        1040,
+        1160,
+        1550
+      ],
+      "cropPath": "crops/q03-v2.png",
+      "sha256": "e074fdfb03022f09c669e6a176369c92551e6ef9349fe6ffeb21bbb8970ccc23",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed",
+      "rejectedAttempt": {
+        "path": "crops/q03.png",
+        "sha256": "fde0bfcec644f31e4042ab0060e66f24a2a5692f6bdbe5270d58d5d4efddf919",
+        "reason": "問3本文と第1規則上端が欠落"
+      }
+    },
+    {
+      "number": 4,
+      "pdfPage": 5,
+      "renderPath": "render/page-05.png",
+      "renderSha256": "855aa754c68a67de105b90b6d8e2d2de50d619a3a67b26f3c15258b179570e74",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        150,
+        1160,
+        430
+      ],
+      "cropPath": "crops/q04.png",
+      "sha256": "2f2c7ac51682e550c7f8ef5072d0863288cc18fb00dc7bce75a064c8cda3681a",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed"
+    },
+    {
+      "number": 5,
+      "pdfPage": 5,
+      "renderPath": "render/page-05.png",
+      "renderSha256": "855aa754c68a67de105b90b6d8e2d2de50d619a3a67b26f3c15258b179570e74",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        505,
+        1160,
+        1270
+      ],
+      "cropPath": "crops/q05.png",
+      "sha256": "21a2383c7ef08f011e1ae0b0a1a4acedaab9d61a704afe88c2b245aaf2a5fdca",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed"
+    },
+    {
+      "number": 6,
+      "pdfPage": 5,
+      "renderPath": "render/page-05.png",
+      "renderSha256": "855aa754c68a67de105b90b6d8e2d2de50d619a3a67b26f3c15258b179570e74",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        1335,
+        1160,
+        1560
+      ],
+      "cropPath": "crops/q06.png",
+      "sha256": "3202f3d9b9efa47e31315d369d01dd19313c4c8e5623919fbf7c32efc01c70e9",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed"
+    },
+    {
+      "number": 7,
+      "pdfPage": 6,
+      "renderPath": "render/page-06.png",
+      "renderSha256": "663ad169500435d14c2dc9546209334d25b7496a7853311d0757d7aac4618cdb",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        150,
+        1160,
+        580
+      ],
+      "cropPath": "crops/q07.png",
+      "sha256": "cf01bdbd9b4928c0258bcd372be60d76dc23e62679ea9cd00346c8e46cc5733d",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed"
+    },
+    {
+      "number": 8,
+      "pdfPage": 6,
+      "renderPath": "render/page-06.png",
+      "renderSha256": "663ad169500435d14c2dc9546209334d25b7496a7853311d0757d7aac4618cdb",
+      "renderPixels": [
+        1273,
+        1800
+      ],
+      "cropBoxLTRB": [
+        130,
+        645,
+        1160,
+        1530
+      ],
+      "cropPath": "crops/q08.png",
+      "sha256": "be99eb834ea8525c975d50dbd08b2f2585affa233141b194f711b4c9602d3f9d",
+      "visualAcceptance": "question_all_notes_all_four_choices_complete_no_neighbor_confirmed"
+    }
+  ],
+  "metadata": {
+    "checkedOn": "2026-10-24",
+    "publisher": "独立行政法人情報処理推進機構",
+    "year": 2016,
+    "period": "春期",
+    "timeSlot": "午前",
+    "collectionId": "2016h28h-fe-am",
+    "questionPaper": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf",
+      "sha256": "d68dd03ec4beccc2a80c482ada27c67e4370c2bdacd600d9d3fc10b18ea6ef34",
+      "byteLength": 4920981,
+      "pageCount": 36,
+      "localPath": "primary/questions.pdf",
+      "dateNote": "冊子は平成28年度春期と記載。独立した公開日を確認できないためpublishedOnを省略。PDF作成/更新時刻、親ページ公開2016-10-16、HTTP Last-Modifiedを春期冊子の公開日へ転記しない。"
+    },
+    "answerPaper": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_ans.pdf",
+      "sha256": "3fdd9ff26142d487e509b0de25d2fcb24485d442eafd81103d5e2609310f83f9",
+      "byteLength": 52769,
+      "pageCount": 1,
+      "localPath": "primary/answers.pdf",
+      "dateNote": "©2016を確認。別紙解答の独立した公表日は未確認のためpublishedOnを省略。"
+    },
+    "parentPage": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2016h28.html",
+      "localPath": "primary/year.html",
+      "publishedOn": "2016-10-16",
+      "updatedOn": "2017-01-06",
+      "scope": "年度ページの表示日であり春期個別PDFの公開日ではない",
+      "feSpringLinks": "QS/ANSの相対URLが取得した二本に一致",
+      "correctionReview": "取得した年度ページにFE春期午前向けの訂正リンク/訂正文を見つけなかった。全IPA告知の不存在証明ではない。"
+    },
+    "sourceOnly": true
+  },
+  "sourceEvidence": {
+    "peerFactsSHA256": "6be10529780ed91616a6fdaedf5aff1443ca9f1e4e82eb7f46f277f234ed4d59",
+    "fullaltLiteralSHA256": "25f228ab368ed6139ad0334b6cbdc50d856fe17c7b7d24f76332acd5a3f87239",
+    "questionsSHA256": "d68dd03ec4beccc2a80c482ada27c67e4370c2bdacd600d9d3fc10b18ea6ef34",
+    "answersSHA256": "3fdd9ff26142d487e509b0de25d2fcb24485d442eafd81103d5e2609310f83f9",
+    "basis": "independent peer actual images; not producer nor OCR"
+  },
+  "rightsReview": {
+    "status": "local_q1_to_q8_assessment_for_source_design_not_distribution_admission",
+    "checkedOn": "2026-10-24",
+    "reviewer": "Codex AI",
+    "scope": {
+      "questions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "body": "official prompt/notes/rules/formulas",
+      "choices": "all four choices in original order",
+      "answer": "separate official answer key",
+      "figures": [
+        "q2 state transition",
+        "q5 binary tree",
+        "q8 flowchart and answer table"
+      ],
+      "explanation": "independent calculation/proof notes authored by Codex, not official IPA explanations"
+    },
+    "primaryEvidence": [
+      {
+        "path": "primary/faq.html",
+        "url": "https://www.ipa.go.jp/shiken/faq.html",
+        "section": "その他／試験の過去問題の使用方法と留意点",
+        "facts": [
+          "公表過去問題の教育目的等の利用に許諾・使用料は不要との案内",
+          "著作権を放棄しない",
+          "年度・期・試験区分・時間区分・問番号等の出典明記",
+          "一部改変する場合その旨明記"
+        ],
+        "limits": "GitHub同梱、ブラウザ表示、画像化、個々の改変条件を用途別に名指しする文言ではない。第三者部分への包括許可でもない。"
+      },
+      {
+        "path": "primary/siteinfo.html",
+        "url": "https://www.ipa.go.jp/siteinfo.html",
+        "section": "著作権について、商標について",
+        "facts": [
+          "特段の記載のない記事等はIPA帰属との案内",
+          "引用/転載の出所明示、個別条件に従う",
+          "商標は各権利者帰属"
+        ],
+        "limits": "本プロジェクトへの個別許諾取得を意味しない。"
+      },
+      {
+        "path": "render/material-36.png",
+        "section": "冊子p36下部",
+        "facts": [
+          "©2016 独立行政法人情報処理推進機構",
+          "会社名・製品名の商標は各社/各組織に帰属、TM/®省略という注記"
+        ]
+      }
+    ],
+    "uses": {
+      "repositoryRedistribution": {
+        "assessment": "provisionally_allowed_with_conditions_for_local_first8",
+        "basis": "IPA FAQの教育用途としての学習教材利用と明示的な出典・改変表示に基づくプロジェクト判断",
+        "conditions": [
+          "出典と原資料リンクを問題単位に保持",
+          "原画像/本文/選択肢/正答を独自コードのMIT/CC0へ含めない",
+          "改変時はofficial_adaptation、原条件と変更を追跡",
+          "第三者部分が判明すれば別途条件確認、未確認はhold",
+          "表示/同梱の個別用途を明示していないという根拠の限界を保持"
+        ]
+      },
+      "browserDisplay": {
+        "assessment": "provisionally_allowed_with_conditions_for_local_first8",
+        "basis": "IPA FAQの教育用途としての学習教材利用と明示的な出典・改変表示に基づくプロジェクト判断",
+        "conditions": [
+          "出典と原資料リンクを問題単位に保持",
+          "原画像/本文/選択肢/正答を独自コードのMIT/CC0へ含めない",
+          "改変時はofficial_adaptation、原条件と変更を追跡",
+          "第三者部分が判明すれば別途条件確認、未確認はhold",
+          "表示/同梱の個別用途を明示していないという根拠の限界を保持"
+        ]
+      },
+      "adaptation": {
+        "assessment": "provisionally_allowed_with_conditions_for_local_first8",
+        "basis": "IPA FAQの教育用途としての学習教材利用と明示的な出典・改変表示に基づくプロジェクト判断",
+        "conditions": [
+          "出典と原資料リンクを問題単位に保持",
+          "原画像/本文/選択肢/正答を独自コードのMIT/CC0へ含めない",
+          "改変時はofficial_adaptation、原条件と変更を追跡",
+          "第三者部分が判明すれば別途条件確認、未確認はhold",
+          "表示/同梱の個別用途を明示していないという根拠の限界を保持"
+        ]
+      }
+    },
+    "materials": [
+      {
+        "number": 1,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 2,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 3,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 4,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 5,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 6,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 7,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      },
+      {
+        "number": 8,
+        "thirdParty": "none_identified_in_local_review",
+        "checkedParts": [
+          "prompt",
+          "all_choices",
+          "notes",
+          "formula_or_figure_if_present"
+        ],
+        "finding": "原画像p4〜6に第三者引用元、外部写真、外部図表の出典又は個別権利表示を見つけなかった。規則が本文で与えられる計算・論理・構造の問題。",
+        "hold": false
+      }
+    ],
+    "commonNotation": {
+      "pages": [
+        2,
+        3
+      ],
+      "finding": "規格/標準の名称と版対応、論理素子図記号の規則を目視。問1〜8の解答はJIS等の規格本文に依存しない。名称掲載だけで禁止又は包括許可と判定しない。",
+      "first8ApplicableStandardDefinitions": false
+    },
+    "attributionText": "出典：平成28年度 春期 基本情報技術者試験 午前 問N。©2016 独立行政法人情報処理推進機構。",
+    "adaptationText": "IPA公式公開問題を基に改変（変更箇所を別記）。非公式の学習教材です。",
+    "termReference": {
+      "url": "https://www.itu.int/rec/T-REC-G.711/en",
+      "localPath": "primary/itu-g711.html",
+      "purpose": "PCM略語の正式名Pulse code modulationの確認だけ。規格本文・実装・音声素材を転載しない。",
+      "rights": "ITU資料の権利をIPA FAQへ合流しない。説明の参考リンクとして用いる。"
+    },
+    "limits": [
+      "同じCodexによる局所査読で、人間や別担当の独立権利査読は未実施。",
+      "問9〜80は引き続き全範囲に保持。OCR keyword scanだけで各素材を利用可能とは認定しない。",
+      "現在のsource準備451、legacy本体0、wholeScopeNotReadyを維持。この8問をready/sourcePreparedへ加算しない。",
+      "今回の出力は非公開のsource/design資料。公開・main合流・pushは行わない。"
+    ]
+  }
+}

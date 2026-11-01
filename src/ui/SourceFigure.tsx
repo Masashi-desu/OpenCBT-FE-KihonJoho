@@ -9,6 +9,14 @@ import type { Scene, Attribution } from "../core/types";
 import { validateSourceFigure, sourceFigureAlt } from "../core/source-figures";
 import { isLegacyMorningFigure } from "../core/legacy-morning-figures";
 import { LegacyMorningFigure } from "./LegacyMorningFigure";
+import { isSpring2016Figure } from '../core/spring-2016-figures';
+import { Legacy2016SpringFundamentalsFigure } from './Legacy2016SpringFundamentalsFigures';
+import { LegacyCommonGateTable } from './Legacy2017AutumnAmCommonRules';
+import { am2016FigureFields } from '../core/generators/legacy-2016-spring-am-09-32-figure-models';
+import { Legacy2016SpringAm0932Figure } from './legacy-2016-spring-am-09-32-figures';
+import { Legacy2016SpringAm3356FlowFigure } from './legacy-2016-spring-am-33-56-figures';
+import { Legacy2016SpringAm5780Figures } from './Legacy2016SpringAm5780Figures';
+import { spring2016Am5780Profiles } from '../core/generators/legacy-2016-spring-am-57-80-figures';
 import { scatterPoints } from "../core/generators/subject-a";
 import { sampleBigramCases } from "../core/generators/sample-2022-data";
 import { sampleMinimaxBoards, sampleMinimaxChildren, sampleMinimaxQueries } from "../core/generators/sample-2022-dec-data";
@@ -49,6 +57,11 @@ export function SourceFigure({
     profile = scene.profile;
   if (isLegacyAfternoonFigure(scene.profile)) return <LegacyAfternoonFigure profile={scene.profile} values={scene.values} caption={caption} />;
   if (isLegacyMorningFigure(profile)) return <LegacyMorningFigure profile={profile} values={v} caption={caption}/>;
+  if (profile === 'legacy-2016-spring-am-common-gates') return <LegacyCommonGateTable collection="2016h28h-fe-am" caption={caption}/>;
+  if (Object.hasOwn(am2016FigureFields,profile)) return <div className="diagram-scroll" tabIndex={0} aria-label="問題の図"><Legacy2016SpringAm0932Figure scene={scene} caption={caption}/></div>;
+  if (profile==='legacy-2016-spring-am-49') return <Legacy2016SpringAm3356FlowFigure profile={profile} values={v} caption={caption}/>;
+  if (Object.values(spring2016Am5780Profiles).some(p=>p===profile)) return <div className="diagram-scroll" tabIndex={0} aria-label="問題の図"><Legacy2016SpringAm5780Figures scene={scene} caption={caption}/></div>;
+  if (isSpring2016Figure(profile)) return <div className="diagram-scroll" tabIndex={0} aria-label="問題の図"><Legacy2016SpringFundamentalsFigure scene={scene} caption={caption}/></div>;
   if (profile === managedLegacyFigure.profile) {
     if (caption !== managedLegacyFigure.caption) throw new DataError("SOURCE_MATERIAL", "登録図の見出しと一致しません");
     return <Legacy2017Pm3Figure profile={profile} values={v} caption={caption}/>;

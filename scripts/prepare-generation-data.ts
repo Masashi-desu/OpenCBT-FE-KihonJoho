@@ -7,6 +7,7 @@ import { generationContracts, bindQuestion, validateTemplateContract } from "../
 import { additionalContracts, additionalDefinition } from "../src/core/generators";
 import { ensureLegacyMorningGenerators } from "../src/core/generators/legacy-morning-install";
 import { isLegacyMorningSource } from "../src/core/generators/legacy-morning-format";
+import { ensureStage3MorningGenerators, isStage3MorningSource } from '../src/core/generators/stage3-morning-install';
 import { legacyAfternoonDefinition } from "../src/core/generators/legacy-afternoon-definitions";
 import { validateSourceFormat } from "../src/core/generation-formats";
 import { readDistributionBundle, compactDistribution } from "./distribution-files";
@@ -49,7 +50,7 @@ const refreshSources = new Set(
 for (const source of refreshSources) {
   // Morning booklets are admitted as a whole reviewed payload. Do not install
   // their definitions into the generic rebuild loop or refresh their bases.
-  if (isLegacyMorningSource(source) && inputBundle.templates.some(t => t.generatorRef.id === `generator-source-${source}`))
+  if ((isLegacyMorningSource(source)||isStage3MorningSource(source)) && inputBundle.templates.some(t => t.generatorRef.id === `generator-source-${source}`))
     throw Error(`BOOKLET_REVIEW_REQUIRED: ${source}; use its complete reviewed booklet staging workflow`);
   if (
     ![...generationContracts, ...additionalContracts].some(
@@ -179,10 +180,11 @@ const handledTemplates = new Set(generated.map(g => g.template.id));
 // Install admitted morning definitions only after the generic refresh set was
 // fixed. They are needed for validation, never generic regeneration.
 await ensureLegacyMorningGenerators(inputBundle);
+ensureStage3MorningGenerators(inputBundle);
 for (const template of inputBundle.templates.filter(t => !handledTemplates.has(t.id))) {
   const source = template.generatorRef.id.replace(/^generator-source-/, "");
   const definition = legacyAfternoonDefinition(template.generatorRef.id) ??
-    (isLegacyMorningSource(source) ? additionalDefinition(template.generatorRef.id) : undefined);
+    (isLegacyMorningSource(source)||isStage3MorningSource(source) ? additionalDefinition(template.generatorRef.id) : undefined);
   const question = inputBundle.questions.find(q => q.id === template.baseQuestionRef.questionId && q.revision === template.baseQuestionRef.revision);
   if (!definition || !question) throw Error(`Unmanaged existing template ${template.id}`);
   if (process.argv.includes("--refresh-all") || process.argv.includes("--refresh-additional") || refreshSources.has(definition.source))

@@ -1,0 +1,1886 @@
+{
+  "schema": "s3-001-2016-spring-am-local-review-v1",
+  "checkedOn": "2026-11-01",
+  "scope": [
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "source": {
+    "questionUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf",
+    "questionSHA256": "d68dd03ec4beccc2a80c482ada27c67e4370c2bdacd600d9d3fc10b18ea6ef34",
+    "answerUrl": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_ans.pdf",
+    "answerSHA256": "3fdd9ff26142d487e509b0de25d2fcb24485d442eafd81103d5e2609310f83f9",
+    "answerImageReview": {
+      "date": "2026-11-01",
+      "scope": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "method": "公式ANS 1ページの4列表を画像で目視し，全24正答を各recordのofficialKeyへ照合。一致。",
+      "privateEvidence": "output/source-review/s3-001-2016-spring-am/q57-80/primary/answers-review.png"
+    }
+  },
+  "held": [
+    {
+      "number": 60,
+      "status": "material_hold",
+      "reason": "旧METIシステム監査基準の目的との直接対応。旧一次本文と利用条件の現物をまだ確認できず。本文と4択は公開コード/fixtureへ転載しない。",
+      "pdfPage": 26,
+      "officialKey": "ウ"
+    },
+    {
+      "number": 63,
+      "status": "material_hold",
+      "reason": "旧METIシステム管理基準の文言との直接対応。旧一次本文と利用条件の現物をまだ確認できず。本文と4択は公開コード/fixtureへ転載しない。",
+      "pdfPage": 27,
+      "officialKey": "イ"
+    },
+    {
+      "number": 66,
+      "pdfPage": 28,
+      "officialKey": "エ",
+      "status": "material_hold",
+      "reason": "定義の具体的表現とGPN基本原則/政府資料との対応について権利者・原2016へ及ぶ利用条件が未確定。2017環境省冊子のPDLを原2016への許諾と同一視しない。原本文/4択/生成候補は公開コード/fixtureへ転載せずprivate outputに保持。",
+      "evidenceUrls": [
+        "https://www.env.go.jp/press/62.html",
+        "https://www.env.go.jp/policy/hozen/green/kokusai_platform/2015report/handbook_jpn.pdf",
+        "https://www.env.go.jp/policy/hozen/green/kokusai_platform/2016report/green_jpn.pdf",
+        "https://www.env.go.jp/mail.html"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "number": 57,
+      "title": "容量・能力の監視",
+      "pdfPage": 25,
+      "printedPage": 25,
+      "prompt": "ITサービスマネジメントのキャパシティ管理プロセスにおける，オンラインシステムの容量・能力の利用の監視についての注意事項のうち，適切なものはどれか。",
+      "choices": [
+        "応答時間やCPU使用率などの複数の測定項目を定常的に監視する。",
+        "オンライン時間帯に性能を測定することはサービスレベルの低下につながるので，測定はオフライン時間帯に行う。",
+        "キャパシティ及びパフォーマンスに関するインシデントを記録する。",
+        "性能データのうちの一定期間内の最大値だけに着目し，管理の限界を逸脱しているかどうかを確認する。"
+      ],
+      "officialKey": "ア",
+      "choiceRoles": [
+        "継続・複数指標の監視",
+        "稼働中を除外した測定",
+        "インシデント記録であり利用監視の方法でない",
+        "最大値だけに限定"
+      ],
+      "notes": "ウの記録は有益な活動自体を否定しない。問いはオンラインの容量・能力の利用の監視方法である。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 511333,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          216,
+          1494,
+          670
+        ],
+        "height": 670,
+        "normalizedBox": [
+          0.1,
+          0.085,
+          0.83,
+          0.263
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q57.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "d8ad48bf3d885764e380c20295d4d29a729e5f809a486c757679777364ff97aa"
+      },
+      "fullAlt": "ITサービスマネジメントのキャパシティ管理プロセスにおける，オンラインシステムの容量・能力の利用の監視についての注意事項のうち，適切なものはどれか。  ア：応答時間やCPU使用率などの複数の測定項目を定常的に監視する。 イ：オンライン時間帯に性能を測定することはサービスレベルの低下につながるので，測定はオフライン時間帯に行う。 ウ：キャパシティ及びパフォーマンスに関するインシデントを記録する。 エ：性能データのうちの一定期間内の最大値だけに着目し，管理の限界を逸脱しているかどうかを確認する。",
+      "source": "2016h28h-fe-am-57",
+      "page": 25,
+      "alt": "ITサービスマネジメントのキャパシティ管理プロセスにおける，オンラインシステムの容量・能力の利用の監視についての注意事項のうち，適切なものはどれか。  ア：応答時間やCPU使用率などの複数の測定項目を定常的に監視する。 イ：オンライン時間帯に性能を測定することはサービスレベルの低下につながるので，測定はオフライン時間帯に行う。 ウ：キャパシティ及びパフォーマンスに関するインシデントを記録する。 エ：性能データのうちの一定期間内の最大値だけに着目し，管理の限界を逸脱しているかどうかを確認する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "オンライン利用中の多指標・継続監視と，時間帯除外/記録のみ/極値のみを比較。監視指標・集計条件・発生状況を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 58,
+      "title": "雷サージ対策",
+      "pdfPage": 25,
+      "printedPage": 25,
+      "prompt": "落雷によって発生する過電圧の被害から情報システムを守るための手段として，有効なものはどれか。",
+      "choices": [
+        "サージ保護デバイス（SPD）を介して通信ケーブルとコンピュータを接続する。",
+        "自家発電装置を設置する。",
+        "通信線を，経路が異なる2系統とする。",
+        "電源設備の制御回路をディジタル化する。"
+      ],
+      "officialKey": "ア",
+      "choiceRoles": [
+        "SPDによる侵入サージ抑制",
+        "給電継続",
+        "通信経路冗長化",
+        "制御方式変更"
+      ],
+      "notes": "SPDはSurge Protective Device。単体で全ての直撃雷・無制限の過電圧を防ぐとは述べない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 318218,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          992,
+          1494,
+          522
+        ],
+        "height": 522,
+        "normalizedBox": [
+          0.1,
+          0.39,
+          0.83,
+          0.205
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q58.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "9b2173afbd4f0dd892994e3ced1100d5747902ce9b424a530f34bcfc6e3b17e7"
+      },
+      "fullAlt": "落雷によって発生する過電圧の被害から情報システムを守るための手段として，有効なものはどれか。  ア：サージ保護デバイス（SPD）を介して通信ケーブルとコンピュータを接続する。 イ：自家発電装置を設置する。 ウ：通信線を，経路が異なる2系統とする。 エ：電源設備の制御回路をディジタル化する。",
+      "source": "2016h28h-fe-am-58",
+      "page": 25,
+      "alt": "落雷によって発生する過電圧の被害から情報システムを守るための手段として，有効なものはどれか。  ア：サージ保護デバイス（SPD）を介して通信ケーブルとコンピュータを接続する。 イ：自家発電装置を設置する。 ウ：通信線を，経路が異なる2系統とする。 エ：電源設備の制御回路をディジタル化する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "雷による過渡過電圧を固定し，通信線/電源線の侵入経路と別の継続・復旧策を変える。SPDの作用を無制限の雷保護としない。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 59,
+      "title": "アクセス制御の監査",
+      "pdfPage": 25,
+      "printedPage": 25,
+      "prompt": "アクセス制御を監査するシステム監査人が採った行動のうち，適切なものはどれか。",
+      "choices": [
+        "ソフトウェアに関するアクセス制御の管理表の作成と保管",
+        "データに関するアクセス制御の管理状況の確認",
+        "ネットワークに関するアクセス制御の管理方針の制定",
+        "ハードウェアに関するアクセス制御の運用管理の実施"
+      ],
+      "officialKey": "イ",
+      "choiceRoles": [
+        "被監査側の管理表作成・保管",
+        "監査対象の確認",
+        "被監査側の管理方針制定",
+        "被監査側の運用実施"
+      ],
+      "notes": "監査人と業務執行者の責任を区別する。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 333662,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1629,
+          1494,
+          515
+        ],
+        "height": 515,
+        "normalizedBox": [
+          0.1,
+          0.64,
+          0.83,
+          0.202
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q59.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "0775d5305c3df57fb276806477d6ddda9e45d5e030a6d711eb21741da17e4da8"
+      },
+      "fullAlt": "アクセス制御を監査するシステム監査人が採った行動のうち，適切なものはどれか。  ア：ソフトウェアに関するアクセス制御の管理表の作成と保管 イ：データに関するアクセス制御の管理状況の確認 ウ：ネットワークに関するアクセス制御の管理方針の制定 エ：ハードウェアに関するアクセス制御の運用管理の実施",
+      "source": "2016h28h-fe-am-59",
+      "page": 25,
+      "alt": "アクセス制御を監査するシステム監査人が採った行動のうち，適切なものはどれか。  ア：ソフトウェアに関するアクセス制御の管理表の作成と保管 イ：データに関するアクセス制御の管理状況の確認 ウ：ネットワークに関するアクセス制御の管理方針の制定 エ：ハードウェアに関するアクセス制御の運用管理の実施",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "アクセス制御の対象と証拠・作業を変え，監査の評価と日常の管理運用の責任を区別。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 61,
+      "title": "パッチ適用リスクの監査",
+      "pdfPage": 26,
+      "printedPage": 26,
+      "prompt": "ソフトウェアのパッチの適用において，システムに不具合が発生するリスクを低減するコントロールを監査する際のチェックポイントはどれか。",
+      "choices": [
+        "キャパシティプランニングの手続を定めていること",
+        "データベース管理者が任命され，マスタデータの管理手続を定めていること",
+        "ハードウェア管理台帳を作成し，システム管理者が管理していること",
+        "本稼働前にシステムの動作確認を十分に実施していること"
+      ],
+      "officialKey": "エ",
+      "choiceRoles": [
+        "将来容量の計画",
+        "マスタ管理",
+        "資産台帳",
+        "事前の動作確認"
+      ],
+      "notes": "他の管理の必要性を否定せず，パッチを原因とする動作不具合への直接の対策を選ぶ。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 381509,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1056,
+          1494,
+          528
+        ],
+        "height": 528,
+        "normalizedBox": [
+          0.1,
+          0.415,
+          0.83,
+          0.207
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q61.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "d68c2b8655f04fcc1a73443899fbf4e9f4210ff196c6b8420a88e4965e277d9e"
+      },
+      "fullAlt": "ソフトウェアのパッチの適用において，システムに不具合が発生するリスクを低減するコントロールを監査する際のチェックポイントはどれか。  ア：キャパシティプランニングの手続を定めていること イ：データベース管理者が任命され，マスタデータの管理手続を定めていること ウ：ハードウェア管理台帳を作成し，システム管理者が管理していること エ：本稼働前にシステムの動作確認を十分に実施していること",
+      "source": "2016h28h-fe-am-61",
+      "page": 26,
+      "alt": "ソフトウェアのパッチの適用において，システムに不具合が発生するリスクを低減するコントロールを監査する際のチェックポイントはどれか。  ア：キャパシティプランニングの手続を定めていること イ：データベース管理者が任命され，マスタデータの管理手続を定めていること ウ：ハードウェア管理台帳を作成し，システム管理者が管理していること エ：本稼働前にシステムの動作確認を十分に実施していること",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "パッチ/OS更新/ソフトウェア更新という対象と，検証対象・隣接する別管理策を変える。動作確認と他管理の区別。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 62,
+      "title": "EAの分類体系",
+      "pdfPage": 26,
+      "printedPage": 26,
+      "prompt": "エンタープライズアーキテクチャの“四つの分類体系”に含まれるアーキテクチャは，ビジネスアーキテクチャ，テクノロジアーキテクチャ，アプリケーションアーキテクチャともう一つはどれか。",
+      "choices": [
+        "システムアーキテクチャ",
+        "ソフトウェアアーキテクチャ",
+        "データアーキテクチャ",
+        "バスアーキテクチャ"
+      ],
+      "officialKey": "ウ",
+      "choiceRoles": [
+        "四分類以外",
+        "四分類以外",
+        "データ",
+        "四分類以外"
+      ],
+      "notes": "EAの当該四分類の穴埋めを維持。他の体系で名称が使われることを否定しない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 249065,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1685,
+          1494,
+          459
+        ],
+        "height": 459,
+        "normalizedBox": [
+          0.1,
+          0.662,
+          0.83,
+          0.18
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q62.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "e62f083f4874bb9db203142b8b4e4e12a5e1208d95d850db312203d326cece35"
+      },
+      "fullAlt": "エンタープライズアーキテクチャの“四つの分類体系”に含まれるアーキテクチャは，ビジネスアーキテクチャ，テクノロジアーキテクチャ，アプリケーションアーキテクチャともう一つはどれか。  ア：システムアーキテクチャ イ：ソフトウェアアーキテクチャ ウ：データアーキテクチャ エ：バスアーキテクチャ",
+      "source": "2016h28h-fe-am-62",
+      "page": 26,
+      "alt": "エンタープライズアーキテクチャの“四つの分類体系”に含まれるアーキテクチャは，ビジネスアーキテクチャ，テクノロジアーキテクチャ，アプリケーションアーキテクチャともう一つはどれか。  ア：システムアーキテクチャ イ：ソフトウェアアーキテクチャ ウ：データアーキテクチャ エ：バスアーキテクチャ",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "EA四分類の既知3分類と欠ける分類の組合せ，四分類以外の誤答候補を同じ穴埋め位置で変える。分類体系の説明問題へ交換しない。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 64,
+      "title": "UMLの活用",
+      "pdfPage": 27,
+      "printedPage": 27,
+      "prompt": "業務プロセスを可視化する手法としてUMLを採用した場合の活用シーンはどれか。",
+      "choices": [
+        "対象をエンティティとその属性及びエンティティ間の関連で捉え，データ中心アプローチの表現によって図に示す。",
+        "データの流れによってプロセスを表現するために，データの発生，吸収の場所，蓄積場所，データの処理を，データの流れを示す矢印でつないで表現する。",
+        "複数の観点でプロセスを表現するために，目的に応じたモデル図法を使用し，オブジェクトモデリングのために標準化された記述ルールで表現する。",
+        "プロセスの機能を網羅的に表現するために，一つの要件に対して発生する事象を条件分岐の形式で記述する。"
+      ],
+      "officialKey": "ウ",
+      "choiceRoles": [
+        "ERモデル",
+        "DFD",
+        "UML",
+        "条件分岐による記述"
+      ],
+      "notes": "UMLはUnified Modeling Language。ER/DFD一般と同一扱いしない。仕様本文・図版は転載しない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 600395,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1064,
+          1494,
+          815
+        ],
+        "height": 815,
+        "normalizedBox": [
+          0.1,
+          0.418,
+          0.83,
+          0.32
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q64.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "dfe44634280819bb9fa9168f64879d9129e2866553f88ce60bd959c2559a3d39"
+      },
+      "fullAlt": "業務プロセスを可視化する手法としてUMLを採用した場合の活用シーンはどれか。  ア：対象をエンティティとその属性及びエンティティ間の関連で捉え，データ中心アプローチの表現によって図に示す。 イ：データの流れによってプロセスを表現するために，データの発生，吸収の場所，蓄積場所，データの処理を，データの流れを示す矢印でつないで表現する。 ウ：複数の観点でプロセスを表現するために，目的に応じたモデル図法を使用し，オブジェクトモデリングのために標準化された記述ルールで表現する。 エ：プロセスの機能を網羅的に表現するために，一つの要件に対して発生する事象を条件分岐の形式で記述する。",
+      "source": "2016h28h-fe-am-64",
+      "page": 27,
+      "alt": "業務プロセスを可視化する手法としてUMLを採用した場合の活用シーンはどれか。  ア：対象をエンティティとその属性及びエンティティ間の関連で捉え，データ中心アプローチの表現によって図に示す。 イ：データの流れによってプロセスを表現するために，データの発生，吸収の場所，蓄積場所，データの処理を，データの流れを示す矢印でつないで表現する。 ウ：複数の観点でプロセスを表現するために，目的に応じたモデル図法を使用し，オブジェクトモデリングのために標準化された記述ルールで表現する。 エ：プロセスの機能を網羅的に表現するために，一つの要件に対して発生する事象を条件分岐の形式で記述する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "UMLの活用を選ぶ方向と4説明を固定し，図法の用途・関係者・フロー/相互作用を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 65,
+      "title": "IoT",
+      "pdfPage": 28,
+      "printedPage": 28,
+      "prompt": "IoT（Internet of Things）を説明したものはどれか。",
+      "choices": [
+        "インターネットとの接続を前提として設計されているデータセンタのことであり，サーバ運用に支障を来さないように，通信回線の品質管理，サーバのメンテナンス，空調設備，瞬断や停電に対応した電源対策などが施されている。",
+        "インターネットを通して行う電子商取引の一つの形態であり，出品者がWebサイト上に，商品の名称，写真，最低価格などの情報を掲載し，期限内に最高額を提示した入札者が商品を落札する，代表的なCtoC取引である。",
+        "広告主のWebサイトへのリンクを設定した画像を広告媒体となるWebサイトに掲載するバナー広告や，広告主のWebサイトの宣伝をメールマガジンに掲載するメール広告など，インターネットを使った広告のことである。",
+        "コンピュータなどの情報通信機器だけでなく様々なものに通信機能をもたせ，インターネットに接続することによって自動認識や遠隔計測を可能にし，大量のデータを収集・分析して高度な判断サービスや自動制御を実現することである。"
+      ],
+      "officialKey": "エ",
+      "choiceRoles": [
+        "データセンタ",
+        "ネットオークション",
+        "インターネット広告",
+        "モノの接続・計測・分析・制御"
+      ],
+      "notes": "IoTの原の説明から具体的な計測・制御の状況へ変える。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 921502,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          203,
+          1494,
+          1044
+        ],
+        "height": 1044,
+        "normalizedBox": [
+          0.1,
+          0.08,
+          0.83,
+          0.41
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q65.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "4a8da984f6904e257e82c0fececcd765775baa1bac81dd135027b9e3fecaaf99"
+      },
+      "fullAlt": "IoT（Internet of Things）を説明したものはどれか。  ア：インターネットとの接続を前提として設計されているデータセンタのことであり，サーバ運用に支障を来さないように，通信回線の品質管理，サーバのメンテナンス，空調設備，瞬断や停電に対応した電源対策などが施されている。 イ：インターネットを通して行う電子商取引の一つの形態であり，出品者がWebサイト上に，商品の名称，写真，最低価格などの情報を掲載し，期限内に最高額を提示した入札者が商品を落札する，代表的なCtoC取引である。 ウ：広告主のWebサイトへのリンクを設定した画像を広告媒体となるWebサイトに掲載するバナー広告や，広告主のWebサイトの宣伝をメールマガジンに掲載するメール広告など，インターネットを使った広告のことである。 エ：コンピュータなどの情報通信機器だけでなく様々なものに通信機能をもたせ，インターネットに接続することによって自動認識や遠隔計測を可能にし，大量のデータを収集・分析して高度な判断サービスや自動制御を実現することである。",
+      "source": "2016h28h-fe-am-65",
+      "page": 28,
+      "alt": "IoT（Internet of Things）を説明したものはどれか。  ア：インターネットとの接続を前提として設計されているデータセンタのことであり，サーバ運用に支障を来さないように，通信回線の品質管理，サーバのメンテナンス，空調設備，瞬断や停電に対応した電源対策などが施されている。 イ：インターネットを通して行う電子商取引の一つの形態であり，出品者がWebサイト上に，商品の名称，写真，最低価格などの情報を掲載し，期限内に最高額を提示した入札者が商品を落札する，代表的なCtoC取引である。 ウ：広告主のWebサイトへのリンクを設定した画像を広告媒体となるWebサイトに掲載するバナー広告や，広告主のWebサイトの宣伝をメールマガジンに掲載するメール広告など，インターネットを使った広告のことである。 エ：コンピュータなどの情報通信機器だけでなく様々なものに通信機能をもたせ，インターネットに接続することによって自動認識や遠隔計測を可能にし，大量のデータを収集・分析して高度な判断サービスや自動制御を実現することである。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "IoTの説明を選ぶ方向で，農地/工場/物流での計測・通信・利用の状況と，広告/取引/施設の誤答を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 67,
+      "title": "SWOT分析",
+      "pdfPage": 29,
+      "printedPage": 29,
+      "prompt": "SWOT分析を説明したものはどれか。",
+      "choices": [
+        "企業のビジョンと戦略を実現するために，財務，顧客，業務プロセス，学習と成長という四つの視点から検討し，アクションプランにまで具体化する。",
+        "企業を，内部環境と外部環境の観点から，強み，弱み，機会，脅威という四つの視点で評価し，企業を取り巻く環境を認識する。",
+        "事業を，分散型，特化型，手詰まり型，規模型という四つのタイプで評価し，自社の事業戦略策定に役立てる。",
+        "製品を，導入期，成長期，成熟期，衰退期という四つの段階に分類し，企業にとって最適な戦略策定に活用する。"
+      ],
+      "officialKey": "イ",
+      "choiceRoles": [
+        "バランススコアカード",
+        "SWOT",
+        "アドバンテージマトリクス",
+        "製品ライフサイクル"
+      ],
+      "notes": "S/Wは内部，O/Tは外部。SWOTはStrengths Weaknesses Opportunities Threats。四つの分類を問う形式を保持。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 575117,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          213,
+          1494,
+          754
+        ],
+        "height": 754,
+        "normalizedBox": [
+          0.1,
+          0.084,
+          0.83,
+          0.296
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q67.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "86b8ee177d77b9c0895146f358e5c2e71ea258baff26e2db0d1c444d214b5b34"
+      },
+      "fullAlt": "SWOT分析を説明したものはどれか。  ア：企業のビジョンと戦略を実現するために，財務，顧客，業務プロセス，学習と成長という四つの視点から検討し，アクションプランにまで具体化する。 イ：企業を，内部環境と外部環境の観点から，強み，弱み，機会，脅威という四つの視点で評価し，企業を取り巻く環境を認識する。 ウ：事業を，分散型，特化型，手詰まり型，規模型という四つのタイプで評価し，自社の事業戦略策定に役立てる。 エ：製品を，導入期，成長期，成熟期，衰退期という四つの段階に分類し，企業にとって最適な戦略策定に活用する。",
+      "source": "2016h28h-fe-am-67",
+      "page": 29,
+      "alt": "SWOT分析を説明したものはどれか。  ア：企業のビジョンと戦略を実現するために，財務，顧客，業務プロセス，学習と成長という四つの視点から検討し，アクションプランにまで具体化する。 イ：企業を，内部環境と外部環境の観点から，強み，弱み，機会，脅威という四つの視点で評価し，企業を取り巻く環境を認識する。 ウ：事業を，分散型，特化型，手詰まり型，規模型という四つのタイプで評価し，自社の事業戦略策定に役立てる。 エ：製品を，導入期，成長期，成熟期，衰退期という四つの段階に分類し，企業にとって最適な戦略策定に活用する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "SWOTの四軸の説明/事例を選ぶ方向で，内部外部の具体条件と，別の分析軸を持つ誤答を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 68,
+      "title": "ベンチマーキング",
+      "pdfPage": 29,
+      "printedPage": 29,
+      "prompt": "企業経営で用いられるベンチマーキングを説明したものはどれか。",
+      "choices": [
+        "企業全体の経営資源の配分を有効かつ総合的に計画して管理し，経営の効率向上を図ることである。",
+        "競合相手又は先進企業と比較して，自社の製品，サービス，オペレーションなどを定性的・定量的に把握することである。",
+        "顧客視点から業務のプロセスを再設計し，情報技術を十分に活用して，企業の体質や構造を抜本的に変革することである。",
+        "利益をもたらすことができる，他社より優越した自社独自のスキルや技術に経営資源を集中することである。"
+      ],
+      "officialKey": "イ",
+      "choiceRoles": [
+        "ERP",
+        "他者等との比較",
+        "BPR",
+        "コアコンピタンス"
+      ],
+      "notes": "単なる模倣や自社目標の設定だけとは区別。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 547642,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1059,
+          1494,
+          746
+        ],
+        "height": 746,
+        "normalizedBox": [
+          0.1,
+          0.416,
+          0.83,
+          0.293
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q68.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "ab89814215d3451fa51c031be352b6caa03a3d38b81ff5051dc5eae72510a6bd"
+      },
+      "fullAlt": "企業経営で用いられるベンチマーキングを説明したものはどれか。  ア：企業全体の経営資源の配分を有効かつ総合的に計画して管理し，経営の効率向上を図ることである。 イ：競合相手又は先進企業と比較して，自社の製品，サービス，オペレーションなどを定性的・定量的に把握することである。 ウ：顧客視点から業務のプロセスを再設計し，情報技術を十分に活用して，企業の体質や構造を抜本的に変革することである。 エ：利益をもたらすことができる，他社より優越した自社独自のスキルや技術に経営資源を集中することである。",
+      "source": "2016h28h-fe-am-68",
+      "page": 29,
+      "alt": "企業経営で用いられるベンチマーキングを説明したものはどれか。  ア：企業全体の経営資源の配分を有効かつ総合的に計画して管理し，経営の効率向上を図ることである。 イ：競合相手又は先進企業と比較して，自社の製品，サービス，オペレーションなどを定性的・定量的に把握することである。 ウ：顧客視点から業務のプロセスを再設計し，情報技術を十分に活用して，企業の体質や構造を抜本的に変革することである。 エ：利益をもたらすことができる，他社より優越した自社独自のスキルや技術に経営資源を集中することである。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "比較の対象と定性的/定量的な指標を変え，他の管理・再設計・能力集中と区別する。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 69,
+      "title": "ポートフォリオマネジメント",
+      "pdfPage": 30,
+      "printedPage": 30,
+      "prompt": "図に示すマトリックスを用いたポートフォリオマネジメントによって，事業計画や競争優位性の分析を行う目的はどれか。",
+      "choices": [
+        "目標として設定したプロモーション効果を測定するために，自社の事業のポジションを評価する。",
+        "目標を設定し，資源配分の優先順位を設定するための基礎として，自社の事業のポジションを評価する。",
+        "目標を設定し，製品の品質を高めることによって，市場での優位性を維持する方策を評価する。",
+        "目標を設定するために，季節変動要因や地域的広がりを加味することによって，市場の変化を評価する。"
+      ],
+      "officialKey": "イ",
+      "choiceRoles": [
+        "プロモーション効果測定",
+        "資源配分の優先順位",
+        "品質改善策",
+        "季節・地域変動分析"
+      ],
+      "notes": "2×2の枠と軸ラベルのみ。BCGの外部図版・固有シンボルは使用しない。図の著作物性/利用条件をRootで最終確認。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA原問題に外部図版の出典を特定せず。単純な線・軸・棒で構成される図を原画像と照合。外部の図版・シンボル・規格本文は取得して配布しない。原図再録はIPA条件，生成SVGは原図の構成に基づく改変として出典と改変表示を保持。Root最終素材査読は別工程。",
+      "crop": {
+        "byteLength": 662436,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          216,
+          1494,
+          1388
+        ],
+        "height": 1388,
+        "normalizedBox": [
+          0.1,
+          0.085,
+          0.83,
+          0.545
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q69.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "77d3b853678a87b137253be7717515e4907db38e37780358933f2cb554f27346"
+      },
+      "fullAlt": "図に示すマトリックスを用いたポートフォリオマネジメントによって，事業計画や競争優位性の分析を行う目的はどれか。 図：同じ大きさの四つの領域からなる2行2列のマトリックス。横の上に「事業の強み（市場シェア）」とあり，左が強，右が弱。左縦に「事業の魅力度（市場成長率）」とあり，高・低の表示は枠の右に置かれ，上が高，下が低。枠内には文字や記号がない。 ア：目標として設定したプロモーション効果を測定するために，自社の事業のポジションを評価する。 イ：目標を設定し，資源配分の優先順位を設定するための基礎として，自社の事業のポジションを評価する。 ウ：目標を設定し，製品の品質を高めることによって，市場での優位性を維持する方策を評価する。 エ：目標を設定するために，季節変動要因や地域的広がりを加味することによって，市場の変化を評価する。",
+      "source": "2016h28h-fe-am-69",
+      "page": 30,
+      "alt": "図に示すマトリックスを用いたポートフォリオマネジメントによって，事業計画や競争優位性の分析を行う目的はどれか。 図：同じ大きさの四つの領域からなる2行2列のマトリックス。横の上に「事業の強み（市場シェア）」とあり，左が強，右が弱。左縦に「事業の魅力度（市場成長率）」とあり，高・低の表示は枠の右に置かれ，上が高，下が低。枠内には文字や記号がない。 ア：目標として設定したプロモーション効果を測定するために，自社の事業のポジションを評価する。 イ：目標を設定し，資源配分の優先順位を設定するための基礎として，自社の事業のポジションを評価する。 ウ：目標を設定し，製品の品質を高めることによって，市場での優位性を維持する方策を評価する。 エ：目標を設定するために，季節変動要因や地域的広がりを加味することによって，市場の変化を評価する。",
+      "figureAlt": "図：同じ大きさの四つの領域からなる2行2列のマトリックス。横の上に「事業の強み（市場シェア）」とあり，左が強，右が弱。左縦に「事業の魅力度（市場成長率）」とあり，高・低の表示は枠の右に置かれ，上が高，下が低。枠内には文字や記号がない。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "一般四象限の図と軸の向きを保持。事業計画で資源配分を考える目的を，広告効果/品質/季節地域分析の目的と区別。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 70,
+      "title": "EMS",
+      "pdfPage": 30,
+      "printedPage": 30,
+      "prompt": "EMS（Electronics Manufacturing Service）の説明として適切なものはどれか。",
+      "choices": [
+        "一般消費者からの家電製品に関する問合せの受付窓口となって電話対応を行う。",
+        "製造設備をもたず，製品の企画，設計及び開発を行う。",
+        "他メーカから仕入れた電子機器などの販売を専門に行う。",
+        "他メーカから受注した電子機器などの受託生産を行う。"
+      ],
+      "officialKey": "エ",
+      "choiceRoles": [
+        "コールセンタ",
+        "ファブレス",
+        "販売専門",
+        "電子機器受託製造"
+      ],
+      "notes": "EMSの略語を原のElectronics Manufacturing Serviceで保持する。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 340557,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1693,
+          1494,
+          466
+        ],
+        "height": 466,
+        "normalizedBox": [
+          0.1,
+          0.665,
+          0.83,
+          0.183
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q70.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "8ed904ea9c5c08201856ed909685c81bd8a7f68f1c47fdc954eea74eb6718b2e"
+      },
+      "fullAlt": "EMS（Electronics Manufacturing Service）の説明として適切なものはどれか。  ア：一般消費者からの家電製品に関する問合せの受付窓口となって電話対応を行う。 イ：製造設備をもたず，製品の企画，設計及び開発を行う。 ウ：他メーカから仕入れた電子機器などの販売を専門に行う。 エ：他メーカから受注した電子機器などの受託生産を行う。",
+      "source": "2016h28h-fe-am-70",
+      "page": 30,
+      "alt": "EMS（Electronics Manufacturing Service）の説明として適切なものはどれか。  ア：一般消費者からの家電製品に関する問合せの受付窓口となって電話対応を行う。 イ：製造設備をもたず，製品の企画，設計及び開発を行う。 ウ：他メーカから仕入れた電子機器などの販売を専門に行う。 エ：他メーカから受注した電子機器などの受託生産を行う。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "電子機器の受託製造の説明を選ぶ方向。受託する工程・対象と，企画のみ/販売のみ/相談のみ等の実活動を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 71,
+      "title": "ディジタルディバイド",
+      "pdfPage": 31,
+      "printedPage": 31,
+      "prompt": "ディジタルディバイドを説明したものはどれか。",
+      "choices": [
+        "PCや通信などを利用する能力や機会の違いによって，経済的又は社会的な格差が生じること",
+        "インターネットなどを活用することによって，住民が直接，政府や自治体の政策に参画できること",
+        "国民の誰もが，地域の格差なく，妥当な料金で平等に利用できる通信及び放送サービスのこと",
+        "市民生活のイベント又は企業活動の分野ごとに，全てのサービスを1か所で提供すること"
+      ],
+      "officialKey": "ア",
+      "choiceRoles": [
+        "情報利用の能力・機会の格差",
+        "電子的な政治参加",
+        "ユニバーサルサービス",
+        "ワンストップサービス"
+      ],
+      "notes": "ディジタル技術が存在すること自体や電子手続自体を格差としない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 438769,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          213,
+          1494,
+          746
+        ],
+        "height": 746,
+        "normalizedBox": [
+          0.1,
+          0.084,
+          0.83,
+          0.293
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q71.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "9ad33aa3a29da79c3719aaacfb396caba7b988f15185f2b458839fc741132140"
+      },
+      "fullAlt": "ディジタルディバイドを説明したものはどれか。  ア：PCや通信などを利用する能力や機会の違いによって，経済的又は社会的な格差が生じること イ：インターネットなどを活用することによって，住民が直接，政府や自治体の政策に参画できること ウ：国民の誰もが，地域の格差なく，妥当な料金で平等に利用できる通信及び放送サービスのこと エ：市民生活のイベント又は企業活動の分野ごとに，全てのサービスを1か所で提供すること",
+      "source": "2016h28h-fe-am-71",
+      "page": 31,
+      "alt": "ディジタルディバイドを説明したものはどれか。  ア：PCや通信などを利用する能力や機会の違いによって，経済的又は社会的な格差が生じること イ：インターネットなどを活用することによって，住民が直接，政府や自治体の政策に参画できること ウ：国民の誰もが，地域の格差なく，妥当な料金で平等に利用できる通信及び放送サービスのこと エ：市民生活のイベント又は企業活動の分野ごとに，全てのサービスを1か所で提供すること",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "利用機会・技能の差から生じる格差の説明を選ぶ。地域/費用/技能の条件，政治参加/普遍的サービス/窓口統合の誤答を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 72,
+      "title": "MRPの処理手順",
+      "pdfPage": 31,
+      "printedPage": 31,
+      "prompt": "手順①〜③に従って処理を行うものはどれか。",
+      "choices": [
+        "CAD",
+        "CRP",
+        "JIT",
+        "MRP"
+      ],
+      "officialKey": "エ",
+      "choiceRoles": [
+        "設計支援",
+        "能力所要量計画",
+        "必要時に必要量",
+        "資材所要量計画"
+      ],
+      "notes": "三つの手順を問題本文に保持し，解説だけへ移さない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "steps": [
+        "① 今後の一定期間に生産が予定されている製品の種類と数量及び部品構成表を基にして，その構成部品についての必要量を計算する。",
+        "② 引当て可能な在庫量から各構成部品の正味発注量を計算する。",
+        "③ 製造／調達リードタイムを考慮して構成部品の発注時期を決定する。"
+      ],
+      "crop": {
+        "byteLength": 374732,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1066,
+          1494,
+          601
+        ],
+        "height": 601,
+        "normalizedBox": [
+          0.1,
+          0.419,
+          0.83,
+          0.236
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q72.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "48b50adf1be73858dbaeb05d6a50502c4d64011e305f3846673ee23e5aa56228"
+      },
+      "fullAlt": "手順①〜③に従って処理を行うものはどれか。 ① 今後の一定期間に生産が予定されている製品の種類と数量及び部品構成表を基にして，その構成部品についての必要量を計算する。 ② 引当て可能な在庫量から各構成部品の正味発注量を計算する。 ③ 製造／調達リードタイムを考慮して構成部品の発注時期を決定する。 ア：CAD イ：CRP ウ：JIT エ：MRP",
+      "source": "2016h28h-fe-am-72",
+      "page": 31,
+      "alt": "手順①〜③に従って処理を行うものはどれか。 ① 今後の一定期間に生産が予定されている製品の種類と数量及び部品構成表を基にして，その構成部品についての必要量を計算する。 ② 引当て可能な在庫量から各構成部品の正味発注量を計算する。 ③ 製造／調達リードタイムを考慮して構成部品の発注時期を決定する。 ア：CAD イ：CRP ウ：JIT エ：MRP",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "手順3項目→名称を選ぶ方向を保持。部品所要量/工程負荷/設計支援/後工程引取りの手順を変え，各手順と4名称の一致を検証する。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 73,
+      "title": "逆オークション",
+      "pdfPage": 31,
+      "printedPage": 31,
+      "prompt": "インターネット上で，一般消費者が買いたい品物とその購入条件を提示し，単数又は複数の売り手がそれに応じる取引形態はどれか。",
+      "choices": [
+        "BtoB",
+        "GtoC",
+        "逆オークション",
+        "バーチャルモール"
+      ],
+      "officialKey": "ウ",
+      "choiceRoles": [
+        "企業間",
+        "政府と消費者",
+        "買い手が条件を提示",
+        "ネット上の商店街"
+      ],
+      "notes": "買い手が提示する取引の方向を維持。BtoB/GtoCと方式の分類軸の違いも説明。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 198138,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1764,
+          1494,
+          390
+        ],
+        "height": 390,
+        "normalizedBox": [
+          0.1,
+          0.693,
+          0.83,
+          0.153
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q73.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "ab90f4a9e329befa9f621b636803d0bd8244d297191c4aea3208702c9c093c81"
+      },
+      "fullAlt": "インターネット上で，一般消費者が買いたい品物とその購入条件を提示し，単数又は複数の売り手がそれに応じる取引形態はどれか。  ア：BtoB イ：GtoC ウ：逆オークション エ：バーチャルモール",
+      "source": "2016h28h-fe-am-73",
+      "page": 31,
+      "alt": "インターネット上で，一般消費者が買いたい品物とその購入条件を提示し，単数又は複数の売り手がそれに応じる取引形態はどれか。  ア：BtoB イ：GtoC ウ：逆オークション エ：バーチャルモール",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "取引の具体的な主体・提示方向・店舗集合の条件を変え，その説明に当たる形態/区分を4択で選ぶ。順序だけの変化を容量に数えない。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 74,
+      "title": "ロングテール",
+      "pdfPage": 32,
+      "printedPage": 32,
+      "prompt": "ロングテールを説明したものはどれか。",
+      "choices": [
+        "一般に80：20という経験則として知られ，企業の売上の80％は全商品の上位20％の売れ筋商品で構成される，又は品質不良による損失額の80％は全不良原因の上位20％の原因に由来する。",
+        "インターネットを活用したオンラインショップなどでは，販売機会が少ない商品でもアイテム数を幅広く取りそろえることによって，機会損失のリスクを減らす効果がある。",
+        "企業が複数の事業活動を同時に営むことによって，経営資源の共有が可能になり，それを有効に利用することで，それぞれの事業を独立に行っているときよりもコストが相対的に低下する。",
+        "ネットワークに加入している者同士が相互にアクセスできる有用性を“ネットワークの価値”とすれば，ネットワークの価値は加入者数の2乗に近似的に比例する。"
+      ],
+      "officialKey": "イ",
+      "choiceRoles": [
+        "パレートの経験則",
+        "少量需要を幅広い品ぞろえで集積",
+        "範囲の経済",
+        "メトカーフの法則"
+      ],
+      "notes": "80:20や2乗は誤答で扱う経験則/近似であり常に厳密に成立すると主張しない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 744687,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          211,
+          1494,
+          1032
+        ],
+        "height": 1032,
+        "normalizedBox": [
+          0.1,
+          0.083,
+          0.83,
+          0.405
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q74.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "95011a4fa02b5717562cc1b1ae9b399ed3e9b00ddd5a20a73c473ebd7fc80c35"
+      },
+      "fullAlt": "ロングテールを説明したものはどれか。  ア：一般に80：20という経験則として知られ，企業の売上の80％は全商品の上位20％の売れ筋商品で構成される，又は品質不良による損失額の80％は全不良原因の上位20％の原因に由来する。 イ：インターネットを活用したオンラインショップなどでは，販売機会が少ない商品でもアイテム数を幅広く取りそろえることによって，機会損失のリスクを減らす効果がある。 ウ：企業が複数の事業活動を同時に営むことによって，経営資源の共有が可能になり，それを有効に利用することで，それぞれの事業を独立に行っているときよりもコストが相対的に低下する。 エ：ネットワークに加入している者同士が相互にアクセスできる有用性を“ネットワークの価値”とすれば，ネットワークの価値は加入者数の2乗に近似的に比例する。",
+      "source": "2016h28h-fe-am-74",
+      "page": 32,
+      "alt": "ロングテールを説明したものはどれか。  ア：一般に80：20という経験則として知られ，企業の売上の80％は全商品の上位20％の売れ筋商品で構成される，又は品質不良による損失額の80％は全不良原因の上位20％の原因に由来する。 イ：インターネットを活用したオンラインショップなどでは，販売機会が少ない商品でもアイテム数を幅広く取りそろえることによって，機会損失のリスクを減らす効果がある。 ウ：企業が複数の事業活動を同時に営むことによって，経営資源の共有が可能になり，それを有効に利用することで，それぞれの事業を独立に行っているときよりもコストが相対的に低下する。 エ：ネットワークに加入している者同士が相互にアクセスできる有用性を“ネットワークの価値”とすれば，ネットワークの価値は加入者数の2乗に近似的に比例する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "ロングテールの説明を選ぶ方向を保持。小口需要の集積の状況と，集中・資源共用・ネットワーク効果の誤答の条件を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 75,
+      "title": "コーポレートガバナンス",
+      "pdfPage": 32,
+      "printedPage": 32,
+      "prompt": "企業経営の透明性を確保するために，企業は誰のために経営を行っているか，トップマネジメントの構造はどうなっているか，組織内部に自浄能力をもっているかなどの視点で，企業活動を監督・監視する仕組みはどれか。",
+      "choices": [
+        "コアコンピタンス",
+        "コーポレートアイデンティティ",
+        "コーポレートガバナンス",
+        "ステークホルダアナリシス"
+      ],
+      "officialKey": "ウ",
+      "choiceRoles": [
+        "中核的能力",
+        "企業理念・識別",
+        "経営の監督・監視",
+        "利害関係者分析"
+      ],
+      "notes": "現行上場基準の固有義務を原2016問題へ混在させない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 308963,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1336,
+          1494,
+          466
+        ],
+        "height": 466,
+        "normalizedBox": [
+          0.1,
+          0.525,
+          0.83,
+          0.183
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q75.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "ef2f93c87641ae1a3979b9743e3a11ae43a68e58fbbf1a0c99209af7c3b9f09f"
+      },
+      "fullAlt": "企業経営の透明性を確保するために，企業は誰のために経営を行っているか，トップマネジメントの構造はどうなっているか，組織内部に自浄能力をもっているかなどの視点で，企業活動を監督・監視する仕組みはどれか。  ア：コアコンピタンス イ：コーポレートアイデンティティ ウ：コーポレートガバナンス エ：ステークホルダアナリシス",
+      "source": "2016h28h-fe-am-75",
+      "page": 32,
+      "alt": "企業経営の透明性を確保するために，企業は誰のために経営を行っているか，トップマネジメントの構造はどうなっているか，組織内部に自浄能力をもっているかなどの視点で，企業活動を監督・監視する仕組みはどれか。  ア：コアコンピタンス イ：コーポレートアイデンティティ ウ：コーポレートガバナンス エ：ステークホルダアナリシス",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "経営概念の説明→名称を選ぶ方向を保持し，監督/独自能力/理念と識別性/影響主体の分析の具体的な条件を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 76,
+      "title": "プロジェクト組織",
+      "pdfPage": 33,
+      "printedPage": 33,
+      "prompt": "プロジェクト組織を説明したものはどれか。",
+      "choices": [
+        "ある問題を解決するために一定の期間に限って結成され，問題解決とともに解散する。",
+        "業務を機能別に分け，各機能について部下に命令，指導を行う。",
+        "製品，地域などに基づいて構成された組織単位に，利益責任をもたせる。",
+        "戦略的提携や共同開発など外部の経営資源を積極的に活用するために，企業間にまたがる組織を構成する。"
+      ],
+      "officialKey": "ア",
+      "choiceRoles": [
+        "期間限定・目的達成後解散",
+        "機能別組織",
+        "事業部制",
+        "企業間ネットワーク"
+      ],
+      "notes": "原問題の組織説明4択を保持。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 426226,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          211,
+          1494,
+          606
+        ],
+        "height": 606,
+        "normalizedBox": [
+          0.1,
+          0.083,
+          0.83,
+          0.238
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q76.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "be2df9259749d2f9030f07d79c1c2a80f38f3354e55cee599f14878374908e3b"
+      },
+      "fullAlt": "プロジェクト組織を説明したものはどれか。  ア：ある問題を解決するために一定の期間に限って結成され，問題解決とともに解散する。 イ：業務を機能別に分け，各機能について部下に命令，指導を行う。 ウ：製品，地域などに基づいて構成された組織単位に，利益責任をもたせる。 エ：戦略的提携や共同開発など外部の経営資源を積極的に活用するために，企業間にまたがる組織を構成する。",
+      "source": "2016h28h-fe-am-76",
+      "page": 33,
+      "alt": "プロジェクト組織を説明したものはどれか。  ア：ある問題を解決するために一定の期間に限って結成され，問題解決とともに解散する。 イ：業務を機能別に分け，各機能について部下に命令，指導を行う。 ウ：製品，地域などに基づいて構成された組織単位に，利益責任をもたせる。 エ：戦略的提携や共同開発など外部の経営資源を積極的に活用するために，企業間にまたがる組織を構成する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "組織名→組織の説明を選ぶ4択の方向を保持し，期限付き/常設機能/利益責任/企業間連携という構成条件を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 77,
+      "title": "パレート図",
+      "pdfPage": 33,
+      "printedPage": 33,
+      "prompt": "ある工場では，これまでに発生した不良品について，発生要因ごとの件数を記録している。この記録に基づいて，不良品発生の上位を占める要因と件数の累積割合を表したパレート図はどれか。",
+      "choices": [
+        "図：5本の棒が左から降順。線は原点から各棒の右上を累積するように上昇し，後半ほど増分が小さくなる。",
+        "図：4本の棒が左から降順。線は左上から各棒の右上を経て右下へ減少し，最後の棒より更に右で横軸へ達する。",
+        "図：5本の棒が左から昇順。線は原点から累積するように上昇し，後半ほど増分が大きくなる。",
+        "図：5本の棒が中央で最大となる山型。線は左下から棒の右上を結ぶように中央へ上昇し，その後右下へ減少する。"
+      ],
+      "officialKey": "ア",
+      "choiceRoles": [
+        "降順棒+累積",
+        "降順棒+下降折線",
+        "昇順棒+累積",
+        "山型棒+頻度折線"
+      ],
+      "notes": "原選択肢は文字説明ではなく図。ここでの説明は完全altであり，通常表示では管理されたSVG図を用いる。原には目盛・数値・凡例がないため付け足して解法を教えない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA原問題に外部図版の出典を特定せず。単純な線・軸・棒で構成される図を原画像と照合。外部の図版・シンボル・規格本文は取得して配布しない。原図再録はIPA条件，生成SVGは原図の構成に基づく改変として出典と改変表示を保持。Root最終素材査読は別工程。",
+      "crop": {
+        "byteLength": 364601,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          921,
+          1494,
+          1004
+        ],
+        "height": 1004,
+        "normalizedBox": [
+          0.1,
+          0.362,
+          0.83,
+          0.394
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q77.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "9c5ff0f439482670ad3c33026e739a12f01c606a078c8001fd06b65e5722e266"
+      },
+      "fullAlt": "ある工場では，これまでに発生した不良品について，発生要因ごとの件数を記録している。この記録に基づいて，不良品発生の上位を占める要因と件数の累積割合を表したパレート図はどれか。 ア：図：5本の棒が左から降順。線は原点から各棒の右上を累積するように上昇し，後半ほど増分が小さくなる。 イ：図：4本の棒が左から降順。線は左上から各棒の右上を経て右下へ減少し，最後の棒より更に右で横軸へ達する。 ウ：図：5本の棒が左から昇順。線は原点から累積するように上昇し，後半ほど増分が大きくなる。 エ：図：5本の棒が中央で最大となる山型。線は左下から棒の右上を結ぶように中央へ上昇し，その後右下へ減少する。",
+      "source": "2016h28h-fe-am-77",
+      "page": 33,
+      "alt": "ある工場では，これまでに発生した不良品について，発生要因ごとの件数を記録している。この記録に基づいて，不良品発生の上位を占める要因と件数の累積割合を表したパレート図はどれか。 ア：図：5本の棒が左から降順。線は原点から各棒の右上を累積するように上昇し，後半ほど増分が小さくなる。 イ：図：4本の棒が左から降順。線は左上から各棒の右上を経て右下へ減少し，最後の棒より更に右で横軸へ達する。 ウ：図：5本の棒が左から昇順。線は原点から累積するように上昇し，後半ほど増分が大きくなる。 エ：図：5本の棒が中央で最大となる山型。線は左下から棒の右上を結ぶように中央へ上昇し，その後右下へ減少する。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 12,
+        "design": "四つの選択図を保持し，降順棒+累積，降順4棒+下降線，昇順5棒+累積，山型5棒+頻度線の役割を固定。12種類の描画形状。原に件数・目盛がなく，描画比を原測定件数とは主張しない。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "表示されたrect/折線から棒の順序と累積を再計算する独立SVG検算",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 78,
+      "title": "貸借対照表",
+      "pdfPage": 33,
+      "printedPage": 33,
+      "prompt": "財務諸表のうち，一定時点における企業の資産，負債及び純資産を表示し，企業の財政状態を明らかにするものはどれか。",
+      "choices": [
+        "株主資本等変動計算書",
+        "キャッシュフロー計算書",
+        "損益計算書",
+        "貸借対照表"
+      ],
+      "officialKey": "エ",
+      "choiceRoles": [
+        "純資産の期間変動",
+        "現金等の期間収支",
+        "期間の業績",
+        "一時点の財政状態"
+      ],
+      "notes": "一時点の残高と一定期間のフローを区別。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 239286,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          1973,
+          1494,
+          382
+        ],
+        "height": 382,
+        "normalizedBox": [
+          0.1,
+          0.775,
+          0.83,
+          0.15
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q78.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "674b92965e11b2ccc029006259ba37886d8931d675a9797d08590254626705e3"
+      },
+      "fullAlt": "財務諸表のうち，一定時点における企業の資産，負債及び純資産を表示し，企業の財政状態を明らかにするものはどれか。  ア：株主資本等変動計算書 イ：キャッシュフロー計算書 ウ：損益計算書 エ：貸借対照表",
+      "source": "2016h28h-fe-am-78",
+      "page": 33,
+      "alt": "財務諸表のうち，一定時点における企業の資産，負債及び純資産を表示し，企業の財政状態を明らかにするものはどれか。  ア：株主資本等変動計算書 イ：キャッシュフロー計算書 ウ：損益計算書 エ：貸借対照表",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "財務諸表の説明→名称を選ぶ方向を保持。一時点残高/期間損益/現金等の流れ/純資産変動の対象を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 79,
+      "title": "著作権の保護対象",
+      "pdfPage": 34,
+      "printedPage": 34,
+      "prompt": "著作権法において，保護の対象とならないものはどれか。",
+      "choices": [
+        "インターネットで公開されたフリーソフトウェア",
+        "ソフトウェアの操作マニュアル",
+        "データベース",
+        "プログラム言語や規約"
+      ],
+      "officialKey": "エ",
+      "choiceRoles": [
+        "公開・無償でも表現は保護され得る",
+        "マニュアルの創作的表現",
+        "選択・体系構成に創作性のあるDB",
+        "言語や規約自体は除外"
+      ],
+      "notes": "DBはあらゆるデータ集合を無条件に保護する趣旨ではない。原の簡潔な選択肢を保持し，独自解説で創作性の条件を補足する。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 186944,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          211,
+          1494,
+          464
+        ],
+        "height": 464,
+        "normalizedBox": [
+          0.1,
+          0.083,
+          0.83,
+          0.182
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q79.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "8f3ea26af7e4c4579b86d0d828925615f56503d52ff3eee922d21c7ce4263320"
+      },
+      "fullAlt": "著作権法において，保護の対象とならないものはどれか。  ア：インターネットで公開されたフリーソフトウェア イ：ソフトウェアの操作マニュアル ウ：データベース エ：プログラム言語や規約",
+      "source": "2016h28h-fe-am-79",
+      "page": 34,
+      "alt": "著作権法において，保護の対象とならないものはどれか。  ア：インターネットで公開されたフリーソフトウェア イ：ソフトウェアの操作マニュアル ウ：データベース エ：プログラム言語や規約",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "保護対象とならないものを選ぶ否定の方向を保持。除外される言語/規約/解法と，創作的な具体的表現の候補を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    },
+    {
+      "number": 80,
+      "title": "外部業者との開発契約",
+      "pdfPage": 34,
+      "printedPage": 34,
+      "prompt": "A社がシステム開発を行うに当たり，外部業者であるB社を利用する場合の契約に関する記述のうち，適切なものはどれか。",
+      "choices": [
+        "請負契約によるシステム開発では，特に契約に定めない限り，B社が開発したプログラムの著作権はB社に帰属する。",
+        "請負契約，派遣契約によらず，いずれの場合のシステム開発でも，B社にはシステムの完成責任がある。",
+        "準委任契約ではB社に成果物の完成責任がないので，A社がB社の従業員に対して直接指揮命令権を行使する。",
+        "派遣契約では，開発されたプログラムに重大な欠陥が発生した場合，B社に瑕疵担保責任がある。"
+      ],
+      "officialKey": "ア",
+      "choiceRoles": [
+        "受託開発の著作者帰属と特約",
+        "派遣にも完成責任という混同",
+        "準委任と直接指揮命令の混同",
+        "派遣に請負の責任を混同"
+      ],
+      "notes": "2016年当時の原文の瑕疵担保責任を保持。2020年改正の契約不適合責任と読み替えて原文を改訂しない。労働安全等の責任が一切ないとは述べない。",
+      "status": "prepared_candidate_not_registered",
+      "material": "IPA作問部分。画像に第三者の出典・規格本文の引用表示を特定せず。素材条件の最終配布査読はRoot統合時。",
+      "crop": {
+        "byteLength": 590845,
+        "coordinateSystem": "rendered image pixels, top-left origin",
+        "cropBox": [
+          180,
+          773,
+          1494,
+          818
+        ],
+        "height": 818,
+        "normalizedBox": [
+          0.1,
+          0.304,
+          0.83,
+          0.321
+        ],
+        "path": "output/source-review/s3-001-2016-spring-am/q57-80/primary/q80.png",
+        "pdfMediaBox": [
+          515.52,
+          729.3599
+        ],
+        "renderSize": [
+          1800,
+          2546
+        ],
+        "width": 1494,
+        "sha256": "8a895d8780aead6e0ec552b61e766802115ea197561756e83c0c1a7c9fe34100"
+      },
+      "fullAlt": "A社がシステム開発を行うに当たり，外部業者であるB社を利用する場合の契約に関する記述のうち，適切なものはどれか。  ア：請負契約によるシステム開発では，特に契約に定めない限り，B社が開発したプログラムの著作権はB社に帰属する。 イ：請負契約，派遣契約によらず，いずれの場合のシステム開発でも，B社にはシステムの完成責任がある。 ウ：準委任契約ではB社に成果物の完成責任がないので，A社がB社の従業員に対して直接指揮命令権を行使する。 エ：派遣契約では，開発されたプログラムに重大な欠陥が発生した場合，B社に瑕疵担保責任がある。",
+      "source": "2016h28h-fe-am-80",
+      "page": 34,
+      "alt": "A社がシステム開発を行うに当たり，外部業者であるB社を利用する場合の契約に関する記述のうち，適切なものはどれか。  ア：請負契約によるシステム開発では，特に契約に定めない限り，B社が開発したプログラムの著作権はB社に帰属する。 イ：請負契約，派遣契約によらず，いずれの場合のシステム開発でも，B社にはシステムの完成責任がある。 ウ：準委任契約ではB社に成果物の完成責任がないので，A社がB社の従業員に対して直接指揮命令権を行使する。 エ：派遣契約では，開発されたプログラムに重大な欠陥が発生した場合，B社に瑕疵担保責任がある。",
+      "generation": {
+        "parameters": "caseIndex整数一つ",
+        "reference": [
+          0
+        ],
+        "finiteInputs": 4,
+        "design": "2016年制度に固定し，契約に関する適切な記述を選ぶ方向を保持。著作権帰属/完成責任/指揮命令という実条件を変える。",
+        "fixedFormat": "原の問いの方向・正誤条件・4択・文章/3手順/図の構成を維持。名称・並替だけは容量に数えない。",
+        "precisionBurden": "数値の計算・丸めは原にないため追加しない。77の描画比は目盛なしの図形を変えるための入力で，計算対象の測定値ではない。",
+        "meaningTest": "tests/legacy-2016-spring-am-57-80.test.ts",
+        "oracle": "tests/fixtures/legacy-2016-spring-am-57-80-oracle.ts",
+        "normalAppIntegration": "Root担当・この局所査読の完了とは区別"
+      },
+      "sourceImageReview": {
+        "method": "PDF全ページと個別cropを目視し，問い・条件・全選択肢・図/手順の有無を照合",
+        "checkedOn": "2026-11-01",
+        "reviewer": "codex:am2019_partial_release",
+        "scope": "同一エージェントの局所査読。Root独立レビュー/通常App表示は別工程。",
+        "changes": "転記は組版空白・句読点を統一。原画像はprivate cropとして保持し，公開コピーはRoot選別。改変版は別の条件と独自解説。"
+      },
+      "publication": "candidate_not_root_accepted"
+    }
+  ],
+  "acquisitions": [
+    {
+      "name": "bunka-h28.pdf",
+      "url": "https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/pdf/h28_text.pdf",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/pdf/h28_text.pdf",
+      "bytes": 4110380,
+      "sha256": "424009b8202e49e616624efab8bb24a01093880e8fd1403a2ab8cd75f3ca9f59"
+    },
+    {
+      "name": "env-green-2017.pdf",
+      "url": "https://www.env.go.jp/policy/hozen/green/kokusai_platform/2016report/green_jpn.pdf",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.env.go.jp/policy/hozen/green/kokusai_platform/2016report/green_jpn.pdf",
+      "bytes": 1324093,
+      "sha256": "1b520343dc37f91062e3ee36a69e1aeb3fb0c05658170fab6df813e6bcf59b36"
+    },
+    {
+      "name": "env-terms.html",
+      "url": "https://www.env.go.jp/mail.html",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.env.go.jp/mail.html",
+      "bytes": 50540,
+      "sha256": "ea4331992f643fb2db9649ea134b793c875f2ee1535f4b8bb109ae8a4f8bc8b4"
+    },
+    {
+      "name": "mhlw-2006-contract.html",
+      "url": "https://www.mhlw.go.jp/web/t_doc?dataId=00tb3192&dataType=1&pageNo=1",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.mhlw.go.jp/web/t_doc?dataId=00tb3192&dataType=1&pageNo=1",
+      "bytes": 90122,
+      "sha256": "a003a1457d7aa8b604e904fe505176992b361204260f69454ae570c61b700eb9"
+    },
+    {
+      "name": "bunka-contract-ownership.html",
+      "url": "https://www.bunka.go.jp/chosakuken/keiyaku_manual/1_1_1.html",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.bunka.go.jp/chosakuken/keiyaku_manual/1_1_1.html",
+      "bytes": 25363,
+      "sha256": "4498e3b317fbea8b8ccd24657f91ae4796971c25ec2208cc7e5422c62956eb7e"
+    },
+    {
+      "name": "bunka-contract-transfer.html",
+      "url": "https://www.bunka.go.jp/chosakuken/keiyaku_manual/1_1_2.html",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.bunka.go.jp/chosakuken/keiyaku_manual/1_1_2.html",
+      "bytes": 30093,
+      "sha256": "3742544bac763ed75d38769bea751fb5f3950c229f55b207baef71c08040e44d"
+    },
+    {
+      "name": "asq-pareto.html",
+      "url": "https://asq.org/quality-resources/pareto",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "bcg-portfolio.html",
+      "url": "https://www.bcg.com/about/overview/our-history/growth-share-matrix",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "omg-uml.html",
+      "url": "https://www.omg.org/gettingstarted/what_is_uml.htm",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://www.omg.org/gettingstarted/what_is_uml.htm",
+      "bytes": 29747,
+      "sha256": "871996dd0579ba09c172d0bca0b1a72a2ac532e68b63b384391e28313256d1fa"
+    },
+    {
+      "name": "phoenix-spd.html",
+      "url": "https://www.phoenixcontact.com/en-us/products/surge-protection",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "oracle-mrp.html",
+      "url": "https://docs.oracle.com/cd/A60725_05/html/comnls/us/mrp/mrpover.htm",
+      "checkedOn": "2026-11-01",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/cd/A60725_05/html/comnls/us/mrp/mrpover.htm",
+      "bytes": 5183,
+      "sha256": "b05d798bf9dbf452829fecce61e613d74842d4e6b23e96e58de8c9ee468adbe2"
+    },
+    {
+      "name": "meti-kansa-2004.pdf",
+      "url": "https://www.meti.go.jp/policy/netsecurity/downloadfiles/system_kansa.pdf",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "meti-kanri-2004.pdf",
+      "url": "https://www.meti.go.jp/policy/netsecurity/docs/isaudit/system_kanrikijyun.pdf",
+      "checkedOn": "2026-11-01",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "privateSourceVerification": {
+    "method": "全10ページと全21eligible cropと保留66のprivate cropを視覚照合し，完全本文・全択・問い・注意条件・原番号を保持。private検証はoutput/source-review/s3-001-2016-spring-am/q57-80/verify-crops.pyで別途実走し，通常CIテストはprivate画像へ依存しない。",
+    "normalAppAdmission": false,
+    "scope": "原画像照合/生成器とSSRのみ。通常App接続・ブラウザ本番表示・配布許可の最終判定はRoot担当。"
+  },
+  "publication": "not_admitted_root_review_required",
+  "additionalRightsProposals": [],
+  "rightsBoundary": {
+    "candidates": "IPA作問部分・原図・公式解答についてRoot再取得の公式FAQ/利用条件と元PDFを基に最終査読する。独自解説と描画コードをIPAの公式解説とは表示しない。",
+    "governmentReferences": "79/80の法令・公的資料は正しさの検証に使用し，解説は独自に作成。法令条文そのものは著作権法13条の対象外。文化庁テキスト全体や他人の解説文へMIT/IPA条件を流用しない。",
+    "q66": "2017環境省資料のPDLは原2016の第三者表現を許諾した証拠としない。具体的表現の起源/2016以前の権利者と条件が未確定であり保留。",
+    "q60q63": "取得失敗したMETI旧基準を確認済みとしない。現在の規約又は新版だけで旧版原文の素材条件を推定しない。",
+    "uses": {
+      "repositoryRedistribution": "eligible候補のみ，Rootの素材/全7データ/出典表示の受付後に可。保留60/63/66は本文/全択/生成器を公開コード・fixtureへ含めない。",
+      "browserDisplay": "原単位のIPA出典，素材別条件，改変/独自解説の表示へ到達できることをRoot通常Appで確認後に可。",
+      "adaptation": "原の問い方と媒体・前提を維持した有限候補のみ。意味/出典/素材と通常登録のRoot受付が必要。"
+    },
+    "limitations": "専門家の法的鑑定・第三者外部の査読ではない。未知の権利問題がないことを証明しない。保留を台帳から削除して全80完了とは扱わない。"
+  },
+  "legalTimeReview": {
+    "questions": [
+      79,
+      80
+    ],
+    "asOf": "2016年度春期原設問",
+    "sources": [
+      {
+        "publisher": "文化庁",
+        "title": "著作権テキスト 平成28年度（巻末著作権法含む）",
+        "url": "https://www.bunka.go.jp/seisaku/chosakuken/seidokaisetsu/pdf/h28_text.pdf",
+        "localPath": "output/source-review/s3-001-2016-spring-am/q57-80/primary/bunka-h28.pdf",
+        "pdfPages": [
+          107,
+          113,
+          114,
+          130
+        ],
+        "findings": "巻末の最終改正列記は2015年6月24日。10条3項の言語/規約/解法，12条の2のDB創作性，15条2項の職務プログラム，17条の権利，61条の譲渡を現物で確認。該当改正注記は1985/1986年等。現行2026だけを2016根拠として使わない。"
+      },
+      {
+        "publisher": "厚生労働省",
+        "title": "平成18年8月1日基発第0801010号通知",
+        "url": "https://www.mhlw.go.jp/web/t_doc?dataId=00tb3192&dataType=1&pageNo=1",
+        "findings": "請負の完成と発注者から労働者への直接指揮命令を分ける説明を確認。安全衛生等の責任まで全てないとはしない。"
+      },
+      {
+        "publisher": "厚生労働省",
+        "title": "労働者派遣法（条文・改正注記）",
+        "url": "https://www.mhlw.go.jp/web/t_doc?dataId=75021000&dataType=0",
+        "findings": "2条の自己雇用/他人の指揮命令の関係と平成15/27改正注記，2015改正案内を確認。平成27年法の変更全体を教材へ追加しない。"
+      },
+      {
+        "publisher": "衆議院",
+        "title": "平成29年法律44号 民法の一部を改正する法律",
+        "url": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/housei/19320170602044.htm",
+        "findings": "634条等の改正を確認。2016原エの瑕疵担保責任を2020以降の用語に置換しない。"
+      },
+      {
+        "publisher": "法務省",
+        "title": "請負に関する見直し（担保責任整理）",
+        "url": "https://www.moj.go.jp/content/001255642.pdf",
+        "findings": "旧634/635と改正後の契約に適合しない場合の整理を比較。改正後を原時点の定義へ混入しない。"
+      }
+    ],
+    "limits": "実際の個別契約への法的助言ではなく，原2016教材の4択の内容検証。DBは創作性が必要という条件，受託B社が著作者となる場合という条件を独自解説で明示。"
+  },
+  "verification": {
+    "finiteBodies": 92,
+    "allChoices": 368,
+    "knowledgeBodies": 80,
+    "diagramBodies": 12,
+    "mutations": 240,
+    "SSRGraphs": 48,
+    "SSRMatrices": 4,
+    "independentData": "手書きした固定真偽/意味資料。生成器の正答から期待値を生成しない。名称選択問62/72/73/75/76/78は実際の本文条件から別途判定。77は実表示SVGの棒と折線を数値で再解析。",
+    "renderProof": "output/source-review/s3-001-2016-spring-am/q57-80/browser-proof.json",
+    "browserScope": "隔離headless Chromiumの専用component.html。320/640/1200px×light/dark。通常Appの出題/採点/保存/再開を証明するものではない。",
+    "sourceCrops": "private専用verify-crops.pyを別途実走。通常CIはoutput画像へ依存しない。",
+    "remaining": "Rootによる原画像/素材/意味の独立レビュー，Schema/registry/全7データ統合，通常App表示と保存・採点・履歴，必須check，配布・公開はRoot担当。",
+    "componentSizing": "原viewBox/文字・軸配置は保持。legacy2016-figure共通classと--source-figure-width 500px（問69）/320px（問77）で通常倍率の過拡大を抑え，狭幅は親枠へ収める。共通CSSと図倍率の通常App統合はRoot確認が残る。",
+    "source77Topology": "原画像のイは正の棒4本・折線6点。ア/ウ/エは棒5本。ウは昇順の棒と累積線，エは山型棒と頻度線を原形式の位置で保持。数値・目盛は原にないので追加しない。"
+  }
+}

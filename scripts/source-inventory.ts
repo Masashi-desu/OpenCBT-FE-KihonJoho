@@ -2,7 +2,7 @@ import type { Bundle } from "../src/core/types";
 
 // Declared source scope is independent of the current catalog: removing both an
 // original and its template must not make an incomplete release pass validation.
-export const legacyMorningScope = ["2017h29h-fe-am", "2017h29a-fe-am", "2018h30h-fe-am", "2018h30a-fe-am", "2019h31h-fe-am", "2019r01a-fe-am"] as const;
+export const legacyMorningScope = ["2016h28h-fe-am", "2017h29h-fe-am", "2017h29a-fe-am", "2018h30h-fe-am", "2018h30a-fe-am", "2019h31h-fe-am", "2019r01a-fe-am"] as const;
 export const sourceScope = [2023, 2024, 2025, 2026].flatMap((year) =>
   (["a", "b"] as const).flatMap((subject) =>
     Array.from(
@@ -13,6 +13,11 @@ export const sourceScope = [2023, 2024, 2025, 2026].flatMap((year) =>
 ).concat(Array.from({ length: 6 }, (_, i) => `sample-2022-apr-b-${i + 1}`), Array.from({ length: 20 }, (_, i) => `sample-2022-dec-b-${i + 1}`),Array.from({length:60},(_,i)=>`sample-2022-dec-a-${i+1}`), Array.from({length:13},(_,i)=>`2017h29h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2017h29a-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2018h30h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2018h30a-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2019h31h-fe-pm-${i+1}`), Array.from({length:13},(_,i)=>`2019r01a-fe-pm-${i+1}`));
 sourceScope.push(...legacyMorningScope.flatMap(id => Array.from({length:80}, (_, i) => `${id}-${i+1}`)));
 export const sourceExclusions: Record<string, {reason:string;sourceId:string;checkedOn:string}> = {
+  "2016h28h-fe-am-46": {reason:"ソフトウェア方式設計に関する規格・共通フレーム等の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
+  "2016h28h-fe-am-56": {reason:"インシデント等の記録に関する規格要求の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
+  "2016h28h-fe-am-60": {reason:"旧システム監査基準の目的に関する原版と具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
+  "2016h28h-fe-am-63": {reason:"旧システム管理基準との直接対応箇所の原版と具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
+  "2016h28h-fe-am-66": {reason:"グリーン購入の具体的表現の出自・GPN等の第三者部分に適用する利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2025-b-6": {
     reason: "JIS Q 27001:2023に依存する第三者部分の再配布・改変条件を未確認",
     sourceId: "source-ipa-2025-b-qs",

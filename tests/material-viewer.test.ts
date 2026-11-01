@@ -5,7 +5,7 @@ import { materialPages, visibleMaterialPage } from "../src/ui/MaterialViewer";
 
 test("material pages preserve every distributed question's complete reading order and saved data", () => {
   const bundle = fixture();
-  assert.equal(bundle.questions.length, 1468);
+  assert.equal(bundle.questions.length, 1618);
   let commonCount = 0;
   // These four official booklets have a common page-2 appendix. It follows
   // the question body; question-specific material retains its prior order.
@@ -19,7 +19,8 @@ test("material pages preserve every distributed question's complete reading orde
     const saved = structuredClone(question);
     const pages = materialPages(question);
     const contexts = question.contextRefs.map(id => question.contexts.find(context => context.id === id)!);
-    const common = contexts.filter(context => [...commonSources].some(([book, sourceId]) =>
+    const spring2016=question.origin.sourceRefs.some(r=>r.sourceId==='source-ipa-2016h28h-fe-am-qs'&&r.locator.year===2016&&r.locator.timeSlot==='午前');
+    const common = contexts.filter(context => spring2016 && [2,3].some(page=>context.title===`問題文中で共通に使用される表記ルール（p.${page}）`) || [...commonSources].some(([book, sourceId]) =>
       context.id === `context-${book}-common` &&
       question.origin.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.timeSlot === "午前") &&
       context.content.attribution.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.page === 2 && !ref.locator.questionNumber)));
@@ -38,7 +39,10 @@ test("material pages preserve every distributed question's complete reading orde
     );
     assert.deepEqual(question, saved, question.id);
   }
-  assert.equal(commonCount, 624, "all originals and bases retain the four booklets' common material");
+  assert.equal(commonCount, 924, "all originals and bases retain four prior appendices and both2016 spring appendices");
+  const withPassage=structuredClone(bundle.questions.find(q=>q.id==='question-ipa-2016h28h-fe-am-1')!);
+  withPassage.contexts.unshift({id:'specific-passage',title:'この問題の条件',content:{attribution:structuredClone(withPassage.prompt.attribution),blocks:[{type:'paragraph',text:'この問題だけに必要な条件。'}]}});
+  withPassage.contextRefs.unshift('specific-passage');assert.equal(materialPages(withPassage)[0].id,'specific-passage','question-specific material stays before the prompt');
 });
 
 test("multipage originals keep all page images and the supplementary text available", () => {

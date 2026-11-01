@@ -73,8 +73,8 @@ async function compareWithPrevious(run: Run, label: string) {
   return expected;
 }
 
-test("local endless indexes preserve complete A607/B49, mixed and old-afternoon pools", async () => {
-  assert.equal(a.set.questionRefs.length, 607);
+test("local endless indexes preserve complete A682/B49, mixed and old-afternoon pools", async () => {
+  assert.equal(a.set.questionRefs.length, 682);
   assert.equal(b.set.questionRefs.length, 49);
   assert.equal(mixed.set.questionRefs.length, 2);
   assert.equal(afternoon.set.questionRefs.length, 13);
