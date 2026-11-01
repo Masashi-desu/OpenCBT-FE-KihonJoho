@@ -9,11 +9,36 @@ concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
-  build:
+  plan:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      profile: ${{ steps.plan.outputs.profile }}
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - id: plan
+        run: node scripts/ci/plan.mjs output/ci/plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verification-plan-${{ github.run_attempt }}
+          path: output/ci/plan.json
+          if-no-files-found: error
+  tests:
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -23,14 +48,62 @@ jobs:
           distribution: temurin
           java-version: '21'
       - run: npm ci
-      - run: npm test
+      - uses: actions/download-artifact@v4
+        with:
+          name: verification-plan-${{ github.run_attempt }}
+          path: output/ci
+      - run: npm run pretest
+      - name: Run planned tests
+        run: node scripts/ci/run-part.mjs output/ci/plan.json ${{ matrix.part }} output/ci/results/${{ matrix.part }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-results-${{ github.run_attempt }}-${{ matrix.part }}
+          path: output/ci/results/${{ matrix.part }}
+          if-no-files-found: error
+  aggregate:
+    needs: [plan, tests]
+    if: always() && needs.plan.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/download-artifact@v4
+        with:
+          name: verification-plan-${{ github.run_attempt }}
+          path: output/ci
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: verification-results-${{ github.run_attempt }}-*
+          path: output/ci/downloaded
+      - name: Require successful matrix and complete witnesses
+        env:
+          TEST_JOB_RESULT: ${{ needs.tests.result }}
+        run: |
+          test "$TEST_JOB_RESULT" = success
+          node scripts/ci/aggregate.mjs output/ci/plan.json output/ci/downloaded
+  build:
+    needs: plan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
       - run: npm run build
+      - run: npm run doc:build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
   deploy:
-    needs: build
+    needs: [build, aggregate]
     runs-on: ubuntu-latest
     permissions:
       pages: write

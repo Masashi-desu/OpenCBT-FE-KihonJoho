@@ -46,7 +46,7 @@ test("normal full bundle, original collection and base-only mix metadata are acc
   for(const n of[5,11,12]) {assert.equal(original(n).prompt.attribution.origin,"official");assert.equal(original(n).origin.isModified,true);}
   assert(sourceCollections(bundle,"B").some(s=>s.id===contract.collectionId));
   const group=menuSourceGroups(bundle).find(g=>g.collections.some(s=>s.id===contract.collectionId));assert(group);
-  assert.equal(group.year,2019);assert.equal(group.period,"秋期");assert.equal(group.timeSlot,"午後");assert.match(group.title,/2019.*秋期/);
+  assert.equal(group.year,2019);assert.equal(group.period,"秋期");assert.equal(group.timeSlots?.B,"午後");assert.match(group.title,/2019.*秋期/);
   assert(menuSubjectOptions(group).some(o=>o.title==="旧制度・午後"));
 });
 

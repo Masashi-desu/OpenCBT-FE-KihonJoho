@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "baselineCommit": "a5d72f9f0e982b513bdf2e200f0e5412f38d5ecc",
+  "baselineFullTestCount": 2090,
+  "baselineEvidence": "https://github.com/Masashi-desu/OpenCBT-FE-KihonJoho/actions/runs/41214881632",
+  "fullTestCount": 2100,
+  "uiTestCounts": {
+    "tests/menu-selection.test.ts": 10,
+    "tests/mix-profile.test.ts": 7,
+    "tests/legacy-afternoon-selection.test.ts": 4,
+    "tests/source-collections.test.ts": 12,
+    "tests/stage1-partial-release-integration.test.ts": 10,
+    "tests/ci-verification.test.ts": 8
+  },
+  "approvedChanges": {
+    ".agents/skills/fe-question-generation/SKILL.md": "25d0b63ad3674a9acae698fa1af7f16b9b594c27",
+    ".github/workflows/pages.yml": "32c93b15beae2281e450f04388c226d02a53bb13",
+    "AGENTS.md": "b33c32bf650e23e4bd8057733b1a19ea1aeb7eb5",
+    "README.md": "972b1bb4e0a3fca0c393ca164f72fc00a14ff3e2",
+    "docs/screens.md": "30ee6bff603f066f3779bee7f4769a76a1e929cc",
+    "docs/verification.md": "5c18cfc43238fd454cbff6ab1488aefd02f4c1f1",
+    "package.json": "d69e1e21194e720abb3aa79cb6c5e33475590c00",
+    "scripts/ci/aggregate.mjs": "19fc035072b298bd9c81a82aa4b3524869b0c047",
+    "scripts/ci/plan.mjs": "a53ae4f7046b61742a04a24b1e1c7c6cb9ca7295",
+    "scripts/ci/reporter.mjs": "95a3098e3474af61d7272ebe40f78a02aa46f5fa",
+    "scripts/ci/results.mjs": "7fc65a4821a8f6065c1e5f9064ddf8b14a3923d1",
+    "scripts/ci/run-part.mjs": "701a3537ef147a49b5bf61750c97702a5fb169ba",
+    "src/core/menu-selection.ts": "ac3b331583ad38bbbebd604f01f504b3da8ffd3a",
+    "src/ui/App.tsx": "39f7049a1867b9fd352eb82c69df5430bfce111f",
+    "tests/ci-verification.test.ts": "4763eee88a2e63ad9251bfca0ce65232e058c7d1",
+    "tests/legacy-2019-autumn-normal-flow.test.ts": "18253d63e4a94f98518adc7e45f3c1308d659e2a",
+    "tests/menu-selection.test.ts": "fb9c3d0fbce2242c6ff57ebcb0000b2babf55025",
+    "tests/stage1-partial-release-integration.test.ts": "57fa8ca15ce4813baf5baf83c4800b21e21d3dcc"
+  },
+  "review": "Exact source-reviewed selection UI/verification infrastructure change. Unknown bytes, new content or shared runtime changes require the full suite.",
+  "heavyDiagnostics": {
+    "small": [
+      "710 domains, 9012 valid inputs, 36954 initial draws, 9012 draws with complete prior history; current-format domains retain all five paths.",
+      "Old afternoon: 78 domains, all 4053 finite inputs, 12159 initial draws on three applicable explicit routes, 4053 history draws; all75 booklet selections separately retained."
+    ],
+    "large": [
+      "26 larger domains, 1664 seeded inputs, 8064 initial draws across five paths, 1664 draws with prior history."
+    ]
+  }
+}

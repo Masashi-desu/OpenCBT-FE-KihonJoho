@@ -1292,7 +1292,7 @@ export function App() {
                 )}
                 <div className="section-title">
                   <span className="step-dot">{selection.mode === "endless" ? 2 : 3}</span>
-                  <h2>{collectionSubjects && activeSourceGroup?.timeSlot ? "試験区分を確認" : "科目を選択"}</h2>
+                  <h2>{collectionSubjects && activeSourceGroup?.timeSlots ? "試験区分を選択" : "科目を選択"}</h2>
                 </div>
                 {subjectNotice && <p className="subject-notice" id="subject-notice">{subjectNotice}</p>}
                 <div className={`subject-tabs${subjects.length === 1 ? " single-subject" : ""}`} role="group" aria-label="科目・試験区分" aria-describedby={subjectNotice ? "subject-notice" : undefined}>

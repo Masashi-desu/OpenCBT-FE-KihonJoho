@@ -31,7 +31,12 @@
     "predev": "npm run assets:generate && npm run schema:compile",
     "pretest": "npm run colors:check && npm run assets:check && npm run schema:compile",
     "predata:validate": "npm run schema:compile",
-    "doc:generation": "tsx scripts/generation-reference.ts"
+    "doc:generation": "tsx scripts/generation-reference.ts",
+    "pretest:ui": "npm run pretest",
+    "test:ui": "tsx --test tests/menu-selection.test.ts tests/mix-profile.test.ts tests/legacy-afternoon-selection.test.ts tests/source-collections.test.ts tests/stage1-partial-release-integration.test.ts tests/ci-verification.test.ts",
+    "check:ui": "npm run test:ui && npm run build && npm run doc:build",
+    "check:full": "npm run check",
+    "ci:plan": "node scripts/ci/plan.mjs output/ci/plan.json"
   },
   "devDependencies": {
     "@resvg/resvg-js": "2.6.2",

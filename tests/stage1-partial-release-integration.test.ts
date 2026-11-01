@@ -84,20 +84,25 @@ test("six partial old-AM booklets retain every eligible source number and exactl
   assert.equal(total, 467); assert.equal(holds, 13);
 });
 
-test("partial old-AM publications remain six independent menu choices beside their same-period afternoon booklets", () => {
+test("partial old-AM booklets share six year/period menu choices with PM while keeping distinct saved collection IDs", () => {
   const groups = menuSourceGroups(bundle);
   for (const cohort of cohorts) {
     const group = groups.find(g => g.collections.some(s => s.id === sourceSet(cohort).id))!;
     assert(group, cohort.id);
-    assert.equal(group.year, cohort.year); assert.equal(group.period, cohort.period); assert.equal(group.timeSlot, "午前");
-    assert.equal(group.collections.length, 1);
-    assert.deepEqual(menuSubjectOptions(group).map(o => [o.subject, o.title, o.available]), [["A", "旧制度・午前", true]]);
-    assert(groups.some(g => g.year === cohort.year && g.period === cohort.period && g.timeSlot === "午後" && g.id !== group.id));
+    assert.equal(group.year, cohort.year); assert.equal(group.period, cohort.period);
+    assert.deepEqual(group.timeSlots, { A: "午前", B: "午後" });
+    assert.equal(group.collections.length, 2);
+    assert.deepEqual(menuSubjectOptions(group).map(o => [o.subject, o.title, o.available]), [
+      ["A", "旧制度・午前", true], ["B", "旧制度・午後", true],
+    ]);
     for (const kind of ["annual", "mix"] as const) {
       const chosen = chooseMenuSourceGroup(groups, selection(cohort, kind), group.id);
       assert.equal(chosen[kind === "annual" ? "sourceCollectionId" : "mixProfileCollectionId"], sourceSet(cohort).id);
       assert.equal(chosen.size, "public");
-      assert.throws(() => chooseMenuSourceGroup(groups, chosen, group.id, "B"), { code: "SOURCE_COLLECTION" });
+      const afternoon = group.collections.find(c => c.subject === "B")!;
+      const pm = chooseMenuSourceGroup(groups, chosen, group.id, "B");
+      assert.equal(pm[kind === "annual" ? "sourceCollectionId" : "mixProfileCollectionId"], afternoon.id);
+      assert.equal(pm.subject, "B"); assert.equal(afternoon.questionRefs.length, 13);
     }
   }
 });
