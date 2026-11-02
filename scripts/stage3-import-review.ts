@@ -1,12 +1,21 @@
 import review from './source-evidence/stage3-s3-001-review.json';
 import autumn from './source-evidence/stage3-s3-002-review.json';
 import type { ImportReview } from './audit-pre-2023-readiness';
+import fs from 'node:fs';
+import extensions from './source-inventory-extensions.json';
+import type {InventoryExtensions} from './source-inventory-extension-contract';
+import {bookletReleaseReviewPath,reviewedBookletImports,type BookletReleaseReview} from './booklet-import-review';
 
 /** Declared reviews never change the80-question obligation. Only the exact
  * source/material/independent/app-reviewed subset can gain readiness checks. */
 export function stage3ImportReviews():ImportReview[]{
   return [...bookletReviews(review,'S3-001','2016h28h-fe-am',[46,56,60,63,66]),
-    ...bookletReviews(autumn,'S3-002','2016h28a-fe-am',[55,56,57])];
+    ...bookletReviews(autumn,'S3-002','2016h28a-fe-am',[55,56,57]),
+    ...(extensions as InventoryExtensions).collections.flatMap(collection=>{
+      const file=bookletReleaseReviewPath(collection.collectionId);
+      if(!fs.existsSync(file))return[]; // Missing review remains unready.
+      return reviewedBookletImports(collection,JSON.parse(fs.readFileSync(file,'utf8'))as BookletReleaseReview);
+    })];
 }
 type Review={schema:string;taskId:string;status:string;releaseUnitReady:boolean;wholeScopeReady:boolean;expectedTotal:number;includedNumbers:number[];
   held:{number:number;status:string;bodyPublished:boolean;reason:string}[];questionPaperSHA256:string;
