@@ -1,4 +1,6 @@
 import type { Bundle } from "../src/core/types";
+import extensionDeclarations from './source-inventory-extensions.json';
+import { inventoryExtensionRecords } from './source-inventory-extension-contract';
 
 // Declared source scope is independent of the current catalog: removing both an
 // original and its template must not make an incomplete release pass validation.
@@ -40,6 +42,12 @@ export const sourceExclusions: Record<string, {reason:string;sourceId:string;che
   "2019r01a-fe-am-55": {reason:"規格の要求事項等の用途別利用条件を未確認",sourceId:"source-ipa-2019r01a-fe-am-stage1-qs",checkedOn:"2026-10-31"},
   "2019r01a-fe-am-57": {reason:"プロセス等の第三者表現の用途別利用条件を未確認",sourceId:"source-ipa-2019r01a-fe-am-stage1-qs",checkedOn:"2026-10-31"},
 };
+const additionalInventory = inventoryExtensionRecords(extensionDeclarations, sourceScope);
+sourceScope.push(...additionalInventory.sources);
+for (const [id, exclusion] of Object.entries(additionalInventory.exclusions)) {
+  if (Object.hasOwn(sourceExclusions, id)) throw Error('SOURCE_EXCLUSION: duplicate retained exclusion ' + id);
+  sourceExclusions[id] = exclusion;
+}
 export function validateSourceInventory(b: Bundle) {
   const expected = sourceScope
     .filter((id) => !(id in sourceExclusions))

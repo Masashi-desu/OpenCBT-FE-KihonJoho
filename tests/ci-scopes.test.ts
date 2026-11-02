@@ -1,0 +1,137 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { scopeForQuestion } from '../scripts/ci/booklet-scope.mjs';
+import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes } from '../scripts/ci/scopes.mjs';
+import { runtimeDependencyGraph } from '../scripts/ci/runtime-dependencies.mjs';
+const scopes = ['2016-autumn-am', '2016-autumn-pm', '2016-spring-am', '2016-spring-pm', '2017-spring-pm', '2024-a'];
+function question(id: string, year = 2016, period = '秋期', timeSlot = '午後'): any { return { id, subject: timeSlot === '午後' ? 'B' : 'A', origin: { sourceRefs: [{ sourceId: 'source-' + id, locator: { year, period, timeSlot, questionNumber: '1' } }] }, prompt: { blocks: [{ assetId: 'asset-shared' }], rightsRefs: ['rights-shared'] } }; }
+function fixture(): any { const catalog = { revision: 1, files: { questions: [], templates: [], sets: [], exams: [], sources: [], rights: [], assets: [] }, generationCoverage: 'complete' }, records = { questions: [question('one'), question('two', 2017, '春期')], templates: [], sets: [], exams: [], sources: [], rights: [{ id: 'rights-shared' }], assets: [{ id: 'asset-shared', path: 'assets/shared.png' }] }; return { catalog, records }; }
+function own(value = fixture()) { return distributionOwnership(value.catalog, value.records); }
+function classify(changed: string[], a = own(), b = a, extras: any = {}) { return classifyScopedChanges({ changed, beforeOwnership: a, afterOwnership: b, testEntries: {}, ...extras }); }
+test('source ownership distinguishes current A/B, each historical term and AM/PM, and both 2022 sample publications', () => {
+    assert.equal(scopeForQuestion(question('x')), '2016-autumn-pm');
+    assert.equal(scopeForQuestion(question('x', 2011, '特別', '午前')), '2011-special-am');
+    const current: any = { subject: 'A', origin: { sourceRefs: [{ locator: { year: 2024, subject: '科目A', questionNumber: '1' } }] } };
+    assert.equal(scopeForQuestion(current), '2024-a');
+    const sample: any = { subject: 'B', origin: { sourceRefs: [{ locator: { period: '2022年4月公表 サンプル問題', subject: '科目B', questionNumber: '1' } }] } };
+    assert.equal(scopeForQuestion(sample), '2022-april-b');
+    sample.origin.sourceRefs[0].locator.period = '2022年12月公表 サンプル問題';
+    assert.equal(scopeForQuestion(sample), '2022-december-b');
+});
+test('unknown, conflicting and cross-section source ownership is refused', () => {
+    assert.equal(scopeForQuestion({ subject: 'A', origin: { sourceRefs: [] } }), null);
+    const q = question('x');
+    q.subject = 'A';
+    assert.equal(scopeForQuestion(q), null);
+    q.subject = 'B';
+    q.origin.sourceRefs.push({ locator: { year: 2017, period: '春期', timeSlot: '午後', questionNumber: '1' } });
+    assert.equal(scopeForQuestion(q), null);
+});
+test('logical pack comparison scopes one changed question without treating repacking as content changes', () => {
+    const a = fixture(), b = structuredClone(a);
+    b.records.questions[0].prompt.extra = 'changed';
+    b.catalog.revision++;
+    const result = compareDistribution(own(a), own(b));
+    assert.deepEqual(result.scopes, ['2016-autumn-pm']);
+    assert.equal(result.changedRecords.length, 1);
+    const c = structuredClone(a);
+    c.catalog.revision++;
+    c.catalog.files.questions = [{ path: 'questions/another-pack.json' }] as any;
+    assert.deepEqual(compareDistribution(own(a), own(c)).changedRecords, []);
+});
+test('shared image and rights changes select every consuming booklet', () => {
+    const a = fixture(), b = structuredClone(a);
+    b.records.assets[0].hash = 'changed';
+    b.records.rights[0].notice = 'changed';
+    const r = compareDistribution(own(a), own(b));
+    assert.deepEqual(r.scopes, ['2016-autumn-pm', '2017-spring-pm']);
+    assert.equal(classify(['public/data/assets/shared.png'], own(a)).profile, 'booklets');
+});
+test('unknown distribution records and catalogue semantic metadata cannot authorize narrowed tests', () => {
+    const a = fixture(), b = structuredClone(a);
+    b.records.sources.push({ id: 'unowned' } as never);
+    assert.equal(classify([], own(a), own(b)).profile, 'full');
+    const c = fixture();
+    c.catalog.generationCoverage = 'partial';
+    assert.equal(classify([], own(a), own(c)).profile, 'full');
+});
+test('legacy source modules narrow by section and term, and year-wide modules conservatively expand both', () => {
+    assert.deepEqual(scopesForOwnedPath('src/core/generators/legacy-2016-autumn-afternoon.ts', scopes), ['2016-autumn-pm']);
+    assert.deepEqual(scopesForOwnedPath('src/ui/Legacy2016AutumnPmFigures.tsx', scopes), ['2016-autumn-pm']);
+    assert.deepEqual(scopesForOwnedPath('src/core/generators/legacy-2016.ts', scopes), scopes.slice(0, 4));
+});
+test('common processing, Schema, dependencies, executable documentation and unlisted content require full tests', () => {
+    for (const file of ['src/core/session.ts', 'src/core/generation.ts', 'package-lock.json', 'docs/public/schema/question.json', 'docs/scripts/validate.mjs', 'public/data/unlisted.json', 'scripts/ci/plan.mjs', 'src/unrecognized.ts'])
+        assert.equal(classify([file]).profile, 'full', file);
+    assert.equal(classify(['docs/verification.md']).profile, 'common');
+    assert.equal(classify([], own(), own(), { forceFull: true }).profile, 'full');
+});
+test('strict registration declarations permit append-only owned definitions and reject hooks, overwrite, mismatches and unknown imports', () => {
+    const file = 'src/core/generators/afternoon-booklet-extensions.ts', head = "import type { AfternoonBookletExtension } from './afternoon-booklet-extension-contract';\n", empty = head + 'export const bookletExtensions: readonly AfternoonBookletExtension[] = [];\n', one = head + "import { defs } from './legacy-2016-autumn-afternoon';\nexport const bookletExtensions: readonly AfternoonBookletExtension[] = [{scope:'2016-autumn-pm',definitions:defs}];\n";
+    assert.deepEqual(parseBookletExtensions(empty), []);
+    assert.deepEqual(appendOnlyExtensionScopes(empty, one, file), ['2016-autumn-pm']);
+    for (const bad of [one + 'runHook();', one.replace('definitions:defs', 'definitions:()=>defs'), one.replace('2016-autumn-pm', '2016-spring-pm'), one.replace("'./legacy-2016-autumn-afternoon'", "'./shared'"), one.replace('definitions:defs', 'definitions:defs,extra:1')])
+        assert.equal(parseBookletExtensions(bad, file), null, bad);
+    assert.equal(appendOnlyExtensionScopes(one, empty, file), null);
+    assert.equal(appendOnlyExtensionScopes(one, one, file), null);
+});
+test('core and UI figure extension declarations use the same guarded append-only scope grammar', () => {
+    for (const [file, c] of Object.entries(EXTENSION_DECLARATIONS).filter(([p]) => p !== 'src/core/generators/afternoon-booklet-extensions.ts')) {
+        const config = c as any, head = `import type { ${config.type} } from '${config.contract}';\n`, module = file.startsWith('src/ui/') ? 'Legacy2016AutumnPmFigures' : 'generators/legacy-2016-autumn-pm-figures', empty = head + `export const ${config.variable}: readonly ${config.type}[] = [];`, after = head + `import { figures } from './${module}';\nexport const ${config.variable}: readonly ${config.type}[] = [{scope:'2016-autumn-pm',${config.property}:figures}];`;
+        assert.deepEqual(appendOnlyExtensionScopes(empty, after, file), ['2016-autumn-pm']);
+        assert.equal(parseBookletExtensions(after.replace('figures}', 'figures, hook:run}'), file), null);
+    }
+});
+test('a deletion retains the old owner and multiple changed booklets are selected together', () => {
+    const a = fixture(), b = structuredClone(a);
+    b.records.questions.splice(0, 1);
+    b.records.questions[0].prompt.extra = 'changed';
+    assert.deepEqual(compareDistribution(own(a), own(b)).scopes, ['2016-autumn-pm', '2017-spring-pm']);
+});
+test('strict pool append scopes only new references while preserving every old value, binding, order and revision', () => {
+    const a = fixture();
+    a.records.sets = [{ id: 'set-shared', revision: 1, subject: 'B', questionRefs: [{ questionId: 'one', revision: 1 }] }] as any;
+    const b = structuredClone(a);
+    b.records.sets[0].revision = 2;
+    b.records.sets[0].questionRefs.push({ questionId: 'two', revision: 1 });
+    const result = compareDistribution(own(a), own(b));
+    assert.deepEqual(result.scopes, ['2017-spring-pm']);
+    const wrong = structuredClone(b);
+    wrong.records.sets[0].questionRefs.reverse();
+    assert.deepEqual(compareDistribution(own(a), own(wrong)).scopes, ['2016-autumn-pm', '2017-spring-pm']);
+    const changed = structuredClone(b);
+    changed.records.sets[0].subject = 'A';
+    assert.deepEqual(compareDistribution(own(a), own(changed)).scopes, ['2016-autumn-pm', '2017-spring-pm']);
+});
+test('owned reverse imports widen all consuming booklets and unknown common consumers force full verification', () => {
+    const target = 'src/core/generators/legacy-2016-autumn-afternoon.ts', consumer = 'src/core/generators/legacy-2017-spring-pm8.ts';
+    assert.deepEqual(expandOwnedDependencies([target], { [consumer]: [target] }, scopes).scopes, ['2017-spring-pm']);
+    assert.equal(expandOwnedDependencies([target], { 'src/core/session.ts': [target] }, scopes).unknown.length, 1);
+    assert.equal(expandOwnedDependencies([target], { 'src/core/generators/afternoon-booklet-extensions.ts': [target] }, scopes, ['src/core/generators/afternoon-booklet-extensions.ts']).unknown.length, 0);
+});
+test('AST dependency discovery retains multiline, minified, side-effect, reexport, type, literal dynamic and raw CSS imports', () => {
+    const inputs = Object.fromEntries(['src/a.ts', 'src/one.ts', 'src/two.ts', 'src/three.ts', 'src/four.ts', 'src/five.ts', 'src/six.ts', 'src/style.css'].map(p => [p, true]));
+    const source = `import {\n one\n} from './one';import{two}from'./two';import './three';export{four}from'./four';export * from './five';const x=import('./six');type V=typeof import('./one');import css from './style.css?raw';import React from 'react';`;
+    const result = runtimeDependencyGraph({ 'src/a.ts': source }, inputs, ['react']);
+    assert.deepEqual(result.unresolved, []);
+    assert.deepEqual(result.graph['src/a.ts'], Object.keys(inputs).filter(p => p !== 'src/a.ts').sort());
+});
+test('unresolved aliases, computed dynamic imports, require arguments and malformed source force an unknown dependency result', () => {
+    for (const source of ["import x from '@/shared';", 'const x=import(name);', 'const x=require(name);', "import x from './missing';", 'import { bad from "react";'])
+        assert(runtimeDependencyGraph({ 'src/a.ts': source }, { 'src/a.ts': true }, ['react']).unresolved.length > 0, source);
+});
+test('source obligations accept only closed append-only collection declarations with retained held source numbers', () => {
+    const empty = JSON.stringify({ version: 1, collections: [] }), row = { collectionId: '2016h28a-fe-pm', excluded: [{ number: 12, reason: 'Third-party material conditions pending', sourceId: 'source-ipa-2016h28a-fe-pm-qs', checkedOn: '2026-11-02' }] }, after = JSON.stringify({ version: 1, collections: [row] });
+    assert.deepEqual(sourceInventoryAppendScopes(empty, after), ['2016-autumn-pm']);
+    for (const bad of [{ ...row, collectionId: '2016h27a-fe-pm' }, { ...row, extra: 'hook' }, { ...row, excluded: [{ ...row.excluded[0], number: 14 }] }, { ...row, excluded: [{ ...row.excluded[0], sourceId: 'source-foreign' }] }, { ...row, excluded: [row.excluded[0], row.excluded[0]] }])
+        assert.equal(sourceInventoryAppendScopes(empty, JSON.stringify({ version: 1, collections: [bad] })), null);
+    assert.equal(sourceInventoryAppendScopes(after, empty), null);
+    assert.equal(sourceInventoryAppendScopes(after, JSON.stringify({ version: 1, collections: [{ ...row, excluded: [] }] })), null);
+});
+
+test('only the known generated validator resolves virtually through its tracked compiler, Schema, Unicode and dependency inputs',()=>{
+ const file='src/core/validation.ts',source="import * as validators from '../generated/validators.js';",inputs=Object.fromEntries([file,'scripts/compile-schemas.mjs','src/core/unicode.js','package.json','package-lock.json','docs/public/schemas/question.schema.json'].map(p=>[p,true]));
+ const result=runtimeDependencyGraph({[file]:source},inputs);assert.deepEqual(result.unresolved,[]);assert.deepEqual(result.graph[file],['src/generated/validators.js']);assert(result.graph['src/generated/validators.js'].includes('scripts/compile-schemas.mjs'));assert.equal(result.virtualDependencies.length,1);
+ const absent={...inputs};delete absent['scripts/compile-schemas.mjs'];assert.equal(runtimeDependencyGraph({[file]:source},absent).unresolved.length,1);
+ assert.equal(runtimeDependencyGraph({[file]:source.replace('validators.js','unreviewed.js')},inputs).unresolved.length,1);
+});

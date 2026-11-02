@@ -8,6 +8,7 @@ import { validate2018SpringFixedMaterials } from "./legacy-2018-spring-material-
 import { validate2018AutumnFixedMaterials } from "./legacy-2018-autumn-material-validation";
 import { validate2019SpringFixedMaterials } from "./legacy-2019-spring-material-validation";
 import { validate2019AutumnFixedMaterials } from "./legacy-2019-autumn-material-validation";
+import { additionalAfternoonFixedAssets } from './afternoon-booklet-extension-contract';
 
 /** Fixed source material credits belong to their individual content/diagram
  * slots. Shared language references cannot inherit the main question's right. */
@@ -112,7 +113,10 @@ export function validateLegacyAfternoonFormat(question: Question, definition: Ge
     "2019h31h-fe-pm-8", "2019h31h-fe-pm-9", "2019h31h-fe-pm-11", "2019h31h-fe-pm-12", "2019h31h-fe-pm-13", "2019r01a-fe-pm-2", "2019r01a-fe-pm-8", "2019r01a-fe-pm-13"].includes(definition.source);
   const imageRefs = [...new Set(question.contexts.flatMap(context => context.content.blocks
     .flatMap(block => block.type === "image" ? [block.assetId] : [])))];
-  if (question.choiceShuffleAllowed || (!fixedReferences && imageRefs.length) ||
+  const extensionAssets = additionalAfternoonFixedAssets(definition.source);
+  if (extensionAssets && (extensionAssets.length !== imageRefs.length || extensionAssets.some((id, i) => imageRefs[i] !== id)))
+    throw new DataError("SOURCE_MATERIAL", "旧午後の固定資料の範囲・順序が一致しません。");
+  if (question.choiceShuffleAllowed || (!fixedReferences && !extensionAssets && imageRefs.length) ||
     JSON.stringify(question.assetRefs) !== JSON.stringify(imageRefs) ||
     [question.prompt, ...question.choices.map(choice => choice.content)]
       .some(content => content.blocks.some(block => block.type === "image")))

@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -22,12 +23,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+          cache: npm
+      - run: npm ci
       - id: plan
-        run: node scripts/ci/plan.mjs output/ci/plan.json
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/ci/base-evidence.mjs output/ci/base-evidence.json
+          node scripts/ci/plan.mjs output/ci/plan.json
       - uses: actions/upload-artifact@v4
         with:
           name: verification-plan-${{ github.run_attempt }}
-          path: output/ci/plan.json
+          path: |
+            output/ci/plan.json
+            output/ci/base-evidence.json
           if-no-files-found: error
   tests:
     needs: plan

@@ -1,4 +1,5 @@
 import type { Question } from "../types";
+import { DataError } from '../errors';
 import { legacy2017Pm1Definition } from "./legacy-2017-pm1";
 import { legacy2017Pm2Definition } from "./legacy-2017-pm2";
 import { legacy2017Pm3Definition } from "./legacy-2017-pm3";
@@ -17,14 +18,18 @@ import { legacy2018SpringAfternoonDefinitions } from "./legacy-2018-spring-after
 import { legacy2018AutumnAfternoonDefinitions } from "./legacy-2018-autumn-afternoon-definitions";
 import { legacy2019SpringAfternoonDefinitions } from "./legacy-2019-spring-afternoon-definitions";
 import { legacy2019AutumnAfternoonDefinitions } from "./legacy-2019-autumn-afternoon";
+import { additionalAfternoonDefinitions } from './afternoon-booklet-extension-contract';
 
 // Managed code is separate from the immutable current-format public roots.
-// Admission to the distribution catalog remains an all-majors booklet gate.
+// Admission to the distribution catalog separately checks every published major.
 export const legacyAfternoonDefinitions = [legacy2017Pm1Definition, legacy2017Pm2Definition,
   legacy2017Pm3Definition, legacy2017Pm4Definition, legacy2017Pm5Definition,
   ...legacy2017Pm6Definitions, legacy2017Pm7Definition, legacy2017Pm8Definition, legacy2017Pm9Definition,
   legacy2017Pm10Definition, legacy2017Pm11Definition, legacy2017Pm12Definition, legacy2017Pm13Definition,
-  ...legacy2017AutumnAfternoonDefinitions, ...legacy2018SpringAfternoonDefinitions, ...legacy2018AutumnAfternoonDefinitions, ...legacy2019SpringAfternoonDefinitions, ...legacy2019AutumnAfternoonDefinitions];
+  ...legacy2017AutumnAfternoonDefinitions, ...legacy2018SpringAfternoonDefinitions, ...legacy2018AutumnAfternoonDefinitions, ...legacy2019SpringAfternoonDefinitions, ...legacy2019AutumnAfternoonDefinitions,
+  ...additionalAfternoonDefinitions];
+if (new Set(legacyAfternoonDefinitions.map(definition => definition.source)).size !== legacyAfternoonDefinitions.length)
+  throw new DataError('GENERATOR_REF', '旧午後の既存生成器を追加登録で置き換えることはできません');
 export function legacyAfternoonDefinition(generatorId: string) {
   return legacyAfternoonDefinitions.find(definition => generatorId === `generator-source-${definition.source}`);
 }

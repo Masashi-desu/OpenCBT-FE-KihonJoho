@@ -1,11 +1,16 @@
 import type { Block } from "./types";
 import { DataError } from "./errors";
 import { legacyAfternoonDefinitions } from "./generators/legacy-afternoon-definitions";
+import { additionalAfternoonDefinitions } from './generators/afternoon-booklet-extension-contract';
 
 // Enumerated, managed inputs only. Bounds are schema documentation; runtime
 // acceptance uses exact tuples, including sparse domains and coupled fields.
 const figures = new Map<string, Map<string, { alt: string; caption: string }>>();
+const extensionDefinitions = new Set(additionalAfternoonDefinitions.map(definition => definition.source));
 for (const definition of legacyAfternoonDefinitions) {
+  // Source-owned extensions have their own semantic and renderer registry.
+  // Do not also capture them in this historical enumerated-profile adapter.
+  if (extensionDefinitions.has(definition.source)) continue;
   const visit = (index: number, values: number[]) => {
     if (index < definition.fields.length) {
       const field = definition.fields[index];

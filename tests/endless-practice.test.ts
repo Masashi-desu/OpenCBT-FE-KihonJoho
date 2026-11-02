@@ -1,3 +1,4 @@
+import { checkEndlessSessionHistory } from "./helpers/booklet-endless-practice-paths";
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "./fixtures";
@@ -119,49 +120,10 @@ test("endless current-subject pools retain all applicable series and explicit bo
   }
 });
 
-test("both subjects draw from the whole pool and keep every randomly issued answer in one session", async () => {
+test("both complete subject pools retain representative random answers and saved history in one session", async () => {
   const bundle = fixture();
-  for (const subject of ["A", "B"] as const) {
-    let run = startRun(await prepareRun(bundle, {
-      ...selection, subject, year: 2025, size: "full",
-    }, {}, 100000), 101000);
-    assert(isOpenEnded(run));
-    assert.equal(run.selection.year, undefined);
-    assert.equal(run.selection.size, undefined);
-    const count = run.set.questionRefs.length,
-      sessionId = run.session.id,
-      first = structuredClone(run.issued[0]);
-    for (let index = 0; index < count + 2; index++) {
-      if (index) run = await appendRunQuestion(run, undefined, 102000 + index * 1000);
-      run = updateAnswer(run, run.issued[index].correctAnswer.choiceId, 102000 + index * 1000);
-      assert.equal(run.session.id, sessionId);
-      assert.equal(run.session.currentIndex, index);
-      assert.equal(run.instances[index].entryIndex, index);
-      assert.equal(run.session.status, "running");
-    }
-    assert(run.session.entries.every((entry) => run.set.questionRefs.some((ref) => refKey(ref) === refKey(entry.questionRef))));
-    assert.equal(new Set(run.instances.map((i) => i.id)).size, count + 2);
-    const latest = new Map<string, number[]>();
-    for (const instance of run.instances) {
-      const key = refKey(instance.baseQuestionRef);
-      if (latest.has(key)) assert.notDeepEqual(instance.parameters.values, latest.get(key));
-      latest.set(key, instance.parameters.values);
-    }
-    assert.deepEqual(run.issued[0], first);
-    const saved = structuredClone(run);
-    // Reopening preserves saved questions even if the instances arrive in storage-key order.
-    saved.instances.sort((a, b) => a.id.localeCompare(b.id));
-    await validateRun(saved);
-    const nextRef = nextQuestionRef(saved, (a) => a);
-    assert.deepEqual(nextRef, saved.set.questionRefs[0]);
-    const resumed = await appendRunQuestion(saved, nextRef, 200000);
-    assert.deepEqual(resumed.issued.slice(0, saved.issued.length), saved.issued);
-    const completed = finishRun(resumed, "completed", 201000);
-    assert.equal(completed.result!.total, count + 3);
-    assert.equal(completed.result!.correct, count + 2);
-    assert.equal(completed.result!.unanswered, 1);
-    await validateRun(completed);
-  }
+  for (const subject of ["A", "B"] as const)
+    await checkEndlessSessionHistory(bundle, { ...selection, subject }, 4);
 });
 
 test("normal modes retain year, count and deadlines while missing settings and incompatible endless sets are rejected", async () => {

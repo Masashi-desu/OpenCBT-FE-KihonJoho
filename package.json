@@ -21,7 +21,7 @@
     "dev": "vite",
     "build": "npm run colors:check && npm run data:validate && tsc && vite build",
     "preview": "vite preview",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "node scripts/ci/test.mjs --full",
     "check": "npm run test && npm run build && npm run doc:build",
     "data:validate": "tsx scripts/validate-data.ts",
     "sources:verify": "tsx scripts/verify-source-evidence.ts",
@@ -36,7 +36,10 @@
     "test:ui": "tsx --test tests/menu-selection.test.ts tests/mix-profile.test.ts tests/legacy-afternoon-selection.test.ts tests/source-collections.test.ts tests/stage1-partial-release-integration.test.ts tests/ci-verification.test.ts",
     "check:ui": "npm run test:ui && npm run build && npm run doc:build",
     "check:full": "npm run check",
-    "ci:plan": "node scripts/ci/plan.mjs output/ci/plan.json"
+    "ci:plan": "node scripts/ci/plan.mjs output/ci/plan.json",
+    "check:changed": "node scripts/ci/check-changed.mjs",
+    "test:booklet": "node scripts/ci/test.mjs",
+    "pretest:booklet": "npm run pretest"
   },
   "devDependencies": {
     "@resvg/resvg-js": "2.6.2",

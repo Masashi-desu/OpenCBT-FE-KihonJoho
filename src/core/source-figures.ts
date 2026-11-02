@@ -18,9 +18,15 @@ import { spring2016FigureDomains, isSpring2016Figure, readSpring2016Figure } fro
 import { autumn2016FigureDomains, isAutumn2016Figure, readAutumn2016Figure } from './autumn-2016-figures';
 import morningDomains from "./legacy-morning-figure-domains.json";
 import { legacyAfternoonFigureDomains, isLegacyAfternoonFigure, readLegacyAfternoonFigure } from "./legacy-afternoon-figures";
+import { additionalBookletFigure, additionalBookletFigureDomains, readBookletFigure } from './booklet-figure-extension-contract';
+for (const profile of Object.keys(additionalBookletFigureDomains)) {
+  if ([domains, morningDomains, spring2016FigureDomains, autumn2016FigureDomains, legacyAfternoonFigureDomains]
+    .some(existing => Object.hasOwn(existing, profile)) || profile === managedLegacyFigure.profile)
+    throw new DataError('FIGURE_PROFILE', '追加の図登録で既存の図を置き換えることはできません');
+}
 export const sourceFigureDomains = joinManagedLegacyDomains(
   Object.fromEntries(
-    [...Object.entries(domains), ...Object.entries(spring2016FigureDomains), ...Object.entries(autumn2016FigureDomains), ...Object.entries(legacyAfternoonFigureDomains), ...Object.entries(morningDomains).map(([profile, rows]) =>
+    [...Object.entries(additionalBookletFigureDomains), ...Object.entries(domains), ...Object.entries(spring2016FigureDomains), ...Object.entries(autumn2016FigureDomains), ...Object.entries(legacyAfternoonFigureDomains), ...Object.entries(morningDomains).map(([profile, rows]) =>
       [profile, rows[0].values.map((_, i) => [Math.min(...rows.map(r => r.values[i])), Math.max(...rows.map(r => r.values[i]))])] as [string, number[][]])].map(([profile, bounds]) => [
       profile,
       bounds.map((bound) => {
@@ -37,6 +43,8 @@ export const sourceFigureDomains = joinManagedLegacyDomains(
 export function validateSourceFigure(scene: Scene) {
   if (scene.kind !== "source_figure")
     throw new DataError("FIGURE_PROFILE", "図プロファイルの型が不正です");
+  const extension = additionalBookletFigure(scene.profile);
+  if (extension) { readBookletFigure(extension, scene.values); return; }
   if (isSpring2016Figure(scene.profile)) { readSpring2016Figure(scene); return; }
   if (isAutumn2016Figure(scene.profile)) { readAutumn2016Figure(scene); return; }
   if (isLegacyAfternoonFigure(scene.profile)) {
@@ -62,6 +70,8 @@ export function validateSourceFigure(scene: Scene) {
     throw new DataError("FIGURE_PROFILE", "登録図の入力域と一致しません");
 }
 export function sourceFigureAlt(profile: string, v: number[]) {
+  const extension = additionalBookletFigure(profile);
+  if (extension) return readBookletFigure(extension, v);
   if (isSpring2016Figure(profile)) return readSpring2016Figure({kind:'source_figure',profile,values:v});
   if (isAutumn2016Figure(profile)) return readAutumn2016Figure({kind:'source_figure',profile,values:v});
   if (isLegacyAfternoonFigure(profile)) return readLegacyAfternoonFigure(profile, v).alt;

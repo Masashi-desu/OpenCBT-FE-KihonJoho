@@ -1,4 +1,5 @@
 import { Legacy2017Pm3Figure } from "./Legacy2017Pm3Figure";
+import { bookletFigureComponent } from './booklet-figure-renderer-contract';
 import { LegacyAfternoonFigure } from "./LegacyAfternoonFigure";
 import { isLegacyAfternoonFigure } from "../core/legacy-afternoon-figures";
 import { managedLegacyFigure } from "../core/managed-legacy-figures";
@@ -61,6 +62,8 @@ export function SourceFigure({
   const id = useId().replace(/:/g, ""),
     v = scene.values,
     profile = scene.profile;
+  const BookletFigure = bookletFigureComponent(profile);
+  if (BookletFigure) return <BookletFigure values={v} caption={caption}/>;
   if (isLegacyAfternoonFigure(scene.profile)) return <LegacyAfternoonFigure profile={scene.profile} values={scene.values} caption={caption} />;
   if (isLegacyMorningFigure(profile)) return <LegacyMorningFigure profile={profile} values={v} caption={caption}/>;
   if (profile === 'legacy-2016-spring-am-common-gates') return <LegacyCommonGateTable collection="2016h28h-fe-am" caption={caption}/>;

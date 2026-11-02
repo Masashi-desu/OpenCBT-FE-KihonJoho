@@ -1,8 +1,10 @@
 import { autumn2019AfternoonPublicNotes } from "./legacy-2019-autumn-public-notes";
+import { additionalAfternoonPublicNotes } from './afternoon-booklet-extension-contract';
 import { spring2019AfternoonPublicNotes } from "./legacy-2019-spring-public-notes";
 /** Public modification descriptions are distinct from retained development
  * review notes. Neither these descriptions nor admission can waive a hold. */
 export const legacyAfternoonPublicNotes: Readonly<Record<string, string>> = Object.freeze({
+  ...additionalAfternoonPublicNotes,
   ...spring2019AfternoonPublicNotes,
   ...autumn2019AfternoonPublicNotes,
   "2018h30a-fe-pm-1": "原の事故状況・対策表・5解答欄と全解答群を保ち、同じ役割の誤った対策の内容を変更しています。下線や未記載・不明な情報を保持し、原の省略された値や事故の証跡を復元しません。",

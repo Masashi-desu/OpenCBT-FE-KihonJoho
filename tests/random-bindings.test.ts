@@ -1,4 +1,5 @@
-import test, { before, type TestContext } from "node:test";
+import test, { before } from "node:test";
+import { seedControl, seedsFor, isAfternoon, finiteSeedBudget } from "./helpers/generation-paths/issuance";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "./fixtures";
 import facts from "./fixtures/knowledge-pairs.json";
@@ -23,35 +24,6 @@ import {
   updateAnswer,
   validateRun,
 } from "../src/core/session";
-
-// Control only the parameter seed. IDs, question draws and choice shuffles use
-// their normal randomness, so the tests exercise the public issuance paths.
-function seedControl(ctx: TestContext) {
-  const random = crypto.getRandomValues.bind(crypto);
-  const control = { seed: "", draws: 0 };
-  ctx.mock.method(crypto, "getRandomValues", (array: Uint8Array) => {
-    if (array instanceof Uint8Array && array.length === 16) {
-      assert.match(control.seed, /^[a-f0-9]{32}$/);
-      array.set(Uint8Array.from(control.seed.match(/../g)!, (n) => parseInt(n, 16)));
-      control.draws++;
-      return array;
-    }
-    return random(array);
-  });
-  return control;
-}
-
-async function seedsFor(t: Template, candidates: number[][], maximum = 4096) {
-  const missing = new Set(candidates.map((v) => JSON.stringify(v))),
-    seeds = new Map<string, string>();
-  for (let index = 0; index < maximum && missing.size; index++) {
-    const seed = index.toString(16).padStart(32, "0"),
-      key = JSON.stringify((await parametersForSeed(seed, t)).values);
-    if (missing.delete(key)) seeds.set(key, seed);
-  }
-  assert.equal(missing.size, 0, `${t.id}: unreachable inputs ${[...missing].join(", ")}`);
-  return seeds;
-}
 
 test("all reviewed finite precision pools are reachable by the actual seeded sampler", async (ctx) => {
   const bundle = fixture(), pools = new Map<string, number[][]>([
@@ -97,70 +69,7 @@ test("all reviewed finite precision pools are reachable by the actual seeded sam
   }
 });
 
-function isAfternoon(original: Question) {
-  const slots = new Set(original.origin.sourceRefs.flatMap(ref => ref.locator.timeSlot ? [ref.locator.timeSlot] : []));
-  return original.subject === "B" && slots.size === 1 && slots.has("午後");
-}
-
-function legalAfternoonSelections(collection: Bundle["sets"][number]) {
-  // Independently enumerate the source cover's omitted pair and language;
-  // neither the production group counter nor shuffled question order is used.
-  const refs = collection.questionRefs, policy = collection.questionSelection;
-  assert.equal(refs.length, 13); assert(policy);
-  assert.deepEqual(policy.requiredQuestionRefs, [refs[0], refs[7]]);
-  assert.deepEqual(policy.optionalGroups.map(group => ({ refs: group.questionRefs, choose: group.choose })),
-    [{ refs: refs.slice(1, 7), choose: 4 }, { refs: refs.slice(8), choose: 1 }]);
-  const selections = [];
-  for (let first = 1; first <= 6; first++) for (let second = first + 1; second <= 6; second++)
-    for (let language = 8; language <= 12; language++)
-      selections.push([refs[0], ...refs.slice(1, 7).filter((_, i) => i + 1 !== first && i + 1 !== second), refs[7], refs[language]]);
-  assert.equal(selections.length, 75);
-  return selections;
-}
-
-function routesFor(bundle: Bundle, original: Question, template: Template) {
-  const base = bundle.questions.find((q) => refKey(refOf(q)) === refKey(template.baseQuestionRef))!,
-    individual: Selection = {
-      subject: original.subject, kind: "bookmark", mode: "study",
-      bookmarkQuestionRef: refOf(original), bindingMode: "generated_values",
-    },
-    group = bookmarkGroupSelection([makeBookmark(bundle, refOf(original))]),
-    endless: Selection = {
-      subject: original.subject, kind: "mix", mode: "endless",
-      bindingMode: "generated_values",
-    },
-    mix: Selection = {
-      subject: original.subject, kind: "mix", mode: "study", year: 2026,
-      size: "public", bindingMode: "generated_values",
-    };
-  // Old afternoon is excluded from the current B pool. Its individual,
-  // explicit bookmark group and explicit endless pool are real one-major
-  // issuance routes. Booklet study/practice retain paper order and all selected
-  // majors, and are tested below without shrinking a legal seven-major run.
-  const routes = isAfternoon(original)
-    ? [individual, group, { ...endless, questionRefs: [refOf(base)] }]
-    : [individual, group, endless, mix, { ...mix, mode: "practice" as const }];
-  assert.equal(routes.length, isAfternoon(original) ? 3 : 5);
-  return routes.map((selection) => {
-    const prepared = selectQuestions(bundle, selection, <T>(items: T[]) => [
-      ...items.filter((q) => (q as Question).id === base.id),
-      ...items.filter((q) => (q as Question).id !== base.id),
-    ]);
-    assert.equal(prepared.questions[0].id, base.id);
-    if (isAfternoon(original)) {
-      assert.equal(prepared.questions.length, 1);
-      assert.deepEqual(prepared.set.questionRefs, [template.baseQuestionRef]);
-    } else {
-      // Preserve the existing189 routes and actual candidate pools, isolating
-      // their issued slot from unrelated parameter draws as before.
-      prepared.questions = [base];
-      if (prepared.exam.questionCount !== undefined) prepared.exam.questionCount = 1;
-    }
-    return { selection, prepared };
-  });
-}
-
-test("all registered series remain in every applicable publication pool and draw only within nonzero area quotas", async (ctx) => {
+test("every registered series remains reachable in the complete endless publication pool", async (ctx) => {
   const bundle = fixture(), rows = generationCoverage(bundle).rows;
   for (const subject of ["A", "B"] as const) {
     const subjectRows = rows.filter(row => row.original.subject === subject);
@@ -170,64 +79,6 @@ test("all registered series remain in every applicable publication pool and draw
     });
     const expected = currentRows
       .map((row) => refKey(row.linked[0].baseQuestionRef)).sort();
-    const visited = new Set<string>();
-    for (const collection of sourceCollections(bundle, subject)) {
-      const owned = new Set(collection.questionRefs.map(refKey));
-      const collectionRows = subjectRows.filter(row => owned.has(refKey(refOf(row.original))));
-      const legacy = collectionRows.some(row => row.original.origin.sourceRefs.some(r => r.locator.timeSlot));
-      if (collectionRows.some(row => isAfternoon(row.original))) {
-        assert(collectionRows.every(row => isAfternoon(row.original)));
-        const cases = [{ mode: "study" as const, refs: collection.questionRefs },
-          ...legalAfternoonSelections(collection).map(refs => ({ mode: "practice" as const, refs }))];
-        for (const item of cases) {
-          const ownedSelection = new Set(item.refs.map(refKey));
-          const selectedRows = collection.questionRefs.filter(ref => ownedSelection.has(refKey(ref)))
-            .map(ref => collectionRows.find(row => refKey(refOf(row.original)) === refKey(ref))!);
-          const expectedBases = selectedRows.map(row => row.linked[0].baseQuestionRef);
-          const config: Selection = { subject, kind: "mix", mode: item.mode, mixProfileCollectionId: collection.id,
-            size: "public", bindingMode: "generated_values",
-            ...(item.mode === "practice" ? { selectedQuestionRefs: [...item.refs].reverse() } : {}) };
-          const prepared = selectQuestions(bundle, config, items => [...items].reverse());
-          assert.deepEqual(prepared.questions.map(refOf), expectedBases);
-          assert.deepEqual(prepared.set.questionRefs, expectedBases);
-          assert.equal(prepared.exam.questionOrder, "set");
-          assert.equal(prepared.exam.questionCount, item.mode === "practice" ? 7 : 13);
-          assert.equal(prepared.exam.timeLimitSeconds, item.mode === "practice" ? 9000 : undefined);
-          const quota: Record<string, number> = {};
-          selectedRows.forEach(row => { quota[row.original.learning.area] = (quota[row.original.learning.area] ?? 0) + 1; });
-          assert.deepEqual(prepared.quota, quota);
-          // Annual and generated routes must retain exactly the same chosen
-          // major families in paper order, never replace a language by area.
-          const annual = selectQuestions(bundle, { ...config, kind: "annual", sourceCollectionId: collection.id,
-            mixProfileCollectionId: undefined, bindingMode: "original_data" });
-          assert.deepEqual(annual.questions.map(refOf), selectedRows.map(row => refOf(row.original)));
-          assert.equal(annual.exam.questionCount, prepared.exam.questionCount);
-          assert.equal(annual.exam.timeLimitSeconds, prepared.exam.timeLimitSeconds);
-          expectedBases.forEach(ref => visited.add(refKey(ref)));
-        }
-        ctx.diagnostic(`${collection.id}: all13 study and all75 legal seven-major paper-order mixes retained.`);
-        continue;
-      }
-      const poolRows = legacy ? collectionRows : currentRows;
-      const pool = poolRows.map(row => refKey(row.linked[0].baseQuestionRef)).sort();
-      for (const mode of ["study", "practice"] as const)
-        for (const size of legacy ? ["public"] as const : ["public", "full"] as const)
-          for (const row of poolRows) {
-            const target = refKey(row.linked[0].baseQuestionRef);
-            const prepared = selectQuestions(bundle, {
-              subject, kind: "mix", mode, mixProfileCollectionId: collection.id, size, bindingMode: "generated_values",
-            }, <T>(items: T[]) => [
-              ...items.filter((q) => refKey(refOf(q as Question)) === target),
-              ...items.filter((q) => refKey(refOf(q as Question)) !== target),
-            ]);
-            assert.deepEqual(prepared.set.questionRefs.map(refKey).sort(), pool);
-            if ((prepared.quota[row.original.learning.area] ?? 0) > 0)
-              assert.equal(refKey(refOf(prepared.questions[0])), target);
-            else assert(!prepared.questions.some(q => refKey(refOf(q)) === target), "zero-quota areas must not be issued");
-            visited.add(target);
-          }
-    }
-    assert.deepEqual([...visited].sort(), subjectRows.map(row => refKey(row.linked[0].baseQuestionRef)).sort());
     const selection: Selection = { subject, kind: "mix", mode: "endless", bindingMode: "generated_values" },
       run = startRun(await prepareRun(bundle, selection, {}, 100000), 101000),
       refs = structuredClone(run.set.questionRefs),
@@ -333,48 +184,6 @@ test("GPU and every reference/rotated binding can be issued on all four random p
   assert.deepEqual(bundle, original);
 });
 
-// Only these source-reviewed 1081/1125-input domains are admitted above the
-// existing exhaustive256 bound. Identity, version, both declared domains and
-// references are pinned; future enlargement still fails for review.
-function finiteSeedBudget(template: Template, contract: NonNullable<ReturnType<typeof contractFor>>, afternoon: boolean) {
-  const fields = contract.fields,
-    capacity = fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1);
-  if (template.id === "template-source-2018h30a-fe-pm-13") {
-    assert(afternoon);
-    assert.equal(contract.source, "2018h30a-fe-pm-13");
-    assert.equal(contract.version, "3.2.0");
-    assert.deepEqual(template.generatorRef, { id: "generator-source-2018h30a-fe-pm-13", version: "3.2.0" });
-    const reviewedFields = [{ name: "待ち時間を分析する利用状況の例", minimum: 0, maximum: 1080 }];
-    assert.deepEqual(fields, reviewedFields);
-    assert.deepEqual(template.parameterDomain, { values: { length: 1, minimum: 0, maximum: 1080 }, fields: reviewedFields });
-    assert.deepEqual(contract.reference, [0]);
-    assert.deepEqual(template.referenceParameters.values, [0]);
-    assert.equal(capacity, 1081);
-    return 32768;
-  }
-  if (template.id === "template-source-2019r01a-fe-pm-2") {
-    assert(afternoon);
-    assert.equal(contract.source, "2019r01a-fe-pm-2");
-    assert.equal(contract.version, "3.2.0");
-    assert.deepEqual(template.generatorRef, { id: "generator-source-2019r01a-fe-pm-2", version: "3.2.0" });
-    const reviewedFields = [
-      { name: "threadCount", minimum: 2, maximum: 4 },
-      { name: "parallelFractionCase", minimum: 0, maximum: 4 },
-      { name: "limitCase", minimum: 0, maximum: 4 },
-      { name: "halfRangeCase", minimum: 0, maximum: 2 },
-      { name: "indirectAddressCase", minimum: 0, maximum: 4 },
-    ];
-    assert.deepEqual(fields, reviewedFields);
-    assert.deepEqual(template.parameterDomain, { values: { length: 5, minimum: 0, maximum: 4 }, fields: reviewedFields });
-    assert.deepEqual(contract.reference, [2, 4, 2, 1, 0]);
-    assert.deepEqual(template.referenceParameters.values, [2, 4, 2, 1, 0]);
-    assert.equal(capacity, 1125);
-    return 32768;
-  }
-  if (afternoon) assert(capacity <= 256, `${template.id}: all finite afternoon inputs require exhaustive coverage`);
-  return capacity <= 256 ? 4096 : undefined;
-}
-
 test("only the exact reviewed2018 autumnQ13 domain expands exhaustive finite sampler coverage", () => {
   const bundle = fixture(), row = generationCoverage(bundle).rows.find(row => row.linked[0].id === "template-source-2018h30a-fe-pm-13")!,
     template = row.linked[0], contract = contractFor(template)!;
@@ -447,134 +256,6 @@ test("only the exact reviewed2019 autumnQ2 five-field domain extends exhaustive 
   assert.equal(candidates.length, 1125);
   candidates.forEach(values => checkParameters(template, values));
   assert.equal((await seedsFor(template, candidates, finiteSeedBudget(template, contract, true))).size, 1125);
-});
-
-test("every small-domain binding survives every applicable issuance path and endless history, including all old afternoon inputs", async (ctx) => {
-  const bundle = fixture(), control = seedControl(ctx);
-  let templates = 0, inputs = 0, initialDraws = 0, appendedDraws = 0;
-  let afternoonInputs = 0, afternoonInitialDraws = 0, afternoonAppendedDraws = 0;
-  const afternoonTemplates: string[] = [];
-  for (const row of generationCoverage(bundle).rows) {
-    const template = row.linked[0], contract = contractFor(template)!, fields = contract.fields,
-      afternoon = isAfternoon(row.original), maximumSeeds = finiteSeedBudget(template, contract, afternoon);
-    if (maximumSeeds === undefined) continue;
-    const candidates = fields.reduce<number[][]>((rows, f) => rows.flatMap((v) =>
-      Array.from({ length: f.maximum - f.minimum + 1 }, (_, i) => [...v, f.minimum + i]),
-    ), [[]]).filter((v) => {
-      try {
-        checkParameters(template, v);
-        return true;
-      } catch (e) {
-        if ((e as { code?: string }).code !== "PARAMETER_CONSTRAINT") throw e;
-        return false;
-      }
-    });
-    assert(candidates.length > 1, template.id);
-    if (template.id === "template-source-2018h30a-fe-pm-13") assert.equal(candidates.length, 1081);
-    if (template.id === "template-source-2019r01a-fe-pm-2") assert.equal(candidates.length, 1125);
-    const seeds = await seedsFor(template, candidates, maximumSeeds),
-      routes = routesFor(bundle, row.original, template),
-      precedents: Run[] = [],
-      history: Instance[] = [];
-    for (const values of candidates) {
-      for (const { selection, prepared } of routes) {
-        control.seed = seeds.get(JSON.stringify(values))!;
-        control.draws = 0;
-        const run = await prepareRun(bundle, selection, {}, 100000, undefined, prepared);
-        assert.equal(control.draws, 1, `${template.id}/${selection.kind}/${selection.mode}: ${values}`);
-        assert.deepEqual(run.instances[0].parameters.values, values, template.id);
-        await validateRun(run);
-        initialDraws++;
-        if (afternoon) afternoonInitialDraws++;
-        if (selection.kind === "mix" && selection.mode === "endless") {
-          history.push(run.instances[0]);
-          if (!precedents.length || (precedents.length === 1 &&
-            (!answerCanVary(template) || answerSignature(run.issued[0]) !== answerSignature(precedents[0].issued[0]))))
-            precedents.push(startRun(run, 101000));
-        }
-      }
-    }
-    assert.equal(precedents.length, 2, `${template.id}: needs two eligible predecessors`);
-    const base = bundle.questions.find((q) => refKey(refOf(q)) === refKey(template.baseQuestionRef))!;
-    for (const values of candidates) {
-      const question = bindQuestion(base, template, values, "history-check", "2026-10-09T00:00:00.000Z"),
-        preceding = precedents.find((run) =>
-          JSON.stringify(run.instances[0].parameters.values) !== JSON.stringify(values) &&
-          (!answerCanVary(template) || answerSignature(run.issued[0]) !== answerSignature(question)),
-        )!;
-      assert(preceding, `${template.id}: ${values}`);
-      control.seed = seeds.get(JSON.stringify(values))!;
-      control.draws = 0;
-      // History contains every binding, including the desired one. Open-ended
-      // draws must only exclude this run's actual preceding condition/answer.
-      const appended = await appendRunQuestion(preceding, template.baseQuestionRef, 102000, history);
-      assert.equal(control.draws, 1, `${template.id}: ${values}`);
-      assert.deepEqual(appended.instances[1].parameters.values, values);
-      assert.deepEqual(appended.issued[0], preceding.issued[0]);
-      appendedDraws++;
-      if (afternoon) afternoonAppendedDraws++;
-    }
-    templates++;
-    inputs += candidates.length;
-    if (afternoon) { afternoonTemplates.push(template.id); afternoonInputs += candidates.length; }
-  }
-  assert.deepEqual(afternoonTemplates.sort(), generationCoverage(bundle).rows.filter(row => isAfternoon(row.original)).map(row => row.linked[0].id).sort());
-  assert.equal(afternoonInitialDraws, afternoonInputs * 3); assert.equal(afternoonAppendedDraws, afternoonInputs);
-  assert.equal(initialDraws - afternoonInitialDraws, (inputs - afternoonInputs) * 5);
-  ctx.diagnostic(`${templates} domains, ${inputs} valid inputs, ${initialDraws} initial draws, ${appendedDraws} draws with complete prior history; current-format domains retain all five paths.`);
-  ctx.diagnostic(`Old afternoon: ${afternoonTemplates.length} domains, all ${afternoonInputs} finite inputs, ${afternoonInitialDraws} initial draws on three applicable explicit routes, ${afternoonAppendedDraws} history draws; all75 booklet selections separately retained.`);
-});
-
-test("all larger domains retain 64 seeded bindings on every issuance path and after endless history", async (ctx) => {
-  const bundle = fixture(), control = seedControl(ctx);
-  let templates = 0, inputs = 0, initialDraws = 0, appendedDraws = 0;
-  for (const row of generationCoverage(bundle).rows) {
-    const template = row.linked[0], fields = contractFor(template)!.fields;
-    if (fields.reduce((n, f) => n * (f.maximum - f.minimum + 1), 1) <= 256) continue;
-    const routes = routesFor(bundle, row.original, template),
-      candidates: { seed: string; values: number[]; answer: string }[] = [],
-      precedents: Run[] = [], history: Instance[] = [];
-    for (let index = 0; index < 64; index++) {
-      const seed = index.toString(16).padStart(32, "0"),
-        { values } = await parametersForSeed(seed, template);
-      let answer = "";
-      for (const { selection, prepared } of routes) {
-        control.seed = seed;
-        control.draws = 0;
-        const run = await prepareRun(bundle, selection, {}, 100000, undefined, prepared);
-        assert.equal(control.draws, 1, `${template.id}/${selection.kind}/${selection.mode}: ${values}`);
-        assert.deepEqual(run.instances[0].parameters.values, values);
-        await validateRun(run);
-        answer = answerSignature(run.issued[0]);
-        initialDraws++;
-        if (selection.kind === "mix" && selection.mode === "endless") {
-          history.push(run.instances[0]);
-          if (!precedents.length || (precedents.length === 1 &&
-            (!answerCanVary(template) || answer !== answerSignature(precedents[0].issued[0]))))
-            precedents.push(startRun(run, 101000));
-        }
-      }
-      candidates.push({ seed, values, answer });
-    }
-    assert.equal(precedents.length, 2, template.id);
-    for (const { seed, values, answer } of candidates) {
-      const preceding = precedents.find((run) =>
-        JSON.stringify(run.instances[0].parameters.values) !== JSON.stringify(values) &&
-        (!answerCanVary(template) || answerSignature(run.issued[0]) !== answer),
-      )!;
-      assert(preceding, `${template.id}: ${values}`);
-      control.seed = seed;
-      control.draws = 0;
-      const appended = await appendRunQuestion(preceding, template.baseQuestionRef, 102000, history);
-      assert.equal(control.draws, 1, `${template.id}: ${values}`);
-      assert.deepEqual(appended.instances[1].parameters.values, values);
-      assert.deepEqual(appended.issued[0], preceding.issued[0]);
-      appendedDraws++;
-    }
-    templates++;
-    inputs += candidates.length;
-  }
-  ctx.diagnostic(`${templates} larger domains, ${inputs} seeded inputs, ${initialDraws} initial draws across five paths, ${appendedDraws} draws with prior history.`);
 });
 
 test("next-question draws revisit GPU and all bindings while retaining prior answers and rejecting adjacent repeats", async (ctx) => {
