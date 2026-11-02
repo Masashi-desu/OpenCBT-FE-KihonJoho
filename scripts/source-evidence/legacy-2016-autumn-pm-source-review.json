@@ -1,0 +1,1929 @@
+{
+  "schema": "per-question-official-source-material-review/v1",
+  "collectionId": "2016h28a-fe-pm",
+  "scope": "S3-003 only; no S3-004 or later task",
+  "reviewedOn": "2026-11-02",
+  "officialTargets": 13,
+  "officialAnswerFields": 76,
+  "status": "prepared_material_independent_and_normal_app_accepted_release_CI_pending",
+  "freshQuestionPaper": {
+    "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/primary/questions.pdf",
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_pm_qs.pdf",
+    "sha256": "ab1a696e3580ab6f0c30389e10ee133a312d6a432db7f5ac34375e0a03054bf1",
+    "byteLength": 13201639,
+    "fetched": "2026-11-02T06:04:16.263503+00:00",
+    "pageCount": 85
+  },
+  "freshAnswerPaper": {
+    "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/primary/answers.pdf",
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_pm_ans.pdf",
+    "sha256": "90511ce7b5c4ebff1817b0b1ebf7a8e73c0ba097a3e46728577943cb7502c51f",
+    "byteLength": 199944,
+    "fetched": "2026-11-02T06:04:16.325790+00:00",
+    "pageCount": 4
+  },
+  "officialCommentary": {
+    "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/primary/commentary.pdf",
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_pm_cmnt.pdf",
+    "sha256": "ffdc166e1dd896c3f4bf8b894baefc4bde2de9f948774f942ae35bca5029e1d6",
+    "byteLength": 245628,
+    "fetched": "2026-11-02T06:08:16.509494+00:00",
+    "pageCount": 5
+  },
+  "officialSelection": {
+    "questionNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "requiredNumbers": [
+      1,
+      8
+    ],
+    "optionalGroups": [
+      {
+        "numbers": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "choose": 4
+      },
+      {
+        "numbers": [
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "choose": 1
+      }
+    ],
+    "selectedMajorCount": 7,
+    "durationSeconds": 9000,
+    "examTime": "13:00–15:30",
+    "coverPhysicalPage": 1,
+    "coverPrintedPage": 1,
+    "originalQuestionOrderRetained": true,
+    "officialSelectionWarning": "選択欄を指定しない問題は採点されず、選択超過時は問番号順の所定数を採点する原注意。Appは有効な選択数を明示制御し、未選択の問題を採点分母へ含めない。"
+  },
+  "officialErrata": {
+    "physicalPage": 2,
+    "unmodifiedImage": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/002.png",
+      "sha256": "7e5c3bee18270e2e812eef8c4f8b6166b0f92d43e5de7adfab669aee8a41be8c",
+      "byteLength": 244783
+    },
+    "rows": [
+      {
+        "questionNumber": 1,
+        "printedPage": 7,
+        "locator": "下から2行目",
+        "from": "3要素との関連（一部）を表3にまとめた。",
+        "to": "3要素との関連を表3にまとめた。",
+        "action": "下線部分（一部）を削除する。"
+      },
+      {
+        "questionNumber": 1,
+        "printedPage": 8,
+        "locator": "上から1行目・表3見出し",
+        "from": "表3 情報セキュリティの3要素との関連（一部）",
+        "to": "表3 情報セキュリティの3要素との関連",
+        "action": "下線部分（一部）を削除する。"
+      },
+      {
+        "questionNumber": 9,
+        "printedPage": 40,
+        "locator": "下から1行目",
+        "from": "③ 目標作業期間は，今回の開発作業を開始する日から，…",
+        "to": "③ 目標作業期間は，半年ごとの一連の開発作業を開始する日から，…",
+        "action": "下線部分を訂正する。"
+      },
+      {
+        "questionNumber": 9,
+        "printedPage": 41,
+        "locator": "(6)の上から2行目",
+        "from": "遅延日数の合計wtは，次式で求められる。",
+        "to": "遅延日数wtは，次式で求められる。",
+        "action": "下線部分の合計を削除する。"
+      }
+    ],
+    "attributionRule": "原PDFを改変せず原資料として保持し、公式訂正文・公式訂正画像と独自の適用案内を別々に帰属表示する。"
+  },
+  "rights": {
+    "freshFAQ": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/primary/faq.html",
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "19173a30c8e0f11452316da57374993cc5b967a49cec6cc6f4e043fa4bd6a495",
+      "byteLength": 107136,
+      "fetched": "2026-11-02T06:04:16.419054+00:00"
+    },
+    "freshListing": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/primary/listing.html",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2016h28.html",
+      "sha256": "135c5d6c6f93ccdd712ac22ac353fd390f704229edcabca6d7e768863f1579e2",
+      "byteLength": 126742,
+      "fetched": "2026-11-02T06:04:16.373280+00:00"
+    },
+    "summary": "IPAの教育目的等の公表過去問題利用条件、年度/期/試験区分/午後/問番号の出典と改変明示を適用する。個別許諾取得・第三者著作物の包括許諾とは扱わない。IPA部分へMIT/CC0を適用しない。",
+    "publicGit": "掲載対象の素材・出典を個別査読した範囲だけ同梱する。未確認素材はignored資料内に留める。",
+    "browser": "問題と必要付属資料の出典・改変詳細へ到達可能にする。",
+    "adaptation": "原の問い方・全条件・選択肢役割を保持し、改変と独自解説を明示する。",
+    "attributionPattern": "出典：平成28年度 秋期 基本情報技術者試験 午後 問{number}（独立行政法人情報処理推進機構）",
+    "excludedAppendix": "物理73頁の1.3文字の符号表およびJIS X0201原表。現S3-003の問題12のリスト操作は文字コードを利用しない。必要資料の限定照合は独立に検証する。"
+  },
+  "heldNumbers": [],
+  "unpreparedNumbers": [],
+  "progress": {
+    "officialPaperPairsConfirmed": 1,
+    "contactSheetPagesViewed": 85,
+    "ocrCandidatePages": 89,
+    "officialAnswerTableVisuallyReviewedFields": 76,
+    "sourceTranscriptionAccepted": 13,
+    "independentContentValidationAccepted": 13,
+    "preparedAccepted": 13,
+    "normalAppRegistered": 13,
+    "published": 0,
+    "normalAppVerified": 13
+  },
+  "rows": [
+    {
+      "number": 1,
+      "source": "2016h28a-fe-pm-1",
+      "topic": "販売支援Webシステムの情報セキュリティ",
+      "physicalPages": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "printedPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": null,
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": null,
+          "key": "ウ"
+        },
+        {
+          "section": 3,
+          "label": "a",
+          "key": "オ"
+        },
+        {
+          "section": 3,
+          "label": "b",
+          "key": "エ"
+        },
+        {
+          "section": 3,
+          "label": "c",
+          "key": "ウ"
+        }
+      ],
+      "officialFieldCount": 5,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "物理2頁の正誤表を適用。原PDF頁の表示に訂正箇所を隠さず、公式訂正文と独自の適用案内を別帰属にする。",
+        "設問1・2のラベル無し回答と設問3のa/b/cを別5欄として保持。"
+      ],
+      "independentValidationPlan": "ネットワーク到達性グラフ・順序付きFW規則評価とCIA対策の査読済み真偽表。監視用1600/DB用1552/HTTP80/HTTPS443を別役割として検査する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/006.png",
+          "sha256": "4d60e3301f84dd032748d58a6530530e37a011b9650a3075e85062437f815e9a",
+          "byteLength": 191914
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/007.png",
+          "sha256": "b90f7815eddd2527039e53010b2097e00b458baff8bd6942556fe1192125a46d",
+          "byteLength": 185174
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/008.png",
+          "sha256": "1c3a9468a659b5a88df607876b804f68345355ea7e4ff8d49d2242cda361621b",
+          "byteLength": 194162
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/009.png",
+          "sha256": "c9e2bad2de57d4cda14ac583404a6d5a65dbb761d6239a94a23e3b71a8e3b168",
+          "byteLength": 87716
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/006.json",
+          "sha256": "baed9333df1dc15f9679569ecd4b7f5498272c4fdd29f3477e4f3ab1bd907efd",
+          "byteLength": 6732
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/007.json",
+          "sha256": "aa99dff523c669deae33e5829709e45b7d87e336f0a945131b77c8ad3673b267",
+          "byteLength": 11758
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/008.json",
+          "sha256": "090ce00a4b8ec02099786aae1a99d47324337d7703a9eb03b07f77eb6723db34",
+          "byteLength": 8774
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/009.json",
+          "sha256": "46cd0a54158d56459633e450c062fdcca44f5f9714fa05a1d275366ac0ff901a",
+          "byteLength": 5063
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/independent-01-04/PEER-REVIEW-FINAL.json",
+        "sha256": "b75e11b1440df94bfb55e12a706ca3df6814f7844c2ab145f45556ae88f24ffa",
+        "byteLength": 8750
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 2,
+      "source": "2016h28a-fe-pm-2",
+      "topic": "コンパイラの字句解析と構文解析",
+      "physicalPages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "printedPages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "ア"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "c",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "d",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "ウ"
+        }
+      ],
+      "officialFieldCount": 5,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [],
+      "independentValidationPlan": "字句規則の独立DFAと再帰下降構文解析器から構文木を得て、全図・演算優先順位と全選択肢を照合する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/010.png",
+          "sha256": "494ecafe6b8c00a629996f336dd2ff6c44439ccdc56f0c328efe5f3cbb38c331",
+          "byteLength": 205391
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/011.png",
+          "sha256": "848e3bf6c598ac5b14616eb81b60830c46cfce6c45519c72716e671e55335c2d",
+          "byteLength": 207116
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/012.png",
+          "sha256": "78fbc004d2aa4af15fcc917487936b7eb99cb927fe650620e9d8ffc0a603b0c7",
+          "byteLength": 131859
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/013.png",
+          "sha256": "cbef85abe7c3990c9e5294f6734bc92b4d503e62c715e50384849f96c6a215af",
+          "byteLength": 82762
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/010.json",
+          "sha256": "57c7c6b1eb92f1ac39cdbf376c9e8d34fb91cf60ead49fbf271185825fad5efa",
+          "byteLength": 8207
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/011.json",
+          "sha256": "7d6dd74a4e70bbb04cc74a6aa10d8a36aebcbb97404a7391e15404b9e72c71cd",
+          "byteLength": 7910
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/012.json",
+          "sha256": "7fab83206444ea2e3b15eb10baeaa11be27fe76be8653512084890fa1cd0356f",
+          "byteLength": 5338
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/013.json",
+          "sha256": "803d35bd945ccda76d32d16f09192719bc34c213d4940e9f87bcc7af51810a48",
+          "byteLength": 4012
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/independent-01-04/PEER-REVIEW-FINAL.json",
+        "sha256": "b75e11b1440df94bfb55e12a706ca3df6814f7844c2ab145f45556ae88f24ffa",
+        "byteLength": 8750
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 3,
+      "source": "2016h28a-fe-pm-3",
+      "topic": "通勤手当の関係データベースとSQL集計",
+      "physicalPages": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "printedPages": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "エ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "エ"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "ウ"
+        },
+        {
+          "section": 1,
+          "label": "d",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "イ"
+        },
+        {
+          "section": 3,
+          "label": "f",
+          "key": "エ"
+        },
+        {
+          "section": 4,
+          "label": "g",
+          "key": "エ"
+        }
+      ],
+      "officialFieldCount": 7,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "同じ従業員番号は一つだけ表示する指示を保持。",
+        "原表のアンダーライン主キーとSQLの空欄を保持。"
+      ],
+      "independentValidationPlan": "独立SQLite実行と手計算の従業員・通勤費集合演算。複数交通/バス先頭B/NULL/重複従業員/受講日20160420/グループ化の反例を含める。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/014.png",
+          "sha256": "678a390d8ab77ebb043863364b22da21d2578a983eaf9cd803228d1c7e69fec9",
+          "byteLength": 188081
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/015.png",
+          "sha256": "42e7139d446258896a53a1d2611fe856481979b52570aa2d7e7aef0737c1a8ce",
+          "byteLength": 180384
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/016.png",
+          "sha256": "fc5e54b9c31704fe17b045c9cfc04b5b1a181f64f9d02266d8d1fafa7cc26b8d",
+          "byteLength": 248002
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/017.png",
+          "sha256": "cbc241685cfb321cc2e89aa21673cf2dd8dd7dc64351682dfcfc3932d04408e7",
+          "byteLength": 126073
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/014.json",
+          "sha256": "033a21f95fc079678924653d29385c4888d72686f427f8179e7bd842ada4200b",
+          "byteLength": 13170
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/015.json",
+          "sha256": "8d46325ad1380125ec7dffea678c7b8eca927bd932a774e410145516e3acd35c",
+          "byteLength": 8811
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/016.json",
+          "sha256": "c9de0fa8a43c2f863c65be074f4f5ad2f0165cb0fc87f2adc18b3b9311a2e331",
+          "byteLength": 9193
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/017.json",
+          "sha256": "bb133176ec803a8bb7a9c33e8f97b90e6274b05e3c61f8c6856db56850a04773",
+          "byteLength": 5958
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/independent-01-04/PEER-REVIEW-FINAL.json",
+        "sha256": "b75e11b1440df94bfb55e12a706ca3df6814f7844c2ab145f45556ae88f24ffa",
+        "byteLength": 8750
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 4,
+      "source": "2016h28a-fe-pm-4",
+      "topic": "Web画面の複数データ転送時間",
+      "physicalPages": [
+        18,
+        19,
+        20
+      ],
+      "printedPages": [
+        17,
+        18,
+        19
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": null,
+          "label": "a",
+          "key": "エ"
+        },
+        {
+          "section": null,
+          "label": "b",
+          "key": "ク"
+        },
+        {
+          "section": null,
+          "label": "c",
+          "key": "カ"
+        },
+        {
+          "section": null,
+          "label": "d",
+          "key": "キ"
+        }
+      ],
+      "officialFieldCount": 4,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "t=0.005秒,e=1×10^6バイト/秒,固定100個平均5000バイト,HTML10000+500nバイト,画像25000バイトを原値として保持。",
+        "キャッシュ有無・固定/変更データの区別と(3×t+...)*nの括弧を保持。"
+      ],
+      "independentValidationPlan": "BigInt分数計算で固定データ全100個・再転送キャッシュ判定・HTML・商品画像ごとの往復と転送時間を別々に算出し、最大nは境界両側を検査する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/018.png",
+          "sha256": "9414495a566acd428db54c16eb522185790eb1894117f5c7bece4fd676d3ab5a",
+          "byteLength": 248671
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/019.png",
+          "sha256": "6742bb06601cc7304186cd2cdec75c6330dd3fae7d24a5f127e3ffeaaa1c071f",
+          "byteLength": 188229
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/020.png",
+          "sha256": "93a9ea970c63c7227879b947e7af361d58d9a472007b211dd68304b8a64a1a67",
+          "byteLength": 52907
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/018.json",
+          "sha256": "4135858494051a23a4e09748c886616b6c971cb03f0d67f5af248e2af2d00dae",
+          "byteLength": 10343
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/019.json",
+          "sha256": "ccd76372d1cc0a9d137a0e2411f57978900eca5b74531bfd9294169cb3cdc2e3",
+          "byteLength": 7969
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/020.json",
+          "sha256": "ef3e3a0a262caa0c5b213f177d776f70e20d10ab808bcfb708b04ea9aae3d75a",
+          "byteLength": 6618
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/independent-01-04/PEER-REVIEW-FINAL.json",
+        "sha256": "b75e11b1440df94bfb55e12a706ca3df6814f7844c2ab145f45556ae88f24ffa",
+        "byteLength": 8750
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 5,
+      "source": "2016h28a-fe-pm-5",
+      "topic": "レンタル業務システムのUML設計",
+      "physicalPages": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "printedPages": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "ウ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "c",
+          "key": "エ"
+        },
+        {
+          "section": 2,
+          "label": "d",
+          "key": "ア"
+        },
+        {
+          "section": 3,
+          "label": "e",
+          "key": "イ"
+        }
+      ],
+      "officialFieldCount": 5,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [],
+      "independentValidationPlan": "レンタル業務制約を独立関係モデルで評価し、多重度・インスタンス間メッセージ・継承と多相性の全選択肢真偽を査読固定する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/021.png",
+          "sha256": "78909571856b2b0ed9be92fe03b01245628ccd7cb58eb5aa278d0f1fe3c66602",
+          "byteLength": 244067
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/022.png",
+          "sha256": "db68abb063bcbe2cfd0e5ab6648136fb5de9a1b26335fdefd743c8a0fed3a017",
+          "byteLength": 224582
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/023.png",
+          "sha256": "0aa9d30d3cc7b35eb281dba43a4e163caecafda5853b09e975f1d4895f691082",
+          "byteLength": 252070
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/024.png",
+          "sha256": "bf7cf9fffea9c414012741616825bf6fc60b711d405d46e9a971384206605880",
+          "byteLength": 268991
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/025.png",
+          "sha256": "8a3de130aa5fe12ee68baed7b7ecbd3fcb3fba07ace72a38b3553342a9eac478",
+          "byteLength": 116697
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/026.png",
+          "sha256": "a34f3d7f8fe7edb06559dd478c731acf1c4981d67bb631c40ec4e3e07e361e40",
+          "byteLength": 173034
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/021.json",
+          "sha256": "1831453d3552372e9142fd75301e3f385782e564655d0b1105c9fcb00ede2c80",
+          "byteLength": 9568
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/022.json",
+          "sha256": "8d2606927f6b2dc72f1149c8df5f03ec798b6bf5bf3203874c429855b21ab5a8",
+          "byteLength": 7292
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/023.json",
+          "sha256": "d877a3cdedaf806923ba4389bf3304974ef3a7a9db381858dba03afa9d703000",
+          "byteLength": 14121
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/024.json",
+          "sha256": "b2961e287362fb9fd1958673eff98b562febbddc96d9992be53e33a75775cab6",
+          "byteLength": 18937
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/025.json",
+          "sha256": "bfe1fa3ad176828f650050148c50765cb5020aaf75677713661be14c0dc7af59",
+          "byteLength": 10416
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/026.json",
+          "sha256": "265a18b1dac8c7208e2234a093cedb9d3e41ce6a27fa2583d8ff131dc00ea90f",
+          "byteLength": 9106
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-05-08/PEER-REVIEW-FINAL.json",
+        "sha256": "fd88b470dcbec3fbfa201c506916f7117b287f2cd3cee90a78a7db6f5b6af159",
+        "byteLength": 9458
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 6,
+      "source": "2016h28a-fe-pm-6",
+      "topic": "単体テスト結果の品質管理",
+      "physicalPages": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "printedPages": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "b",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "c",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "d",
+          "key": "ア"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "f",
+          "key": "イ"
+        }
+      ],
+      "officialFieldCount": 6,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "aはa1/a2/a3を組み合わせた単一の選択肢の1欄。3欄へ増やさない。"
+      ],
+      "independentValidationPlan": "テスト密度/バグ摘出率を独立分数モデルで計算し、基準80–120%と品質領域判定を別々に評価する。ケース追加等の対策は原前提の対応資料を査読固定する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/027.png",
+          "sha256": "dcc189922e4487caa31b76e0547bec6f75c9378366fd79638a626b36cbab37cd",
+          "byteLength": 220630
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/028.png",
+          "sha256": "33f3d3cb99bd72c67f0d6fa02b99426589250207ae4905969c569a90b693efa1",
+          "byteLength": 245245
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/029.png",
+          "sha256": "f1540ceb9e926c34052ac087ffd746e01fd62de099b0032494a0f3a41fdb10e7",
+          "byteLength": 255462
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/030.png",
+          "sha256": "410c6a85b4386c8b28e7d26d32eaec10e83a19738fdf677b7fd7a1a806a1e01c",
+          "byteLength": 188568
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/027.json",
+          "sha256": "bf7b19a37710ec10ef70c3d8756f2e318b51c2a5802b0b191e827bb3e12eddb3",
+          "byteLength": 8441
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/028.json",
+          "sha256": "6f6a5de74113830bca69b605437ce5967513d69faec496d93d7166b7c70ee6cf",
+          "byteLength": 9723
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/029.json",
+          "sha256": "50c4dd9c4fb485d2604d27b604719d43b5f7c400d91f624536e66be38089236f",
+          "byteLength": 13876
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/030.json",
+          "sha256": "37a83e8e64d1fb0d774c93573af9497de6b8aad10d67177d9d4a5cb6498c3a97",
+          "byteLength": 8005
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-05-08/PEER-REVIEW-FINAL.json",
+        "sha256": "fd88b470dcbec3fbfa201c506916f7117b287f2cd3cee90a78a7db6f5b6af159",
+        "byteLength": 9458
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 7,
+      "source": "2016h28a-fe-pm-7",
+      "topic": "業務提携と出資・財務諸表と現在価値",
+      "physicalPages": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "printedPages": [
+        30,
+        31,
+        32,
+        33
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "エ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "ウ"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "d",
+          "key": "ケ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "f",
+          "key": "ア"
+        },
+        {
+          "section": 3,
+          "label": null,
+          "key": "エ"
+        }
+      ],
+      "officialFieldCount": 7,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [],
+      "independentValidationPlan": "財務三表の整合・FCF・年度成長と割引を独立分数計算し、会計利益とCF、現在価値と名目合計の差を検査する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/031.png",
+          "sha256": "84205be114f6e475f871cd1bec54b65afa215f08f4c3934577bfc19487b9033f",
+          "byteLength": 149490
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/032.png",
+          "sha256": "53a9b0087d636d118c00494e6cd8a763227581aae2e297a80e01ebfc42c4239f",
+          "byteLength": 198433
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/033.png",
+          "sha256": "16dadc31ce6d36e7742b6b4022fe1a75d5110982055321d263ccdcb609db4513",
+          "byteLength": 210239
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/034.png",
+          "sha256": "368395aa9197d8d0d323e3bb37892b9cb06bbd67333788ac28bcde49ac151a0f",
+          "byteLength": 128200
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/031.json",
+          "sha256": "5c24b73a7a9550b7e88abb00e1d108ddd69f689e05f2097507ffdf0ce2d4861c",
+          "byteLength": 8738
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/032.json",
+          "sha256": "79015d84f85867f418d4edf05c3ec62962906c2c67bd01779922f233142de9a6",
+          "byteLength": 8053
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/033.json",
+          "sha256": "e3383f7dbbc0763f96d84ed71d23a8836e38f6e6b2de14ba50a9c156abe9969e",
+          "byteLength": 9549
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/034.json",
+          "sha256": "125d62f3d941fa387dc42dc7b0d0acd505350547ce2dbe214db56516ef5e186b",
+          "byteLength": 7246
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-05-08/PEER-REVIEW-FINAL.json",
+        "sha256": "fd88b470dcbec3fbfa201c506916f7117b287f2cd3cee90a78a7db6f5b6af159",
+        "byteLength": 9458
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 8,
+      "source": "2016h28a-fe-pm-8",
+      "topic": "数値の編集パターンに従う疑似言語プログラム",
+      "physicalPages": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "printedPages": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "イ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "ア"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "エ"
+        },
+        {
+          "section": 2,
+          "label": "d",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "エ"
+        },
+        {
+          "section": 3,
+          "label": "f",
+          "key": "エ"
+        }
+      ],
+      "officialFieldCount": 6,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "0/♯制御文字・空白・小数点等の原表記を画像と照合する。",
+        "共通疑似言語の配列0始まりとLength/コメントの未実行条件を保持。"
+      ],
+      "independentValidationPlan": "原9ケース表を独立遷移モデルで実行し、別の宣言的数値整形器で全出力・空白/アスタリスク/符号/句読点を照合する。先頭0・末尾+・負値・制御文字直後等を全列挙する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/035.png",
+          "sha256": "64d5b5ba283188fa88cdcd6075d920cda1db16757d404f346d3625321122ca4f",
+          "byteLength": 153518
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/036.png",
+          "sha256": "b465156dd2a7d6e781f1284c26932083e4c375f3ec537f405c9e6cc47e935cc5",
+          "byteLength": 228662
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/037.png",
+          "sha256": "90e52b54d9f05a2faf341214cd053d6457bf56e5753cb742b03c23ce6533cdc9",
+          "byteLength": 210299
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/038.png",
+          "sha256": "f07b0f01faf2443d99d5beed420c9f080f62cdb28c900cff6402c3503f5fe78d",
+          "byteLength": 103654
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/039.png",
+          "sha256": "93422b99eab9ac05f92e7d4a332ec6ea5cebaf8c65fa981b4b5d8ce96c46912f",
+          "byteLength": 103729
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/040.png",
+          "sha256": "8e116b72f0b54f769120f4971dfe43682cb8f4bed3472e88583d204761ad8854",
+          "byteLength": 69269
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/035.json",
+          "sha256": "ea71b31a58ea240c5aab5e004475900626cca6cbf62853bb415835c470bc8730",
+          "byteLength": 7683
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/036.json",
+          "sha256": "794840d372e640eb6c02147570be91f2d9fc7b6f9eabec61728f6b85ffa05de5",
+          "byteLength": 8267
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/037.json",
+          "sha256": "5efff4bbdc15afd17064aaf44d614d3ec10a411cbcef2da0fccb419cede286b2",
+          "byteLength": 19368
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/038.json",
+          "sha256": "5e6c301f6657acf7a3e75549b20e804ece8a02e39469b61ec35c4b34005c4c95",
+          "byteLength": 9220
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/039.json",
+          "sha256": "a7456d32c60651cf9f7ceada29c8ea9f8db3339f4cd776b522b4a9e4de697d1a",
+          "byteLength": 5926
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/040.json",
+          "sha256": "bf59c315d1c6a824043f5f268aa5bc3a3735fc024efd3e5571496fdfbd8252fe",
+          "byteLength": 3430
+        }
+      ],
+      "requiredReferences": [
+        {
+          "kind": "pseudocode",
+          "physicalPages": [
+            4,
+            5
+          ]
+        }
+      ],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-05-08/PEER-REVIEW-FINAL.json",
+        "sha256": "fd88b470dcbec3fbfa201c506916f7117b287f2cd3cee90a78a7db6f5b6af159",
+        "byteLength": 9458
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 9,
+      "source": "2016h28a-fe-pm-9",
+      "topic": "サブシステムの開発作業順序（C）",
+      "physicalPages": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "printedPages": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "エ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "ア"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "カ"
+        },
+        {
+          "section": 1,
+          "label": "d",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "f",
+          "key": "カ"
+        }
+      ],
+      "officialFieldCount": 6,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "物理2頁の正誤表を適用し、半年ごとの一連の開発作業と個別遅延日数wtの意味を維持。",
+        "Cの前置--/後置--や配列添字をOCRのまま採用せず画像・コンパイルで照合。"
+      ],
+      "independentValidationPlan": "原CプログラムをC11+ASan/UBSanで実行し、独立の配列順序・個別遅延・隣接交換状態機械と照合する。前置/後置減分の全候補反例と同順位を含める。局所手順を一般の大域最適保証と称さない。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/041.png",
+          "sha256": "6ee864228aae7838b8f107ee552b4a2a322ea608382ce7cbd9c03215376bd7fd",
+          "byteLength": 242820
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/042.png",
+          "sha256": "16261ee980d7caac18ac3d4dc2f09eb6969762d17c0e2ebbe0d48aac08915b0c",
+          "byteLength": 241701
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/043.png",
+          "sha256": "2e378bfc7ec864bbf52fec5e60153da6780b92055880b881f23422cc1e5e75a1",
+          "byteLength": 143131
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/044.png",
+          "sha256": "5fefe533a41b7452710f57b1264bf9d7ad015455e05189e0cd97859e101eb024",
+          "byteLength": 91261
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/045.png",
+          "sha256": "be7127e5a8c765aa8455fe6d2b895a10bdb5991eaea13e9f7907177d10e94ead",
+          "byteLength": 167604
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/046.png",
+          "sha256": "69263e493a0f7a9e9febaf00c5ec73d77f54d3b03c5d85f0cee6faf5197b66e3",
+          "byteLength": 101933
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/041.json",
+          "sha256": "d82429cd8735584e9bd35de744cc633a932f4f798bfac1f15230803bbf99795f",
+          "byteLength": 9513
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/042.json",
+          "sha256": "0887a38494b7965d0f31b8f92a06b357c6d42117809416ae989fc1faa7ef0f6b",
+          "byteLength": 8923
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/043.json",
+          "sha256": "32f9b805e9b9f808082853206fc34c1b3a4c1e3f4f0880d4b4d1e4c1078d2a9f",
+          "byteLength": 10758
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/044.json",
+          "sha256": "4e5fd1f9ce670a36355e1ad1d8e0d982056bc752dca3908af48347f29b7a0c3c",
+          "byteLength": 7185
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/045.json",
+          "sha256": "dfb6105c92b7201a45236f04f63f7e1838a64733cc76b6089ffaa2731f6860d4",
+          "byteLength": 11458
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/046.json",
+          "sha256": "49c5d525c4b93ff976a122c49b40108830eb620b59b98d5857abdb1f3e1e3e13",
+          "byteLength": 8021
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-09-13/PEER-REVIEW.json",
+        "sha256": "f36a2071d93bfd6397d03d324108fa534e16a000963fd528d84c76902041ee28",
+        "byteLength": 13083
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 10,
+      "source": "2016h28a-fe-pm-10",
+      "topic": "健康診断結果の管理とマスタ更新（COBOL）",
+      "physicalPages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "printedPages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "ア"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "カ"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "ア"
+        },
+        {
+          "section": 1,
+          "label": "d",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "ウ"
+        },
+        {
+          "section": 2,
+          "label": "f",
+          "key": "ア"
+        },
+        {
+          "section": 2,
+          "label": "g",
+          "key": "ア"
+        }
+      ],
+      "officialFieldCount": 7,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [],
+      "independentValidationPlan": "順ファイル突合せの独立レコード変換器と、原COBOLのREAD/EOF/RELEASE/RETURN/REWRITE処理の明示実行モデルを比較する。先頭/中間/末尾未受診と10件履歴シフトを含める。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/047.png",
+          "sha256": "5ce3880dfe7c6dcb1483c47ca208034d6bcd0986cb45178d35f2dd2fdce1d051",
+          "byteLength": 192708
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/048.png",
+          "sha256": "c547f064605c26ebb948ed499edd858aef0fb69c92f41db1a5cf5b9bd4664cab",
+          "byteLength": 176941
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/049.png",
+          "sha256": "8fa6aa413df74b61111e8a438abcffb50947589d29bd0cc1ba90602f28b65a6b",
+          "byteLength": 181172
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/050.png",
+          "sha256": "9bb9f917b4d12741112218b9b05718d63d499ae74ad5b511801138427b4018cd",
+          "byteLength": 134773
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/051.png",
+          "sha256": "69d74e463de1ea4b6d0d091df50b8c4561a9d436fe885fc49df47798f0f20da5",
+          "byteLength": 216521
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/052.png",
+          "sha256": "6215eed0bbdac26f2fee09124eda4960b3918823226e7f7b0a4187a4da133508",
+          "byteLength": 95121
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/047.json",
+          "sha256": "aa1aec01c7464e4c77c954a36f9cbba621ad766651dbd0f485a447a6b460dfeb",
+          "byteLength": 8256
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/048.json",
+          "sha256": "1b6a70874f9e433c70b0e0a6a6114c776e1db29add04a62facdbb2fa7f4bb388",
+          "byteLength": 15982
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/049.json",
+          "sha256": "41dff2a059f06f6e7968fdb4d31067df8f8ddde00ce408e5622986c063dcd6c7",
+          "byteLength": 18684
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/050.json",
+          "sha256": "e1eff5cc4f392c8503a5578f7e7e49284e40a6a3bdcc801fa2d4c642d8e862fc",
+          "byteLength": 8694
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/051.json",
+          "sha256": "401e770db700996c4ba9e838d5b348ed1905da22051fa69c3957ec87dfa0d58e",
+          "byteLength": 11602
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/052.json",
+          "sha256": "50e330e5822a76f281d474c49bc07b7d070e0027874a7a52fcba713509f5d5a2",
+          "byteLength": 5101
+        }
+      ],
+      "requiredReferences": [],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-09-13/PEER-REVIEW.json",
+        "sha256": "f36a2071d93bfd6397d03d324108fa534e16a000963fd528d84c76902041ee28",
+        "byteLength": 13083
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 11,
+      "source": "2016h28a-fe-pm-11",
+      "topic": "列挙を用いる電卓プログラム（Java）",
+      "physicalPages": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "printedPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "イ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "ウ"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "ア"
+        },
+        {
+          "section": 1,
+          "label": "d",
+          "key": "エ"
+        },
+        {
+          "section": 1,
+          "label": "e",
+          "key": "オ"
+        },
+        {
+          "section": 2,
+          "label": "f",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "g",
+          "key": "ケ"
+        }
+      ],
+      "officialFieldCount": 7,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "Java API付属資料（物理69–70）を解答前に参照可能にする。",
+        "整数除算の例外捕捉とreset後の出力を保持。"
+      ],
+      "independentValidationPlan": "原Java8互換の全ソースをjavac/javaでコンパイル実行し、独立電卓状態機械で全出力を比較する。列挙ordinal/this/共通Key型、割算0、連続演算、clearとresetを検査する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/053.png",
+          "sha256": "e936684114781a23dfacc23173629d9f8ca13c29b9bdce93a62e6fd180c768e1",
+          "byteLength": 252066
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/054.png",
+          "sha256": "a236181128157dd0ecd5d57069802e40c62cb8a51be0c89107d041c9a191883a",
+          "byteLength": 168634
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/055.png",
+          "sha256": "b24468fe73b0a32f7a58a29815e3b9911289716bde6c4811886e74dc055ab5a3",
+          "byteLength": 121074
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/056.png",
+          "sha256": "9eb07f996b811ecd13d65a093aa82373c8eff581c7a8792c410b5aa8d50d8618",
+          "byteLength": 111597
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/057.png",
+          "sha256": "66e6d2f2bb0f9c7b5bc18464cd4fe79b234e72d881aa621a390bda1e113fa44b",
+          "byteLength": 165287
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/058.png",
+          "sha256": "0100549727be5340f31fa94db48788a8c59dabc0dae1066e26700f391f14f22d",
+          "byteLength": 103027
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/053.json",
+          "sha256": "336df04525952d499b744d48a5f57211812f62af782943ae1866292f63dd161a",
+          "byteLength": 8351
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/054.json",
+          "sha256": "388162603a38368a5046502a7d2bf23a5209a835378486b5f1851dd6542badd6",
+          "byteLength": 8420
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/055.json",
+          "sha256": "aa757dbf3bc0bf9c59619382467b9cf8fd04715692a05b87159a1795cc50d270",
+          "byteLength": 7734
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/056.json",
+          "sha256": "58c8207a384e4cc4083d67d3f22758900860177859ca62d81cea7eae4245c456",
+          "byteLength": 7338
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/057.json",
+          "sha256": "41878b1bf27e174e9a0687c20358e87c51e640417b6c5fd04d7cec70ea3789a9",
+          "byteLength": 10929
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/058.json",
+          "sha256": "50749a47547ca8cc2e00767e2c13ad09f027a109048e096c6c132041fb3fd246",
+          "byteLength": 8409
+        }
+      ],
+      "requiredReferences": [
+        {
+          "kind": "java-api",
+          "physicalPages": [
+            69,
+            70
+          ]
+        }
+      ],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-09-13/PEER-REVIEW.json",
+        "sha256": "f36a2071d93bfd6397d03d324108fa534e16a000963fd528d84c76902041ee28",
+        "byteLength": 13083
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 12,
+      "source": "2016h28a-fe-pm-12",
+      "topic": "リストへの要素挿入・削除（CASL II）",
+      "physicalPages": [
+        59,
+        60,
+        61,
+        62
+      ],
+      "printedPages": [
+        58,
+        59,
+        60,
+        61
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "エ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "ウ"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": null,
+          "key": "ウ"
+        },
+        {
+          "section": 3,
+          "label": null,
+          "key": "ア"
+        }
+      ],
+      "officialFieldCount": 5,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "JIS X0201の原表・節1.3は公開へ入れない。問題は数値・番地・レジスタとリスト操作だけを扱い、文字コードに依存する命令や値を使わないことを実装時にも確認。",
+        "必要CASL仕様を物理71–72/73上部(1.3より前)/74–76から限定し、原資料全体の付属資料と区別する。",
+        "nは正整数で、挿入・削除ともn>Nのとき何もせず戻る。挿入可能範囲をN+1へ拡張しない。EGETはGR2以外、EFREEとLPROCはGR1–GR7を復元する原仕様を保持。"
+      ],
+      "independentValidationPlan": "独立16bit CASL機械のレジスタ/主記憶/条件フラグと、別の連結リストモデルを比較する。全挿入削除位置・1要素・n=N+1は挿入でも無操作・その他範囲外・EGET/EFREE/レジスタ保存・返却GR2とメモリE3を照合する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/059.png",
+          "sha256": "bce7e1a69fdac188e6f4904983be63104e51d3af1b689f302b68ca4255b778dc",
+          "byteLength": 207414
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/060.png",
+          "sha256": "d44d04d2bd5f5f695b195890633e0f60057d18dfec7c3ae212032bf58770ab1c",
+          "byteLength": 207908
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/061.png",
+          "sha256": "925c93d0681c0ad75dc1f040c53afda677b9c1cae31e1603c4eeeb29902eccfc",
+          "byteLength": 130334
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/062.png",
+          "sha256": "386d5ae768508c2e2374d3d8d1feee72992698cc7f4d90a2d6a20884a99ae936",
+          "byteLength": 100051
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/059.json",
+          "sha256": "6ee32f254286f579a462741ef87cf26ead821e218872dcb76b6bb45312a5a461",
+          "byteLength": 10675
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/060.json",
+          "sha256": "bcdc57904fd8f233c250881f1526533cf297627dac0bc0401fc23c02da0a2256",
+          "byteLength": 19890
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/061.json",
+          "sha256": "12b6163a8cb71659e26cf2323dc3a6ad2215b9dec6f7a1c997a63ead7d19dddb",
+          "byteLength": 12235
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/062.json",
+          "sha256": "21097a840913080b90d501dcd4c8ee133506e306b34a701395e966c3a71cbb83",
+          "byteLength": 11206
+        }
+      ],
+      "requiredReferences": [
+        {
+          "kind": "casl-spec-excluding-character-table",
+          "physicalPages": [
+            71,
+            72,
+            73,
+            74,
+            75,
+            76
+          ],
+          "page73Restriction": "Only top 620px of 722x1022 source render; section1.3 and its JIS table begin at approximately y632 and must be excluded. Verify crop and source at full size before distribution."
+        }
+      ],
+      "fullsizeBodyPagesIndividuallyViewed": [
+        59,
+        60,
+        61,
+        62
+      ],
+      "noCharacterCodeDependencyReviewed": true,
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-09-13/PEER-REVIEW.json",
+        "sha256": "f36a2071d93bfd6397d03d324108fa534e16a000963fd528d84c76902041ee28",
+        "byteLength": 13083
+      },
+      "normalAppVerified": true
+    },
+    {
+      "number": 13,
+      "source": "2016h28a-fe-pm-13",
+      "topic": "改築作業のスケジューリング（表計算）",
+      "physicalPages": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "printedPages": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "officialAnswerPaperPage": 1,
+      "officialFields": [
+        {
+          "section": 1,
+          "label": "a",
+          "key": "ウ"
+        },
+        {
+          "section": 1,
+          "label": "b",
+          "key": "オ"
+        },
+        {
+          "section": 1,
+          "label": "c",
+          "key": "イ"
+        },
+        {
+          "section": 2,
+          "label": "d",
+          "key": "カ"
+        },
+        {
+          "section": 2,
+          "label": "e",
+          "key": "ア"
+        },
+        {
+          "section": 2,
+          "label": "f",
+          "key": "カ"
+        }
+      ],
+      "officialFieldCount": 6,
+      "officialNoAnswerFields": [],
+      "officialUnorderedGroups": [],
+      "originalOrderFixed": true,
+      "materialStatus": "reviewed_source_material_and_independent_semantics",
+      "materialScreening": "全85原頁のcontact sheetと全89頁のOCR候補を確認。本文の引用元/外部写真/外部図表/規格逐語転載の表示を検出しなかった。OCR候補は正確な転記・内容検算・個別許諾の証明ではない。各担当の全サイズ画像・全選択肢・全前提確認後に最終受入れする。",
+      "materialPotentialIssue": null,
+      "notesAndRequiredPremises": [
+        "共通疑似言語（物理4–5）と表計算の機能・用語（物理77–82）を解答前参照へ保持。",
+        "状態IDの増加方向・20状態・作業日数100以下・未遷移0・到達不能9999・同値最小の探索順序を保持。"
+      ],
+      "independentValidationPlan": "表計算の絶対/相対参照と縦/横照合を独立評価し、増加状態IDのDAG最短経路とマクロ追跡を別方式で照合する。同長最短経路の優先規則、到達不能、9999番兵、20状態/100日以下を検査する。",
+      "preparedAccepted": true,
+      "normalAppRegistered": true,
+      "releaseAccepted": false,
+      "originalPageImages": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/063.png",
+          "sha256": "2d6826e19a2440187698790305c84f373af44ae3caf065bd9c1a9c9ac6bcb954",
+          "byteLength": 235232
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/064.png",
+          "sha256": "29864cb9d78cad256c1c96296e0370b608ffd772165a0170b6ed885e5c8d03f5",
+          "byteLength": 246845
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/065.png",
+          "sha256": "826bfc9c15ea0e793ac34c1f14162cbbe8ff00da249cb4b2dce524297347d353",
+          "byteLength": 202195
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/066.png",
+          "sha256": "ea8b0e4cef9e8633b72a268751df1848221e89595aec25f1cccef16a36eb3d2f",
+          "byteLength": 251938
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/067.png",
+          "sha256": "76660183428c2ef1b2a5eb777a7ba17dd5a05053820d06a21410e83246ca2bf5",
+          "byteLength": 211424
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/pages/068.png",
+          "sha256": "f53eead3bd2b098945f89be75266ba762b9ba8517de1fc52051378e496983f5e",
+          "byteLength": 79515
+        }
+      ],
+      "ocrCandidates": [
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/063.json",
+          "sha256": "114c06fe3593fdc40cfde153544cf664c3307df03adeff8c210050199f10c498",
+          "byteLength": 14327
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/064.json",
+          "sha256": "546792672d8a8db0f79bc12933c8e3b5a498f610feb928cc92f745a4e5fe27cc",
+          "byteLength": 18237
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/065.json",
+          "sha256": "bbb71cdf30bed17ce2739276b0a90ac5fd2e84b3255e58fb33430cd2277dc5c5",
+          "byteLength": 9413
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/066.json",
+          "sha256": "badf6f1a20159032acc41db6a7270d5fab7465de2984d6c4e568bae70984ca9d",
+          "byteLength": 18259
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/067.json",
+          "sha256": "6ef596470fff6e82106e2bd86c9d8d1e8ae3d96b6cbf80a163c6069fd9ad2cb2",
+          "byteLength": 8744
+        },
+        {
+          "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/ocr/068.json",
+          "sha256": "32d7fc8123224d7ae566b912274a277ee28330d296f37eec1f533bc5836a526e",
+          "byteLength": 5458
+        }
+      ],
+      "requiredReferences": [
+        {
+          "kind": "pseudocode",
+          "physicalPages": [
+            4,
+            5
+          ]
+        },
+        {
+          "kind": "spreadsheet-functions",
+          "physicalPages": [
+            77,
+            78,
+            79,
+            80,
+            81,
+            82
+          ]
+        }
+      ],
+      "preparedReview": {
+        "path": "output/source-review/s3-003-2016-autumn-pm/peer-09-13/PEER-REVIEW.json",
+        "sha256": "f36a2071d93bfd6397d03d324108fa534e16a000963fd528d84c76902041ee28",
+        "byteLength": 13083
+      },
+      "normalAppVerified": true
+    }
+  ],
+  "evidence": {
+    "allOCRCandidate": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/all-ocr-candidate.txt",
+      "sha256": "8acc8a9e6bc8d576fbdcf92573ac5842494a115a48a1157f5aef9fbef801396c",
+      "byteLength": 144060
+    },
+    "embeddedAnswers": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/answers-embedded.txt",
+      "sha256": "6ce58bd19d60fc1c7f74d3c04d31af7b49af6723527619eb344e3241e407e2af",
+      "byteLength": 10732
+    },
+    "embeddedCommentary": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/commentary-embedded.txt",
+      "sha256": "5696d6683089ff8116a950e963243dbd9b5ea5de423c064d9b568b55cad1aa8d",
+      "byteLength": 18798
+    },
+    "questionPageCountEvidence": "PyMuPDF actual open: 85; question embedded chars0, so no text absence used as third-party absence proof.",
+    "contactSheets": [
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/001-009.png",
+        "sha256": "f5c283ae9cf704c14e55343bd359f0b27bb9c49f7afd81b386d0816aa4fcf4fb",
+        "byteLength": 738971
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/010-018.png",
+        "sha256": "2088fe04d05c7597e2841633ae47e8971e9818797434cb4f3422ae7c9f433604",
+        "byteLength": 727989
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/019-027.png",
+        "sha256": "be82119119c2292fee182233c877c10578a46a1db4ef72b9263cc5ae1cafb8d9",
+        "byteLength": 785867
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/028-036.png",
+        "sha256": "1fc4669fed0f6e1021f366bce04ea1b48ff27b1744a859c5587e22a91334b801",
+        "byteLength": 773770
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/037-045.png",
+        "sha256": "50224fab0336374dc26ebacf961e7a4ecd3684c34b64e89e7dae5ffb530b8e2a",
+        "byteLength": 603248
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/046-054.png",
+        "sha256": "10fd269b3a98787113b735a75397b0a7072620fe1a44de9a3efb4abfcbc07e7d",
+        "byteLength": 676534
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/055-063.png",
+        "sha256": "2295af36f9ab6effde8ad679b92215dc840ad378af1adf1588d07fbe5c20f61c",
+        "byteLength": 609372
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/064-072.png",
+        "sha256": "4cb5443609ae691eee0e535960c6c29ae13f5392b94ee8b881bde296e21fbb66",
+        "byteLength": 801681
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/073-081.png",
+        "sha256": "c901e3eef8c19d71dc6af2ff314073a31efef948a98f4cd7e25e8e7fd9d29e58",
+        "byteLength": 1266566
+      },
+      {
+        "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/contact/082-085.png",
+        "sha256": "c65b51453d2598371a9ee3d0a4d3ab4f39f78bcec4468d79914e66720ab4e1df",
+        "byteLength": 191310
+      }
+    ],
+    "freshAcquisition": {
+      "path": "output/source-review/s3-003-2016-autumn-pm/agent-source/primary/acquisition-with-commentary.json",
+      "sha256": "6100831f8fc52e90ce5816e7b90807ce26723e06eb5dae561faf438a719472fe",
+      "byteLength": 1723
+    }
+  },
+  "limits": [
+    "Source screening is not detailed transcription approval.",
+    "No generator, content correctness, display, normal-App or release acceptance is claimed.",
+    "Question12 no-character-dependency and necessary CASL reference subset must be independently checked at implementation.",
+    "No normal app, catalog, Git commit or push has been performed by this source audit."
+  ],
+  "rootPreparedAcceptance": {
+    "path": "output/source-review/s3-003-2016-autumn-pm/ROOT-SOURCE-ACCEPTANCE.json",
+    "sha256": "6a4aa49a7e21323027ee7d2525f6f48fdce58d684b61e7c491ae7e7a447c2e12",
+    "byteLength": 2997
+  },
+  "normalAppReview": {
+    "path": "output/playwright/s3-003-normal-app/NORMAL-APP-FINAL-REVIEW.json",
+    "sha256": "8d70b2310f193116ea329d78ee5fe8ac00cb523831d7e8232259d079cb6c598e",
+    "byteLength": 33421
+  }
+}

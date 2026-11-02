@@ -1,0 +1,63 @@
+{
+  "schema": "S3-003-Q1-Q4-independent-reviewed-input-design/v1",
+  "status": "author_checked_source_and_design_root_acceptance_pending",
+  "source": "IPA 平成28年度秋期 基本情報技術者試験 午後",
+  "sourcePages": {"1":[6,7,8,9],"2":[10,11,12,13],"3":[14,15,16,17],"4":[18,19,20]},
+  "officialAnswers": {"1":["イ","ウ","オ","エ","ウ"],"2":["ア","イ","ウ","ウ","ウ"],"3":["エ","エ","ウ","イ","イ","エ","エ"],"4":["エ","ク","カ","キ"]},
+  "answerFieldCounts": [5,5,7,4],
+  "uniqueChoiceCounts": [14,17,20,16],
+  "answerReferenceCounts": [26,22,28,32],
+  "q1": {
+    "originPorts":{"monitor":1600,"tls":443,"http":80,"database":1552},
+    "cases":[
+      {"dbPort":1552,"monitorPort":1600,"controls":[
+        {"text":"DBサーバ中のデータの正規化","role":"neither"},
+        {"text":"RPサーバとWebサーバとの間でのHTTPの利用","role":"neither"},
+        {"text":"Webサーバのクラスタリング","role":"availability"},
+        {"text":"コンテンツが改ざんされていないことの定期的な確認","role":"integrity"},
+        {"text":"社員IDとパスワードによるログイン","role":"confidentiality"},
+        {"text":"タブレットの利用","role":"neither"}]},
+      {"dbPort":1543,"monitorPort":1620,"controls":[
+        {"text":"障害時に復旧できるように，DBサーバのバックアップと復元手順を用意する","role":"availability"},
+        {"text":"RPサーバとWebサーバとの間でHTTPを利用する","role":"neither"},
+        {"text":"営業員の担当範囲に応じて，顧客情報を参照できる権限を制限する","role":"confidentiality"},
+        {"text":"DBサーバ中のデータを正規化する","role":"neither"},
+        {"text":"承認された更新内容と登録結果を照合し，不正な書換えを検知する","role":"integrity"},
+        {"text":"表示が鮮明なタブレットに交換する","role":"neither"}]},
+      {"dbPort":1564,"monitorPort":1630,"controls":[
+        {"text":"DBサーバ中のデータを正規化する","role":"neither"},
+        {"text":"公開コンテンツのディジタル署名を検証し，変更の有無を確認する","role":"integrity"},
+        {"text":"Webサーバをクラスタリングし，1台が故障しても処理を継続する","role":"availability"},
+        {"text":"社員ごとのICカードと暗証番号で本人認証してから機密情報の参照を許可する","role":"confidentiality"},
+        {"text":"RPサーバとWebサーバとの間でHTTPを利用する","role":"neither"},
+        {"text":"タブレットの画面を大型にする","role":"neither"}]},
+      {"dbPort":1575,"monitorPort":1640,"controls":[
+        {"text":"顧客情報を暗号化して保存し，復号鍵を参照権限のある担当者だけに渡す","role":"confidentiality"},
+        {"text":"RPサーバとWebサーバとの間でHTTPを利用する","role":"neither"},
+        {"text":"登録内容を承認済みの原本と照合し，無断の改変を検出する","role":"integrity"},
+        {"text":"故障したサーバから待機系へ自動的に切り替えて，サービスを継続する","role":"availability"},
+        {"text":"DBサーバ中のデータを正規化する","role":"neither"},
+        {"text":"タブレットを軽量の機種に交換する","role":"neither"}]}
+    ],
+    "meaningReview":"目的を限定した対策の役割を固定資料で照合する。正規化・HTTP・端末形状だけでCIAを保証するとは扱わない。バックアップは障害復旧，認証は参照権限，署名照合は改変検知という本文の目的に従う。"
+  },
+  "q2":{
+    "lexicalAlphabet":["0","1",".","e","+","-"],
+    "allLexicalWordsThroughLength":5,
+    "validExtraWords":["123.","123.4e-1",".5","1e+2","000.1e00"],
+    "invalidExtraWords":["",".","1","1e","1e+","+1.0","1.2.3","1E2"],
+    "trees":[["op2","v",["op1","w",["op1",["op2","x","y"],"z"]]],["op1",["op2","v","w"],["op1",["op2","x","y"],"z"]],["op2","v",["op1",["op1","w",["op2","x","y"]],"z"]],["op1",["op2","v",["op1","w",["op2","x","y"]]],"z"]],
+    "expressions":["v op2 w op1 (x op2 y) op1 z","v op2 (w op1 ((x op2 y) op1 z))","(v op2 w) op1 ((x op2 y) op1 z)","(v op2 (w op1 (x op2 y))) op1 z"],
+    "meaningReview":"op1>op2，左再帰による同順位の左結合，括弧内の式全体，帰り掛け評価を固定。5葉4演算節の構成は原の全4択と同じ。"
+  },
+  "q3":{
+    "cases":[{"costs":[4800,5850],"method":"SUM","date":"20160420","allowance":10650},{"costs":[6000,12000],"method":"MAX","date":"20160421","allowance":12000},{"costs":[4000,8000],"method":"AVG","date":"20160422","allowance":6000},{"costs":[3000,9000],"method":"SUM","date":"20160423","allowance":12000}],
+    "meaningReview":"全選択肢は原SQLから固定。平均の例は整数となり追加丸めなし。バス先頭B/コード3文字/従業員番号1回/未受講行無し/主キー非NULLは全条件で維持。SQLiteのscalar複数行と不適切GROUPの許容動作を標準SQLの正しさと混同しない。"
+  },
+  "q4":{
+    "cases":[{"milliseconds":5,"speed":1000000,"fixedCount":100,"fixedBytes":5000,"htmlBase":10000,"htmlPerItem":500,"imageBytes":25000,"maximumN":73},{"milliseconds":10,"speed":1000000,"fixedCount":100,"fixedBytes":10000,"htmlBase":20000,"htmlPerItem":1000,"imageBytes":50000,"maximumN":11},{"milliseconds":5,"speed":2000000,"fixedCount":50,"fixedBytes":10000,"htmlBase":20000,"htmlPerItem":1000,"imageBytes":50000,"maximumN":98},{"milliseconds":10,"speed":2000000,"fixedCount":50,"fixedBytes":20000,"htmlBase":20000,"htmlPerItem":1000,"imageBytes":40000,"maximumN":58}],
+    "referenceNumericChoices":["0.005","0.015","0.02","0.5","0.515","1","1.5","2"],
+    "meaningReview":"キャッシュ確認t，必要な転送3t+v/e，逐次・非並行を固定。固定全件・HTML1個・画像n個をイベントで個別積上げ。8数値は原と同じ誤りの役割と3桁以内の小数，8式は元のbytes/seconds・n有無の区別を維持。"
+  },
+  "materials":"原全サイズ画像物理2/6〜20と公式ANS物理1を視認。本文・図表の第三者クレジットや引用元の表示を検出しなかった。出典・素材条件の最終受入れと通常アプリ公開はRootの独立工程であり，このfixtureの存在は許諾取得又は配布承認を意味しない。"
+}

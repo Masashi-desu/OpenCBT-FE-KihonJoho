@@ -16,7 +16,8 @@ import coreDomains from '../src/core/source-figure-domains.json';
 import {legacyAfternoonFigureDomains} from '../src/core/legacy-afternoon-figures';
 import {spring2016FigureDomains} from '../src/core/spring-2016-figures';
 import {autumn2016FigureDomains} from '../src/core/autumn-2016-figures';
-import {fixture} from './fixtures/legacy-afternoon-main-preservation';
+import {additionalBookletFigureDomains}from'../src/core/booklet-figure-extension-contract';
+import {fixture} from './fixtures';
 import {legacy2017Pm3FigureAlt} from '../src/core/generators/legacy-2017-pm3-data';
 const profile='legacy-2017-pm3-waste-database',caption='図1 データベースの表構成とデータ格納例';
 const scene=(values:unknown=[0],p=profile)=>({kind:'source_figure' as const,profile:p,values:values as number[]});
@@ -29,16 +30,16 @@ const autumn2016Keys=['legacy-2016-autumn-am-3-fsm','legacy-2016-autumn-am-6-bst
  'legacy-2016-autumn-am-23-gates','legacy-2016-autumn-am-31-stack','legacy-2016-autumn-am-34-ntp','legacy-2016-autumn-am-marketing',
  'legacy-2016-autumn-am-bom','legacy-2016-autumn-am-oc','legacy-2016-autumn-am-inventory','legacy-2016-autumn-am-common-symbols'];
 test('literal managed singleton joins exactly one frozen profile; duplicates and outside widening fail',()=>{
- const keys=Object.keys(sourceFigureDomains),coreKeys=Object.keys(coreDomains),morningKeys=Object.keys(morningDomains),afternoonKeys=Object.keys(legacyAfternoonFigureDomains);
+ const keys=Object.keys(sourceFigureDomains),coreKeys=Object.keys(coreDomains),morningKeys=Object.keys(morningDomains),afternoonKeys=Object.keys(legacyAfternoonFigureDomains),extensionKeys=Object.keys(additionalBookletFigureDomains);
  // The literal singleton extends the 30 current profiles; the reviewed AM/PM
  // families are separate admissions and cannot silently widen that partition.
  assert.equal(coreKeys.length,30);assert.equal(morningKeys.length,61);
  assert.equal(spring2016Keys.length,11);assert.deepEqual(Object.keys(spring2016FigureDomains).sort(),[...spring2016Keys].sort());
  assert.equal(autumn2016Keys.length,15);assert.deepEqual(Object.keys(autumn2016FigureDomains).sort(),[...autumn2016Keys].sort());
- const declared=[...coreKeys,...morningKeys,...afternoonKeys,...spring2016Keys,...autumn2016Keys,profile];
+ const declared=[...coreKeys,...morningKeys,...afternoonKeys,...spring2016Keys,...autumn2016Keys,...extensionKeys,profile];
  assert.equal(new Set(declared).size,declared.length,'reviewed profile families cannot overlap');
  assert.deepEqual([...keys].sort(),declared.sort(),'only declared current/AM/PM/2016 and the literal singleton are admitted');
- assert.deepEqual(keys.filter(key=>!Object.hasOwn(legacyAfternoonFigureDomains,key)&&!Object.hasOwn(morningDomains,key)&&!spring2016Keys.includes(key)&&!autumn2016Keys.includes(key)).sort(),[...coreKeys,profile].sort());
+ assert.deepEqual(keys.filter(key=>!Object.hasOwn(legacyAfternoonFigureDomains,key)&&!Object.hasOwn(morningDomains,key)&&!spring2016Keys.includes(key)&&!autumn2016Keys.includes(key)&&!extensionKeys.includes(key)).sort(),[...coreKeys,profile].sort());
  assert.deepEqual(sourceFigureDomains[profile],[[0,0]]);
  for(const [key,rows]of Object.entries(morningDomains)){
   validateSourceFigure(scene([...rows[0].values],key));
