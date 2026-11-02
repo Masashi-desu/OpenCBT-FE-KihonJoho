@@ -8,6 +8,12 @@ import { validateEvents, aggregate, readEvents } from '../scripts/ci/results.mjs
 import { successfulBaseEvidence, collectBaseEvidence } from '../scripts/ci/base-evidence.mjs';
 import { callbackDeclarations } from '../scripts/ci/callback-locations.mjs';
 const root = process.cwd(), file = 'tests/one.test.ts', name = 'one real assertion';
+test('every verification job installs the locked runtime before invoking dependency-bearing scripts and deployment requires aggregation',()=>{
+ const workflow=fs.readFileSync('.github/workflows/pages.yml','utf8');
+ const jobs=Object.fromEntries([...workflow.matchAll(/^  (plan|tests|aggregate|build|deploy):\n([\s\S]*?)(?=^  [a-z]+:\n|$(?![\s\S]))/gm)].map(m=>[m[1],m[2]]));
+ for(const job of ['plan','tests','aggregate','build']){assert(jobs[job],job);const install=jobs[job].indexOf('- run: npm ci');assert(install>=0,job+' must install its locked TypeScript/runtime dependencies');const execution=jobs[job].search(/(?:node scripts\/ci\/|npm run (?:pretest|build))/);assert(execution>install,job+' must install before verification/build execution');}
+ assert.match(jobs.aggregate,/needs: \[plan, tests\]/);assert.match(jobs.aggregate,/test "\$TEST_JOB_RESULT" = success/);assert.match(jobs.deploy,/needs: \[build, aggregate\]/);
+});
 function plan(): any { return { version: 2, profile: 'full', scopes: ['2016-autumn-pm'], commit: 'fixed', runId: 'synthetic', attempt: '1', parts: ['common'], partSpecs: { common: { files: [file], expectedByFile: { [file]: 1 }, expectedNames: { [file]: [name] }, expectedCount: 1, filters: [] } }, files: [file], selectedFiles: [file], expectedCount: 1, fullTestCount: 1 }; }
 function events(f = file, n = name): any[] { return [{ type: 'test:pass', data: { file: path.join(root, f), name: n, nesting: 0, details: { type: 'test' } } }, { type: 'test:summary', data: { success: true, counts: { tests: 1, passed: 1, failed: 0, cancelled: 0, skipped: 0, todo: 0 } } }]; }
 function report(p = plan()): any { const es = events(), witness = path.join(root, 'output', 'synthetic-events.jsonl'); return { part: 'common', commit: p.commit, runId: p.runId, attempt: p.attempt, planSHA256: sha(canonical(p)), root, witness, argv: testArguments(root, p.partSpecs.common, witness), exitCode: 0, events: es, proof: validateEvents(p, 'common', es, 0) }; }

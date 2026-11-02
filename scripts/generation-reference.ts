@@ -7,6 +7,8 @@ import { sourceFigureDomains } from "../src/core/source-figures";
 import legacyMorningDomains from "../src/core/legacy-morning-figure-domains.json";
 import { ensureLegacyMorningGenerators } from "../src/core/generators/legacy-morning-install";
 import { ensureStage3MorningGenerators } from "../src/core/generators/stage3-morning-install";
+import {additionalBookletFigures}from'../src/core/booklet-figure-extension-contract';
+import {bookletFigureReferenceRows}from'./booklet-figure-reference';
 
 import autumn2017FigureMeaning from "./source-evidence/2017-autumn-figure-meaning.json";
 import spring2018FigureMeaning from "./source-evidence/2018-spring-figure-meaning.json";
@@ -279,6 +281,11 @@ for (const [profile, rows] of Object.entries(legacyMorningDomains)) {
 const sceneText = (value: string) => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
   .replaceAll("|", "&#124;").replaceAll("*", "&#42;").replaceAll("_", "&#95;").replaceAll("`", "&#96;").replaceAll("\n", " ");
 
+const bookletReferences=bookletFigureReferenceRows(additionalBookletFigures);
+for(const row of bookletReferences){
+ if(figureMeaning[row.profile])throw Error('図の入力意味の二重登録');
+ figureMeaning[row.profile]=`問題集が所有する有限入力${row.tuples.length}組。位置ごとの値と描画条件の全対応は後掲の「${row.profile}」を参照。未登録の値・相関条件を満たさない組は拒否する。`;
+}
 for (const [profile, domain] of Object.entries(sourceFigureDomains)) {
   if (!figureMeaning[profile]) throw Error("図の入力意味の記録がない: " + profile);
   md += `| ${profile} | ${domain.map(([min, max], i) => `${i}：${min}〜${max}`).join("、")} | ${sceneText(figureMeaning[profile])} |\n`;
@@ -289,6 +296,10 @@ for (const [profile, rows] of Object.entries(legacyMorningDomains)) {
   md += `\n### ${profile}\n\n<details><summary>許可する${rows.length}組と描画条件</summary>\n\n| values（順序付き） | 対応する描画条件 |\n| --- | --- |\n`;
   for (const row of rows) md += `| \`${JSON.stringify(row.values)}\` | ${sceneText(row.alt)} |\n`;
   md += "\n</details>\n";
+}
+if(bookletReferences.length){
+ md+='\n## 問題集別の図の有限入力と描画条件\n\n名前は問題集・原問番号ごとに登録する。各表は許可するvalues全体と実描画の読み上げ説明を列挙する。これは原問題の図形式と入力の対応を検査する資料であり、正答の独立検算・素材条件・通常アプリの検証は別に行う。\n';
+ for(const row of bookletReferences){md+=`\n### ${row.profile}\n\n<details><summary>許可する${row.tuples.length}組と描画条件</summary>\n\n| values（順序付き） | 対応する描画条件 |\n| --- | --- |\n`;for(const tuple of row.tuples)md+=`| \`${JSON.stringify(tuple.values)}\` | ${sceneText(tuple.alt)} |\n`;md+='\n</details>\n';}
 }
 md +=
   "\n## 再生成と検証\n\n一覧の更新はnpm run doc:generation、鮮度確認はnpm run doc:validateで行う。生成器の変更時には正答・誤答の独立検算と原資料の形式照合を行い、改訂とモジュール版を更新する。保存済みセッションの内容を新しい生成器で作り直さない。詳しい[生成仕様](/diagram-generation)、[出典表示](/attribution)、[検証記録](/verification)を参照する。\n";
