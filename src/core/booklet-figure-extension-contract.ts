@@ -30,7 +30,7 @@ export function validateBookletFigureExtensions(entries: readonly BookletFigureE
     scopes.add(entry.scope);
     for (const figure of entry.figures) {
       const suffix = figure.profile.slice(('legacy-' + entry.scope + '-').length);
-      if (!figure.profile.startsWith('legacy-' + entry.scope + '-') || !/^(?:[1-9]|1[0-3])-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(suffix) || profiles.has(figure.profile) ||
+      if (figure.profile.length>200 || !figure.profile.startsWith('legacy-' + entry.scope + '-') || !/^(?:[1-9]|1[0-3])-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(suffix) || profiles.has(figure.profile) ||
         !denseArray(figure.domain) ||
         figure.domain.some(pair => !denseArray(pair) || pair.length !== 2 || !pair.every(Number.isSafeInteger) || pair[0] > pair[1]) ||
         typeof figure.validate !== 'function' || typeof figure.alt !== 'function')
