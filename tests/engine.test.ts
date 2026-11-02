@@ -1,4 +1,5 @@
 import { currentSourceOriginals } from "./fixtures/current-source-scope";
+import {assertPublishedSourceScope, isDeclaredExtensionAsset, publishedSourceScope} from './helpers/published-source-scope';
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -37,18 +38,19 @@ const legacyTemplate = () => ({
 test("distribution gate: real sources, official answer keys, JIS exclusion and Schema", async () => {
   const b = fixture();
   await validateBundle(b);
-  assert.equal(b.questions.length, 1772);
-  assert.equal(b.assets.length, 1361);
+  assertPublishedSourceScope(b);
+  assert.equal(b.assets.filter(asset => !isDeclaredExtensionAsset(asset)).length, 1361,
+    'the retained released material cohort is not reduced by later booklet additions');
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
-    886,
+    publishedSourceScope.originalCount,
   );
   const morning = b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
-  assert.equal(morning.length, 619);
+  assert.equal(morning.length, publishedSourceScope.morningCount);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 152);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => [2017, 2018, 2019].includes(ref.locator.year ?? 0))).length, 467);
   assert(morning.every(q => q.learning.tags.some(tag => tag === "legacy-morning" || /^legacy-201[6789]$/.test(tag))), "AM source classifications remain attached");
-  assert.equal(b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, 78);
+  assert.equal(b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, publishedSourceScope.afternoonCount);
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {
     2023: { A: "ウウエエイウイエウウエウエウエイウウエア", B: "アクエエエア" },
@@ -260,6 +262,19 @@ test("deadline persists and late answers expire; unanswered counts in denominato
   );
   const started = Date.parse(run.session.startedAt!);
   assert.equal(remaining(run, started), 1800);
+  // App's one-second display tick may still precede a newly started run.
+  // The deadline continues normally, but the first paint cannot show 30:01.
+  assert.equal(remaining(run, started - 1), 1800);
+  assert.equal(remaining(run, started - 1000), 1800);
+  const legacy = structuredClone(run);
+  legacy.exam.timeLimitSeconds = 9000;
+  legacy.session.deadlineAt = new Date(started + 9000 * 1000).toISOString();
+  assert.equal(remaining(legacy, started - 1), 9000);
+  assert.equal(remaining(legacy, started), 9000);
+  assert.equal(remaining(legacy, started + 1), 9000);
+  assert.equal(remaining(legacy, started + 1000), 8999);
+  assert.equal(remaining(legacy, started + 9000 * 1000), 0);
+  assert.equal(remaining(legacy, started + 9001 * 1000), 0);
   const deadline = Date.parse(run.session.deadlineAt!);
   run = updateAnswer(run, run.issued[0].correctAnswer.choiceId, started + 1000);
   run = updateAnswer(run, run.issued[0].choices[0].id, deadline);

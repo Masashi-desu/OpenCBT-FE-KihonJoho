@@ -1,12 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "./fixtures";
+import {assertPublishedSourceScope} from './helpers/published-source-scope';
 import { materialPages, visibleMaterialPage } from "../src/ui/MaterialViewer";
 import { isAutumn2016CommonContext } from '../src/core/generators/legacy-2016-autumn-am-common';
 
 test("material pages preserve every distributed question's complete reading order and saved data", () => {
   const bundle = fixture();
-  assert.equal(bundle.questions.length, 1772);
+  assertPublishedSourceScope(bundle);
   let commonCount = 0;
   // These four official booklets have a common page-2 appendix. It follows
   // the question body; question-specific material retains its prior order.

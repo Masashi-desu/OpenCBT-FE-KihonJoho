@@ -4,6 +4,7 @@ import { performance } from "node:perf_hooks";
 import { readDistributionBundle } from "../scripts/distribution-files";
 import { generationCoverage, validateGenerationCoverage } from "../src/core/generation-coverage";
 import type { Bundle, Question, Template, SetRecord } from "../src/core/types";
+import {assertPublishedSourceScope, publishedSourceScope} from './helpers/published-source-scope';
 
 // Independent reference: the unoptimized scan, kept verbatim apart from its
 // function name. Expectations never come from the indexed implementation.
@@ -96,11 +97,12 @@ function tiny(): Bundle {
   return { ...actualBundle, questions: [a, aa, b, bb, c, cc], templates: [tb, tc, ta], sets: [mix("b", [tb]), mix("a", [ta, tc])] };
 }
 
-test("indexed coverage retains every original/template identity, order and count of the actual886-family catalog", t => {
+test("indexed coverage retains every independently declared original/template identity, order and count", t => {
+  assertPublishedSourceScope(actualBundle);
   const slowStart = performance.now(), expected = scanCoverage(actualBundle), slowMS = performance.now() - slowStart;
   const fastStart = performance.now(), actual = generationCoverage(actualBundle), fastMS = performance.now() - fastStart;
-  assert.equal(expected.total, 886); assert.equal(expected.covered, 886);
-  compare(actualBundle, "actual886");
+  assert.equal(expected.total, publishedSourceScope.originalCount); assert.equal(expected.covered, publishedSourceScope.originalCount);
+  compare(actualBundle, "independently declared published scope");
   // Timing is diagnostic only; machine speed and load never decide acceptance.
   t.diagnostic(JSON.stringify({ scanMS: slowMS, indexedMS: fastMS, originals: actual.total, templates: actualBundle.templates.length }));
 });

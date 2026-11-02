@@ -41,6 +41,8 @@ import {
   escapeHTML,
   type DiagramBlock
 } from "./helpers/booklet-content-support";
+import {additionalBookletFigures}from'../src/core/booklet-figure-extension-contract';
+import {sourceScope,sourceExclusions}from'../scripts/source-inventory';
 
 test("native AM semantic drawings reject missing names, cells, source marks and headers", () => {
   const b = fixture();
@@ -98,7 +100,7 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     (x: any) => x.properties.kind.const === "source_figure",
   );
   assert.deepEqual(
-    [...source.properties.profile.enum].sort(),
+    [...source.properties.profile.anyOf[0].enum,...additionalBookletFigures.map(figure=>figure.profile)].sort(),
     Object.keys(sourceFigureDomains).sort(),
   );
   assert.equal(stage3MorningDefinitions.length,75);
@@ -107,15 +109,16 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     const body = definition.build([...definition.reference!]);
     return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
   });
+  const afternoonReferenceBlocks=legacyAfternoonDefinitions.flatMap(definition=>{
+    const body=definition.build(definition.fields.map(field=>field.minimum));
+    return [...body.prompt,...body.choices.flat(),...(body.contexts??[]).flatMap(context=>context.blocks)];
+  });
   for (const [profile, domain] of Object.entries(sourceFigureDomains)) {
     // Legacy AM drawings include correlated finite tuples, whose coordinate
     // minima need not form a valid drawing together.
     const morning = Object.hasOwn(morningFigureDomains, profile) ?
       morningFigureDomains[profile as keyof typeof morningFigureDomains] : undefined;
-    const afternoon = legacyAfternoonDefinitions.flatMap(definition => {
-      const body = definition.build(definition.fields.map(field => field.minimum));
-      return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
-    }).find(block => block.type === "diagram" && block.scene.kind === "source_figure" && block.scene.profile === profile);
+    const afternoon = afternoonReferenceBlocks.find(block => block.type === "diagram" && block.scene.kind === "source_figure" && block.scene.profile === profile);
     const stage3 = stage3ReferenceBlocks.find(block => block.type === "diagram" && block.scene.kind === "source_figure" && block.scene.profile === profile);
     const values = morning?.[0].values ?? (afternoon?.type === "diagram" && afternoon.scene.kind === "source_figure"
       ? [...afternoon.scene.values] : stage3?.type === "diagram" && stage3.scene.kind === "source_figure"
@@ -151,12 +154,13 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
 });
 
-test("every one of 886 official sources has exactly one generator and is a mix candidate", async () => {
+test("every independently declared eligible official source has exactly one generator and is a mix candidate", async () => {
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  assert.equal(c.total, 886);
-  assert.equal(c.covered, 886);
+  const expected=sourceScope.filter(id=>!Object.hasOwn(sourceExclusions,id)).length;
+  assert.equal(c.total, expected);
+  assert.equal(c.covered, expected);
   assert(
     c.rows.every((r) => r.templates.length === 1 && r.linked.length === 1),
   );

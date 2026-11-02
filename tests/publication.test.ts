@@ -5,6 +5,7 @@ import path from "node:path";
 import os from "node:os";
 import { createHash } from "node:crypto";
 import { fixture } from "./fixtures";
+import {assertPublishedSourceScope, publishedSourceScope} from './helpers/published-source-scope';
 import {
   readLicenseNotices,
   validateLicenseNotices,
@@ -15,13 +16,23 @@ import { validateBundle } from "../src/core/validation";
 
 test("declared scope cannot be reduced by deleting an original and its generator", () => {
   const b = fixture();
+  assertPublishedSourceScope(b);
+  assert.equal(publishedSourceScope.retainedExclusionIds.length, 22,
+    'the existing22 held source numbers remain obligations when later collections are added');
   assert.deepEqual(validateSourceInventory(b), {
-    declared: 908,
-    included: 886,
-    excluded: 22,
+    declared: publishedSourceScope.declaredCount,
+    included: publishedSourceScope.originalCount,
+    excluded: publishedSourceScope.excludedCount,
   });
   b.questions = b.questions.filter((q) => q.id !== "question-ipa-2026-a-1");
   assert.throws(() => validateSourceInventory(b), /SOURCE_INVENTORY/);
+  assert.throws(() => assertPublishedSourceScope(b));
+  const erased = fixture(), sourceId = 'question-ipa-2026-a-1';
+  const baseIds = new Set(erased.questions.filter(q => q.origin.derivedFrom.some(ref => ref.questionId === sourceId)).map(q => q.id));
+  erased.questions = erased.questions.filter(q => q.id !== sourceId && !baseIds.has(q.id));
+  erased.templates = erased.templates.filter(t => !baseIds.has(t.baseQuestionRef.questionId));
+  assert.throws(() => assertPublishedSourceScope(erased), 'deleting both original and generation family cannot reduce independently declared expectations');
+  assert.throws(() => validateSourceInventory(erased), /SOURCE_INVENTORY/);
 });
 test("current-subject original answers match independently extracted official answer keys (legacy PM uses per-major keys)", () => {
   const b = fixture();

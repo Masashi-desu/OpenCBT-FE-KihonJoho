@@ -10,24 +10,16 @@ const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-p
 const through2018Collections = new Set(["2022-apr-sample-b", "2022-dec-sample-a", "2022-dec-sample-b",
   "2017h29h-fe-pm", "2017h29a-fe-pm", "2018h30h-fe-pm", "2018h30a-fe-pm"]);
 const historicalReviews = () => pre2023Reviews.filter(r => through2018Collections.has(r.collectionId));
-const withoutMorning = () => {
-  const b = fixture(), morning = /(?:2016h28[ha]|2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/;
-  b.questions = b.questions.filter(q => !morning.test(q.id));
-  b.templates = b.templates.filter(t => !morning.test(t.id));
-  return b;
+// Historical fixtures retain explicit positions rather than admitting every
+// future nonmorning booklet into an old control's fixed103/241 denominator.
+const currentPosition=(q:ReturnType<typeof fixture>['questions'][number])=>q.origin.sourceRefs.some(r=>!r.locator.timeSlot&&r.locator.year!==undefined&&r.locator.year>=2023&&r.locator.year<=2026);
+const historicalPosition=(q:ReturnType<typeof fixture>['questions'][number],lastYear:number)=>currentPosition(q)||q.origin.sourceRefs.some(r=>!r.locator.timeSlot&&/^2022年(?:4|12)月公表 サンプル問題$/.test(r.locator.period??'')||r.locator.timeSlot==='午後'&&r.locator.year!==undefined&&r.locator.year>=2017&&r.locator.year<=lastYear);
+const projectHistorical=(accept:(q:ReturnType<typeof fixture>['questions'][number])=>boolean)=>{
+ const b=fixture();b.questions=b.questions.filter(accept);const ids=new Set(b.questions.map(q=>q.id));b.templates=b.templates.filter(t=>ids.has(t.baseQuestionRef.questionId));return b;
 };
-const through2018Bundle = () => {
-  const b = withoutMorning(), later = /2019(?:h31h|r01a)-fe-pm-/;
-  b.questions = b.questions.filter(q => !later.test(q.id));
-  b.templates = b.templates.filter(t => !later.test(t.id));
-  return b;
-};
-const initialBaseline = () => {
-  const b = withoutMorning();
-  b.questions = b.questions.filter(q => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019(?:h31h|r01a)-fe-pm-)/.test(q.id));
-  b.templates = b.templates.filter(t => !/(?:sample-2022-(?:apr|dec)-(?:a|b)-|2017h29[ha]-fe-pm-|2018h30[ha]-fe-pm-|2019(?:h31h|r01a)-fe-pm-)/.test(t.id));
-  return b;
-};
+const withoutMorning=()=>projectHistorical(q=>historicalPosition(q,2019));
+const through2018Bundle=()=>projectHistorical(q=>historicalPosition(q,2018));
+const initialBaseline=()=>projectHistorical(currentPosition);
 test("the requested expansion cannot pass using the 103 already-distributed questions", () => {
   const reviews = historicalReviews().map(r => ({ ...r, checks: { originalSemantics: "pass" as const } }));
   assert.equal(initialBaseline().questions.filter(q => q.origin.kind === "official_reprint").length, 103);

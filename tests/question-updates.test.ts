@@ -1,6 +1,7 @@
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "./fixtures";
+import {assertPublishedSourceScope, publishedSourceScope} from './helpers/published-source-scope';
 import { generationCoverage } from "../src/core/generation-coverage";
 import { makeBookmark, refreshBookmark, bookmarkTemplate } from "../src/core/bookmarks";
 import { latestLearningSelection, outdatedQuestionIndexes, QUESTION_UPDATE_NOTICE } from "../src/core/question-updates";
@@ -87,7 +88,8 @@ test("saved snapshots need only issued generators, while distribution and hashes
 
 test("all old bookmark revisions resolve the current source and current generator without a migration allowlist", () => {
   const latest = fixture(), rows = generationCoverage(latest).rows;
-  assert.equal(rows.length, 886, "every current and newly admitted source participates");
+  assertPublishedSourceScope(latest);
+  assert.equal(rows.length, publishedSourceScope.originalCount, "every current and newly admitted source participates");
   let retainedCurrentDetails = 0;
   for (const row of rows) {
     const current = makeBookmark(latest, refOf(row.original), 0);

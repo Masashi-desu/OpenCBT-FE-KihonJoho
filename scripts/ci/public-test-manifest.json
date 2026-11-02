@@ -2973,6 +2973,24 @@
         "2019-autumn-pm: 1 larger domains, 64 seeded inputs, 192 initial draws on applicable issuance paths, 64 draws with prior history."
       ]
     },
+    "tests/booklets/2019-autumn-pm/sampler-regressions.test.ts": {
+      "count": 1,
+      "scopes": [
+        "2019-autumn-pm"
+      ],
+      "names": [
+        "2019-autumn-pm: only the exact reviewed2019 autumnQ2 five-field domain extends exhaustive coverage to all1125 inputs"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2019r01a-fe-pm-2"
+        ],
+        "work": {
+          "finiteInputs": 1125,
+          "maximumSeeds": 32768
+        }
+      }
+    },
     "tests/booklets/2019-spring-am/bookmarks.test.ts": {
       "count": 4,
       "scopes": [
@@ -4181,6 +4199,60 @@
         "bookmark paths 2023-a: every registered series retains repeats, answers and resumed history"
       ]
     },
+    "tests/booklets/2023-a/calculation-difficulty.test.ts": {
+      "count": 4,
+      "scopes": [
+        "2023-a"
+      ],
+      "names": [
+        "2023-a-1: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "fraction conversion covers all 21504 inputs including multi-digit integers in all 12 directions",
+        "2023-a: precision regressions reject non-reviewed calculation inputs",
+        "individual radix bookmark practice avoids adjacent numeric repeats and preserves every answer"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2023-a-1"
+        ],
+        "conditions": [
+          {
+            "name": "2023-a-1: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2023-a-1"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "fraction conversion covers all 21504 inputs including multi-digit integers in all 12 directions",
+            "sourceIds": [
+              "2023-a-1"
+            ],
+            "kind": "exhaustive-radix-and-real-sampler",
+            "inputs": 21504,
+            "samplerSeeds": 262144,
+            "directions": 12
+          },
+          {
+            "name": "2023-a: precision regressions reject non-reviewed calculation inputs",
+            "sourceIds": [
+              "2023-a-1"
+            ],
+            "kind": "invalid-domain-regressions",
+            "inputs": 1
+          },
+          {
+            "name": "individual radix bookmark practice avoids adjacent numeric repeats and preserves every answer",
+            "sourceIds": [
+              "2023-a-1"
+            ],
+            "kind": "bookmark-numeric-adjacency-and-saved-history",
+            "policies": 2,
+            "drawsPerPolicy": 100
+          }
+        ]
+      }
+    },
     "tests/booklets/2023-a/content-contract.test.ts": {
       "count": 19,
       "scopes": [
@@ -4458,6 +4530,61 @@
         "2024-a: all bookmarked sources generate consecutive fresh practice runs without changing saved content",
         "bookmark paths 2024-a: every registered series retains repeats, answers and resumed history"
       ]
+    },
+    "tests/booklets/2024-a/calculation-difficulty.test.ts": {
+      "count": 4,
+      "scopes": [
+        "2024-a"
+      ],
+      "names": [
+        "2024-a-3: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2024-a-4: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2024-a-13: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2024-a: source spacing survives its bounded, rounded or graph inputs"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2024-a-13",
+          "2024-a-3",
+          "2024-a-4"
+        ],
+        "conditions": [
+          {
+            "name": "2024-a-3: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2024-a-3"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2024-a-4: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2024-a-4"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2024-a-13: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2024-a-13"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2024-a: source spacing survives its bounded, rounded or graph inputs",
+            "sourceIds": [
+              "2024-a-4",
+              "2024-a-13",
+              "2024-a-3"
+            ],
+            "kind": "source-sized-spacing-boundaries",
+            "inputs": 7
+          }
+        ]
+      }
     },
     "tests/booklets/2024-a/content-contract.test.ts": {
       "count": 16,
@@ -4737,6 +4864,99 @@
         "bookmark paths 2025-a: every registered series retains repeats, answers and resumed history"
       ]
     },
+    "tests/booklets/2025-a/calculation-difficulty.test.ts": {
+      "count": 8,
+      "scopes": [
+        "2025-a"
+      ],
+      "names": [
+        "2025-a-4: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2025-a-7: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2025-a-14: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2025-a-19: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "exact cafe calculations cover every candidate in the finite clean-input sampler",
+        "2025-a: annual availability covers the sampler finite combinations",
+        "2025-a: precision regressions reject non-reviewed calculation inputs",
+        "2025-a: source spacing survives its bounded, rounded or graph inputs"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2025-a-14",
+          "2025-a-19",
+          "2025-a-4",
+          "2025-a-7"
+        ],
+        "conditions": [
+          {
+            "name": "2025-a-4: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2025-a-4"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2025-a-7: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2025-a-7"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2025-a-14: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2025-a-14"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2025-a-19: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2025-a-19"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "exact cafe calculations cover every candidate in the finite clean-input sampler",
+            "sourceIds": [
+              "2025-a-19"
+            ],
+            "kind": "exhaustive-clean-cafe-inputs",
+            "inputs": 6002
+          },
+          {
+            "name": "2025-a: annual availability covers the sampler finite combinations",
+            "sourceIds": [
+              "2025-a-4"
+            ],
+            "kind": "exhaustive-exact-availability-inputs",
+            "inputs": 291,
+            "detail": "Original shared counter declaration/diagnostic retained; nonowned tables count stays0."
+          },
+          {
+            "name": "2025-a: precision regressions reject non-reviewed calculation inputs",
+            "sourceIds": [
+              "2025-a-19",
+              "2025-a-4"
+            ],
+            "kind": "invalid-domain-regressions",
+            "inputs": 2
+          },
+          {
+            "name": "2025-a: source spacing survives its bounded, rounded or graph inputs",
+            "sourceIds": [
+              "2025-a-14",
+              "2025-a-7"
+            ],
+            "kind": "source-sized-spacing-boundaries",
+            "inputs": 4
+          }
+        ]
+      }
+    },
     "tests/booklets/2025-a/content-contract.test.ts": {
       "count": 19,
       "scopes": [
@@ -4859,6 +5079,35 @@
         "2025-a: 4 larger domains, 256 seeded inputs, 1280 initial draws on applicable issuance paths, 256 draws with prior history."
       ]
     },
+    "tests/booklets/2025-a/sampler-regressions.test.ts": {
+      "count": 1,
+      "scopes": [
+        "2025-a"
+      ],
+      "names": [
+        "2025-a: all reviewed finite precision pools are reachable by the actual seeded sampler"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2025-a-19",
+          "2025-a-4"
+        ],
+        "work": {
+          "precisionPools": [
+            {
+              "source": "2025-a-19",
+              "candidates": 6002,
+              "maximumSeeds": 131072
+            },
+            {
+              "source": "2025-a-4",
+              "candidates": 291,
+              "maximumSeeds": 131072
+            }
+          ]
+        }
+      }
+    },
     "tests/booklets/2025-b/answer-semantics.test.ts": {
       "count": 3,
       "scopes": [
@@ -4886,6 +5135,59 @@
         "2025-b: all bookmarked sources generate consecutive fresh practice runs without changing saved content",
         "bookmark paths 2025-b: every registered series retains repeats, answers and resumed history"
       ]
+    },
+    "tests/booklets/2025-b/calculation-difficulty.test.ts": {
+      "count": 4,
+      "scopes": [
+        "2025-b"
+      ],
+      "names": [
+        "2025-b-4: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2025-b-5: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2025-b: theoretical counts cover the sampler finite combinations",
+        "2025-b: precision regressions reject non-reviewed calculation inputs"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2025-b-4",
+          "2025-b-5"
+        ],
+        "conditions": [
+          {
+            "name": "2025-b-4: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2025-b-4"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2025-b-5: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2025-b-5"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2025-b: theoretical counts cover the sampler finite combinations",
+            "sourceIds": [
+              "2025-b-5"
+            ],
+            "kind": "exhaustive-exact-contingency-tables",
+            "inputs": 592,
+            "detail": "Original shared counter declaration/diagnostic retained; nonowned rates count stays0."
+          },
+          {
+            "name": "2025-b: precision regressions reject non-reviewed calculation inputs",
+            "sourceIds": [
+              "2025-b-5"
+            ],
+            "kind": "invalid-domain-regressions",
+            "inputs": 1
+          }
+        ]
+      }
     },
     "tests/booklets/2025-b/content-contract.test.ts": {
       "count": 3,
@@ -4947,6 +5249,29 @@
         "2025-b: 4 larger domains, 256 seeded inputs, 1280 initial draws on applicable issuance paths, 256 draws with prior history."
       ]
     },
+    "tests/booklets/2025-b/sampler-regressions.test.ts": {
+      "count": 1,
+      "scopes": [
+        "2025-b"
+      ],
+      "names": [
+        "2025-b: all reviewed finite precision pools are reachable by the actual seeded sampler"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2025-b-5"
+        ],
+        "work": {
+          "precisionPools": [
+            {
+              "source": "2025-b-5",
+              "candidates": 592,
+              "maximumSeeds": 131072
+            }
+          ]
+        }
+      }
+    },
     "tests/booklets/2026-a/answer-semantics.test.ts": {
       "count": 18,
       "scopes": [
@@ -5004,6 +5329,49 @@
         "2026-a: all bookmarked sources generate consecutive fresh practice runs without changing saved content",
         "bookmark paths 2026-a: every registered series retains repeats, answers and resumed history"
       ]
+    },
+    "tests/booklets/2026-a/calculation-difficulty.test.ts": {
+      "count": 3,
+      "scopes": [
+        "2026-a"
+      ],
+      "names": [
+        "2026-a-14: source options, display precision and 256 seeds retain the reviewed calculation level",
+        "2026-a: source spacing survives its bounded, rounded or graph inputs",
+        "retention keeps its service choices and generates clean member counts with distinct rates"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2026-a-14",
+          "2026-a-17"
+        ],
+        "conditions": [
+          {
+            "name": "2026-a-14: source options, display precision and 256 seeds retain the reviewed calculation level",
+            "sourceIds": [
+              "2026-a-14"
+            ],
+            "kind": "source-options-and-seeded-precision",
+            "seeds": 256
+          },
+          {
+            "name": "2026-a: source spacing survives its bounded, rounded or graph inputs",
+            "sourceIds": [
+              "2026-a-14"
+            ],
+            "kind": "source-sized-spacing-and-invalid-regression",
+            "inputs": 4
+          },
+          {
+            "name": "retention keeps its service choices and generates clean member counts with distinct rates",
+            "sourceIds": [
+              "2026-a-17"
+            ],
+            "kind": "clean-retention-counts",
+            "seeds": 256
+          }
+        ]
+      }
     },
     "tests/booklets/2026-a/content-contract.test.ts": {
       "count": 18,
@@ -5124,6 +5492,29 @@
         "2026-a: 18 domains, 361 valid inputs, 1805 initial draws, 361 draws with complete prior history; current-format domains retain all five paths.",
         "2026-a: 2 larger domains, 128 seeded inputs, 640 initial draws on applicable issuance paths, 128 draws with prior history."
       ]
+    },
+    "tests/booklets/2026-a/sampler-regressions.test.ts": {
+      "count": 2,
+      "scopes": [
+        "2026-a"
+      ],
+      "names": [
+        "2026-a: GPU and every reference/rotated binding can be issued on all four random practice paths",
+        "2026-a: next-question draws revisit GPU and all bindings while retaining prior answers and rejecting adjacent repeats"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "2026-a-3"
+        ],
+        "work": {
+          "gpuInputs": 12,
+          "initialRoutes": 4,
+          "initialRuns": 48,
+          "appendRoutes": 3,
+          "questionsPerAppendRun": 24,
+          "adjacentRepeatFailureCasesPerRoute": 2
+        }
+      }
     },
     "tests/booklets/2026-b/answer-semantics.test.ts": {
       "count": 3,
@@ -5248,7 +5639,7 @@
       "scopes": []
     },
     "tests/calculation-difficulty.test.ts": {
-      "count": 18,
+      "count": 2,
       "scopes": []
     },
     "tests/catalog-pack-order.test.ts": {
@@ -6834,7 +7225,7 @@
       "scopes": []
     },
     "tests/random-bindings.test.ts": {
-      "count": 6,
+      "count": 3,
       "scopes": []
     },
     "tests/search.test.ts": {

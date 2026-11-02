@@ -10,6 +10,8 @@ export function callbackDeclarations(file, names) {
     for (const name of names) {
         let declaration;
         if (kind === 'random-bindings') declaration = 'tests/helpers/generation-paths/exhaustive.ts';
+        else if (kind === 'calculation-difficulty') declaration = 'tests/helpers/booklet-calculation-difficulty.ts';
+        else if (kind === 'sampler-regressions') declaration = 'tests/helpers/booklet-sampler-regressions.ts';
         else if (kind === 'content-contract') declaration = 'tests/helpers/booklet-content-contracts.ts';
         else if (kind === 'answer-semantics') declaration = 'tests/helpers/current-answer-semantics.ts';
         else if (kind === 'bookmarks' && name.startsWith(`bookmark paths ${scope}: `)) declaration = 'tests/helpers/booklet-bookmark-endless-paths.ts';

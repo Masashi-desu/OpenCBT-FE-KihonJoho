@@ -8,10 +8,12 @@ import { stage1AMCollections, stage1PartialReleaseRecordFiles, stage1PartialRele
 import { catalogKinds, catalogFileRecords } from "../src/core/catalog-files";
 import { readCatalog } from "../src/core/catalog-reader";
 import type { Bundle, SetRecord } from "../src/core/types";
+import {assertPublishedSourceScope, isDeclaredExtensionAsset, publishedSourceScope} from './helpers/published-source-scope';
 
 const root = path.resolve("public/data");
 const sha = (bytes: Uint8Array | string) => createHash("sha256").update(bytes).digest("hex");
 const current = readDistributionBundle(root);
+assertPublishedSourceScope(current);
 type Kind = typeof catalogKinds[number];
 type Node = { id: string };
 
@@ -47,7 +49,7 @@ const oldBindings = currentMix.generationBindings.filter(binding => !newTemplate
 const oldMix: SetRecord = { ...structuredClone(currentMix), revision: currentMix.revision - 1,
   generationBindings: oldBindings, questionRefs: oldBindings.map(binding => binding.questionRef) };
 // This is a transport control, not the historical release's chronology. Its
-// baseline already owns the later S3-001/S3-002 cohorts, so those must stay in
+// baseline already owns the later S3-001 cohort, so that cohort must stay in
 // the retained prefix when the explicit stage1 cohort is appended again.
 const transportedBindings = [...oldBindings, ...currentMix.generationBindings
   .filter(binding => newTemplateIds.has(binding.templateRef.id))];
@@ -76,17 +78,20 @@ const readBaseline = (name: string) => { const bytes = baselineFiles.get(name); 
 const sorted = (bundle: Bundle, kind: Kind) => [...bundle[kind]].sort((a, b) => a.id.localeCompare(b.id));
 const transport = () => stage1PartialReleaseRecordFiles(baseline, approved, readBaseline);
 
-test("partial-release transport appends467 families, preserves every old record and78 afternoon majors, and changes only mix-A", async () => {
-  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, 419);
-  assert.equal(baseline.templates.length, 419); assert.equal(baseline.assets.length, 890);
+test("partial-release transport appends467 families, preserves every old record and all afternoon majors, and changes only mix-A", async () => {
+  const retainedCount = publishedSourceScope.originalCount - 467;
+  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, retainedCount);
+  assert.equal(baseline.templates.length, retainedCount);
+  assert.equal(baseline.assets.filter(asset => !isDeclaredExtensionAsset(asset)).length, 890);
   const before = sha(JSON.stringify({ baseline, approved })), result = transport();
   const decoded = await readCatalog(async (name, max) => {
     const bytes = result.files.get(name); assert(bytes && bytes.byteLength <= max); return bytes;
   });
   assert.equal(result.catalog.revision, baseline.catalog.revision + 1);
   assert.equal(result.catalogHash, sha(result.files.get("catalog.json")!));
-  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, 886);
-  assert.equal(decoded.templates.length, 886);
+  assertPublishedSourceScope(decoded);
+  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, publishedSourceScope.originalCount);
+  assert.equal(decoded.templates.length, publishedSourceScope.originalCount);
   assert.deepEqual(Object.fromEntries(catalogKinds.map(kind => [kind,
     result.added[kind].filter(n => !baseline[kind].some(old => old.id === n.id)).length])),
     { questions: 934, sources: 78, rights: 51, assets: 471, sets: 6, exams: 12, templates: 467 });
@@ -98,7 +103,7 @@ test("partial-release transport appends467 families, preserves every old record 
     assert.deepEqual(sorted(decoded, kind), sorted(expectedTransport, kind), `${kind} retains every current record and the transport baseline's binding prefix`);
   }
   const pm = decoded.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"));
-  assert.equal(pm.length, 78);
+  assert.equal(pm.length, publishedSourceScope.afternoonCount);
   const nextMix = decoded.sets.find(s => s.id === "set-mix-a")!;
   assert.equal(nextMix.revision, oldMix.revision + 1);
   assert.deepEqual(nextMix.questionRefs.slice(0, oldMix.questionRefs.length), oldMix.questionRefs);
