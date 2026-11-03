@@ -59,6 +59,7 @@ import { isLegacyQuestion } from "../core/source-collections";
 import { menuSourceGroups, menuSourceGroup, chooseMenuSourceGroup, menuSubjectOptions, menuSubjectNotice, patchMenuSelection } from "../core/menu-selection";
 import { AnswerChoices, outcomeLabels } from "./AnswerChoices";
 import { QuestionSelection } from "./QuestionSelection";
+import { MenuOptionCard } from "./MenuOptionCard";
 import { answerLabels, hasCompleteAnswer } from "../core/answers";
 import { StudyClock } from "../core/study-clock";
 import {
@@ -151,7 +152,7 @@ const defaults: Selection = {
   subject: "A",
   kind: "annual",
   year: 2026,
-  mode: "study",
+  mode: "practice",
   size: "public",
   bindingMode: "original_data",
 };
@@ -179,7 +180,7 @@ function BrandMark() {
   return (
     <>
       <span className="brand-icon" aria-hidden="true" />
-      <span>
+      <span className="brand-wordmark">
         OpenCBT<small>基本情報技術者試験</small>
       </span>
     </>
@@ -591,7 +592,8 @@ export function App() {
   const assetUrls = useAssetUrls(run?.assets);
   const sourceGroups = useMemo(() => bundle ? menuSourceGroups(bundle) : [], [bundle]);
   const activeSourceGroup = menuSourceGroup(sourceGroups, selection);
-  const collectionSubjects = selection.mode !== "endless";
+  const allYearsMix = selection.kind === "mix" && selection.mixScope === "all";
+  const collectionSubjects = selection.mode !== "endless" && !allYearsMix;
   const subjects = menuSubjectOptions(activeSourceGroup, collectionSubjects);
   const subjectNotice = menuSubjectNotice(activeSourceGroup, collectionSubjects);
   const activeCollection = collectionSubjects ? activeSourceGroup?.collections.find(collection => collection.subject === selection.subject) : undefined;
@@ -600,7 +602,7 @@ export function App() {
     selectionError = "";
   try {
     if (bundle) {
-      if (selection.kind === "mix" && collectionSubjects) mixSizing = mixProfile(bundle,
+      if (selection.kind === "mix" && selection.mode !== "endless") mixSizing = mixProfile(bundle,
         { ...selection, mode: "study", size: "public", selectedQuestionRefs: undefined });
       chosen = selectQuestions(bundle, selection, (a) => a);
     }
@@ -1111,6 +1113,7 @@ export function App() {
           <a
             className="brand"
             href="#/menu"
+            aria-label="OpenCBT 基本情報技術者試験"
             onClick={(e) => {
               e.preventDefault();
               goMenu();
@@ -1204,15 +1207,15 @@ export function App() {
                   <legend className="sr-only">学習モード</legend>
                   <div className="segmented">
                     {([
-                      { mode: "study", label: "学習・復習", icon: BookOpen },
-                      { mode: "practice", label: "時間付き練習", icon: Clock },
+                      { mode: "finite", label: "問題練習", icon: BookOpen },
                       { mode: "endless", label: "無限周回", icon: InfinityIcon },
                     ] as const).map(({ mode, label, icon: Icon }) => (
                       <button
                         key={mode}
-                        aria-pressed={selection.mode === mode}
-                        className={selection.mode === mode ? "selected" : ""}
-                        onClick={() => patch({ mode })}
+                        aria-pressed={mode === "finite" ? selection.mode !== "endless" : selection.mode === mode}
+                        className={(mode === "finite" ? selection.mode !== "endless" : selection.mode === mode) ? "selected" : ""}
+                        onClick={() => patch({ mode: mode === "finite"
+                          ? selection.mode === "endless" ? finiteSelection.current.mode : selection.mode : mode })}
                       >
                         <Icon size={16} /> {label}
                       </button>
@@ -1244,17 +1247,16 @@ export function App() {
                           icon: Shuffle,
                         },
                       ].map((v) => (
-                        <button
+                        <MenuOptionCard
                           key={v.kind}
-                          className={
-                            selection.kind === v.kind
-                              ? "set-option selected"
-                              : "set-option"
-                          }
-                          aria-pressed={selection.kind === v.kind}
-                          onClick={() =>
+                          icon={<v.icon />}
+                          title={v.title}
+                          caption={v.text}
+                          selected={selection.kind === v.kind}
+                          onSelect={() =>
                             patch({
                               kind: v.kind,
+                              mixScope: v.kind === "mix" ? selection.mixScope ?? "collection" : undefined,
                               size: "public",
                               bindingMode:
                                 v.kind === "mix"
@@ -1262,16 +1264,23 @@ export function App() {
                                   : "original_data",
                             })
                           }
-                        >
-                          <v.icon size={23} />
-                          <strong>{v.title}</strong>
-                          <span>{v.text}</span>
-                          <span className="radio-dot" aria-hidden="true">
-                            {selection.kind === v.kind && <Check size={12} />}
-                          </span>
-                        </button>
+                        />
                       ))}
                     </div>
+                    {selection.kind === "mix" && <fieldset className="mode-field mix-scope-field">
+                      <legend>出題年度</legend>
+                      <div className="subject-tabs menu-option-cards">
+                        {([
+                          { scope: "all", label: "すべての年度", description: "年度をまたいで出題", icon: Shuffle },
+                          { scope: "collection", label: "年度を選択", description: "問題集を指定して出題", icon: CalendarDays },
+                        ] as const).map(({ scope, label, description, icon: Icon }) => <MenuOptionCard key={scope}
+                          icon={<Icon />} title={label} caption={description}
+                          selected={scope === "all" ? allYearsMix : !allYearsMix}
+                          onSelect={() => patch({ mixScope: scope })} />)}
+                      </div>
+                      {allYearsMix && <p className="subtle">科目Aは旧午前を含みます。旧午後は「年度を選択」から練習できます。</p>}
+                    </fieldset>}
+                    {!allYearsMix && (
                       <label className="field-label collection-field">
                         {selection.kind === "annual" ? "公開問題集" : "分野構成の基準問題集"}
                         <select
@@ -1288,6 +1297,7 @@ export function App() {
                           ))}
                         </select>
                       </label>
+                    )}
                   </>
                 )}
                 <div className="section-title">
@@ -1297,40 +1307,51 @@ export function App() {
                 {subjectNotice && <p className="subject-notice" id="subject-notice">{subjectNotice}</p>}
                 <div className={`subject-tabs${subjects.length === 1 ? " single-subject" : ""}`} role="group" aria-label="科目・試験区分" aria-describedby={subjectNotice ? "subject-notice" : undefined}>
                   {subjects.map(option => (
-                    <button
+                    <MenuOptionCard
                       key={option.subject}
                       disabled={!option.available}
-                      aria-pressed={option.available && selection.subject === option.subject}
-                      className={option.available && selection.subject === option.subject ? "selected" : ""}
-                      onClick={() => patch({ subject: option.subject })}
-                    >
-                      <span className={`subject-letter${option.badge.length > 1 ? " subject-time-slot" : ""}`}>{option.badge}</span>
-                      <span>{option.title}<small>{option.description}</small></span>
-                      {option.available && selection.subject === option.subject && <CheckCircle2 size={21} />}
-                    </button>
+                      icon={option.badge.length > 1 ? <Clock /> : option.badge}
+                      title={option.title}
+                      caption={option.description}
+                      selected={option.available && selection.subject === option.subject}
+                      onSelect={() => patch({ subject: option.subject })}
+                    />
                   ))}
                 </div>
-                {bundle && activeCollection?.questionSelection && <QuestionSelection bundle={bundle}
-                  collection={activeCollection} selection={selection}
-                  onChange={selectedQuestionRefs => patch({ selectedQuestionRefs })} />}
                 {selection.mode !== "endless" && (
                   <div className="config-grid config-grid-single">
                     <fieldset className="mode-field">
+                      <legend>制限時間</legend>
+                      <div className="subject-tabs menu-option-cards">
+                        {([
+                          { mode: "practice", label: "あり", description: "終了後に正答を確認", icon: Clock },
+                          { mode: "study", label: "なし", description: "正答表示・一時停止", icon: InfinityIcon },
+                        ] as const).map(({ mode, label, description, icon: Icon }) => <MenuOptionCard key={mode}
+                          icon={<Icon />} title={label} caption={description}
+                          selected={selection.mode === mode}
+                          onSelect={() => patch({ mode })} />)}
+                      </div>
+                    </fieldset>
+                    {bundle && activeCollection?.questionSelection && <QuestionSelection bundle={bundle}
+                      collection={activeCollection} selection={selection}
+                      onChange={selectedQuestionRefs => patch({ selectedQuestionRefs })} />}
+                    <fieldset className="mode-field">
                       <legend>出題数</legend>
                       {selection.kind === "mix" ? (
-                        <div className="segmented">
+                        <div className={`subject-tabs menu-option-cards${mixSizing?.fullCount ? "" : " single-subject"}`}>
                           {(["public", ...(mixSizing?.fullCount ? ["full" as const] : [])] as const).map((size) => (
-                            <button
+                            <MenuOptionCard
                               key={size}
-                              aria-pressed={selection.size === size}
-                              className={selection.size === size ? "selected" : ""}
-                              onClick={() => patch({ size })}
-                            >
-                              {activeCollection?.questionSelection && selection.mode === "practice"
-                                ? `選択した大問（${chosen?.questions.length ?? "―"}大問）`
-                                : <>{size === "public" ? "問題集の問数" : "本番の問数"}
-                                  （{(size === "public" ? mixSizing?.publicCount : mixSizing?.fullCount) ?? "―"}{activeCollection?.questionSelection ? "大問" : "問"}）</>}
-                            </button>
+                              icon={size === "public" ? <BookOpen /> : <ListChecks />}
+                              title={activeCollection?.questionSelection && selection.mode === "practice"
+                                  ? "選択した大問"
+                                  : size === "public" ? allYearsMix ? "練習の問数" : "問題集の問数" : "本番の問数"}
+                              caption={activeCollection?.questionSelection && selection.mode === "practice"
+                                  ? `${chosen?.questions.length ?? "―"}大問`
+                                  : `${(size === "public" ? mixSizing?.publicCount : mixSizing?.fullCount) ?? "―"}${activeCollection?.questionSelection ? "大問" : "問"}`}
+                              selected={selection.size === size}
+                              onSelect={() => patch({ size })}
+                            />
                           ))}
                         </div>
                       ) : (
@@ -1423,7 +1444,7 @@ export function App() {
                 開始前の確認
               </h1>
               <p className="page-intro">
-                {chosen.set.title}{chosen.questions.every(isLegacyQuestion) ? "" : ` · 科目${selection.subject}`}
+                {chosen.set.title}{activeSourceGroup?.timeSlots ? "" : ` · 科目${selection.subject}`}
               </p>
               <section className="instruction-card">
                 <div className="instruction-stats">
@@ -1440,9 +1461,9 @@ export function App() {
                         : `${Math.round(chosen.exam.timeLimitSeconds! / 60)}分`}
                     </strong>
                     <span>
-                      {selection.mode !== "practice"
-                        ? "学習モード"
-                        : "時間付き練習"}
+                      {selection.mode === "endless" ? "無限周回" : selection.mode !== "practice"
+                        ? "問題練習・制限時間なし"
+                        : "問題練習・制限時間あり"}
                     </span>
                   </div>
                   <div>
@@ -1481,8 +1502,12 @@ export function App() {
                     {selection.mode === "endless"
                       ? "出題数と時間に制限はありません。年度を指定せず、選んだ科目の問題を続けて練習できます。"
                       : selection.kind === "mix" && selection.size === "full"
-                      ? "本番の問数・制限時間を使います。収録問題を分野比率で選ぶ学習練習で、実際の本番の問題分布を保証しません。"
-                      : chosen.questions.some(isLegacyQuestion)
+                      ? selection.mode === "practice"
+                        ? "本番の問数・制限時間を使います。収録問題を分野比率で選ぶ学習練習で、実際の本番の問題分布を保証しません。"
+                        : "本番の問数を時間制限なしで練習します。実際の本番の問題分布を保証しません。"
+                      : selection.mode !== "practice"
+                        ? "時間制限なしで、自分のペースで練習できます。"
+                      : activeSourceGroup?.timeSlots
                         ? "旧制度の時間付き練習には、選んだ問題集の試験時間を使用します。"
                         : "制限時間はAを1問90秒、Bを1問300秒として算出した本アプリの設定です。公開部分を本番1回分とは扱いません。"}
                   </li>

@@ -371,27 +371,6 @@ small {
 .subject-tabs.single-subject {
   grid-template-columns: 1fr;
 }
-.subject-tabs .subject-letter.subject-time-slot {
-  width: 46px;
-  font-size: 15px;
-}
-.subject-tabs button {
-  padding: 16px;
-  text-align: left;
-  justify-content: flex-start;
-  gap: 12px;
-}
-.subject-tabs button > span:nth-child(2) {
-  flex: 1;
-  font-size: 15px;
-}
-.subject-tabs small {
-  display: block;
-  color: var(--text-secondary);
-  font-size: 10px;
-  font-weight: 400;
-  margin-top: 3px;
-}
 .subject-letter {
   width: 39px;
   height: 40px;
@@ -410,68 +389,86 @@ small {
   line-height: 1.2;
   white-space: nowrap;
 }
-.subject-tabs .selected {
+/* All menu choices share a compact icon/title row and a full-width caption. */
+.selection-option {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 6px;
+  min-width: 0;
+  padding: 14px 16px;
+  text-align: left;
+}
+.selection-option-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.selection-option-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 22px;
+  height: 22px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1;
+}
+.selection-option-icon > svg {
+  width: 22px;
+  height: 22px;
+}
+.selection-option-title {
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 650;
+  white-space: normal;
+}
+.selection-option-details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 17px;
+  align-items: start;
+  gap: 8px;
+}
+.selection-option-caption {
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.selection-option-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 18px;
+  color: var(--accent);
+}
+.selection-option-indicator > svg {
+  width: 17px;
+  height: 17px;
+}
+.selection-option:not(.selected) .selection-option-indicator {
+  visibility: hidden;
+}
+.selection-option.selected {
   background: var(--selected-surface);
   border-color: var(--selected-border);
 }
-.subject-tabs .selected .subject-letter {
-  background: var(--selected-surface);
+.selection-option.selected .selection-option-icon {
   color: var(--text-accent);
 }
-.subject-tabs .selected > svg {
-  color: var(--accent);
+.subject-tabs.menu-option-cards {
+  margin: 7px 0 0;
 }
 .set-options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 13px;
   margin-bottom: 24px;
-}
-.set-option {
-  padding: 22px 17px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  position: relative;
-  min-height: 154px;
-}
-.set-option > svg {
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-}
-.set-option strong {
-  font-size: 13px;
-}
-.set-option > span:not(.radio-dot) {
-  font-size: 11px;
-  color: var(--text-secondary);
-  font-weight: 400;
-  margin-top: 6px;
-  line-height: 1.8;
-}
-.set-option.selected {
-  border-color: var(--selected-border);
-  background: var(--selected-surface);
-}
-.set-option.selected > svg {
-  color: var(--accent);
-}
-.radio-dot {
-  position: absolute;
-  top: 18px;
-  right: 15px;
-  width: 17px;
-  height: 17px;
-  border: 1px solid var(--soft-border);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-}
-.selected .radio-dot {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--on-accent);
 }
 .config-grid {
   display: grid;
@@ -482,11 +479,19 @@ small {
 .config-grid.config-grid-single {
   grid-template-columns: 1fr;
 }
-.collection-field {
+.collection-field,
+.mode-field.mix-scope-field {
   margin-bottom: 29px;
+}
+.mix-scope-field .subtle {
+  margin: 10px 0 0;
+  font-weight: 400;
 }
 .question-selection {
   margin-bottom: 29px;
+}
+.config-grid .question-selection {
+  margin-bottom: 0;
 }
 .question-selection .mode-field {
   margin: 16px 0;
@@ -2612,14 +2617,8 @@ dialog details {
   .set-options {
     gap: 10px;
   }
-  .set-option {
-    padding: 20px 13px;
-  }
   .config-grid {
     grid-template-columns: 1fr 1.2fr;
-  }
-  .set-option strong {
-    font-size: 12px;
   }
   .home-notes .text-button {
     display: none;
@@ -2703,12 +2702,15 @@ dialog details {
   }
   .sidebar nav {
     display: flex;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
     margin-top: 0;
     margin-left: auto;
     gap: 5px;
   }
   .nav-item {
     justify-content: center;
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
     min-height: 44px;
@@ -2977,55 +2979,37 @@ dialog details {
     gap: 9px;
     margin-bottom: 26px;
   }
-  .subject-tabs button {
-    padding: 12px 9px;
-    gap: 7px;
-    align-items: flex-start;
-  }
-  .subject-tabs button > span:nth-child(2) {
-    font-size: 13px;
-  }
-  .subject-tabs small {
-    font-size: 9px;
-    line-height: 1.7;
-  }
-  .subject-tabs button > svg {
-    width: 15px;
-  }
   .subject-letter {
     width: 30px;
     height: 34px;
     font-size: 19px;
     border-radius: 6px;
   }
+  .selection-option {
+    gap: 5px;
+    padding: 10px 9px;
+  }
+  .selection-option-heading {
+    gap: 6px;
+  }
+  .selection-option-icon {
+    flex-basis: 18px;
+    height: 18px;
+    font-size: 16px;
+  }
+  .selection-option-icon > svg {
+    width: 18px;
+    height: 18px;
+  }
+  .selection-option-title {
+    font-size: 12px;
+  }
+  .selection-option-caption {
+    font-size: 10px;
+  }
   .set-options {
     grid-template-columns: 1fr;
     gap: 10px;
-  }
-  .set-option {
-    min-height: 91px;
-    display: grid;
-    grid-template-columns: 26px 1fr;
-    column-gap: 13px;
-    padding: 15px 18px 15px 15px;
-  }
-  .set-option > svg {
-    grid-row: 1/3;
-    margin: 0;
-    align-self: center;
-  }
-  .set-option strong {
-    font-size: 13px;
-    padding-right: 19px;
-  }
-  .set-option > span:not(.radio-dot) {
-    font-size: 10px;
-    margin-top: 4px;
-    padding-right: 15px;
-  }
-  .set-option .radio-dot {
-    top: 21px;
-    right: 15px;
   }
   .config-grid {
     grid-template-columns: 1fr;
@@ -3463,11 +3447,33 @@ dialog details {
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   z-index: -1;
 }
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   .sidebar {
     padding: 14px 12px;
     gap: 8px;
   }
+  .sidebar .brand {
+    min-height: 44px;
+    gap: 6px;
+    font-size: 16px;
+  }
+  .sidebar .brand-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .sidebar .brand small {
+    font-size: 7px;
+  }
+  .sidebar nav {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .sidebar .nav-item {
+    flex-shrink: 1;
+    min-width: 24px;
+  }
+}
+@media (max-width: 380px) {
   .brand,
   .exam-brand {
     gap: 6px;
@@ -3480,11 +3486,6 @@ dialog details {
   .brand small,
   .exam-brand small {
     font-size: 7px;
-  }
-  .nav-item {
-    width: 36px;
-    height: 40px;
-    min-height: 40px;
   }
 }
 /* Respond to the available layout width, including CSS text/page zoom whose
@@ -3533,8 +3534,6 @@ dialog details {
 .reading-content {
   font-size: inherit;
 }
-.subject-tabs small,
-.set-option > span:not(.radio-dot),
 .segmented button:not(.selected),
 .material-credit,
 .material-credit a,
@@ -3637,9 +3636,6 @@ dialog dt {
 .search-question .question-footer { margin-top: 28px; max-height: none; overflow: visible; padding: 16px 22px; }
 .search-question .question-footer-links button { min-height: 44px; }
 @media (max-width: 620px) {
-  .sidebar { flex-wrap: wrap; gap: 12px; }
-  .sidebar nav { width: 100%; margin-left: 0; justify-content: space-between; gap: 6px; }
-  .sidebar .nav-item { width: 44px; height: 44px; min-height: 44px; }
   .search-form,
   .search-result,
   .search-question-material,

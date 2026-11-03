@@ -115,6 +115,9 @@ export function selectQuestions(
   set: SetRecord;
   quota: Record<string, number>;
 } {
+  if (s.mixScope !== undefined && (s.kind !== "mix" || s.mode === "endless" ||
+    !["all", "collection"].includes(s.mixScope)))
+    throw new DataError("SELECTION", "出題年度の指定は問題数を決めたランダムミックスで使います");
   if (s.sourceCollectionId !== undefined && (s.kind !== "annual" || s.mode === "endless"))
     throw new DataError("SELECTION", "公開問題集の指定は年度別問題で使います");
   if (s.mixProfileCollectionId !== undefined && (s.kind !== "mix" || s.mode === "endless" ||
@@ -142,7 +145,7 @@ export function selectQuestions(
   if (s.subject === "mixed" || s.questionRefs !== undefined)
     throw new DataError("SELECTION", "問題群の指定は無限周回で使います");
   if (s.kind !== "bookmark" &&
-    ((!s.year && !s.sourceCollectionId && !s.mixProfileCollectionId) || !s.size))
+    ((!s.year && !s.sourceCollectionId && !s.mixProfileCollectionId && s.mixScope !== "all") || !s.size))
     throw new DataError("SELECTION", "年度と出題数を選んでください");
   if (s.kind === "bookmark") {
     if (s.selectedQuestionRefs !== undefined)
@@ -207,7 +210,8 @@ export function selectQuestions(
     candidates = b.questions.filter(
       (q) =>
         q.subject === s.subject &&
-        (profile!.legacy ? isLegacyQuestion(q) && q.origin.derivedFrom.some(ref => owned.has(refKey(ref)))
+        (s.mixScope !== undefined ? q.origin.derivedFrom.some(ref => owned.has(refKey(ref)))
+          : profile!.legacy ? isLegacyQuestion(q) && q.origin.derivedFrom.some(ref => owned.has(refKey(ref)))
           : isCurrentSubjectMixQuestion(q)) &&
         b.templates.some(
           (t) =>
@@ -275,10 +279,10 @@ export function selectQuestions(
     questionRefs: (profile?.collection.questionSelection ? chosen : candidates).map(refOf),
   };
   delete set.questionSelection; // The full policy stays in the source snapshot.
-  if (profile?.legacy) set.generationBindings = candidates.map(q => {
+  if (profile?.legacy || s.mixScope !== undefined) set.generationBindings = candidates.map(q => {
     const templates = b.templates.filter(t => refKey(t.baseQuestionRef) === refKey(refOf(q)) &&
       t.lifecycle === "active" && t.distribution === "included");
-    if (templates.length !== 1) throw new DataError("BINDING_REF", "旧制度の生成定義が一致しません。");
+    if (templates.length !== 1) throw new DataError("BINDING_REF", "問題の生成定義が一致しません。");
     return { questionRef: refOf(q), templateRef: { id: templates[0].id, revision: templates[0].revision } };
   });
   const exam: Exam = {

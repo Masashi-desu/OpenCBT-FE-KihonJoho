@@ -29,6 +29,7 @@ async function prepareQuestions(
   now: string,
   offset: number,
   recentInstances: Instance[],
+  allowAreaReselection = false,
 ) {
   const issued = structuredClone(questions),
     instances: Instance[] = [];
@@ -69,88 +70,104 @@ async function prepareQuestions(
       `${previous.templateRef.id}@${previous.templateRef.revision}:${JSON.stringify(previous.parameters.values)}`,
     );
   const entries = [];
+  const candidateRefs = new Set(set.questionRefs.map(refKey));
+  const areaCandidates = allowAreaReselection
+    ? bundle.questions.filter(q => candidateRefs.has(refKey(refOf(q)))) : [];
   for (let i = 0; i < questions.length; i++) {
-    const base = questions[i],
-      binding = set.generationBindings.find(
+    let base = questions[i], instance: Instance | undefined;
+    // A finite year-specific pool can exhaust a small input domain before its
+    // area quota is filled. Keep the source scope and quota, and try each other
+    // candidate once; never relax input/answer uniqueness to fill a slot.
+    const alternatives = shuffle(areaCandidates.filter(q =>
+      q.subject === base.subject && q.learning.area === base.learning.area &&
+      refKey(refOf(q)) !== refKey(refOf(base))));
+    const candidates = [base, ...alternatives];
+    for (const [candidateIndex, candidate] of candidates.entries()) {
+      base = candidate;
+      const binding = set.generationBindings.find(
         (g) =>
           g.questionRef.questionId === base.id &&
           g.questionRef.revision === base.revision,
       );
-    let instance: Instance | undefined;
-    if (bindingMode === "generated_values" && !binding)
-      throw new DataError(
-        "BINDING_REF",
-        "生成練習に生成できない固定問題が含まれています",
-      );
-    if (binding && bindingMode === "generated_values") {
-      const t = bundle.templates.find(
-        (t) =>
-          t.id === binding.templateRef.id &&
-          t.revision === binding.templateRef.revision,
-      );
-      if (!t)
+      if (bindingMode === "generated_values" && !binding)
         throw new DataError(
-          "GENERATOR_REF",
-          "生成テンプレートが見つかりません",
+          "BINDING_REF",
+          "生成練習に生成できない固定問題が含まれています",
         );
-      if ((await contentHash(base)) !== t.originalContentSha256)
-        throw new DataError("TEMPLATE_ORIGINAL_HASH", "元データが一致しません");
-      const instanceId = newId("instance"),
-        key = `${t.id}@${t.revision}`;
-      let seed = "",
-        parameters: { values: number[] } | undefined,
-        q: typeof base | undefined;
-      for (let attempt = 0; attempt < 128; attempt++) {
-        seed = randomSeed();
-        parameters = await parametersForSeed(seed, t);
-        const signature = `${key}:${JSON.stringify(parameters.values)}`;
-        // Reference inputs and answers are valid candidates too. Only actual
-        // practice history can exclude them, never their role as the baseline.
-        if (usedParameters.has(signature)) continue;
-        try {
-          q = bindQuestion(base, t, parameters.values, instanceId, now);
-        } catch (e) {
-          if (e instanceof DataError && e.code === "PARAMETER_CONSTRAINT")
-            continue;
-          throw e;
-        }
-        const answer = answerSignature(q);
-        if (
-          answerCanVary(t) &&
-          answer === lastAnswer.get(key)
-        ) {
+      if (binding && bindingMode === "generated_values") {
+        const t = bundle.templates.find(
+          (t) =>
+            t.id === binding.templateRef.id &&
+            t.revision === binding.templateRef.revision,
+        );
+        if (!t)
+          throw new DataError(
+            "GENERATOR_REF",
+            "生成テンプレートが見つかりません",
+          );
+        if ((await contentHash(base)) !== t.originalContentSha256)
+          throw new DataError("TEMPLATE_ORIGINAL_HASH", "元データが一致しません");
+        const instanceId = newId("instance"),
+          key = `${t.id}@${t.revision}`;
+        let seed = "",
+          parameters: { values: number[] } | undefined,
+          q: typeof base | undefined;
+        for (let attempt = 0; attempt < 128; attempt++) {
           q = undefined;
-          continue;
+          seed = randomSeed();
+          parameters = await parametersForSeed(seed, t);
+          const signature = `${key}:${JSON.stringify(parameters.values)}`;
+          // Reference inputs and answers are valid candidates too. Only actual
+          // practice history can exclude them, never their role as the baseline.
+          if (usedParameters.has(signature)) continue;
+          try {
+            q = bindQuestion(base, t, parameters.values, instanceId, now);
+          } catch (e) {
+            if (e instanceof DataError && e.code === "PARAMETER_CONSTRAINT")
+              continue;
+            throw e;
+          }
+          const answer = answerSignature(q);
+          if (
+            answerCanVary(t) &&
+            answer === lastAnswer.get(key)
+          ) {
+            q = undefined;
+            continue;
+          }
+          usedParameters.add(signature);
+          lastAnswer.set(key, answer);
+          break;
         }
-        usedParameters.add(signature);
-        lastAnswer.set(key, answer);
-        break;
+        if (!q || !parameters) {
+          if (candidateIndex + 1 < candidates.length) continue;
+          throw new DataError(
+            "GENERATION_CAPACITY",
+            `${t.title}（${t.id}）で異なる入力と正答を生成できませんでした。出題数を減らすか再試行してください。`,
+          );
+        }
+        schema("question", q);
+        issued[i] = q;
+        instance = {
+          schemaVersion: "3.0.0",
+          id: instanceId,
+          sessionId: id,
+          entryIndex: offset + i,
+          createdAt: now,
+          templateRef: { id: t.id, revision: t.revision },
+          baseQuestionRef: refOf(base),
+          generatorRef: t.generatorRef,
+          parameterSelection: "seeded",
+          seed,
+          parameters,
+          question: q,
+          contentSha256: await contentHash(q),
+          bindingPerformed: true,
+        };
+        schema("instance", instance);
+        instances.push(instance);
       }
-      if (!q || !parameters)
-        throw new DataError(
-          "GENERATION_CAPACITY",
-          `${t.title}（${t.id}）で異なる入力と正答を生成できませんでした。出題数を減らすか再試行してください。`,
-        );
-      schema("question", q);
-      issued[i] = q;
-      instance = {
-        schemaVersion: "3.0.0",
-        id: instanceId,
-        sessionId: id,
-        entryIndex: offset + i,
-        createdAt: now,
-        templateRef: { id: t.id, revision: t.revision },
-        baseQuestionRef: refOf(base),
-        generatorRef: t.generatorRef,
-        parameterSelection: "seeded",
-        seed,
-        parameters,
-        question: q,
-        contentSha256: await contentHash(q),
-        bindingPerformed: true,
-      };
-      schema("instance", instance);
-      instances.push(instance);
+      break;
     }
     const q = issued[i];
     entries.push({
@@ -205,6 +222,7 @@ export async function prepareRun(
     now,
     0,
     recentInstances,
+    selection.mixScope !== undefined && exam.questionOrder === "shuffle",
   );
   const run: Run = {
     session: {
@@ -240,6 +258,10 @@ export async function prepareRun(
     delete run.selection.year;
     delete run.selection.size;
     delete run.selection.sourceCollectionId;
+    delete run.selection.mixProfileCollectionId;
+  }
+  if (selection.mixScope === "all") {
+    delete run.selection.year;
     delete run.selection.mixProfileCollectionId;
   }
   schema("session", run.session);
@@ -440,6 +462,9 @@ export function updatePartAnswer(run: Run, partId: string, choiceId: string | un
   return touch(next, at);
 }
 export async function validateRun(run: Run) {
+  if (run.selection.mixScope !== undefined && (run.selection.kind !== "mix" ||
+    run.selection.mode === "endless" || !["all", "collection"].includes(run.selection.mixScope)))
+    throw new DataError("SESSION_CONFIG", "出題年度の保存設定が一致しません");
   if (run.selection.sourceCollectionId !== undefined) {
     if (run.selection.kind !== "annual" || run.selection.mode === "endless" ||
       typeof run.selection.sourceCollectionId !== "string" || !run.selection.sourceCollectionId.length)
@@ -464,22 +489,24 @@ export async function validateRun(run: Run) {
       (run.exam.mode === "practice" && run.exam.timeLimitSeconds !== seconds))
       throw new DataError("SESSION_CONFIG", "保存した公開問題集・出題参照・設定が一致しません");
   }
-  if (run.selection.mixProfileCollectionId !== undefined) {
+  if (run.selection.mixProfileCollectionId !== undefined || run.selection.mixScope !== undefined) {
     if (run.selection.kind !== "mix" || run.selection.mode === "endless" ||
-      typeof run.selection.mixProfileCollectionId !== "string" || !run.selection.mixProfileCollectionId.length)
+      (run.selection.mixProfileCollectionId !== undefined &&
+        (typeof run.selection.mixProfileCollectionId !== "string" || !run.selection.mixProfileCollectionId.length)))
       throw new DataError("SESSION_CONFIG", "基準問題集の保存設定が一致しません");
     const profile = mixProfile(run.bundle, run.selection);
     const actual: Record<string, number> = {};
     for (const q of run.issued) actual[q.learning.area] = (actual[q.learning.area] ?? 0) + 1;
     const areas = new Set([...Object.keys(profile.quota), ...Object.keys(actual)]);
-    const owned = new Set(profile.collection.questionRefs.map(refKey));
+    const owned = new Set(profile.questions.map(q => refKey(refOf(q))));
     if (run.exam.mode !== run.selection.mode || run.exam.questionCount !== profile.questionCount ||
       run.selection.bindingMode !== "generated_values" || run.session.bindingMode !== "generated_values" ||
       (run.exam.mode === "practice" && run.exam.timeLimitSeconds !== profile.timeLimitSeconds) ||
       [...areas].some(area => (actual[area] ?? 0) !== (profile.quota[area] ?? 0)) ||
       run.set.questionRefs.some(ref => {
         const q = run.bundle.questions.find(q => refKey(refOf(q)) === refKey(ref));
-        return !q || (profile.legacy
+        return !q || (run.selection.mixScope !== undefined
+          ? !q.origin.derivedFrom.some(parent => owned.has(refKey(parent))) : profile.legacy
           ? !isLegacyQuestion(q) || !q.origin.derivedFrom.some(parent => owned.has(refKey(parent)))
           : !isCurrentSubjectMixQuestion(q));
       })) throw new DataError("SESSION_CONFIG", "保存した基準問題集・問数・分野構成が一致しません");

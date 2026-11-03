@@ -66,6 +66,7 @@ export function menuSourceGroups(bundle: Bundle): MenuSourceGroup[] {
 }
 
 export function menuSourceGroup(groups: readonly MenuSourceGroup[], selection: Selection) {
+  if (selection.kind === "mix" && selection.mixScope === "all") return undefined;
   const id = (selection.kind === "mix" ? selection.mixProfileCollectionId : selection.sourceCollectionId) ??
     `set-annual-${selection.year}-${selection.subject.toLowerCase()}`;
   return groups.find(group => group.collections.some(set => set.id === id));
@@ -82,13 +83,15 @@ export function chooseMenuSourceGroup(
   if (!collection) throw new DataError("SOURCE_COLLECTION", "この問題集に選択した科目は含まれていません。");
   const kind = selection.kind === "mix" ? "mix" : "annual";
   const next: Selection = { ...selection, kind, subject: collection.subject,
-    size: kind === "annual" || group.timeSlots ? "public" : selection.size ?? "public",
+    size: kind === "annual" || group.timeSlots || collection.id !== selection.mixProfileCollectionId
+      ? "public" : selection.size ?? "public",
     bindingMode: kind === "annual" ? "original_data" : "generated_values" };
   delete next.selectedQuestionRefs;
   delete next.sourceCollectionId;
   delete next.mixProfileCollectionId;
   if (kind === "annual") next.sourceCollectionId = collection.id;
   else next.mixProfileCollectionId = collection.id;
+  if (kind === "annual") delete next.mixScope;
   if (group.year === undefined) delete next.year;
   else next.year = group.year;
   return next;
@@ -127,6 +130,7 @@ export function patchMenuSelection(
     const next: Selection = { ...old, ...value, kind: "mix", bindingMode: "generated_values" };
     delete next.sourceCollectionId;
     delete next.mixProfileCollectionId;
+    delete next.mixScope;
     delete next.selectedQuestionRefs;
     return { selection: next, finite: old.mode === "endless" ? finite : old };
   }
@@ -135,16 +139,22 @@ export function patchMenuSelection(
   let next: Selection = { ...restored, ...value };
   if (value.mode !== undefined && value.mode !== restored.mode) delete next.selectedQuestionRefs;
   if (next.kind === "mix") { delete next.sourceCollectionId; next.bindingMode = "generated_values"; }
-  else delete next.mixProfileCollectionId;
+  else { delete next.mixProfileCollectionId; delete next.mixScope; }
+  if (value.mixScope !== undefined && value.mixScope !== restored.mixScope) {
+    delete next.selectedQuestionRefs;
+    next.size = "public";
+  }
   if (bundle && next.kind !== "bookmark" &&
+    next.mixScope !== "all" &&
     ((value.subject !== undefined && value.subject !== restored.subject) ||
       (value.kind !== undefined && value.kind !== restored.kind) ||
-      (value.year !== undefined && value.year !== restored.year) || restoring)) {
+      (value.year !== undefined && value.year !== restored.year) ||
+      (value.mixScope !== undefined && value.mixScope !== restored.mixScope) || restoring)) {
     const groups = menuSourceGroups(bundle);
     // An explicit missing set remains an error instead of becoming another book.
     const group = value.year !== undefined && value.year !== restored.year
       ? menuSourceGroup(groups, { ...next, sourceCollectionId: undefined, mixProfileCollectionId: undefined })
-      : menuSourceGroup(groups, restored);
+      : menuSourceGroup(groups, { ...restored, mixScope: undefined });
     if (group) next = chooseMenuSourceGroup(groups, next, group.id, value.subject);
   }
   return { selection: next, finite };

@@ -371,6 +371,8 @@ export type Selection = {
   sourceCollectionId?: string;
   // The original collection defining a finite mix's count and area profile.
   mixProfileCollectionId?: string;
+  // Omitted on older runs, whose original profile/pool semantics are retained.
+  mixScope?: "all" | "collection";
   // Original major-question refs chosen before a timed, selective booklet.
   selectedQuestionRefs?: Ref[];
   mode: "practice" | "study" | "endless";

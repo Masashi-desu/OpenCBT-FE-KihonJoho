@@ -185,3 +185,110 @@ test("existing saved year-only mixes retain their issued counts and answers with
 
 // Match executable App setup without changing raw shared fixture imports.
 before(installFixtureGenerators);
+
+test("all-year mixes expose every eligible source family while keeping old afternoon out of the current B pool", () => {
+  const b = fixture();
+  for (const subject of ["A", "B"] as const) {
+    const s: Selection = { ...initial, subject, year: undefined, mixScope: "all" };
+    const expected = b.questions.filter(q => q.origin.kind === "official_reprint" && q.subject === subject &&
+      q.distribution === "included" && q.lifecycle === "active" &&
+      (subject === "A" || !q.origin.sourceRefs.some(ref => ref.locator.timeSlot)));
+    assert.equal(expected.length, subject === "A" ? 759 : 49);
+    const profile = mixProfile(b, s), out = selectQuestions(b, s, a => a);
+    assert.equal(profile.publicCount, subject === "A" ? 20 : 6);
+    assert.equal(out.questions.length, profile.publicCount);
+    assert.equal(out.set.title, "ランダムミックス・生成問題（すべての年度）");
+    assert.deepEqual(profile.questions.map(refOf).map(refKey).sort(), expected.map(refOf).map(refKey).sort());
+    assert.deepEqual(out.set.questionRefs.map(ref => b.questions.find(q => refKey(refOf(q)) === refKey(ref))!)
+      .flatMap(q => q.origin.derivedFrom.map(refKey)).sort(), expected.map(refOf).map(refKey).sort());
+    for (const size of ["public", "full"] as const) {
+      const timed = selectQuestions(b, { ...s, size, mode: "practice" }, a => a);
+      assert.equal(timed.exam.timeLimitSeconds, size === "full" ? subject === "A" ? 5400 : 6000 : 1800);
+      assert.equal(timed.questions.length, size === "full" ? subject === "A" ? 60 : 20 : profile.publicCount);
+    }
+  }
+});
+
+test("explicit collection mixes draw only from that publication and offer full B practice only when both exam areas are included", () => {
+  const b = fixture();
+  for (const group of menuSourceGroups(b)) for (const collection of group.collections) {
+    const s = { ...select(collection.id, collection.subject as "A" | "B"), mixScope: "collection" as const };
+    const out = selectQuestions(b, s, a => a), owned = new Set(collection.questionRefs.map(refKey));
+    assert.equal(out.questions.length, collection.questionRefs.length);
+    assert.equal(out.set.questionRefs.length, collection.questionRefs.length);
+    assert(out.questions.every(q => q.origin.derivedFrom.some(ref => owned.has(refKey(ref)))));
+  }
+  const s = { ...select("set-annual-2025-b", "B", "full"), mixScope: "collection" as const, mode: "practice" as const };
+  assert.equal(mixProfile(b, { ...s, size: "public" }).fullCount, undefined);
+  assert.throws(() => selectQuestions(b, s), { code: "PROFILE_SCOPE" });
+  const out = selectQuestions(b, { ...s, mixProfileCollectionId: "set-annual-2026-b" }, a => a);
+  assert.deepEqual(out.quota, { algorithm: 16, security: 4 });
+  assert.deepEqual(out.exam.quotas, { algorithm: 16, security: 4 });
+  assert.equal(out.exam.timeLimitSeconds, 6000);
+  assert(out.questions.every(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2026)));
+});
+
+test("new year scopes preserve generated content, answers, deadlines and results through save/reopen with either time setting", async () => {
+  const b = fixture();
+  for (const mixScope of ["all", "collection"] as const) for (const mode of ["study", "practice"] as const) {
+    const s: Selection = { ...select("set-annual-2026-b", "B"), mixScope, mode };
+    let run = startRun(await prepareRun(b, s, {}, 100000), 101000);
+    assert.equal(run.selection.mixScope, mixScope);
+    if (mixScope === "all") {
+      assert.equal(run.selection.mixProfileCollectionId, undefined);
+      assert.equal(run.selection.year, undefined);
+    }
+    assert.equal(run.session.deadlineAt, mode === "practice" ? new Date(1901000).toISOString() : undefined);
+    assert.equal(run.exam.timeLimitSeconds, mode === "practice" ? 1800 : undefined);
+    run = updateAnswer(run, run.issued[0].correctAnswer.choiceId, 102000);
+    const saved = JSON.parse(JSON.stringify(run));
+    await validateRun(saved);
+    assert.deepEqual(saved.issued, run.issued);
+    assert.equal(saved.session.entries[0].selectedChoiceId, run.issued[0].correctAnswer.choiceId);
+    run = finishRun(saved, "completed", 105000);
+    await validateRun(JSON.parse(JSON.stringify(run)));
+    assert.equal(run.result!.total, 6); assert.equal(run.result!.correct, 1);
+    const wrong = structuredClone(run);
+    wrong.selection.mixScope = "collection";
+    wrong.selection.mixProfileCollectionId = "set-annual-2025-b";
+    await assert.rejects(validateRun(wrong), { code: "SESSION_CONFIG" });
+  }
+});
+
+test("year scope rejects invalid modes, obsolete major selections and saved candidate pools outside the selected publication", async () => {
+  const b = fixture(), s: Selection = { ...select("set-annual-2026-b", "B"), mixScope: "collection" };
+  for (const invalid of [{ ...s, kind: "annual" as const }, { ...s, mode: "endless" as const },
+    { ...s, mixScope: "unknown" as "all" }]) {
+    assert.throws(() => selectQuestions(b, invalid), { code: "SELECTION" });
+  }
+  assert.throws(() => selectQuestions(b, { ...s, mixScope: "all", selectedQuestionRefs: [] }), { code: "QUESTION_SELECTION" });
+  const run = await prepareRun(b, s, {}, 100000);
+  run.set.questionRefs.push(refOf(b.questions.find(q => q.origin.kind === "official_adaptation" &&
+    q.origin.sourceRefs.some(ref => ref.locator.year === 2025))!));
+  await assert.rejects(validateRun(run), { code: "SESSION_CONFIG" });
+});
+
+test("scoped full mixes reselect exhausted series within the same publication and area while retaining input uniqueness across consecutive runs", async () => {
+  const b = fixture();
+  for (const [id, subject] of [["set-annual-2026-a", "A"], ["set-annual-2023-a", "A"], ["set-sample-2022-apr-b", "B"]] as const) {
+    const s: Selection = { ...select(id, subject, "full"), mixScope: "collection" };
+    const prepared = selectQuestions(b, s, a => a);
+    const first = await prepareRun(b, s, {}, 100000, undefined, prepared);
+    const second = await prepareRun(b, s, {}, 200000, undefined, prepared, first.instances);
+    for (const run of [first, second]) {
+      await validateRun(JSON.parse(JSON.stringify(run)));
+      assert.equal(run.issued.length, subject === "A" ? 60 : 20);
+      assert.deepEqual(run.issued.reduce((counts, q) => {
+        counts[q.learning.area] = (counts[q.learning.area] ?? 0) + 1; return counts;
+      }, {} as Record<string, number>), prepared.quota);
+      const owned = new Set(b.sets.find(set => set.id === id)!.questionRefs.map(refKey));
+      assert(run.instances.every(instance => b.questions.find(q => refKey(refOf(q)) === refKey(instance.baseQuestionRef))!
+        .origin.derivedFrom.some(ref => owned.has(refKey(ref)))));
+    }
+    const inputs = [...first.instances, ...second.instances]
+      .map(instance => `${instance.templateRef.id}:${JSON.stringify(instance.parameters.values)}`);
+    assert.equal(new Set(inputs).size, inputs.length);
+    assert(first.session.entries.some((entry, i) => refKey(entry.questionRef) !== refKey(refOf(prepared.questions[i]))) ||
+      second.session.entries.some((entry, i) => refKey(entry.questionRef) !== refKey(refOf(prepared.questions[i]))));
+  }
+});

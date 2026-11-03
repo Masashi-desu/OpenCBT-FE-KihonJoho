@@ -41,6 +41,6 @@ export function QuestionSelection({ bundle, collection, selection, onChange }: {
         </div>
       </fieldset>;
     })}
-    <p className="subtle">選ばなかった大問は採点に含めません。全大問を解く場合は「学習・復習」を選んでください。</p>
+    <p className="subtle">選ばなかった大問は採点に含めません。全大問を解く場合は制限時間を「なし」にしてください。</p>
   </div>;
 }

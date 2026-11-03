@@ -9,6 +9,42 @@ import { prepareRun, validateRun } from "../src/core/session";
 
 const initial: Selection = { subject: "A", kind: "annual", year: 2026, mode: "study", size: "public", bindingMode: "original_data" };
 
+test("all-year selection hides the collection and restores the remembered B-only publication when a year is requested again", () => {
+  const b = fixture(), groups = menuSourceGroups(b);
+  const april = chooseMenuSourceGroup(groups, { ...initial, kind: "mix", mixScope: "collection" }, "set-sample-2022-apr-b");
+  const all = patchMenuSelection(b, april, { mixScope: "all" }, initial).selection;
+  assert.equal(menuSourceGroup(groups, all), undefined);
+  assert.equal(selectQuestions(b, all).questions.length, 6);
+  const a = patchMenuSelection(b, all, { subject: "A" }, initial).selection;
+  assert.equal(selectQuestions(b, a).questions.length, 20);
+  const restored = patchMenuSelection(b, a, { mixScope: "collection" }, initial).selection;
+  assert.equal(restored.subject, "B"); assert.equal(restored.mixProfileCollectionId, april.mixProfileCollectionId);
+  const annual = patchMenuSelection(b, all, { kind: "annual" }, initial).selection;
+  assert.equal(annual.mixScope, undefined); assert.equal(annual.sourceCollectionId, april.mixProfileCollectionId);
+  const full = { ...all, size: "full" as const };
+  const limited = chooseMenuSourceGroup(groups, { ...full, mixScope: "collection" }, "set-annual-2025-b");
+  assert.equal(limited.size, "public"); assert.equal(selectQuestions(b, limited).questions.length, 5);
+  const reselected = patchMenuSelection(b, { ...full, mixProfileCollectionId: "set-annual-2025-b" },
+    { mixScope: "collection" }, initial).selection;
+  assert.equal(reselected.size, "public"); assert.equal(selectQuestions(b, reselected).questions.length, 5);
+});
+
+test("time selection stays independent of year scope and restores after endless without leaking legacy major selections", () => {
+  const b = fixture(), groups = menuSourceGroups(b);
+  const group = groups.find(g => g.year === 2019 && g.period === "秋期")!;
+  const pm = chooseMenuSourceGroup(groups, { ...initial, kind: "mix", mixScope: "collection" }, group.id, "B");
+  const timed = patchMenuSelection(b, { ...pm, selectedQuestionRefs: [] }, { mode: "practice" }, initial).selection;
+  assert.equal(timed.selectedQuestionRefs, undefined);
+  const all = patchMenuSelection(b, timed, { mixScope: "all" }, initial).selection;
+  assert.equal(all.mode, "practice"); assert.equal(all.selectedQuestionRefs, undefined);
+  const endless = patchMenuSelection(b, all, { mode: "endless" }, initial);
+  assert.equal(endless.selection.mixScope, undefined);
+  const restored = patchMenuSelection(b, endless.selection, { mode: "practice" }, endless.finite).selection;
+  assert.equal(restored.mixScope, "all"); assert.equal(restored.mode, "practice");
+  const untimed = patchMenuSelection(b, restored, { mode: "study" }, initial).selection;
+  assert.equal(untimed.mixScope, "all"); assert.equal(selectQuestions(b, untimed).exam.timeLimitSeconds, undefined);
+});
+
 test("the menu lists every publication before subject selection, including the B-only April sample", () => {
   const b = fixture(), groups = menuSourceGroups(b);
   assert.deepEqual(groups.map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 秋期", "旧制度 · 2019年度 春期", "旧制度 · 2018年度 秋期", "旧制度 · 2018年度 春期", "旧制度 · 2017年度 秋期", "旧制度 · 2017年度 春期", "旧制度 · 2016年度 秋期", "旧制度 · 2016年度 春期"]);
