@@ -9,7 +9,8 @@ import { readDistributionBundle } from "./distribution-files";
 import { catalogKinds } from "../src/core/catalog-files";
 
 const input = path.resolve(process.argv[2] ?? "output/source-import/dec-a"), root = path.resolve("public/data");
-const pages = JSON.parse(fs.readFileSync(path.join(input, "pages.json"), "utf8")) as {number:number;page:number;name:string;width:number;height:number;byteLength:number;sha256:string;text:string}[];
+const pages = JSON.parse(fs.readFileSync(path.join(input, "pages.json"), "utf8")) as {number:number;page:number;name:string;width:number;height:number;byteLength:number;sha256:string;text:string;pixelCrop?:number[]|null}[];
+const boundaries = JSON.parse(fs.readFileSync(new URL('./source-evidence/december-a-question-boundaries.json',import.meta.url),'utf8'));
 const catalog: Catalog = JSON.parse(fs.readFileSync(path.join(root, "catalog.json"), "utf8"));
 const prior = readDistributionBundle(root);
 const stem = "sample-2022-dec-a", checkedOn = "2026-10-19", qs = `source-ipa-${stem}-qs`, ans = `source-ipa-${stem}-ans`, rightsId = `rights-ipa-${stem}`;
@@ -66,27 +67,34 @@ for (const item of review.questions) {
   for (const page of [...item.pages,2,3]) {
     const rendered = pages.find(p => p.number === (page<=3?0:item.number) && p.page === page);
     if (!rendered) throw Error(`Missing rendered question ${item.number} page ${page}`);
+    if (page > 3) {
+      const boundary = boundaries.questions.find((q:{number:number})=>q.number===item.number);
+      if (!boundary || JSON.stringify(rendered.pixelCrop)!==JSON.stringify(boundary.pixelCrop) ||
+        hash(Buffer.from(rendered.text))!==boundary.textSha256 || rendered.sha256!==boundary.imageSha256)
+        throw Error(`Question bounds or extraction differ: ${item.number}`);
+    }
     const bytes = fs.readFileSync(path.join(input, rendered.name));
     if (hash(bytes) !== rendered.sha256 || bytes.length !== rendered.byteLength) throw Error("Rendered asset hash differs");
-    fs.copyFileSync(path.join(input, rendered.name), path.join(root, "assets", rendered.name));
     const assetId = `asset-ipa-${stem}-${page<=3?"notation":item.number}-p${page}`; assets.push(assetId);
     write("assets", rendered.name.replace(/\.webp$/, ""), { schemaVersion: "3.0.0", id: assetId, path: "assets/" + rendered.name,
       mediaType: "image/webp", sha256: rendered.sha256, width: rendered.width, height: rendered.height, byteLength: rendered.byteLength,
-      alt: `2022年12月公表FE科目Aサンプル問題 ${page<=3?"共通の表記ルール":"問"+item.number} 原資料p.${page}。本文・前提・図表・解答群を原ページのまま保持。補助文字と出典PDFも参照できる。`, attribution: page<=3?{...attr(item.number,page),sourceRefs:[{sourceId:qs,locator:{section:"共通の表記ルール",page,exam:"基本情報技術者試験",period:"2022年12月公表 サンプル問題",subject:"科目A"}}]}:attr(item.number, page),
+      alt: `2022年12月公表FE科目Aサンプル問題 ${page<=3?"共通の表記ルール":"問"+item.number} 原資料p.${page}。${page<=3?"共通資料を原ページのまま保持。":"該当問題の本文・前提・図表・解答群だけを切り出し、隣接問題を含めない。"}補助文字と出典PDFも参照できる。`, attribution: page<=3?{...attr(item.number,page),sourceRefs:[{sourceId:qs,locator:{section:"共通の表記ルール",page,exam:"基本情報技術者試験",period:"2022年12月公表 サンプル問題",subject:"科目A"}}]}:attr(item.number, page),
     } satisfies Asset);
+    // Refuse conflicting reviewed metadata before replacing its image bytes.
+    fs.copyFileSync(path.join(input, rendered.name), path.join(root, "assets", rendered.name));
     blocks.push({ type: "image", assetId, caption: `原資料 p.${page}` }, { type: "code", language: "text", text: rendered.text });
   }
   const id = `question-ipa-${stem}-${item.number}`;
   const q: Question = {
     schemaVersion: "3.0.0", id, revision: 1, lifecycle: "active", subject: "A",
     learning: { area: item.number<=41 ? "technology" : item.number<=48 ? "management" : "strategy", tags: ["sample-2022-december"], topics: [item.topic], keywords: [item.topic,...item.premises] },
-    origin: { kind: "official_reprint", sourceRefs: [ref(item.number, item.pages[0])], derivedFrom: [], changes: [{ at: "2026-10-19T00:00:00Z", actorId: "codex", kind: "layout", summary: "原ページを画像化し補助文字を併記", details: "原ページ全体と著作権表示を保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。", affectsAnswer: false }], isModified: false, modificationBasis: "official_source" },
+    origin: { kind: "official_reprint", sourceRefs: [ref(item.number, item.pages[0])], derivedFrom: [], changes: [{ at: "2026-11-03T00:00:00Z", actorId: "codex", kind: "layout", summary: "原問題単位の画像と補助文字を収録", details: "査読済みの同一矩形で画像化・文字抽出し、隣接問題を含めない。共通表記は別ページに保持。PDF抽出文字は空欄・図表の完全な代替ではなく、原画像と公式PDFを正本とする。", affectsAnswer: false }], isModified: false, modificationBasis: "official_source" },
     contributors: [{ actorId: "ipa", role: "author" }, { actorId: "codex", role: "editor" }, { actorId: "codex", role: "verifier" }], contexts: [], contextRefs: [],
     prompt: { attribution: attr(item.number, item.pages[0]), blocks },
     choices: item.choices.map((_, i) => ({ id: `choice-${i + 1}`, content: { attribution: attr(item.number, item.pages.at(-1)!), blocks: [{ type: "paragraph", text: labels[i] }] } })),
     correctAnswer: { choiceId: `choice-${labels.indexOf(item.answer) + 1}`, attribution: attr(item.number, 1, true) },
     explanation: { attribution: own, blocks: [{ type: "paragraph", text: item.explanation }] }, assetRefs: assets, choiceShuffleAllowed: false, distribution: "included",
-    review: { checkedOn, reviewerIds: ["codex"], checks: { publication: "pass", terms: "pass", thirdParty: "pass", transcription: "pass", answer: "pass", explanation: "pass" }, notes: "公式PDFの各問題ページ・全選択肢・注意書き・別紙解答p.1を目視照合。独立した参照解法と全選択肢のテストを適用。全文画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。" },
+    review: { checkedOn: "2026-11-03", reviewerIds: ["codex"], checks: { publication: "pass", terms: "pass", thirdParty: "pass", transcription: "pass", answer: "pass", explanation: "pass" }, notes: "公式PDFの問題別矩形・全選択肢・注意書き・別紙解答p.1を照合。画像と補助文字は同じ矩形で切り出し、隣接問題を含めない。独立した参照解法と全選択肢のテストを適用。問題画像を正本とし抽出文字の空欄脱落は画像で保持する。独自解説は公式解説ではない。同一AIの査読であり担当を分離した二重確認ではない。" },
   };
   write("questions", `ipa-${stem}-${item.number}`, q); questionRefs.push({ questionId: id, revision: 1 });
 }

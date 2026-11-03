@@ -18,8 +18,9 @@ export function fixture(){
  assert.equal(b.questions.length,378);assert.equal(b.templates.length,189);
  return b;
 }
-/** Frozen metadata/hash expectations were independently reviewed against main978775a;
- * this never derives an expected value from the newly synchronized implementation.
+/** Frozen metadata/hash expectations track the explicitly reviewed updates in
+ * baseline.source.appliedMainCandidateUpdates, including the source-bounded
+ * December A layout correction. No semantic expectations come from generators.
  */
 export async function assertMainPreservation(){
  const b=fixture();assert.equal(additionalDefinitions.length,176);assert.equal(baseline.rows.length,189);
