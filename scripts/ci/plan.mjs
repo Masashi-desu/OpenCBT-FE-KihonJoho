@@ -8,6 +8,7 @@ import { validScope } from './booklet-scope.mjs';
 import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
 import { callbackDeclarations } from './callback-locations.mjs';
+import { classifyDetailChanges, validDetailTest } from './detail-changes.mjs';
 export const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export const blob = bytes => crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
 export const canonical = value => JSON.stringify(value);
@@ -91,19 +92,26 @@ export function validateTestManifest(files, entries) {
     for (const [file, e] of Object.entries(entries)) {
         safePath(file);
         requireCI(Number.isSafeInteger(e.count) && e.count > 0 && Array.isArray(e.scopes) && e.scopes.every(validScope) && new Set(e.scopes).size === e.scopes.length, 'nonempty test count and explicit scope ownership ' + file);
+        if (e.detail !== undefined)
+            requireCI(validDetailTest(e), 'explicit detail packages and restricted support-file ownership ' + file);
         if (e.diagnostics)
             requireCI(Array.isArray(e.diagnostics) && e.diagnostics.every(d => typeof d === 'string' && d.length) && new Set(e.diagnostics).size === e.diagnostics.length, 'explicit unique work diagnostics ' + file);
         if (e.names)
             requireCI(Array.isArray(e.names) && e.names.length === e.count && new Set(e.names).size === e.names.length && e.names.every(n => typeof n === 'string' && n.length), 'explicit unique case names ' + file);
     }
 }
-export function makeParts(files, entries, selectedScopes, full = false) {
-    const wanted = full ? files : files.filter(f => !entries[f].scopes.length || entries[f].scopes.some(s => selectedScopes.includes(s))), parts = {};
+/** @param {{profile?: string, detailDirectories?: string[]}} [options] */
+export function makeParts(files, entries, selectedScopes, full = false, options = {}) {
+    const { profile, detailDirectories = [] } = options;
+    const details = !full && profile === 'details';
+    const wanted = full ? files : details ? files.filter(f => validDetailTest(entries[f]) && (!entries[f].detail.packages.length || entries[f].detail.packages.some(p => detailDirectories.includes(p)))) : files.filter(f => !entries[f].scopes.length || entries[f].scopes.some(s => selectedScopes.includes(s))), parts = {};
     for (const file of wanted) {
-        const wrapper = /^tests\/booklets\/([^/]+)\/[^/]+\.test\.ts$/.exec(file), part = wrapper ? 'booklet-' + wrapper[1] : entries[file].scopes.length ? 'related' : 'common';
+        const wrapper = /^tests\/booklets\/([^/]+)\/[^/]+\.test\.ts$/.exec(file), part = details ? entries[file].detail.packages.length ? 'details' : 'common' : wrapper ? 'booklet-' + wrapper[1] : entries[file].scopes.length ? 'related' : 'common';
         (parts[part] ??= []).push(file);
     }
     requireCI(parts.common?.length > 0, 'nonempty shared contract tests');
+    if (details)
+        requireCI(detailDirectories.length > 0 && detailDirectories.every(p => wanted.some(f => entries[f].detail.packages.includes(p))), 'content tests for every changed detail package');
     return Object.fromEntries(Object.entries(parts).sort(([a], [b]) => a.localeCompare(b)).map(([part, names]) => [part, { files: names.sort(), expectedByFile: Object.fromEntries(names.map(f => [f, entries[f].count])), expectedNames: Object.fromEntries(names.filter(f => entries[f].names).map(f => [f, entries[f].names])), expectedDeclarations: Object.fromEntries(names.map(f => [f, callbackDeclarations(f, entries[f].names)]).filter(([, declarations]) => declarations)), expectedCount: names.reduce((n, f) => n + entries[f].count, 0), requiredDiagnostics: names.flatMap(f => entries[f].diagnostics ?? []), coverage: Object.fromEntries(names.filter(f => entries[f].coverage).map(f => [f, entries[f].coverage])), filters: [] }]));
 }
 function manifestDeltaAllowed(beforeBytes, afterBytes, beforeFiles, afterFiles, changed, scopes) {
@@ -183,8 +191,14 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         extensionScopes['scripts/source-inventory-extensions.json'] = sourceInventoryAppendScopes(readAt(base.commit, 'scripts/source-inventory-extensions.json')?.toString(), readAt(null, 'scripts/source-inventory-extensions.json')?.toString());
     const manifests = changed.filter(p => p === manifestPath || p === privatePath), initialChanged = changed.filter(p => !manifests.includes(p));
     let selected = classifyScopedChanges({ changed: initialChanged, beforeOwnership: before, afterOwnership: after, testEntries: entries, extensionScopes, forceFull: forceFull || !base.trusted });
+    if (base.trusted && !forceFull && workspaceKind === 'public') {
+        const detail = classifyDetailChanges({ changed, beforeOwnership: before, afterOwnership: after,
+            beforeTestEntries: JSON.parse(readAt(base.commit, manifestPath).toString()).files, testEntries: entries,
+            readBefore: file => readAt(base.commit, file), readAfter: file => readAt(null, file) });
+        if (detail) selected = detail;
+    }
     for (const file of manifests)
-        if (!manifestDeltaAllowed(readAt(base.commit, file), readAt(null, file), baseline, actual, changed, selected.scopes)) {
+        if (selected.profile !== 'details' && !manifestDeltaAllowed(readAt(base.commit, file), readAt(null, file), baseline, actual, changed, selected.scopes)) {
             selected.profile = 'full';
             selected.scopes = after.scopes;
             selected.unknown.push(file);
@@ -201,11 +215,11 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         affected.virtualArtifacts = {before: oldImports.virtualDependencies ?? [], after: newImports.virtualDependencies ?? []};
         selected.scopes = [...new Set([...selected.scopes, ...affected.scopes])].sort();
         selected.reverseDependencies = affected;
-        if (affected.unknown.length) {
+        if (affected.unknown.length || selected.profile === 'details' && affected.scopes.length) {
             selected.profile = 'full';
             selected.scopes = after.scopes;
             selected.unknown.push(...affected.unknown);
-            selected.reasons.push('unowned reverse runtime dependency');
+            selected.reasons.push('unowned reverse runtime dependency or detail support consumed by application code');
         }
     }
     selected.changed = changed;
@@ -216,7 +230,7 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
     // Current A publication pools also contain historical morning series.
     if (selected.scopes.some(s => s.endsWith('-am')))
         selected.scopes = [...new Set([...selected.scopes, ...after.scopes.filter(s => /^20\d{2}-a$/.test(s))])].sort();
-    let partSpecs = makeParts(files, entries, selected.scopes, selected.profile === 'full');
+    let partSpecs = makeParts(files, entries, selected.scopes, selected.profile === 'full', selected);
     const selectedFiles = Object.values(partSpecs).flatMap(s => s.files).sort();
     if (combineParts) {
         const specs = Object.values(partSpecs);

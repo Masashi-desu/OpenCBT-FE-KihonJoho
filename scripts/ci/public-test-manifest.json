@@ -28,7 +28,17 @@
     },
     "tests/arrow-simulator.test.ts": {
       "count": 10,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2024-a-13/"
+        ],
+        "supportFiles": [
+          "scripts/update-arrow-manifest.mjs",
+          "scripts/verify-arrow-browser.ts",
+          "scripts/verify-arrow-patterns-browser.ts"
+        ]
+      }
     },
     "tests/asset-signature.test.ts": {
       "count": 2,
@@ -5708,7 +5718,16 @@
     },
     "tests/cache-simulator.test.ts": {
       "count": 6,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2024-a-3/"
+        ],
+        "supportFiles": [
+          "scripts/update-cache-manifest.mjs",
+          "scripts/verify-cache-browser.ts"
+        ]
+      }
     },
     "tests/calculation-difficulty.test.ts": {
       "count": 2,
@@ -5720,6 +5739,10 @@
     },
     "tests/catalog-packs.test.ts": {
       "count": 6,
+      "scopes": []
+    },
+    "tests/ci-detail-selection.test.ts": {
+      "count": 10,
       "scopes": []
     },
     "tests/ci-scopes.test.ts": {
@@ -5778,15 +5801,27 @@
     },
     "tests/detail-layout.test.ts": {
       "count": 1,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [],
+        "supportFiles": []
+      }
     },
     "tests/detail-runtime-assets.test.ts": {
       "count": 1,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [],
+        "supportFiles": []
+      }
     },
     "tests/detailed-explanation.test.ts": {
       "count": 16,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [],
+        "supportFiles": []
+      }
     },
     "tests/diagram.test.ts": {
       "count": 5,
@@ -5806,7 +5841,16 @@
     },
     "tests/flow-simulator.test.ts": {
       "count": 13,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2023-a-11/"
+        ],
+        "supportFiles": [
+          "scripts/update-flow-manifest.mjs",
+          "scripts/verify-flow-browser.ts"
+        ]
+      }
     },
     "tests/full-coverage.test.ts": {
       "count": 10,
@@ -7318,7 +7362,16 @@
     },
     "tests/radix-simulator.test.ts": {
       "count": 6,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2023-a-1/"
+        ],
+        "supportFiles": [
+          "scripts/update-radix-manifest.mjs",
+          "scripts/verify-radix-browser.ts"
+        ]
+      }
     },
     "tests/random-bindings.test.ts": {
       "count": 3,
@@ -7326,7 +7379,11 @@
     },
     "tests/search.test.ts": {
       "count": 8,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [],
+        "supportFiles": []
+      }
     },
     "tests/site-assets.test.ts": {
       "count": 4,
@@ -7334,11 +7391,27 @@
     },
     "tests/sort-simulator.test.ts": {
       "count": 5,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2026-a-2/"
+        ],
+        "supportFiles": [
+          "scripts/update-sort-manifest.mjs",
+          "scripts/verify-sort-browser.ts",
+          "scripts/verify-sort-workspace-browser.mjs"
+        ]
+      }
     },
     "tests/sort-ui.test.ts": {
       "count": 7,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2026-a-2/"
+        ],
+        "supportFiles": []
+      }
     },
     "tests/source-collections.test.ts": {
       "count": 12,
