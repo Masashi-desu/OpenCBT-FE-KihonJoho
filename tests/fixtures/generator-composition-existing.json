@@ -116,6 +116,16 @@
         "roots": [],
         "expectedPacketSha256": "d3fd70912e7b04a88fda9270a90568b59d7e8a3a9ee5ed00380694adc7c0ed92",
         "note": "全60原問題を改訂2、生成用基準問題とテンプレートを改訂5へ更新。本文・選択肢・正答・解説の生成内容と生成器版、他129系列、全176root、既存54契約は不変。全189系列の固定hash検査を維持する。"
+      },
+      {
+        "comparisonCommit": "903a42900bf8234340fe61801421fa9913c915c0",
+        "reviewedOn": "2026-11-04",
+        "basis": "原資料p.4・公式正答p.1と照合した任意の詳細解説を追加。比較元の全フィールドと照合し、詳細参照・改訂・査読記録・派生参照・hashだけを更新し、原本文・通常解説・全選択肢・正答と生成器を保持。",
+        "rows": [
+          "sample-2022-dec-a-2"
+        ],
+        "roots": [],
+        "note": "全188他系列及び176rootの期待値を保持。output/binary-baseline-audit.jsonへ全フィールド比較の結果を記録。生成器出力から意味の期待値を作成していない。"
       }
     ]
   },
@@ -3506,21 +3516,21 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-2",
-        "revision": 5,
-        "contentSha256": "2a8a6a47e98d9fd7e6c2bcda036d5bfb3f10110c4a63365370b6d29f9650b745"
+        "revision": 6,
+        "contentSha256": "30352fe2f137da1aba3468568b14cbd70498a7e72823b613c0b22d6123ab63ce"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-2",
-        "revision": 5,
-        "contentSha256": "316cd241a4f46607bb507cd035cd61083b15965f16c216041afa1fde0af14ad8"
+        "revision": 6,
+        "contentSha256": "a10524280d5d382677ceb2b2b56397591ebd06ec9440b2f67a96b755dd717d5d"
       },
       "originals": [
         {
           "ref": {
             "questionId": "question-ipa-sample-2022-dec-a-2",
-            "revision": 2
+            "revision": 3
           },
-          "contentSha256": "f85874fb972c079d67f3b0cc575c3d3677ab4bfdfa19d0ac428d0b959d62495a",
+          "contentSha256": "55c8619a6c1c32c97fefb569b42dff3c9097c8e886c0b5948a540ef1fc7920c6",
           "origin": "official_reprint"
         }
       ],

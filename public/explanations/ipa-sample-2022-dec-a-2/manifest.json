@@ -1,0 +1,121 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "2進数変換・余りと商を1処理ずつ",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問2",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-ans",
+        "locator": {
+          "section": "科目A試験サンプル問題 問2 解答",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "2"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-sample-2022-dec-a",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応するサンプル問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-qs",
+        "locator": {
+          "section": "科目A試験サンプル問題 問2",
+          "page": 4,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "2"
+        }
+      },
+      {
+        "sourceId": "source-ipa-sample-2022-dec-a-ans",
+        "locator": {
+          "section": "科目A試験サンプル問題 問2 解答",
+          "page": 1,
+          "exam": "基本情報技術者試験",
+          "period": "2022年12月公表 サンプル問題",
+          "subject": "科目A",
+          "questionNumber": "2"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "流れ図のaとbを1処理ずつ実行し、商・余り・jとNISHIN配列の変化を確認します。全4選択肢を比較できます。",
+    "keywords": [
+      "2進数変換",
+      "流れ図",
+      "div",
+      "mod",
+      "商",
+      "余り",
+      "NISHIN",
+      "下位桁",
+      "配列",
+      "ループ",
+      "2022年12月",
+      "ステップ"
+    ],
+    "text": "10進整数jを2で割った余りをNISHIN(k)へ保存し、その後に商の整数部分でjを更新する。正解はエ。aが余りの保存、bが商への更新。k：1，1，8は初期値1、増分1、終値8。jが0でも8回繰り返し上位桁を0で埋める。NISHIN(1)は重み1、NISHIN(8)は重み128。普通の2進表記は配列を逆順に読む。解説用j＝13なら00001101。アは商への更新が先で下位桁を失う。イは余りでjを更新した後に商を保存する。ウは商を配列へ保存しjを余りにするので0・1以外も格納する。戻る、次へ、最初から、スライダー、図形と配列要素の選択、初期値の直接編集。生成問題は保存済みの出力桁数5〜8を使う。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "7939d8e7c512b602e2077365120c223a887cc01980e6846adc0c6a5575737300"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "8cd9247dad06985cef8af0c3cc9e35bee1cb5e65cd8519eca43ac797b6e98e4b"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "binary-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "64bf0c90e01954fe0005dbc22760e645e6678e4ff52c9b4b5b8aa23e917327ef"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "d69e0d5ddbe96ed729105fcff8b124b1aa1d39a7933c06ad4ffc285a9edf485e"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "8f217f1ac85670b0bdbccaac7d3c1a5156da9b899079b882e93889d15012a8cb"
+    }
+  ]
+}

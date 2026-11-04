@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>2進数変換・余りと商を1処理ずつ</title><link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="scrollbars.css"><link rel="stylesheet" href="style.css"></head>
+<body><main class="lesson">
+  <h1 id="standalone-title" hidden>2進数変換・余りと商を1処理ずつ</h1>
+  <section class="workspace" aria-label="2進数変換の流れ図シミュレーター">
+    <div class="settings"><label>解説用のj <input id="input-j" type="text" inputmode="numeric" value="13" aria-describedby="input-help input-error"></label><label>試す選択肢 <select id="option"></select></label><button type="button" id="reset">最初から</button></div>
+    <p id="input-help" class="muted"></p>
+    <div class="diagram-viewport" tabindex="0" role="region" aria-label="流れ図と配列。狭い画面では左右にスクロールできます">
+      <div class="diagram"><svg id="scene" viewBox="0 0 960 610" role="group" aria-label="現在の処理、jの除算とNISHIN配列"></svg></div>
+    </div>
+    <div class="navigation" aria-label="処理をステップごとに操作"><button type="button" id="prev">戻る</button><input id="seek" type="range" min="0" value="0" aria-label="実行ステップ"><button type="button" id="next" class="primary">次へ</button></div>
+    <div class="step-meta"><span id="counter"></span><span id="next-step"></span></div>
+    <p id="input-error" role="alert" hidden></p>
+    <section class="explanation" aria-live="polite" aria-atomic="true"><h2 id="step-title"></h2><p id="step-text"></p></section>
+    <section id="selection" hidden><div class="selection-heading"><h2 id="selection-title"></h2><button type="button" id="close-selection">閉じる</button></div><p id="selection-text"></p></section>
+    <details><summary>余りが下位桁になる理由・配列の読み方</summary><p>整数jは、j＝2×(j div 2)＋(j mod 2)と分けられます。余りは0か1で、2進数の一番下の桁です。余りを保存してから商で同じ操作を続けると、下位の桁から順に取り出せます。</p><p>配列は左からNISHIN(1)、NISHIN(2)…の順で、重みは1、2、4…です。普通の2進表記は上位を左に書くので、完成した配列を逆の順に読みます。図の配列要素を押すと、その桁の重みを確認できます。</p><p>入力は有効な整数になった時点で反映し、最初のステップへ戻ります。無効な入力中は最後の有効な状態を保持します。選択肢の変更でも最初に戻ります。図形はクリック・Enter・Spaceで選択、再選択・閉じる・Escapeで解除できます。入力欄以外では左右矢印キーで移動できます。解説内の操作は問題・回答・結果を変更しません。</p></details>
+  </section>
+  <p id="standalone-credit" hidden>出典：基本情報技術者試験（科目A試験）サンプル問題セット（2022年12月公表）問2、問題冊子p.4・解答例p.1。©2022 独立行政法人情報処理推進機構（IPA）。原流れ図と選択肢を基に、除算・配列・段階操作を加えた改変ありの独自解説です。独自解説はCC0-1.0、コードはMIT。<a href="https://www.ipa.go.jp/shiken/syllabus/henkou/2022/20221226.html">公式掲載元・利用条件</a></p>
+</main><script src="binary-engine.js"></script><script src="scrollbars.js"></script><script src="main.js"></script></body></html>
