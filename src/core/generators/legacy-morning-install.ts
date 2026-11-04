@@ -21,9 +21,17 @@ export async function ensureLegacyMorningGenerators(bundle: Bundle, executableTe
   const missing = templates.filter(t => !additionalDefinition(t.generatorRef.id));
   if (!missing.length) return;
   if (!prepared) {
-    prepared = import("./legacy-morning-registry").then(({makeLegacyMorningRegistry}) =>
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    const loading = import("./legacy-morning-registry").then(({makeLegacyMorningRegistry}) =>
       makeLegacyMorningRegistry({ ...bundle, bindCore: bindQuestion }));
-    prepared.catch(() => { prepared = undefined; });
+    const attempt = Promise.race([
+      loading,
+      new Promise<never>((_, reject) => {
+        timeout = setTimeout(() => reject(new DataError("NETWORK", "問題の生成機能を読み込めません。接続を確認して再読み込みしてください。")), 20000);
+      }),
+    ]).finally(() => clearTimeout(timeout));
+    prepared = attempt;
+    void attempt.catch(() => { if (prepared === attempt) prepared = undefined; });
   }
   const definitions = await prepared;
   const requested = [...new Set(missing.map(t => t.generatorRef.id))].map(id => {

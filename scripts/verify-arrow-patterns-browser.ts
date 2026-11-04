@@ -104,7 +104,7 @@ const [a, bb, c, d, e, f, g, h, i] = values, join = a + Math.max(bb, e), days = 
 fs.writeFileSync(output + "/generated-2025.js", `async page=>{
   await page.goto(${JSON.stringify(url)});
   await page.evaluate(async run=>{
-    const request=indexedDB.open('opencbt-fe-kihonjoho-v2',3),db=await new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=reject});
+    const request=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=reject});
     const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');
     tx.objectStore('catalogSnapshots').put({id:run.session.id,bundle:run.bundle,assets:{}});
     run.instances.forEach(instance=>tx.objectStore('generatedInstances').put(instance));

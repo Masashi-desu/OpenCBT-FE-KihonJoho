@@ -8,7 +8,10 @@
     },
     "tests/answer-semantics-partition.test.ts": {
       "scopes": [],
-      "count": 2
+      "count": 2,
+      "features": [
+        "verification"
+      ]
     },
     "tests/answer-semantics.test.ts": {
       "count": 1,
@@ -5718,7 +5721,10 @@
     },
     "tests/bookmark-storage.test.ts": {
       "count": 1,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "storage"
+      ]
     },
     "tests/bookmarks.test.ts": {
       "count": 4,
@@ -5758,16 +5764,25 @@
       "scopes": []
     },
     "tests/ci-detail-selection.test.ts": {
-      "count": 10,
-      "scopes": []
+      "count": 11,
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
     },
     "tests/ci-scopes.test.ts": {
       "count": 16,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
     },
     "tests/ci-verification.test.ts": {
       "count": 20,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
     },
     "tests/compound-answers.test.ts": {
       "count": 9,
@@ -5886,7 +5901,10 @@
     },
     "tests/generation-path-partition.test.ts": {
       "count": 6,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
     },
     "tests/generation.test.ts": {
       "count": 18,
@@ -7374,7 +7392,11 @@
     },
     "tests/question-updates.test.ts": {
       "count": 7,
-      "scopes": []
+      "scopes": [],
+      "detail": {
+        "packages": [],
+        "supportFiles": []
+      }
     },
     "tests/radix-simulator.test.ts": {
       "count": 6,
@@ -7439,7 +7461,10 @@
     },
     "tests/source-inventory-extensions.test.ts": {
       "count": 4,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
     },
     "tests/source-prerequisites.test.ts": {
       "count": 4,
@@ -7500,7 +7525,10 @@
     },
     "tests/storage-snapshot.test.ts": {
       "count": 3,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "storage"
+      ]
     },
     "tests/study-classification.test.ts": {
       "count": 4,
@@ -7517,6 +7545,59 @@
     "tests/ui-colors.test.ts": {
       "count": 7,
       "scopes": []
+    },
+    "tests/dac-simulator.test.ts": {
+      "count": 6,
+      "scopes": [
+        "2017-spring-am"
+      ],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2017-spring-am-20/"
+        ],
+        "supportFiles": [
+          "scripts/prepare-dac-explanation.ts",
+          "scripts/update-dac-manifest.mjs",
+          "scripts/verify-dac-browser.ts"
+        ]
+      }
+    },
+    "tests/storage-schema.test.ts": {
+      "count": 3,
+      "scopes": [],
+      "features": [
+        "storage"
+      ]
+    },
+    "tests/storage-browser.test.ts": {
+      "count": 3,
+      "scopes": [],
+      "features": [
+        "storage"
+      ],
+      "runtime": "chromium"
+    },
+    "tests/ci-feature-selection.test.ts": {
+      "count": 9,
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
+    },
+    "tests/temporary-storage.test.ts": {
+      "count": 4,
+      "scopes": [],
+      "features": [
+        "storage"
+      ]
+    },
+    "tests/recovery-browser.test.ts": {
+      "count": 6,
+      "scopes": [],
+      "features": [
+        "storage"
+      ],
+      "runtime": "chromium"
     }
   }
 }

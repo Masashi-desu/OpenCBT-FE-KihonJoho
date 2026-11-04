@@ -51,6 +51,20 @@ function classify(f = fixture(), extra: any = {}) {
   return classifyDetailChanges({ changed: Object.keys(f.files), beforeOwnership: ownership(f.before), afterOwnership: ownership(f.after), beforeTestEntries: priorEntries, testEntries: entries, readBefore: () => null, readAfter: (file: string) => f.files[file] ? Buffer.from(f.files[file]) : null, ...extra });
 }
 
+test('detail revisions remove repeated prior answer bodies while preserving every other provenance and content field', () => {
+  const f = fixture(), beforeBase = f.before.records.questions[1], afterBase = f.after.records.questions[1];
+  beforeBase.origin.changes.push({ kind: 'wording', affectsAnswer: true, summary: 'initial answer', answerDetails: 'unchanged explanation' });
+  afterBase.origin.changes.unshift({ kind: 'wording', affectsAnswer: true, summary: 'initial answer' });
+  f.before.records.templates[0].originalContentSha256 = hash(beforeBase);
+  f.after.records.templates[0].originalContentSha256 = hash(afterBase);
+  assert(classify(f), 'only repeated answerDetails can be removed');
+  afterBase.origin.changes[0].summary = 'changed provenance'; assert.equal(classify(f), null);
+  afterBase.origin.changes[0].summary = 'initial answer'; afterBase.origin.changes[0].answerDetails = 'unchanged explanation';
+  f.after.records.templates[0].originalContentSha256 = hash(afterBase); assert.equal(classify(f), null, 'an advanced edition cannot retain the old embedded body');
+  delete afterBase.origin.changes[0].answerDetails; afterBase.explanation.blocks[0].text = 'changed explanation';
+  f.after.records.templates[0].originalContentSha256 = hash(afterBase); assert.equal(classify(f), null, 'current explanation changes still require broader verification');
+});
+
 test('detail references, exact base hashes and a shared pool revision select only the affected package', () => {
   const f = fixture(), snapshot = JSON.stringify(f), result = classify(f)!;
   assert.equal(JSON.stringify(f), snapshot, 'classification must not change problem or saved-reference data');

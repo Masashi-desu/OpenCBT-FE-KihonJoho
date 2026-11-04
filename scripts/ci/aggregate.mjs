@@ -22,4 +22,4 @@ visit(directory);
 const result = aggregate(plan, reports);
 console.log(JSON.stringify(result, null, 2));
 if (process.env.GITHUB_STEP_SUMMARY)
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Verification\n\nProfile: **${result.profile}**, ${result.passed} tests, ${result.parts.join(' / ')}.\n\nCommit: ${result.commit}. Baseline: ${plan.baselineCommit}.\n`);
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Verification\n\nProfile: **${result.profile}**${result.features ? ' (' + result.features.join(', ') + ')' : ''}, ${result.passed} tests, ${result.parts.join(' / ')}.\n\nCommit: ${result.commit}. Baseline: ${plan.baselineCommit}.\n`);

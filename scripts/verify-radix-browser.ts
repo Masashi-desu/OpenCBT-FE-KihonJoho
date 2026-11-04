@@ -281,7 +281,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   ${viewportHelper}
   const check=(ok,message)=>{if(!ok)throw Error(message)};await setViewport({width:1280,height:900});
   await page.goto(${JSON.stringify(url)});await page.reload();await page.evaluate(async run=>{
-    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3), db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2'), db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
     const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');tx.objectStore('catalogSnapshots').put({id:run.session.id,bundle:run.bundle,assets:{}});run.instances.forEach(i=>tx.objectStore('generatedInstances').put(i));tx.objectStore('sessions').put({id:run.session.id,session:run.session,exam:run.exam,set:run.set,selection:run.selection,issued:run.issued,title:run.set.title,result:run.result});tx.objectStore('results').put(run.result);await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=reject});
   },${JSON.stringify(run)});
   await page.goto(${JSON.stringify(url + `#/detail/${run.session.id}/0/review`)});await page.locator('.detail-frame.ready').waitFor();
@@ -292,7 +292,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   await f.locator('#number').fill('1');check(!(await f.locator('#calculation-detail').innerText()).includes('保存済み条件'),'edited input is not labeled as saved');await f.locator('#reset').click();check(await f.locator('#number').inputValue()===${JSON.stringify(raw)},'reset uses saved input');
   const isolation=await f.evaluate(()=>{let blocked=false;try{parent.document.body}catch{blocked=true}return {blocked,frozen:Object.isFrozen(window.OpenCBTDetail.context)}});check(isolation.blocked&&isolation.frozen,'isolated frozen host');
   await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();
-  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3),db=await new Promise(resolve=>open.onsuccess=()=>resolve(open.result));const q=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>q.onsuccess=()=>resolve(q.result))},${JSON.stringify(run.session.id)});
+  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise(resolve=>open.onsuccess=()=>resolve(open.result));const q=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>q.onsuccess=()=>resolve(q.result))},${JSON.stringify(run.session.id)});
   check(saved.session.entries[0].issuedContent.contentSha256===${JSON.stringify(run.session.entries[0].issuedContent.contentSha256)},'saved content hash retained');check(saved.issued[0].correctAnswer.choiceId===${JSON.stringify(run.issued[0].correctAnswer.choiceId)},'saved answer retained');
   await page.setViewportSize({width:320,height:700});await page.goto(${JSON.stringify(url + "explanations/ipa-2023-a-1/index.html")});check(await page.locator('#standalone-title').isVisible()&&await page.locator('#standalone-credit').isVisible(),'standalone title and provenance');check((await page.locator('#result').innerText()).includes('0.75'),'standalone initial result');await page.locator('#next').click();check((await page.locator('#step-count').innerText()).startsWith('1 /'),'standalone steps');check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'standalone width');
   return {savedInput:${JSON.stringify(raw)},reset:true,immutableContext:true,savedContentRetained:true,standalone:true};
@@ -318,7 +318,7 @@ fs.writeFileSync(output + "/directions.js", `async page => {
   page.on('pageerror',error=>errors.push(error.message));
   await page.goto(${JSON.stringify(url)});await page.reload();await page.emulateMedia({reducedMotion:'reduce'});
   await page.evaluate(async run=>{
-    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
     const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');tx.objectStore('catalogSnapshots').put({id:run.session.id,bundle:run.bundle,assets:{}});run.instances.forEach(i=>tx.objectStore('generatedInstances').put(i));tx.objectStore('sessions').put({id:run.session.id,session:run.session,exam:run.exam,set:run.set,selection:run.selection,issued:run.issued,title:run.set.title,result:run.result});tx.objectStore('results').put(run.result);await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=reject});
   },${JSON.stringify(directionsRun)});
   const cases=${JSON.stringify(cases)};

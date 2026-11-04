@@ -904,6 +904,10 @@ select {
   color: var(--toolbar-text);
 }
 .header-messages:empty { display: none; }
+.storage-recovery { flex: none; min-width: 0; }
+.storage-recovery > .notice-inline { margin: 0; border-radius: 0; }
+.storage-recovery .notice-inline > div { min-width: 0; overflow-wrap: anywhere; }
+.storage-recovery button { min-height: 44px; }
 .header-messages > .notice-inline,
 .header-messages > .error-banner { margin: 0; border-radius: 0; }
 .header-messages > .bookmark-feedback {

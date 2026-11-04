@@ -35,7 +35,7 @@ fs.writeFileSync(`${directory}/verify.js`, `async page => {
   await page.goto(${JSON.stringify(url)});
   await page.getByRole('button', {name:'開始前の説明へ', exact:true}).waitFor();
   await page.evaluate(async ({bundle, runs}) => {
-    const request = indexedDB.open('opencbt-fe-kihonjoho-v2', 3);
+    const request = indexedDB.open('opencbt-fe-kihonjoho-v2');
     const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
     const tx = db.transaction(['catalogSnapshots', 'generatedInstances', 'sessions'], 'readwrite');
     for (const {run} of runs) {

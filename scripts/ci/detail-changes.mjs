@@ -33,7 +33,10 @@ function reference(ref, revisions, idKey) {
 function metadataQuestion(before, after, revisions) {
     requireDetail(after.revision === before.revision + 1, 'question revision must advance once');
     requireDetail(detailRef(before.detailedExplanationRef) && detailRef(after.detailedExplanationRef), 'valid optional detail reference');
-    requireDetail(after.origin.changes.length >= before.origin.changes.length && equal(after.origin.changes.slice(0, before.origin.changes.length), before.origin.changes), 'retained provenance');
+    // Advancing an edition must not retain embedded old explanation bodies.
+    // All dates, actors, summaries and other provenance remain byte-equivalent.
+    const priorMetadata = before.origin.changes.map(change => omit(change, ['answerDetails']));
+    requireDetail(after.origin.changes.length >= before.origin.changes.length && equal(after.origin.changes.slice(0, before.origin.changes.length), priorMetadata), 'retained provenance without historical explanation bodies');
     for (const change of after.origin.changes.slice(before.origin.changes.length))
         requireDetail(change.kind === 'layout' && change.affectsAnswer === false && Object.keys(change).every(k => ['at', 'actorId', 'kind', 'summary', 'details', 'affectsAnswer'].includes(k)), 'reference-only provenance');
     const normalized = structuredClone(after);

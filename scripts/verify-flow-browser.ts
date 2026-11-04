@@ -260,7 +260,7 @@ fs.writeFileSync(output + "/saved.js", `async page=>{
   page.setDefaultTimeout(15000);
   const check=(ok,message)=>{if(!ok)throw Error(message)};
   await page.goto(${JSON.stringify(url)});await page.reload();await page.evaluate(async run=>{
-    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
     const ids=[...new Set(run.issued.flatMap(q=>q.assetRefs))],assets=Object.fromEntries(await Promise.all(ids.map(async id=>{
       const asset=run.bundle.assets.find(a=>a.id===id),response=await fetch(new URL('data/'+asset.path,location.href));
       if(!response.ok)throw Error('missing saved asset '+id);return [id,await response.blob()];
@@ -277,7 +277,7 @@ fs.writeFileSync(output + "/saved.js", `async page=>{
   check(await f.evaluate(()=>JSON.stringify(window.OpenCBTDetail.context))===initial,'immutable problem context');
   const isolation=await f.evaluate(()=>{try{parent.document.body;return false}catch{return Object.isFrozen(window.OpenCBTDetail.context)}});check(isolation,'isolated host');
   await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();
-  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3),db=await new Promise(resolve=>open.onsuccess=()=>resolve(open.result));const req=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>req.onsuccess=()=>resolve(req.result))},${JSON.stringify(run.session.id)});
+  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise(resolve=>open.onsuccess=()=>resolve(open.result));const req=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>req.onsuccess=()=>resolve(req.result))},${JSON.stringify(run.session.id)});
   check(JSON.stringify(saved.issued)===${JSON.stringify(JSON.stringify(run.issued))},'saved content retained');
   check(JSON.stringify(saved.session.entries)===${JSON.stringify(JSON.stringify(run.session.entries))},'saved answers and order retained');
   check(JSON.stringify(saved.result)===${JSON.stringify(JSON.stringify(run.result))},'saved result retained');

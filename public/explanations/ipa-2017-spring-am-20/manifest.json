@@ -1,0 +1,129 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "D/A変換・1ビット分の電圧を求める",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-am-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午前 問20",
+          "page": 12,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "20"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-am-ans",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午前 問20 解答",
+          "page": 1,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "20"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2017h29h-fe-am-numeric-candidates",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2017h29h-fe-am-qs",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午前 問20",
+          "page": 12,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "20"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2017h29h-fe-am-ans",
+        "locator": {
+          "section": "平成29年度 春期 基本情報技術者試験 午前 問20 解答",
+          "page": 1,
+          "year": 2017,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "20"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "入力と電圧の対応から、最下位ビット1段階分の電圧を6段階で計算。ビット操作と全選択肢の検算ができます。",
+    "keywords": [
+      "D/A変換",
+      "DA変換",
+      "DAC",
+      "最下位ビット",
+      "LSB",
+      "分解能",
+      "出力電圧",
+      "ビットの重み",
+      "2017年度",
+      "春期",
+      "午前",
+      "問20"
+    ],
+    "text": "分解能8ビットで入力0は0V、入力128は2.5V。1 LSBは入力コードの差1に対応する電圧。0から128は128段階なので2.5/128V。最大コード255、コードの通り数256、512で機械的に割らない。候補電圧に128を掛け、2.5Vへ戻るのはアだけ。入力と出力、コード範囲、最下位ビット、比例式、検算、全選択肢比較を6ステップで確認。ビットを押して0と1を切り替え、重みの説明で各桁の電圧への寄与を確認。D/AはDigital-to-Analog。LSBはLeast Significant Bit。入力0で0V、入力と出力が比例する理想モデル。解説内で分解能・基準入力・電圧を変更でき、保存済み問題・回答・結果は変更しない。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "069a6eb2887b0806db18877997cac67b6c28d192655e944f41c596e5a216b61a"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "bc447797e48a753d19ccb2efe3e6fb5c788d1b30c295ac4d4dcd484e6e5093aa"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "dac-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "b69d2f9d2b88587926c7c8a0de2b50d1906b4be466f5faf58b006c75665618dc"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "348623437a1712a269e2e3231c5cc0b1582b9923279a8538f8677e114ee5809c"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "ef930be04c1a6f4a60f57fe1a730dc3dd93cfa580668bbdbab272d9583eda25f"
+    }
+  ]
+}

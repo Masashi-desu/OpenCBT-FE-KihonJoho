@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "unit": "year-term-subject-or-historical-section",
+  "unit": "functional feature plus year-term-subject-or-historical-section",
   "comparison": "main push event before, complete Git ancestor, and verified successful latest Pages workflow",
   "manifests": {
     "public": "scripts/ci/public-test-manifest.json",
@@ -15,10 +15,16 @@
   "fullFallback": [
     "manual workflow",
     "initial push or missing, failed, pending or unverifiable predecessor verification",
-    "shared runtime, Schema, dependency, selector or helper implementation changes",
+    "unclassified shared runtime, content/generation/scoring/JSON Schema changes, production dependencies or unknown feature boundaries",
     "unowned logical data or unknown source changes",
     "unproven reverse runtime dependencies"
   ],
   "publication": "all selected nonempty exact manifests, raw execution witnesses and aggregate must pass; feature-only manifests are forbidden in GitHub Actions",
-  "completeDevelopmentScope": "Whole import readiness remains independent of an eligible subset release."
+  "completeDevelopmentScope": "Whole import readiness remains independent of an eligible subset release.",
+  "featureProfiles": {
+    "storage": "stable public API; unchanged distribution or independently proved detail metadata; additive database migration and native CRUD/restore acceptance in Chromium",
+    "verification": "verification infrastructure, complete test inventory and raw execution/aggregation regressions; unchanged product runtime and content except independently owned features",
+    "always": "complete distribution validation, source/rights/hash/one-to-one generation, types and application/document builds",
+    "mixed": "combine every proven feature and detail package; unknown semantic/runtime changes require full verification"
+  }
 }

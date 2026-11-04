@@ -3,10 +3,14 @@ import { refOf, refKey } from "./types";
 import { sha256 } from "./hash";
 import { prepareSnapshot, type Snapshot, type SharedBundle, type SharedAsset, type PreparedSnapshot } from "./storage-snapshot";
 import { validateRun, RETENTION_MS } from "./session";
-import { DataError, validateBundle } from "./validation";
+import { DataError, schema, validateBundle } from "./validation";
 import { validateAssetBlob } from "./catalog";
 import { refreshBookmark, type Bookmark } from "./bookmarks";
 import { saveBookmarkBatch } from "./bookmark-storage";
+import { STORAGE_VERSION, storageSchemaComplete, upgradeStorageSchema } from "./storage-schema";
+import { TemporaryStorage } from "./temporary-storage";
+let temporary: TemporaryStorage | undefined;
+export function startTemporaryStorage() { temporary ??= new TemporaryStorage(); }
 type Saved = {
   id: string;
   session: Session;
@@ -29,63 +33,78 @@ const PREPARATION_MS = 15 * 60 * 1000;
 const MIGRATION_BATCH = 8;
 const request = <T>(req: IDBRequest<T>) =>
   new Promise<T>((res, rej) => {
-    req.onsuccess = () => res(req.result);
-    req.onerror = () => rej(req.error);
+    const timeout = setTimeout(() => {
+      try { req.transaction?.abort(); } catch { /* The transaction may already be closed. */ }
+      rej(new DataError("STORAGE", "保存データの読取り・書込みが応答しません。再読み込みしてください。"));
+    }, 30000);
+    req.onsuccess = () => { clearTimeout(timeout); res(req.result); };
+    req.onerror = () => { clearTimeout(timeout); rej(req.error); };
   });
 let opening: Promise<IDBDatabase> | undefined;
 function open(): Promise<IDBDatabase> {
   if (opening) return opening;
   const attempt = new Promise<IDBDatabase>((res, rej) => {
-    const req = indexedDB.open(DB_NAME, 4);
+    const req = indexedDB.open(DB_NAME, STORAGE_VERSION);
     let rejected = false;
+    const timeout = setTimeout(() => {
+      rejected = true;
+      rej(new DataError("STORAGE", "保存領域の応答がありません。他のタブを閉じて再読み込みしてください。"));
+    }, 15000);
     req.onupgradeneeded = () => {
-      const tx = req.transaction!;
-      for (const name of [...RUN_STORES, "bookmarks"])
-        if (!req.result.objectStoreNames.contains(name))
-          req.result.createObjectStore(name, { keyPath: "id" });
-      const index = (store: string, name: string, multiEntry = false) => {
-        const target = tx.objectStore(store);
-        if (!target.indexNames.contains(name))
-          target.createIndex(name, name, { multiEntry });
-      };
-      const sessions = tx.objectStore("sessions");
-      if (!sessions.indexNames.contains("updatedAt")) sessions.createIndex("updatedAt", "session.updatedAt");
-      index("generatedInstances", "sessionId");
-      index("results", "sessionId");
-      index("catalogSnapshots", "bundleKey");
-      const snapshots = tx.objectStore("catalogSnapshots");
-      if (!snapshots.indexNames.contains("sessionBundle")) snapshots.createIndex("sessionBundle", ["id", "bundleKey"]);
-      index("catalogSnapshots", "assetKeys", true);
-      index("sharedBundles", "questionRefs", true);
-      // Existing inline bundles are deliberately not read during upgrade.
+      if (rejected) { req.transaction!.abort(); return; }
+      try { upgradeStorageSchema(req.result, req.transaction!); }
+      catch (error) { rejected = true; clearTimeout(timeout); req.transaction!.abort(); rej(error); }
     };
     req.onsuccess = () => {
+      clearTimeout(timeout);
       if (rejected) { req.result.close(); return; }
+      try {
+        if (!storageSchemaComplete(req.result)) throw new DataError("STORAGE", "保存領域の形式がアプリと一致しません。アプリを更新して開き直してください。学習記録は削除していません。");
+      } catch (error) {
+        req.result.close();
+        if (opening === attempt) opening = undefined;
+        rej(error);
+        return;
+      }
+      req.result.onclose = () => { if (opening === attempt) opening = undefined; };
       req.result.onversionchange = () => {
         req.result.close();
         if (opening === attempt) opening = undefined;
       };
       res(req.result);
     };
-    req.onerror = () => { rejected = true; if (opening === attempt) opening = undefined; rej(req.error); };
-    req.onblocked = () => { rejected = true; if (opening === attempt) opening = undefined; rej(new DataError(
+    req.onerror = () => { clearTimeout(timeout); rejected = true; if (opening === attempt) opening = undefined; rej(req.error); };
+    req.onblocked = () => { clearTimeout(timeout); rejected = true; if (opening === attempt) opening = undefined; rej(new DataError(
       "STORAGE", "保存領域の更新が別タブにより停止しています。",
     )); };
   });
   opening = attempt;
+  // Includes synchronous open() exceptions (permissions / disabled storage).
+  void attempt.catch(() => { if (opening === attempt) opening = undefined; });
   return attempt;
 }
 const done = (tx: IDBTransaction) =>
   new Promise<void>((res, rej) => {
-    tx.oncomplete = () => res();
-    tx.onabort = () => rej(tx.error || new DataError("STORAGE", "保存が中断されました"));
+    const timeout = setTimeout(() => {
+      try { tx.abort(); } catch { /* Completion could not be confirmed. */ }
+      rej(new DataError("STORAGE", "保存処理の完了を確認できません。再読み込みしてください。"));
+    }, 30000);
+    tx.oncomplete = () => { clearTimeout(timeout); res(); };
+    tx.onabort = () => { clearTimeout(timeout); rej(tx.error || new DataError("STORAGE", "保存が中断されました")); };
   });
 async function write<T>(db: IDBDatabase, stores: string[], action: (tx: IDBTransaction) => Promise<T>) {
   const tx = db.transaction(stores, "readwrite"), complete = done(tx);
   // A request may fail before the action returns. Keep its transaction rejection
   // observed, then propagate the original error after rollback has completed.
   void complete.catch(() => {});
-  try { const value = await action(tx); await complete; return value; }
+  try {
+    const value = await Promise.race([
+      action(tx),
+      complete.then(() => { throw new DataError("STORAGE", "保存処理の応答を確認できません。再読み込みしてください。"); }),
+    ]);
+    await complete;
+    return value;
+  }
   catch (error) {
     try { tx.abort(); } catch { /* Already completed or aborted. */ }
     await complete.catch(() => {});
@@ -123,24 +142,36 @@ async function migrateSnapshot(db: IDBDatabase, old: InlineSnapshot) {
   });
 }
 export async function listBookmarks(): Promise<Bookmark[]> {
+  if (temporary) return temporary.listBookmarks();
   const db = await open();
   const records = await request<Bookmark[]>(db.transaction("bookmarks").objectStore("bookmarks").getAll());
+  for (const record of records) {
+    if (!record || typeof record.id !== "string" || typeof record.title !== "string" ||
+        !["A", "B"].includes(record.subject) || typeof record.area !== "string" ||
+        typeof record.createdAt !== "string" || !Number.isFinite(Date.parse(record.createdAt)) ||
+        !record.questionRef || typeof record.questionRef.questionId !== "string" || !Number.isInteger(record.questionRef.revision))
+      throw new DataError("STORAGE", "ブックマークの保存データを確認できません。元の記録は保持しています。");
+  }
   return records.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 export async function saveBookmark(bookmark: Bookmark) { await saveBookmarks([bookmark]); }
 export async function saveBookmarks(bookmarks: readonly Bookmark[]) {
+  if (temporary) return temporary.saveBookmarks(bookmarks);
   if (!bookmarks.length) return 0;
   return saveBookmarkBatch(await open(), bookmarks);
 }
 export async function deleteBookmark(id: string) {
+  if (temporary) return temporary.deleteBookmark(id);
   await write(await open(), ["bookmarks"], async tx => { tx.objectStore("bookmarks").delete(id); });
 }
 export async function storeOriginalSnapshot(id: string, bundle: Bundle, assets: Record<string, Blob>) {
+  if (temporary) return;
   const prepared = await prepareSnapshot(id, bundle, assets);
   await write(await open(), [...SNAPSHOT_STORES, "storagePolicy"], tx => putSnapshot(tx, prepared, true));
 }
 export async function saveRun(run: Run) {
   await validateRun(run);
+  if (temporary) { temporary.save(run); return; }
   const prepared = await prepareSnapshot(run.session.id, run.bundle, run.assets);
   await write(await open(), RUN_STORES, async tx => {
     await assertAllowed(tx, prepared.shared.questionRefs);
@@ -164,21 +195,39 @@ export async function saveRun(run: Run) {
   });
 }
 export async function history(): Promise<Saved[]> {
+  if (temporary) return temporary.history();
   const db = await open();
-  return (await request<Saved[]>(db.transaction("sessions").objectStore("sessions").getAll()))
-    .sort((a, b) => b.session.updatedAt.localeCompare(a.session.updatedAt));
+  const records = await request<Saved[]>(db.transaction("sessions").objectStore("sessions").getAll());
+  for (const record of records) {
+    try {
+      const updatedAt = record.session?.updatedAt;
+      if (typeof updatedAt !== "string" || !/^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d(?:\.\d+)?(?:Z|[+-]\d\d:\d\d)$/.test(updatedAt) || !Number.isFinite(Date.parse(updatedAt))) throw Error();
+      // Legacy maintenance accepts RFC3339 offsets/fractional precision. Check
+      // a metadata copy against today's UTC schema, retaining the original row.
+      schema("session", { ...record.session, updatedAt: new Date(updatedAt).toISOString() });
+      schema("exam", record.exam); schema("set", record.set);
+      if (record.result) schema("result", record.result);
+      if (record.id !== record.session.id || typeof record.title !== "string" || !record.selection ||
+          !["annual", "mix", "bookmark"].includes(record.selection.kind) || !Array.isArray(record.issued)) throw Error();
+      for (const question of record.issued) schema("question", question);
+    } catch { throw new DataError("STORAGE", "履歴の保存データを確認できません。元の記録は保持しています。"); }
+  }
+  return records.sort((a, b) => b.session.updatedAt.localeCompare(a.session.updatedAt));
 }
 export async function linkLatestRun(previousId: string, replacementId: string) {
+  if (temporary) return temporary.link(previousId, replacementId);
   await write(await open(), ["sessions"], async tx => {
     const store = tx.objectStore("sessions"), saved = await request<Saved | undefined>(store.get(previousId));
     if (saved) store.put({ ...saved, replacementSessionId: replacementId });
   });
 }
 export async function recentGeneration(): Promise<Run["instances"]> {
+  if (temporary) return temporary.recent();
   const db = await open();
   return request(db.transaction("generatedInstances").objectStore("generatedInstances").getAll());
 }
 export async function loadRun(id: string): Promise<Run> {
+  if (temporary) { const run = temporary.load(id); await validateRun(run); return run; }
   const db = await open(), tx = db.transaction(RUN_STORES);
   const [saved, snapshot, instances] = await Promise.all([
     request<Saved | undefined>(tx.objectStore("sessions").get(id)),
@@ -240,6 +289,7 @@ async function collectShared(tx: IDBTransaction) {
       if (await request(snapshots.index(index).count(key)) === 0) tx.objectStore(name).delete(key);
 }
 export async function deleteRuns(ids?: string[]) {
+  if (temporary) return temporary.deleteRuns(ids);
   await write(await open(), RUN_STORES, async tx => {
     if (!ids) { for (const name of RECORD_STORES) tx.objectStore(name).clear(); }
     else { await deleteSessionRecords(tx, ids); await collectShared(tx); }
@@ -254,6 +304,7 @@ async function snapshotKeys(db: IDBDatabase) {
   return all.filter(key => !modern.has(key));
 }
 export async function maintainStorage(bundle: Bundle, onProgress?: (completed: number, total: number) => void) {
+  if (temporary) { temporary.maintain(bundle, RETENTION_MS); return; }
   for (const bookmark of await listBookmarks()) {
     try {
       const updated = refreshBookmark(bundle, bookmark);
@@ -333,17 +384,24 @@ export async function maintainStorage(bundle: Bundle, onProgress?: (completed: n
   });
 }
 export function acquireRunLock(id: string, onConflict: () => void): () => void {
+  if (temporary) return () => {};
   const controller = new AbortController();
   let release = () => {};
   if (!navigator.locks) {
     onConflict();
     return () => {};
   }
-  void navigator.locks
+  const timeout = setTimeout(() => {
+    controller.abort();
+    onConflict();
+  }, 15000);
+  try { void navigator.locks
     .request(
       `opencbt:${id}`,
       { ifAvailable: true, signal: controller.signal },
       async (lock) => {
+        clearTimeout(timeout);
+        if (controller.signal.aborted) return;
         if (!lock) {
           onConflict();
           return;
@@ -353,8 +411,10 @@ export function acquireRunLock(id: string, onConflict: () => void): () => void {
         });
       },
     )
-    .catch(() => {});
+    .catch(() => { clearTimeout(timeout); if (!controller.signal.aborted) onConflict(); });
+  } catch { clearTimeout(timeout); onConflict(); }
   return () => {
+    clearTimeout(timeout);
     release();
     controller.abort();
   };

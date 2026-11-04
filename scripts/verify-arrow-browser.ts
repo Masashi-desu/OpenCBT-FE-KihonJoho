@@ -203,7 +203,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   const check=(v,m)=>{if(!v)throw Error(m)};
   await page.goto(${JSON.stringify(url)});
   await page.evaluate(async run=>{
-    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3), db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2'), db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
     const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');
     tx.objectStore('catalogSnapshots').put({id:run.session.id,bundle:run.bundle,assets:{}});
     run.instances.forEach(instance=>tx.objectStore('generatedInstances').put(instance));
@@ -230,7 +230,7 @@ fs.writeFileSync(output + "/generated.js", `async page => {
   const isolation=await frame.evaluate(()=>{let blocked=false;try{parent.document.body}catch{blocked=true}return {blocked,frozen:Object.isFrozen(window.OpenCBTDetail.context)}});
   check(isolation.blocked&&isolation.frozen,'isolated immutable host');
   await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();
-  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3), db=await new Promise(resolve=>{open.onsuccess=()=>resolve(open.result)});const q=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>{q.onsuccess=()=>resolve(q.result)})},${JSON.stringify(run.session.id)});
+  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2'), db=await new Promise(resolve=>{open.onsuccess=()=>resolve(open.result)});const q=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>{q.onsuccess=()=>resolve(q.result)})},${JSON.stringify(run.session.id)});
   check(saved.issued[0].correctAnswer.choiceId===${JSON.stringify(run.issued[0].correctAnswer.choiceId)},'saved answer retained');
   check(saved.session.entries[0].issuedContent.contentSha256===${JSON.stringify(run.session.entries[0].issuedContent.contentSha256)},'saved hash retained');
   return {savedGeneratedValues:inputs,days:${days},reset:true,isolated:true,savedContentRetained:true};

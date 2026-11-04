@@ -19,6 +19,8 @@ const template = bundle.templates.find(t => t.id === "template-source-sample-202
 const oldOriginal = refOf(original), oldBase = refOf(base), oldTemplateRevision = template.revision;
 const detail = { directory: "explanations/ipa-sample-2022-dec-a-2/", revision: 1 };
 for (const q of [original, base]) {
+  // A new edition must not retain repeated question/explanation text in past change records.
+  for (const change of q.origin.changes) delete change.answerDetails;
   q.revision++;
   q.detailedExplanationRef = { ...detail };
   q.origin.changes.push({ at: "2026-11-04T00:00:00Z", actorId: "codex", kind: "layout", summary: "2進数変換の操作可能な詳細解説への参照を追加", details: "原本文・前提・図・選択肢・正答・通常解説を保持し、商と余り、流れ図と配列を1処理ずつ追跡する任意の詳細解説を追加。解説用の入力は保存済み問題と分離する。", affectsAnswer: false });

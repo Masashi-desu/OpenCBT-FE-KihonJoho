@@ -126,6 +126,16 @@
         ],
         "roots": [],
         "note": "全188他系列及び176rootの期待値を保持。output/binary-baseline-audit.jsonへ全フィールド比較の結果を記録。生成器出力から意味の期待値を作成していない。"
+      },
+      {
+        "comparisonCommit": "611cf0f07773f8badd7b1c6538fadca108a64f47",
+        "reviewedOn": "2026-11-04",
+        "basis": "変更記録の重複解説だけを除去し、比較元の現行本文・通常解説・全選択肢・正答・生成条件の不変を全フィールド比較した。",
+        "rows": [
+          "sample-2022-dec-a-2"
+        ],
+        "roots": [],
+        "note": "基準問題・テンプレートの改訂と参照hashだけを更新。他188系列、全176root、独立した意味の期待値は保持する。"
       }
     ]
   },
@@ -3516,13 +3526,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-2",
-        "revision": 6,
-        "contentSha256": "30352fe2f137da1aba3468568b14cbd70498a7e72823b613c0b22d6123ab63ce"
+        "revision": 7,
+        "contentSha256": "8bcb386e6c69bbbcc45363c3171fa9806806765466b04203333797339c8f2886"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-2",
-        "revision": 6,
-        "contentSha256": "a10524280d5d382677ceb2b2b56397591ebd06ec9440b2f67a96b755dd717d5d"
+        "revision": 7,
+        "contentSha256": "e37ea231159a621c5f4734d73ab0fbf12b74bd6b77c69cffef65f613607d7fd4"
       },
       "originals": [
         {

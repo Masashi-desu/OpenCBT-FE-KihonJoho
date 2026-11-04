@@ -89,6 +89,7 @@ import {
   saveBookmark,
   saveBookmarks,
   deleteBookmark,
+  startTemporaryStorage,
 } from "../core/storage";
 import {
   makeBookmark,
@@ -175,6 +176,15 @@ const statusLabel: Record<string, string> = {
   abandoned: "放棄",
   invalidated: "無効",
 };
+const storageFailureMessage = (error: unknown) => {
+  const reasons: Record<string, string> = {
+    SecurityError: "ブラウザの設定により保存領域へのアクセスを許可されていません。",
+    QuotaExceededError: "端末の保存容量が不足しているため、記録を書き込めません。",
+    VersionError: "保存領域がこのアプリより新しい版です。アプリを更新して開き直してください。",
+  };
+  const name = error && typeof error === "object" && "name" in error ? String(error.name) : "";
+  return reasons[name] ?? (error instanceof Error ? error.message : "保存領域を確認できません。");
+};
 
 function BrandMark() {
   return (
@@ -233,6 +243,8 @@ export function App() {
     [bookmarkError, setBookmarkError] = useState(""),
     [busy, setBusy] = useState("公開問題を読み込んでいます"),
     [error, setError] = useState(""),
+    [storageIssue, setStorageIssue] = useState(""),
+    [temporaryStorage, setTemporaryStorage] = useState(false),
     [dialog, setDialog] = useState<
       "list" | "finish" | "source" | "licenses" | "delete" | "leave" | null
     >(null),
@@ -249,6 +261,7 @@ export function App() {
     releaseLock = useRef<(() => void) | undefined>(undefined),
     lockedId = useRef<string | undefined>(undefined),
     saveFailed = useRef(false),
+    storageUnavailable = useRef(false),
     studyClock = useRef(new StudyClock(performance.now())),
     latestBusy = useRef(busy),
     lastTime = useRef({ wall: Date.now(), mono: performance.now() }),
@@ -334,6 +347,8 @@ export function App() {
       })
       .catch((e) => {
         saveFailed.current = true;
+        storageUnavailable.current = true;
+        setStorageIssue("学習記録を保存できませんでした。未保存の解答は保存済みとして扱いません。");
         setError(
           `保存できませんでした。${e instanceof Error ? e.message : "保存領域を確認してください。"} 未保存の解答を保存済みとして扱いません。`,
         );
@@ -346,6 +361,8 @@ export function App() {
     releaseLock.current = acquireRunLock(id, () => {
       lockedId.current = undefined;
       saveFailed.current = true;
+      storageUnavailable.current = true;
+      setStorageIssue("他のタブとの排他保存を確認できません。別タブを閉じるか、記録を保存しない新しい練習を選んでください。");
       setError(
         "この解答は別のタブで開いているか、排他保存に必要な機能を利用できません。他のタブを閉じて再読込みしてください。",
       );
@@ -353,6 +370,7 @@ export function App() {
   }, []);
   const reopen = useCallback(
     async (id: string, target: View = "exam", requestedDetail?: DetailRoute, loadedBundle?: Bundle) => {
+      if (storageUnavailable.current) { navigate("menu"); return; }
       setBusy("保存した問題と出典を確認しています");
       setError("");
       try {
@@ -463,19 +481,29 @@ export function App() {
     setBusy("公開問題と利用条件を読み込んでいます");
     setError("");
     saveFailed.current = false;
+    storageUnavailable.current = false;
+    setStorageIssue("");
     try {
       const b = await loadCatalog();
-      await maintainStorage(b, (completed, total) => setBusy(
-        `保存した学習記録を確認しています（${completed} / ${total} 件）`,
-      ));
       setBundle(b);
-      setItems(await history());
-      setBookmarks(await listBookmarks());
+      try {
+        if (!navigator.locks) throw new DataError("STORAGE", "このブラウザでは排他保存を利用できません。");
+        await maintainStorage(b, (completed, total) => setBusy(
+          `保存した学習記録を確認しています（${completed} / ${total} 件）`,
+        ));
+        const [savedItems, savedBookmarks] = await Promise.all([history(), listBookmarks()]);
+        setItems(savedItems); setBookmarks(savedBookmarks);
+      } catch (e) {
+        storageUnavailable.current = true;
+        setItems([]); setBookmarks([]);
+        setStorageIssue(storageFailureMessage(e));
+      }
       const hash = location.hash.split("/");
       const requestedDetail = parseDetailRoute(location.hash);
       if (/^#\/search(?:[/?]|$)/.test(location.hash)) {
         setSearchHash(location.hash); setView("search");
-      } else if (requestedDetail) await reopen(requestedDetail.sessionId, requestedDetail.from, requestedDetail, b);
+      } else if (storageUnavailable.current) navigate("menu");
+      else if (requestedDetail) await reopen(requestedDetail.sessionId, requestedDetail.from, requestedDetail, b);
       else if (["exam", "result", "review"].includes(hash[1]) && hash[2])
         await reopen(hash[2], hash[1] as View, undefined, b);
       else if (["history", "licenses", "bookmarks"].includes(hash[1]))
@@ -617,7 +645,7 @@ export function App() {
       return next.selection;
     });
   const begin = async (launchSelection = selection) => {
-    if (!bundle) return;
+    if (!bundle || storageUnavailable.current) return;
     setBusy("出題する問題を固定しています");
     setError("");
     saveFailed.current = false;
@@ -754,6 +782,7 @@ export function App() {
     navigate("result");
   };
   const showHistory = async () => {
+    if (storageUnavailable.current) { navigate("history"); return; }
     try {
       await queue.current;
       if (bundle) await maintainStorage(bundle);
@@ -764,6 +793,7 @@ export function App() {
     }
   };
   const showBookmarks = async () => {
+    if (storageUnavailable.current) { navigate("bookmarks"); return; }
     try {
       await queue.current;
       if (bundle) await maintainStorage(bundle);
@@ -1003,6 +1033,38 @@ export function App() {
     else navigate("menu");
   };
 
+  const recoveryNotice = (
+    <header className="storage-recovery">
+        {temporaryStorage ? (
+          <div className="notice-inline" role="status">
+            <AlertCircle size={21} />
+            <div><strong>このタブだけの一時的な練習です</strong>
+              <p>問題・回答・結果・ブックマークは端末へ保存しません。再読み込み・タブを閉じると、このタブの記録は失われます。元の保存記録は変更しません。</p>
+              <button disabled={Boolean(busy)} onClick={() => location.reload()}>通常の保存を再確認</button>
+            </div>
+          </div>
+        ) : storageIssue && (
+          <div className="notice-inline" role="alert">
+            <AlertCircle size={21} />
+            <div><strong>保存機能を利用できません</strong>
+              <p>{storageIssue} 元の記録を消去する復旧操作は行いません。公開問題の検索・閲覧は利用できます。</p>
+              <p>記録を保存せずに新しい練習を始めることもできます。その記録は再読み込みで失われ、現在の未保存の解答は引き継ぎません。</p>
+              <div className="inline-actions">
+                <button disabled={Boolean(busy)} onClick={() => location.reload()}><RotateCcw size={16} />再読込み</button>
+                <button disabled={Boolean(busy)} onClick={async () => {
+                  await queue.current;
+                  releaseLock.current?.(); releaseLock.current = undefined; lockedId.current = undefined;
+                  startTemporaryStorage(); storageUnavailable.current = false; saveFailed.current = false;
+                  current.current = undefined; setRun(undefined); setItems([]); setBookmarks([]);
+                  setError(""); setStorageIssue(""); setTemporaryStorage(true); navigate("menu");
+                }}>記録を保存せずに新しく練習</button>
+              </div>
+            </div>
+          </div>
+        )}
+    </header>
+  );
+
   const notifications = (
     <div className="header-messages">
         {error && (
@@ -1015,9 +1077,8 @@ export function App() {
                 <button
                   disabled={Boolean(busy)}
                   onClick={() => {
-                    setError("");
                     if (view === "instructions") void begin();
-                    else void initialize();
+                    else location.reload();
                   }}
                 >
                   <RotateCcw size={16} />
@@ -1154,6 +1215,7 @@ export function App() {
         </aside>
       )}
       <div className="workspace">
+        {(storageIssue || temporaryStorage) && recoveryNotice}
         {!isExam && !isReview && !isDetail && !(view === "search" && searchRoute.view === "detail") && <header className="workspace-notices">{notifications}</header>}
         <main
           id="main"
@@ -1406,7 +1468,7 @@ export function App() {
                   </div>
                   <button
                     className="primary large"
-                    disabled={Boolean(busy || !chosen || error)}
+                    disabled={Boolean(busy || !chosen || error || storageUnavailable.current)}
                     onClick={() => navigate("instructions")}
                   >
                     開始前の説明へ <ArrowRight size={18} />
@@ -2021,7 +2083,7 @@ export function App() {
           )}
           {view === "search" && bundle && <SearchPage bundle={bundle} route={searchRoute} notifications={notifications}
             theme={theme} onNavigate={navigateSearch} onLicenses={() => setDialog("licenses")}
-            practiceDisabled={Boolean(busy || error)} onPractice={question => void beginBookmark({
+            practiceDisabled={Boolean(busy || error || storageUnavailable.current)} onPractice={question => void beginBookmark({
               subject: question.subject, questionRef: { questionId: question.id, revision: question.revision },
             })} />}
           {view === "bookmarks" && (
@@ -2031,7 +2093,7 @@ export function App() {
                 ブックマーク
               </h1>
               <p className="page-intro">
-                保存した問題の類題を練習できます。科目と分野で絞り込み、表示中の問題から毎回ランダムに選んで、条件を変えた類題を出題します。ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。
+                保存した問題の類題を練習できます。科目と分野で絞り込み、表示中の問題から毎回ランダムに選んで、条件を変えた類題を出題します。{temporaryStorage ? "ブックマークはこのタブ内だけで保持し、再読み込みで失われます。" : "ブックマークはこのブラウザに保存します。履歴を削除しても残ります。サイトの保存領域を消去するとブックマークも消えます。"}
               </p>
               <div className="bookmark-toolbar">
                 <div className="bookmark-filters" role="group" aria-label="ブックマークの絞り込み">
@@ -2079,9 +2141,9 @@ export function App() {
               {bookmarks.length === 0 ? (
                 <div className="empty-state">
                   <BookmarkIcon size={42} />
-                  <h2>まだブックマークがありません</h2>
+                  <h2>{storageUnavailable.current ? "保存したブックマークを確認できません" : "まだブックマークがありません"}</h2>
                   <p>
-                    解答画面のヘッダーから、繰り返し練習したい問題を追加できます。
+                    {storageUnavailable.current ? "保存領域を確認できないため、一覧を表示していません。記録がないことを意味しません。" : "解答画面のヘッダーから、繰り返し練習したい問題を追加できます。"}
                   </p>
                   <button className="primary" onClick={() => navigate("menu")}>
                     問題を選ぶ <ArrowRight size={17} />
@@ -2194,7 +2256,7 @@ export function App() {
                 </h1>
               </div>
               <p className="page-intro">
-                学習履歴はこのブラウザに保存し、最終更新から180日で削除します。ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。
+                {temporaryStorage ? "このタブで行った練習の履歴です。再読み込みで失われ、元の保存履歴はここへ読み込みません。" : "学習履歴はこのブラウザに保存し、最終更新から180日で削除します。ログイン・学習記録の外部送信はありません。サイトの保存領域を消去すると履歴も消えます。"}
               </p>
               <div className="history-toolbar">
                 <label className="history-filter">
@@ -2224,8 +2286,8 @@ export function App() {
               {items.length === 0 ? (
                 <div className="empty-state">
                   <History size={42} />
-                  <h2>まだ学習履歴がありません</h2>
-                  <p>最初の問題セットを選んで、学習を始めましょう。</p>
+                  <h2>{storageUnavailable.current ? "保存した履歴を確認できません" : "まだ学習履歴がありません"}</h2>
+                  <p>{storageUnavailable.current ? "保存領域を確認できないため、一覧を表示していません。記録がないことを意味しません。" : "最初の問題セットを選んで、学習を始めましょう。"}</p>
                   <button className="primary" onClick={() => navigate("menu")}>
                     問題を選ぶ <ArrowRight size={17} />
                   </button>

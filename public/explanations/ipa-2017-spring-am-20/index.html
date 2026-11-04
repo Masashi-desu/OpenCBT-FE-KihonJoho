@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>D/A変換・1ビット分の電圧を求める</title>
+  <link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="scrollbars.css"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="lesson">
+  <h1 id="standalone-title" hidden>D/A変換・1ビット分の電圧を求める</h1>
+  <section class="workspace" aria-label="D/A変換の計算を6段階で確認">
+    <div class="stage-heading"><div><span id="counter" class="muted"></span><h2 id="step-title"></h2></div><div class="stage-actions"><select id="step-select" aria-label="計算ステップを選択"></select><button id="reset" type="button">問題の初期値に戻す</button></div></div>
+    <div class="diagram" id="diagram">
+      <div class="derivation">
+      <div class="calibration" aria-label="入力値と出力電圧の対応と、式に使う二つの差">
+        <span class="calibration-title muted">1 LSBを求める既知の対応</span>
+        <span class="axis-title">基準入力</span><span></span><span class="axis-title">基準の出力電圧</span>
+        <strong>0</strong><span class="arrow" aria-hidden="true">→</span><strong>0 V</strong>
+        <button type="button" class="source-node" data-source="interval" id="interval-source" aria-pressed="false"></button>
+        <span class="correspondence" aria-hidden="true">↔</span>
+        <button type="button" class="source-node" data-source="voltage" id="voltage-source" aria-pressed="false"></button>
+        <label data-source="interval"><input id="reference" type="text" inputmode="numeric" aria-label="電圧が与えられたディジタル入力" aria-describedby="input-help input-error"></label>
+        <span class="arrow" aria-hidden="true">→</span>
+        <label data-source="voltage"><input id="volts" type="text" inputmode="decimal" aria-label="基準入力での出力電圧（V）" aria-describedby="input-help input-error"> V</label>
+      </div>
+      <section class="calculation" aria-label="図のAとBから求める現在の計算" aria-live="polite" aria-atomic="true"><div id="formula"></div></section>
+      </div>
+      <div class="bit-caption"><div class="resolution"><label data-source="resolution"><span class="mark">D</span> 分解能 <select id="bits" aria-label="分解能（ビット数）" aria-describedby="input-help input-error"></select> ビット</label><span id="range" class="muted"></span></div><button type="button" class="source-node" data-source="bit" id="unit-source" aria-pressed="false"><span class="mark">C</span> 最下位ビットの重み＝1</button></div>
+      <div class="bit-viewport" tabindex="0" role="region" aria-label="各ビットの値と重み。左右にスクロールできます"><div id="bit-row" class="bit-row"></div></div>
+      <div class="conversion">
+        <label class="input-code" data-source="probe">入力コード（試す入力） <input id="code" type="text" inputmode="numeric" aria-label="試すディジタル入力" aria-describedby="probe-help input-error"></label>
+        <span class="arrow" aria-hidden="true">→</span><strong class="converter">D/A変換<span class="muted">入力 × 1 LSB</span><span class="muted">1 LSB＝A÷B</span></strong><span class="arrow" aria-hidden="true">→</span>
+        <div class="output"><span class="muted">出力電圧</span><output id="output"></output></div>
+      </div>
+      <p class="link-help muted">図と式の同じ記号で値の出所を確認。ビットを押すと入力と出力が連動します。</p>
+    </div>
+    <div class="navigation" aria-label="計算ステップの操作"><button id="prev" type="button">戻る</button><input id="seek" type="range" min="0" max="5" step="1" value="0" aria-label="計算ステップの位置"><button id="next" type="button" class="primary">次へ</button></div>
+    <p id="input-help" class="sr-only">分解能は2〜12ビット、基準入力は1〜最大コード、出力電圧は0より大きく100V以下、小数第3位まで。有効な入力は直ちに反映します。不正入力中は直前の計算を保持します。</p>
+    <p id="probe-help" class="sr-only">0〜最大コードの整数。ビットボタンでも変更できます。ビットの重みを押すと、その桁の電圧を確認できます。</p>
+    <p id="input-error" class="input-error" role="alert" hidden></p>
+    <section class="explainer" aria-live="polite"><div class="detail-heading"><h2 id="ex-title"></h2><button id="close-bit" type="button" hidden>選択を解除</button></div><p id="explain"></p><div id="bit-detail" hidden aria-label="選んだビットの説明"><h3 id="bit-title" class="sr-only"></h3><p id="bit-explain"></p></div></section>
+    <section id="choice-check" hidden><h2>全選択肢を元の条件へ代入</h2><p id="choice-note" class="muted"></p><div class="table-viewport" role="region" tabindex="0" aria-label="選択肢ごとの検算。左右にスクロールできます"><table><thead><tr><th scope="col">選択肢（V）</th><th scope="col">基準入力での出力（V）</th><th scope="col">判定・分母の意味</th></tr></thead><tbody id="choice-rows"></tbody></table></div></section>
+    <details><summary>前提・用語・操作</summary><p>この解説では、問題の理想的なD/A変換器を、入力コードに比例して出力電圧が増えるものとして扱います。入力0で0Vという条件なので、電圧のずれ（オフセット）はありません。実機の誤差・非線形性・飽和は扱いません。</p><p>D/AはDigital-to-Analog（ディジタル値からアナログ量への変換）、LSBはLeast Significant Bit（最下位ビット）です。1 LSBの電圧は入力コードが1増えたときの変化量です。繰上がりがある場合は複数のビットが変化しますが、コードの差は1です。最下位ビットだけを反転すると、0→1では1 LSB増え、1→0では1 LSB減ります。</p><p>図と式のAは電圧差、Bは入力差、Cは最下位ビットの重み1、Dは分解能です。同じ記号を押すと値の出所を確認できます。各ビットの0／1を押すと試す入力が変わります。「重み」のボタンでその桁の寄与を確認し、再選択・閉じる・Escapeで解除できます。戻る・次へ・スライダー・ステップ選択で計算を移動します。入力欄などの外では左右矢印キーも使えます。割り切れない値は正確な分数で示します。</p></details>
+  </section>
+  <p id="standalone-credit" class="muted" hidden>出典：平成29年度 春期 基本情報技術者試験 午前 問20（問題冊子p.12・解答例p.1）。©2017 独立行政法人情報処理推進機構（IPA）。原問題の条件に基づき、図・操作・途中計算を加えた改変ありの独自解説です。独自解説はCC0-1.0、コードはMIT。<a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000fzx1-att/2017h29h_fe_am_qs.pdf">公式問題</a>・<a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000fzx1-att/2017h29h_fe_am_ans.pdf">公式解答</a></p>
+</main>
+<script src="dac-engine.js"></script><script src="scrollbars.js"></script><script src="main.js"></script>
+</body>
+</html>

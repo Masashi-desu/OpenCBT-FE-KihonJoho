@@ -12,7 +12,7 @@ fs.writeFileSync(`${directory}/verify.js`, `async page => {
   const settled = async () => { await page.getByRole('heading', {name:'検索',exact:true}).waitFor(); await page.locator('.search-loading').waitFor({state:'hidden'}); };
   const count = async expected => { check((await page.locator('.search-results-heading strong').innerText()) === expected + '件', 'result count ' + expected); };
   const storage = async () => page.evaluate(async () => {
-    const db = await new Promise((resolve,reject) => { const request=indexedDB.open('opencbt-fe-kihonjoho-v2',3); request.onsuccess=()=>resolve(request.result); request.onerror=()=>reject(request.error); });
+    const db = await new Promise((resolve,reject) => { const request=indexedDB.open('opencbt-fe-kihonjoho-v2'); request.onsuccess=()=>resolve(request.result); request.onerror=()=>reject(request.error); });
     const names=['sessions','results','generatedInstances','bookmarks'];
     const result=await Promise.all(names.map(name=>new Promise((resolve,reject)=>{const request=db.transaction(name).objectStore(name).count();request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);}))); db.close(); return result;
   });
@@ -97,7 +97,7 @@ fs.writeFileSync(`${directory}/verify-question.js`, `async page => {
   const base=${JSON.stringify(base)}, check=(value,message)=>{if(!value)throw Error(message)}, errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   const state=async()=>page.evaluate(async()=>{
-    const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('opencbt-fe-kihonjoho-v2',3);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
+    const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('opencbt-fe-kihonjoho-v2');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
     const get=name=>new Promise((resolve,reject)=>{const r=db.transaction(name).objectStore(name).getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});
     const [sessions,instances,bookmarks,results]=await Promise.all(['sessions','generatedInstances','bookmarks','results'].map(get));db.close();return {sessions,instances,bookmarks,results};
   });
@@ -176,7 +176,7 @@ fs.writeFileSync(`${directory}/verify-question.js`, `async page => {
   check(saved.issued.length===1&&saved.issued[0].origin.kind==='official_adaptation'&&saved.session.status==='running','generated question saved');
   await page.locator('.answer-choice').first().click();await page.getByRole('button',{name:'次の類題',exact:true}).click();
   await page.waitForFunction(async()=>{
-    const db=await new Promise(resolve=>{const r=indexedDB.open('opencbt-fe-kihonjoho-v2',3);r.onsuccess=()=>resolve(r.result)});
+    const db=await new Promise(resolve=>{const r=indexedDB.open('opencbt-fe-kihonjoho-v2');r.onsuccess=()=>resolve(r.result)});
     const records=await new Promise(resolve=>{const r=db.transaction('sessions').objectStore('sessions').getAll();r.onsuccess=()=>resolve(r.result)});db.close();return records.length===1&&records[0].session.entries.length===2;
   });
   const continued=await state();

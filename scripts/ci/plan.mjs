@@ -9,6 +9,7 @@ import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
 import { callbackDeclarations } from './callback-locations.mjs';
 import { classifyDetailChanges, validDetailTest } from './detail-changes.mjs';
+import { classifyFeatureChanges, validFeatureTest, STORAGE_RUNTIME } from './feature-changes.mjs';
 export const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export const blob = bytes => crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
 export const canonical = value => JSON.stringify(value);
@@ -94,6 +95,8 @@ export function validateTestManifest(files, entries) {
         requireCI(Number.isSafeInteger(e.count) && e.count > 0 && Array.isArray(e.scopes) && e.scopes.every(validScope) && new Set(e.scopes).size === e.scopes.length, 'nonempty test count and explicit scope ownership ' + file);
         if (e.detail !== undefined)
             requireCI(validDetailTest(e), 'explicit detail packages and restricted support-file ownership ' + file);
+        if (e.features !== undefined || e.runtime !== undefined)
+            requireCI(validFeatureTest(e), 'explicit feature and browser-runtime ownership ' + file);
         if (e.diagnostics)
             requireCI(Array.isArray(e.diagnostics) && e.diagnostics.every(d => typeof d === 'string' && d.length) && new Set(e.diagnostics).size === e.diagnostics.length, 'explicit unique work diagnostics ' + file);
         if (e.names)
@@ -104,14 +107,22 @@ export function validateTestManifest(files, entries) {
 export function makeParts(files, entries, selectedScopes, full = false, options = {}) {
     const { profile, detailDirectories = [] } = options;
     const details = !full && profile === 'details';
-    const wanted = full ? files : details ? files.filter(f => validDetailTest(entries[f]) && (!entries[f].detail.packages.length || entries[f].detail.packages.some(p => detailDirectories.includes(p)))) : files.filter(f => !entries[f].scopes.length || entries[f].scopes.some(s => selectedScopes.includes(s))), parts = {};
+    const features = !full && profile === 'features';
+    const selectedDetail = f => validDetailTest(entries[f]) && (!entries[f].detail.packages.length || entries[f].detail.packages.some(p => detailDirectories.includes(p)));
+    const selectedFeature = f => validFeatureTest(entries[f]) && entries[f].features.some(id => options.features.includes(id));
+    const wanted = full ? files : features ? files.filter(f => selectedFeature(f) || detailDirectories.length && selectedDetail(f)) : details ? files.filter(selectedDetail) : files.filter(f => entries[f].scopes.some(s => selectedScopes.includes(s)) || !entries[f].scopes.length && (!entries[f].features || entries[f].features.includes('verification'))), parts = {};
     for (const file of wanted) {
-        const wrapper = /^tests\/booklets\/([^/]+)\/[^/]+\.test\.ts$/.exec(file), part = details ? entries[file].detail.packages.length ? 'details' : 'common' : wrapper ? 'booklet-' + wrapper[1] : entries[file].scopes.length ? 'related' : 'common';
+        const wrapper = /^tests\/booklets\/([^/]+)\/[^/]+\.test\.ts$/.exec(file), part = entries[file].runtime === 'chromium' ? 'browser-storage' : features ? entries[file].features?.includes('storage') ? 'feature-storage' : validDetailTest(entries[file]) && entries[file].detail.packages.length ? 'details' : 'common' : details ? entries[file].detail.packages.length ? 'details' : 'common' : wrapper ? 'booklet-' + wrapper[1] : entries[file].scopes.length ? 'related' : 'common';
         (parts[part] ??= []).push(file);
     }
     requireCI(parts.common?.length > 0, 'nonempty shared contract tests');
     if (details)
         requireCI(detailDirectories.length > 0 && detailDirectories.every(p => wanted.some(f => entries[f].detail.packages.includes(p))), 'content tests for every changed detail package');
+    if (features) {
+        requireCI(options.features?.length && options.features.every(id => wanted.some(f => entries[f].features?.includes(id))), 'tests for every selected feature');
+        if (options.features.includes('storage')) requireCI(parts['browser-storage']?.length, 'native IndexedDB coverage cannot be omitted');
+        requireCI(detailDirectories.every(p => wanted.some(f => entries[f].detail?.packages.includes(p))), 'content tests for mixed feature/detail changes');
+    }
     return Object.fromEntries(Object.entries(parts).sort(([a], [b]) => a.localeCompare(b)).map(([part, names]) => [part, { files: names.sort(), expectedByFile: Object.fromEntries(names.map(f => [f, entries[f].count])), expectedNames: Object.fromEntries(names.filter(f => entries[f].names).map(f => [f, entries[f].names])), expectedDeclarations: Object.fromEntries(names.map(f => [f, callbackDeclarations(f, entries[f].names)]).filter(([, declarations]) => declarations)), expectedCount: names.reduce((n, f) => n + entries[f].count, 0), requiredDiagnostics: names.flatMap(f => entries[f].diagnostics ?? []), coverage: Object.fromEntries(names.filter(f => entries[f].coverage).map(f => [f, entries[f].coverage])), filters: [] }]));
 }
 function manifestDeltaAllowed(beforeBytes, afterBytes, beforeFiles, afterFiles, changed, scopes) {
@@ -196,9 +207,13 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
             beforeTestEntries: JSON.parse(readAt(base.commit, manifestPath).toString()).files, testEntries: entries,
             readBefore: file => readAt(base.commit, file), readAfter: file => readAt(null, file) });
         if (detail) selected = detail;
+        const feature = classifyFeatureChanges({ changed, beforeOwnership: before, afterOwnership: after,
+            beforeTestEntries: JSON.parse(readAt(base.commit, manifestPath).toString()).files, testEntries: entries,
+            readBefore: file => readAt(base.commit, file), readAfter: file => readAt(null, file) });
+        if (feature) selected = feature;
     }
     for (const file of manifests)
-        if (selected.profile !== 'details' && !manifestDeltaAllowed(readAt(base.commit, file), readAt(null, file), baseline, actual, changed, selected.scopes)) {
+        if (!['details', 'features'].includes(selected.profile) && !manifestDeltaAllowed(readAt(base.commit, file), readAt(null, file), baseline, actual, changed, selected.scopes)) {
             selected.profile = 'full';
             selected.scopes = after.scopes;
             selected.unknown.push(file);
@@ -206,16 +221,20 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         }
     if (selected.profile !== 'full') {
         const carriers = ['src/core/generators/effective-public.ts', 'src/core/generators/legacy-afternoon-definitions.ts', 'src/core/generators/legacy-morning-managed.ts', ...Object.keys(EXTENSION_DECLARATIONS)];
-        const sourceChanges = changed.filter(p => !Object.hasOwn(EXTENSION_DECLARATIONS, p));
+        const sourceChanges = changed.filter(p => !Object.hasOwn(EXTENSION_DECLARATIONS, p) && !(selected.profile === 'features' && [...STORAGE_RUNTIME, 'package.json', 'package-lock.json'].includes(p)));
         const oldImports = base.trusted ? runtimeImports(baseline, base.commit) : { graph: {}, unresolved: [] }, newImports = runtimeImports(actual, null), oldGraph = oldImports.graph, newGraph = newImports.graph, graph = {};
         for (const file of new Set([...Object.keys(oldGraph), ...Object.keys(newGraph)]))
             graph[file] = [...new Set([...(oldGraph[file] ?? []), ...(newGraph[file] ?? [])])];
         const affected = expandOwnedDependencies(sourceChanges, graph, after.scopes, carriers);
+        if (selected.profile === 'features')
+            for (const [consumer, dependencies] of Object.entries(graph))
+                if (dependencies.some(p => STORAGE_RUNTIME.includes(p)) && ![...STORAGE_RUNTIME, 'src/ui/App.tsx'].includes(consumer))
+                    affected.unknown.push('unproven storage consumer boundary: ' + consumer);
         affected.unknown.push(...oldImports.unresolved, ...newImports.unresolved);
         affected.virtualArtifacts = {before: oldImports.virtualDependencies ?? [], after: newImports.virtualDependencies ?? []};
         selected.scopes = [...new Set([...selected.scopes, ...affected.scopes])].sort();
         selected.reverseDependencies = affected;
-        if (affected.unknown.length || selected.profile === 'details' && affected.scopes.length) {
+        if (affected.unknown.length || ['details', 'features'].includes(selected.profile) && affected.scopes.length) {
             selected.profile = 'full';
             selected.scopes = after.scopes;
             selected.unknown.push(...affected.unknown);
@@ -249,5 +268,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     fs.writeFileSync(output, JSON.stringify(plan, null, 2) + '\n');
     if (process.env.GITHUB_OUTPUT)
         fs.appendFileSync(process.env.GITHUB_OUTPUT, `matrix=${JSON.stringify({ part: plan.parts })}\nprofile=${plan.profile}\n`);
-    console.log(`${plan.profile}: ${plan.scopes.join(', ') || 'shared contracts'}; ${plan.selectedFiles.length}/${plan.files.length} files, ${plan.expectedCount}/${plan.fullTestCount} cases; ${plan.unknown.length} shared or unknown changes`);
+    console.log(`${plan.profile}: ${(plan.features ?? plan.scopes).join(', ') || 'shared contracts'}; ${plan.selectedFiles.length}/${plan.files.length} files, ${plan.expectedCount}/${plan.fullTestCount} cases; ${plan.unknown.length} shared or unknown changes`);
 }

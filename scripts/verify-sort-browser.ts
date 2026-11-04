@@ -131,7 +131,7 @@ fs.writeFileSync(output + "/seed.js", `async page => {
   await page.unroute('**/explanations/ipa-2026-a-2/manifest.json');
   await page.goto(${JSON.stringify(url)});
   await page.evaluate(async ({runs, blobs}) => {
-    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',3);
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2');
     const db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
     const assets=Object.fromEntries(Object.entries(blobs).map(([id,data])=>[id,new Blob([Uint8Array.from(atob(data),c=>c.charCodeAt(0))],{type:'image/webp'})]));
     const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');

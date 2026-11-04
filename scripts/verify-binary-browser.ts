@@ -97,7 +97,7 @@ fs.writeFileSync(output + "/saved.js", `async page=>{
   await setViewport({width:1280,height:900});await page.goto(${JSON.stringify(url)});
   const check=(ok,message)=>{if(!ok)throw Error(message)};
   await page.evaluate(async run=>{
-    const open=indexedDB.open('opencbt-fe-kihonjoho-v2',4),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
+    const open=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise((resolve,reject)=>{open.onsuccess=()=>resolve(open.result);open.onerror=reject});
     const tx=db.transaction(['catalogSnapshots','generatedInstances','sessions','results'],'readwrite');
     tx.objectStore('catalogSnapshots').put({id:run.session.id,bundle:run.bundle,assets:{}});run.instances.forEach(i=>tx.objectStore('generatedInstances').put(i));
     tx.objectStore('sessions').put({id:run.session.id,session:run.session,exam:run.exam,set:run.set,selection:run.selection,issued:run.issued,title:run.set.title,result:run.result});tx.objectStore('results').put(run.result);
@@ -113,7 +113,7 @@ fs.writeFileSync(output + "/saved.js", `async page=>{
   check(await f.evaluate(()=>JSON.stringify(window.OpenCBTDetail.context))===before,'frozen context unchanged');
   check(await f.evaluate(()=>{try{parent.document.body;return false}catch{return Object.isFrozen(window.OpenCBTDetail.context)}}),'isolated host');
   await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();
-  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2',4),db=await new Promise(resolve=>open.onsuccess=()=>resolve(open.result));const req=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>req.onsuccess=()=>resolve(req.result))},${JSON.stringify(run.session.id)});
+  const saved=await page.evaluate(async id=>{const open=indexedDB.open('opencbt-fe-kihonjoho-v2'),db=await new Promise(resolve=>open.onsuccess=()=>resolve(open.result));const req=db.transaction('sessions').objectStore('sessions').get(id);return await new Promise(resolve=>req.onsuccess=()=>resolve(req.result))},${JSON.stringify(run.session.id)});
   check(JSON.stringify(saved.issued)===${JSON.stringify(JSON.stringify(run.issued))},'saved problem');check(JSON.stringify(saved.session.entries)===${JSON.stringify(JSON.stringify(run.session.entries))},'saved answer and order');check(JSON.stringify(saved.result)===${JSON.stringify(JSON.stringify(run.result))},'saved result');
   return {savedWidth:5,choiceOrder:true,answer:true,result:true,return:true};
 }`);

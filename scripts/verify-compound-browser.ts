@@ -41,7 +41,7 @@ fs.writeFileSync(`${directory}/verify.js`, `async page => {
   await page.getByRole('button',{name:'開始前の説明へ',exact:true}).waitFor();
   const install=async value=>page.evaluate(async value=>{
     localStorage.setItem('opencbt-fe-kihonjoho-theme',value.theme);
-    const request=indexedDB.open('opencbt-fe-kihonjoho-v2',3);
+    const request=indexedDB.open('opencbt-fe-kihonjoho-v2');
     const db=await new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});
     const tx=db.transaction(['catalogSnapshots','sessions'],'readwrite');
     tx.objectStore('catalogSnapshots').put({id:value.run.session.id,bundle:value.bundle,assets:{}});

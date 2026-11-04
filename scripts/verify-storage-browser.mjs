@@ -14,6 +14,7 @@ fs.writeFileSync(`${out}/initialize.js`, `async page => {
   return page.evaluate(async () => { window.storageHarness = await import('/scripts/storage-browser-harness.ts'); return window.storageHarness.initialize(); });
 }`);
 fs.writeFileSync(`${out}/acceptance.js`, 'async page => page.evaluate(() => window.storageHarness.acceptance())');
+fs.writeFileSync(`${out}/incomplete-v4.js`, 'async page => page.evaluate(() => window.storageHarness.incompleteV4Regression())');
 for (const count of [1, 43, 360, 1000]) for (const assets of [false, true])
   fs.writeFileSync(`${out}/v4-${assets ? 'original' : 'generated'}-${count}.js`, `async page => page.evaluate(() => window.storageHarness.scale(${count}, false, ${assets}))`);
 for (const count of [43, 360]) for (const assets of [false, true]) {

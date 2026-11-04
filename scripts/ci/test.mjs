@@ -11,7 +11,7 @@ export function runSelectedTests(args = process.argv.slice(2)) {
     const plan = createPlan({ forceFull: args.includes('--full'), baseCommit: baseArg?.slice(7), bookletScope: bookletArg, combineParts: true });
     const dir = fs.mkdtempSync(path.resolve('output', 'ci-local-'));
     fs.writeFileSync(path.join(dir, 'plan.json'), JSON.stringify(plan, null, 2) + '\n');
-    console.log(`Verification: ${plan.profile}; ${plan.selectedFiles.length}/${plan.files.length} files, ${plan.expectedCount}/${plan.fullTestCount} cases; ${plan.scopes.join(', ')}`);
+    console.log(`Verification: ${plan.profile}; ${plan.selectedFiles.length}/${plan.files.length} files, ${plan.expectedCount}/${plan.fullTestCount} cases; ${(plan.features ?? plan.scopes).join(', ')}`);
     const report = runPart(plan, 'local', path.join(dir, 'local')), result = aggregate(plan, [report]);
     fs.writeFileSync(path.join(dir, 'aggregate.json'), JSON.stringify(result, null, 2) + '\n');
     console.log(JSON.stringify({ ...result, evidenceDirectory: dir }, null, 2));

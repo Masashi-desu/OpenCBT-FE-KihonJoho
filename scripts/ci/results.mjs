@@ -55,6 +55,6 @@ export function aggregate(plan, reports) {
     requireCI(canonical(files) === canonical(plan.selectedFiles), 'complete selected recursive file coverage');
     if (plan.profile === 'full')
         requireCI(canonical(files) === canonical(plan.files) && cases.length === plan.fullTestCount, 'full plan means every manifest case and file');
-    return { profile: plan.profile, scopes: plan.scopes, commit: plan.commit, runId: plan.runId, attempt: plan.attempt, passed: cases.length, totalManifestCases: plan.fullTestCount, parts: plan.parts, files: files.length, totalManifestFiles: plan.files.length, planSHA256: sha(canonical(plan)), status: 'pass' };
+    return { profile: plan.profile, ...(plan.features ? { features: plan.features } : {}), scopes: plan.scopes, commit: plan.commit, runId: plan.runId, attempt: plan.attempt, passed: cases.length, totalManifestCases: plan.fullTestCount, parts: plan.parts, files: files.length, totalManifestFiles: plan.files.length, planSHA256: sha(canonical(plan)), status: 'pass' };
 }
 export function readEvents(file) { requireCI(fs.existsSync(file), 'missing reporter witness'); const lines = fs.readFileSync(file, 'utf8').trim().split('\n'); requireCI(lines.length > 0, 'nonempty reporter witness'); return lines.map(l => JSON.parse(l)); }

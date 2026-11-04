@@ -8,6 +8,7 @@ import { makeBookmark } from "../src/core/bookmarks";
 import { refOf } from "../src/core/types";
 import { sortedJson } from "../src/core/hash";
 import type { Run } from "../src/core/types";
+import { prepareSnapshot } from "../src/core/storage-snapshot";
 
 const DB = "opencbt-fe-kihonjoho-v2";
 const check = (ok: unknown, message: string) => { if (!ok) throw Error(message); };
@@ -83,6 +84,56 @@ async function counts() {
   const db = await connect(), names = [...db.objectStoreNames], tx = db.transaction(names);
   const values = await Promise.all(names.map(async name => [name, await req(tx.objectStore(name).count())])); db.close();
   return Object.fromEntries(values);
+}
+// Reproduce the actual seven-store v4 seen in the IAB, including the missing
+// policy store and the absent sessions.updatedAt / snapshots.sessionBundle.
+// Run only against this harness's isolated origin and disposable test records.
+export async function incompleteV4Regression() {
+  await reset();
+  const opening = indexedDB.open(DB, 4);
+  opening.onupgradeneeded = () => {
+    const db = opening.result;
+    for (const name of ["bookmarks", "catalogSnapshots", "generatedInstances", "results", "sessions", "sharedAssets", "sharedBundles"])
+      db.createObjectStore(name, { keyPath: "id" });
+    const tx = opening.transaction!;
+    for (const [store, name, multiEntry] of [["catalogSnapshots", "bundleKey", false], ["catalogSnapshots", "assetKeys", true],
+      ["generatedInstances", "sessionId", false], ["results", "sessionId", false], ["sharedBundles", "questionRefs", true]] as const)
+      tx.objectStore(store).createIndex(name, name, { multiEntry });
+  };
+  const old = await req(opening), names = [...old.objectStoreNames];
+  check(old.version === 4 && !old.objectStoreNames.contains("storagePolicy"), "observed old schema");
+  let reproduced = false;
+  try { old.transaction([...names, "storagePolicy"]); } catch (error) { reproduced = (error as DOMException).name === "NotFoundError"; }
+  check(reproduced, "old v4 reproduces the reported missing-store transaction error");
+  const runs = [0, 1, 2, 3, 4].map(i => copy(i === 0 ? original : generated, 20000 + i));
+  for (const run of runs) {
+    const prepared = await prepareSnapshot(run.session.id, run.bundle, run.assets);
+    const tx = old.transaction(names, "readwrite"), complete = done(tx);
+    tx.objectStore("catalogSnapshots").put(prepared.snapshot);
+    tx.objectStore("sharedBundles").put(prepared.shared);
+    for (const asset of prepared.assets) tx.objectStore("sharedAssets").put(asset);
+    tx.objectStore("sessions").put(record(run));
+    for (const instance of run.instances) tx.objectStore("generatedInstances").put(instance);
+    if (run.result) tx.objectStore("results").put(run.result);
+    await complete;
+  }
+  const bookmark = makeBookmark(runs[0].bundle, refOf(runs[0].bundle.questions.find(q => q.id === "question-ipa-sample-2022-dec-a-1")!));
+  const tx = old.transaction("bookmarks", "readwrite"), complete = done(tx); tx.objectStore("bookmarks").put(bookmark); await complete;
+  old.close();
+  const allRows = () => raw(names, async tx => Object.fromEntries(await Promise.all(names.map(async name => [name, await req(tx.objectStore(name).getAll())]))));
+  const before = JSON.stringify(sortedJson(await allRows()));
+  check((await storage.history()).length === 5, "old v4 opens through the repaired v5 upgrade");
+  const current = await connect();
+  check(current.version === 5 && current.objectStoreNames.contains("storagePolicy"), "version and missing store upgraded");
+  const schema = current.transaction(names);
+  check(schema.objectStore("sessions").indexNames.contains("updatedAt") && schema.objectStore("catalogSnapshots").indexNames.contains("sessionBundle"), "both missing indexes upgraded");
+  current.close();
+  check(JSON.stringify(sortedJson(await allRows())) === before, "upgrade preserved every existing row");
+  check(JSON.stringify(await storage.listBookmarks()) === JSON.stringify([bookmark]), "existing bookmark unchanged");
+  for (const run of runs) check(fingerprint(await storage.loadRun(run.session.id)) === fingerprint(run), "exact restore of original/generated saved history");
+  await storage.maintainStorage(runs[0].bundle);
+  check((await storage.history()).length === 5 && (await storage.listBookmarks()).length === 1, "startup maintenance preserves all five runs and bookmark");
+  return { reproduced, version: 5, exactRows: true, originalAndGeneratedRestore: true, counts: await counts() };
 }
 async function rejects(action: () => Promise<unknown>, code?: string) {
   let failure: any; try { await action(); } catch (error) { failure = error; }

@@ -75,7 +75,7 @@ fs.writeFileSync(`${output}/seed.js`, `async page => {
       name.endsWith('js') ? 'text/javascript' : name.endsWith('css') ? 'text/css' : 'text/html', body: resources[name]});
   });
   await page.evaluate(async ({run, blobs}) => {
-    const open = indexedDB.open('opencbt-fe-kihonjoho-v2', 3);
+    const open = indexedDB.open('opencbt-fe-kihonjoho-v2');
     const db = await new Promise((resolve, reject) => {open.onsuccess=()=>resolve(open.result);open.onerror=reject;});
     const assets = Object.fromEntries(Object.entries(blobs).map(([id, data]) => [id,
       new Blob([Uint8Array.from(atob(data), char=>char.charCodeAt(0))], {type:'image/webp'})]));
@@ -171,7 +171,7 @@ fs.writeFileSync(`${output}/verify.js`, `async page => {
   check(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth), 'mobile overflow');
   await page.screenshot({path:${JSON.stringify(output + "/mobile.png")},fullPage:true});
   const actual = await page.evaluate(async sessionId => {
-    const request = indexedDB.open('opencbt-fe-kihonjoho-v2',3);
+    const request = indexedDB.open('opencbt-fe-kihonjoho-v2');
     const db = await new Promise(resolve=>{request.onsuccess=()=>resolve(request.result);});
     const get=db.transaction('sessions').objectStore('sessions').get(sessionId);
     const saved=await new Promise(resolve=>{get.onsuccess=()=>resolve(get.result);});db.close();
@@ -196,7 +196,7 @@ fs.writeFileSync(`${output}/failures.js`, `async page => {
   const hash = text => page.evaluate(async text => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
     new TextEncoder().encode(text)))].map(byte=>byte.toString(16).padStart(2,'0')).join(''), text);
   const saved = () => page.evaluate(async sessionId => {
-    const request=indexedDB.open('opencbt-fe-kihonjoho-v2',3);
+    const request=indexedDB.open('opencbt-fe-kihonjoho-v2');
     const db=await new Promise(resolve=>{request.onsuccess=()=>resolve(request.result);});
     const get=db.transaction('sessions').objectStore('sessions').get(sessionId);
     const value=await new Promise(resolve=>{get.onsuccess=()=>resolve(get.result);});db.close();

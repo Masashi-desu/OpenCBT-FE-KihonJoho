@@ -8,7 +8,11 @@ export const assetBase = new URL(
   location.href.split("#")[0],
 );
 async function bytes(path: string, max: number) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
+  try {
   const res = await fetch(new URL(path, assetBase), {
+    signal: controller.signal,
     cache: "no-cache",
     referrerPolicy: "no-referrer",
   });
@@ -37,6 +41,10 @@ async function bytes(path: string, max: number) {
     offset += c.length;
   }
   return out;
+  } catch (error) {
+    if (controller.signal.aborted) throw new DataError("NETWORK", "通信の応答がありません。接続を確認して再読み込みしてください。");
+    throw error;
+  } finally { clearTimeout(timeout); }
 }
 export async function loadCatalog(): Promise<Bundle> {
   return readCatalog(bytes);
