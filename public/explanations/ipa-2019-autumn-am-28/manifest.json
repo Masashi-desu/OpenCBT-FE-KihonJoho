@@ -1,0 +1,129 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "トランザクションの状態遷移",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-qs",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問28",
+          "page": 16,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "28"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-ans",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問28 解答",
+          "page": 1,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "28"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2019r01a-fe-am-stage1-source77",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-qs",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問28",
+          "page": 16,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "28"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-ans",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問28 解答",
+          "page": 1,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "28"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "正常コミット・実行中の中止・確定完了前の障害を一遷移ずつ追跡。五つの状態と全選択肢を図で比較できます。",
+    "keywords": [
+      "トランザクション",
+      "状態遷移",
+      "コミット",
+      "アボート",
+      "ロールバック",
+      "アクティブ",
+      "確定",
+      "取消し",
+      "2019年度",
+      "秋期",
+      "午前",
+      "問28"
+    ],
+    "text": "一つのトランザクションの開始後、アクティブ・コミット処理中・コミット済・アボート処理中・アボート済の五状態を図で追う。戻る・次へ・スライダーで一段ずつ操作。コミット処理中からアボート処理中へは障害等によって移り得る。コミット処理中とコミット済、アボート処理中とアボート済を区別する。原問題で取ることのない遷移はイのアボート処理中からコミット処理中。アボート処理中からコミット済、アボート済からコミット済、コミット済からアボート処理中も同じトランザクションでは直接移れない。全四選択肢と保存済み生成条件の全4種類を比較し、再実行・補償は別のトランザクションと区別する。解説の操作は保存済み問題・回答・結果を変更しない。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "4bcee8717487d9d9ab9b71326114b34b4c2e24d5bc0f8a9c549587511552aefc"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "ed6e48882bfbc3cb83b833ad1b815a5b7a4fc2d990ce7492fafe34527b3f5cf1"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "transaction-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "23bfae8ff6d4209e56eec913fcef39e2e23dd05d18b6d72bba390eb576092846"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "a2852614099f3df71654f9bdee4725ccc815c067230feb1599ea4aadec2e69ae"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "5312f4b655547a55a694cbf63cdce255fd5476669650ab814ecbcf447817ef1a"
+    }
+  ]
+}

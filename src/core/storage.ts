@@ -385,23 +385,25 @@ export async function maintainStorage(bundle: Bundle, onProgress?: (completed: n
 }
 export function acquireRunLock(id: string, onConflict: () => void): () => void {
   if (temporary) return () => {};
-  const controller = new AbortController();
+  let cancelled = false;
   let release = () => {};
   if (!navigator.locks) {
     onConflict();
     return () => {};
   }
   const timeout = setTimeout(() => {
-    controller.abort();
+    cancelled = true;
     onConflict();
   }, 15000);
   try { void navigator.locks
     .request(
       `opencbt:${id}`,
-      { ifAvailable: true, signal: controller.signal },
+      // Web Locks forbids combining ifAvailable with signal. This request
+      // never queues; a late callback checks local cancellation before holding.
+      { ifAvailable: true },
       async (lock) => {
         clearTimeout(timeout);
-        if (controller.signal.aborted) return;
+        if (cancelled) return;
         if (!lock) {
           onConflict();
           return;
@@ -411,11 +413,11 @@ export function acquireRunLock(id: string, onConflict: () => void): () => void {
         });
       },
     )
-    .catch(() => { clearTimeout(timeout); if (!controller.signal.aborted) onConflict(); });
+    .catch(() => { clearTimeout(timeout); if (!cancelled) onConflict(); });
   } catch { clearTimeout(timeout); onConflict(); }
   return () => {
     clearTimeout(timeout);
     release();
-    controller.abort();
+    cancelled = true;
   };
 }

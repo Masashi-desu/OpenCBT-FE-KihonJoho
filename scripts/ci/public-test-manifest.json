@@ -7570,7 +7570,7 @@
       ]
     },
     "tests/storage-browser.test.ts": {
-      "count": 3,
+      "count": 4,
       "scopes": [],
       "features": [
         "storage"
@@ -7598,6 +7598,22 @@
         "storage"
       ],
       "runtime": "chromium"
+    },
+    "tests/transaction-simulator.test.ts": {
+      "count": 6,
+      "scopes": [
+        "2019-autumn-am"
+      ],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2019-autumn-am-28/"
+        ],
+        "supportFiles": [
+          "scripts/prepare-transaction-explanation.ts",
+          "scripts/update-transaction-manifest.mjs",
+          "scripts/verify-transaction-browser.ts"
+        ]
+      }
     }
   }
 }

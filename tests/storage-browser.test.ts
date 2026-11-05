@@ -65,3 +65,36 @@ test("application starts and reloads with the migrated native database and expos
   assert.equal(await page.getByRole("button", { name: /のブックマークを削除$/ }).count(), 1);
   assert.equal(await page.locator(".error-banner").count(), 0);
 });
+
+test("native Web Locks acquire, reject a competing session, release and reacquire without forbidden options or late lock leaks", async () => {
+  const result = await page.evaluate(async () => {
+    const modulePath = "/src/core/storage.ts", { acquireRunLock } = await import(modulePath);
+    const id = "transaction-detail-lock-regression", name = `opencbt:${id}`;
+    const probe = {
+      async waitFor(predicate: () => Promise<boolean>) {
+        const deadline = Date.now() + 5000;
+        while (!(await predicate())) { if (Date.now() > deadline) throw Error("Native lock state did not settle"); await new Promise(r => setTimeout(r, 10)); }
+      },
+      async held() { return (await navigator.locks.query()).held?.some(lock => lock.name === name) ?? false; },
+    };
+    let conflicts = 0, secondConflicts = 0;
+    const releaseFirst = acquireRunLock(id, () => conflicts++);
+    const releases = [releaseFirst];
+    try {
+      await probe.waitFor(probe.held);
+      releases.push(acquireRunLock(id, () => secondConflicts++));
+      await probe.waitFor(async () => secondConflicts > 0);
+      releaseFirst(); await probe.waitFor(async () => !(await probe.held()));
+      const releaseThird = acquireRunLock(id, () => conflicts++); releases.push(releaseThird);
+      await probe.waitFor(probe.held); releaseThird(); await probe.waitFor(async () => !(await probe.held()));
+      // Unmounting before the native callback arrives must not retain a lock.
+      acquireRunLock(id, () => conflicts++)();
+      const controller = new AbortController(), timeout = setTimeout(() => controller.abort(), 5000);
+      let available: boolean;
+      try { available = await navigator.locks.request(name, { signal: controller.signal }, lock => !!lock); }
+      finally { clearTimeout(timeout); }
+      return { conflicts, secondConflicts, available };
+    } finally { releases.forEach(release => release()); }
+  });
+  assert.deepEqual(result, { conflicts: 0, secondConflicts: 1, available: true });
+});

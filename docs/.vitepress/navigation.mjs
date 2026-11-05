@@ -23,6 +23,7 @@ export const sidebar = [
     { text: '問3のキャッシュヒット率解説', link: '/cache-explanation' },
     { text: 'サンプル問2の2進数変換解説', link: '/binary-explanation' },
     { text: '2017春午前問20のD/A変換解説', link: '/dac-explanation' },
+    { text: '2019秋午前問28の状態遷移解説', link: '/transaction-explanation' },
     { text: '図描画・問題生成・改変記録', link: '/diagram-generation' },
     { text: '全問題の生成対応', link: '/generation-coverage' },
     { text: 'JSON Schema', link: '/schemas' },

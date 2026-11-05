@@ -1,0 +1,62 @@
+* { box-sizing: border-box; }
+:root { font-family: var(--font); color: var(--ink); background: var(--surface); color-scheme: var(--color-scheme); }
+body { margin: 0; }
+[hidden] { display: none !important; }
+.lesson { max-width: 1120px; margin: auto; padding: 12px; min-width: 0; }
+h1 { font-size: 1.5rem; }
+h2, p { margin: 0; }
+h2 { font-size: 1rem; }
+p { line-height: 1.8; overflow-wrap: anywhere; }
+button, input, select { font: inherit; min-height: 44px; min-width: 44px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); }
+button, select { padding: 8px 12px; cursor: pointer; }
+button:hover:not(:disabled), summary:hover { background: var(--soft-surface); }
+button:disabled { opacity: .45; cursor: default; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.settings { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.settings select { max-width: 100%; min-width: 0; }
+.diagram-viewport { overflow-x: auto; margin-top: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--diagram-surface); }
+.diagram { min-width: 52.5rem; max-width: 65.625rem; margin: auto; }
+svg { display: block; width: 100%; height: auto; font-family: var(--font); }
+svg text { fill: var(--ink); font-size: 17px; }
+svg .small { font-size: 14px; fill: var(--muted); }
+svg .state-name { font-size: 18px; font-weight: 600; }
+svg .shape { fill: var(--surface); stroke: var(--diagram-border); stroke-width: 1.5; }
+svg .wire { fill: none; stroke: var(--diagram-border); stroke-width: 1.5; }
+svg .arrow { fill: var(--diagram-border); }
+svg .choice-arrow { fill: var(--text-positive); }
+svg .forbidden-arrow { fill: var(--text-danger); }
+svg .passed { stroke-width: 2.5; }
+svg .recent { stroke: var(--text-accent); stroke-width: 4; }
+svg .current .shape { fill: var(--selected-surface); stroke: var(--selected-border); stroke-width: 3; }
+svg .current-label { font-weight: 700; fill: var(--text-accent); }
+svg .selected .shape { stroke: var(--focus); stroke-width: 3; stroke-dasharray: 6 3; }
+svg .choice-edge { fill: none; stroke: var(--text-positive); stroke-width: 4; }
+svg .forbidden { stroke: var(--text-danger); stroke-dasharray: 7 5; }
+svg .cross { fill: var(--text-danger); font-size: 28px; font-weight: 700; paint-order: stroke; stroke: var(--diagram-surface); stroke-width: 5px; }
+svg [role="button"] { cursor: pointer; }
+svg [role="button"]:focus { outline: none; }
+svg [role="button"]:focus-visible .shape { stroke: var(--focus); stroke-width: 4; }
+.navigation { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.navigation button { min-width: 80px; }
+#seek { flex: 1; min-width: 0; width: 100%; padding: 0; border: 0; accent-color: var(--accent); }
+.primary { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+.primary:hover:not(:disabled) { background: var(--accent-hover); }
+.step-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; }
+.muted, .step-meta { font-size: .85rem; color: var(--muted); }
+.explanation { margin-top: 14px; padding: 12px 14px; border-left: 3px solid var(--selected-border); background: var(--soft-surface); }
+.explanation-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; }
+.explanation-heading button { flex-shrink: 0; white-space: nowrap; }
+.explanation p { margin-top: 4px; }
+.choices { margin-top: 20px; }
+.choices > p { margin: 6px 0 10px; }
+#choice-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.choice { display: grid; grid-template-columns: 28px 1fr 24px 1fr; align-items: center; gap: 6px; text-align: left; width: 100%; }
+.choice span { overflow-wrap: anywhere; }
+.choice[aria-pressed="true"] { background: var(--selected-surface); border: 2px solid var(--selected-border); padding: 7px 11px; }
+details { margin-top: 20px; border-top: 1px solid var(--line); }
+summary { min-height: 44px; padding: 10px 4px; cursor: pointer; }
+details p { margin-top: 10px; }
+#standalone-credit { margin-top: 24px; font-size: .85rem; color: var(--muted); }
+a { color: var(--text-accent); }
+@media (max-width: 600px) { #choice-list { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .lesson { padding: 8px; } .navigation { gap: 8px; } .navigation button { min-width: 68px; } }
