@@ -1,11 +1,18 @@
 import test, { before, after } from "node:test";
 import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
 import { createServer, type ViteDevServer } from "vite";
 import { chromium, type Browser, type Page } from "playwright";
 
 let server: ViteDevServer | undefined, browser: Browser | undefined, page: Page;
+let cacheDir: string | undefined;
 before(async () => {
-  server = await createServer({ server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false }, logLevel: "error" });
+  fs.mkdirSync("output", { recursive: true });
+  // Each parallel Vite optimizer owns its cache; a shared cold cache can race
+  // while renaming deps_temp into deps (ENOTEMPTY on the Linux CI runner).
+  cacheDir = fs.mkdtempSync(path.resolve("output", "storage-vite-"));
+  server = await createServer({ cacheDir, server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false }, logLevel: "error" });
   // Vite 6 treats config port 0 as its default port; bind the HTTP server to an
   // OS-assigned port so parallel browser files never compete with each other.
   await new Promise<void>((resolve, reject) => {
@@ -24,7 +31,13 @@ before(async () => {
     await harness.initialize();
   });
 });
-after(async () => { await browser?.close(); await server?.close(); });
+after(async () => {
+  try { await browser?.close(); }
+  finally {
+    try { await server?.close(); }
+    finally { if (cacheDir) fs.rmSync(cacheDir, { recursive: true, force: true }); }
+  }
+});
 
 test("native IndexedDB preserves v3 history and validates rollback, concurrent writes, expiry, blobs and withdrawal policy", async () => {
   const result = await page.evaluate(() => (window as any).nativeStorageHarness.acceptance());

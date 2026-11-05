@@ -1,12 +1,17 @@
 import test, { before, after } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import path from "node:path";
 import { createServer, type ViteDevServer } from "vite";
 import { chromium, type Browser, type Page } from "playwright";
 let server: ViteDevServer, browser: Browser, origin: string;
+let cacheDir: string | undefined;
 before(async () => {
   fs.mkdirSync("output/recovery", { recursive: true });
-  server = await createServer({ server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false }, logLevel: "error" });
+  // A fresh optimizer cache belongs to this server, never another test process
+  // or the user's development server.
+  cacheDir = fs.mkdtempSync(path.resolve("output", "recovery-vite-"));
+  server = await createServer({ cacheDir, server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false }, logLevel: "error" });
   await new Promise<void>((resolve, reject) => {
     server.httpServer!.once("error", reject);
     server.httpServer!.listen(0, "127.0.0.1", () => { server.httpServer!.off("error", reject); resolve(); });
@@ -14,7 +19,13 @@ before(async () => {
   const address = server.httpServer!.address(); assert(address && typeof address !== "string");
   origin = `http://127.0.0.1:${address.port}/`; browser = await chromium.launch({ headless: true });
 });
-after(async () => { await browser?.close(); await server?.close(); });
+after(async () => {
+  try { await browser?.close(); }
+  finally {
+    try { await server?.close(); }
+    finally { if (cacheDir) fs.rmSync(cacheDir, { recursive: true, force: true }); }
+  }
+});
 const ready = async (p: Page) => { await p.getByRole("button", { name: "開始前の説明へ", exact: true }).and(p.locator(":enabled")).waitFor(); };
 const warning = async (p: Page) => {
   await p.getByText("保存機能を利用できません", { exact: true }).waitFor();
