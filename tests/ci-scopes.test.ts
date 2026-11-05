@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { scopeFamily, scopeForQuestion } from '../scripts/ci/booklet-scope.mjs';
 import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, inertDisplaySource, scopedDisplayImports } from '../scripts/ci/scopes.mjs';
 import { runtimeDependencyGraph } from '../scripts/ci/runtime-dependencies.mjs';
@@ -62,6 +63,21 @@ test('AM, PM, A and B own independent test jobs; the guarded display only select
     assert.deepEqual(selected.scopes, ['2022-december-b', '2024-b']);
     assert.deepEqual(Object.keys(makeParts(Object.keys(entries), entries, selected.scopes)), ['booklet-2022-december-b', 'booklet-2024-b', 'common']);
     assert.equal(classify([file, 'src/ui/Content.tsx'], owned, owned, { scopedDisplays: [file] }).profile, 'full');
+
+    const manifest = JSON.parse(readFileSync('scripts/ci/public-test-manifest.json', 'utf8')).files;
+    const cases = [
+        ['2017-spring-am', 'tests/stage1-am-meaning.test.ts'],
+        ['2017-spring-pm', 'tests/legacy-afternoon-code.test.ts'],
+        ['2024-a', 'tests/cache-simulator.test.ts'],
+        ['2022-april-b', 'tests/pre-2023-sample-semantics.test.ts'],
+    ];
+    for (const [scope] of cases) {
+        const parts = makeParts(Object.keys(manifest), manifest, [scope]);
+        const files = Object.values(parts).flatMap(part => part.files);
+        for (const [owner, ownedTest] of cases)
+            assert.equal(files.includes(ownedTest), owner === scope, `${scope}: ${ownedTest}`);
+        assert(files.includes('tests/mix-profile.test.ts'));
+    }
 });
 test('scoped display rejects import-time work and unreviewed dependency edges', () => {
     const file = 'src/ui/SubjectBProgram.tsx', host = 'src/ui/Content.tsx', dep = 'src/ui/ContentText.tsx';
