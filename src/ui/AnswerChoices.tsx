@@ -46,7 +46,7 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
           <span className="choice-body">{legacyAfternoonSourceChoices(q) ? `本文の「${label}」`
             : q.origin.kind === "official_reprint" && !isLegacy2017Pm4OriginalTable(q, id)
             ? `原文の「${choice.content.blocks[0].type === "paragraph" ? choice.content.blocks[0].text : label}」`
-            : <Content content={choice.content} bundle={bundle} assetUrls={assetUrls} showAttribution={false} />}</span>
+            : <Content content={choice.content} bundle={bundle} assetUrls={assetUrls} showAttribution={false} answerChoice />}</span>
           {correct && <span className="sr-only">正答</span>}
         </label>;
       })}

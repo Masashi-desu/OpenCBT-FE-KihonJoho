@@ -2684,6 +2684,7 @@ export function App() {
                           content={c.content}
                           bundle={run.bundle}
                           assetUrls={assetUrls}
+                          answerChoice
                         />
                       </div>
                     ))}

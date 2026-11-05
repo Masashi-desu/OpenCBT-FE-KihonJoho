@@ -7,7 +7,8 @@ import type {
   Attribution,
 } from "../core/types";
 import { safeUrl } from "../core/validation";
-import {ContentParagraph} from "./ContentText";
+import {ContentBlank, ContentParagraph} from "./ContentText";
+import { SubjectBProgram, subjectBParagraphSegments, subjectBSource, subjectBTableBlank } from "./SubjectBProgram";
 import {CaptionFrame} from "./CaptionFrame";
 import { mathOptions } from "./math";
 import { SourceFigure } from "./SourceFigure";
@@ -544,13 +545,16 @@ export function Content({
   assetUrls,
   credit = false,
   showAttribution = true,
+  answerChoice = false,
 }: {
   content: ContentData;
   bundle: Bundle;
   assetUrls: Record<string, string>;
   credit?: boolean;
   showAttribution?: boolean;
+  answerChoice?: boolean;
 }) {
+  const subjectB = subjectBSource(content.attribution);
   return (
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
@@ -574,7 +578,8 @@ export function Content({
             return <Legacy2017Pm1UnderlinedParagraph key={i} text={b.text} />;
           if (content.attribution.sourceRefs.some(ref => ref.sourceId === "source-ipa-2017h29h-fe-pm-4-qs") && isLegacy2017Pm4Comparison(b.text))
             return <Legacy2017Pm4Paragraph key={i} text={b.text} />;
-          return <ContentParagraph key={i} text={b.text}/>;
+          return <ContentParagraph key={i} text={b.text}
+            segments={subjectB && !answerChoice ? subjectBParagraphSegments(b.text, subjectB) : undefined} />;
         }
         if (b.type === "heading") {
           const H = `h${b.level}` as "h2" | "h3" | "h4";
@@ -636,6 +641,7 @@ export function Content({
                   {b.rows.map((r, j) => (
                     <tr key={j}>
                       {r.map((c, k) => {
+                        const blank = subjectB && !answerChoice ? subjectBTableBlank(subjectB, b.caption, c) : undefined;
                         const presentation = tableCellTextPresentation(c);
                         return (
                         <td
@@ -644,7 +650,7 @@ export function Content({
                             c === "非表示" ? "omitted-cell" : undefined
                           }
                         >
-                          {presentation === "omitted" ? (
+                          {blank !== undefined ? <ContentBlank blank={blank} /> : presentation === "omitted" ? (
                             <span className="sr-only">
                               原資料で非表示の部分
                             </span>
@@ -668,6 +674,8 @@ export function Content({
             </figure> : table}</CaptionFrame>;
         }
         if (b.type === "code") {
+          if (subjectB && b.language === "pseudocode")
+            return <SubjectBProgram key={i} text={b.text} source={subjectB} answerChoice={answerChoice} />;
           if (spring2019TextMajor(content.attribution) !== undefined)
             return <div className="spring2019-source-code" key={i}><pre><code>{legacy2019SpringInlineBlanks(b.text)}</code></pre></div>;
           // Text-form declarations and examples are source premises too; they

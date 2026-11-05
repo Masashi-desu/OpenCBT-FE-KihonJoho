@@ -37,9 +37,22 @@ export function contentTextParts(text:string):ContentTextPart[]{
     push(text.slice(end,match.index),false);push(value,atomic);end=match.index+value.length;
   }push(text.slice(end),false);return parts;
 }
-export function ContentParagraph({text}:{text:string}){
-  const parts=useMemo(()=>contentTextParts(text),[text]),hasAtomic=parts.some(p=>p.atomic),ref=useRef<HTMLParagraphElement>(null),[scrollable,setScrollable]=useState(false);
+export type ContentBlankPart = { blank: string };
+const blankName = (blank: string) => blank ? `空欄 ${blank}` : "空欄";
+export function ContentBlank({blank}: ContentBlankPart) {
+  return <span className="question-blank" role="img" aria-label={blankName(blank)}>{blank}</span>;
+}
+
+export function ContentParagraph({text, segments}: {text: string; segments?: (string | ContentBlankPart)[]}){
+  const parts=useMemo(() => segments
+    ? segments.flatMap<ContentTextPart | ContentBlankPart>(part => typeof part === "string" ? contentTextParts(part) : [part])
+    : contentTextParts(text), [text, segments]);
+  const hasAtomic=parts.some(p=>"atomic" in p && p.atomic),ref=useRef<HTMLParagraphElement>(null),[scrollable,setScrollable]=useState(false);
   useLayoutEffect(()=>{const element=ref.current;if(!element||!hasAtomic){setScrollable(false);return;}const update=()=>setScrollable(element.scrollWidth>element.clientWidth+1),observer=new ResizeObserver(update);observer.observe(element);element.querySelectorAll(".content-text-token").forEach(token=>observer.observe(token));update();return()=>observer.disconnect();},[text,hasAtomic]);
   // A focusable group needs its own name to retain this text in an enclosing radio label.
-  return <p ref={ref} className={hasAtomic?"content-text-scroll":undefined} tabIndex={scrollable?0:undefined} role={scrollable?"group":undefined} aria-label={scrollable?text:undefined} aria-description={scrollable?"左右にスクロールできます。":undefined}>{parts.map((part,i)=>part.atomic?<span key={i} className="content-text-token">{part.text}</span>:part.text)}</p>;
+  const label = scrollable ? segments?.map(part => typeof part === "string" ? part : blankName(part.blank)).join("") ?? text : undefined;
+  return <p ref={ref} className={hasAtomic?"content-text-scroll":undefined} tabIndex={scrollable?0:undefined} role={scrollable?"group":undefined} aria-label={label} aria-description={scrollable?"左右にスクロールできます。":undefined}>{parts.map((part,i)=>
+    "blank" in part ? <ContentBlank key={i} blank={part.blank} /> :
+    part.atomic ? <span key={i} className="content-text-token">{part.text}</span> : part.text
+  )}</p>;
 }
