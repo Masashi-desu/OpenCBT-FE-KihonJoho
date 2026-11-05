@@ -15,6 +15,69 @@ h2 { font-size: 1rem; }
 p { line-height: 1.75; overflow-wrap: anywhere; }
 .lesson { max-width: 1060px; margin: auto; padding: 12px; min-width: 0; }
 .workspace { min-width: 0; }
+#known-conditions { margin-bottom: 12px; }
+#known-conditions, .conditions-measure { font-variant-numeric: tabular-nums; text-align: center; text-wrap: balance; }
+.conditions-measure { position: absolute; top: 0; left: 0; visibility: hidden; pointer-events: none; }
+.lsb-figure { margin: 0 0 14px; padding-block: 8px 12px; border-block: 1px solid var(--line); }
+.lsb-heading, .bit-caption { margin-inline: auto; max-width: 44rem; }
+.lsb-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 12px; margin-bottom: 6px; }
+#lsb-flip { max-width: 100%; overflow-wrap: anywhere; }
+.lsb-rule { margin-block: 6px 4px; text-align: center; }
+.lsb-comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) .875rem;
+  grid-template-rows: 1fr 1fr auto;
+  gap: 6px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.lsb-case {
+  grid-column: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1rem minmax(0, 10rem);
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: var(--diagram-surface);
+}
+.lsb-case[aria-current="true"] { z-index: 1; border-color: var(--selected-border); }
+@media (prefers-reduced-motion: no-preference) {
+  .lsb-case { transition: transform 220ms ease-out; }
+}
+.lsb-case-input { min-width: 0; }
+.lsb-case-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  padding-inline: 5px;
+}
+.lsb-current { visibility: hidden; font-size: .75em; font-weight: 700; }
+.lsb-case[aria-current="true"] .lsb-current { visibility: visible; }
+.lsb-result { min-width: 0; }
+.lsb-value { display: grid; min-width: 0; align-content: center; font-weight: 700; }
+.lsb-value > span, .lsb-value::before { grid-area: 1 / 1; }
+.lsb-value::before { content: attr(data-measure); visibility: hidden; }
+.lsb-bracket { position: relative; grid-area: 1 / 2 / 3 / 3; }
+.lsb-bracket::before {
+  content: "";
+  position: absolute;
+  inset: calc(25% - 1.5px) 0;
+  border: 2px solid var(--selected-border);
+  border-inline-start: 0;
+}
+.lsb-delta {
+  grid-area: 3 / 1 / 4 / 3;
+  justify-self: end;
+  max-width: 100%;
+  padding: 4px 6px;
+  text-align: center;
+  border: 2px solid var(--selected-border);
+  border-radius: 6px;
+  background: var(--selected-surface);
+}
 .muted { color: var(--muted); font-size: .85rem; }
 .resolution, .detail-heading, .bit-caption, .stage-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .resolution label, .calibration label { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
@@ -25,33 +88,31 @@ p { line-height: 1.75; overflow-wrap: anywhere; }
 .calibration-title { grid-column: 1 / -1; }
 .calibration label { padding: 2px 4px; border: 2px solid transparent; border-radius: 6px; }
 .source-node { border: 2px solid transparent; background: none; padding: 6px; line-height: 1.6; }
-.calibration .source-node { width: 100%; height: 100%; }
+.calibration .source-node { width: 100%; height: 100%; overflow-wrap: anywhere; }
+.source-values { display: grid; }
+.source-values > span { grid-area: 1 / 1; }
+.source-values > [aria-hidden="true"] { visibility: hidden; }
 .correspondence { color: var(--muted); }
 .mark { display: inline-grid; place-items: center; min-width: 1.5em; border: 1px solid currentColor; border-radius: 3px; font-size: .75rem; font-weight: 700; vertical-align: middle; }
 [data-source].related { border-color: var(--selected-border); background: var(--selected-surface); }
 button[data-source][aria-pressed="true"] { text-decoration: underline; text-underline-offset: .2em; }
 .source-node .source-name { display: block; color: var(--muted); font-size: .8rem; }
 #reference { width: 7ch; }
-#volts { width: 8ch; }
+#volts { width: 16ch; max-width: 100%; }
+.calibration label[data-source="voltage"] { display: grid; grid-template-columns: minmax(0, 1fr) auto; max-width: 100%; }
 .diagram { border: 1px solid var(--diagram-border); background: var(--diagram-surface); padding: 14px; border-radius: 8px; }
-.bit-caption { justify-content: space-between; border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; font-size: .85rem; }
+.bit-caption { justify-content: space-between; gap: 4px 10px; font-size: .85rem; }
 .bit-viewport { overflow-x: auto; padding: 5px; }
-.bit-row { display: flex; gap: 6px; width: max-content; min-width: 100%; justify-content: center; }
+.bit-row { display: flex; gap: 6px; width: max-content; }
 .bit { display: grid; gap: 4px; text-align: center; min-width: 54px; }
 .bit-toggle { font-size: 1.2rem; font-weight: 700; border-width: 2px; }
 .bit-toggle[aria-pressed="true"] { background: var(--selected-surface); border: 2px solid var(--selected-border); }
 .weight { font-size: .8rem; padding: 4px 6px; }
 .weight[aria-pressed="true"] { outline: 2px solid var(--selected-border); outline-offset: -2px; }
 .bit.lsb { border-bottom: 3px solid var(--selected-border); }
-.conversion { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 6px; flex-wrap: wrap; min-height: 88px; }
-.input-code { display: grid; gap: 4px; font-size: .85rem; padding: 2px; border: 2px solid transparent; border-radius: 6px; }
-#code { width: 8ch; }
+.input-code { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; max-width: 100%; padding: 2px 4px; border: 2px solid transparent; border-radius: 6px; }
+#code { width: 8ch; max-width: 100%; }
 .arrow { color: var(--muted); }
-.converter { padding: 10px 14px; border: 2px solid var(--diagram-border); border-radius: 6px; background: var(--surface); max-width: 100%; min-width: 0; overflow-wrap: anywhere; text-align: center; }
-.converter > span { display: block; margin-top: 4px; font-weight: 400; }
-.output { position: relative; display: grid; gap: 8px; text-align: center; min-width: 14ch; max-width: 100%; }
-#output, .output-measure { font-weight: 700; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
-.output-measure { position: absolute; visibility: hidden; pointer-events: none; display: block; top: 0; left: 0; }
 #range { font-variant-numeric: tabular-nums; }
 .stage-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
 .stage-heading > :first-child { flex: 1; min-width: min(10em, 100%); }
@@ -95,22 +156,20 @@ a { color: var(--text-accent); }
 @media (max-width: 600px) {
   .lesson { padding: 8px; }
   .diagram { padding: 8px; }
+  .lsb-comparison, .lsb-case { grid-template-columns: minmax(0, 1fr); }
+  .lsb-case { gap: 4px; }
+  .lsb-arrow { justify-self: center; transform: rotate(90deg); }
+  .lsb-result { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 8px; padding-inline: 5px; }
+  .lsb-bracket { display: none; }
+  .lsb-delta { grid-column: 1; }
   .derivation { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .source-arrow { transform: rotate(90deg); }
-  .conversion { display: grid; grid-template-columns: minmax(0, 1fr) 1rem minmax(0, 1fr); gap: 6px; }
-  .input-code { grid-area: 1 / 1; justify-items: center; text-align: center; }
-  .conversion > .arrow:nth-child(2) { grid-area: 1 / 2; text-align: center; }
-  .converter { grid-area: 1 / 3; }
-  .conversion > .arrow:nth-child(4) { grid-area: 2 / 3; justify-self: center; transform: rotate(90deg); }
-  .converter { padding: 10px; }
-  .output { grid-area: 3 / 3; min-width: 0; min-height: 3.5rem; }
   .stage-heading { gap: 4px; }
   .stage-actions { width: 100%; gap: 6px; }
   #step-select { width: 100%; }
   .calibration { grid-template-columns: minmax(0, 1fr) 1rem minmax(0, 1fr); gap: 4px; }
   .calibration label { gap: 2px; padding-inline: 0; max-width: 100%; }
   #reference, #volts { max-width: 100%; }
-  .calibration label[data-source="voltage"] { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
   .source-node, .term { padding-inline: 4px; }
   .navigation { gap: 8px; }
   .navigation button { min-width: 64px; padding-inline: 8px; }

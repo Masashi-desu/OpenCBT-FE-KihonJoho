@@ -30,13 +30,18 @@
     return { bits, reference, volts: display(decimal(raw.volts)) };
   }
   function solve(raw, code = 0) {
-    const data = settings(raw), voltage = decimal(data.volts), max = 2 ** data.bits - 1;
-    code = integer(code, 0, max);
+    const data = settings(raw), voltage = decimal(data.volts);
     const unit = ratio(voltage.n, voltage.d * BigInt(data.reference));
+    return { data, voltage, ...convert(data.bits, unit, code) };
+  }
+  function convert(bits, unit, code) {
+    bits = integer(bits, 2, 12);
+    const max = 2 ** bits - 1;
+    code = integer(code, 0, max);
     const output = ratio(unit.n * BigInt(code), unit.d);
-    const weights = Array.from({ length: data.bits }, (_, i) => 2 ** (data.bits - i - 1));
-    return { data, code, max, levels: max + 1, voltage, unit, output, weights,
-      binary: code.toString(2).padStart(data.bits, "0"),
+    const weights = Array.from({ length: bits }, (_, i) => 2 ** (bits - i - 1));
+    return { bits, code, max, levels: max + 1, unit, output, weights,
+      binary: code.toString(2).padStart(bits, "0"),
       contributions: weights.map(weight => ratio(unit.n * BigInt(weight), unit.d)) };
   }
   function initialState(context) {
@@ -59,5 +64,5 @@
   }
   const outputFor = (unit, code) => ratio(unit.n * BigInt(code), unit.d);
   const same = (a, b) => a.n * b.d === b.n * a.d;
-  window.DacEngine = Object.freeze({ defaults, integer, ratio, decimal, display, settings, solve, initialState, choices, outputFor, same });
+  window.DacEngine = Object.freeze({ defaults, integer, ratio, decimal, display, settings, solve, convert, initialState, choices, outputFor, same });
 })();
