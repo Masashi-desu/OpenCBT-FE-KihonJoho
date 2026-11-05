@@ -657,7 +657,7 @@
 
 **欠落時の扱い：** 共有型の定義自体はデータのフィールドではない。参照元フィールドの必須性・欠落時の扱いを適用する。
 
-**型・制約：** string。enum=["frac","dfrac","sqrt","log","ln","sin","cos","tan","sum","prod","lim","min","max","times","cdot","div","pm","le","leq","ge","geq","ne","neq","approx","equiv","in","notin","subset","subseteq","supset","supseteq","cup","cap","land","lor","neg","lfloor","rfloor","lceil","rceil","left","right","infty","alpha","beta","gamma","delta","theta","lambda","mu","sigma","pi","omega","mathrm","mathit","mathbf","mathbb","text","operatorname","quad","qquad","begin","end","\\",",",";",":","!","{","}","&#124;"," "]。
+**型・制約：** string。enum=["frac","dfrac","sqrt","log","ln","sin","cos","tan","sum","prod","lim","min","max","times","cdot","cdots","div","pm","le","leq","ge","geq","ne","neq","approx","equiv","in","notin","subset","subseteq","supset","supseteq","cup","cap","land","lor","neg","lfloor","rfloor","lceil","rceil","left","right","infty","alpha","beta","gamma","delta","theta","lambda","mu","sigma","pi","omega","mathrm","mathit","mathbf","mathbb","text","operatorname","quad","qquad","begin","end","\\",",",";",":","!","{","}","&#124;"," "]。
 
 ### allowedLatexEnvironment
 

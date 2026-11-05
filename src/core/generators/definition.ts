@@ -38,7 +38,7 @@ export type GenerationDefinition = {
   reference: number[];
   sourceAnswer: string;
   notes: string;
-  version?: "3.2.0" | "3.3.0" | "3.4.0" | "3.5.0" | "3.6.0";
+  version?: "3.2.0" | "3.3.0" | "3.4.0" | "3.5.0" | "3.6.0" | "3.7.0";
   answerVariation?: "fixed";
   build: (values: number[]) => GeneratedBody;
 };

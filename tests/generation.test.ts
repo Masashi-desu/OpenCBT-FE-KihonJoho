@@ -402,6 +402,11 @@ test("blank answers preserve equivalent algorithms across every divisor, offset,
   }
   for (let offset = 0; offset <= 20; offset++) {
     const q = issue("coin-change", [12, offset]);
+    const program = q.prompt.blocks.find(b => b.type === "code")!.text;
+    const remaining = offset ? `(rest − ${offset})` : "rest";
+    assert(program.includes(`count ← count ＋ (${remaining} ÷ 5 の商) ＋ 1`));
+    assert(!program.includes("floor"));
+    assert(q.prompt.blocks.some(b => b.type === "paragraph" && b.text.includes("合計4通り")));
     const equivalent = q.choices.map((c) => {
       const text = answerText(c.content.blocks[0]);
       const threshold = Number(/(\d+)$/.exec(text)![1]);

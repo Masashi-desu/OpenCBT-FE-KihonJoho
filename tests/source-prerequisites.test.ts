@@ -88,8 +88,10 @@ function assertNotes(source: string, q: Question, b: Bundle, values: number[]) {
     assert.match(visible, /進捗が遅延.*投入工数を増やして/);
   if (source === "2023-b-1")
     assert(visible.includes(`maxNumは${values[0] + 2}以上`));
-  if (source === "2023-b-5")
-    assert(visible.includes(`配列添字に${values[0]}を加えた値`));
+  if (source === "2023-b-5") {
+    if (values[0]) assert(visible.includes(`配列の要素番号に${values[0]}を加えた値`));
+    else assert(!visible.includes("を加えた値"));
+  }
   if (source === "2024-b-3") {
     assert(visible.includes(`頂点番号は${1 + values[0]}〜${5 + values[0]}`));
     assert(visible.includes(`頂点番号から${values[0]}を引いた値`));
@@ -101,8 +103,10 @@ function assertNotes(source: string, q: Question, b: Bundle, values: number[]) {
   if (source === "2026-b-5")
     assert(visible.includes(`実際の要素番号に${values[0]}を加えた値`));
   if (source === "2026-b-2") assert(visible.includes(`${values[1]}ビット型`));
-  if (source === "2025-b-2")
-    assert(visible.includes(`実際の残額に${values[1]}を加えた値`));
+  if (source === "2025-b-2") {
+    if (values[1]) assert(visible.includes(`実際の残額に${values[1]}を加えた値`));
+    else assert(!visible.includes("を加えた値"));
+  }
   if (source === "2023-b-6" && values[0] === 0) {
     assert.match(visible, /初期設定.*誰が実行しても同じ/);
     assert.match(visible, /ベンダーのWebサイトで公開.*誰でも閲覧/);
@@ -149,7 +153,7 @@ test("all 189 sources display their required premises, notation, units and comme
       );
     // Small conceptual subjects and form branches are exhaustively covered.
     if (
-      ["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version) &&
+      ["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version) &&
       t.parameterDomain.fields![0].maximum <= 15
     )
       for (

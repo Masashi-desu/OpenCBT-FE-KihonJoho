@@ -374,15 +374,31 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       assert(cs.every((c) => c.endsWith("。")));
       return;
     }
-    case "2023-b-1":
+    case "2023-b-1": {
+      assert.match(program, /for \(j を 2 から iの正の平方根の整数部分 まで 1 ずつ増やす\) \/\/ α/);
       unique(b, (c) => {
         const [upper, condition] = c.split("｜");
-        return (
-          exprIndex(upper, "maxNum", v[0]) &&
-          condition === "i mod j が 0 と等しい"
-        );
+        const max = /^maxNum(?: − (\d+))?( ＋ 1)?$/.exec(upper);
+        assert(max);
+        assert.match(condition, /^i ÷ j の(?:余りが 0 と等しい|商が 1 と等しくない)$/);
+        const testedMaxima = [v[0] + 2, v[0] + 3, v[1], 50];
+        return testedMaxima.every((limit) => {
+          const end = limit - Number(max[1] ?? 0) + Number(!!max[2]);
+          const actual = Array.from({ length: end - 1 }, (_, n) => n + 2).filter((i) => {
+            for (let j = 2; j * j <= i; j++) {
+              if (condition.includes("余り") ? i % j === 0 : Math.floor(i / j) !== 1)
+                return false;
+            }
+            return true;
+          });
+          const primes: number[] = [];
+          for (let n = 2; n <= limit - v[0]; n++)
+            if (primes.every((p) => n % p !== 0)) primes.push(n);
+          return actual.join() === primes.join();
+        });
       });
       return;
+    }
     case "2023-b-2": {
       const procedures = new Map(
         program
@@ -403,6 +419,7 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       return;
     }
     case "2023-b-3": {
+      assert.match(program, /整数型: pivot, i, j\s+pivot ← data\[\(first ＋ last\) ÷ 2 の商\]/);
       const input = /data ← \{([^}]+)\}/
         .exec(program)![1]
         .split(",")
@@ -434,18 +451,52 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       unique(b, (c) => c === expected);
       return;
     }
-    case "2023-b-5":
-      assert.match(code(b), /実数型: similarity, numerator ← 0, denominator, temp ← 0/);
-      assert.match(code(b), /similarity ← numerator [×÷] denominator\n {4}return similarity/);
+    case "2023-b-5": {
+      assert.match(program, /実数型: similarity, numerator, denominator, temp ← 0\n {4}整数型: i\n {4}numerator ← 0/);
+      assert.match(program, /denominator ← tempの正の平方根/);
+      assert.match(program, /similarity ← numerator ÷ denominator\n {4}return similarity/);
+      const loop = /for \(i を (.+) から (.+) まで 1 ずつ(増やす|減らす)\)\n\s+numerator ← numerator ＋ 【a】/.exec(program);
+      assert(loop);
+      assert.equal(loop[3], v[1] ? "減らす" : "増やす");
+      const formula = b.prompt.find((block) => block.type === "formula");
+      assert(formula);
+      assert.equal(formula.text, String.raw`\frac{a_1 b_1 + a_2 b_2 + \cdots + a_n b_n}{\sqrt{a_1^2 + a_2^2 + \cdots + a_n^2}\sqrt{b_1^2 + b_2^2 + \cdots + b_n^2}}`);
+      assert.equal(new Set(cs).size, 9);
+      const probes = [
+        [[2], [3]],
+        [[-2], [3]],
+        [[0, -3], [4, 1]],
+        [[1, 2, 3], [2, 1, 4]],
+      ];
       unique(b, (c) => {
         const [a, d] = c.split("｜");
-        const index = v[0] ? `i − ${v[0]}` : "i";
-        return (
-          norm(a) === norm(`vector1[${index}] × vector2[${index}]`) &&
-          d === (v[1] ? "denominator ÷ sqrt(temp)" : "denominator × sqrt(temp)")
-        );
+        const subscripts = [...a.matchAll(/\[i(?: − (\d+))?\]/g)];
+        assert.equal(subscripts.length, a.endsWith("の2乗") ? 1 : 2);
+        return probes.every(([x, y]) => {
+          const bound = (s: string) => {
+            const n = /^vector1の要素数(?: ＋ (\d+))?$/.exec(s);
+            return n ? x.length + Number(n[1] ?? 0) : Number(s);
+          };
+          const step = loop[3] === "増やす" ? 1 : -1;
+          const [start, end] = [bound(loop[1]), bound(loop[2])];
+          assert.equal(end, start + step * (x.length - 1));
+          let numerator = 0;
+          for (let i = start; i !== end + step; i += step) {
+            const element = (vector: number[], index: number) =>
+              vector[i - Number(subscripts[index][1] ?? 0) - 1];
+            const first = element(x, 0);
+            const term = a.endsWith("の2乗") ? first ** 2 : first * element(y, 1);
+            numerator += a.endsWith("の正の平方根") ? Math.sqrt(term) : term;
+          }
+          const [firstNorm, secondNorm] = [Math.hypot(...x), Math.hypot(...y)];
+          const denominator = d.startsWith("denominator ×") ? firstNorm * secondNorm :
+            d.startsWith("denominator ＋") ? firstNorm + secondNorm : secondNorm;
+          const innerProduct = x.reduce((sum, value, i) => sum + value * y[i], 0);
+          return Math.abs(numerator / denominator - innerProduct / firstNorm / secondNorm) < 1e-12;
+        });
       });
       return;
+    }
     case "2024-b-1": {
       const variables = ["x", "y", "z"],
         returned = variables[v[1]],
@@ -599,8 +650,9 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
       assert.match(code(b), /整数型: row ← dataの行数/);
       assert.match(code(b), /整数型: col ← dataの列数/);
       assert.match(code(b), /整数型: r, c/);
-      assert.match(code(b), /1からrowまで/);
-      assert.match(code(b), /1からcolまで/);
+      assert.match(code(b), /for \(r を 1 から row まで 1 ずつ増やす\)/);
+      assert.match(code(b), /for \(c を 1 から col まで 1 ずつ増やす\)/);
+      assert.match(code(b), /result\[r, c\] ← \(dataの行番号rの要素の和\) ×\s+\(dataの列番号cの要素の和\) ÷ t/);
       const rows = t[0].rows.map((r) => r.slice(1).map(Number)),
         total = rows.flat().reduce((a, d) => a + d, 0);
       const expected = rows.map((row, i) =>

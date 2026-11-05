@@ -229,18 +229,31 @@ export function preserveSourceFormat(
     );
   } else if (id === "coin-change") {
     const [n, offset] = v;
+    const remaining = offset ? `(rest − ${offset})` : "rest";
+    const initial = offset ? `n ＋ ${offset}` : "n";
+    const withoutTen = Math.trunc(n / 5) + 1;
+    const withOneTen = Math.trunc((n - 10) / 5) + 1;
     q.prompt = {
       attribution: adapted,
       blocks: [
         paragraph("次のプログラム中の空欄に入れる正しい答えを、解答群の中から選べ。"),
         paragraph(
-          `関数changeは10より大きい整数nを受け取り、1円玉・5円玉・10円玉でちょうどn円にする枚数の組合せの総数を返す。順序は区別しない。残額を扱う変数restには、実際の残額に${offset}を加えた値を保持する。floorは小数部を切り捨てた整数を表す。`,
+          "関数changeは10より大きい整数nを受け取り、1円玉・5円玉・10円玉でちょうどn円にする枚数の組合せの総数を返す。順序は区別しない。" +
+            (offset ? ` 変数restには、実際の残額に${offset}を加えた値を保持する。` : ""),
         ),
         paragraph(
-          `例えば${n}円では、10円玉を0枚から順に増やし、各残額に対して5円玉を使う枚数を数え上げる。`,
+          `例えば${n}円にするには、10円玉を使わない場合、5円玉は0枚から（${n} ÷ 5 の商）枚まで使えるので${withoutTen}通りある。10円玉を1枚使う場合は、残りの${n - 10}円を1円玉と5円玉で支払うので（${n - 10} ÷ 5 の商）＋ 1 ＝ ${withOneTen}通りある。` +
+            (n < 20 ? `10円玉を2枚以上使う組合せはなく、合計${withoutTen + withOneTen}通りである。` : "10円玉を2枚以上使う場合も、残額に応じて同様に数える。"),
         ),
         program(
-          `○整数型: change(整数型: n)\n    整数型: count ← 0\n    整数型: rest ← n + ${offset}\n    while (【a】)\n        count ← count + floor((rest - ${offset}) / 5) + 1\n        rest ← rest - 10\n    endwhile\n    return count`,
+          `○整数型: change(整数型: n)
+    整数型: count ← 0
+    整数型: rest ← ${initial}
+    while (【a】)
+        count ← count ＋ (${remaining} ÷ 5 の商) ＋ 1
+        rest ← rest − 10
+    endwhile
+    return count`,
         ),
       ],
     };
@@ -257,7 +270,7 @@ export function preserveSourceFormat(
     let count = 0;
     for (let rest = n; rest >= 0; rest -= 10) count += Math.floor(rest / 5) + 1;
     explanation(
-      `実際の残額はrest−${offset}であり、0円の場合も1通りとして数えるため、条件はrest≧${offset}。5円玉の枚数は0〜floor(残額/5)、残りは1円玉で支払う。説明用の${n}円では${count}通り。閾値・更新式・枚数計算は同じオフセットを使う。`,
+      `実際の残額は${remaining}であり、0円の場合も1通りとして数えるため、条件はrest≧${offset}。5円玉の枚数は0枚から残額を5で割った商までで、残りは1円玉で支払う。${n}円にする組合せは${count}通りである。`,
     );
   } else if (id === "complement") {
     const [x, width] = v,
@@ -420,7 +433,7 @@ export function preserveSourceFormat(
 
 export function validateSourceFormat(q: Question, t: Template) {
   validateLegacyMaterial(q, t);
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;
   }

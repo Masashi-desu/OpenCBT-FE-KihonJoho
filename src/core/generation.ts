@@ -372,12 +372,16 @@ export const generationContracts: Contract[] = calculationGenerationContracts.ma
       c.reference = [16, 10, 6, 0];
       c.notes = "利用者の指定に基づき、2・8・10・16進小数の異なる基数間の全12方向で、整数部分0〜255（10進数）と小数部分1/8〜7/8を組み合わせる。全21,504条件。原問題の小数を変換した値を選ぶ文章・4択を維持し、補助表・丸め条件は加えない。整数部分は2進数8桁、8・10進数3桁、16進数2桁以内とし、全基数で1桁・複数桁を扱う。小数部分は2・10進数3桁、8・16進数1桁以内で正確に表す。10進数の小数部の誤答は原選択肢の相対間隔、それ以外は桁の重みの入替え・補数との混同・重みの加除から生成する。整数部分が非0なら誤答の一つは変換元の整数部の最上位桁の脱落とし、整数部と小数部の両方を検査する。小数部の誤答の間隔は小数部の値を基準に保持し、整数部の追加で近接させない。選択肢の小数桁数を揃えて表記による手掛かりを避ける。基準値16→10・0＋6/8では原選択肢0.12・0.55・0.75・0.84を保持する。";
     }
-    if (["count-multiples", "coin-change", "complement", "recurrence", "security-log"].includes(c.id)) c.version = "2.3.0";
+    if (c.id === "coin-change") {
+      c.version = "2.4.0";
+      c.notes += " 残額を5で割った商を使う原問の疑似言語と、10円玉が0枚・1枚のときの例を保持する。";
+    }
+    if (["count-multiples", "complement", "recurrence", "security-log"].includes(c.id)) c.version = "2.3.0";
     return c;
   },
 );
 export function contractFor(t: Template) {
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
   return generationContracts.find(
     (c) =>
@@ -387,7 +391,7 @@ export function contractFor(t: Template) {
 }
 export function validateTemplateContract(t: Template) {
   if (
-    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(
+    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(
       t.generatorRef.version,
     )
   )
@@ -439,7 +443,7 @@ export function checkParameters(t: Template, v: number[]) {
     )
   )
     throw new DataError("PARAMETER_DOMAIN", "生成値が許可域を外れています");
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version)) {
     checkAdditionalParameters(t, v);
     return;
   }
@@ -511,7 +515,7 @@ async function sampleParameters(seed: string, t: Template) {
     ] };
   }
   for (let attempt = 0; attempt < 256; attempt++) {
-    const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version)
+    const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version)
       ? []
       : ((await sampleCalculationInputs(c.source, integer)) ?? []);
     if (!values.length)
@@ -908,7 +912,7 @@ export function bindQuestion(
 ): Question {
   validateTemplateContract(t);
   checkParameters(t, v);
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
   if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version))
     return bindLegacyQuestion(base, t, v, instanceId, at);

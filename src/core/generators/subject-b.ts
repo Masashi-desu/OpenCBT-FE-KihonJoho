@@ -138,7 +138,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
     [0, 20],
     ([offset, max]) => {
       const upper = indexOf("maxNum", offset),
-        correct = [upper, "i mod j が 0 と等しい"],
+        correct = [upper, "i ÷ j の余りが 0 と等しい"],
         wrong = [`${upper} ＋ 1`, "i ÷ j の商が 1 と等しくない"];
       const primes = Array.from(
         { length: Math.max(0, max - offset - 1) },
@@ -154,10 +154,29 @@ export const subjectBDefinitions: GenerationDefinition[] = [
             "次のプログラム中の空欄【a】と【b】に入れる正しい答えの組合せを、解答群の中から選べ。ここで、配列の要素番号は1から始まる。",
           ),
           p(
-            `findPrimeNumbersは${upper}以下の全ての素数を返す。maxNumは${offset + 2}以上の整数である。sqrtは正の平方根、floorは小数部を切り捨てた整数を表し、modは整数の除算の余りを表す。`,
+            `関数findPrimeNumbersは、${upper}以下の全ての素数だけを格納した配列を返す。ここで、引数maxNumは${offset + 2}以上の整数である。`,
           ),
           code(
-            `○整数型の配列: findPrimeNumbers(整数型: maxNum)\n    整数型の配列: pnList ← {}\n    整数型: i, j\n    論理型: divideFlag\n    for (i を 2 から 【a】まで 1 ずつ増やす)\n        divideFlag ← true\n        /* floor(sqrt(i))が2未満のときは、繰返し処理を実行しない */\n        for (j を 2 から floor(sqrt(i)) まで 1 ずつ増やす)\n            if (【b】)\n                divideFlag ← false\n                内側の繰返しを終了する\n            endif\n        endfor\n        if (divideFlag が true と等しい)\n            pnListの末尾にiを追加する\n        endif\n    endfor\n    return pnList`,
+            `○整数型の配列: findPrimeNumbers(整数型: maxNum)
+    整数型の配列: pnList ← {} // 要素数0の配列
+    整数型: i, j
+    論理型: divideFlag
+
+    for (i を 2 から 【a】 まで 1 ずつ増やす)
+        divideFlag ← true
+
+        /* iの正の平方根の整数部分が2未満のときは、繰返し処理を実行しない */
+        for (j を 2 から iの正の平方根の整数部分 まで 1 ずつ増やす) // α
+            if (【b】)
+                divideFlag ← false
+                αの行から始まる繰返し処理を終了する
+            endif
+        endfor
+        if (divideFlag が true と等しい)
+            pnListの末尾にiの値を追加する
+        endif
+    endfor
+    return pnList`,
           ),
         ],
         choices: pairs([
@@ -220,10 +239,39 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "次の記述中の空欄に入れる正しい答えを、解答群の中から選べ。配列の要素番号は1から始まる。sortは大域配列dataのfirstからlastまでの要素を昇順に整列する。ここで、first < lastとする。floorは小数部を切り捨てた整数を表す。sort(1, 5)を呼び出し、/*** α ***/を最初に実行した時の出力は【空欄】となる。",
+            "次の記述中の空欄に入れる正しい答えを、解答群の中から選べ。配列の要素番号は1から始まる。sortは大域配列dataのfirstからlastまでの要素を昇順に整列する。ここで、first < lastとする。sort(1, 5)を呼び出し、/*** α ***/を最初に実行した時の出力は【空欄】となる。",
           ),
           code(
-            `大域: 整数型の配列: data ← {${input.join(", ")}}\n○sort(整数型: first, 整数型: last)\n    整数型: pivot ← data[floor((first + last) / 2)]\n    整数型: i ← first, j ← last\n    while (true)\n        while (data[i] < pivot)\n            i ← i + 1\n        endwhile\n        while (pivot < data[j])\n            j ← j - 1\n        endwhile\n        if (i ≧ j)\n            繰返しを終了する\n        endif\n        data[i]とdata[j]を交換する\n        i ← i + 1\n        j ← j - 1\n    endwhile\n    dataの全要素を要素番号の順に空白区切りで出力する /*** α ***/\n    if (first < i - 1)\n        sort(first, i - 1)\n    endif\n    if (j + 1 < last)\n        sort(j + 1, last)\n    endif`,
+            `大域: 整数型の配列: data ← {${input.join(", ")}}
+
+○sort(整数型: first, 整数型: last)
+    整数型: pivot, i, j
+
+    pivot ← data[(first ＋ last) ÷ 2 の商]
+    i ← first
+    j ← last
+
+    while (true)
+        while (data[i] < pivot)
+            i ← i ＋ 1
+        endwhile
+        while (pivot < data[j])
+            j ← j − 1
+        endwhile
+        if (i ≧ j)
+            繰返し処理を終了する
+        endif
+        data[i]とdata[j]の値を交換する
+        i ← i ＋ 1
+        j ← j − 1
+    endwhile
+    dataの全要素の値を要素番号の順に空白区切りで出力する /*** α ***/
+    if (first < i − 1)
+        sort(first, i − 1)
+    endif
+    if (j ＋ 1 < last)
+        sort(j ＋ 1, last)
+    endif`,
           ),
         ],
         choices: strings(
@@ -277,45 +325,64 @@ export const subjectBDefinitions: GenerationDefinition[] = [
     "2023-b-5",
     "コサイン類似度の空欄",
     "エ",
-    [field("走査添字の基準差", 0, 3), field("分母の保持方式", 0, 1)],
+    [field("分子の走査添字の基準差", 0, 3), field("分子の走査順", 0, 1)],
     [0, 0],
-    ([offset, reciprocal]) => {
-      const a = `vector1[${indexOf("i", offset)}] × vector2[${indexOf("i", offset)}]`,
-        b = reciprocal
-          ? "denominator ÷ sqrt(temp)"
-          : "denominator × sqrt(temp)",
-        wrongA = [
-          `sqrt(vector1[${indexOf("i", offset)}] × vector2[${indexOf("i", offset)}])`,
-          `vector1[${indexOf("i", offset)}]の2乗`,
-        ],
-        otherB = [
-          b,
-          "denominator ＋ sqrt(temp)",
-          reciprocal ? "denominator × sqrt(temp)" : "sqrt(temp)",
-        ];
+    ([offset, descending]) => {
+      const index = indexOf("i", offset);
+      const a = `vector1[${index}] × vector2[${index}]`;
+      const root = "tempの正の平方根";
+      const b = `denominator × (${root})`;
+      const terms = [`(${a})の正の平方根`, a, `vector1[${index}]の2乗`];
+      const denominators = [b, `denominator ＋ (${root})`, root];
+      const first = 1 + offset;
+      const last = offset ? `vector1の要素数 ＋ ${offset}` : "vector1の要素数";
+      const scan = descending
+        ? `i を ${last} から ${first} まで 1 ずつ減らす`
+        : `i を ${first} から ${last} まで 1 ずつ増やす`;
       return {
         prompt: [
           p(
-            "次のプログラム中の空欄【a】と【b】に入れる正しい答えの組合せを、解答群の中から選べ。vector1とvector2は同じ要素数n（n≧1）の実数型の配列で、どちらも零ベクトルではない。配列の添字は1から始まる。vector1の各要素をa₁〜aₙ、vector2の各要素をb₁〜bₙとしたとき、コサイン類似度は次の式で計算する。sqrtは正の平方根を表す。",
+            "次のプログラム中の空欄【a】と【b】に入れる正しい答えの組合せを、解答群の中から選べ。ここで、配列の要素番号は1から始まる。",
+          ),
+          p(
+            "コサイン類似度は、二つのベクトルの向きの類似性を測る尺度である。関数calcCosineSimilarityは、同じ要素数n（n≧1）の実数型の配列vector1とvector2を受け取り、二つの配列のコサイン類似度を返す。配列vector1が{a₁, a₂, …, aₙ}、配列vector2が{b₁, b₂, …, bₙ}のとき、コサイン類似度は次の数式で計算される。ここで、どちらの配列も全ての要素が0であることはない。" +
+              (offset ? ` 分子を計算する繰返し処理では、変数iに配列の要素番号に${offset}を加えた値を用いる。` : ""),
           ),
           {
             type: "formula",
             format: "latex",
-            text: "\\frac{\\sum_{i=1}^{n} a_i b_i}{\\sqrt{\\sum_{i=1}^{n} a_i^2}\\sqrt{\\sum_{i=1}^{n} b_i^2}}",
-            alt: "コサイン類似度は内積を二つのベクトルの長さの積で割った値。",
+            text: "\\frac{a_1 b_1 + a_2 b_2 + \\cdots + a_n b_n}{\\sqrt{a_1^2 + a_2^2 + \\cdots + a_n^2}\\sqrt{b_1^2 + b_2^2 + \\cdots + b_n^2}}",
+            alt: "分子はa₁b₁＋a₂b₂＋…＋aₙbₙ。分母はa₁²＋a₂²＋…＋aₙ²の平方根と、b₁²＋b₂²＋…＋bₙ²の平方根の積。",
           },
-          p(`走査用のiは配列添字に${offset}を加えた値である。`),
           code(
-            `○実数型: calcCosineSimilarity(実数型の配列: vector1, vector2)\n    実数型: similarity, numerator ← 0, denominator, temp ← 0\n    整数型: i\n    for (iを${1 + offset}からvector1の要素数 + ${offset}まで増やす)\n        numerator ← numerator + 【a】\n    endfor\n    for (iを1からvector1の要素数まで増やす)\n        temp ← temp + vector1[i]の2乗\n    endfor\n    denominator ← ${reciprocal ? "1 / sqrt(temp)" : "sqrt(temp)"}\n    temp ← 0\n    for (iを1からvector2の要素数まで増やす)\n        temp ← temp + vector2[i]の2乗\n    endfor\n    denominator ← 【b】\n    similarity ← numerator ${reciprocal ? "×" : "÷"} denominator\n    return similarity`,
+            `○実数型: calcCosineSimilarity(実数型の配列: vector1,
+                            実数型の配列: vector2)
+    実数型: similarity, numerator, denominator, temp ← 0
+    整数型: i
+    numerator ← 0
+
+    for (${scan})
+        numerator ← numerator ＋ 【a】
+    endfor
+
+    for (i を 1 から vector1の要素数 まで 1 ずつ増やす)
+        temp ← temp ＋ vector1[i]の2乗
+    endfor
+    denominator ← ${root}
+
+    temp ← 0
+    for (i を 1 から vector2の要素数 まで 1 ずつ増やす)
+        temp ← temp ＋ vector2[i]の2乗
+    endfor
+    denominator ← 【b】
+
+    similarity ← numerator ÷ denominator
+    return similarity`,
           ),
         ],
-        choices: pairs([
-          [a, b],
-          ...wrongA.flatMap((x) => otherB.map((y) => [x, y])),
-          [a, otherB[1]],
-          [a, otherB[2]],
-        ]),
-        explanation: `aでは実際の添字i−${offset}の要素の積を足す。最初のdenominatorは第1ベクトルの長さ${reciprocal ? "の逆数" : ""}なので、bは${b}。最後の${reciprocal ? "乗算" : "除算"}で、提示した式と同じ値になる。`,
+        choices: pairs(terms.flatMap((term) => denominators.map((d) => [term, d]))),
+        correctIndex: 3,
+        explanation: `aでは添字が${index}である二つの要素の積を求め、numeratorに加える。最初のdenominatorは第1ベクトルの長さで、二度目に求めたtempの正の平方根は第2ベクトルの長さである。bでその二つを掛け、numeratorをその積で割ると提示した数式と同じ値になる。`,
       };
     },
   ),
@@ -523,15 +590,15 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       if (variant === 2) orders[4] = ["B", "D"];
       const names = [
           "リフト",
-          "itemを購入した条件で他商品を買う確率",
+          "商品xを購入した注文で商品yも購入される割合",
           "両商品が同時に買われる支持度",
-          "他商品を購入した条件でitemを買う確率",
+          "商品yを購入した注文で商品xも購入される割合",
         ],
         formula = [
-          "\\frac{M N}{K_x K_y}",
-          "\\frac{M}{K_x}",
-          "\\frac{M}{N}",
-          "\\frac{M}{K_y}",
+          "L_{xy} = \\frac{M_{xy} \\times N}{K_x \\times K_y}",
+          "L_{xy} = \\frac{M_{xy}}{K_x}",
+          "L_{xy} = \\frac{M_{xy}}{N}",
+          "L_{xy} = \\frac{M_{xy}}{K_y}",
         ],
         c = [
           "ordersの要素数",
@@ -552,28 +619,84 @@ export const subjectBDefinitions: GenerationDefinition[] = [
           ],
           3,
         );
+      const countA = orders.filter((order) => order.includes("A")).length;
+      const countB = orders.filter((order) => order.includes("B")).length;
+      const together = orders.filter((order) => order.includes("A") && order.includes("B")).length;
+      const example = [
+        `(${together} × ${orders.length}) ÷ (${countA} × ${countB}) ＝ ${(together * orders.length / (countA * countB)).toFixed(1)}`,
+        `${together} ÷ ${countA}`,
+        `${together} ÷ ${orders.length}`,
+        `${together} ÷ ${countB}`,
+      ][metric];
+      const formulaReading = [
+        "Mxy × Nを、Kx × Kyで割る",
+        "MxyをKxで割る",
+        "MxyをNで割る",
+        "MxyをKyで割る",
+      ][metric];
+      const items = [...new Set(orders.flat())].sort().map((item) => `"${item}"`).join(", ");
       return {
         prompt: [
           p(
-            `次のプログラム中の空欄【a】〜【c】に入れる正しい答えの組合せを、解答群の中から選べ。注文データから${names[metric]}を計算する。Mは二つの商品を同じ注文で購入した注文数、Nは全注文数、Kx・Kyはそれぞれの商品を含む注文数。計算は実数として行う。配列の要素番号は1から始まる。商品は文字列、注文は購入商品の配列、ordersは注文の配列で表す。注文データには2種類以上の商品が含まれ、引数itemはその中にある商品とする。putRelatedItemはitemとの関連度が最も大きい商品のうちの一つと、その関連度を出力する。`,
+            "次のプログラム中の空欄【a】〜【c】に入れる正しい答えの組合せを、解答群の中から選べ。ここで、配列の要素番号は1から始まる。",
           ),
+          p("一度の注文で購入された商品のリストを、注文ごとに記録した注文データがある。表に、注文データの例を示す。"),
           table(
-            "注文データの例",
+            "表　注文データの例",
             ["注文番号", "購入された商品のリスト"],
             orders.map((row, i) => [String(i + 1), row.join(", ")]),
           ),
+          p(`商品xと商品yとの関連度Lxyとして、${names[metric]}を次の式で計算する。`),
           {
             type: "formula",
             format: "latex",
             text: formula[metric],
-            alt: `指標は${names[metric]}。M、N、Kx、Kyの定義に従って計算する。`,
+            alt: `関連度Lxyは、${formulaReading}ことで求める。`,
           },
+          p(`ここで、Mxyは商品xと商品yを同じ注文で購入した注文数、Nは全注文数、KxとKyはそれぞれ商品xと商品yを購入した注文数である。表の例では、MABが${together}、全注文数が${orders.length}、KAが${countA}、KBが${countB}なので、商品Aと商品Bの関連度LABは ${example} ${metric === 0 ? "となる。" : "で求められる。"}`),
+          p("手続putRelatedItemは、大域変数ordersの注文データから、引数itemとの関連度が最も大きい商品のうちの一つと、その関連度を出力する。商品は文字列、注文は購入商品の配列、ordersは注文の配列で表す。注文データには2種類以上の商品が含まれ、引数itemはその中にある商品とする。"),
           code(
-            `大域: 文字列型配列の配列: orders ← {${orders.map((a) => `{${a.map((s) => `"${s}"`).join(", ")}}`).join(", ")}}\n○putRelatedItem(文字列型: item)\n    文字列型の配列: allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列\n    文字列型の配列: otherItems ← allItemsの複製から値がitemである要素を除いた配列\n    整数型: i, itemCount ← 0\n    整数型の配列: arrayK ← {otherItemsの要素数個の0}\n    整数型の配列: arrayM ← {otherItemsの要素数個の0}\n    実数型: valueL, maxL ← −∞\n    文字列型の配列: order\n    文字列型: relatedItem\n    for (orderにordersの要素を順に代入する)\n        if (orderにitemが含まれる)\n            itemCount ← itemCount + 1\n        endif\n        for (iを1からotherItemsの要素数まで増やす)\n            if (orderにotherItems[i]が含まれる)\n                if (orderにitemが含まれる)\n                    【a】の値を1増やす\n                endif\n                【b】の値を1増やす\n            endif\n        endfor\n    endfor\n    for (iを1からotherItemsの要素数まで増やす)\n        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])\n        if (valueLがmaxLより大きい)\n            maxL ← valueL\n            relatedItem ← otherItems[i]\n        endif\n    endfor\n    relatedItemの値とmaxLの値をこの順にコンマ区切りで出力する`,
+            `// 注文データ（ここでは表の例を与えている）
+大域: 文字列型配列の配列: orders ← {${orders.map((a) => `{${a.map((s) => `"${s}"`).join(", ")}}`).join(", ")}}
+
+○putRelatedItem(文字列型: item)
+    文字列型の配列: allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列
+                              // 表の例では {${items}}
+    文字列型の配列: otherItems ← allItemsの複製から値がitemである要素を除いた配列
+    整数型: i, itemCount ← 0
+    整数型の配列: arrayK ← {otherItemsの要素数個の0}
+    整数型の配列: arrayM ← {otherItemsの要素数個の0}
+    実数型: valueL, maxL ← −∞
+    文字列型の配列: order
+    文字列型: relatedItem
+    for (orderにordersの要素を順に代入する)
+        if (orderのいずれかの要素の値がitemの値と等しい)
+            itemCountの値を1増やす
+        endif
+        for (iを1からotherItemsの要素数まで1ずつ増やす)
+            if (orderのいずれかの要素の値がotherItems[i]の値と等しい)
+                if (orderのいずれかの要素の値がitemの値と等しい)
+                    【a】の値を1増やす
+                endif
+                【b】の値を1増やす
+            endif
+        endfor
+    endfor
+    for (iを1からotherItemsの要素数まで1ずつ増やす)
+        valueL ← (arrayM[i] × 【c】) ÷ (itemCount × arrayK[i])
+                 /* 実数として計算する */
+        if (valueLがmaxLより大きい)
+            maxL ← valueL
+            relatedItem ← otherItems[i]
+        endif
+    endfor
+    relatedItemの値とmaxLの値をこの順にコンマ区切りで出力する`,
           ),
         ],
         choices: pairs(
-          [
+          metric === 0 ? ["arrayK[i]", "arrayM[i]"].flatMap((first, i) =>
+            ["allItemsの要素数", c, "otherItemsの要素数"].map((factor) => [first, ["arrayM[i]", "arrayK[i]"][i], factor]),
+          ) : [
             correct,
             [correct[0], correct[1], cs[1]],
             [correct[0], correct[1], cs[2]],
@@ -581,6 +704,7 @@ export const subjectBDefinitions: GenerationDefinition[] = [
           ],
           ["a", "b", "c"],
         ),
+        correctIndex: metric === 0 ? 4 : 0,
         explanation: `arrayMは同時購入数、arrayKは他商品の購入数。c=${c}を代入して、提示した${names[metric]}の式へ整理する。Nを掛けるのはリフトの場合であり、別の指標では正規化が異なる。`,
       };
     },
@@ -686,26 +810,41 @@ export const subjectBDefinitions: GenerationDefinition[] = [
       return {
         prompt: [
           p(
-            "次の記述中の空欄【a】と【b】に入れる正しい答えの組合せを、解答群の中から選べ。病気にかかるかどうかと予防接種の有無が独立だと仮定した理論度数を計算する。配列の要素番号は1から始まる。関数fの引数と戻り値は二次元配列で、行と列は表の行と列に対応する。表2の『非表示』は値を表示していない部分を示す。",
+            "次の記述中の空欄【a】と【b】に入れる正しい答えの組合せを、解答群の中から選べ。ここで、配列の要素番号は1から始まる。",
           ),
+          p("予防接種の病気Xに対する予防効果を調べるために集計した結果を表1に示す。病気Xにかかるかどうかが予防接種の有無に影響されないと仮定して求めた人数を理論度数という。表2に、表1を基に計算した理論度数を示す。"),
+          p("関数fは、引数dataで受け取った集計結果を基に理論度数を計算して返す。引数と戻り値は二次元配列で、行と列は表の行と列に対応する。"),
           table(
-            "表1　集計結果（人）",
-            ["", "かからなかった", "かかった"],
+            "表1　集計結果の例（人）",
+            ["", "病気Xにかからなかった", "病気Xにかかった"],
             [
-              ["接種あり", String(a), String(b)],
-              ["接種なし", String(c), String(d)],
+              ["予防接種を受けた", String(a), String(b)],
+              ["予防接種を受けていない", String(c), String(d)],
             ],
           ),
           table(
-            "表2　理論度数（人）",
-            ["", "かからなかった", "かかった"],
+            "表2　表1を基に計算した理論度数（人）",
+            ["", "病気Xにかからなかった", "病気Xにかかった"],
             [
-              ["接種あり", "a", "非表示"],
-              ["接種なし", "非表示", "b"],
+              ["予防接種を受けた", "a", "非表示"],
+              ["予防接種を受けていない", "非表示", "b"],
             ],
           ),
+          p("注記　網掛けの部分は表示していない。"),
           code(
-            "○実数型の二次元配列: f(実数型の二次元配列: data)\n    実数型: t ← dataの要素の和\n    整数型: row ← dataの行数\n    整数型: col ← dataの列数\n    実数型の二次元配列: result ← {row行col列の未定義の値}\n    整数型: r, c\n    for (rを1からrowまで増やす)\n        for (cを1からcolまで増やす)\n            result[r,c] ← (行rの合計) × (列cの合計) ÷ t\n        endfor\n    endfor\n    return result",
+            `○実数型の二次元配列: f(実数型の二次元配列: data)
+    実数型: t ← dataの要素の和
+    整数型: row ← dataの行数
+    整数型: col ← dataの列数
+    実数型の二次元配列: result ← {row行col列の未定義の値}
+    整数型: r, c
+    for (r を 1 から row まで 1 ずつ増やす)
+        for (c を 1 から col まで 1 ずつ増やす)
+            result[r, c] ← (dataの行番号rの要素の和) ×
+                           (dataの列番号cの要素の和) ÷ t
+        endfor
+    endfor
+    return result`,
           ),
         ],
         choices: pairs(choices),

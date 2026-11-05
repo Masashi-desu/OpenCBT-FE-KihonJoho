@@ -44,7 +44,7 @@ export function subjectBParagraphSegments(text: string, source: string) {
 }
 
 export function subjectBTableBlank(source: string, caption: string, cell: string) {
-  if (source === "2025-b-5" && caption === "表2　理論度数（人）" && /^[ab]$/.test(cell)) return cell;
+  if (source === "2025-b-5" && /^表2　(?:表1を基に計算した)?理論度数（人）$/.test(caption) && /^[ab]$/.test(cell)) return cell;
   if (source === "sample-2022-dec-b-19" && /^表1\s/.test(caption) && /^空欄a[12]$/.test(cell)) return cell.slice(2);
   return undefined;
 }
@@ -53,9 +53,6 @@ export function subjectBTableBlank(source: string, caption: string, cell: string
 // Use anchors in the generated program rather than line numbers: variable
 // inputs may add lines or change their contents without moving these boundaries.
 const stageStarts: Partial<Record<string, RegExp>> = {
-  "2023-b-1": /^ {8}\/\* floor\(sqrt/,
-  "2023-b-3": /^ {4}while \(true\)/,
-  "2023-b-5": /^ {4}(?:for \(iを.*vector1|temp ← 0|similarity ←)/,
   "2024-b-4": /^ {4}(?:while \(|return work$)/,
   "2024-b-5": /^ {4}(?:文字列型の配列: otherItems|整数型: i, itemCount|for \(orderに)/,
   "2025-b-1": /^ {4}for \(【b】\)/,

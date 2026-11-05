@@ -74,7 +74,7 @@ src/ui/            React画面・ブロック・管理された図・数式・�
 src/generated/     Schemaから生成する検証関数（Git対象外）
 public/data/       配布カタログ・JSON・WebP画像
 public/notices/    本体・依存コード・CC0の原文通知
-public/explanations/ 詳細解説の共通ホストと問2の専用ソート解説
+public/explanations/ 詳細解説の共通ホストと問題別の解説パッケージ
 scripts/           Schemaのコンパイル・配布データ検証
 tests/             出題・生成・期限・不正データの検証
 docs/              仕様・一次資料・文書専用サンプル・文書サイト

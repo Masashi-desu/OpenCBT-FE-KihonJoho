@@ -2,6 +2,8 @@
 import {createElement} from "react";
 import {renderToStaticMarkup} from "react-dom/server";
 import {Legacy2019SpringNetworkMemoryFigure as Legacy2019Figure} from "../src/ui/Legacy2019SpringNetworkMemoryFigure";
+import {Content} from "../src/ui/Content";
+import {fixture} from "./fixtures";
 import test from "node:test";
 import assert from "node:assert/strict";
 import {legacy2019AfternoonLoadBalanceDefinitions,legacy2019LoadBalanceAddresses,legacy2019LoadBalanceFigureAlt} from "../src/core/generators/legacy-2019-pm-load-balance";
@@ -14,6 +16,12 @@ import {gradeAnswer,validateAnswerDefinition} from "../src/core/answers";
 const d=legacy2019AfternoonLoadBalanceDefinitions[0],inputs=()=>Array.from({length:4},(_,n)=>Array.from({length:3},(_,t)=>[n,t])).flat();
 test("2019 spring PM4 keeps five source pages, all five official slots, original seven addresses, formula and every 6/4/4/4/4 alternative",()=>{
   const q=legacy2019Afternoon["2019h31h-fe-pm"][3];assert.deepEqual(q.pages,[18,22]);assert.deepEqual(q.slots.map(s=>s.answer),[...review.sourceAnswers]);assert.deepEqual(d.reference,[...review.reference]);assert.deepEqual(legacy2019LoadBalanceAddresses(0),review.originalAddresses);const b=d.build(d.reference);oracle(d.source,b,d.reference);assert.deepEqual(b.choices.slice(18).map(bs=>{assert(bs[0].type==="paragraph");return bs[0].text;}),[...review.originalNumbers.waitingChoices]);assert.equal(b.partAnswers!.map((a,i)=>a.kind==="choice"?"アイウエオカ"[b.answerParts![i].choiceIds.indexOf(a.choiceId)]:"?").join(""),"イアウアイ");assert.equal(d.answerVariation,undefined);
+  const bundle = fixture(), base = bundle.questions.find(question => question.id === "question-template-source-2019h31h-fe-pm-4")!;
+  const formula = base.prompt.blocks.find(block => block.type === "formula")!;
+  const html = renderToStaticMarkup(createElement(Content, {
+    content: { ...base.prompt, blocks: [formula] }, bundle, assetUrls: {},
+  }));
+  assert.match(html, /<mtext>平均処理待ち時間<\/mtext><mo>=<\/mo><mfrac><mi>ρ<\/mi><mrow><mn>1<\/mn><mo>−<\/mo><mi>ρ<\/mi><\/mrow><\/mfrac><mo>×<\/mo><mtext>平均処理時間<\/mtext>/);
 });
 test("2019 load-balancing all 12 full-major inputs use independent affinity/fact and stationary queue oracles with fixed source precision and premise mutations",()=>{
   const unique=new Set<string>(),waiting=new Set<string>();for(const v of inputs()){const b=d.build(v);oracle(d.source,b,v);unique.add(JSON.stringify(b));waiting.add(JSON.stringify(b.choices[19]));for(let i=0;i<5;i++){const bad=structuredClone(b),a=bad.partAnswers![i];assert(a.kind==="choice");a.choiceId=bad.answerParts![i].choiceIds[(bad.answerParts![i].choiceIds.indexOf(a.choiceId)+1)%bad.answerParts![i].choiceIds.length];assert.throws(()=>oracle(d.source,bad,v),{name:"AssertionError"});}}

@@ -17,6 +17,10 @@ test("long URLs and identifier digits retain ordinary wrapping and no hidden sep
 });
 test("shared Content applies token layout to paragraphs while existing code and numeric table cells retain their renderers",()=>{
   const b=fixture(),q=b.questions[0],content={...q.prompt,blocks:[{type:"paragraph" as const,text:"192.168.0.254 と −0.50秒"},{type:"code" as const,text:"192.168.0.254",language:"text"},{type:"table" as const,caption:"元の表",columns:["数値"],rows:[["2018"],["−0.50"]]}]},before=JSON.stringify(content),html=renderToStaticMarkup(createElement(Content,{content,bundle:b,assetUrls:{}}));
+  assert.doesNotMatch(html, /supplementary-text/);
+  const original = b.questions.find(q => q.id === "question-ipa-2023-b-5")!;
+  const originalHtml = renderToStaticMarkup(createElement(Content, { content: original.prompt, bundle: b, assetUrls: {} }));
+  assert.match(originalHtml, /<details class="supplementary-text">/);
   assert.equal(JSON.stringify(content),before);assert.equal((html.match(/class="content-text-token"/g)??[]).length,2);assert(html.includes('<td><span class="table-cell-value">2018</span></td>'));assert(html.includes('<td><span class="table-cell-value">−0.50</span></td>'));assert(/<pre[^>]*>(?:<code[^>]*>)?192\.168\.0\.254(?:<\/code>)?<\/pre>/.test(html));
 });
 test("only reviewed hyphenated cryptographic names stay whole while URLs and other ASCII identifiers keep ordinary wrapping",()=>{

@@ -295,7 +295,7 @@ for (const review of calculationReviews)
   calculationCases.push(calculationCase([review.source], `${review.source}: source options, display precision and 256 seeds retain the reviewed calculation level`, { kind: "source-options-and-seeded-precision", seeds: 256 }, async () => {
     const t = template(review.source),
       baseline = base(review.source);
-    assert(["2.2.0", "2.3.0", "2.4.0", "3.3.0", "3.4.0", "3.6.0"].includes(t.generatorRef.version));
+    assert(["2.2.0", "2.3.0", "2.4.0", "3.3.0", "3.4.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version));
     verify(review.source, t.referenceParameters.values, baseline);
     assert.deepEqual(
       options(baseline)

@@ -69,6 +69,13 @@ const knowledgeQualityNotes: Record<string, string> = {
   "2026-a-11": " 発生した問題から対策を選ぶ。問題の状況を維持し、テストやレビューなど解法を先に示す補足目的を除いた。",
   "2026-a-12": " グラフの使い方を選ぶ。表示量をそのまま読める独自の対象名を累積フロー図・ガントチャートへ置き換え、各グラフの軸・表示方法・用途を区別する。",
 };
+const programNotationNotes: Record<string, string> = {
+  "2023-b-1": " 正の平方根の整数部分・除算の余りを原問と同じ疑似言語で表し、注記とαの行を保持する。",
+  "2023-b-3": " 基準値の添字は原問と同じ除算の商で表し、変数の宣言と代入を分ける。",
+  "2023-b-5": " 原問の項を列記した分数、平方根の表記、変数宣言・初期化、aとbの組合せの9択を保持する。分子の走査添字と順序だけを変更する8入力。",
+  "2024-b-5": " 原問に倣って関連度Lxyを添字付きの分数で示し、表とA・Bの計算例を同じ注文データから作る。式のNは全注文数。リフトの解答群は原問の計数候補3種類と配列の2通りの対応を保持する。",
+  "2025-b-5": " 原問に倣って表の列・行の意味と網掛けの注記を表示し、dataの行・列ごとの和と総数を使う式を疑似言語に保持する。",
+};
 
 export const effectivePublicDefinitions = [
   ...knowledgeDefinitions,
@@ -105,6 +112,9 @@ export const effectivePublicDefinitions = [
         version: "3.6.0" as const,
         notes: d.notes + " 原問題で宣言している変数を、要素数や作業値の数値置換・宣言の省略で失わない。",
       }
+    : d)
+  .map(d => programNotationNotes[d.source]
+    ? { ...d, version: "3.7.0" as const, notes: d.notes + programNotationNotes[d.source] }
     : d);
 if (
   new Set(effectivePublicDefinitions.map((d) => d.source)).size !==

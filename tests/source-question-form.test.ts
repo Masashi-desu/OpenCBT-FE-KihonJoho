@@ -9,7 +9,7 @@ import {
   validateTemplateContract,
 } from "../src/core/generation";
 import { validateSourceFormat } from "../src/core/generation-formats";
-import type { Block, Question } from "../src/core/types";
+import type { Block, Bundle, Question } from "../src/core/types";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Content } from "../src/ui/Content";
@@ -186,6 +186,21 @@ function assertIntent(source: string, q: Question) {
   if (fact) assert(!prompt.includes("誤っている"), source);
 }
 
+function assertRenderedNotation(source: string, q: Question, bundle: Bundle) {
+  if (!["2023-b-5", "2024-b-5", "2025-b-5"].includes(source)) return;
+  const html = renderToStaticMarkup(createElement(Content, { content: q.prompt, bundle, assetUrls: {} }));
+  for (const label of source === "2024-b-5" ? ["a", "c"] : ["a", "b"]) {
+    assert.equal(html.split(`aria-label="空欄 ${label}"`).length - 1, 2, source);
+  }
+  if (source === "2025-b-5") {
+    assert.equal(html.split('class="omitted-cell"').length - 1, 2);
+    assert(!html.includes(">非表示<"));
+  } else {
+    assert.match(html, /<figcaption class="sr-only">/);
+    assert(html.indexOf('class="formula"') < html.indexOf('class="subject-b-program"'));
+  }
+}
+
 test("all 189 original question intents survive abstraction at baseline and changed inputs", async () => {
   const b = fixture();
   assert.equal(Object.keys(originalIntents).length + facts.length, 189);
@@ -202,6 +217,7 @@ test("all 189 original question intents survive abstraction at baseline and chan
     )!;
     assert.equal(base.choices.length, original.choices.length, source);
     assertIntent(source, base);
+    assertRenderedNotation(source, base, b);
     for (const seed of ["1".repeat(32), "e".repeat(32)]) {
       const parameters = await parametersForSeed(seed, t);
       const q = bindQuestion(
@@ -214,6 +230,7 @@ test("all 189 original question intents survive abstraction at baseline and chan
       assert.equal(q.choices.length, original.choices.length, source);
       assertIntent(source, q);
       validateSourceFormat(q, t);
+      assertRenderedNotation(source, q, b);
     }
   }
 });

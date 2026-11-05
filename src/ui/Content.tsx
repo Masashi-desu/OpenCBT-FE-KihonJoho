@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useId, useRef, useState } from "react";
+import { createElement, useEffect, useLayoutEffect, useId, useRef, useState } from "react";
 import type {
   Content as ContentData,
   Bundle,
@@ -434,7 +434,10 @@ function BasicDiagram({
     </figure>
   );
 }
-function Formula({ block }: { block: Extract<Block, { type: "formula" }> }) {
+function Formula({ block, accessibleCaption }: {
+  block: Extract<Block, { type: "formula" }>;
+  accessibleCaption?: boolean;
+}) {
   const ref = useRef<HTMLDivElement>(null),
     [error, setError] = useState(false);
   useEffect(() => {
@@ -460,10 +463,55 @@ function Formula({ block }: { block: Extract<Block, { type: "formula" }> }) {
       ) : (
         <div>{block.text}</div>
       )}
-      <figcaption>
+      <figcaption className={accessibleCaption && !error ? "sr-only" : undefined}>
         {error ? "数式表示が利用できません。 " : ""}
         {block.alt}
       </figcaption>
+    </figure>
+  );
+}
+
+// The source prints a stacked fraction between Japanese labels. Use native
+// MathML for this Unicode equation so the booklet keeps its offline rendering.
+function Spring2019QueueFormula({ alt }: { alt: string }) {
+  const fraction = createElement("mfrac", null,
+    createElement("mi", null, "ρ"),
+    createElement("mrow", null,
+      createElement("mn", null, "1"),
+      createElement("mo", null, "−"),
+      createElement("mi", null, "ρ"),
+    ),
+  );
+  return (
+    <figure className="formula">
+      {createElement("math", { display: "block", "aria-label": alt },
+        createElement("mtext", null, "平均処理待ち時間"),
+        createElement("mo", null, "="),
+        fraction,
+        createElement("mo", null, "×"),
+        createElement("mtext", null, "平均処理時間"),
+      )}
+    </figure>
+  );
+}
+
+function Autumn2019SpeedupFormula() {
+  const denominator = createElement("mrow", null,
+    createElement("mo", null, "("),
+    createElement("mn", null, "1"),
+    createElement("mo", null, "−"),
+    createElement("mi", null, "r"),
+    createElement("mo", null, ")"),
+    createElement("mo", null, "+"),
+    createElement("mfrac", null, createElement("mi", null, "r"), createElement("mi", null, "n")),
+  );
+  return (
+    <figure className="formula">
+      {createElement("math", { display: "block", "aria-label": "Eは、1を、（1 − r）とr／nの和で割った値。" },
+        createElement("mi", null, "E"),
+        createElement("mo", null, "="),
+        createElement("mfrac", null, createElement("mn", null, "1"), denominator),
+      )}
     </figure>
   );
 }
@@ -565,6 +613,8 @@ export function Content({
   answerChoice?: boolean;
 }) {
   const subjectB = subjectBSource(content.attribution);
+  const hasOriginalImages = content.attribution.origin === "official" &&
+    content.blocks.some(block => block.type === "image");
   return (
     <div className="content-blocks">
       {content.blocks.map((b, i) => {
@@ -686,6 +736,10 @@ export function Content({
         if (b.type === "code") {
           if (subjectB && b.language === "pseudocode")
             return <SubjectBProgram key={i} text={b.text} source={subjectB} answerChoice={answerChoice} />;
+          if (b.language === "text" && b.text === "E = 1 / ((1 − r) ＋ r/n)" &&
+            content.attribution.sourceRefs.some(ref =>
+              ref.sourceId === "source-ipa-2019r01a-fe-pm-2-qs" && ref.locator.questionNumber === "2"))
+            return <Autumn2019SpeedupFormula key={i} />;
           if (spring2019TextMajor(content.attribution) !== undefined)
             return <div className="spring2019-source-code" key={i}><pre><code>{legacy2019SpringInlineBlanks(b.text)}</code></pre></div>;
           // Text-form declarations and examples are source premises too; they
@@ -703,7 +757,7 @@ export function Content({
                 <LegacyAfternoonCode text={b.text} language={b.language} attribution={content.attribution} />}</code>
             </pre>
           );
-          return b.language === "text" ? (
+          if (b.language === "text") return hasOriginalImages ? (
             <details className="supplementary-text" key={i}>
               <summary>補助テキストを読む（図・空欄は原文画像で確認）</summary>
               <p className="subtle">
@@ -711,7 +765,8 @@ export function Content({
               </p>
               {code}
             </details>
-          ) : (
+          ) : <div className="code-block" key={i}>{code}</div>;
+          return (
             <div className="code-block" key={i}>
               <span>
                 {b.language === "sql" ? "SQL" : b.language === "c" ? "C" : b.language === "cobol" ? "COBOL" : b.language === "java" ? "Java" : b.language === "casl2" ? "CASL II" : "疑似言語"} · 表示のみ
@@ -720,7 +775,12 @@ export function Content({
             </div>
           );
         }
-        if (b.type === "formula") return <Formula block={b} key={i} />;
+        if (b.type === "formula") {
+          if (spring2019TextMajor(content.attribution) === 4 && b.format === "unicode" &&
+            b.text === "平均処理待ち時間 ＝ ρ／(1 − ρ) × 平均処理時間")
+            return <Spring2019QueueFormula alt={b.alt} key={i} />;
+          return <Formula block={b} key={i} accessibleCaption={!!subjectB && b.format === "latex"} />;
+        }
         if (b.type === "diagram")
           return (
             <div key={i}>

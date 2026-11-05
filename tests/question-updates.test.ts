@@ -96,6 +96,12 @@ test("all old bookmark revisions resolve the current source and current generato
     const template = row.linked[0], base = latest.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
     validateTemplateContract(template);
     retainedCurrentDetails += assertChangeRecordCurrentness(row.original, base, template);
+    if (template.generatorRef.version === "3.7.0") {
+      const retired = structuredClone(template);
+      retired.generatorRef.version = ["template-source-2023-b-1", "template-source-2023-b-3"].includes(template.id)
+        ? "3.4.0" : "3.6.0";
+      assert.throws(() => validateTemplateContract(retired), { code: "GENERATOR_REF" });
+    }
     if (["2.3.0", "2.4.0", "3.4.0", "3.5.0", "3.6.0"].includes(template.generatorRef.version)) {
       const retired = structuredClone(template);
       retired.generatorRef.version = template.generatorRef.version === "3.6.0" ? "3.4.0" : template.generatorRef.version === "3.5.0" ? ["2024-a-10", "2026-a-11"].includes(row.original.id.replace("question-ipa-", "")) ? "3.4.0" : "3.2.0" : template.generatorRef.version === "2.4.0" ? "2.3.0" : template.generatorRef.version === "2.3.0" ? "2.1.0" : ["2025-b-4", "2025-b-5"].includes(row.original.id.replace("question-ipa-", "")) ? "3.3.0" : "3.2.0";

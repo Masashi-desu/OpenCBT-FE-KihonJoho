@@ -136,6 +136,27 @@
         ],
         "roots": [],
         "note": "基準問題・テンプレートの改訂と参照hashだけを更新。他188系列、全176root、独立した意味の期待値は保持する。"
+      },
+      {
+        "comparisonCommit": "ac8cab4ede6716fc5446e5fa1d95853ee1dbf816",
+        "reviewedOn": "2026-11-05",
+        "basis": "IPA原問から平方根・整数商・添字付き分数・理論度数の表と疑似言語を照合。正答の期待値は問題集別の独立検算に保持する。",
+        "rows": [
+          "2023-b-1",
+          "2023-b-3",
+          "2023-b-5",
+          "2024-b-5",
+          "2025-b-2",
+          "2025-b-5"
+        ],
+        "roots": [
+          "2023-b-1",
+          "2023-b-3",
+          "2023-b-5",
+          "2024-b-5",
+          "2025-b-5"
+        ],
+        "note": "科目Bの6系列だけを3.7.0又は2.4.0に改訂。全原問題・素材・出典と他の生成系列を全フィールド比較した。"
       }
     ]
   },
@@ -380,13 +401,13 @@
     {
       "template": {
         "id": "template-coin-change",
-        "revision": 6,
-        "contentSha256": "1a3dd883f10f7298dbb18205974d5ad54843e3d53ba18626e0bfa5a02bc57049"
+        "revision": 7,
+        "contentSha256": "0248f98815f1323a3ea5d77e17e1f22c903f2b2eff28e2ab4917704964c42932"
       },
       "base": {
         "id": "question-template-coin-change",
-        "revision": 6,
-        "contentSha256": "6f59752cbe6c3ef15b5ec0c3a32c97ff1d581c687dbd24e7cc3e15252a2b684e"
+        "revision": 7,
+        "contentSha256": "facd7a0b18f9919134295f714551851d4b64d17ee2e7f531f3bae5a5d98eeffe"
       },
       "originals": [
         {
@@ -400,7 +421,7 @@
       ],
       "generator": {
         "id": "generator-coin-change",
-        "version": "2.3.0"
+        "version": "2.4.0"
       }
     },
     {
@@ -2356,13 +2377,13 @@
     {
       "template": {
         "id": "template-source-2023-b-1",
-        "revision": 6,
-        "contentSha256": "e224f456fb8970d9e137a4800337522e9792f766a38ae87f703bea203f4de7cd"
+        "revision": 7,
+        "contentSha256": "682f6c9a89576cf2ecd95dc38a1022ba9aaa2e1991a263994819cba13c4e372f"
       },
       "base": {
         "id": "question-template-source-2023-b-1",
-        "revision": 6,
-        "contentSha256": "b7704b28e86723eda110cbcadd85acd54774fcff85137112eb009987b138506b"
+        "revision": 7,
+        "contentSha256": "4e3ea2bd487be7d2d75b274005993bfb61ab118fb47075bd5d8e87f0eff31c5a"
       },
       "originals": [
         {
@@ -2376,7 +2397,7 @@
       ],
       "generator": {
         "id": "generator-source-2023-b-1",
-        "version": "3.4.0"
+        "version": "3.7.0"
       }
     },
     {
@@ -2408,13 +2429,13 @@
     {
       "template": {
         "id": "template-source-2023-b-3",
-        "revision": 6,
-        "contentSha256": "850248b50c0f46d9804fa6ceecf87031d0fc02b29b89e994f61dc050a16dcf08"
+        "revision": 7,
+        "contentSha256": "e1fdcf8050f53b0eae3770cd708e73db27b1b97e61a125895cc4f0a814447606"
       },
       "base": {
         "id": "question-template-source-2023-b-3",
-        "revision": 6,
-        "contentSha256": "cd4d026b717b13035a8027e25b851ae3d8d5fde31067c7cb2500bd312206674f"
+        "revision": 7,
+        "contentSha256": "691136e5edb4436af156d0c94afa8bb55d995ee04ff403b3e4b09b97e3946724"
       },
       "originals": [
         {
@@ -2428,7 +2449,7 @@
       ],
       "generator": {
         "id": "generator-source-2023-b-3",
-        "version": "3.4.0"
+        "version": "3.7.0"
       }
     },
     {
@@ -2460,13 +2481,13 @@
     {
       "template": {
         "id": "template-source-2023-b-5",
-        "revision": 7,
-        "contentSha256": "271c96323bafc406d50129bc0ff40625745f3975218e65664c927db3a1a02558"
+        "revision": 8,
+        "contentSha256": "b0b0f51736a7ec254663c0e01067988c2956c97850bf65cfba554949e2008a0c"
       },
       "base": {
         "id": "question-template-source-2023-b-5",
-        "revision": 7,
-        "contentSha256": "72749bfd47dce883afa3c3a9b8ad5e77b03098f1ec1292681292cea9a72bee7d"
+        "revision": 8,
+        "contentSha256": "7aaf1ec997912fc05e1791f54f67b1685af00640b1cfb7775f2cb89dffc70972"
       },
       "originals": [
         {
@@ -2480,7 +2501,7 @@
       ],
       "generator": {
         "id": "generator-source-2023-b-5",
-        "version": "3.6.0"
+        "version": "3.7.0"
       }
     },
     {
@@ -2590,13 +2611,13 @@
     {
       "template": {
         "id": "template-source-2024-b-5",
-        "revision": 7,
-        "contentSha256": "5caedd711a0a0093218ce9ca47ad1c71c2405270ee466a81ba4074bb792de2b9"
+        "revision": 8,
+        "contentSha256": "80d45323d107facf86907550009035dfc1c96ffb40b9a6f3055996799cd22c40"
       },
       "base": {
         "id": "question-template-source-2024-b-5",
-        "revision": 7,
-        "contentSha256": "f720ddaf5f0292ada5b43be0a4ff509768df59b4df44481f653173ec29ffc0d2"
+        "revision": 8,
+        "contentSha256": "e43be871456270f0aa915973c8b178e7c0c26b966b9d46402fa780d4ae33a6b6"
       },
       "originals": [
         {
@@ -2610,7 +2631,7 @@
       ],
       "generator": {
         "id": "generator-source-2024-b-5",
-        "version": "3.6.0"
+        "version": "3.7.0"
       }
     },
     {
@@ -2668,13 +2689,13 @@
     {
       "template": {
         "id": "template-source-2025-b-5",
-        "revision": 8,
-        "contentSha256": "5e2c6f2aaa52c03314666890c133ee4d7c36572533b3e720c00270d352ad70ec"
+        "revision": 9,
+        "contentSha256": "8fe9772d664a68aeb49dbeebdf45183b1ff2931e6ad6bbe850034a232d245d1b"
       },
       "base": {
         "id": "question-template-source-2025-b-5",
-        "revision": 8,
-        "contentSha256": "2507cb66806fe28778f29d0f5ed921071603ef54a86c3c010f2d7cd9caada2d3"
+        "revision": 9,
+        "contentSha256": "55673f3e18ad7bd28135141a5d941d6b89044fd3e6efe1e22fb5a4e3a61f41a3"
       },
       "originals": [
         {
@@ -2688,7 +2709,7 @@
       ],
       "generator": {
         "id": "generator-source-2025-b-5",
-        "version": "3.6.0"
+        "version": "3.7.0"
       }
     },
     {
@@ -5493,9 +5514,9 @@
     },
     {
       "source": "2023-b-1",
-      "metadataSha256": "5ee779b074b76bd73729bc244fe3e09f8697fff3c131ae7b3cfe4f18c7f7eb1f",
-      "referenceBodySha256": "2d72660a9effce5f09eb2f8bc6bdfddc0130ab8a7dd7dd50e2d99ed5e573c0df",
-      "effectiveVersion": "3.4.0"
+      "metadataSha256": "7d02d88009672fb14d0a80e3de18132126a797157a5bcbeb479287d90bfee55a",
+      "referenceBodySha256": "8a42a0513782bc72cf17b42bbdc5e46d1a8e65f8d4d77b851058142808c554d9",
+      "effectiveVersion": "3.7.0"
     },
     {
       "source": "2023-b-2",
@@ -5505,9 +5526,9 @@
     },
     {
       "source": "2023-b-3",
-      "metadataSha256": "9fea7a5d7c643f3afe0f65cb63e70ee25f74c71d65067d8431c58eea5ecd0747",
-      "referenceBodySha256": "a362aeccaaf2c374281083b5a931e111d77c7170f40fc4e8b13081ebbcd941e9",
-      "effectiveVersion": "3.4.0"
+      "metadataSha256": "7deb83729710ec40666375ee98dda7ccfcd1bf2de92738eb888b49149940a903",
+      "referenceBodySha256": "fd5929336af8bc8575f8c276d3e791c143929f9b2442c1f515027b57a6452a54",
+      "effectiveVersion": "3.7.0"
     },
     {
       "source": "2023-b-4",
@@ -5517,9 +5538,9 @@
     },
     {
       "source": "2023-b-5",
-      "metadataSha256": "db4adb6cb4fbd2d6e1bca55674eed60731991a84574621b0ddc47f98a17d230c",
-      "referenceBodySha256": "e194acc9c0bae4e19b6f6dbc6a8bb4a22e51ea29bf77b52c55bfe33f61127896",
-      "effectiveVersion": "3.6.0"
+      "metadataSha256": "9ba83d743b1f847435c8e177483d92bcb754f42e1960984f9649f178087e20f2",
+      "referenceBodySha256": "be9849958cd78be3fae53e5456239bddb8154889a09dab7f5076eecc2bd3a94f",
+      "effectiveVersion": "3.7.0"
     },
     {
       "source": "2024-b-1",
@@ -5547,9 +5568,9 @@
     },
     {
       "source": "2024-b-5",
-      "metadataSha256": "a79954c7dcff6042a2016af66b22eb82804d3e6ead453353a5908da040facd47",
-      "referenceBodySha256": "3ec93a1493f544dfca20e2557d7e911f412d8506220511adad6852428e267832",
-      "effectiveVersion": "3.6.0"
+      "metadataSha256": "1ffbc994099e5eb3ff7d3d476084c7d36e1f74d7ba9ae9c6411000667aa0321e",
+      "referenceBodySha256": "6c8d227ea3d9e43d87685d05ed819954c4cd3274ea00d92addbe1f5b1fe7c540",
+      "effectiveVersion": "3.7.0"
     },
     {
       "source": "2025-b-3",
@@ -5565,9 +5586,9 @@
     },
     {
       "source": "2025-b-5",
-      "metadataSha256": "eff0d7854826345322be2a3086cd1a70592ed6bbea25697959ef43e4d1fc1602",
-      "referenceBodySha256": "1d6bac73d5bb9af0e3c2fee1e0350ac3cfe9a91d42dc5e8952dc3f920ab6292c",
-      "effectiveVersion": "3.6.0"
+      "metadataSha256": "70b53d3f75ed720583ea7c6b3d069b56569cef53d7648f73023df9f81592efe7",
+      "referenceBodySha256": "02be22be90f40cf76d8f7da84a9109f3a958448ecb1ef038d423e2a3518995d1",
+      "effectiveVersion": "3.7.0"
     },
     {
       "source": "2026-b-1",
