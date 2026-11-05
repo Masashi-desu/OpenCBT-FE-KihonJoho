@@ -33,6 +33,8 @@ function visibleProblem(q: Question, b: Bundle) {
     )
     .join(" ")
     .replace(/<(title|desc)\b[^>]*>[\s\S]*?<\/\1>/g, "")
+    // An unlettered answer box is visible even though its span is empty.
+    .replace(/<span class="question-blank" role="img" aria-label="空欄"><\/span>/g, "□")
     // Inline layout spans do not introduce spaces into the question text.
     .replace(/<\/?span(?:\s[^>]*)?>/g, "")
     .replace(/<[^>]*>/g, " ")

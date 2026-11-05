@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes } from './scopes.mjs';
+import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports } from './scopes.mjs';
 import { validScope } from './booklet-scope.mjs';
 import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
@@ -201,7 +201,11 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
     if (changed.includes('scripts/source-inventory-extensions.json'))
         extensionScopes['scripts/source-inventory-extensions.json'] = sourceInventoryAppendScopes(readAt(base.commit, 'scripts/source-inventory-extensions.json')?.toString(), readAt(null, 'scripts/source-inventory-extensions.json')?.toString());
     const manifests = changed.filter(p => p === manifestPath || p === privatePath), initialChanged = changed.filter(p => !manifests.includes(p));
-    let selected = classifyScopedChanges({ changed: initialChanged, beforeOwnership: before, afterOwnership: after, testEntries: entries, extensionScopes, forceFull: forceFull || !base.trusted });
+    const scopedDisplays = base.trusted && !forceFull ? Object.entries(SCOPED_DISPLAYS)
+        .filter(([file, owner]) => changed.includes(file) && !changed.includes(owner.host) &&
+            inertDisplaySource(file, readAt(base.commit, file)) && inertDisplaySource(file, readAt(null, file)))
+        .map(([file]) => file) : [];
+    let selected = classifyScopedChanges({ changed: initialChanged, beforeOwnership: before, afterOwnership: after, testEntries: entries, extensionScopes, scopedDisplays, forceFull: forceFull || !base.trusted });
     if (base.trusted && !forceFull && workspaceKind === 'public') {
         const detail = classifyDetailChanges({ changed, beforeOwnership: before, afterOwnership: after,
             beforeTestEntries: JSON.parse(readAt(base.commit, manifestPath).toString()).files, testEntries: entries,
@@ -225,12 +229,20 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         const oldImports = base.trusted ? runtimeImports(baseline, base.commit) : { graph: {}, unresolved: [] }, newImports = runtimeImports(actual, null), oldGraph = oldImports.graph, newGraph = newImports.graph, graph = {};
         for (const file of new Set([...Object.keys(oldGraph), ...Object.keys(newGraph)]))
             graph[file] = [...new Set([...(oldGraph[file] ?? []), ...(newGraph[file] ?? [])])];
+        const displayUnknown = [];
+        for (const file of scopedDisplays) {
+            const { host } = SCOPED_DISPLAYS[file];
+            if (scopedDisplayImports(file, oldGraph) && scopedDisplayImports(file, newGraph))
+                graph[host] = graph[host].filter(dependency => dependency !== file);
+            else
+                displayUnknown.push('unproven display module boundary: ' + file);
+        }
         const affected = expandOwnedDependencies(sourceChanges, graph, after.scopes, carriers);
         if (selected.profile === 'features')
             for (const [consumer, dependencies] of Object.entries(graph))
                 if (dependencies.some(p => STORAGE_RUNTIME.includes(p)) && ![...STORAGE_RUNTIME, 'src/ui/App.tsx'].includes(consumer))
                     affected.unknown.push('unproven storage consumer boundary: ' + consumer);
-        affected.unknown.push(...oldImports.unresolved, ...newImports.unresolved);
+        affected.unknown.push(...oldImports.unresolved, ...newImports.unresolved, ...displayUnknown);
         affected.virtualArtifacts = {before: oldImports.virtualDependencies ?? [], after: newImports.virtualDependencies ?? []};
         selected.scopes = [...new Set([...selected.scopes, ...affected.scopes])].sort();
         selected.reverseDependencies = affected;
@@ -246,9 +258,6 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         requireCI(!process.env.GITHUB_ACTIONS && validScope(bookletScope) && after.scopes.includes(bookletScope), 'manual booklet scope exists and is local only');
         selected = { ...selected, profile: 'booklets', scopes: [bookletScope], reasons: ['explicit local subset; not a release verification plan'] };
     }
-    // Current A publication pools also contain historical morning series.
-    if (selected.scopes.some(s => s.endsWith('-am')))
-        selected.scopes = [...new Set([...selected.scopes, ...after.scopes.filter(s => /^20\d{2}-a$/.test(s))])].sort();
     let partSpecs = makeParts(files, entries, selected.scopes, selected.profile === 'full', selected);
     const selectedFiles = Object.values(partSpecs).flatMap(s => s.files).sort();
     if (combineParts) {

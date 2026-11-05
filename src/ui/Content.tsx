@@ -8,7 +8,7 @@ import type {
 } from "../core/types";
 import { safeUrl } from "../core/validation";
 import {ContentBlank, ContentParagraph} from "./ContentText";
-import { SubjectBProgram, subjectBParagraphSegments, subjectBSource, subjectBTableBlank } from "./SubjectBProgram";
+import { SubjectBProgram, subjectBParagraphSegments, subjectBTableBlank } from "./SubjectBProgram";
 import {CaptionFrame} from "./CaptionFrame";
 import { mathOptions } from "./math";
 import { SourceFigure } from "./SourceFigure";
@@ -539,6 +539,16 @@ function spring2019TableFooter(content: ContentData, index: number) {
 const spring2018EvmTables = new Set(legacy2018SpringPm6ValidTuples.flatMap(values =>
   legacy2018SpringPm6Definition.build([...values]).prompt.filter(block => block.type === "table")
     .map(block => JSON.stringify(block))));
+
+// Gate the dedicated renderer here so it only receives current-format B material.
+function subjectBSource(attribution: Attribution) {
+  if (attribution.origin !== "adapted") return undefined;
+  const ref = attribution.sourceRefs.find(({ sourceId, locator }) =>
+    /^source-ipa-(?:20\d{2}|sample-2022-(?:apr|dec))-b-qs$/.test(sourceId) &&
+    locator.subject === "科目B" && !locator.timeSlot && locator.questionNumber);
+  return ref && `${ref.sourceId.slice("source-ipa-".length, -"-qs".length)}-${ref.locator.questionNumber}`;
+}
+
 export function Content({
   content,
   bundle,

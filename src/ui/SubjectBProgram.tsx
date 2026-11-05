@@ -1,13 +1,4 @@
-import type { Attribution } from "../core/types";
 import { ContentBlank, type ContentBlankPart } from "./ContentText";
-
-export function subjectBSource(attribution: Attribution) {
-  if (attribution.origin !== "adapted") return undefined;
-  const ref = attribution.sourceRefs.find(({ sourceId, locator }) =>
-    /^source-ipa-(?:20\d{2}|sample-2022-(?:apr|dec))-b-qs$/.test(sourceId) &&
-    locator.subject === "科目B" && locator.questionNumber);
-  return ref && `${ref.sourceId.slice("source-ipa-".length, -"-qs".length)}-${ref.locator.questionNumber}`;
-}
 
 const blankMarker = (label: string) => `【${label || "空欄"}】`;
 function splitBlanks(text: string, pattern: RegExp, unnamedA = false): (string | ContentBlankPart)[] {
@@ -87,14 +78,14 @@ function programSpacing(text: string, source: string) {
 }
 
 // These three bindings historically use 【a】 for a single, unlettered slot.
-const unnamedA = new Set(["2025-b-2", "2026-b-2", "2026-b-3"]);
+const unnamedA = ["2025-b-2", "2026-b-2", "2026-b-3"];
 
 export function SubjectBProgram({ text, source, answerChoice }: { text: string; source: string; answerChoice: boolean }) {
   const program = answerChoice ? text : programSpacing(text, source);
   return (
     <div className={answerChoice ? "subject-b-code-choice" : "subject-b-program"}>
       {!answerChoice && <div>［プログラム］</div>}
-      <pre><code>{answerChoice ? program : splitBlanks(program, /【(空欄|[a-z])】|空欄([a-z])?/g, unnamedA.has(source)).map((part, i) =>
+      <pre><code>{answerChoice ? program : splitBlanks(program, /【(空欄|[a-z])】|空欄([a-z])?/g, unnamedA.includes(source)).map((part, i) =>
         typeof part === "string" ? part : <ContentBlank key={i} blank={part.blank} />
       )}</code></pre>
     </div>

@@ -1,9 +1,45 @@
-import { scopeForQuestion, validScope } from './booklet-scope.mjs';
+import ts from 'typescript';
+import { scopeFamily, scopeForQuestion, validScope } from './booklet-scope.mjs';
 export const RECORD_KINDS = ['questions', 'templates', 'sets', 'exams', 'sources', 'rights', 'assets'];
 const stable = value => JSON.stringify(value);
 const strings = value => typeof value === 'string' ? [value] : Array.isArray(value) ? value.flatMap(strings) : value && typeof value === 'object' ? Object.values(value).flatMap(strings) : [];
 const add = (target, values) => { const before = target.size; for (const v of values)
     target.add(v); return target.size !== before; };
+
+// A display module can be owned by a family only behind a reviewed host gate.
+// Changes to the host or to the module's import boundary use the normal plan.
+export const SCOPED_DISPLAYS = {
+    'src/ui/SubjectBProgram.tsx': {
+        family: 'b',
+        host: 'src/ui/Content.tsx',
+        imports: ['src/ui/ContentText.tsx'],
+        specifiers: ['./ContentText'],
+    },
+};
+function inertInitializer(node) {
+    if (!node) return false;
+    if (ts.isStringLiteral(node) || ts.isRegularExpressionLiteral(node) || ts.isNumericLiteral(node) ||
+        ts.isArrowFunction(node) || ts.isFunctionExpression(node)) return true;
+    if (ts.isArrayLiteralExpression(node)) return node.elements.every(inertInitializer);
+    if (ts.isObjectLiteralExpression(node)) return node.properties.every(p =>
+        ts.isPropertyAssignment(p) && (ts.isIdentifier(p.name) || ts.isStringLiteral(p.name)) && inertInitializer(p.initializer));
+    return false;
+}
+export function inertDisplaySource(file, bytes) {
+    const owner = SCOPED_DISPLAYS[file];
+    if (!owner || !bytes) return false;
+    const source = ts.createSourceFile(file, bytes.toString(), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+    return !source.parseDiagnostics.length && source.statements.every(s =>
+        ts.isImportDeclaration(s) && s.importClause && ts.isStringLiteral(s.moduleSpecifier) && owner.specifiers.includes(s.moduleSpecifier.text) ||
+        ts.isFunctionDeclaration(s) || ts.isTypeAliasDeclaration(s) || ts.isInterfaceDeclaration(s) ||
+        ts.isVariableStatement(s) && Boolean(s.declarationList.flags & ts.NodeFlags.Const) &&
+        s.declarationList.declarations.every(d => ts.isIdentifier(d.name) && inertInitializer(d.initializer)));
+}
+export function scopedDisplayImports(file, imports) {
+    const owner = SCOPED_DISPLAYS[file];
+    return owner && stable(imports[file]) === stable(owner.imports) &&
+        stable(Object.keys(imports).filter(consumer => imports[consumer].includes(file))) === stable([owner.host]);
+}
 /** Infer only a narrowing that is justified by an explicit year/term/section.
  * Year-wide legacy modules intentionally select both terms and both sections. */
 export function scopesForOwnedPath(file, available) {
@@ -230,7 +266,7 @@ export function expandOwnedDependencies(changed, imports, available, carriers = 
     }
     return { scopes: [...selected].sort(), unknown: [...new Set(unknown)].sort() };
 }
-export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership, testEntries, extensionScopes = {}, forceFull = false }) {
+export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership, testEntries, extensionScopes = {}, scopedDisplays = [], forceFull = false }) {
     const selected = new Set(), reasons = [], unknown = [];
     if (forceFull)
         reasons.push('explicit full verification or untrusted comparison base');
@@ -257,6 +293,13 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
         if (testEntries[file]) {
             add(selected, testEntries[file].scopes);
             continue;
+        }
+        if (scopedDisplays.includes(file) && Object.hasOwn(SCOPED_DISPLAYS, file)) {
+            const scopes = available.filter(scope => scopeFamily(scope) === SCOPED_DISPLAYS[file].family);
+            if (scopes.length) {
+                add(selected, scopes);
+                continue;
+            }
         }
         const owned = scopesForOwnedPath(file, available);
         if (owned.length && /^(?:src\/core\/generators\/legacy-|src\/core\/(?:spring|autumn)-|src\/ui\/(?:Legacy|legacy-)|scripts\/(?:import-legacy-|legacy-|source-evidence\/legacy-)|tests\/fixtures\/)/.test(file)) {

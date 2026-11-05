@@ -16,7 +16,10 @@ export function scopeForQuestion(question) {
         if (locator.timeSlot) {
             const term = { '春期': 'spring', '秋期': 'autumn', '特別': 'special', '特別試験': 'special' }[locator.period];
             const slot = { '午前': 'am', '午後': 'pm' }[locator.timeSlot];
-            if (!term || !slot || question.subject !== (slot === 'am' ? 'A' : 'B'))
+            const label = locator.subject;
+            if (!term || !slot || locator.year >= 2020 ||
+                (label && label !== locator.timeSlot && label !== '旧制度・' + locator.timeSlot) ||
+                question.subject !== (slot === 'am' ? 'A' : 'B'))
                 return null;
             scopes.add(`${locator.year}-${term}-${slot}`);
         }
@@ -26,8 +29,14 @@ export function scopeForQuestion(question) {
         else
             return null;
     }
-    return scopes.size === 1 ? [...scopes][0] : null;
+    const [scope] = scopes;
+    return scopes.size === 1 && validScope(scope) ? scope : null;
 }
 export function validScope(scope) {
-    return typeof scope === 'string' && /^(?:20\d{2}-(?:spring|autumn|special)-(?:am|pm)|2022-(?:april|december)-[ab]|20\d{2}-[ab])$/.test(scope);
+    return scopeFamily(scope) !== null;
+}
+export function scopeFamily(scope) {
+    if (typeof scope !== 'string') return null;
+    return /^(?:20[01]\d-(?:spring|autumn|special)-(am|pm)|2022-(?:april|december)-([ab])|20(?:2[3-9]|[3-9]\d)-([ab]))$/
+        .exec(scope)?.slice(1).find(Boolean) ?? null;
 }

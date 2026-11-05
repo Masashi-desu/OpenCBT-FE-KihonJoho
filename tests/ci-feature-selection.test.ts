@@ -101,6 +101,17 @@ test('only an exact pinned development browser dependency may accompany feature 
 
 test('real Git plans execute each functional part, aggregate exact witnesses and widen for unknown consumers or content changes', () => {
   const dir = fs.mkdtempSync(path.join(root, 'output', 'ci-feature-git-')), f = fixture();
+    const legacyQuestion = (id: string, timeSlot: string, subject: string) => ({
+      id, subject, origin: { sourceRefs: [{ locator: { year: 2016, period: '秋期', timeSlot, questionNumber: '1' } }] },
+    });
+    f.after.records.questions.push(
+      legacyQuestion('old-am', '午前', 'A'),
+      legacyQuestion('old-pm', '午後', 'B'),
+      { id: 'current-b', subject: 'B', origin: { sourceRefs: [{ locator: { year: 2024, subject: '科目B', questionNumber: '1' } }] } },
+    );
+    const scopeEntries = Object.fromEntries(['2016-autumn-am', '2016-autumn-pm', '2024-b'].map(scope =>
+      [`tests/booklets/${scope}/content-contract.test.ts`, { count: 1, scopes: [scope], names: [`${scope}: contract`] }]));
+    const localEntries = { ...entries, ...scopeEntries };
   const env = Object.fromEntries(Object.entries(process.env).filter(([k]) => !k.startsWith('GITHUB_') && !['NODE_TEST_CONTEXT', 'NODE_OPTIONS'].includes(k)));
   const write = (file: string, value: string) => { fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true }); fs.writeFileSync(path.join(dir, file), value); };
   const git = (...args: string[]) => execFileSync('git', args, { cwd: dir, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -110,8 +121,8 @@ test('real Git plans execute each functional part, aggregate exact witnesses and
     fs.symlinkSync(path.join(root, 'node_modules'), path.join(dir, 'node_modules'), 'dir');
     for (const file of fs.readdirSync('scripts/ci').filter(f => f.endsWith('.mjs'))) write('scripts/ci/' + file, fs.readFileSync('scripts/ci/' + file, 'utf8'));
     write('src/core/storage.ts', body); write('src/ui/App.tsx', "import {history} from '../core/storage';export const boot=history;");
-    for (const file of Object.keys(entries)) write(file, "import test from 'node:test';test('synthetic planning assertion for " + file + "',()=>{});");
-    write('scripts/ci/public-test-manifest.json', JSON.stringify({ version: 2, files: entries })); emit();
+    for (const file of Object.keys(localEntries)) write(file, "import test from 'node:test';test('synthetic planning assertion for " + file + "',()=>{});");
+    write('scripts/ci/public-test-manifest.json', JSON.stringify({ version: 2, files: localEntries })); emit();
     git('init', '-q'); git('config', 'user.name', 'CI fixture'); git('config', 'user.email', 'ci-fixture@example.invalid'); git('add', '.'); git('commit', '-qm', 'synthetic verified baseline');
     let baseCommit = git('rev-parse', 'HEAD'); write('src/core/storage.ts', f.files['src/core/storage.ts']);
     const plan = (options: any = { baseCommit }) => JSON.parse(execFileSync(process.execPath, ['--input-type=module', '-e', `import {createPlan} from './scripts/ci/plan.mjs';console.log(JSON.stringify(createPlan(${JSON.stringify(options)})));`], { cwd: dir, env, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }));
@@ -127,5 +138,27 @@ test('real Git plans execute each functional part, aggregate exact witnesses and
     write('src/core/generators/legacy-2024.ts', "import '../storage';export const probe=1;");
     git('add', '.'); git('commit', '-qm', 'synthetic additional storage consumer'); baseCommit = git('rev-parse', 'HEAD');
     write('src/core/storage.ts', body + '\n// implementation change'); const unsafe = plan(); assert.equal(unsafe.profile, 'full'); assert(unsafe.selectedFiles.includes(content));
+
+    const display = 'src/ui/SubjectBProgram.tsx', host = 'src/ui/Content.tsx';
+    const renderer = "import { Blank } from './ContentText'; export function Program() { return <Blank />; }";
+    write('src/core/storage.ts', body);
+    write('src/ui/ContentText.tsx', 'export function Blank() { return <span />; }');
+    write(host, "import { Program } from './SubjectBProgram'; export function Content({currentB}) { return currentB ? <Program /> : null; }");
+    write(display, renderer);
+    git('add', '.'); git('commit', '-qm', 'synthetic verified display boundary'); baseCommit = git('rev-parse', 'HEAD');
+    write(display, renderer.replace('<Blank />', '<Blank label="a" />'));
+    const onlyB = plan();
+    assert.deepEqual(onlyB.scopes, ['2024-b']);
+    assert.deepEqual(onlyB.parts, ['booklet-2024-b', 'common']);
+    assert(!onlyB.selectedFiles.includes(content));
+    const morningFile = 'src/core/generators/legacy-2016-autumn-am-probe.ts';
+    write(morningFile, "import '../../ui/SubjectBProgram'; export const probe = 1;");
+    assert.equal(plan().profile, 'full', 'an additional consumer breaks the display proof');
+    write(display, renderer);
+    write(morningFile, 'export const probe = 1;');
+    const onlyMorning = plan();
+    assert.deepEqual(onlyMorning.scopes, ['2016-autumn-am']);
+    assert.deepEqual(onlyMorning.parts, ['booklet-2016-autumn-am', 'common']);
+    assert(!onlyMorning.selectedFiles.includes(content));
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });

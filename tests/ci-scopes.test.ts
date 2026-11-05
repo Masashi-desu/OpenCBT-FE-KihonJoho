@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { scopeForQuestion } from '../scripts/ci/booklet-scope.mjs';
-import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes } from '../scripts/ci/scopes.mjs';
+import { scopeFamily, scopeForQuestion } from '../scripts/ci/booklet-scope.mjs';
+import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, inertDisplaySource, scopedDisplayImports } from '../scripts/ci/scopes.mjs';
 import { runtimeDependencyGraph } from '../scripts/ci/runtime-dependencies.mjs';
+import { makeParts } from '../scripts/ci/plan.mjs';
 const scopes = ['2016-autumn-am', '2016-autumn-pm', '2016-spring-am', '2016-spring-pm', '2017-spring-pm', '2024-a'];
 function question(id: string, year = 2016, period = '秋期', timeSlot = '午後'): any { return { id, subject: timeSlot === '午後' ? 'B' : 'A', origin: { sourceRefs: [{ sourceId: 'source-' + id, locator: { year, period, timeSlot, questionNumber: '1' } }] }, prompt: { blocks: [{ assetId: 'asset-shared' }], rightsRefs: ['rights-shared'] } }; }
 function fixture(): any { const catalog = { revision: 1, files: { questions: [], templates: [], sets: [], exams: [], sources: [], rights: [], assets: [] }, generationCoverage: 'complete' }, records = { questions: [question('one'), question('two', 2017, '春期')], templates: [], sets: [], exams: [], sources: [], rights: [{ id: 'rights-shared' }], assets: [{ id: 'asset-shared', path: 'assets/shared.png' }] }; return { catalog, records }; }
@@ -26,6 +27,51 @@ test('unknown, conflicting and cross-section source ownership is refused', () =>
     q.subject = 'B';
     q.origin.sourceRefs.push({ locator: { year: 2017, period: '春期', timeSlot: '午後', questionNumber: '1' } });
     assert.equal(scopeForQuestion(q), null);
+    const legacy = question('mixed-label');
+    legacy.origin.sourceRefs[0].locator.subject = '科目B';
+    assert.equal(scopeForQuestion(legacy), null);
+    assert.equal(scopeFamily('2019-b'), null);
+    assert.equal(scopeFamily('2024-spring-pm'), null);
+});
+test('AM, PM, A and B own independent test jobs; the guarded display only selects current B', () => {
+    const b = fixture();
+    b.records.questions.push(
+        question('old-morning', 2016, '春期', '午前'),
+        { ...question('current-a'), subject: 'A', origin: { sourceRefs: [{ locator: { year: 2024, subject: '科目A', questionNumber: '1' } }] } },
+        { ...question('current-b'), subject: 'B', origin: { sourceRefs: [{ locator: { year: 2024, subject: '科目B', questionNumber: '1' } }] } },
+        { ...question('sample-b'), subject: 'B', origin: { sourceRefs: [{ locator: { period: '2022年12月公表 サンプル問題', subject: '科目B', questionNumber: '1' } }] } },
+    );
+    const owned = own(b);
+    assert.deepEqual([...new Set(owned.scopes.map(scopeFamily))].sort(), ['a', 'am', 'b', 'pm']);
+    const common = 'tests/contract.test.ts';
+    const entries = {
+        [common]: { count: 1, scopes: [] },
+        ...Object.fromEntries(owned.scopes.map(s => [`tests/booklets/${s}/content-contract.test.ts`, { count: 1, scopes: [s], names: [`${s}: contract`] }])),
+    };
+    for (const scope of owned.scopes) {
+        const changed = structuredClone(b);
+        const index = b.records.questions.findIndex((q: any) => scopeForQuestion(q) === scope);
+        changed.records.questions[index].prompt.extra = 'new';
+        const selected = classify([], owned, own(changed));
+        assert.deepEqual(selected.scopes, [scope]);
+        assert.deepEqual(Object.keys(makeParts(Object.keys(entries), entries, selected.scopes)), [`booklet-${scope}`, 'common']);
+    }
+    const file = 'src/ui/SubjectBProgram.tsx';
+    assert.equal(classify([file], owned).profile, 'full');
+    const selected = classify([file], owned, owned, { scopedDisplays: [file] });
+    assert.deepEqual(selected.scopes, ['2022-december-b', '2024-b']);
+    assert.deepEqual(Object.keys(makeParts(Object.keys(entries), entries, selected.scopes)), ['booklet-2022-december-b', 'booklet-2024-b', 'common']);
+    assert.equal(classify([file, 'src/ui/Content.tsx'], owned, owned, { scopedDisplays: [file] }).profile, 'full');
+});
+test('scoped display rejects import-time work and unreviewed dependency edges', () => {
+    const file = 'src/ui/SubjectBProgram.tsx', host = 'src/ui/Content.tsx', dep = 'src/ui/ContentText.tsx';
+    const source = "import {ContentBlank} from './ContentText'; const rules = { key: /x/g }; export function display() { return <ContentBlank />; }";
+    assert(inertDisplaySource(file, Buffer.from(source)));
+    for (const unsafe of ["window.dispatchEvent(event);", "const cache = getSharedCache();", "import 'react';"])
+        assert(!inertDisplaySource(file, Buffer.from(source + unsafe)), unsafe);
+    assert(scopedDisplayImports(file, { [file]: [dep], [host]: [file] }));
+    assert(!scopedDisplayImports(file, { [file]: [dep], [host]: [file], 'src/ui/Other.tsx': [file] }));
+    assert(!scopedDisplayImports(file, { [file]: [dep, 'src/core/session.ts'], [host]: [file] }));
 });
 test('logical pack comparison scopes one changed question without treating repacking as content changes', () => {
     const a = fixture(), b = structuredClone(a);
