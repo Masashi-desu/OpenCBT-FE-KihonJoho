@@ -1,0 +1,113 @@
+/* Authoritative shared UI colors. Components reference these roles without
+   literal color fallbacks. See AGENTS.md and docs/screens.md. */
+:root {
+  --font:
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, system-ui,
+    sans-serif;
+  --color-scheme: light;
+  --ink: #242424;
+  --muted: #666666;
+  --accent: #292929;
+  --accent-hover: #444444;
+  --indicator: #737373;
+  --line: #d6d6d6;
+  --canvas: #f5f5f5;
+  --surface: #fff;
+  --on-accent: #fff;
+  --text-secondary: #666666;
+  --text-primary: #242424;
+  --text-accent: #303030;
+  --soft-surface: #f0f0f0;
+  --selected-surface: #e8e8e8;
+  --answer-surface: #fafafa;
+  --translucent-surface: #ffffffef;
+  --pause-surface: #fafafaf7;
+  --footer-surface: #eeeeee;
+  --soft-border: #cccccc;
+  --selected-border: #707070;
+  --focus: #303030;
+  --shadow-color: #00000017;
+  --backdrop: #00000088;
+  --diagram-surface: #f7f7f7;
+  --diagram-ink: #303030;
+  --diagram-border: #777777;
+  --toolbar-surface: #f0f0f0;
+  --toolbar-text: #242424;
+  --toolbar-muted: #606060;
+  --toolbar-hover: #dedede;
+  --toolbar-border: #bcbcbc;
+  --scrollbar-thumb: rgb(80 80 80 / 38%);
+  --scrollbar-thumb-active: rgb(80 80 80 / 62%);
+
+  /* Learning visualization states remain distinct from answer feedback. */
+  --visual-compare: #a76705;
+  --visual-move: #4165b1;
+  --visual-pivot: #8b467b;
+  --visual-sorted: #56817e;
+  --visual-fixed: #2c704e;
+
+  /* Color conveys feedback and status, independently of the neutral controls. */
+  --text-positive: #207a45;
+  --positive-surface: #edf7ef;
+  --positive-border: #3c8956;
+  --text-warning: #805b24;
+  --warning-surface: #fff4df;
+  --warning-border: #d6b577;
+  --text-danger: #b32e2e;
+  --danger-surface: #fff1f1;
+  --danger-border: #e9b6b6;
+}
+
+:root[data-theme="dark"],
+:root.dark {
+  --color-scheme: dark;
+  --ink: #e8e8e8;
+  --muted: #b5b5b5;
+  --accent: #dedede;
+  --accent-hover: #ffffff;
+  --indicator: #b5b5b5;
+  --line: #444444;
+  --canvas: #151515;
+  --surface: #202020;
+  --on-accent: #171717;
+  --text-secondary: #b5b5b5;
+  --text-primary: #e8e8e8;
+  --text-accent: #ededed;
+  --soft-surface: #2a2a2a;
+  --selected-surface: #383838;
+  --answer-surface: #1c1c1c;
+  --translucent-surface: #202020ef;
+  --pause-surface: #1c1c1cf7;
+  --footer-surface: #292929;
+  --soft-border: #4d4d4d;
+  --selected-border: #b8b8b8;
+  --focus: #dedede;
+  --shadow-color: #00000040;
+  --backdrop: #000000b3;
+  --diagram-surface: #252525;
+  --diagram-ink: #dedede;
+  --diagram-border: #a5a5a5;
+  --toolbar-surface: #191919;
+  --toolbar-text: #f2f2f2;
+  --toolbar-muted: #bdbdbd;
+  --toolbar-hover: #353535;
+  --toolbar-border: #515151;
+  --scrollbar-thumb: rgb(210 210 210 / 38%);
+  --scrollbar-thumb-active: rgb(210 210 210 / 62%);
+
+  --visual-compare: #eab859;
+  --visual-move: #8faff7;
+  --visual-pivot: #dfa0ce;
+  --visual-sorted: #80beb7;
+  --visual-fixed: #92d0a5;
+
+  --text-positive: #92d7ab;
+  --positive-surface: #1c3325;
+  --positive-border: #68ab7f;
+  --text-warning: #f1cd8d;
+  --warning-surface: #3b3020;
+  --warning-border: #806942;
+  --text-danger: #f1aca4;
+  --danger-surface: #3d2725;
+  --danger-border: #8c5b53;
+}

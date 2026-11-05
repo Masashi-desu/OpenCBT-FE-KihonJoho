@@ -1,0 +1,129 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "開発工数と最少要員",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2019h31h-fe-am-qs",
+        "locator": {
+          "section": "平成31年度 春期 基本情報技術者試験 午前 問54",
+          "page": 24,
+          "year": 2019,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "54"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2019h31h-fe-am-ans",
+        "locator": {
+          "section": "平成31年度 春期 基本情報技術者試験 午前 問54 解答",
+          "page": 1,
+          "year": 2019,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "54"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2019h31h-stage1-core",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2019h31h-fe-am-qs",
+        "locator": {
+          "section": "平成31年度 春期 基本情報技術者試験 午前 問54",
+          "page": 24,
+          "year": 2019,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "54"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2019h31h-fe-am-ans",
+        "locator": {
+          "section": "平成31年度 春期 基本情報技術者試験 午前 問54 解答",
+          "page": 1,
+          "year": 2019,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "54"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "処理別の工数、設計・テストの追加分、総工数、最少人数を8段階で計算。図と式の同じ記号から数値の出所を確認できます。",
+    "keywords": [
+      "開発工数",
+      "最少要員",
+      "人日",
+      "人数",
+      "コーディング",
+      "設計",
+      "テスト",
+      "切り上げ",
+      "2019年度",
+      "春期",
+      "午前",
+      "問54"
+    ],
+    "text": "本数×1本当たり工数を入力・出力・計算処理ごとに計算し、20＋30＋45＝95人日。設計・テストは追加8倍の760人日で、総工数は95×(1＋8)＝855人日。95日で割って9人。8人では760人日で不足し9人でちょうど足りる。原問の正答はイ。A・B・Cの行、Dコーディング合計、E追加作業、F総工数、G日数、H人数を図と式で相互選択。全選択肢の確保工数と最少性を比較。本数・1本当たり工数・倍率・開発日数を変更すると途中式・余り・切上げ・検算が連動する。保存済み生成条件・選択肢順に対応。解説内の操作は問題・回答・結果を変更しない。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "3337cc25eaef859fe912c0c7e3be43edb9079251a6191943dd3c308b4e731709"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "2750e2d19aa3f8e150ea1518ace9ff9f37999114ee210b8e28835f83c9478167"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "effort-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "4fe0e588f29b80f6310e26d1415ffcebef6ec0216cadffda240540a6002077ce"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "0ceaee6c919a593c246c5c34fd636fdb006f9c958258453e6e9ff739e645ab6e"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "d520cf8a892025e334517d5e21282c6f5291bbe4d18ddc06435be33ec31b23ee"
+    }
+  ]
+}

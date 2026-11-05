@@ -66,8 +66,9 @@ test("verified detailed content is searchable, deduplicated and linked to its or
   const counting = (async (url: any) => { calls.push(String(url)); return files(url); }) as typeof fetch;
   const docs = await detailSearchDocuments(bundle, base, undefined, counting);
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "2相ロッキング" })[0].question.id, "question-ipa-2019r01a-fe-am-29");
-  assert.equal(docs.length, 10); assert(docs.some(doc => doc.question.id === "question-ipa-2026-a-2"));
-  assert.equal(calls.filter(url => url.endsWith("manifest.json")).length, 10);
+  assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "開発工数 最少要員" })[0].question.id, "question-ipa-2019h31h-fe-am-54");
+  assert.equal(docs.length, 11); assert(docs.some(doc => doc.question.id === "question-ipa-2026-a-2"));
+  assert.equal(calls.filter(url => url.endsWith("manifest.json")).length, 11);
   assert(calls.every(url => url.startsWith("https://search.invalid/opencbt/explanations/")));
   for (const query of ["ヒープ", "Quick Sort", "ピボット", "安定", "最悪", "シェル", "全角カンマ", "1,024"]) assert.equal(findSearchDocuments(docs, { ...emptySearch, query }).length, 1);
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "ヒープ", subject: "B" }).length, 0);

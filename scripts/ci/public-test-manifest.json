@@ -7630,6 +7630,20 @@
           "scripts/verify-locking-browser.ts"
         ]
       }
+    },
+    "tests/effort-simulator.test.ts": {
+      "count": 5,
+      "scopes": [],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2019-spring-am-54/"
+        ],
+        "supportFiles": [
+          "scripts/prepare-effort-explanation.ts",
+          "scripts/update-effort-manifest.mjs",
+          "scripts/verify-effort-browser.ts"
+        ]
+      }
     }
   }
 }
