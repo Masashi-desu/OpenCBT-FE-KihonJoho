@@ -1,0 +1,132 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "2相ロッキングプロトコル",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-qs",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問29",
+          "page": 17,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "29"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-ans",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問29 解答",
+          "page": 1,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "29"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2019r01a-fe-am-stage1-source77",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-qs",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問29",
+          "page": 17,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "29"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2019r01a-fe-am-stage1-ans",
+        "locator": {
+          "section": "令和元年度 秋期 基本情報技術者試験 午前 問29 解答",
+          "page": 1,
+          "year": 2019,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "29"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "共有・専有ロックの獲得、待機、コミット、解放、再開を一手ずつ確認。全選択肢の循環待ちを比較できます。",
+    "keywords": [
+      "2相ロッキング",
+      "2相ロック",
+      "二相ロッキング",
+      "二層ロッキング",
+      "2PL",
+      "トランザクション",
+      "デッドロック",
+      "共有ロック",
+      "専有ロック",
+      "獲得相",
+      "解放相",
+      "2019年度",
+      "秋期",
+      "午前",
+      "問29"
+    ],
+    "text": "AとBの命令発行位置を保ち、read Wの共有Sロック、update X・Y・Zの専有Xロックを追う。戻る・次へ・スライダーで獲得・ロック待ち・後続命令の待機・コミット・一つずつの解放・再開を確認する。待つ側から保持者への矢印で循環待ちを示す。全4択と全16保存生成条件を比較。原問の正答はウ、BがXを先に獲得してAが待ち、Bが終了し解放してAが続く。2相ロッキングは獲得相と解放相を分け、解放開始後は新しいロックを獲得しない。デッドロック防止そのものを保証しない。終了時解放はこの解説で採用する一例。解説の操作は保存済み問題・回答・結果を変更しない。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "e1442c74c6539f454dbcc000c454239709b1511fc414142b224f141067dd5510"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "a67987da2b756dbefe20e952f14e8b60a1b010ff526d6858280c868630542e42"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "locking-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "ea7a5aed17c88b6225ac090b2eb051c1ec2f8af5f49a9b4d7fd2670ea2b4ad67"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "c9052e2f7126a10327b52327a5ee36c8af87ac18a1b7b41a15e2ae8880b16e0e"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "14fe3df75095de2a10fb9a20dee91308dc0c9daf832bf90c7900e29f7d80e77a"
+    }
+  ]
+}

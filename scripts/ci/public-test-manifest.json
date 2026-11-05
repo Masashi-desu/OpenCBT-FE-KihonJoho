@@ -7614,6 +7614,22 @@
           "scripts/verify-transaction-browser.ts"
         ]
       }
+    },
+    "tests/locking-simulator.test.ts": {
+      "count": 6,
+      "scopes": [
+        "2019-autumn-am"
+      ],
+      "detail": {
+        "packages": [
+          "explanations/ipa-2019-autumn-am-29/"
+        ],
+        "supportFiles": [
+          "scripts/prepare-locking-explanation.ts",
+          "scripts/update-locking-manifest.mjs",
+          "scripts/verify-locking-browser.ts"
+        ]
+      }
     }
   }
 }
