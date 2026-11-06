@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PCMの標本化と転送速度</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="scrollbars.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1 id="standalone-title" hidden>PCMの標本化と転送速度</h1>
+  <section class="lesson" aria-label="音声の標本化と標本間隔">
+    <div id="diagram" class="diagram" aria-label="例示の音声波形と標本点">
+      <p id="scenario" class="scenario">PCM方式によって音声をサンプリング（標本化）して<span id="scenario-bits" class="term" data-value="bits"></span>のディジタルデータに変換し、圧縮せずにリアルタイムで転送したところ、転送速度は <span id="scenario-rate" class="term" data-value="rate"></span>のときの<span id="scenario-interval" class="term" data-value="interval">サンプリング間隔</span>は何マイクロ秒かを調べる。</p>
+      <div class="conditions" aria-label="圧縮なしの転送条件">
+        <span id="condition-bits" data-value="bits"><span>1標本</span> <span id="bit-count"></span></span>
+        <span id="condition-rate" data-value="rate"><span id="bit-rate"></span> <span>ビット／秒</span></span>
+      </div>
+      <div class="plot">
+        <div class="axis-title">振幅 <small>（正規化）</small></div>
+        <div class="graph">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path class="grid" d="M0 6H100 M0 50H100 M0 94H100"/>
+            <path class="axis" d="M0 6V94H100"/>
+            <path id="wave" class="wave"/>
+            <path id="guides" class="guides"/>
+            <path id="candidate-guides" class="candidate-guides"/>
+            <path id="amplitude-guide" class="amplitude-guide"/>
+          </svg>
+          <span class="scale high" aria-hidden="true">1</span>
+          <span class="scale middle" aria-hidden="true">0.5</span>
+          <span class="scale low" aria-hidden="true">0</span>
+          <div id="samples" class="samples" role="group" aria-label="波形から標本を選ぶ" hidden></div>
+          <span id="sample-value" class="sample-value" aria-hidden="true" hidden></span>
+        </div>
+        <div class="time-axis" aria-hidden="true"><span>0</span><span>時間 →</span></div>
+        <div class="interval-row">
+          <div id="interval-mark" class="interval-mark" aria-hidden="true"></div>
+          <button id="interval-link" type="button" data-value="interval" hidden><span>Δt</span><span id="interval-value" hidden></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="navigation" aria-label="ステップ操作">
+      <button type="button" id="prev">戻る</button>
+      <output id="counter" aria-hidden="true"></output>
+      <input id="seek" type="range" min="0" max="6" value="0" aria-label="ステップ">
+      <button type="button" id="next">次へ</button>
+    </div>
+    <div class="explanation" role="status" aria-atomic="true">
+      <h2 id="step-title"></h2>
+      <p id="formula" class="formula" hidden></p>
+      <p id="step-note"></p>
+    </div>
+    <section id="comparison" class="comparison" aria-labelledby="comparison-title" hidden>
+      <h3 id="comparison-title">選択肢の間隔を試す <small>（μs）</small></h3>
+      <div id="choices" class="choices" role="group" aria-labelledby="comparison-title"></div>
+    </section>
+  </section>
+  <p id="standalone-credit" class="credit" hidden>出典：平成28年度 春期 基本情報技術者試験 午前 問4（p.5）／©2016 独立行政法人情報処理推進機構（IPA）。問題の条件を基に作図・解説。独自の波形と解説はCC0-1.0、コードはMIT。<a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=5">公式問題</a>・<a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_ans.pdf">公式解答例</a></p>
+</main>
+<script src="pcm-engine.js"></script>
+<script src="scrollbars.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

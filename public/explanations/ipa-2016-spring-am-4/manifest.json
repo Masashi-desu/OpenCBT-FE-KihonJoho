@@ -1,0 +1,177 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "PCMの標本化と転送速度",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2016h28h-fe-am-qs",
+        "locator": {
+          "section": "平成28年度 春期 基本情報技術者試験 午前 問4",
+          "page": 5,
+          "year": 2016,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2016h28h-fe-am-ans",
+        "locator": {
+          "section": "平成28年度 春期 基本情報技術者試験 午前 問4 解答",
+          "page": 1,
+          "year": 2016,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2016h28h-fe-am",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "presentations": [
+    {
+      "id": "pcm",
+      "title": "PCMの標本化と転送速度",
+      "attribution": {
+        "origin": "adapted",
+        "sourceRefs": [
+          {
+            "sourceId": "source-ipa-2016h28h-fe-am-qs",
+            "locator": {
+              "section": "平成28年度 春期 基本情報技術者試験 午前 問4",
+              "page": 5,
+              "year": 2016,
+              "period": "春期",
+              "exam": "基本情報技術者試験",
+              "subject": "旧制度・午前",
+              "timeSlot": "午前",
+              "questionNumber": "4"
+            }
+          },
+          {
+            "sourceId": "source-ipa-2016h28h-fe-am-ans",
+            "locator": {
+              "section": "平成28年度 春期 基本情報技術者試験 午前 問4 解答",
+              "page": 1,
+              "year": 2016,
+              "period": "春期",
+              "exam": "基本情報技術者試験",
+              "subject": "旧制度・午前",
+              "timeSlot": "午前",
+              "questionNumber": "4"
+            }
+          }
+        ],
+        "rightsRefs": [
+          "rights-ipa-2016h28h-fe-am",
+          "rights-original"
+        ],
+        "creatorIds": [
+          "codex"
+        ]
+      },
+      "modificationSummary": "問題の標本当たりのビット数と転送速度を基に、例示波形でPCMの各手順と標本間隔の計算を解説。"
+    }
+  ],
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2016h28h-fe-am-qs",
+        "locator": {
+          "section": "平成28年度 春期 基本情報技術者試験 午前 問4",
+          "page": 5,
+          "year": 2016,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2016h28h-fe-am-ans",
+        "locator": {
+          "section": "平成28年度 春期 基本情報技術者試験 午前 問4 解答",
+          "page": 1,
+          "year": 2016,
+          "period": "春期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "波形を等間隔に読み取り、標本化・量子化・符号化から標本間隔の計算までを段階ごとに確認します。",
+    "keywords": [
+      "PCM",
+      "Pulse Code Modulation",
+      "パルス符号変調",
+      "標本化",
+      "サンプリング",
+      "量子化",
+      "符号化",
+      "転送速度",
+      "ビットレート",
+      "標本化周波数",
+      "マイクロ秒",
+      "2016年度",
+      "春期",
+      "午前",
+      "問4"
+    ],
+    "text": "波形上の標本点を選ぶと、時刻と振幅、量子化した段階番号、2進数のビット列を確認できる。圧縮なしの64,000ビット／秒と1標本8ビットから8,000標本／秒を求め、逆数を125マイクロ秒に換算する。候補の標本間隔を波形に重ね、対応する転送速度を比較できる。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "27ee439cf7a5241ac8ae5a7fdcfb93cc460d293391dc8a94d4b448945d309610"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "a7a76162e9f48664c59cc57a9631baa0b5e477e965a786f1f92d5c6ad8b886b3"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "pcm-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "83cff5421f0355da14177b8cacc547346602f5b6574a95c6e7e71c6317595854"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "5e0469fb6f5b8360080ef6848e0926b181359fb3db9509f9759b2887063c5097"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "e40c11b32de7afbf4187967a9929ee47ae1f275a91cb5e61fcf7fbdbdd021d35"
+    }
+  ]
+}
