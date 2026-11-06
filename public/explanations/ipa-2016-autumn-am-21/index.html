@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7セグメントLEDの点灯判定</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="scrollbars.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="lesson">
+  <h1 id="standalone-title" hidden>7セグメントLEDの点灯判定</h1>
+  <section class="workspace" aria-label="出力ポートとLEDのシミュレーション">
+    <div class="settings">
+      <label class="hex-field">ポート出力（16進数）
+        <input id="hex" type="text" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-describedby="hex-help hex-error">
+      </label>
+      <span id="hex-help" class="sr-only">00からFFまでの2桁を入力してください。</span>
+      <button id="reset" type="button">問題の初期値に戻す</button>
+    </div>
+    <div class="navigation" role="group" aria-label="判定ステップの操作">
+      <button id="prev" type="button">戻る</button>
+      <input id="seek" type="range" min="0" max="11" step="1" value="0" aria-label="判定ステップの位置">
+      <span id="counter" aria-hidden="true"></span>
+      <button id="next" class="primary" type="button">次へ</button>
+    </div>
+    <div class="diagram" id="diagram">
+      <div class="nibbles" id="bits" role="group" aria-label="上位から下位に並べたビット列"></div>
+      <div class="circuit" role="group" aria-label="出力ポートから抵抗を通ってLED端子へつながる回路図">
+        <div class="wire-labels" aria-hidden="true"><span>ポート</span><span>抵抗</span><span>端子</span></div>
+        <div class="supply" id="supply" aria-label="Vcc、LEDの共通アノードに接続" role="img">
+          <span class="supply-label"><span>Vcc</span></span>
+          <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M2 5h18M11 5v17"/><circle cx="11" cy="5" r="2.4"/></svg>
+        </div>
+        <div class="wire-bank" id="ports" role="group" aria-label="P0からP7の配線。選ぶと対応する端子の判定へ進みます"></div>
+        <div class="board">
+          <div class="led-display" id="led-display" role="group" aria-label="LEDの点灯図。各部位を選ぶと対応する端子へ進みます"></div>
+        </div>
+      </div>
+      <p class="legend">アノードコモン型。<strong>0で点灯</strong>・1で消灯<br><span>LEDの塗りつぶし＝点灯、輪郭のみ＝消灯、破線＝未判定</span></p>
+    </div>
+    <p id="hex-error" class="error" role="alert" hidden></p>
+    <div class="explanation" role="status" aria-atomic="true">
+      <h2 id="step-title"></h2>
+      <p id="step-text"></p>
+    </div>
+    <section id="comparison" class="comparison" aria-labelledby="comparison-title" hidden>
+      <h3 id="comparison-title">選択肢の点灯図を比べる</h3>
+      <div id="choices" class="choices" role="group" aria-labelledby="comparison-title"></div>
+      <p id="choice-note" role="status" aria-atomic="true"></p>
+    </section>
+  </section>
+  <p id="standalone-credit" class="credit" hidden>出典：平成28年度 秋期 基本情報技術者試験 午前 問21（p.13）／©2016 独立行政法人情報処理推進機構（IPA）。回路と点灯図を操作用に再構成。独自解説はCC0-1.0、コードはMIT。<a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_qs.pdf#page=13">公式問題</a>・<a href="https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000g6fw-att/2016h28a_fe_am_ans.pdf">公式解答例</a></p>
+</main>
+<script src="led-engine.js"></script>
+<script src="scrollbars.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

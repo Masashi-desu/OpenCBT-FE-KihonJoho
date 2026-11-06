@@ -22,6 +22,7 @@ export const sidebar = [
     { text: '問11の流れ図解説', link: '/flow-explanation' },
     { text: '問3のキャッシュヒット率解説', link: '/cache-explanation' },
     { text: 'サンプル問2の2進数変換解説', link: '/binary-explanation' },
+    { text: '2016秋午前問21の7セグメントLED解説', link: '/led-explanation' },
     { text: '2017春午前問20のD/A変換解説', link: '/dac-explanation' },
     { text: '2019秋午前問28の状態遷移解説', link: '/transaction-explanation' },
     { text: '2019秋午前問29の2相ロッキング解説', link: '/locking-explanation' },

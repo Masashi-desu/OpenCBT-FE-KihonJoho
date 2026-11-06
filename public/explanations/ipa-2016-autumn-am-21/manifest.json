@@ -1,0 +1,179 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "7セグメントLEDの点灯判定",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2016h28a-fe-am-qs",
+        "locator": {
+          "section": "平成28年度 秋期 基本情報技術者試験 午前 問21",
+          "page": 13,
+          "year": 2016,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "21"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2016h28a-fe-am-ans",
+        "locator": {
+          "section": "平成28年度 秋期 基本情報技術者試験 午前 問21 解答",
+          "page": 1,
+          "year": 2016,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "21"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2016h28a-fe-am",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "presentations": [
+    {
+      "id": "led",
+      "title": "7セグメントLEDの点灯判定",
+      "attribution": {
+        "origin": "adapted",
+        "sourceRefs": [
+          {
+            "sourceId": "source-ipa-2016h28a-fe-am-qs",
+            "locator": {
+              "section": "平成28年度 秋期 基本情報技術者試験 午前 問21",
+              "page": 13,
+              "year": 2016,
+              "period": "秋期",
+              "exam": "基本情報技術者試験",
+              "subject": "旧制度・午前",
+              "timeSlot": "午前",
+              "questionNumber": "21"
+            }
+          },
+          {
+            "sourceId": "source-ipa-2016h28a-fe-am-ans",
+            "locator": {
+              "section": "平成28年度 秋期 基本情報技術者試験 午前 問21 解答",
+              "page": 1,
+              "year": 2016,
+              "period": "秋期",
+              "exam": "基本情報技術者試験",
+              "subject": "旧制度・午前",
+              "timeSlot": "午前",
+              "questionNumber": "21"
+            }
+          }
+        ],
+        "rightsRefs": [
+          "rights-ipa-2016h28a-fe-am",
+          "rights-original"
+        ],
+        "creatorIds": [
+          "codex"
+        ]
+      },
+      "modificationSummary": "原図のポート・抵抗・LED端子・Vccを描き直し、ビットの割り当て、配線と電流の向き、LEDの点灯判定を連動表示。"
+    }
+  ],
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2016h28a-fe-am-qs",
+        "locator": {
+          "section": "平成28年度 秋期 基本情報技術者試験 午前 問21",
+          "page": 13,
+          "year": 2016,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "21"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2016h28a-fe-am-ans",
+        "locator": {
+          "section": "平成28年度 秋期 基本情報技術者試験 午前 問21 解答",
+          "page": 1,
+          "year": 2016,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "旧制度・午前",
+          "timeSlot": "午前",
+          "questionNumber": "21"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "16進数を4ビットずつ変換し、回路図の配線と電流をたどってLEDと小数点を一つずつ判定します。",
+    "keywords": [
+      "7セグメントLED",
+      "アノードコモン",
+      "負論理",
+      "点灯",
+      "消灯",
+      "16進数",
+      "2進数",
+      "MSB",
+      "LSB",
+      "小数点",
+      "抵抗",
+      "回路図",
+      "Vcc",
+      "2016年度",
+      "秋期",
+      "午前",
+      "問21"
+    ],
+    "text": "アノードコモン型ではポート出力0で点灯、1で消灯。P7は最上位ビットで小数点Dt、P0は最下位ビットでaに対応。92を1001 0010に変換するとa・c・d・f・gが点灯し、原問のウと一致する。端子を選んで判定へ移動し、選択肢の点灯図との違いを確認できる。00〜FFの入力や保存済み生成条件にも対応。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "b3ffd08fed06f96f2367dba0521f2e9262dbfddd7e57d74a9840f747ed6a31b9"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "6e23047ce385d61f04ff2451ceeab47d6bfe52945484792ce93d1a97fc01ce70"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "led-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "7773a23991b95af005278e53e02d697bdcd5e8f73fb38bea8a55b87754b8fe9d"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "778da7ce8435c8ce39c6288a65d0f30248598f34ad4adedf0a7a81d6bbbef480"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "66a38b54ac0116c418a36b5adf6b94b79c682925d514602b8b68d062fb9fb342"
+    }
+  ]
+}
