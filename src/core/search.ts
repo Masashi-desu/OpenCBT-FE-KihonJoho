@@ -1,6 +1,6 @@
 import type { Bundle, Question, Subject } from "./types";
 import { areas } from "./types";
-import { sourceQuestionLabel } from "./source-label";
+import { sourceQuestionLabel, sourceQuestionYear } from "./source-label";
 import { questionStudyTerms, studyBlockText } from "./study-terms";
 import { loadDetailPackage, validateDetailAttribution, type DetailManifest } from "./detailed-explanation";
 
@@ -63,14 +63,9 @@ export function searchableQuestions(bundle: Bundle) {
   // Unbound generator definitions are not a second copy of the published problem.
   const bases = new Set(bundle.templates.map(template => template.baseQuestionRef.questionId));
   return bundle.questions.filter(question => question.lifecycle === "active" && question.distribution === "included" && !bases.has(question.id))
-    .sort((a, b) => (questionYear(b, bundle) ?? 0) - (questionYear(a, bundle) ?? 0) || a.subject.localeCompare(b.subject) ||
+    .sort((a, b) => (sourceQuestionYear(b, bundle) ?? 0) - (sourceQuestionYear(a, bundle) ?? 0) || a.subject.localeCompare(b.subject) ||
       Number(a.origin.sourceRefs[0]?.locator.questionNumber ?? 0) - Number(b.origin.sourceRefs[0]?.locator.questionNumber ?? 0) || a.id.localeCompare(b.id));
 }
-const questionYear = (question: Question, bundle: Bundle) => {
-  const ref = question.origin.sourceRefs[0];
-  return ref?.locator.year ?? (bundle.sources.find(s => s.id === ref?.sourceId)?.publishedOn
-    ? Number(bundle.sources.find(s => s.id === ref?.sourceId)!.publishedOn!.slice(0, 4)) : undefined);
-};
 export function searchQuestionTitle(question: Question) {
   return sourceQuestionLabel(question);
 }
@@ -86,7 +81,7 @@ export function questionSearchDocuments(bundle: Bundle): SearchDocument[] {
     const excerptBlocks = question.prompt.blocks.filter(block => block.type !== "image");
     return { id: `question:${question.id}`, kind: "question", question, title: searchQuestionTitle(question),
       summary: (excerptBlocks.length ? excerptBlocks : question.prompt.blocks).map(block => studyBlockText(block, bundle.assets)).join("\n"),
-      body: [...contexts.map(context => context.title), text, ...terms].join("\n"), keywords: learningWords(question), year: questionYear(question, bundle) };
+      body: [...contexts.map(context => context.title), text, ...terms].join("\n"), keywords: learningWords(question), year: sourceQuestionYear(question, bundle) };
   });
 }
 
@@ -114,7 +109,7 @@ export async function detailSearchDocuments(bundle: Bundle, base: URL, signal?: 
         const { manifest } = pkg;
         result.push({ id: `detail:${key}`, kind: "detail", question, manifest, title: manifest.title,
           summary: manifest.search?.summary ?? `${searchQuestionTitle(question)}の詳細解説`,
-          body: manifest.search?.text ?? "", keywords: [...learningWords(question), ...manifest.search?.keywords ?? []], year: questionYear(question, bundle) });
+          body: manifest.search?.text ?? "", keywords: [...learningWords(question), ...manifest.search?.keywords ?? []], year: sourceQuestionYear(question, bundle) });
       } catch { /* An unavailable optional explanation does not hide its question. */ }
     }
   }));

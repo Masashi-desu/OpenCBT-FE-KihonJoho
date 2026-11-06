@@ -36,6 +36,8 @@ import {
   Square,
   Eye,
   ArrowRight,
+  ArrowDown,
+  ArrowUp,
   X,
   Sun,
   Moon,
@@ -52,6 +54,7 @@ import {
 } from "../core/types";
 import { loadCatalog, loadAsset } from "../core/catalog";
 import { BookmarkLearning } from "./BookmarkLearning";
+import { sortBookmarks, type BookmarkSortField } from "./bookmark-sort";
 import { selectQuestions } from "../core/selection";
 import { mixProfile } from "../core/mix-profile";
 import { sourceQuestionLabel, questionSubjectLabel, displayQuestionNumber, originalBookletQuestionNumber } from "../core/source-label";
@@ -238,6 +241,8 @@ export function App() {
     [historyFilter, setHistoryFilter] = useState<HistoryFilter>("all"),
     [bookmarks, setBookmarks] = useState<Bookmark[]>([]),
     [bookmarkFilter, setBookmarkFilter] = useState<BookmarkFilter>({ subject: "all", area: "all" }),
+    [bookmarkSort, setBookmarkSort] = useState<BookmarkSortField>("createdAt"),
+    [bookmarkAscending, setBookmarkAscending] = useState(false),
     [bookmarkPending, setBookmarkPending] = useState(false),
     [bookmarkMessage, setBookmarkMessage] = useState(""),
     [bookmarkError, setBookmarkError] = useState(""),
@@ -298,9 +303,13 @@ export function App() {
     () => bundle ? bookmarkAccuracy(bundle, bookmarks, items) : new Map<string, BookmarkAccuracy>(),
     [bundle, bookmarks, items],
   );
-  const visibleBookmarks = useMemo(
+  const filteredBookmarks = useMemo(
     () => filterBookmarks(bookmarks, bookmarkFilter),
     [bookmarks, bookmarkFilter],
+  );
+  const visibleBookmarks = useMemo(
+    () => sortBookmarks(filteredBookmarks, bookmarkSort, bookmarkAscending, bookmarkStatistics, bundle),
+    [filteredBookmarks, bookmarkSort, bookmarkAscending, bookmarkStatistics, bundle],
   );
   useLayoutEffect(() => {
     applyTheme(theme);
@@ -2125,10 +2134,31 @@ export function App() {
                     </select>
                   </label>
                 </div>
+                <div className="bookmark-sort" role="group" aria-label="ブックマークの並べ替え">
+                  <label className="bookmark-filter">
+                    並べ替え
+                    <select
+                      value={bookmarkSort}
+                      onChange={(event) => setBookmarkSort(event.target.value as BookmarkSortField)}
+                    >
+                      <option value="createdAt">ブックマーク追加日</option>
+                      <option value="accuracy">正答率</option>
+                      <option value="year">年度</option>
+                    </select>
+                  </label>
+                  <button
+                    type="button"
+                    aria-label={bookmarkAscending ? "昇順。降順に切り替える" : "降順。昇順に切り替える"}
+                    onClick={() => setBookmarkAscending((ascending) => !ascending)}
+                  >
+                    {bookmarkAscending ? <ArrowUp size={14} aria-hidden="true" /> : <ArrowDown size={14} aria-hidden="true" />}
+                    {bookmarkAscending ? "昇順" : "降順"}
+                  </button>
+                </div>
                 <button
                   className="primary"
-                  disabled={!bundle || !visibleBookmarks.length || Boolean(busy || error || bookmarkPending)}
-                  onClick={() => void begin(bookmarkGroupSelection(visibleBookmarks))}
+                  disabled={!bundle || !filteredBookmarks.length || Boolean(busy || error || bookmarkPending)}
+                  onClick={() => void begin(bookmarkGroupSelection(filteredBookmarks))}
                 >
                   <Play size={16} /> 表示中のブックマークの類題を練習
                 </button>

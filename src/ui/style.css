@@ -2161,15 +2161,24 @@ td.omitted-cell {
 .bookmark-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 12px 20px;
   margin-bottom: 16px;
 }
 .bookmark-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 20px;
+}
+.bookmark-sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bookmark-sort button {
+  min-height: 35px;
+  padding: 6px 10px;
+  white-space: nowrap;
 }
 .bookmark-filter {
   display: flex;

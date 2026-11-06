@@ -1,4 +1,4 @@
-import type { Question, SourceRef } from "./types";
+import type { Bundle, Question, SourceRef } from "./types";
 
 /** Original booklet numbers may have gaps or a selected afternoon subset.
  * Generated and open-ended practice keep their own issuance order. */
@@ -14,6 +14,13 @@ export function displayQuestionNumber(question: Question | undefined, index: num
 export function questionSubjectLabel(question: Question): string {
   const slot = question.origin.sourceRefs.find(ref => ref.locator.timeSlot)?.locator.timeSlot;
   return slot ? `旧制度・${slot}` : `科目${question.subject}`;
+}
+
+export function sourceQuestionYear(question: Question, bundle: Bundle): number | undefined {
+  const ref = question.origin.sourceRefs[0];
+  if (ref?.locator.year !== undefined) return ref.locator.year;
+  const publishedOn = bundle.sources.find(source => source.id === ref?.sourceId)?.publishedOn;
+  return publishedOn ? Number(publishedOn.slice(0, 4)) : undefined;
 }
 
 /** The source's period and time slot identify legacy questions, independently
