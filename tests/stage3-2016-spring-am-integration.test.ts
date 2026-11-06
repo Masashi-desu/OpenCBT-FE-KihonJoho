@@ -36,6 +36,7 @@ const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![46,56,60,63,66].in
 const annual=sourceCollections(bundle,'A').find(s=>s.id===id)!;
 assert(annual,'S3-001 must be admitted in the complete actual distribution; no reduced candidate fallback');
 const byRef=new Map(bundle.questions.map(q=>[refKey(refOf(q)),q]));
+const originalsById=new Map(annual.questionRefs.map(ref=>[ref.questionId,byRef.get(refKey(ref))!]));
 const coverage=generationCoverage(bundle);
 const sourceNumber=(q:Run['issued'][number])=>Number(q.origin.sourceRefs.find(r=>r.locator.questionNumber)?.locator.questionNumber);
 const select=(kind:'annual'|'mix',mode:'study'|'practice'='practice'):Selection=>({kind,mode,subject:'A',year:2016,size:'public',bindingMode:kind==='annual'?'original_data':'generated_values',
@@ -58,7 +59,7 @@ test('S3-001 retains all80 obligations and publishes exactly75 source/base/gener
   assert.equal(expected.length,75);assert.deepEqual(annual.questionRefs.map(r=>sourceNumber(byRef.get(refKey(r))!)),expected);
   assert.deepEqual(stage3MorningDefinitions.map(d=>Number(d.source.split('-').at(-1))),expected);
   for(const n of expected){
-    const original=byRef.get(refKey({questionId:`question-ipa-${collection}-${n}`,revision:1}))!;
+    const original=originalsById.get(`question-ipa-${collection}-${n}`)!;
     assert.equal(original.origin.kind,'official_reprint');assert.equal(original.learning.area,answers.questions[n-1].area);
     assert.equal(original.correctAnswer.choiceId,original.choices['アイウエ'.indexOf(answers.questions[n-1].key)].id);
     const {base,template}=bookmarkTemplate(bundle,refOf(original),coverage);
@@ -97,7 +98,7 @@ test('S3-001 search and bookmarks expose all75 originals, preserve source number
   const docs=questionSearchDocuments(bundle),found=findSearchDocuments(docs,{...emptySearch,year:2016,subject:'A',kind:'question'});
   assert.equal(docs.filter(d=>own.has(d.question.id)).length,75);assert.equal(found.filter(d=>own.has(d.question.id)).length,75);
   for(const n of [1,47,57,61,64,67,80]){
-    const original=byRef.get(refKey({questionId:'question-ipa-'+collection+'-'+n,revision:1}))!;
+    const original=originalsById.get('question-ipa-'+collection+'-'+n)!;
     assert.match(sourceQuestionLabel(original),new RegExp('問'+n+'$'));assert.equal(displayQuestionNumber(original,0),String(n));
     const mark=makeBookmark(bundle,refOf(original),100000),{base}=bookmarkTemplate(bundle,refOf(original),coverage);
     assert.deepEqual(makeBookmark(bundle,refOf(base),100000),mark);

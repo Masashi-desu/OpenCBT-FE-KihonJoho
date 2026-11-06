@@ -1,6 +1,7 @@
 import { validateLegacyMaterial } from "./generators/legacy-material-contracts";
 import type { Attribution, Block, Question, Template } from "./types";
 import { DataError } from "./errors";
+import { preserveChoiceOrder, validateChoiceOrder } from "./generators/ordered-choices";
 import { validateAdditionalFormat } from "./generators";
 import {
   activityNetworkAlt,
@@ -427,17 +428,19 @@ export function preserveSourceFormat(
   q.correctAnswer = { choiceId: "choice-value-1", attribution: own };
   q.assetRefs = [];
   q.choiceShuffleAllowed = true;
+  preserveChoiceOrder(q, t.generatorRef.id);
   validateSourceFormat(q, t);
   return q;
 }
 
 export function validateSourceFormat(q: Question, t: Template) {
+  validateChoiceOrder(q, t.generatorRef.id);
   validateLegacyMaterial(q, t);
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version)) {
     validateAdditionalFormat(q, t);
     return;
   }
-  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version)) return;
+  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "2.5.0"].includes(t.generatorRef.version)) return;
   const formats: Record<string, [string[], number, string]> = {
     "hex-fraction": [["paragraph"], 4, "paragraph"],
     "logic-table": [["paragraph", "table"], 4, "table"],

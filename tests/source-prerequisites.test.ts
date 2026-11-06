@@ -153,7 +153,7 @@ test("all 189 sources display their required premises, notation, units and comme
       );
     // Small conceptual subjects and form branches are exhaustively covered.
     if (
-      ["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version) &&
+      ["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version) &&
       t.parameterDomain.fields![0].maximum <= 15
     )
       for (
@@ -246,6 +246,8 @@ test("obsolete generator versions are rejected for new generation", () => {
     const previous = ["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version)
       ? ["2.0.0"]
       : ["3.0.0", "3.0.1", "3.1.0"];
+    if (t.generatorRef.version === "2.5.0") previous.push("2.2.0", "2.3.0", "2.4.0");
+    if (t.generatorRef.version === "3.8.0") previous.push("3.2.0", "3.3.0", "3.4.0", "3.6.0", "3.7.0");
     for (const version of previous) {
       const old: Template = structuredClone(t);
       old.generatorRef.version = version;

@@ -9,12 +9,15 @@ import { legacyAfternoonDefinition } from "./legacy-afternoon-definitions";
 import { bindLegacyAfternoonQuestion, validateLegacyAfternoonFormat } from "./legacy-afternoon-binding";
 import { bindBodyAnswers, ownContexts, p, type GenerationDefinition } from "./definition";
 import { sourceFigureAlt, validateSourceFigure } from "../source-figures";
+import { preserveChoiceOrder, sourceChoiceOrder } from "./ordered-choices";
 import { knowledgeForms } from "./knowledge-formats";
 import { subjectAFormatDefinitions } from "./subject-a-formats";
 import { bindMorningContent, isLegacyMorningSource, morningCommonContexts, morningBlockRoles } from "./legacy-morning-format";
 
 // Active entries may be extended; canonical public roots retain their own array.
 export const additionalDefinitions: GenerationDefinition[] = [...effectivePublicDefinitions];
+export const additionalVersion = (d: GenerationDefinition) =>
+  sourceChoiceOrder(`generator-source-${d.source}`) ? "3.8.0" : d.version ?? "3.2.0";
 const asContract = (d: GenerationDefinition) => ({
   id: `source-${d.source}`,
   source: d.source,
@@ -22,7 +25,7 @@ const asContract = (d: GenerationDefinition) => ({
   fields: d.fields,
   reference: d.reference,
   notes: d.notes,
-  version: d.version ?? "3.2.0",
+  version: additionalVersion(d),
 });
 export const additionalContracts = additionalDefinitions.map(asContract);
 /** Managed application code only; data records cannot provide implementations.
@@ -51,7 +54,7 @@ export function additionalDefinition(id: string) {
 export function definitionForVersion(id: string, version: string) {
   const d = additionalDefinition(id);
   if (!d) return undefined;
-  if (version === (d.version ?? "3.2.0")) return d;
+  if (version === additionalVersion(d)) return d;
   return undefined;
 }
 export function checkAdditionalParameters(t: Template, values: number[]) {
@@ -148,7 +151,7 @@ export function bindAdditionalQuestion(
   bindCommonFramework65Explanation(q, base, t, d);
   validateCommonFramework65Materials(q, t, d);
   validateLegacyMaterial(q, t);
-  return q;
+  return preserveChoiceOrder(q, t.generatorRef.id);
 }
 export function validateAdditionalFormat(q: Question, t: Template) {
   validateLegacy2019Spring42Materials(q, t);

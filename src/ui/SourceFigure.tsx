@@ -24,7 +24,7 @@ import { Legacy2016SpringAm0932Figure } from './legacy-2016-spring-am-09-32-figu
 import { Legacy2016SpringAm3356FlowFigure } from './legacy-2016-spring-am-33-56-figures';
 import { Legacy2016SpringAm5780Figures } from './Legacy2016SpringAm5780Figures';
 import { spring2016Am5780Profiles } from '../core/generators/legacy-2016-spring-am-57-80-figures';
-import { scatterPoints } from "../core/generators/subject-a";
+import { scatterPoints, wafDevices } from "../core/generators/subject-a";
 import { sampleBigramCases } from "../core/generators/sample-2022-data";
 import { sampleMinimaxBoards, sampleMinimaxChildren, sampleMinimaxQueries } from "../core/generators/sample-2022-dec-data";
 import { sampleTree14 } from "../core/generators/sample-2022-dec-data";
@@ -324,20 +324,14 @@ export function SourceFigure({
       />,
       t(500, 145, "インターネット"),
     );
-    const names = [
-      "ファイアウォール",
-      "SSLアクセラレータ",
-      "Webサーバ",
-      "データベースサーバ",
-    ];
-    names.forEach((name, i) => {
+    wafDevices(v[1]).forEach((name, i) => {
       const top = 225 + i * 150;
       parts.push(
         line(500, i === 0 ? 180 : top - 95, 500, top),
         rect(350, top, 300, 75),
         t(500, top + 38, name),
       );
-      parts.push(t(540, top - 32, "abcd"[(i + v[1]) % 4], "start"));
+      parts.push(t(540, top - 32, "abcd"[i], "start"));
       if (i < 3)
         parts.push(t(465, top - 32, i <= v[0] ? "HTTPS" : "HTTP", "end"));
       else

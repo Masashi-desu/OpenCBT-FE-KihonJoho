@@ -1,6 +1,6 @@
 import type { Bundle } from '../types';
 import { DataError } from '../errors';
-import { additionalDefinition, registerAdditionalDefinitions } from './index';
+import { additionalDefinition, additionalVersion, registerAdditionalDefinitions } from './index';
 import { legacy2016SpringFundamentalDefinitions } from './legacy-2016-spring-fundamentals';
 import { variableNotes, type GenerationDefinition } from './definition';
 import { spring2016CommonContexts } from './legacy-2016-spring-am-common';
@@ -39,7 +39,7 @@ export function ensureStage3MorningGenerators(bundle: Bundle, executable?: Reado
   for (const template of requested) {
     const source = sourcePattern.exec(template.generatorRef.id)![1];
     const candidates = stage3AllMorningDefinitions.filter(d => d.source === source);
-    if (candidates.length !== 1 || (candidates[0].version ?? '3.2.0') !== template.generatorRef.version)
+    if (candidates.length !== 1 || additionalVersion(candidates[0]) !== template.generatorRef.version)
       throw new DataError('GENERATOR_REF', '第三段階の査読済み生成器・版がありません');
     const installed = additionalDefinition(template.generatorRef.id);
     if (installed && installed !== candidates[0])

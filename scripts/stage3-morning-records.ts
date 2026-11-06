@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import type { Asset, Attribution, Bundle, Question, Rights, Source, SourceRef, Template } from '../src/core/types';
+import { additionalVersion } from '../src/core/generators';
+import { preserveChoiceOrder } from '../src/core/generators/ordered-choices';
 import { contentHash } from '../src/core/hash';
 import { bindBodyAnswers, ownContexts, type GenerationDefinition } from '../src/core/generators/definition';
 
@@ -82,8 +84,10 @@ export async function makeStage3MorningRecords(input: {
     base.choices=body.choices.map((xs,i)=>({id:'choice-value-'+(i+1),content:{attribution:structuredClone(adapted),blocks:blocks(xs)}}));
     base.contexts=ownContexts(body,adapted);base.contextRefs=base.contexts.map(c=>c.id);base.assetRefs=[];
     bindBodyAnswers(base,body,own);base.choiceShuffleAllowed=fact.choiceShuffleAllowed??fact.number!==8;base.learning.tags.push('parameterized');
+    const generatorId='generator-source-'+fact.source;
+    preserveChoiceOrder(base,generatorId);
     const template:Template={schemaVersion:'3.0.0',id:'template-source-'+fact.source,revision:1,title:definition.title,
-      baseQuestionRef:{questionId:base.id,revision:1},generatorRef:{id:'generator-source-'+fact.source,version:definition.version??'3.2.0'},
+      baseQuestionRef:{questionId:base.id,revision:1},generatorRef:{id:generatorId,version:additionalVersion(definition)},
       parameterDomain:{values:{length:definition.fields.length,minimum:Math.min(...definition.fields.map(f=>f.minimum)),maximum:Math.max(...definition.fields.map(f=>f.maximum))},fields:structuredClone(definition.fields)},
       referenceParameters:{values:[...definition.reference]},attribution:adapted,editorIds:['codex'],lifecycle:'active',distribution:'excluded',bindingBasis:'official_source',originalContentSha256:await contentHash(base)};
     records.questions.push(original,base);records.templates.push(template);records.assets.push(asset);

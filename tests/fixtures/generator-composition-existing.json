@@ -157,6 +157,37 @@
           "2025-b-5"
         ],
         "note": "科目Bの6系列だけを3.7.0又は2.4.0に改訂。全原問題・素材・出典と他の生成系列を全フィールド比較した。"
+      },
+      {
+        "comparisonCommit": "2d9dcbd43e63aa4c88f274326aa0b5d563914e9c",
+        "reviewedOn": "2026-11-06",
+        "basis": "解答群の順序、査読記録、改訂・参照とhashの差分を照合。WAFの位置ラベルはIPA p.6の順を保持し、機器接続順とTLS終端を別入力にした。正答の意味は独立テストで検査する。",
+        "rows": [
+          "2023-a-10",
+          "2023-a-13",
+          "2023-a-2",
+          "2024-b-4",
+          "2025-b-4",
+          "2025-b-5",
+          "coin-change",
+          "retention",
+          "sample-2022-dec-a-11",
+          "sample-2022-dec-a-13",
+          "sample-2022-dec-a-44",
+          "sample-2022-dec-a-50",
+          "sample-2022-dec-a-57",
+          "sample-2022-dec-a-58",
+          "sample-2022-dec-b-1",
+          "sample-2022-dec-b-15",
+          "sample-2022-dec-b-18",
+          "sample-2022-dec-b-2",
+          "security-log"
+        ],
+        "roots": [
+          "2023-a-10",
+          "sample-2022-dec-b-18"
+        ],
+        "note": "比較対象の原問題レコード・正答IDを維持し、WAFの図の代替説明と、WAF及び端末リスクの可変入力の定義も改訂。"
       }
     ]
   },
@@ -349,13 +380,13 @@
     {
       "template": {
         "id": "template-retention",
-        "revision": 7,
-        "contentSha256": "2293668e559adc98e4346922037a8a8ddc71d37df5f57928393dc47ab2c4ed66"
+        "revision": 8,
+        "contentSha256": "39666109872f13c5bddfb9bdff1d2551518b55632c6268018227b23202379d15"
       },
       "base": {
         "id": "question-template-retention",
-        "revision": 7,
-        "contentSha256": "47ec4c6d6ac3936ba94b4d97e3697fd887671f8dd94239b34c804e24999507a4"
+        "revision": 8,
+        "contentSha256": "a6d716bba21c2c024bd6b9abb40c269eea07045fd51d255391436ad1ab428238"
       },
       "originals": [
         {
@@ -369,7 +400,7 @@
       ],
       "generator": {
         "id": "generator-retention",
-        "version": "2.2.0"
+        "version": "2.5.0"
       }
     },
     {
@@ -401,13 +432,13 @@
     {
       "template": {
         "id": "template-coin-change",
-        "revision": 7,
-        "contentSha256": "0248f98815f1323a3ea5d77e17e1f22c903f2b2eff28e2ab4917704964c42932"
+        "revision": 8,
+        "contentSha256": "0e4db77be19e5949bd2bdc025398b20e6dd50cc79d5eec71174788b256e2153a"
       },
       "base": {
         "id": "question-template-coin-change",
-        "revision": 7,
-        "contentSha256": "facd7a0b18f9919134295f714551851d4b64d17ee2e7f531f3bae5a5d98eeffe"
+        "revision": 8,
+        "contentSha256": "d5f63f12f6ab7603618c2b845f2a39b562a1105114f4cced90e9dbfc1b044c6c"
       },
       "originals": [
         {
@@ -421,7 +452,7 @@
       ],
       "generator": {
         "id": "generator-coin-change",
-        "version": "2.4.0"
+        "version": "2.5.0"
       }
     },
     {
@@ -479,13 +510,13 @@
     {
       "template": {
         "id": "template-security-log",
-        "revision": 7,
-        "contentSha256": "16c0699285854217f3d88e87faf9a919dfe019e186b3c0c4b3b93d98b5d234bf"
+        "revision": 8,
+        "contentSha256": "b5eea68951d07643f4570f47628dacb3d0edfc33144959dfa66d8a3435ac51c7"
       },
       "base": {
         "id": "question-template-security-log",
-        "revision": 7,
-        "contentSha256": "86b864d2fb75710495949b925c53400fadc77a603214f97dd54eb3a05cda76bd"
+        "revision": 8,
+        "contentSha256": "62f18ce15abfe395181ff41703d07e892621b439db7f2bd199e1f63a6de9c8a9"
       },
       "originals": [
         {
@@ -499,7 +530,7 @@
       ],
       "generator": {
         "id": "generator-security-log",
-        "version": "2.3.0"
+        "version": "2.5.0"
       }
     },
     {
@@ -1883,13 +1914,13 @@
     {
       "template": {
         "id": "template-source-2023-a-2",
-        "revision": 6,
-        "contentSha256": "a3f042a2a6455005327ccd5e0cbf717381cb9eab4207536a773e8ea1f6567d12"
+        "revision": 7,
+        "contentSha256": "a1ec0cf67f4c55d5a961a35bfd6390c5f1ae9e6de4e3a4c18d8b41c19dc6f430"
       },
       "base": {
         "id": "question-template-source-2023-a-2",
-        "revision": 6,
-        "contentSha256": "8c1cdf8a3dcecee6aad341e8d59c2529c405b6dcf3f071e5d0fb450b6b7b53c4"
+        "revision": 7,
+        "contentSha256": "d03758fb8de8dfb680e4c1609b049ad06ec9da3f9e4bf471adcc26284d8e238f"
       },
       "originals": [
         {
@@ -1903,7 +1934,7 @@
       ],
       "generator": {
         "id": "generator-source-2023-a-2",
-        "version": "3.4.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -1935,13 +1966,13 @@
     {
       "template": {
         "id": "template-source-2023-a-10",
-        "revision": 7,
-        "contentSha256": "c2b2fd0b85d1210866399b1c566ef7fe094954d0b71a88e25c3dfe78d64714aa"
+        "revision": 8,
+        "contentSha256": "5f15e92edc12d6148474b6072a3fcf03d09a93a7f0943b3ed83b766e876e6670"
       },
       "base": {
         "id": "question-template-source-2023-a-10",
-        "revision": 7,
-        "contentSha256": "3910ac2eb836d909950fb0936123262634c54ff0008bd93f2293c2fd3a6ebe2d"
+        "revision": 8,
+        "contentSha256": "802e971a7bec4ead2d4b78a90e42e2ed6418321d1927764e844fd7813779a1d0"
       },
       "originals": [
         {
@@ -1955,7 +1986,7 @@
       ],
       "generator": {
         "id": "generator-source-2023-a-10",
-        "version": "3.4.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -1987,13 +2018,13 @@
     {
       "template": {
         "id": "template-source-2023-a-13",
-        "revision": 6,
-        "contentSha256": "16f79241d6119d4d276698464f4ee17cef62adbe2450908b260603ac709f6a3b"
+        "revision": 7,
+        "contentSha256": "bdb5a348f692a06f4c26a22f3ebcb91d11d2243e95f72f68bfe242ac0ca5618e"
       },
       "base": {
         "id": "question-template-source-2023-a-13",
-        "revision": 6,
-        "contentSha256": "d1fd63fe2ed58cc97a60828b20752ebaa6652ea7559ba7c9d059401803c17465"
+        "revision": 7,
+        "contentSha256": "26cafffaadf45ff160d9060e9e91119a6cf01229704a61271929207ce710e9f7"
       },
       "originals": [
         {
@@ -2007,7 +2038,7 @@
       ],
       "generator": {
         "id": "generator-source-2023-a-13",
-        "version": "3.4.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -2585,13 +2616,13 @@
     {
       "template": {
         "id": "template-source-2024-b-4",
-        "revision": 6,
-        "contentSha256": "b07cb5627e2d9b06c7571bfdf298ae2813231bb78f009a9fa4337cdfeb985117"
+        "revision": 7,
+        "contentSha256": "d08d48e9f0395b62813b0f9bae0756199e6fb614e022ecff2a10278bc8791b72"
       },
       "base": {
         "id": "question-template-source-2024-b-4",
-        "revision": 6,
-        "contentSha256": "b50dc67a214b9992beb3fb24cd296a476d4ae5ba488f1314e387ca6c8511f016"
+        "revision": 7,
+        "contentSha256": "22013995f8b5cfaa7cefdf9e01061c4682361da0a50271667d0d25c5e98e330d"
       },
       "originals": [
         {
@@ -2605,7 +2636,7 @@
       ],
       "generator": {
         "id": "generator-source-2024-b-4",
-        "version": "3.4.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -2663,13 +2694,13 @@
     {
       "template": {
         "id": "template-source-2025-b-4",
-        "revision": 8,
-        "contentSha256": "12ed4b1b8219f6975434d24722179522ae239efa4fddaa48340485b259e5d4c3"
+        "revision": 9,
+        "contentSha256": "450ee4f0ead34f28bd989ed3d36d0388411bcb510e33f022c87113e1df64b707"
       },
       "base": {
         "id": "question-template-source-2025-b-4",
-        "revision": 8,
-        "contentSha256": "4441d32298478e92e18f3683e5bd5d2657280c924a9b9f75541b09cf30a5aeb6"
+        "revision": 9,
+        "contentSha256": "2b8b699177ddd5d7465559fcfb97a7e65cbc95165615e5c6c30fcfab7f73b394"
       },
       "originals": [
         {
@@ -2683,19 +2714,19 @@
       ],
       "generator": {
         "id": "generator-source-2025-b-4",
-        "version": "3.6.0"
+        "version": "3.8.0"
       }
     },
     {
       "template": {
         "id": "template-source-2025-b-5",
-        "revision": 9,
-        "contentSha256": "8fe9772d664a68aeb49dbeebdf45183b1ff2931e6ad6bbe850034a232d245d1b"
+        "revision": 10,
+        "contentSha256": "83fa9b5daca6fd5189869b82a99bb694f3b03d895229210569e41437b2efa49a"
       },
       "base": {
         "id": "question-template-source-2025-b-5",
-        "revision": 9,
-        "contentSha256": "55673f3e18ad7bd28135141a5d941d6b89044fd3e6efe1e22fb5a4e3a61f41a3"
+        "revision": 10,
+        "contentSha256": "313429449e69c37a2ee9f62437c3c0d9a8db571c296d926dcc65bb1645571472"
       },
       "originals": [
         {
@@ -2709,7 +2740,7 @@
       ],
       "generator": {
         "id": "generator-source-2025-b-5",
-        "version": "3.7.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -3001,13 +3032,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-b-1",
-        "revision": 2,
-        "contentSha256": "d7fa0f0968adc102df07fab93d9dd3cb22446ef4ab6ad8a68147f96e2d659eae"
+        "revision": 3,
+        "contentSha256": "68e588b6f79103212ec299b652df54a91348de661aa3b151ce3aeac3f827301e"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-b-1",
-        "revision": 2,
-        "contentSha256": "7fe455dc142e892e99ca2664ab56c303f98eba15169458cf33b9c813d1515dc9"
+        "revision": 3,
+        "contentSha256": "4b0568e486d5565d9334f0ba0ab03a90a9c3cb99310aad5bf906cf2fff0819af"
       },
       "originals": [
         {
@@ -3021,19 +3052,19 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-b-1",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
       "template": {
         "id": "template-source-sample-2022-dec-b-2",
-        "revision": 2,
-        "contentSha256": "36ad00494795c558cd0f1c23e989518821c829383a6910cb36e075885a752fb7"
+        "revision": 3,
+        "contentSha256": "6619075d629eb220145849d0fd3e7ed1a24322c44509a30a872933c1793d460b"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-b-2",
-        "revision": 2,
-        "contentSha256": "15854b86abc5e9e737f05845e7b136c0b9b8d0c77f33f21212ff9a9599ac093f"
+        "revision": 3,
+        "contentSha256": "bdb4d3b165af83a2360e01ffb07b6524741d371e498c0643b9adf92b950b950d"
       },
       "originals": [
         {
@@ -3047,7 +3078,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-b-2",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -3391,13 +3422,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-b-15",
-        "revision": 2,
-        "contentSha256": "f34837a8bcc24468446c198d7ed41224f95b6cb1d3c6ad9ad139870127e527f5"
+        "revision": 3,
+        "contentSha256": "92f34ae0b95ef80628a46a836d4351007cc4d11a9cd18be5659e8be7c3c3fe6c"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-b-15",
-        "revision": 2,
-        "contentSha256": "b73e5a3f6e94d7610846605bf89e3fe785eab0602435c153fdbdc66ed41d66a8"
+        "revision": 3,
+        "contentSha256": "7b0284d6b9c1f08ff271f5fd0650a2b57531bc54a21cc7f268b8ac06345df15b"
       },
       "originals": [
         {
@@ -3411,7 +3442,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-b-15",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -3443,13 +3474,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-b-18",
-        "revision": 2,
-        "contentSha256": "245228be0a72f480d7c6f200c8dfdac5de696c4f646f8f160da35e7280f9ee2a"
+        "revision": 3,
+        "contentSha256": "33741d875dc82815a13289873c9a32eaf86eca5bf79601dd6da858a7828e728f"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-b-18",
-        "revision": 2,
-        "contentSha256": "b07ff0f00e338696e3d3f6010d2183c3d22642edacf878e141b861ba8f6f5f43"
+        "revision": 3,
+        "contentSha256": "da5403c2232c4651f33d5d6195e054844596138bf0227e88879b82b71e8683fb"
       },
       "originals": [
         {
@@ -3463,7 +3494,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-b-18",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -3781,13 +3812,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-11",
-        "revision": 5,
-        "contentSha256": "7a280221492e8dcf633bcb78403fee2026c620c3b30dc08f06dc1975ea1183ee"
+        "revision": 6,
+        "contentSha256": "4157b877692f87669ee89e269bef4952b61ba69e681690a65627e169db8d93a5"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-11",
-        "revision": 5,
-        "contentSha256": "7de229c81995561125e40a455289180e4c6c535b9398c115ac66a0c0da1d139d"
+        "revision": 6,
+        "contentSha256": "c212b9b8c1545af99429c5af9d8b8778881eb6689a1b6121bcae991f1e778cbc"
       },
       "originals": [
         {
@@ -3801,7 +3832,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-a-11",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -3833,13 +3864,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-13",
-        "revision": 5,
-        "contentSha256": "caf2de2595e2dcbbaf77db5a960e3024d4824669c23a641c3fa5314903387cbc"
+        "revision": 6,
+        "contentSha256": "62fb4f9ed54c98a84b7df37dc19f1ae02e44bc34d41310cc0fa10dd03be18bd9"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-13",
-        "revision": 5,
-        "contentSha256": "308687f7f9c95cf9e0af9053107a1fba601b9e62cc31d8eed692ed1b56ac06f3"
+        "revision": 6,
+        "contentSha256": "f7e365d1e3f676313ce4b2c9c7403898b033ff829a747862888db159f29f1e39"
       },
       "originals": [
         {
@@ -3853,7 +3884,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-a-13",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -4639,13 +4670,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-44",
-        "revision": 5,
-        "contentSha256": "1c20c0e0ef178ab3319beaa28a51f1ff64882755af25071f103cca807bfb91d0"
+        "revision": 6,
+        "contentSha256": "e67f62076ed430c6aa537e71d5f996a5e7ebb9ca1e8d6d7d99782770e33bb7cf"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-44",
-        "revision": 5,
-        "contentSha256": "5cc19eef18a0d1a69c3fddda87a28ad743f2bdfb41ef5ac31a495c72f2f6d867"
+        "revision": 6,
+        "contentSha256": "61e71414dcec36933d4834f014596e02977b410afbeaca6182ef7853465b4f7c"
       },
       "originals": [
         {
@@ -4659,7 +4690,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-a-44",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -4795,13 +4826,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-50",
-        "revision": 5,
-        "contentSha256": "d75fa006a1760eaf9be4dea0535e87277d8bd20eab2d4e6af9af9eccf4b3f8e4"
+        "revision": 6,
+        "contentSha256": "5fe7e7e8c8803f3b1676e6d3aaeea94060ba80c93a8f3e1abe4e6ce810cd0030"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-50",
-        "revision": 5,
-        "contentSha256": "a17e9f5770cb749b15e59dd34fa82a6d73905c9ad8d5d8491975eafa9f0f1081"
+        "revision": 6,
+        "contentSha256": "21f0cf10307d84990ae21a5a5c0f8880e57c41b0ae179e9207bd40dca329cc09"
       },
       "originals": [
         {
@@ -4815,7 +4846,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-a-50",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -4977,13 +5008,13 @@
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-57",
-        "revision": 5,
-        "contentSha256": "1b1970c2e8fc1e99de792a2994b228766e196bcc2af7d5b14b769c5c732204fa"
+        "revision": 6,
+        "contentSha256": "12a1e4a8b882ec3eff3bb0848edc42fa01fda40a10a01c47945e543895b51494"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-57",
-        "revision": 5,
-        "contentSha256": "6792b144bebdefb135aeb38e060066c1f4630a313c00d4c9d8226e4d49df60be"
+        "revision": 6,
+        "contentSha256": "09d32a7e7b737c21a0e78ebfb857c249d00e7e758a060376107fb835e92ec2aa"
       },
       "originals": [
         {
@@ -4997,19 +5028,19 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-a-57",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
       "template": {
         "id": "template-source-sample-2022-dec-a-58",
-        "revision": 5,
-        "contentSha256": "2b4c6bbff1cba22c4e77c747d21a397dcbcf270b55eeeec46d06d994e01a515e"
+        "revision": 6,
+        "contentSha256": "3fbc110d9381bfcd73ce447c8fdcfdefc5d821564ba43d759737a7d74d1471e6"
       },
       "base": {
         "id": "question-template-source-sample-2022-dec-a-58",
-        "revision": 5,
-        "contentSha256": "5febd35c8de9c6ee645bbce59a10d586a00610e2a9139759395b04850d02766f"
+        "revision": 6,
+        "contentSha256": "77af7fdfea62ff70c133c2558fa363c8198a9f3b4be4e79a0b3458887afc8374"
       },
       "originals": [
         {
@@ -5023,7 +5054,7 @@
       ],
       "generator": {
         "id": "generator-source-sample-2022-dec-a-58",
-        "version": "3.2.0"
+        "version": "3.8.0"
       }
     },
     {
@@ -5412,8 +5443,8 @@
     },
     {
       "source": "2023-a-10",
-      "metadataSha256": "ab99727aaba444229a08936e9c1f5c73f1149052dee3c8943c774d8ebadae269",
-      "referenceBodySha256": "a5c25f851ae1bc12bd7c2993a538eb3efbfbd59f15862deba657a71fb3f6e175",
+      "metadataSha256": "88552c7353f553fc6dc8a8965461a2f543a86977e8b9e0881033486b5b537d65",
+      "referenceBodySha256": "598859ad26a6a3f5ff6147ded219f720ab008a2b1a42d69ecb4c78089bd15804",
       "effectiveVersion": "3.4.0"
     },
     {
@@ -5760,7 +5791,7 @@
     },
     {
       "source": "sample-2022-dec-b-18",
-      "metadataSha256": "0affac7aaf9bb391d9f54bf8b2f74bc6bcb74c44693f4dbc5dfb8b1d236ce58e",
+      "metadataSha256": "d95974635ec62a8c5e0cd95cbc4d13dc9f7477a32bac9f67da00fd407730a93f",
       "referenceBodySha256": "e8f7488c61c4a41c28b4704899ef32d511332e5133d94ab3fa6b7629d6931381",
       "effectiveVersion": "3.2.0"
     },

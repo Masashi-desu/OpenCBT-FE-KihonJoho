@@ -2,6 +2,7 @@ import type { Question, Template, Block, Scene, Attribution } from "./types";
 import { DataError } from "./errors";
 import { compoundAnswerSignature } from "./answers";
 import { preserveSourceFormat } from "./generation-formats";
+import { sourceChoiceOrder } from "./generators/ordered-choices";
 import { sha256 } from "./hash";
 import { fractionBases, radixFraction } from "./generators/radix-fraction";
 import {
@@ -377,11 +378,12 @@ export const generationContracts: Contract[] = calculationGenerationContracts.ma
       c.notes += " 残額を5で割った商を使う原問の疑似言語と、10円玉が0枚・1枚のときの例を保持する。";
     }
     if (["count-multiples", "complement", "recurrence", "security-log"].includes(c.id)) c.version = "2.3.0";
+    if (sourceChoiceOrder(`generator-${c.id}`)) c.version = "2.5.0";
     return c;
   },
 );
 export function contractFor(t: Template) {
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version))
     return additionalContract(t.generatorRef.id, t.generatorRef.version);
   return generationContracts.find(
     (c) =>
@@ -391,7 +393,7 @@ export function contractFor(t: Template) {
 }
 export function validateTemplateContract(t: Template) {
   if (
-    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(
+    !["1.0.0", "2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "2.5.0", "3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(
       t.generatorRef.version,
     )
   )
@@ -443,7 +445,7 @@ export function checkParameters(t: Template, v: number[]) {
     )
   )
     throw new DataError("PARAMETER_DOMAIN", "生成値が許可域を外れています");
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version)) {
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version)) {
     checkAdditionalParameters(t, v);
     return;
   }
@@ -515,7 +517,7 @@ async function sampleParameters(seed: string, t: Template) {
     ] };
   }
   for (let attempt = 0; attempt < 256; attempt++) {
-    const values = !["2.2.0", "2.2.1", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version)
+    const values = !["2.2.0", "2.2.1", "2.5.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version)
       ? []
       : ((await sampleCalculationInputs(c.source, integer)) ?? []);
     if (!values.length)
@@ -912,9 +914,9 @@ export function bindQuestion(
 ): Question {
   validateTemplateContract(t);
   checkParameters(t, v);
-  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version))
+  if (["3.2.0", "3.3.0", "3.4.0", "3.5.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version))
     return bindAdditionalQuestion(base, t, v, instanceId, at);
-  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0"].includes(t.generatorRef.version))
+  if (!["2.1.0", "2.2.0", "2.2.1", "2.3.0", "2.4.0", "2.5.0"].includes(t.generatorRef.version))
     return bindLegacyQuestion(base, t, v, instanceId, at);
   const id = contractFor(t)!.id;
   const builtFromScaffold = [

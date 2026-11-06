@@ -180,14 +180,22 @@ export function decemberGeneratorOracle(number:number,b:GeneratedBody,v:number[]
     assert.deepEqual(types,[["OS","XSS","DBMS"],["OS","DBMS","XSS"],["XSS","OS","DBMS"],["XSS","DBMS","OS"],["DBMS","OS","XSS"],["DBMS","XSS","OS"]][v[1]]);
     unique(b,b.choices.map(c=>same(rows(c),types.map(t=>fact[t]))));
   }else if(number===18){
-    const risks=b.prompt.filter(x=>x.type==="paragraph").slice(1).map(blockText);assert.equal(risks.length,5);
+    const risks=b.prompt.filter(x=>x.type==="paragraph").slice(1).map(blockText);
+    const labels=["一","二","三","四","五"];
+    assert.equal(risks.length,5);
+    assert(prompt.includes(`開発部員の${v[1]}割は客先に常駐`));
+    const evidence=["可用性","A社PCを紛失","フィッシングメール","総務部員","社内へマルウェアが拡散"];
+    risks.forEach((risk,i)=>{
+      assert(risk.startsWith(`(${labels[i]}) `));
+      assert(risk.includes(evidence[i]));
+    });
     // Frozen before/after capability review: newly granted client-developer
     // VPN access increases load; private devices add infection propagation,
     // newly issued company devices add company-device loss. Other actors and
     // the existence of private mail use are unchanged.
     const matches=risks.map(s=>s.includes("可用性")||(!v[0]?s.includes("拡散"):s.includes("A社PCを紛失")));
     assert(prompt.includes(v[0]?"個人所有PCのVPN接続は禁止":"従来の電子メール利用"));
-    const labels=["一","二","三","四","五"];
+    assert.deepEqual(options,labels.flatMap((a,i)=>labels.slice(i+1).map(b=>`(${a})，(${b})`)));
     unique(b,options.map(s=>{const ids=[...s.matchAll(/\(([一二三四五])\)/g)].map(m=>labels.indexOf(m[1]));assert.equal(ids.length,2);return ids.every(i=>matches[i]);}));
   }else if(number===19){
     const table=b.prompt.find(x=>x.type==="table");assert(table?.type==="table");assert(prompt.includes("別の利用者が承認"));assert(prompt.includes("口頭"));assert(prompt.includes("A社が承認"));

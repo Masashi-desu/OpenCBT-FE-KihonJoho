@@ -95,11 +95,21 @@ function semantic(source: string, b: GeneratedBody, v: number[]) {
     }
     case "2023-a-10": {
       assert(prompt.includes("最初に検査"));
-      const labels = Array.from(
-        { length: 4 },
-        (_, i) => "abcd"[(i + v[1]) % 4],
-      );
-      unique(b, (c) => c === labels[v[0] + 1]);
+      const diagram = b.prompt.find(block => block.type === "diagram");
+      assert(diagram?.scene.kind === "source_figure");
+      assert.deepEqual(diagram.scene.values, v);
+      const devices = v[1] === 0
+        ? ["ファイアウォール", "SSLアクセラレータ"]
+        : ["SSLアクセラレータ", "ファイアウォール"];
+      const terminator = devices.find(device => prompt.includes("TLSの復号を" + device + "で行い"));
+      assert(terminator);
+      const firstPlain = devices[0] === terminator ? "b" : "c";
+      assert.deepEqual(choices(b), ["a", "b", "c", "d"]);
+      assert(diagram.alt.includes(devices.join("、")));
+      assert(diagram.alt.includes("位置記号は上からa、b、c、d。"));
+      assert(diagram.alt.includes("TLSを" + terminator + "で復号する"));
+      unique(b, choice => choice === firstPlain);
+      assert(b.explanation.includes("直後の" + firstPlain));
       return;
     }
     case "2023-a-11": {

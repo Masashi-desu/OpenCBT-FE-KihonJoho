@@ -1,6 +1,6 @@
 import type { Scene } from "./types";
 import { DataError } from "./errors";
-import { scatterPoints, signalValues } from "./generators/subject-a";
+import { scatterPoints, signalValues, wafNetworkAlt } from "./generators/subject-a";
 import {
   graphEdges,
   adjacency,
@@ -106,10 +106,7 @@ export function sourceFigureAlt(profile: string, v: number[]) {
         ]).join("、")).join("。");
     }
     case "waf-network":
-      return (
-        prefix +
-        `PCからインターネット、ファイアウォール、SSLアクセラレータ、Webサーバ、データベースサーバへ接続。位置記号は上から${[0, 1, 2, 3].map((i) => "abcd"[(i + v[1]) % 4]).join("、")}。TLSを${v[0] === 0 ? "ファイアウォール" : "SSLアクセラレータ"}で復号する。復号前はHTTPS、復号後のWeb要求はHTTP、最後はデータベースアクセス用サービス。`
-      );
+      return prefix + wafNetworkAlt(v[0], v[1]);
     case "euclid-flow":
       return (
         prefix +

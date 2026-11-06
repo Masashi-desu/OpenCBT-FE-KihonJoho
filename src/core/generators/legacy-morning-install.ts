@@ -1,7 +1,7 @@
 import type { Bundle } from "../types";
 import { DataError } from "../errors";
 import { bindQuestion } from "../generation";
-import { additionalDefinition, registerAdditionalDefinitions } from "./index";
+import { additionalDefinition, additionalVersion, registerAdditionalDefinitions } from "./index";
 import type { GenerationDefinition } from "./definition";
 
 const generator = /^generator-source-((?:2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-(?:[1-9]|[1-7]\d|80))$/;
@@ -15,7 +15,7 @@ export async function ensureLegacyMorningGenerators(bundle: Bundle, executableTe
   if (!templates.length) return;
   for (const t of templates) {
     const d = additionalDefinition(t.generatorRef.id);
-    if (d && (d.version ?? "3.2.0") !== t.generatorRef.version)
+    if (d && additionalVersion(d) !== t.generatorRef.version)
       throw new DataError("GENERATOR_REF", "旧午前の生成器版が一致しません");
   }
   const missing = templates.filter(t => !additionalDefinition(t.generatorRef.id));
@@ -36,7 +36,7 @@ export async function ensureLegacyMorningGenerators(bundle: Bundle, executableTe
   const definitions = await prepared;
   const requested = [...new Set(missing.map(t => t.generatorRef.id))].map(id => {
     const source = generator.exec(id)![1], d = definitions.find(d => d.source === source);
-    if (!d || templates.some(t => t.generatorRef.id === id && t.generatorRef.version !== (d.version ?? "3.2.0")))
+    if (!d || templates.some(t => t.generatorRef.id === id && t.generatorRef.version !== additionalVersion(d)))
       throw new DataError("GENERATOR_REF", "旧午前の査読済み生成器がありません");
     return d;
   });

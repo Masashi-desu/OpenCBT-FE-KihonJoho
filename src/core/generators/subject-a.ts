@@ -106,6 +106,17 @@ export function signalValues(mask: number, phase: number) {
   return [...a, ...b, ...a.map((x, i) => circuitValue(mask, x, b[i]))];
 }
 
+export function wafDevices(layout: number): string[] {
+  const firewall = "ファイアウォール", accelerator = "SSLアクセラレータ";
+  return [...(layout === 0 ? [firewall, accelerator] : [accelerator, firewall]),
+    "Webサーバ", "データベースサーバ"];
+}
+export function wafNetworkAlt(termination: number, layout: number): string {
+  const devices = wafDevices(layout);
+  return `PCからインターネット、${devices.join("、")}へ接続。位置記号は上からa、b、c、d。` +
+    `TLSを${devices[termination]}で復号する。復号前はHTTPS、復号後のWeb要求はHTTP、最後はデータベースアクセス用サービス。`;
+}
+
 export const subjectADefinitions: GenerationDefinition[] = [
   def(
     "2023-a-2",
@@ -212,28 +223,19 @@ export const subjectADefinitions: GenerationDefinition[] = [
     "2023-a-10",
     "WAFの設置場所",
     "ウ",
-    [field("TLS復号を行う位置", 0, 1), field("位置記号の配置", 0, 3)],
+    [field("TLS復号を行う位置", 0, 1), field("ファイアウォールとSSLアクセラレータの接続順", 0, 1)],
     [1, 0],
-    ([decrypt, rotation]) => {
-      const location = ["ファイアウォール", "SSLアクセラレータ"][decrypt],
-        labels = ["a", "b", "c", "d"].map((_, i) => "abcd"[(i + rotation) % 4]),
-        answer = labels[decrypt + 1];
+    ([termination, layout]) => {
+      const location = wafDevices(layout)[termination], answer = "abcd"[termination + 1];
       return {
         prompt: [
           p(
             `図の構成でWebアプリケーションへの攻撃を検査するWAFは、通信の暗号化・復号を行えない。TLSの復号を${location}で行い、復号後はHTTPでWeb要求を伝送する。復号後のHTTP通信を最初に検査するものとする。WAFの設置場所として、最も適切な箇所はどこか。`,
           ),
-          figure(
-            "waf-network",
-            [decrypt, rotation],
-            "ネットワーク構成",
-            `利用者、ファイアウォール、SSLアクセラレータ、Webサーバ、データベースサーバの順。位置記号は上から${labels.join("、")}。${location}でTLSを復号し、dに相当する末尾の区間はデータベースアクセス。`,
-          ),
+          figure("waf-network", [termination, layout], "ネットワーク構成", wafNetworkAlt(termination, layout)),
         ],
-        choices: strings([
-          answer,
-          ...["a", "b", "c", "d"].filter((x) => x !== answer),
-        ]),
+        choices: strings([..."abcd"]),
+        correctIndex: termination + 1,
         explanation: `暗号化された内容はこのWAFでは検査できない。${location}で復号した直後の${answer}がHTTPの検査対象となる。末尾のデータベースアクセスはWeb要求とは区別する。`,
       };
     },

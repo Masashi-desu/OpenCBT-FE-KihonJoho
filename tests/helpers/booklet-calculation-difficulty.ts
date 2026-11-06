@@ -295,7 +295,7 @@ for (const review of calculationReviews)
   calculationCases.push(calculationCase([review.source], `${review.source}: source options, display precision and 256 seeds retain the reviewed calculation level`, { kind: "source-options-and-seeded-precision", seeds: 256 }, async () => {
     const t = template(review.source),
       baseline = base(review.source);
-    assert(["2.2.0", "2.3.0", "2.4.0", "3.3.0", "3.4.0", "3.6.0", "3.7.0"].includes(t.generatorRef.version));
+    assert(["2.2.0", "2.3.0", "2.4.0", "3.3.0", "3.4.0", "3.6.0", "3.7.0", "3.8.0"].includes(t.generatorRef.version));
     verify(review.source, t.referenceParameters.values, baseline);
     assert.deepEqual(
       options(baseline)
@@ -537,7 +537,7 @@ assert.throws(() => checkParameters(template("2026-a-14"), [5000, 10, 599]), {
 calculationCases.push(calculationCase(["2026-a-17"], "retention keeps its service choices and generates clean member counts with distinct rates", {"kind":"clean-retention-counts","seeds":256}, async () => {
   const source = "2026-a-17",
     t = template(source);
-  assert.equal(t.generatorRef.version, "2.2.0");
+  assert.equal(t.generatorRef.version, "2.5.0");
   for (let seed = 0; seed < 256; seed++) {
     const v = (await parametersForSeed(seed.toString(16).padStart(32, "0"), t))
       .values;
@@ -558,7 +558,7 @@ calculationCases.push(calculationCase(["2026-a-17"], "retention keeps its servic
       if (retained * v[best * 3] > v[best * 3 + 2] * previous) best = i;
     }
     const cs = q.choices.map((c) => c.content.blocks.map(text).join(""));
-    assert.deepEqual(cs.slice().sort(), [
+    assert.deepEqual(cs, [
       "サービスA",
       "サービスB",
       "サービスC",
