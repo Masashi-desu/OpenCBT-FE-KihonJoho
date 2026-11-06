@@ -1645,6 +1645,13 @@ select {
   margin-block: 1.2em;
   min-width: 0;
 }
+:is(.subject-b-program, .subject-b-code-choice) pre {
+  /* Monaco keeps Latin text fixed-width and lets the Japanese font draw ○ and ←. */
+  font-family: Monaco, Consolas, "Liberation Mono", Courier, "Hiragino Kaku Gothic ProN", "Yu Gothic", monospace;
+}
+:is(.subject-b-program, .subject-b-code-choice) code {
+  font-family: inherit;
+}
 .subject-b-program pre {
   margin: 0.35em 0 0;
   padding-inline-start: 1em;
