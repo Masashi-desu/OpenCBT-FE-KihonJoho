@@ -1,0 +1,173 @@
+{
+  "apiVersion": 1,
+  "revision": 1,
+  "title": "ハフマン符号化とデータ圧縮",
+  "attribution": {
+    "origin": "adapted",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30a-fe-am-qs",
+        "locator": {
+          "section": "平成30年度 秋期 基本情報技術者試験 午前 問4",
+          "page": 4,
+          "year": 2018,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30a-fe-am-ans",
+        "locator": {
+          "section": "平成30年度 秋期 基本情報技術者試験 午前 問4 解答",
+          "page": 1,
+          "year": 2018,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      }
+    ],
+    "rightsRefs": [
+      "rights-ipa-2018h30a-fe-am-numeric-candidates",
+      "rights-original"
+    ],
+    "creatorIds": [
+      "codex"
+    ]
+  },
+  "presentations": [
+    {
+      "id": "huffman",
+      "title": "ハフマン符号化とデータ圧縮",
+      "attribution": {
+        "origin": "adapted",
+        "sourceRefs": [
+          {
+            "sourceId": "source-ipa-2018h30a-fe-am-qs",
+            "locator": {
+              "section": "平成30年度 秋期 基本情報技術者試験 午前 問4",
+              "page": 4,
+              "year": 2018,
+              "period": "秋期",
+              "exam": "基本情報技術者試験",
+              "subject": "午前",
+              "timeSlot": "午前",
+              "questionNumber": "4"
+            }
+          },
+          {
+            "sourceId": "source-ipa-2018h30a-fe-am-ans",
+            "locator": {
+              "section": "平成30年度 秋期 基本情報技術者試験 午前 問4 解答",
+              "page": 1,
+              "year": 2018,
+              "period": "秋期",
+              "exam": "基本情報技術者試験",
+              "subject": "午前",
+              "timeSlot": "午前",
+              "questionNumber": "4"
+            }
+          }
+        ],
+        "rightsRefs": [
+          "rights-ipa-2018h30a-fe-am-numeric-candidates",
+          "rights-original"
+        ],
+        "creatorIds": [
+          "codex"
+        ]
+      },
+      "modificationSummary": "問題の頻度表と選択肢を基に、ハフマン木、符号の読み方、固定長とのビット数比較を独自に作図・解説。"
+    }
+  ],
+  "references": {
+    "title": "対応する公開問題と解答例",
+    "sourceRefs": [
+      {
+        "sourceId": "source-ipa-2018h30a-fe-am-qs",
+        "locator": {
+          "section": "平成30年度 秋期 基本情報技術者試験 午前 問4",
+          "page": 4,
+          "year": 2018,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      },
+      {
+        "sourceId": "source-ipa-2018h30a-fe-am-ans",
+        "locator": {
+          "section": "平成30年度 秋期 基本情報技術者試験 午前 問4 解答",
+          "page": 1,
+          "year": 2018,
+          "period": "秋期",
+          "exam": "基本情報技術者試験",
+          "subject": "午前",
+          "timeSlot": "午前",
+          "questionNumber": "4"
+        }
+      }
+    ]
+  },
+  "search": {
+    "summary": "出現頻度の小さい節を結合し、ハフマン木からDの符号を読みます。固定長符号とのビット数の差を図と式で比較します。",
+    "keywords": [
+      "ハフマン符号化",
+      "ハフマン木",
+      "Huffman",
+      "データ圧縮",
+      "接頭語",
+      "固定長符号",
+      "可変長符号",
+      "2018年度",
+      "秋期",
+      "午前",
+      "問4"
+    ],
+    "text": "出現頻度を足す式と結合した節を照合できる。根から左0・右1の枝を読んで符号を求め、選択肢との接頭語の衝突を図上で確認する。100文字のデータでハフマン符号225ビットと固定長300ビットを比較する。"
+  },
+  "files": [
+    {
+      "path": "index.html",
+      "mediaType": "text/html",
+      "sha256": "3d58ae0452676c160925d1d616d66b495fcaeaa877a4f0c65bb537004c6691f7"
+    },
+    {
+      "path": "theme.css",
+      "mediaType": "text/css",
+      "sha256": "7ab85e2df7a4a63e835992894c8788727876790e0ec1462405965cb657a70f54"
+    },
+    {
+      "path": "style.css",
+      "mediaType": "text/css",
+      "sha256": "8ed4c8db4e067c6625166899ea1f02a747bef5ea18d0e090e3ea3f11869f75ec"
+    },
+    {
+      "path": "scrollbars.css",
+      "mediaType": "text/css",
+      "sha256": "ea3d4843151b35e7a21ea513463da45804659d22bf4c79f7f290e6fe3c641adc"
+    },
+    {
+      "path": "huffman-engine.js",
+      "mediaType": "text/javascript",
+      "sha256": "b57ea184ec79bb50f7f7e4502bdd046762fa9dbffe26c3e181f9fd028c430f57"
+    },
+    {
+      "path": "scrollbars.js",
+      "mediaType": "text/javascript",
+      "sha256": "4821ac7f3a379bcfd02abe346dcc28b024964e59b36aa1b63004f9a96d953a95"
+    },
+    {
+      "path": "main.js",
+      "mediaType": "text/javascript",
+      "sha256": "1dab7a4d3127cdcc20509796aa7ab847f0d3fa6fa24c3ed7c00b1f71d28ee086"
+    }
+  ]
+}

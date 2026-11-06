@@ -25,6 +25,7 @@ export const sidebar = [
     { text: '2016春午前問4のPCM解説', link: '/pcm-explanation' },
     { text: '2016秋午前問21の7セグメントLED解説', link: '/led-explanation' },
     { text: '2017春午前問20のD/A変換解説', link: '/dac-explanation' },
+    { text: '2018秋午前問4のハフマン符号化解説', link: '/huffman-explanation' },
     { text: '2019秋午前問28の状態遷移解説', link: '/transaction-explanation' },
     { text: '2019秋午前問29の2相ロッキング解説', link: '/locking-explanation' },
     { text: '2019春午前問54の開発工数解説', link: '/effort-explanation' },
