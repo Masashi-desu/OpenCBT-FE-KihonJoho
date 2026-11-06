@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
-import { fixture } from "./fixtures";
+import { fixture, installFixtureGenerators } from "./fixtures";
 import { bindQuestion } from "../src/core/generation";
 import { contentHash } from "../src/core/hash";
 import { loadDetailPackage } from "../src/core/detailed-explanation";
@@ -162,30 +162,54 @@ test("input accepts specified delimiters, zeros and duplicates and reports concr
   assert.throws(() => engine.generateTrace("quick", [1, 2, 3, NaN]));
 });
 
-test("reviewed original and all generated options initialize the right algorithm regardless of displayed labels", async () => {
-  const b = fixture(), original = b.questions.find(q => q.id === "question-ipa-2026-a-2")!;
-  const template = b.templates.find(t => t.id === "template-source-2026-a-2")!, base = b.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
-  const context = { question: original, initialParameters: original.detailedExplanationRef?.initialParameters ?? {}, generation: null };
-  assert.equal(lesson.standaloneContext.question.id, original.id);
-  assert.equal(lesson.standaloneContext.question.correctAnswer.choiceId, original.correctAnswer.choiceId);
-  assert.deepEqual(plain(lesson.standaloneContext.choiceOrder), original.choices.map((choice, i) => ({ id: choice.id, label: ["ア", "イ", "ウ", "エ"][i] })));
+test("both reviewed originals and every generated option initialize the corresponding sort", async () => {
+  await installFixtureGenerators();
+  const bundle = fixture(), standalone = bundle.questions.find(q => q.id === "question-ipa-2026-a-2")!;
+  assert.equal(lesson.standaloneContext.question.id, standalone.id);
+  assert.equal(lesson.standaloneContext.question.correctAnswer.choiceId, standalone.correctAnswer.choiceId);
+  assert.deepEqual(plain(lesson.standaloneContext.choiceOrder), standalone.choices.map((choice, i) => ({ id: choice.id, label: ["ア", "イ", "ウ", "エ"][i] })));
   assert(Object.isFrozen(lesson.standaloneContext));
-  assert.equal(lesson.initialAlgorithm(context), "quick");
-  assert.deepEqual(plain(lesson.choiceAlgorithms(context)), { "choice-1": "insertion", "choice-2": "selection", "choice-3": "quick", "choice-4": "bubble" });
+
   const reviewed = ["quick", "insertion", "selection", "bubble"], phrases = ["基準値", "挿入", "最小値", "隣接"];
-  for (let target = 0; target < 4; target++) for (let rotation = 0; rotation < 3; rotation++) {
-    const question = bindQuestion(base, template, [target, rotation], "sort-test", "2026-10-14T00:00:00Z");
-    const c = { question, initialParameters: base.detailedExplanationRef!.initialParameters, generation: { generatorRef: template.generatorRef, parameters: { values: [target, rotation] } } };
-    assert.equal(lesson.initialAlgorithm(c), reviewed[target]);
-    assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef);
-    const map = lesson.choiceAlgorithms(c);
-    question.choices.forEach((choice, i) => { const expected = (i + rotation) % 4; assert.equal(map[choice.id], reviewed[expected]); assert(choice.content.blocks.some((block: any) => block.text.includes(phrases[expected]))); assert.equal(lesson.initialAlgorithm({ ...c, initialParameters: { choiceId: choice.id } }), reviewed[expected]); });
-    assert(question.correctAnswer.choiceId);
-    assert.equal(map[question.correctAnswer.choiceId], reviewed[target]);
-    assert.equal(lesson.initialAlgorithm({ ...c, initialParameters: { algorithm: "heap" } }), "heap");
+  for (const source of ["2026-a-2", "2018h30a-fe-am-6"]) {
+    const original = bundle.questions.find(q => q.id === `question-ipa-${source}`)!;
+    const template = bundle.templates.find(t => t.id === `template-source-${source}`)!;
+    const base = bundle.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
+    const ref = original.detailedExplanationRef!;
+    assert.equal(ref.directory, "explanations/ipa-2026-a-2/");
+    assert.equal(ref.revision, JSON.parse(fs.readFileSync(root + "manifest.json", "utf8")).revision);
+    assert.deepEqual(base.detailedExplanationRef, { ...ref, initialParameters: { algorithm: "question" } });
+
+    const originalContext = { question: original, initialParameters: ref.initialParameters, generation: null };
+    const originalMap = lesson.choiceAlgorithms(originalContext);
+    assert.deepEqual(plain(originalMap), { "choice-1": "insertion", "choice-2": "selection", "choice-3": "quick", "choice-4": "bubble" });
+    assert.equal(original.correctAnswer.choiceId, "choice-3");
+    assert.equal(lesson.initialAlgorithm(originalContext), "quick");
+
+    for (let target = 0; target < 4; target++) for (let rotation = 0; rotation < 3; rotation++) {
+      const values = [target, rotation];
+      const question = bindQuestion(base, template, values, "sort-test", "2026-11-06T00:00:00Z");
+      const context = { question, initialParameters: question.detailedExplanationRef?.initialParameters,
+        generation: { generatorRef: template.generatorRef, parameters: { values } } };
+      assert.equal(lesson.initialAlgorithm(context), reviewed[target]);
+      assert.deepEqual(question.detailedExplanationRef, base.detailedExplanationRef);
+      const map = lesson.choiceAlgorithms(context);
+      question.choices.forEach((choice, i) => {
+        const expected = (i + rotation) % 4;
+        assert.equal(map[choice.id], reviewed[expected]);
+        assert(choice.content.blocks.some(block => block.type === "paragraph" && block.text.includes(phrases[expected])));
+        assert.equal(lesson.initialAlgorithm({ ...context, initialParameters: { choiceId: choice.id } }), reviewed[expected]);
+      });
+      assert(question.correctAnswer.choiceId);
+      assert.equal(map[question.correctAnswer.choiceId], reviewed[target]);
+      assert.equal(lesson.initialAlgorithm({ ...context, initialParameters: { algorithm: "heap" } }), "heap");
+      const unknown = { ...context, generation: { ...context.generation, generatorRef: { ...template.generatorRef, version: "0.0.0" } } };
+      assert.deepEqual(plain(lesson.choiceAlgorithms(unknown)), {});
+      assert.equal(lesson.initialAlgorithm(unknown), "quick");
+    }
+    for (const q of [original, base]) assert.equal(makeBookmark(bundle, { questionId: q.id, revision: q.revision - 1 }, 0).questionRef.revision, original.revision);
+    assert.equal(template.originalContentSha256, await contentHash(base));
   }
-  for (const q of [original, base]) assert.equal(makeBookmark(b, { questionId: q.id, revision: q.revision - 1 }, 0).questionRef.revision, original.revision);
-  assert.equal(template.originalContentSha256, await contentHash(base));
 });
 
 test("managed package hashes load, source-backed learning facts cover all seven algorithms", async () => {

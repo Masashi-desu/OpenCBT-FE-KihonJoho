@@ -219,8 +219,15 @@
     button.addEventListener("click", () => { choose(id); showSection("simulator"); $("simulator").scrollIntoView({ behavior: motion.matches ? "instant" : "smooth", block: "start" }); $("algorithm-select").focus({ preventScroll: true }); });
     $("choice-links").append(button);
   });
-  text("question-context", context.generation ? "今回の生成問題の対象と、表示された選択肢順に対応しています。" : "元問題の正答はウ（クイックソート）。他の選択肢も、それぞれ別のソートを説明しています。");
-  if (!Object.keys(choiceMap).length) text("question-context", "この保存版の選択肢対応は確認できません。「動作を見る」で7方式の解説とシミュレーターを利用できます。");
+  const correctChoice = context.choiceOrder.find(choice => choice.id === context.question.correctAnswer.choiceId);
+  const correctAlgorithm = lesson.algorithms[choiceMap[correctChoice?.id]];
+  if (!correctAlgorithm) {
+    text("question-context", "この問題の選択肢対応は確認できません。「動作を見る」で7方式の解説とシミュレーターを利用できます。");
+  } else if (context.generation) {
+    text("question-context", "今回の生成問題の対象と、表示された選択肢順に対応しています。");
+  } else {
+    text("question-context", `元問題の正答は${correctChoice.label}（${correctAlgorithm.name}）。他の選択肢も、それぞれ別のソートを説明しています。`);
+  }
   Object.entries(names).forEach(([key, name]) => { const div = element("div"); const value = element("dd", "", "0"); value.id = `count-${key}`; div.append(element("dt", "", name), value); $("counts").append(div); });
   function applyInput() {
     pause();

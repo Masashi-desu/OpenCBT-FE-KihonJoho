@@ -16,7 +16,7 @@ export const sidebar = [
     { text: 'データモデル・整合性', link: '/data-model' },
     { text: '本文・図表・疑似言語', link: '/content-format' },
     { text: '任意の詳細解説UI', link: '/detailed-explanations' },
-    { text: '問2のソート解説・シミュレーター', link: '/sort-explanation' },
+    { text: 'ソート解説・シミュレーター', link: '/sort-explanation' },
     { text: '問13のアローダイアグラム解説', link: '/arrow-explanation' },
     { text: '問1の基数変換解説', link: '/radix-explanation' },
     { text: '問11の流れ図解説', link: '/flow-explanation' },

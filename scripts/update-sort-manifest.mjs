@@ -25,7 +25,7 @@ const search = {
   text: Object.values(lesson.SortLesson.algorithms).map(info => Object.values(info).join("\n")).join("\n\n") + "\n\n" + staticText,
 };
 const manifest = {
-  apiVersion: 1, revision: 1, title: "ソートアルゴリズム解説・動作シミュレーター",
+  apiVersion: 1, revision: 2, title: "ソートアルゴリズム解説・動作シミュレーター",
   search,
   attribution: {
     origin: "original",
@@ -39,4 +39,4 @@ const manifest = {
   files: files.map(file => ({ path: file, mediaType: file.endsWith("html") ? "text/html" : file.endsWith("css") ? "text/css" : "text/javascript", sha256: crypto.createHash("sha256").update(fs.readFileSync(root + file)).digest("hex") })),
 };
 fs.writeFileSync(root + "manifest.json", JSON.stringify(manifest, null, 2) + "\n");
-console.log("Sort explanation manifest updated (8 files, revision 1, shared theme and scrollbars).");
+console.log(`Sort explanation manifest updated (${files.length} files, revision ${manifest.revision}, shared theme and scrollbars).`);

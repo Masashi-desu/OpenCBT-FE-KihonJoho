@@ -69,10 +69,15 @@ test("verified detailed content is searchable, deduplicated and linked to its or
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "開発工数 最少要員" })[0].question.id, "question-ipa-2019h31h-fe-am-54");
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "7セグメントLED 小数点", year: 2016, kind: "detail" })[0].question.id, "question-ipa-2016h28a-fe-am-21");
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "PCM 標本化", year: 2016, kind: "detail" })[0].question.id, "question-ipa-2016h28h-fe-am-4");
-  assert.equal(docs.length, 13); assert(docs.some(doc => doc.question.id === "question-ipa-2026-a-2"));
-  assert.equal(calls.filter(url => url.endsWith("manifest.json")).length, 13);
+  assert.equal(docs.length, 14);
+  assert.equal(calls.filter(url => url.endsWith("manifest.json")).length, 14);
   assert(calls.every(url => url.startsWith("https://search.invalid/opencbt/explanations/")));
-  for (const query of ["ヒープ", "Quick Sort", "ピボット", "安定", "最悪", "シェル", "全角カンマ", "1,024"]) assert.equal(findSearchDocuments(docs, { ...emptySearch, query }).length, 1);
+  const sortIds = ["question-ipa-2018h30a-fe-am-6", "question-ipa-2026-a-2"];
+  for (const query of ["ヒープ", "Quick Sort", "ピボット", "安定", "最悪", "シェル", "全角カンマ", "1,024"]) {
+    assert.deepEqual(findSearchDocuments(docs, { ...emptySearch, query }).map(doc => doc.question.id).sort(), sortIds);
+  }
+  assert.deepEqual(findSearchDocuments(docs, { ...emptySearch, query: "クイックソート", year: 2018, kind: "detail" })
+    .map(doc => doc.question.id), [sortIds[0]]);
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "ヒープ", subject: "B" }).length, 0);
   assert.equal(findSearchDocuments(docs, { ...emptySearch, query: "ヒープ", year: 2025 }).length, 0);
   assert(searchSnippet(docs.find(doc => doc.question.id === "question-ipa-2026-a-2")!, "安定").includes("安定"));

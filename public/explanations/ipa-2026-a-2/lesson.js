@@ -53,7 +53,10 @@
       note: "計算量は間隔列によって変わり、一律にO(n log n)とはいえません。本実装の半減間隔列の最悪はO(n²)です。同じ値の順序が変わり得るため安定ではありません。" },
   };
   const generatedOrder = ["quick", "insertion", "selection", "bubble"];
+  const originalIds = ["question-ipa-2026-a-2", "question-ipa-2018h30a-fe-am-6"];
   const originalChoices = { "choice-1": "insertion", "choice-2": "selection", "choice-3": "quick", "choice-4": "bubble" };
+  // The 2018 generator delegates to the 2026 generator with the same input contract.
+  const generatorIds = ["generator-source-2026-a-2", "generator-source-2018h30a-fe-am-6"];
   // Direct document viewing has no saved run or host API. Use only the reviewed
   // original question's display mapping, without creating an application session.
   const standaloneContext = Object.freeze({
@@ -61,11 +64,13 @@
     choiceOrder: Object.freeze(["ア", "イ", "ウ", "エ"].map((label, i) => Object.freeze({ id: `choice-${i + 1}`, label }))),
     selectedChoiceId: null, generation: null, initialParameters: Object.freeze({}),
   });
-  function choiceAlgorithms(context) {
-    if (!context.generation) return context.question.id === "question-ipa-2026-a-2" ? { ...originalChoices } : {};
+  function generationValues(context) {
     const g = context.generation;
-    if (g.generatorRef.id !== "generator-source-2026-a-2" || g.generatorRef.version !== "3.2.0") return {};
-    const rotation = g.parameters.values[1];
+    return g?.generatorRef.version === "3.2.0" && generatorIds.includes(g.generatorRef.id) ? g.parameters.values : [];
+  }
+  function choiceAlgorithms(context) {
+    if (!context.generation) return originalIds.includes(context.question.id) ? { ...originalChoices } : {};
+    const [, rotation] = generationValues(context);
     if (!Number.isInteger(rotation) || rotation < 0 || rotation > 2) return {};
     return Object.fromEntries(generatedOrder.map((_, i) => [`choice-value-${i + 1}`, generatedOrder[(i + rotation) % 4]]));
   }
@@ -73,10 +78,8 @@
     const p = context.initialParameters || {}, choices = choiceAlgorithms(context);
     if (Object.hasOwn(choices, p.choiceId)) return choices[p.choiceId];
     if (Object.hasOwn(algorithms, p.algorithm)) return p.algorithm;
-    const g = context.generation;
-    if (g?.generatorRef.id === "generator-source-2026-a-2" && g.generatorRef.version === "3.2.0")
-      return generatedOrder[g.parameters.values[0]] || "quick";
-    return "quick";
+    const [target] = generationValues(context);
+    return generatedOrder[target] ?? "quick";
   }
   globalThis.SortLesson = Object.freeze({ algorithms, choiceAlgorithms, initialAlgorithm, standaloneContext });
 })();

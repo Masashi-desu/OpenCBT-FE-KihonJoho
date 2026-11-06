@@ -118,7 +118,7 @@ test("all old bookmark revisions resolve the current source and current generato
         assert.throws(() => makeBookmark(latest, { ...questionRef, revision }), { code: "BOOKMARK_REF" });
     }
   }
-  assert.equal(retainedCurrentDetails, 309, "only current first-edition morning explanations survive later non-answer edits; revised D/A details are removed");
+  assert.equal(retainedCurrentDetails, 308, "only current first-edition morning explanations survive; revised D/A and 2018 quicksort details are removed from change records");
 });
 
 test("retained first-edition morning explanations reject stale text, later answer changes and revised bodies", () => {
