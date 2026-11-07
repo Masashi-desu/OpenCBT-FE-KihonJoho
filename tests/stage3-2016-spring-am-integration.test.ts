@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { createElement as h } from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
 import { readDistributionBundle } from '../scripts/distribution-files';
+import { sourceScope, sourceExclusions } from '../scripts/source-inventory';
 import review from '../scripts/source-evidence/stage3-s3-001-review.json';
 import answers from './fixtures/legacy-2016-spring-am-official-answers.json';
 import { validateBundle } from '../src/core/validation';
@@ -78,11 +79,19 @@ test('S3-001 retains all80 obligations and publishes exactly75 source/base/gener
   }
 });
 
-test('S3-001 is one year/period menu choice with morning available and afternoon unavailable in both annual and mix modes',()=>{
+test('S3-001 morning remains selectable while its same-period afternoon follows source obligations',()=>{
   const groups=menuSourceGroups(bundle),group=groups.find(g=>g.collections.some(s=>s.id===id))!;
-  assert(group);assert.equal(group.title,'旧制度 · 2016年度 春期');assert.equal(group.collections.length,1);
-  assert.deepEqual(menuSubjectOptions(group).map(o=>[o.title,o.available]),[['旧制度・午前',true],['旧制度・午後',false]]);
-  for(const kind of ['annual','mix'] as const){const chosen=chooseMenuSourceGroup(groups,select(kind),group.id);assert.equal(chosen.subject,'A');assert.equal(chosen[kind==='annual'?'sourceCollectionId':'mixProfileCollectionId'],id);assert.throws(()=>chooseMenuSourceGroup(groups,chosen,group.id,'B'),{code:'SOURCE_COLLECTION'});}
+  const afternoonExpected=sourceScope.some(source=>source.startsWith('2016h28h-fe-pm-')&&!Object.hasOwn(sourceExclusions,source));
+  assert(group);assert.equal(group.title,'旧制度 · 2016年度 春期');assert.equal(group.collections.length,afternoonExpected?2:1);
+  assert.deepEqual(menuSubjectOptions(group).map(o=>[o.title,o.available]),[['旧制度・午前',true],['旧制度・午後',afternoonExpected]]);
+  for(const kind of ['annual','mix'] as const){
+    const chosen=chooseMenuSourceGroup(groups,select(kind),group.id), key=kind==='annual'?'sourceCollectionId':'mixProfileCollectionId';
+    assert.equal(chosen.subject,'A');assert.equal(chosen[key],id);
+    if(afternoonExpected) {
+      const afternoon=chooseMenuSourceGroup(groups,chosen,group.id,'B');
+      assert.equal(afternoon.subject,'B');assert.equal(afternoon[key],'set-annual-2016-spring-pm');
+    } else assert.throws(()=>chooseMenuSourceGroup(groups,chosen,group.id,'B'),{code:'SOURCE_COLLECTION'});
+  }
 });
 
 test('S3-001 uses75 admitted questions, official150 minutes and independently fixed49/9/17 area counts',()=>{

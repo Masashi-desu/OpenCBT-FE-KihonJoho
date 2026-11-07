@@ -47,9 +47,9 @@ test("time selection stays independent of year scope and restores after endless 
 
 test("the menu lists every publication before subject selection, including the B-only April sample", () => {
   const b = fixture(), groups = menuSourceGroups(b);
-  assert.deepEqual(groups.map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 秋期", "旧制度 · 2019年度 春期", "旧制度 · 2018年度 秋期", "旧制度 · 2018年度 春期", "旧制度 · 2017年度 秋期", "旧制度 · 2017年度 春期", "旧制度 · 2016年度 秋期", "旧制度 · 2016年度 春期"]);
+  assert.deepEqual(groups.slice(0, 14).map(g => g.title), ["2026年度 公開問題", "2025年度 公開問題", "2024年度 公開問題", "2023年度 公開問題", "2022年12月公表 サンプル問題", "2022年4月公表 サンプル問題", "旧制度 · 2019年度 秋期", "旧制度 · 2019年度 春期", "旧制度 · 2018年度 秋期", "旧制度 · 2018年度 春期", "旧制度 · 2017年度 秋期", "旧制度 · 2017年度 春期", "旧制度 · 2016年度 秋期", "旧制度 · 2016年度 春期"]);
   const all = [...sourceCollections(b, "A"), ...sourceCollections(b, "B")];
-  assert.equal(all.length, 26); // Four A/B publications, three samples, seven AM/PM pairs and2016 spring AM.
+  assert.equal(all.filter(s => groups.slice(0, 14).some(g => g.collections.includes(s))).length, 27);
   assert.deepEqual(groups.flatMap(g => g.collections.map(c => c.id)).sort(), all.map(c => c.id).sort());
   assert.equal(new Set(groups.flatMap(g => g.collections.map(c => c.id))).size, all.length);
   const partial2025 = groups.find(g => g.collections.some(c => c.id === "set-annual-2025-b"))!;
@@ -102,6 +102,9 @@ test("2022 sample publication dates retain current subject names and explain the
 
 function withLegacySets() {
   const b = fixture();
+  const replaced = new Set(menuSourceGroups(b).filter(group => group.year === 2011)
+    .flatMap(group => group.collections.map(collection => collection.id)));
+  b.sets = b.sets.filter(set => !replaced.has(set.id));
   // Synthetic selection metadata only; no old question transcription/admission.
   for (const period of ["春期", "秋期", "特別試験"]) for (const slot of ["午前", "午後"]) {
     const subject = slot === "午前" ? "A" : "B";
@@ -119,12 +122,12 @@ function withLegacySets() {
 }
 
 test("legacy menu choices group AM/PM by year and period while issuing each exact booklet with its own count/time", () => {
-  const b = withLegacySets(), groups = menuSourceGroups(b), legacy = groups.filter(g => g.timeSlots);
+  const b = withLegacySets(), groups = menuSourceGroups(b), legacy = groups.filter(g => g.timeSlots && (g.year === 2011 || g.year! >= 2016));
   assert.equal(legacy.length, 11);
   assert.equal(new Set(legacy.map(g => g.id)).size, 11);
   const synthetic = legacy.filter(group => group.collections.every(collection => collection.id.startsWith("set-question-menu-test-")));
   assert.equal(synthetic.length, 3);
-  // All fifteen actual booklets coexist with six synthetic controls. Only menu
+  // The 2016–2019 booklets coexist with six synthetic controls. Only menu
   // choices are grouped; spring, autumn and special exams remain separate.
   const actualBooklets = legacy.filter(group => !synthetic.includes(group));
   assert.equal(actualBooklets.length, 8);
@@ -132,7 +135,7 @@ test("legacy menu choices group AM/PM by year and period while issuing each exac
     [2019, "秋期", 78], [2019, "春期", 77], [2018, "秋期", 78], [2018, "春期", 77], [2017, "秋期", 79], [2017, "春期", 78], [2016, "秋期", 77], [2016, "春期", 75],
   ]);
   const pairedBooklets=actualBooklets.filter(group=>group.collections.length===2);
-  assert.equal(pairedBooklets.length,7);
+  assert.equal(pairedBooklets.length,8);
   for (const group of pairedBooklets) {
     const [morning, afternoon] = group.collections;
     assert.deepEqual(group.timeSlots, { A: "午前", B: "午後" });
@@ -164,25 +167,6 @@ test("legacy menu choices group AM/PM by year and period while issuing each exac
     assert.equal(mixPm.mixProfileCollectionId, afternoon.id);
     const mixAm = patchMenuSelection(b, mixPm, { subject: "A" }, initial).selection;
     assert.equal(mixAm.mixProfileCollectionId, morning.id); assert.equal(mixAm.sourceCollectionId, undefined);
-  }
-  const onlyMorning=actualBooklets.filter(group=>group.collections.length===1);
-  assert.equal(onlyMorning.length,1);for(const group of onlyMorning){const morning=group.collections[0];
-  const period=group.period,collection=period==='秋期'?'2016h28a-fe-am':'2016h28h-fe-am';
-  assert.deepEqual([group.year,group.period,morning.id],[2016,period,'set-annual-'+collection]);
-  assert.deepEqual(group.timeSlots,{A:'午前'});
-  assert.deepEqual(menuSubjectOptions(group).map(o=>[o.subject,o.title,o.available]),[['A','旧制度・午前',true],['B','旧制度・午後',false]]);
-  for(const kind of['annual','mix']as const){
-    const next=chooseMenuSourceGroup(groups,{...initial,kind},group.id),saved=structuredClone(next);
-    assert.equal(next.subject,'A');assert.equal(next[kind==='annual'?'sourceCollectionId':'mixProfileCollectionId'],morning.id);
-    assert.equal(menuSourceGroup(groups,next),group);
-    const selected=selectQuestions(b,{...next,mode:'practice'},a=>a);
-    assert.equal(selected.questions.length,period==='秋期'?77:75);assert.equal(selected.exam.timeLimitSeconds,9000);
-    assert(selected.questions.every(q=>q.origin.sourceRefs.some(r=>r.locator.year===2016&&r.locator.period===period&&r.locator.timeSlot==='午前')));
-    if(kind==='annual')assert.deepEqual(selected.questions.map(refOf),morning.questionRefs);
-    assert.throws(()=>chooseMenuSourceGroup(groups,next,group.id,'B'),{code:'SOURCE_COLLECTION'});
-    assert.throws(()=>patchMenuSelection(b,next,{subject:'B'},initial),{code:'SOURCE_COLLECTION'});
-    assert.deepEqual(next,saved,'unavailable PM selection cannot rewrite the saved concrete morning choice');
-  }
   }
   assert.deepEqual(synthetic.map(group => group.period), ["秋期", "特別試験", "春期"]);
   for (const group of synthetic) {

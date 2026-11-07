@@ -1,0 +1,236 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-004",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": true,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "held": [],
+  "questionPaperSHA256": "c28c186bd1888fa63287fa2e44ec0f3ff9e16495229a3d508e6a4201048b4692",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-004-2016-spring-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "41953c66e729a8fc37db9c6ae888a24d1ea447c5e31e8438b18707cf951bd9bb",
+      "byteLength": 4055
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-004-2016-spring-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "5e35981d1c39f5df0b2a6345f7e4808cc733409cbc4538925a3dd2022e254c19",
+      "byteLength": 2265
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-004/local.json",
+      "sha256": "9ac72be42437a8b9fc2b25337a494a4435a8b451c72095f96424a5d451ad5d2e",
+      "byteLength": 21680
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-01-04.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-01-04.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-01-04.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-01-04.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-05-08.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 6,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-05-08.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-05-08.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-05-08.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-09-13.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 10,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-09-13.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-09-13.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-09-13.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2016-spring-pm-09-13.test.ts",
+        "tests/legacy-2016-spring-pm-integration.test.ts",
+        "tests/booklets/2016-spring-pm/bookmarks.test.ts",
+        "tests/booklets/2016-spring-pm/open-ended-sessions.test.ts",
+        "tests/booklets/2016-spring-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}
