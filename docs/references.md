@@ -371,3 +371,11 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 問40はプライバシーマーク制度、問50は共通フレーム2013、問55はITIL 2011に関する具体的表現の利用条件を確認中とする。原画像、全文、可変版は保留し、全80問の台帳と欠番を保持する。確認済みの問題に適用した出典・改変表示・権利留保はアプリで確認できる。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[IPAウェブサイトの利用条件](https://www.ipa.go.jp/siteinfo.html)。
 
 問65は原問題のIRRの注記を保存し、可変問題には割引を考慮しない条件を明示する。問79・80は2015年10月18日の出題時点の法令に対応させた。素材の判断、出典、対象全問の正答は `scripts/source-evidence/legacy-2015-autumn-am-source-review.json` と問題集の検証資料に記録する。既知最小3,062問／大問のうち886件を収録し、2,176件の未収録と取得境界の未確定を管理する。[IPAの2019年度春期問65](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000ddiw-att/2019h31h_fe_am_qs.pdf)・[国土交通省のIRRの定義](https://www.mlit.go.jp/common/001205703.pdf)。
+
+### 第3段階 S3-006 2015年度秋期・旧午後
+
+13大問を収録する。問1の二つ選ぶ設問には二つの選択枠を用意するため、公式解答表79行に対してアプリでは80選択枠になる。問1のb・cと二つ選ぶ設問は順不同で採点する。年度別・ランダムミックスの時間付き練習では問1・8を必須とし、問2〜7から4大問、問9〜13から1大問を選んで計7大問を150分で解く。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_pm_ans.pdf)・[出題趣旨・採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_pm_cmnt.pdf)。
+
+共通擬似言語は冊子3〜4頁、表計算の付属資料は79〜84頁を参照する。CASL IIの75頁は上部の命令と注記を収録し、下部のJIS文字の符号表は配布対象外とする。問11にはJava SE 8の必要なAPIの動作を独自に説明した資料を用意する。原資料の71〜72頁には出典からアクセスできる。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Java SE 8 List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)・[Java SE 8 ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)・[Java SE 8 System.arraycopy](https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-)。
+
+素材の範囲、出典、正答と画像の照合値は `scripts/source-evidence/legacy-2015-autumn-pm-source-review.json` に記録する。既知最小3,062問／大問のうち899件が掲載範囲となり、2,163件の未収録と取得境界の未確定を管理する。
