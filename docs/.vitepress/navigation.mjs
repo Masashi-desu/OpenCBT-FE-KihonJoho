@@ -10,6 +10,7 @@ export const sidebar = [
     { text: '問題取り込み・利用条件', link: '/ingestion' },
     { text: '旧午後の段階的な追加', link: '/pre-2023-stage2' },
     { text: '問題作成・可変問題の品質規約', link: '/question-authoring' },
+    { text: '本文固定229系列の個別査読', link: '/stem-diversity-review' },
     { text: 'UI資料の参照方針', link: '/ui-reference' }
   ] },
   { text: 'データの仕様', items: [

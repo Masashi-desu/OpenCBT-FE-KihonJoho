@@ -3,15 +3,17 @@
   "use strict";
   const data = ["W", "X", "Y", "Z"], a = ["W", "X", "Y", "Z"];
   const operation = d => `${d === "W" ? "read" : "update"} ${d}`;
-  const mode = d => d === "W" ? "S" : "X";
+  const mode = (d, exclusiveW = false) => d === "W" && !exclusiveW ? "S" : "X";
   function variant(context) {
     if (!context?.generation) return 0;
     const g = context.generation, v = g.parameters?.values;
-    if (g.generatorRef?.id !== "generator-source-2019r01a-fe-am-29" || g.generatorRef.version !== "3.2.0" || !Array.isArray(v) || v.length !== 1 || !Number.isInteger(v[0]) || v[0] < 0 || v[0] > 15) throw Error("保存された生成条件に対応していません。");
+    if (g.generatorRef?.id !== "generator-source-2019r01a-fe-am-29" || g.generatorRef.version !== "3.7.0" || !Array.isArray(v) || v.length !== 1 || !Number.isInteger(v[0]) || v[0] < 0 || v[0] > 16) throw Error("保存された生成条件に対応していません。");
     return v[0];
   }
   function choices(context) {
-    const v = variant(context), rows = [
+    const v = variant(context), rows = v === 16 ? [
+      ["X", "W", "Y", "Z"], ["Y", "W", "Z", "X"], ["W", "Y", "Z", "X"], ["Z", "X", "W", "Y"],
+    ] : [
       ["W", ...(v & 1 ? ["Z", "X", "Y"] : ["Y", "X", "Z"])],
       ["W", ...(v & 2 ? ["Z", "Y", "X"] : ["Y", "Z", "X"])],
       v & 4 ? ["W", "X", "Y", "Z"] : ["X", "W", "Y", "Z"],
@@ -22,12 +24,13 @@
     if (order.length !== 4 || indices.some(i => !i) || new Set(indices).size !== 4) throw Error("選択肢の対応を確認できません。");
     return order.map((c, i) => ({ ...c, order: rows[Number(indices[i]) - 1] }));
   }
-  function trace(order) {
+  function trace(order, exclusiveW = false) {
+    const lockMode = d => mode(d, exclusiveW);
     if (!Array.isArray(order) || order.length !== 4 || new Set(order).size !== 4 || order.some(d => !data.includes(d))) throw Error("処理順序を選び直してください。");
     const programs = { A: a, B: [...order] }, pc = { A: 0, B: 0 }, issued = { A: 0, B: 0 }, phase = { A: "growing", B: "growing" };
     const locks = Object.fromEntries(data.map(d => [d, []])), waiting = { A: null, B: null }, result = [];
     let deadlock = false;
-    const blockers = (tx, d) => locks[d].filter(owner => owner !== tx && mode(d) === "X");
+    const blockers = (tx, d) => locks[d].filter(owner => owner !== tx && lockMode(d) === "X");
     function save(kind, title, text, tx = null, d = null, index = null) {
       const waits = Object.fromEntries(["A", "B"].map(t => [t, waiting[t] ? { data: waiting[t], blockers: blockers(t, waiting[t]) } : null]));
       result.push(JSON.parse(JSON.stringify({ kind, title, text, tx, data: d, index, pc, issued, phase, locks, waiting: waits, deadlock })));
@@ -37,7 +40,7 @@
       save("commit", `${tx}：コミット・解放相へ`, "全ての処理に必要なロックを獲得し、更新を確定します。この解説では終了まで保持し、ここから一つずつ解放します。解放相では新しいロックを獲得しません。", tx);
       for (const d of programs[tx]) {
         locks[d] = locks[d].filter(t => t !== tx);
-        save("release", `${tx}：${d}の${mode(d) === "S" ? "共有" : "専有"}ロックを解放`, `${tx}が保持していた${d}のロックを解放しました。${d === "W" && locks[d].length ? `もう一方の${locks[d][0]}の共有ロックは残ります。` : "保持者欄と待ち関係の変化を確認してください。"}`, tx, d);
+        save("release", `${tx}：${d}の${lockMode(d) === "S" ? "共有" : "専有"}ロックを解放`, `${tx}が保持していた${d}のロックを解放しました。${lockMode(d) === "S" && locks[d].length ? `もう一方の${locks[d][0]}の共有ロックは残ります。` : "保持者欄と待ち関係の変化を確認してください。"}`, tx, d);
       }
       phase[tx] = "done";
       save("finish", `${tx}：終了`, `${tx}の全ロックを解放しました。待っている相手は、停止した命令から再開できます。`, tx);
@@ -54,7 +57,7 @@
         return;
       }
       waiting[tx] = null; locks[d].push(tx); pc[tx]++;
-      save(retry ? "resume" : "acquire", `${tx}：${retry ? "再開・" : ""}${d}の${mode(d) === "S" ? "共有" : "専有"}ロックを獲得`, `${operation(d)}を実行します。${d === "W" ? "共有ロック同士は両立するので、相手がWを読んでいても獲得できます。" : "専有ロックを保持する間、相手は同じデータを更新できません。"}${retry ? "待っていた命令から再開し、発行済みの後続命令も順番に処理します。" : ""}`, tx, d, i);
+      save(retry ? "resume" : "acquire", `${tx}：${retry ? "再開・" : ""}${d}の${lockMode(d) === "S" ? "共有" : "専有"}ロックを獲得`, `${operation(d)}を実行します。${lockMode(d) === "S" ? "共有ロック同士は両立するので、相手がWを読んでいても獲得できます。" : "専有ロックを保持する間、相手は同じデータを更新できません。"}${retry ? "待っていた命令から再開し、発行済みの後続命令も順番に処理します。" : ""}`, tx, d, i);
       if (pc[tx] === 4) complete(tx);
     }
     function drain() {
@@ -67,7 +70,7 @@
         }
       } while (progress);
     }
-    save("start", "「次へ」で命令とロックを追う", "上からA・B交互の発行順で進みます。read Wは共有（S）、update X・Y・Zは専有（X）ロックです。図の命令やデータを選ぶと、現在の状態を確認できます。");
+    save("start", "「次へ」で命令とロックを追う", (exclusiveW ? "今回はWの読取りにも専有ロックを要求します。" : "Wの読取りは共有ロック、更新は専有ロックを要求します。") + "上からA・B交互の発行順で進みます。図の命令やデータを選ぶと、現在の状態を確認できます。");
     for (let tick = 0; tick < 8 && !deadlock; tick++) {
       const tx = tick % 2 ? "B" : "A", i = issued[tx]++, d = programs[tx][i];
       if (waiting[tx]) save("queued", `${tx}：${operation(d)}の発行位置`, "図の位置は命令の発行時点です。先の命令がロック待ちのため、この後続命令はまだ実行せず、ロックも要求しません。", tx, d, i);

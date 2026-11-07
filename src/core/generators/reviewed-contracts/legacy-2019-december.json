@@ -191,44 +191,44 @@
       "canonical": {
         "metadata": {
           "source": "sample-2022-dec-a-10",
-          "title": "外部割込み",
+          "title": "割込みの発生原因",
           "sourceAnswer": "ウ",
           "fields": [
             {
-              "name": "外部の発生原因",
+              "name": "問う割込みの区分と発生原因",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 5
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 命令の実行に起因する3候補と外部装置の事象1候補を区別する。原因を変え、名称だけの置換にしない。",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原因を選ぶ原形式を維持し、外部・内部の区分を本文にバインドする。各区分の3原因と誤答を同時に切り替える。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "bf5ee23380be5a22df1b6258ec9b5539a26ce3758da0064f6ed2fa46a31ca7c2",
-        "completeMetadataOrigin": "Existing fixed full canonical metadata rechecked by parent."
+        "metadataSha256": "7e510934d1d10ab1df78279d8bf1a6f521061d778b4081c6caf863ed6d439c67",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "adapter": {
         "metadata": {
           "source": "2019h31h-fe-am-9",
-          "title": "外部割込み",
+          "title": "割込みの発生原因",
           "sourceAnswer": "ウ",
           "fields": [
             {
-              "name": "外部の発生原因",
+              "name": "問う割込みの区分と発生原因",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 5
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 命令の実行に起因する3候補と外部装置の事象1候補を区別する。原因を変え、名称だけの置換にしない。 2019年度の独立した原問題2019h31h-fe-am-9に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-10であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全151有効出力の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原因を選ぶ原形式を維持し、外部・内部の区分を本文にバインドする。各区分の3原因と誤答を同時に切り替える。 2019年度の独立した原問題2019h31h-fe-am-9に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-10であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全条件の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "6f756f83cdcb348c223fd0c41b22eae4a31d87f59e4e47c7635db6ca96d7c9fc",
-        "completeMetadataOrigin": "Old constructor full metadata explicitly parent-approved now."
+        "metadataSha256": "1cea17998b36602bba9047d4720d3ba0c4813e8a014485ff6d0a25e2fd069e26",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "binding": {
         "source": "2019h31h-fe-am-9",
@@ -240,17 +240,17 @@
         "domain": [
           [
             0,
-            2
+            5
           ]
         ],
         "fields": [
           {
-            "name": "外部の発生原因",
+            "name": "問う割込みの区分と発生原因",
             "minimum": 0,
-            "maximum": 2
+            "maximum": 5
           }
         ],
-        "version": "3.2.0",
+        "version": "3.3.0",
         "answerVariation": "variable"
       },
       "codec": "content-hash-v1",
@@ -259,19 +259,37 @@
           "values": [
             0
           ],
-          "sha256": "dc19d6c5bf96d2789efa26350e92f33c32e24ee481518a553c0b12a94818fd7b"
+          "sha256": "de4167a3dd28e73084f1fcde20d1457aad2f04562ad39016650f6ce1cfd0fe95"
         },
         {
           "values": [
             1
           ],
-          "sha256": "1085db46ab9b2f7294d538d192b7f45b890aacbb53856aa325e9a77946b0b5fd"
+          "sha256": "92de1217b21e6bdeb8e628e2412a1aac6f237378ab173aa648b07c9b6af0cb2a"
         },
         {
           "values": [
             2
           ],
-          "sha256": "fa92be7d9c5cb99c4ff4fe1ea2c660e69c4dbebb6b22ba04302bff383927e30d"
+          "sha256": "cf2be4663f6a0c6f720cda4cf81e769e952f5e5602bc402099aef15125a1ccba"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "bba4d0ae8c28b4ca2a02af572481e416df5b00cce96f79b1ba8b2cf8015736df"
+        },
+        {
+          "values": [
+            4
+          ],
+          "sha256": "a3e36127cf058cd5936e2e0545d17413d9c661d90269111b302765fdfefb9f5e"
+        },
+        {
+          "values": [
+            5
+          ],
+          "sha256": "efc3b162bd265f5b0b30838bd780c0c2e935d112d85a8d20329f601561a5ea15"
         }
       ],
       "rejections": [],
@@ -311,6 +329,45 @@
               "source": "sample-2022-dec-a-10",
               "values": [
                 2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-10",
+              "values": [
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            4
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-10",
+              "values": [
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            5
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-10",
+              "values": [
+                5
               ]
             }
           ]
@@ -700,46 +757,44 @@
       "canonical": {
         "metadata": {
           "source": "sample-2022-dec-a-16",
-          "title": "インタプリタ",
+          "title": "インタプリタと関連する処理系",
           "sourceAnswer": "ア",
           "fields": [
             {
-              "name": "着目する条件・記述",
+              "name": "問う処理系",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 3
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。 正答の定義は固定し、誤答の処理機構・解決条件を変える。",
-          "answerVariation": "fixed",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明を選ぶ四択を維持し、四つの処理の役割に対応する用語を本文にバインドする。基準では原問の推論と翻訳を混同した記述を保持し、他の条件では推論エンジンの処理を正確に記述する。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "2402ec9c6f1b1fb77bce006e9ae8a34ebd70cd174d0751406173cbb909eed33e",
-        "completeMetadataOrigin": "Existing fixed full canonical metadata rechecked by parent."
+        "metadataSha256": "8d66625622091e48c49f522cdbf46fa110c9ea5b2ff8a8978aec80505ec76d5b",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "adapter": {
         "metadata": {
           "source": "2019h31h-fe-am-19",
-          "title": "インタプリタ",
+          "title": "インタプリタと関連する処理系",
           "sourceAnswer": "ア",
           "fields": [
             {
-              "name": "着目する条件・記述",
+              "name": "問う処理系",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 3
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。 正答の定義は固定し、誤答の処理機構・解決条件を変える。 2019年度の独立した原問題2019h31h-fe-am-19に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-16であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全151有効出力の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
-          "answerVariation": "fixed",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明を選ぶ四択を維持し、四つの処理の役割に対応する用語を本文にバインドする。基準では原問の推論と翻訳を混同した記述を保持し、他の条件では推論エンジンの処理を正確に記述する。 2019年度の独立した原問題2019h31h-fe-am-19に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-16であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全条件の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "a5386b4abadec10747b96769c0f0c65ebde82cb934ba518821665c89f300f74a",
-        "completeMetadataOrigin": "Old constructor full metadata explicitly parent-approved now."
+        "metadataSha256": "baf33ef00637e04c7552e323ddae8b41166f49ecfd7c87ca149af6384bba023e",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "binding": {
         "source": "2019h31h-fe-am-19",
@@ -751,18 +806,18 @@
         "domain": [
           [
             0,
-            2
+            3
           ]
         ],
         "fields": [
           {
-            "name": "着目する条件・記述",
+            "name": "問う処理系",
             "minimum": 0,
-            "maximum": 2
+            "maximum": 3
           }
         ],
-        "version": "3.2.0",
-        "answerVariation": "fixed"
+        "version": "3.3.0",
+        "answerVariation": "variable"
       },
       "codec": "content-hash-v1",
       "outputs": [
@@ -770,19 +825,25 @@
           "values": [
             0
           ],
-          "sha256": "aac58d532271c195988129c3b0eb070287487e51d4daf7fc821f4b8d16d7d8dd"
+          "sha256": "49007321d76c1db3e334199c243b16f13e82a6e22a8c512a102de8abeef16775"
         },
         {
           "values": [
             1
           ],
-          "sha256": "6f01ee4ef1373841a06624ae23dc499de9d66f458dde612d10c34326de0dbced"
+          "sha256": "d78dddd6a380ce9ac14f2fb843a3c6384907a8dacdb272ea7971011aa88276ba"
         },
         {
           "values": [
             2
           ],
-          "sha256": "9814e087c35a3bfdbb1ef719ce54a56c8314e91d44d495cfdd78072aaaf6c8f3"
+          "sha256": "e5559b3c426b1784c7a4e32e5ad6699814606a6d4c5f5a997b67735df4f20998"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "334672bb6318553c3ad81dbc1053e246601a509ab18fdd656f1d2622bdfae5a2"
         }
       ],
       "rejections": [],
@@ -822,6 +883,19 @@
               "source": "sample-2022-dec-a-16",
               "values": [
                 2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-16",
+              "values": [
+                3
               ]
             }
           ]
@@ -4138,44 +4212,44 @@
       "canonical": {
         "metadata": {
           "source": "sample-2022-dec-a-19",
-          "title": "DRAM",
+          "title": "半導体メモリの特徴",
           "sourceAnswer": "エ",
           "fields": [
             {
-              "name": "着目する条件・記述",
+              "name": "問うメモリの種類",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 3
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 特徴を選ぶ原形式で、四種類の半導体メモリを本文にバインドする。基準の三つの誤答は保持し、他の種類を問うときは不揮発性などの共通性質だけでは正答が重複しないように候補を具体化する。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "13990552332ff0139fff9de0ac3cc47fdc195caa2692311c3bcee2ef7f303b40",
-        "completeMetadataOrigin": "Existing fixed full canonical metadata rechecked by parent."
+        "metadataSha256": "cabe1aac9c3779f2c33c6e53b92a869dd357dc4031de5df1b3e56e81d837b818",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "adapter": {
         "metadata": {
           "source": "2019r01a-fe-am-20",
-          "title": "DRAM",
+          "title": "半導体メモリの特徴",
           "sourceAnswer": "エ",
           "fields": [
             {
-              "name": "着目する条件・記述",
+              "name": "問うメモリの種類",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 3
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。 2019年度の独立した原問題2019r01a-fe-am-20に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-19であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全151有効出力の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 特徴を選ぶ原形式で、四種類の半導体メモリを本文にバインドする。基準の三つの誤答は保持し、他の種類を問うときは不揮発性などの共通性質だけでは正答が重複しないように候補を具体化する。 2019年度の独立した原問題2019r01a-fe-am-20に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-19であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全条件の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "cf6b237bd20f578317e7ca70728cf65062cd52a83bcf11c4860fc308bdb9de26",
-        "completeMetadataOrigin": "Old constructor full metadata explicitly parent-approved now."
+        "metadataSha256": "abc87e06ccd08ea89ee1748401fe5c2777cd5c34ec3eea1cddc4de77ccaec2a9",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "binding": {
         "source": "2019r01a-fe-am-20",
@@ -4187,17 +4261,17 @@
         "domain": [
           [
             0,
-            2
+            3
           ]
         ],
         "fields": [
           {
-            "name": "着目する条件・記述",
+            "name": "問うメモリの種類",
             "minimum": 0,
-            "maximum": 2
+            "maximum": 3
           }
         ],
-        "version": "3.2.0",
+        "version": "3.3.0",
         "answerVariation": "variable"
       },
       "codec": "content-hash-v1",
@@ -4206,19 +4280,25 @@
           "values": [
             0
           ],
-          "sha256": "e14448977b1b974612146f5aaf3c883dbd2cd875f8e70c2ad01a1f469b36e0f7"
+          "sha256": "90833329db06d9986b51b64b17ea88895dd417e40e22284127e3b25a18be1f99"
         },
         {
           "values": [
             1
           ],
-          "sha256": "81d3b81448698f4aaf3baa82782cdeb64a598c69f008599385aa7f6320b184da"
+          "sha256": "40dfb6ccf593c943fb1b0dd27b50b40803eebd55e4aebccf8edb41fcebd0d0b7"
         },
         {
           "values": [
             2
           ],
-          "sha256": "2090dca1ee0f34d14abf7c6dd372b8467626cc9df45bc8846079c0fc15414eda"
+          "sha256": "17b2427fb393d219ad2a290dbf3cefaf4bce5fb02385d142757f08ae1aaf6b11"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "2d496774b4e5d0bb4bcbd46cf24fbb250fb140911ef895d780477967b6411f96"
         }
       ],
       "rejections": [],
@@ -4258,6 +4338,19 @@
               "source": "sample-2022-dec-a-19",
               "values": [
                 2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-19",
+              "values": [
+                3
               ]
             }
           ]
@@ -4419,44 +4512,44 @@
       "canonical": {
         "metadata": {
           "source": "sample-2022-dec-a-35",
-          "title": "マルウェアの動的解析",
+          "title": "マルウェアの動的解析と静的解析",
           "sourceAnswer": "イ",
           "fields": [
             {
-              "name": "着目する条件・記述",
+              "name": "問う解析手法と観測項目",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 5
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 解析の事例を選ぶ原形式で、動的解析又は静的解析を本文にバインドする。各手法で実行の有無が異なる観測項目を3組ずつ用意し、該当する選択肢を一つにする。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "986bb6d66aec55f0699c79522286f34980649d602a076aa2417a35e7b79f2820",
-        "completeMetadataOrigin": "Existing fixed full canonical metadata rechecked by parent."
+        "metadataSha256": "f1804d88e2412bade9744bff22afb113d610105a141ebd5320fefd2f34c14a59",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "adapter": {
         "metadata": {
           "source": "2019r01a-fe-am-36",
-          "title": "マルウェアの動的解析",
+          "title": "マルウェアの動的解析と静的解析",
           "sourceAnswer": "イ",
           "fields": [
             {
-              "name": "着目する条件・記述",
+              "name": "問う解析手法と観測項目",
               "minimum": 0,
-              "maximum": 2
+              "maximum": 5
             }
           ],
           "reference": [
             0
           ],
-          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 問いの対象と肯定条件は固定。着目する性質と誤答の意味を変える。選択肢の並替え・名称置換だけにしない。独立した固定査読資料で全記述の真偽と正答一意性を検査。 2019年度の独立した原問題2019r01a-fe-am-36に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-35であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全151有効出力の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
-          "version": "3.2.0"
+          "notes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 解析の事例を選ぶ原形式で、動的解析又は静的解析を本文にバインドする。各手法で実行の有無が異なる観測項目を3組ずつ用意し、該当する選択肢を一つにする。 2019年度の独立した原問題2019r01a-fe-am-36に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）はsample-2022-dec-a-35であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全条件の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。",
+          "version": "3.3.0"
         },
-        "metadataSha256": "91f4fea3aa2689aabb02195fbb31475a19d5d24573a6c87dbc527c8e67e9face",
-        "completeMetadataOrigin": "Old constructor full metadata explicitly parent-approved now."
+        "metadataSha256": "7aded34a1ab41b929d1e33f9ef35c1c202b41f52b722720ecb6d36f3d211f94e",
+        "completeMetadataOrigin": "2026-11-07の出題対象バインド改訂。原画像と全入力の独立意味検証を照合。"
       },
       "binding": {
         "source": "2019r01a-fe-am-36",
@@ -4468,17 +4561,17 @@
         "domain": [
           [
             0,
-            2
+            5
           ]
         ],
         "fields": [
           {
-            "name": "着目する条件・記述",
+            "name": "問う解析手法と観測項目",
             "minimum": 0,
-            "maximum": 2
+            "maximum": 5
           }
         ],
-        "version": "3.2.0",
+        "version": "3.3.0",
         "answerVariation": "variable"
       },
       "codec": "content-hash-v1",
@@ -4487,19 +4580,37 @@
           "values": [
             0
           ],
-          "sha256": "355b02d6d33b054b30a26bf86bacdf0d318385f18f4a66ffe434b5e9fd3565bb"
+          "sha256": "54d8cdffbf8b281fdc54b6ad14f8baa73883e99c0e8748008affb8602d6b18f8"
         },
         {
           "values": [
             1
           ],
-          "sha256": "7f508774f5a148c7492f86f4dbea400e66e6cb07b6fdde9cb18743a3b4b7c39c"
+          "sha256": "05248a62e0659114cd18dc40c992f2b40238ee8fc578ed7bece9b23e059dd6e7"
         },
         {
           "values": [
             2
           ],
-          "sha256": "0f829b77514633c161cb61a38fa737365088e6489764f1d85ef172b95b9201e8"
+          "sha256": "e3ed5589f3dc5b34b72ee300155290693fab8a6c637d74282719dbfa1580912e"
+        },
+        {
+          "values": [
+            3
+          ],
+          "sha256": "9e236ce96dae9b210f864ec3a3b2f3b41e2b2ceee2ff3bed820b5396b1338a8b"
+        },
+        {
+          "values": [
+            4
+          ],
+          "sha256": "f8b9f2edbd06eeceba3ab9b0f640d6018fb43fe57cd618f0a765a43cb0b085fc"
+        },
+        {
+          "values": [
+            5
+          ],
+          "sha256": "3541884d9b5b6124ce93668546aef21e10d2bd0e276a8b0898a834f236ea6c61"
         }
       ],
       "rejections": [],
@@ -4539,6 +4650,45 @@
               "source": "sample-2022-dec-a-35",
               "values": [
                 2
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            3
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-35",
+              "values": [
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            4
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-35",
+              "values": [
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "values": [
+            5
+          ],
+          "reads": [
+            {
+              "source": "sample-2022-dec-a-35",
+              "values": [
+                5
               ]
             }
           ]

@@ -3,6 +3,7 @@ import { DataError } from '../errors';
 import { additionalDefinition, additionalVersion, registerAdditionalDefinitions } from './index';
 import { legacy2016SpringFundamentalDefinitions } from './legacy-2016-spring-fundamentals';
 import { variableNotes, type GenerationDefinition } from './definition';
+import { addReviewedStemCase } from './reviewed-stem-cases';
 import { spring2016CommonContexts } from './legacy-2016-spring-am-common';
 import { legacy2016SpringAm0932Definitions } from './legacy-2016-spring-am-09-32';
 import { legacy2016SpringAm3356Definitions } from './legacy-2016-spring-am-33-56';
@@ -30,7 +31,7 @@ export const stage3AutumnMorningDefinitions:readonly GenerationDefinition[]=[
   ...legacy2016AutumnAm0140Definitions(),...legacy2016AutumnAm4180Definitions,
 ].map(d=>({...d,notes:d.notes+' 2016年度秋期の共通表記p2–3（規格の版、論理回路・回路記号と注記）を解答前の参照資料に保持する。',
   build:(values:number[])=>{const body=d.build(values);return{...body,contexts:[...autumn2016CommonContexts(),...(body.contexts??[])]};}}));
-export const stage3AllMorningDefinitions:readonly GenerationDefinition[]=[...stage3MorningDefinitions,...stage3AutumnMorningDefinitions];
+export const stage3AllMorningDefinitions:readonly GenerationDefinition[]=[...stage3MorningDefinitions,...stage3AutumnMorningDefinitions].map(addReviewedStemCase);
 
 export function ensureStage3MorningGenerators(bundle: Bundle, executable?: ReadonlySet<string>) {
   const requested = bundle.templates.filter(t => sourcePattern.test(t.generatorRef.id) &&

@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { readDistributionBundle, encodeRecordPacks } from '../scripts/distribution-files';
 import { stage3CollectionFiles } from '../scripts/stage3-collection-transport';
 import { makeStage3MorningRecords, spring2016SourceRef } from '../scripts/stage3-morning-records';
-import { stage3MorningDefinitions } from '../src/core/generators/stage3-morning-install';
+import { stage3AllMorningDefinitions } from '../src/core/generators/stage3-morning-install';
 import { readCatalog } from '../src/core/catalog-reader';
 import { catalogKinds } from '../src/core/catalog-files';
 import { contentHash } from '../src/core/hash';
@@ -19,7 +19,7 @@ async function candidate() {
     crop:{path:'synthetic-unit-only.png',sha256:c.sha256,width:1030,height:200,byteLength:100,cropBox:[0,0,1030,200]}}));
   const assets=[2,3].map(n=>({schemaVersion:'3.0.0',id:'asset-synthetic-common-'+n,path:'assets/synthetic-common-'+n+'.png',mediaType:'image/png',sha256:'0'.repeat(64),width:32,height:32,byteLength:100,alt:'Synthetic common material for unit transport only.',
     attribution:{origin:'official',sourceRefs:[spring2016SourceRef(undefined,n)],rightsRefs:['rights-ipa-2016h28h-fe-am'],creatorIds:['ipa']}} as Asset));
-  return makeStage3MorningRecords({facts,definitions:stage3MorningDefinitions,commonAssets:assets,sources:structuredClone(references.sources) as Source[],rights:structuredClone(references.rights) as Rights[],checkedOn:'2026-11-01'});
+  return makeStage3MorningRecords({facts,definitions:stage3AllMorningDefinitions,commonAssets:assets,sources:structuredClone(references.sources) as Source[],rights:structuredClone(references.rights) as Rights[],checkedOn:'2026-11-01'});
 }
 
 // Reconstruct the pre-collection transport fixture from current records without

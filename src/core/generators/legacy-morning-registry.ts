@@ -1,5 +1,6 @@
 import type { Question, Template } from "../types";
 import type { GenerationDefinition } from "./definition";
+import { addReviewedStemCase } from "./reviewed-stem-cases";
 import { effectivePublicDefinitions } from "./effective-public";
 import {makeLegacyMorningProviders} from "./legacy-morning-providers";
 import { makeCriticalPathDependency, type CoreQuestionBinder } from "./core-dependency";
@@ -63,7 +64,7 @@ export async function makeLegacyMorningRegistry(input: {
   if (new Set(definitions.map(d => d.source)).size !== definitions.length ||
       definitions.some(d => !morningSource.test(d.source)))
     throw Error("MORNING_REGISTRY_SCOPE");
-  return Object.freeze(definitions.map(d => {
+  return Object.freeze(definitions.map(addReviewedStemCase).map(d => {
     const { build, ...metadata } = d;
     const owned = freeze(structuredClone(metadata));
     return Object.freeze({ ...owned, build: (values: number[]) =>

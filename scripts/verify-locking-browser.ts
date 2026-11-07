@@ -90,14 +90,14 @@ fs.writeFileSync(output + "/verify.js", `async page => {
 await installFixtureGenerators();
 const b = fixture(), original = b.questions.find(q => q.id === "question-ipa-2019r01a-fe-am-29")!;
 const runs = new Map<number, Awaited<ReturnType<typeof finishRun>>>();
-for (let attempt = 0; attempt < 1024 && runs.size < 16; attempt++) {
+for (let attempt = 0; attempt < 1024 && runs.size < 17; attempt++) {
   let run = startRun(await prepareRun(b, { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: { questionId: original.id, revision: original.revision } }, {}));
   const variant = run.instances[0].parameters.values[0];
   if (runs.has(variant)) continue;
   run = updateAnswer(run, run.issued[0].choices[1].id); run.session.entries[0].revealed = true;
   run = finishRun(run, "completed"); await validateRun(run); runs.set(variant, run);
 }
-if (runs.size !== 16) throw Error("Missing a saved generator variant");
+if (runs.size !== 17) throw Error("Missing a saved generator variant");
 const ordered = [...runs].sort(([a], [b]) => a - b).map(([, run]) => run);
 const savedBundle = ordered[0].bundle;
 if (ordered.some(run => JSON.stringify(run.bundle) !== JSON.stringify(savedBundle))) throw Error("Saved source snapshots differ");
@@ -123,7 +123,7 @@ fs.writeFileSync(output + "/saved.js", `async page=>{
       await f.locator('#seek').press('End');
       check((await f.locator('#step-title').innerText()).includes(c.id==='choice-value-3'?'デッドロックなし':'デッドロック：'),'saved result');
     }
-    if(v===0||v===15){await f.locator('.diagram-viewport').scrollIntoViewIfNeeded();await page.screenshot({path:${JSON.stringify(output)}+'/generated-'+v+'-'+width+'.png'})}
+    if(v===0||v===15||v===16){await f.locator('.diagram-viewport').scrollIntoViewIfNeeded();await page.screenshot({path:${JSON.stringify(output)}+'/generated-'+v+'-'+width+'.png'})}
     check(await f.evaluate(()=>JSON.stringify(window.OpenCBTDetail.context))===before,'frozen context unchanged');
     check(await f.evaluate(()=>{try{parent.document.body;return false}catch{return Object.isFrozen(window.OpenCBTDetail.context)}}),'isolated host');
     await page.getByRole('button',{name:'通常解説へ戻る',exact:true}).click();

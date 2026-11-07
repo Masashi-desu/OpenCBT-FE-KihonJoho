@@ -1,4 +1,5 @@
 import test from "node:test";
+import {decABoundKnowledgeReview} from "./fixtures/dec-a-bound-knowledge-review";
 import {decAFixedKnowledgeReview,decAFixedKnowledgeOracle,decAPathCounterexamples} from "./fixtures/dec-a-fixed-knowledge-review";
 import assert from "node:assert/strict";
 import {decemberADefinitions as definitions} from "../src/core/generators/sample-2022-dec-a";
@@ -19,7 +20,7 @@ test("baseline choices retain all original numeric values, expressions and knowl
  }
  assert.equal(Object.keys(decAOriginalQuantitativeChoices).length+Object.keys(decAKnowledgeSourceRoles).length+1,60);
 });
-const counts=[5,4,4,6,16,12,4,6,3,3,6,4,27,6,3,3,8,4,3,4,3,4,3,6,4,10,4,4,18,4,4,3,3,3,3,4,4,4,3,4,3,3,4,9,4,4,3,3,4,8,4,4,3,4,4,3,9,33,6,3];
+const counts=[5,4,4,6,16,12,4,6,3,6,6,4,27,6,3,4,8,4,4,4,3,4,3,6,4,10,4,4,18,4,4,3,3,3,6,4,4,4,3,4,3,3,4,9,4,4,3,3,4,8,4,4,3,4,4,3,9,33,6,3];
 for(const [i,d] of definitions.entries())test(`December A Q${i+1}: all declared inputs and independent semantics`,()=>{
  let valid=0,invalid=0;const walk=(v:number[])=>{if(v.length<d.fields.length){const f=d.fields[v.length];for(let n=f.minimum;n<=f.maximum;n++)walk([...v,n]);return;}let b;try{b=d.build(v);}catch(e){assert.equal((e as Error).message,"PARAMETER_CONSTRAINT");assert([7,59].includes(i+1));invalid++;return;}decAGeneratorOracle(i+1,b,v);valid++;};walk([]);assert.equal(valid,counts[i]);assert.equal(invalid,i===6?2:i===58?6:0);
 });
@@ -47,11 +48,26 @@ test("Q4 retains both alphabets, initial state, read direction and transition-la
  }
 });
 
-test("fixed-answer A16/A18 vary reviewed mechanisms and path-resolution behaviour",()=>{
+test("fixed-answer A18 varies reviewed path-resolution behaviour",()=>{
  decAPathCounterexamples();
- for(const n of [16,18] as const){const d=definitions[n-1],r=decAFixedKnowledgeReview[n];assert.equal(d.answerVariation,"fixed");assert.equal(d.fields[0].maximum+1,r.wrong.length);
+ for(const n of [18] as const){const d=definitions[n-1],r=decAFixedKnowledgeReview[n];assert.equal(d.answerVariation,"fixed");assert.equal(d.fields[0].maximum+1,r.wrong.length);
   assert.equal(new Set(r.mechanisms.map(x=>JSON.stringify(x))).size,r.wrong.length);
   for(let v=0;v<r.wrong.length;v++){const b=d.build([v]);decAFixedKnowledgeOracle(n,b,[v]);assert.equal(b.choices[b.correctIndex!][0].type,"paragraph");
    const other=d.build([(v+1)%r.wrong.length]);assert.throws(()=>decAFixedKnowledgeOracle(n,other,[v]),{name:"AssertionError"});}
+ }
+});
+
+
+test("A10/A16/A19/A35 bind distinct targets in the visible question and reject stale choice and explanation mappings",()=>{
+ for(const [number,review] of Object.entries(decABoundKnowledgeReview)){
+  const n=Number(number), d=definitions[n-1];
+  const cases=review.targets.map((_, variant)=>d.build([variant]));
+  assert.equal(new Set(cases.map(body=>JSON.stringify(body.prompt))).size,new Set(review.targets).size);
+  assert.equal(d.answerVariation,undefined);
+  for(const [variant,body] of cases.entries()){
+   const other=cases.find(candidate=>JSON.stringify(candidate.prompt)!==JSON.stringify(body.prompt))!;
+   assert.throws(()=>decAGeneratorOracle(n,{...body,prompt:other.prompt},[variant]),{name:"AssertionError"});
+   assert.throws(()=>decAGeneratorOracle(n,{...body,explanation:other.explanation},[variant]),{name:"AssertionError"});
+  }
  }
 });

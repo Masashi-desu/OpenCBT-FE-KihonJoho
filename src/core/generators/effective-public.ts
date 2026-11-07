@@ -100,7 +100,7 @@ export const effectivePublicDefinitions = [
             return d.build(values);
           },
         }
-      : { ...d, version: "3.2.0" as const },
+      : { ...d, version: d.version ?? "3.2.0" as const },
   )
   .map(d => wordingRevisedSources.has(d.source) ? { ...d, version: "3.4.0" as const } : d)
   .map(d => knowledgeQualityNotes[d.source]

@@ -10,34 +10,35 @@ export type Legacy2019CanonicalBinding = {
   reference: number[];
   domain: [number, number][];
   fields: GenerationDefinition["fields"];
-  version: "3.2.0";
+  version: "3.2.0" | "3.3.0";
   answerVariation: "fixed" | "variable";
 };
 /** Manually frozen against the final 2022 contract after source-image review.
  * These names are part of the contract, not read from a moving canonical. */
 const fieldNames: Record<number,string[]> = {
-  3:["Qの極性","Rの極性"],10:["外部の発生原因"],12:["アクセス時間の条件"],14:["クライアント台数","プリンタ台数"],
-  16:["着目する条件・記述"],24:["抽出の方向","数量の加算"],28:["問う条件"],29:["PCポート番号の差","HTTPポート"],32:["着目する条件・記述"],
+  3:["Qの極性","Rの極性"],10:["問う割込みの区分と発生原因"],12:["アクセス時間の条件"],14:["クライアント台数","プリンタ台数"],
+  16:["問う処理系"],24:["抽出の方向","数量の加算"],28:["問う条件"],29:["PCポート番号の差","HTTPポート"],32:["着目する条件・記述"],
   44:["Aの日数","Eの日数"],45:["問う対象"],46:["問う条件"],47:["着目する条件・記述"],50:["利益構成","金額倍率"],54:["問う対象"],56:["消費者が発信する内容"],
-  2:["出力桁数"],6:["変換","元の模様"],7:["数字列"],8:["引数n"],15:["連続送信時間のT倍"],19:["着目する条件・記述"],22:["多重度の条件"],35:["着目する条件・記述"],37:["問う条件"],39:["着目する条件・記述"],43:["問う対象"],57:["原料量の倍率","原料Aの追加6単位"],59:["基準売上高の100百万円単位","目標利益の6百万円単位"],
+  2:["出力桁数"],6:["変換","元の模様"],7:["数字列"],8:["引数n"],15:["連続送信時間のT倍"],19:["問うメモリの種類"],22:["多重度の条件"],35:["問う解析手法と観測項目"],37:["問う条件"],39:["着目する条件・記述"],43:["問う対象"],57:["原料量の倍率","原料Aの追加6単位"],59:["基準売上高の100百万円単位","目標利益の6百万円単位"],
 };
 const link = (period: "spring" | "autumn", number: number, canonical: number, answer: string,
   reference: number[], domain: [number, number][]): Legacy2019CanonicalBinding => ({
     source: `${period === "spring" ? "2019h31h" : "2019r01a"}-fe-am-${number}`,
     canonicalSource: `sample-2022-dec-a-${canonical}`, sourceAnswer: answer, reference, domain,
-    fields: domain.map(([minimum,maximum],i)=>({name:fieldNames[canonical][i],minimum,maximum})),version:"3.2.0",answerVariation:[2,16].includes(canonical)?"fixed":"variable",
+    fields: domain.map(([minimum,maximum],i)=>({name:fieldNames[canonical][i],minimum,maximum})),
+    version:[10,16,19,35].includes(canonical)?"3.3.0":"3.2.0",answerVariation:canonical===2?"fixed":"variable",
   });
 
 /** Only 29 image-compared, substantively identical source questions are linked.
  * Similar subjects with different source trees/choices (spring Q5/Q67) are not
- * aliases. These candidates are unregistered until the annual import is ready.
+ * aliases. Annual source references and official answers stay independent.
  */
 export const legacy2019CanonicalBindings: Legacy2019CanonicalBinding[] = [
   link("spring", 3, 3, "エ", [0,0], [[0,1],[0,1]]),
-  link("spring", 9, 10, "ウ", [0], [[0,2]]),
+  link("spring", 9, 10, "ウ", [0], [[0,5]]),
   link("spring", 10, 12, "イ", [0], [[0,3]]),
   link("spring", 14, 14, "エ", [3,2], [[2,4],[2,3]]),
-  link("spring", 19, 16, "ア", [0], [[0,2]]),
+  link("spring", 19, 16, "ア", [0], [[0,3]]),
   link("spring", 28, 24, "イ", [0,0], [[0,1],[0,2]]),
   link("spring", 33, 28, "エ", [3], [[0,3]]),
   link("spring", 34, 29, "ア", [0,0], [[0,5],[0,2]]),
@@ -54,9 +55,9 @@ export const legacy2019CanonicalBindings: Legacy2019CanonicalBinding[] = [
   link("autumn", 10, 7, "イ", [0], [[0,5]]),
   link("autumn", 11, 8, "ウ", [5], [[3,8]]),
   link("autumn", 17, 15, "エ", [1], [[1,3]]),
-  link("autumn", 20, 19, "エ", [0], [[0,2]]),
+  link("autumn", 20, 19, "エ", [0], [[0,3]]),
   link("autumn", 25, 22, "イ", [0], [[0,3]]),
-  link("autumn", 36, 35, "イ", [0], [[0,2]]),
+  link("autumn", 36, 35, "イ", [0], [[0,5]]),
   link("autumn", 44, 37, "エ", [3], [[0,3]]),
   link("autumn", 46, 39, "イ", [0], [[0,2]]),
   link("autumn", 53, 43, "ウ", [2], [[0,3]]),
@@ -93,12 +94,12 @@ export function makeLegacy2019CanonicalDefinitions(canonicalDefinitions: readonl
       (canonical.answerVariation??"variable")!==binding.answerVariation)
       throw new Error(`LEGACY_CANONICAL_REVIEW_REQUIRED: ${binding.source}`);
     const{build:_,...metadata}={ ...canonical, source: binding.source,version:binding.version, reference: [...binding.reference], fields: binding.fields.map(f => ({ ...f })),
-      notes: `${canonical.notes} 2019年度の独立した原問題${binding.source}に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）は${binding.canonicalSource}であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。全151有効出力の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。`,};
+      notes: `${canonical.notes} 2019年度の独立した原問題${binding.source}に対応する。原画像の本文・全選択肢・注記・図表の実質同一性を照合済み。管理済み生成器の再利用元（canonical source）は${binding.canonicalSource}であり、fieldsの名前/範囲・reference・正答固定宣言・生成器版を年度別契約で固定する。${binding.version==="3.2.0"?"全151有効出力":"全条件"}の内容hashと独立意味検証を別途固定し、将来の本体変更は年度別再査読を必要とする。原問題の年度別出典・権利・公式正答参照を維持する。`,};
     return identityDefinition(metadata,canonical);
   });
 }
 
-/** Explicit effective metadata and159 mapped outcomes only. Binding validation
+/** Explicit effective metadata and mapped outcomes only. Binding validation
  * domain/variable facts never become own definition metadata. No raw fallback. */
 export async function makeLegacy2019CanonicalCompositionInput(pool:readonly GenerationDefinition[]):Promise<{native:NativeDefinition[];adapters:AdapterNode[]}>{
  if(!Array.isArray(pool))throw Error('LEGACY_2019_CANONICAL_POOL_REQUIRED');

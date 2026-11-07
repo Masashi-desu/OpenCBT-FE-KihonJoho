@@ -1,3 +1,4 @@
+import stemReview from "../fixtures/reviewed-stem-cohort.json";
 import { legacyAfternoonDefinitions } from "../../src/core/generators/legacy-afternoon-definitions";
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -47,6 +48,17 @@ const autumn2016Counts = new Map<string,number>([
 // Q44/52 now ask distinct reviewed attack/schedule concepts and are variable.
 const autumn2016FixedSignatures = new Map<number,number>([[1,8],[3,1],[5,1],[13,1],[14,1],[18,1],
   [19,1],[26,1],[37,1],[38,1],[39,1],[40,1],[41,1],[48,1],[49,1],[50,1],[78,1],[80,1]]);
+for (const row of stemReview.rows.filter(row => row.outcome === "revised")) {
+  const number = Number(row.source.split("-").at(-1));
+  if (row.source.startsWith("2016h28h-fe-am-")) {
+    stage3Counts.set(number, stage3Counts.get(number)! + 1);
+    stage3FixedSignatures.delete(number);
+  }
+  if (row.source.startsWith("2016h28a-fe-am-")) {
+    autumn2016Counts.set(row.source, autumn2016Counts.get(row.source)! + 1);
+    autumn2016FixedSignatures.delete(number);
+  }
+}
 const isAutumn2016Source=(source:string)=>/^2016h28a-fe-am-\d+$/.test(source);
 const isNativeStage3Source=(source:string)=>isStage3Source(source)||isAutumn2016Source(source);
 import {

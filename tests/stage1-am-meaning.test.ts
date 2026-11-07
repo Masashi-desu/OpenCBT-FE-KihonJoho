@@ -1,3 +1,5 @@
+import {assertReviewedStemMeaning} from "./fixtures/reviewed-stem-meanings";
+import amCapacity from "./fixtures/stage1-am-capacity-review.json";
 import test from 'node:test';import assert from 'node:assert/strict';import {createHash}from'node:crypto';
 import React from 'react';import {renderToStaticMarkup}from'react-dom/server';
 import {makeLegacyMorningRegistry}from'../src/core/generators/legacy-morning-registry';
@@ -68,6 +70,7 @@ const hash=(s:string)=>createHash('sha256').update(s).digest('hex');
 function frameworkCheck(v:number,body:GeneratedBody){const r=framework.cases.find(r=>r.case===v)!;assert.equal(body.prompt.length,1);assert.equal(body.prompt[0].type,'paragraph');assert.equal(hash((body.prompt[0]as{text:string}).text),framework.stemSHA256);assert.equal(body.choices.length,4);const truths=body.choices.map(bs=>{assert.equal(bs.length,1);assert.equal(bs[0].type,'paragraph');const choice=r.choices.find(c=>c.textSHA256===hash((bs[0]as{text:string}).text));assert(choice);assert.equal(choice.truth,choice.category===framework.targetCategory);return choice.category===framework.targetCategory;});assert.equal(truths.filter(Boolean).length,1);assert.equal(body.correctIndex,truths.indexOf(true));assert(!/JIS|ISO|機能性|信頼性|使用性|効率性|保守性|移植性/u.test(JSON.stringify(body)));}
 function check(row:typeof fixed[number],body:GeneratedBody,values:number[]){
  assert.equal(body.choices.length,4);assert.equal(new Set(body.choices.map(c=>JSON.stringify(c))).size,4,'four reviewed alternatives must remain distinct');
+ if(assertReviewedStemMeaning(row.source,body,values))return;
  if(row.oracle==='framework65')return frameworkCheck(values[0],body);
  const f=oracles[row.file+'#'+row.fn];assert(f,row.source);
  if(row.signature==='number-body-values')return f(row.canonicalNumber,body,values);
@@ -90,5 +93,5 @@ test('all467 released AM producers retain independently reviewed all-choice mean
   const reference=d.build(d.reference);for(let i=0;i<4;i++){const bad=structuredClone(reference);bad.choices[i]=structuredClone(bad.choices[(i+1)%4]);assert.throws(()=>check(row,bad,d.reference),row.source+' choice '+i);negative++;}
  }
  assert.deepEqual(Object.fromEntries([...books].sort()),{'2017h29a-fe-am':79,'2017h29h-fe-am':78,'2018h30a-fe-am':78,'2018h30h-fe-am':77,'2019h31h-fe-am':77,'2019r01a-fe-am':78});
- assert.deepEqual({accepted,rejected,negative},{accepted:5702,rejected:1354,negative:7570});
+ assert.deepEqual({accepted,rejected,negative},{accepted:amCapacity.valid,rejected:amCapacity.rejected,negative:amCapacity.valid+4*amCapacity.series});
 });

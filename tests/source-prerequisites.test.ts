@@ -1,3 +1,4 @@
+import {reviewedStemForm} from "./fixtures/reviewed-stem-form";
 import { currentSourceOriginals, currentSourceTemplates } from "./fixtures/current-source-scope";
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -47,7 +48,7 @@ function visibleProblem(q: Question, b: Bundle) {
 }
 function assertNotes(source: string, q: Question, b: Bundle, values: number[]) {
   const visible = visibleProblem(q, b);
-  for (const pattern of sourcePrerequisites[source])
+  for (const pattern of reviewedStemForm(source,values)?.notes ?? sourcePrerequisites[source])
     assert.match(
       visible,
       new RegExp(pattern, "u"),

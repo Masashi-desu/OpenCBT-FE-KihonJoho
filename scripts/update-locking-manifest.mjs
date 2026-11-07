@@ -15,15 +15,15 @@ const sourceRefs = [
 ];
 const files = ["index.html", "theme.css", "style.css", "scrollbars.css", "locking-engine.js", "scrollbars.js", "main.js"];
 const manifest = {
-  apiVersion: 1, revision: 1, title: "2相ロッキングプロトコル",
+  apiVersion: 1, revision: 2, title: "2相ロッキングプロトコル",
   attribution: { origin: "adapted", sourceRefs, rightsRefs: ["rights-ipa-2019r01a-fe-am-stage1-source77", "rights-original"], creatorIds: ["codex"] },
   references: { title: "対応する公開問題と解答例", sourceRefs },
   search: {
     summary: "共有・専有ロックの獲得、待機、コミット、解放、再開を一手ずつ確認。全選択肢の循環待ちを比較できます。",
     keywords: ["2相ロッキング", "2相ロック", "二相ロッキング", "二層ロッキング", "2PL", "トランザクション", "デッドロック", "共有ロック", "専有ロック", "獲得相", "解放相", "2019年度", "秋期", "午前", "問29"],
-    text: "AとBの命令発行位置を保ち、read Wの共有Sロック、update X・Y・Zの専有Xロックを追う。戻る・次へ・スライダーで獲得・ロック待ち・後続命令の待機・コミット・一つずつの解放・再開を確認する。待つ側から保持者への矢印で循環待ちを示す。全4択と全16保存生成条件を比較。原問の正答はウ、BがXを先に獲得してAが待ち、Bが終了し解放してAが続く。2相ロッキングは獲得相と解放相を分け、解放開始後は新しいロックを獲得しない。デッドロック防止そのものを保証しない。終了時解放はこの解説で採用する一例。解説の操作は保存済み問題・回答・結果を変更しない。",
+    text: "AとBの命令発行位置を保ち、read Wの共有Sロック、update X・Y・Zの専有Xロックを追う。戻る・次へ・スライダーで獲得・ロック待ち・後続命令の待機・コミット・一つずつの解放・再開を確認する。待つ側から保持者への矢印で循環待ちを示す。全4択と全17保存生成条件を比較。追加条件ではread Wにも専有ロックを要求する。原問の正答はウ、BがXを先に獲得してAが待ち、Bが終了し解放してAが続く。2相ロッキングは獲得相と解放相を分け、解放開始後は新しいロックを獲得しない。デッドロック防止そのものを保証しない。終了時解放はこの解説で採用する一例。解説の操作は保存済み問題・回答・結果を変更しない。",
   },
   files: files.map(file => ({ path: file, mediaType: file.endsWith("html") ? "text/html" : file.endsWith("css") ? "text/css" : "text/javascript", sha256: crypto.createHash("sha256").update(fs.readFileSync(root + file)).digest("hex") })),
 };
 fs.writeFileSync(root + "manifest.json", JSON.stringify(manifest, null, 2) + "\n");
-console.log("Locking explanation manifest updated (7 files, revision 1).");
+console.log("Locking explanation manifest updated (7 files, revision 2).");

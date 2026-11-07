@@ -2,7 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 // This independent oracle covers current/sample canonical176.
 // AM467 is fully checked by stage1-am-meaning.test.ts.
-import { effectivePublicDefinitions as additionalDefinitions } from "../../src/core/generators/effective-public";
+import { currentPublicDefinitions as additionalDefinitions } from "../../src/core/generators";
+import { assertReviewedStemMeaning } from "../fixtures/reviewed-stem-meanings";
+import stemReview from "../fixtures/reviewed-stem-cohort.json";
 import { parametersForSeed } from "../../src/core/generation";
 import { fixture } from "../fixtures";
 import type { GeneratedBody } from "../../src/core/generators/definition";
@@ -48,6 +50,7 @@ const exprIndex = (s: string, name: string, offset: number) =>
   s === name || norm(s) === norm(`${name}−${offset}`);
 
 function semantic(source: string, b: GeneratedBody, v: number[]) {
+  if (assertReviewedStemMeaning(source, b, v)) return;
   if (source.startsWith("sample-2022-dec-a-")) return decAGeneratorOracle(Number(source.split("-").at(-1)),b,v);
   if (source.startsWith("sample-2022-apr-b-")) return aprilGeneratorOracle(Number(source.split("-").at(-1)), b, v);
   if (source.startsWith("sample-2022-dec-b-")) return decemberGeneratorOracle(Number(source.split("-").at(-1)), b, v);
@@ -811,14 +814,15 @@ export function registerBookletAnswerSemantics(scope: string) {
 for (const fact of facts.filter(fact => sources.has(fact.source)))
   test(`${fact.source}: every knowledge target preserves its source question and has one correct answer`, () => {
     const d = additionalDefinitions.find((d) => d.source === fact.source)!;
-    assert.equal(d.fields[0].maximum + 1, fact.pairs.length);
+    const review = stemReview.rows.find(row => row.source === fact.source && row.outcome === "revised");
+    const previousVersion = ["2024-a-5", "2024-a-10", "2025-a-1", "2026-a-11", "2026-a-12"].includes(d.source)
+      ? "3.5.0"
+      : ["2025-a-13", "2025-a-16", "2025-a-17", "2026-a-8", "2026-a-15"].includes(d.source) || d.source.includes("-b-") || d.source === "2023-a-10" ? "3.4.0" : "3.2.0";
+    assert.equal(d.version, review ? "3.7.0" : previousVersion);
+    assert.equal(d.fields[0].maximum + 1, fact.pairs.length + (review ? 1 : 0));
     for (const [target, pair] of fact.pairs.entries())
       for (let rotation = 0; rotation < 3; rotation++) {
         const b = d.build([target, rotation]);
-        assert.equal(d.version,
-          ["2024-a-5", "2024-a-10", "2025-a-1", "2026-a-11", "2026-a-12"].includes(d.source)
-            ? "3.5.0"
-            : ["2025-a-13", "2025-a-16", "2025-a-17", "2026-a-8", "2026-a-15"].includes(d.source) || d.source.includes("-b-") || d.source === "2023-a-10" ? "3.4.0" : "3.2.0");
         assert(!paragraph(b).includes("誤っている"));
         if (fact.answerForm === "audit") {
           assert(paragraph(b).includes("指摘事項として監査報告書に記載すべき"));
@@ -866,6 +870,12 @@ for (const fact of facts.filter(fact => sources.has(fact.source)))
         assert(b.explanation.includes(pair[0]));
         assert(b.explanation.includes(pair[1]));
       }
+    if (review) {
+      const selector = fact.pairs.length;
+      assert.equal(review.selector, selector);
+      const values = [selector, ...review.reference.slice(1)];
+      assert(assertReviewedStemMeaning(d.source, d.build(values), values));
+    }
   });
 
 for (const d of additionalDefinitions.filter(

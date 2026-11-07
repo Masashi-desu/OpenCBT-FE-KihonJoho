@@ -153,7 +153,7 @@ export async function registerBookletContentContractTests(scope: string) {
           ),
         ).size === 8,
       );
-    } else if (["sample-2022-dec-a-16","sample-2022-dec-a-18"].includes(d.source)) {
+    } else if (d.source === "sample-2022-dec-a-18") {
       assert.equal(d.answerVariation,"fixed");assert.equal(answers.size,1);
       const variants=Array.from({length:d.fields[0].maximum+1},(_,i)=>d.build([i]));
       assert.equal(new Set(variants.map(b=>JSON.stringify(b.choices))).size,variants.length);

@@ -20,8 +20,8 @@ export function ownLegacy2019Spring42Json<T>(v:T,ancestors=new Set<object>()):T{
 const reviewed=ownLegacy2019Spring42Json(reviewedInput);
 function caseOf(q:Question){
  const parent=q.id===base?original:base;
- if(q.revision!==1||q.subject!=='A'||q.origin.kind!=='official_adaptation'||!q.origin.isModified||q.origin.modificationBasis!=='official_source'||
-    !eq(q.origin.sourceRefs,reviewed.originSourceRefs)||!eq(q.origin.derivedFrom,[{questionId:parent,revision:1}])||
+ if(q.revision!==(q.id===base?2:1)||q.subject!=='A'||q.origin.kind!=='official_adaptation'||!q.origin.isModified||q.origin.modificationBasis!=='official_source'||
+    !eq(q.origin.sourceRefs,reviewed.originSourceRefs)||!eq(q.origin.derivedFrom,[{questionId:parent,revision:q.id===base?1:2}])||
     q.contexts.length||q.contextRefs.length||q.assetRefs.length||q.answerParts||q.choices.length!==4||
     !eq(q.correctAnswer.attribution,reviewed.independentAttribution)||!eq(q.explanation.attribution,reviewed.independentAttribution))return fail();
  const ids=q.choices.map(c=>c.id);if(new Set(ids).size!==4||Array.from({length:4},(_,i)=>'choice-value-'+(i+1)).some(id=>!ids.includes(id)))return fail();
@@ -30,8 +30,8 @@ function caseOf(q:Question){
  if(cases.length!==1)return fail();return cases[0];
 }
 function templateGuard(t:Template){
- if(t.id!==template||t.revision!==1||t.generatorRef.id!==generator||t.generatorRef.version!==reviewed.version||
-    !eq(t.baseQuestionRef,{questionId:base,revision:1})||!eq(t.parameterDomain,reviewed.parameterDomain)||
+ if(t.id!==template||t.revision!==2||t.generatorRef.id!==generator||t.generatorRef.version!==reviewed.version||
+    !eq(t.baseQuestionRef,{questionId:base,revision:2})||!eq(t.parameterDomain,reviewed.parameterDomain)||
     !eq(t.referenceParameters,reviewed.referenceParameters)||!eq(t.attribution,reviewed.templateAttribution)||!eq(t.editorIds,['codex']))return fail();
 }
 function questionGuard(q:Question){
@@ -39,8 +39,8 @@ function questionGuard(q:Question){
  return c;
 }
 function triggered(q:Question,t:Template){return q.id===base||t.id===template||t.generatorRef.id===generator||t.baseQuestionRef.questionId===base||q.origin.derivedFrom.some(r=>r.questionId===base||r.questionId===original);}
-/** Current 3.2.0 only. All three full bodies are fixed review inputs. In input0
- * the original I sentence is carried by stable ID2; in inputs1/2 that slot is
+/** Current 3.7.0 only. All four full bodies are fixed review inputs. In input0
+ * the original I sentence is carried by stable ID2; in inputs1–3 that slot is
  * independently written material. Correctness never determines this credit. */
 export function validateLegacy2019Spring42Materials(q:Question,t:Template):boolean{
  if(!triggered(q,t))return false;templateGuard(t);questionGuard(q);return true;

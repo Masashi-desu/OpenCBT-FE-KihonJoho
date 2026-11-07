@@ -5,6 +5,7 @@ import { activityNetworkRenderer, readActivityNetwork } from "../activity-networ
 import type { Question, Template, Block } from "../types";
 import { DataError } from "../errors";
 import { effectivePublicDefinitions } from "./effective-public";
+import { addReviewedStemCase } from "./reviewed-stem-cases";
 import { legacyAfternoonDefinition } from "./legacy-afternoon-definitions";
 import { bindLegacyAfternoonQuestion, validateLegacyAfternoonFormat } from "./legacy-afternoon-binding";
 import { bindBodyAnswers, ownContexts, p, type GenerationDefinition } from "./definition";
@@ -15,7 +16,8 @@ import { subjectAFormatDefinitions } from "./subject-a-formats";
 import { bindMorningContent, isLegacyMorningSource, morningCommonContexts, morningBlockRoles } from "./legacy-morning-format";
 
 // Active entries may be extended; canonical public roots retain their own array.
-export const additionalDefinitions: GenerationDefinition[] = [...effectivePublicDefinitions];
+export const currentPublicDefinitions = effectivePublicDefinitions.map(addReviewedStemCase);
+export const additionalDefinitions: GenerationDefinition[] = [...currentPublicDefinitions];
 export const additionalVersion = (d: GenerationDefinition) =>
   sourceChoiceOrder(`generator-source-${d.source}`) ? "3.8.0" : d.version ?? "3.2.0";
 const asContract = (d: GenerationDefinition) => ({
@@ -206,7 +208,7 @@ export function validateAdditionalFormat(q: Question, t: Template) {
     const actual = choices(q.choices.map((c) => c.content.blocks));
     const matches = Array.from(
       { length: d.fields[0].maximum + 1 },
-      (_, target) => d.build([target, 0]),
+      (_, target) => d.build([target, ...d.reference.slice(1)]),
     ).some(
       (body) =>
         JSON.stringify(q.prompt.blocks) === JSON.stringify(body.prompt) &&

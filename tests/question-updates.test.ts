@@ -118,7 +118,7 @@ test("all old bookmark revisions resolve the current source and current generato
         assert.throws(() => makeBookmark(latest, { ...questionRef, revision }), { code: "BOOKMARK_REF" });
     }
   }
-  assert.equal(retainedCurrentDetails, 294, "the order revisions retire 13 first-edition morning explanation copies");
+  assert.equal(retainedCurrentDetails, 160, "the ordered-choice and stem revisions retire superseded explanation copies");
 });
 
 test("retained first-edition morning explanations reject stale text, later answer changes and revised bodies", () => {

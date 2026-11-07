@@ -1,3 +1,5 @@
+import stemReview from "./fixtures/reviewed-stem-cohort.json";
+import {reviewedStemForm} from "./fixtures/reviewed-stem-form";
 import { currentSourceTemplates } from "./fixtures/current-source-scope";
 import test from "node:test";
 import assert from "node:assert/strict";
@@ -132,7 +134,7 @@ const revisedCues: Record<string, RegExp> = {
 };
 const descriptionBlanks = new Set(["2023-b-2", "2023-b-3", "2023-b-4", "2024-b-4", "2025-b-4", "2025-b-5"]);
 const pairedBlanks = new Set(["2023-b-1", "2023-b-5", "2024-b-5", "2025-b-1", "2025-b-3", "2025-b-5", "2026-b-4", "2026-b-5"]);
-function assertSourceDirective(source: string, prompt: string) {
+function assertSourceDirective(source: string, prompt: string, values: readonly number[] = []) {
   if (source.startsWith("sample-2022-dec-b-")) {
     assert.match(prompt, originalIntents[source]);
     assert.match(prompt, /解答群/);
@@ -143,7 +145,7 @@ function assertSourceDirective(source: string, prompt: string) {
     assert.match(prompt, /解答群の中から選べ。/);
     return;
   }
-  if (revisedCues[source]) assert.match(prompt, revisedCues[source], source);
+  if (!reviewedStemForm(source, values) && revisedCues[source]) assert.match(prompt, revisedCues[source], source);
   if (!source.includes("-b-")) return;
   if (source === "2023-b-6") {
     assert.match(prompt, /対策が必要であるとA社が評価した情報セキュリティリスクはどれか。解答群のうち、最も適切なものを選べ。/);
@@ -159,16 +161,16 @@ function assertSourceDirective(source: string, prompt: string) {
 }
 const blockText = (b: Block) =>
   "text" in b ? b.text : b.type === "list" ? b.items.join(" ") : "";
-function assertIntent(source: string, q: Question) {
+function assertIntent(source: string, q: Question, values: readonly number[] = []) {
   const prompt = [
     ...q.prompt.blocks,
     ...q.contexts.flatMap((c) => c.content.blocks),
   ]
     .map(blockText)
     .join(" ");
-  assertSourceDirective(source, prompt);
+  assertSourceDirective(source, prompt, values);
   const fact = facts.find((f) => f.source === source);
-  const expected = !fact
+  const expected = reviewedStemForm(source, values)?.intent ?? (!fact
     ? originalIntents[source]
     : fact.answerForm === "comparison"
       ? /HTTPとHTTPSを比較.*HTTPSだけがもつ特徴/
@@ -180,7 +182,7 @@ function assertIntent(source: string, q: Question) {
             ? /どのような場合に有効か/
             : fact.answerForm === "term"
               ? /特性はどれか|ものはどれか|イベントはどれか|手法はどれか|モジュールはどれか|何と呼ぶか|誰か|手法はどれか|何というか/
-              : (descriptionIntent[source] ?? /説明|記述|該当|特徴/);
+              : (descriptionIntent[source] ?? /説明|記述|該当|特徴/));
   assert(expected, `Missing original intent: ${source}`);
   assert.match(prompt, expected, source);
   if (fact) assert(!prompt.includes("誤っている"), source);
@@ -218,17 +220,19 @@ test("all 189 original question intents survive abstraction at baseline and chan
     assert.equal(base.choices.length, original.choices.length, source);
     assertIntent(source, base);
     assertRenderedNotation(source, base, b);
-    for (const seed of ["1".repeat(32), "e".repeat(32)]) {
-      const parameters = await parametersForSeed(seed, t);
+    const inputs = await Promise.all(["1".repeat(32), "e".repeat(32)].map(async seed => (await parametersForSeed(seed, t)).values));
+    const review = stemReview.rows.find(row => row.source === source && row.outcome === "revised");
+    if (review) inputs.push([review.selector!, ...review.reference.slice(1)]);
+    for (const values of inputs) {
       const q = bindQuestion(
         base,
         t,
-        parameters.values,
+        values,
         `instance-form-${source}`,
         "2026-10-07T00:00:00Z",
       );
       assert.equal(q.choices.length, original.choices.length, source);
-      assertIntent(source, q);
+      assertIntent(source, q, values);
       validateSourceFormat(q, t);
       assertRenderedNotation(source, q, b);
     }

@@ -1,9 +1,10 @@
 (() => {
   "use strict";
-  const E = window.LockingEngine, api = window.OpenCBTDetail, $ = id => document.getElementById(id), choices = E.choices(api?.context);
-  let choice = choices.find(c => /(?:value-)?3$/.test(c.id)), snapshots = E.trace(choice.order), position = 0, selected = null;
+  const E = window.LockingEngine, api = window.OpenCBTDetail, $ = id => document.getElementById(id), choices = E.choices(api?.context), exclusiveW = E.variant(api?.context) === 16;
+  let choice = choices.find(c => /(?:value-)?3$/.test(c.id)), snapshots = E.trace(choice.order, exclusiveW), position = 0, selected = null;
   if (api) { document.documentElement.dataset.theme = api.context.theme; api.onThemeChange(theme => { document.documentElement.dataset.theme = theme; }); }
   else { $("standalone-title").hidden = false; $("standalone-credit").hidden = false; window.OpenCBTLockingScrollbars?.installOverlayScrollbars(document); }
+  if (exclusiveW) $("w-rule").textContent = "今回はread Wも専有ロックを要求する条件です。同じデータを二者が同時に専有できません。";
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const label = (x, y, value, cls = "", anchor = "middle") => `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${esc(value)}</text>`;
   const phaseName = { growing: "獲得相", shrinking: "解放相", done: "終了" };
@@ -37,7 +38,7 @@
     svg += label(26, 480, "現在のロック保持者　S：共有 ／ X：専有", "small", "start");
     E.data.forEach((d, i) => {
       const x = 26 + i * 196, owners = s.locks[d], id = `data-${d}`, current = s.data === d;
-      svg += `<g role="button" tabindex="0" data-target="${id}" aria-label="データ${d}、${owners.length ? owners.join('と') + 'が' + (E.mode(d) === 'S' ? '共有' : '専有') + 'ロックを保持' : '保持者なし'}" aria-pressed="${selected === id}" class="lock ${current ? "current" : ""} ${selected === id ? "selected" : ""}"><rect class="shape" x="${x}" y="498" width="180" height="70" rx="7"/>${label(x + 90, 522, `データ ${d}`, "operation-name")}${label(x + 90, 550, owners.length ? `${owners.join('・')} ［${E.mode(d)}］` : "保持者なし", "owner")}</g>`;
+      svg += `<g role="button" tabindex="0" data-target="${id}" aria-label="データ${d}、${owners.length ? owners.join('と') + 'が' + (E.mode(d, exclusiveW) === 'S' ? '共有' : '専有') + 'ロックを保持' : '保持者なし'}" aria-pressed="${selected === id}" class="lock ${current ? "current" : ""} ${selected === id ? "selected" : ""}"><rect class="shape" x="${x}" y="498" width="180" height="70" rx="7"/>${label(x + 90, 522, `データ ${d}`, "operation-name")}${label(x + 90, 550, owners.length ? `${owners.join('・')} ［${E.mode(d, exclusiveW)}］` : "保持者なし", "owner")}</g>`;
     });
     svg += label(410, 596, `${s.deadlock ? "赤枠：両方が停止" : "青枠：今回の対象"}　／　▶：各トランザクションの現在位置`, "small");
     $("scene").innerHTML = svg;
@@ -51,7 +52,7 @@
     if (selected?.startsWith("data-")) {
       const d = selected.slice(5), owners = s.locks[d], waiters = ["A", "B"].filter(tx => s.waiting[tx]?.data === d);
       title = `データ ${d}：${owners.length ? owners.join('・') + 'が保持' : '保持者なし'}`;
-      text = `${E.operation(d)}は${E.mode(d) === "S" ? "共有ロックを要求します。共有同士ならAとBが同時に保持できます。" : "専有ロックを要求します。同じデータの専有ロックは同時に二者へ与えられません。"}${waiters.length ? ` ${waiters.join('・')}がこのデータを待っています${owners.length ? '。' : 'が、解放されたので再開可能です。'}` : " 現在、このデータへのロック待ちはありません。"}`;
+      text = `${E.operation(d)}は${E.mode(d, exclusiveW) === "S" ? "共有ロックを要求します。共有同士ならAとBが同時に保持できます。" : "専有ロックを要求します。同じデータの専有ロックは同時に二者へ与えられません。"}${waiters.length ? ` ${waiters.join('・')}がこのデータを待っています${owners.length ? '。' : 'が、解放されたので再開可能です。'}` : " 現在、このデータへのロック待ちはありません。"}`;
     } else if (selected) {
       const [tx, index] = selected.split("-"), i = Number(index), d = (tx === "A" ? E.a : choice.order)[i], status = opStatus(s, tx, i);
       title = `${tx}：${E.operation(d)}（${status}）`;
@@ -73,7 +74,7 @@
   function clear(restore = true) { const id = selected; selected = null; draw(); if (restore && id) target(id)?.focus({ preventScroll: true }); }
   function select(id) { if (selected === id) clear(); else { selected = id; draw(); reveal(); } }
   function move(n) { position = Math.max(0, Math.min(snapshots.length - 1, n)); selected = null; draw(); reveal(); }
-  $("scenario").addEventListener("change", () => { choice = choices.find(c => c.id === $("scenario").value); snapshots = E.trace(choice.order); move(0); });
+  $("scenario").addEventListener("change", () => { choice = choices.find(c => c.id === $("scenario").value); snapshots = E.trace(choice.order, exclusiveW); move(0); });
   $("reset").addEventListener("click", () => move(0));
   $("prev").addEventListener("click", () => move(position - 1)); $("next").addEventListener("click", () => move(position + 1));
   $("seek").addEventListener("input", () => move(Number($("seek").value)));
@@ -86,7 +87,7 @@
     for (const other of ["rules", "compare"]) { $(other).hidden = other !== name || !open; $(other + "-toggle").setAttribute("aria-expanded", String(other === name && open)); }
   });
   $("comparison").innerHTML = choices.map(c => {
-    const last = E.trace(c.order).at(-1);
+    const last = E.trace(c.order, exclusiveW).at(-1);
     return `<p><strong>${esc(c.label)}：</strong>${c.order.map(E.operation).join(" → ")}<br>${last.deadlock ? `A → B（${last.waiting.A.data}）、B → A（${last.waiting.B.data}）の循環待ち。` : "一方が終了して解放し、もう一方が再開。デッドロックなし（正答）。"}</p>`;
   }).join("");
   draw(); api?.ready();

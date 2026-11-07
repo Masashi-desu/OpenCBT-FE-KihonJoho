@@ -17,7 +17,7 @@ await installFixtureGenerators();
 // Independent serial scheduler: each transaction has a FIFO of issued commands.
 // W is concurrently readable; the three update resources have a single owner.
 // Completion atomically removes that owner's locks. No simulator routines used.
-function reference(order: string[]) {
+function reference(order: string[], exclusiveW = false) {
   const queues: string[][] = [[], []], programs = [["W", "X", "Y", "Z"], order];
   const cursor = [0, 0], owners = new Map<string, number>();
   for (let tick = 0; tick < 8; tick++) {
@@ -28,9 +28,9 @@ function reference(order: string[]) {
       advanced = false;
       for (let p = 0; p < 2; p++) {
         const d = queues[p][0];
-        if (d && (d === "W" || !owners.has(d) || owners.get(d) === p)) {
+        if (d && (d === "W" && !exclusiveW || !owners.has(d) || owners.get(d) === p)) {
           queues[p].shift(); cursor[p]++; advanced = true;
-          if (d !== "W") owners.set(d, p);
+          if (d !== "W" || exclusiveW) owners.set(d, p);
           if (cursor[p] === 4) for (const [key, owner] of owners) if (owner === p) owners.delete(key);
         }
       }
@@ -105,26 +105,26 @@ test("step actors and both execution cursors independently follow requests, reta
   }
   assert.deepEqual([...kinds].sort(), ["start", "acquire", "wait", "queued", "commit", "release", "finish", "resume", "deadlock", "done"].sort());
 });
-test("all 16 saved generation conditions match every rendered option and independent answer without mutating context", async () => {
+test("all 17 saved generation conditions match every rendered option and independent answer without mutating context", async () => {
   const b = fixture(), t = b.templates.find(t => t.id === "template-source-2019r01a-fe-am-29")!, base = b.questions.find(q => q.id === t.baseQuestionRef.questionId)!;
   assert.equal(t.originalContentSha256, await contentHash(base));
-  for (let v = 0; v < 16; v++) {
+  for (let v = 0; v < 17; v++) {
     const q = bindQuestion(base, t, [v], "locking-content", "2026-11-05T00:00:00Z");
     const context = { question: q, generation: { generatorRef: t.generatorRef, parameters: { values: [v] } }, choiceOrder: q.choices.map((c, i) => ({ id: c.id, label: "アイウエ"[i] })) }, before = JSON.stringify(context);
-    const choices = E.choices(context), good = choices.filter((c: any) => !reference(c.order).deadlock);
+    const choices = E.choices(context), good = choices.filter((c: any) => !reference(c.order, v === 16).deadlock);
     assert.equal(good.length, 1); assert.equal(good[0].id, q.correctAnswer.choiceId);
     for (const c of choices) {
       const table = q.choices.find(row => row.id === c.id)!.content.blocks[0];
       assert.equal(table.type, "table"); if (table.type !== "table") throw Error("table");
       assert.deepEqual(plain([c.order.map(E.operation)]), table.rows);
-      assert.equal(E.trace(c.order).at(-1).deadlock, reference(c.order).deadlock);
+      assert.equal(E.trace(c.order, v === 16).at(-1).deadlock, reference(c.order, v === 16).deadlock);
     }
     assert.equal(JSON.stringify(context), before); assert.deepEqual(q.detailedExplanationRef, base.detailedExplanationRef);
   }
   const reversed = E.choices({ choiceOrder: [...base.choices].reverse().map((c, i) => ({ id: c.id, label: "アイウエ"[i] })) });
   assert.equal(reversed[1].id, "choice-value-3"); assert.equal(reversed[1].label, "イ");
   assert.equal(reference(reversed[1].order).deadlock, false);
-  for (const values of [[], [-1], [16], [1.5], ["0"], [null], [0, 1]]) assert.throws(() => E.choices({ generation: { generatorRef: t.generatorRef, parameters: { values } } }));
+  for (const values of [[], [-1], [17], [1.5], ["0"], [null], [0, 1]]) assert.throws(() => E.choices({ generation: { generatorRef: t.generatorRef, parameters: { values } } }));
   assert.throws(() => E.variant({ generation: { generatorRef: { ...t.generatorRef, version: "unknown" }, parameters: { values: [0] } } }));
   assert.throws(() => E.choices({ choiceOrder: [{ id: "unknown", label: "ア" }] }));
 });
@@ -140,7 +140,7 @@ test("managed package pins bytes, shared colors/scrollbars and official Q29 attr
 });
 test("revised runs keep saved answers; incompatible refs cannot resume and bookmarks use the current question", async () => {
   const b = fixture(), q = b.questions.find(q => q.id === "question-ipa-2019r01a-fe-am-29")!;
-  assert.equal(q.revision, 2); assert.equal(makeBookmark(b, { questionId: q.id, revision: 1 }, 0).questionRef.revision, 2);
+  assert.equal(q.revision, 3); assert.equal(makeBookmark(b, { questionId: q.id, revision: 1 }, 0).questionRef.revision, 3);
   let run = startRun(await prepareRun(b, { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: { questionId: q.id, revision: q.revision } }, {}));
   run = updateAnswer(run, run.issued[0].choices[0].id);
   const before = JSON.stringify(run); await validateRun(run); assert.equal(JSON.stringify(run), before);

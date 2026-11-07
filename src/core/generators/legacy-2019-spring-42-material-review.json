@@ -1,6 +1,6 @@
 {
   "source": "2019h31h-fe-am-42",
-  "version": "3.2.0",
+  "version": "3.7.0",
   "originalSlotIChoiceId": "choice-value-2",
   "sourceRef": {
     "sourceId": "source-fsa-internal-control-2011",
@@ -136,13 +136,13 @@
     "values": {
       "length": 1,
       "minimum": 0,
-      "maximum": 2
+      "maximum": 3
     },
     "fields": [
       {
         "name": "securityCondition",
         "minimum": 0,
-        "maximum": 2
+        "maximum": 3
       }
     ]
   },
@@ -534,6 +534,43 @@
       ],
       "correctIndex": 0,
       "explanation": "不正のトライアングルは機会・動機（プレッシャ）・正当化の三要素で説明する。機会は不正を実行できる環境、動機は不正に向かう必要性や圧力、正当化は自分の行為を許せると考える理由付けである。ノルマや借金などの圧力を正当化と呼び、都合のよい理由付けを動機と呼ぶ説明は取り違えである。情報と伝達・モニタリング・統制活動は内部統制の基本的要素であり、不正のトライアングルの三要素そのものには含まれない。"
+    },
+    {
+      "value": 3,
+      "prompt": [
+        {
+          "type": "paragraph",
+          "text": "不正のトライアングルの構成要素のうち、“動機”の説明として、適切なものはどれか。"
+        }
+      ],
+      "choices": [
+        [
+          {
+            "type": "paragraph",
+            "text": "監視や承認の不備など、不正を実行しやすい環境"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "text": "過大なノルマや経済的な困窮など、不正へ向かわせる圧力や理由"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "text": "不正をしても問題ないと自分を納得させる解釈"
+          }
+        ],
+        [
+          {
+            "type": "paragraph",
+            "text": "必要な情報を組織内外へ正しく伝える手続"
+          }
+        ]
+      ],
+      "correctIndex": 1,
+      "explanation": "動機は不正へ向かわせる圧力や理由である。実行しやすい環境は機会、自分を納得させる解釈は正当化である。情報の伝達はこの三要素の名称ではない。"
     }
   ]
 }

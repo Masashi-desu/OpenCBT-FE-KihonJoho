@@ -1,3 +1,4 @@
+import {addReviewedStemCase} from "../src/core/generators/reviewed-stem-cases";
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
@@ -175,8 +176,8 @@ test('every finite history pair leaves a real candidate after current/prior inpu
  }
 });
 
-test('the managed sampler reaches all236 real candidates, is deterministic and rejects invalid indices/arity; scaffolds are not catalog admission',async()=>{
- const beforeDefs=additionalDefinitions.slice(),beforeContracts=additionalContracts.slice();try{const templates=defs.map(d=>({id:'template-source-'+d.source,revision:1,generatorRef:{id:'generator-source-'+d.source,version:additionalVersion(d)},parameterDomain:{values:{length:1,minimum:0,maximum:d.fields[0].maximum},fields:d.fields},referenceParameters:{values:[0]}} as Template));ensureStage3MorningGenerators({templates}as Bundle);
+test('the managed sampler reaches all245 real candidates, is deterministic and rejects invalid indices/arity; scaffolds are not catalog admission',async()=>{
+ const beforeDefs=additionalDefinitions.slice(),beforeContracts=additionalContracts.slice();try{const templates=defs.map(addReviewedStemCase).map(d=>({id:'template-source-'+d.source,revision:1,generatorRef:{id:'generator-source-'+d.source,version:additionalVersion(d)},parameterDomain:{values:{length:1,minimum:0,maximum:d.fields[0].maximum},fields:d.fields},referenceParameters:{values:[0]}} as Template));ensureStage3MorningGenerators({templates}as Bundle);
  for(const t of templates){const reached=new Set<number>();for(let s=0;s<128;s++){const seed=s.toString(16).padStart(32,'0'),a=await parametersForSeed(seed,t),b=await parametersForSeed(seed,t);assert.deepEqual(a,b);checkParameters(t,a.values);assert.equal(a.values.length,1);reached.add(a.values[0]);}assert.equal(reached.size,t.parameterDomain.values.maximum+1,t.id);}
  }finally{additionalDefinitions.splice(0,additionalDefinitions.length,...beforeDefs);additionalContracts.splice(0,additionalContracts.length,...beforeContracts);}
  for(const d of defs)for(const v of [[],[0,1],[-1],[d.fields[0].maximum+1],[.5],[NaN],[Infinity]])assert.throws(()=>d.build(v),/PARAMETER_CONSTRAINT/);
