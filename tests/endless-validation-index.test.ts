@@ -1,6 +1,7 @@
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "./fixtures";
+import { publishedSourceScope } from "./helpers/published-source-scope";
 import { prepareRun, validateRun } from "../src/core/session";
 import { bookmarkTemplates } from "../src/core/bookmarks";
 import { schema, DataError } from "../src/core/validation";
@@ -73,12 +74,12 @@ async function compareWithPrevious(run: Run, label: string) {
   return expected;
 }
 
-test("local endless indexes preserve complete A759/B49, mixed and old-afternoon pools", async () => {
-  assert.equal(a.set.questionRefs.length, 759);
+test("local endless indexes preserve complete subject, mixed and old-afternoon pools", async () => {
+  assert.equal(a.set.questionRefs.length, publishedSourceScope.subjectPoolCounts.A);
   assert.deepEqual(a.set.questionRefs.filter(ref=>ref.questionId.startsWith("question-template-source-2016h28a-fe-am-"))
     .map(ref=>Number(ref.questionId.split("-").at(-1))).sort((a,b)=>a-b),
     Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)));
-  assert.equal(b.set.questionRefs.length, 49);
+  assert.equal(b.set.questionRefs.length, publishedSourceScope.subjectPoolCounts.B);
   assert.equal(mixed.set.questionRefs.length, 2);
   assert.equal(afternoon.set.questionRefs.length, 13);
   for (const [label, run] of [["A", a], ["B", b], ["mixed", mixed], ["old afternoon", afternoon]] as const)

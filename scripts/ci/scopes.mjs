@@ -164,8 +164,8 @@ export function appendedSetScopes(before, after, ownership) {
 }
 export const EXTENSION_DECLARATIONS = {
     'src/core/generators/afternoon-booklet-extensions.ts': { type: 'AfternoonBookletExtension', contract: './afternoon-booklet-extension-contract', variable: 'bookletExtensions', property: 'definitions', module: /^(legacy-(20\d{2})-(spring|autumn|special)-afternoon)$/ },
-    'src/core/booklet-figure-extensions.ts': { type: 'BookletFigureExtension', contract: './booklet-figure-extension-contract', variable: 'bookletFigureExtensions', property: 'figures', module: /^(generators\/legacy-(20\d{2})-(spring|autumn|special)-pm-figures)$/ },
-    'src/ui/booklet-figure-renderers.ts': { type: 'BookletFigureRendererExtension', contract: './booklet-figure-renderer-contract', variable: 'bookletFigureRenderers', property: 'renderers', module: /^(Legacy(20\d{2})(Spring|Autumn|Special)PmFigures)$/ },
+    'src/core/booklet-figure-extensions.ts': { type: 'BookletFigureExtension', contract: './booklet-figure-extension-contract', variable: 'bookletFigureExtensions', property: 'figures', module: /^(generators\/legacy-(20\d{2})-(spring|autumn|special)-(am|pm)-figures)$/ },
+    'src/ui/booklet-figure-renderers.ts': { type: 'BookletFigureRendererExtension', contract: './booklet-figure-renderer-contract', variable: 'bookletFigureRenderers', property: 'renderers', module: /^(Legacy(20\d{2})(Spring|Autumn|Special)(Am|Pm)Figures)$/ },
 };
 const escapeRegex = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 export function parseBookletExtensions(text, file = 'src/core/generators/afternoon-booklet-extensions.ts') {
@@ -183,7 +183,8 @@ export function parseBookletExtensions(text, file = 'src/core/generators/afterno
         const owned = config.module.exec(m[2]);
         if (!owned || imports.has(m[1]))
             return null;
-        imports.set(m[1], { module: m[2], scope: `${owned[2]}-${owned[3].toLowerCase()}-pm` });
+        const section = owned[4]?.toLowerCase() ?? 'pm';
+        imports.set(m[1], { module: m[2], scope: `${owned[2]}-${owned[3].toLowerCase()}-${section}` });
     }
     rest = rest.replace(statement, '');
     const declaration = new RegExp(`^\\s*export\\s+const\\s+${config.variable}\\s*:\\s*readonly\\s+${config.type}\\[\\]\\s*=\\s*\\[([\\s\\S]*)\\]\\s*;\\s*$`).exec(rest);

@@ -6,7 +6,7 @@ import { isDeepStrictEqual } from 'node:util';
 import type { Bundle, Question } from '../src/core/types';
 import { catalogFileRecords, catalogKinds, CATALOG_MAX_BYTES } from '../src/core/catalog-files';
 import { encodeRecordPacks, readDistributionBundle } from './distribution-files';
-import type { Stage3MorningRecords } from './stage3-morning-records';
+import { isStage3MorningCollection, type Stage3MorningRecords } from './stage3-morning-records';
 import { sortedJson } from '../src/core/hash';
 import { hasAssetSignature } from '../src/core/asset-signature';
 
@@ -18,7 +18,7 @@ export function stage3CollectionFiles(baseline:Bundle, selected:Stage3MorningRec
   assert.equal(selected.sets.length,1);const annual=structuredClone(selected.sets[0]);
   const collection=annual.id.slice('set-annual-'.length);
   assert.equal(annual.id,'set-annual-'+collection);
-  assert(collection==='2016h28h-fe-am'||collection==='2016h28a-fe-am','only explicitly supported booklet identities');
+  assert(isStage3MorningCollection(collection),'only explicitly supported booklet identities');
   const numbers=annual.questionRefs.map(r=>Number(r.questionId.split('-').at(-1)));
   assert(numbers.length>0 && new Set(numbers).size===numbers.length);
   assert(numbers.every(n=>Number.isInteger(n)&&n>=1&&n<=80));

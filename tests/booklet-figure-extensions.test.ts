@@ -18,8 +18,12 @@ test('booklet figures retain ownership and cannot duplicate a profile or admit a
   const entry = (figures: BookletFigureDefinition[]) => ({ scope: '2016-autumn-pm', figures });
   const f = figure();
   assert.deepEqual(validateBookletFigureExtensions([entry([f])]), [f]);
+  const morning = { ...f, profile: 'legacy-2015-autumn-am-80-probe' };
+  assert.deepEqual(validateBookletFigureExtensions([{ scope: '2015-autumn-am', figures: [morning] }]), [morning]);
   for (const entries of [[entry([])], [entry([f, f])], [entry([f]), entry([f])],
     [entry([{ ...f, profile: 'legacy-2017-spring-pm-2-probe' }])], [entry([{ ...f, profile: 'legacy-2016-autumn-pm-14-probe' }])],
+    [{ scope: '2015-autumn-am', figures: [{ ...morning, profile: 'legacy-2015-autumn-am-81-probe' }] }],
+    [{ scope: '2015-autumn-am', figures: [f] }],
     [entry([{ ...f, domain: [[2, 1]] }])], [entry([{ ...f, domain: [[0, Infinity]] }])],
     [entry([{ ...f, domain: new Array(1) }])], [entry([{ ...f, domain: [new Array(2) as [number, number]] }])]])
     assert.throws(() => validateBookletFigureExtensions(entries), { code: 'FIGURE_PROFILE' });

@@ -363,3 +363,11 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 各原問の画像と解答例、共通擬似言語、CASL II・表計算の必要資料を確認した。冊子の物理73頁はCASL II命令説明の上部だけを収録し、JIS文字の符号表を除外する。Java APIの原画像は配布範囲から外し、必要な動作を独自記述した参考資料に原冊子の該当箇所を表示する。原問題・付属資料・改変問題・独自解説にはそれぞれの出典と権利条件を表示する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)。
 
 `scripts/source-evidence/legacy-2016-spring-pm-source-review.json` に冊子・解答例の同一性、全大問の物理ページと解答欄、個別の素材判断を記録する。既知最小67問題集・3,062問／大問のうち掲載809件、未収録2,253件を区別する。
+
+### 第3段階 S3-005 2015年度秋期・旧午前
+
+公式80問のうち、掲載条件を確認した77問を収録する。年度別オリジナルとランダムミックスは77問を出題し、時間付き練習には公式の150分を使う。原問番号、テクノロジ・マネジメント・ストラテジの区分、冊子p.2–3の規格の版と論理回路の凡例を保持する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_ans.pdf)。
+
+問40はプライバシーマーク制度、問50は共通フレーム2013、問55はITIL 2011に関する具体的表現の利用条件を確認中とする。原画像、全文、可変版は保留し、全80問の台帳と欠番を保持する。確認済みの問題に適用した出典・改変表示・権利留保はアプリで確認できる。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[IPAウェブサイトの利用条件](https://www.ipa.go.jp/siteinfo.html)。
+
+問65は原問題のIRRの注記を保存し、可変問題には割引を考慮しない条件を明示する。問79・80は2015年10月18日の出題時点の法令に対応させた。素材の判断、出典、対象全問の正答は `scripts/source-evidence/legacy-2015-autumn-am-source-review.json` と問題集の検証資料に記録する。既知最小3,062問／大問のうち886件を収録し、2,176件の未収録と取得境界の未確定を管理する。[IPAの2019年度春期問65](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000ddiw-att/2019h31h_fe_am_qs.pdf)・[国土交通省のIRRの定義](https://www.mlit.go.jp/common/001205703.pdf)。

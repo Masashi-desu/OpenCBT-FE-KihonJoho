@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 import { DataError } from '../core/errors';
-import { additionalBookletFigures, type BookletFigureExtension } from '../core/booklet-figure-extension-contract';
+import { bookletFigureExtensions, type BookletFigureExtension } from '../core/booklet-figure-extension-contract';
 import { bookletFigureRenderers } from './booklet-figure-renderers';
 
 export type BookletFigureProps = { values: number[]; caption: string };
@@ -27,13 +27,7 @@ export function validateBookletFigureRenderers(entries: readonly BookletFigureRe
   return renderers;
 }
 
-// Reconstruct ownership from the profile namespace, checked by the core gate.
-const grouped = new Map<string, typeof additionalBookletFigures>();
-for (const figure of additionalBookletFigures) {
-  const scope = figure.profile.match(/^legacy-(20\d{2}-(?:spring|autumn|special)-pm)-/)![1];
-  grouped.set(scope, [...(grouped.get(scope) ?? []), figure]);
-}
-const renderers = validateBookletFigureRenderers(bookletFigureRenderers, [...grouped].map(([scope, figures]) => ({ scope, figures })));
+const renderers = validateBookletFigureRenderers(bookletFigureRenderers, bookletFigureExtensions);
 export function bookletFigureComponent(profile: string) {
   return renderers.find(renderer => renderer.profile === profile)?.component;
 }

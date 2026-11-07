@@ -16,6 +16,7 @@ import {
   autumn2016Counts,
   autumn2016FixedSignatures,
   isAutumn2016Source,
+  isAutumn2015Source,
   bindQuestion,
   answerSignature,
   answerCanVary,
@@ -42,7 +43,9 @@ import {
   type DiagramBlock
 } from "./helpers/booklet-content-support";
 import {additionalBookletFigures}from'../src/core/booklet-figure-extension-contract';
-import {sourceScope,sourceExclusions}from'../scripts/source-inventory';
+import { publishedSourceScope } from './helpers/published-source-scope';
+import autumn2015Official from './fixtures/legacy-2015-autumn-am-official-answers.json';
+import autumn2015Review from '../scripts/source-evidence/legacy-2015-autumn-am-source-review.json';
 
 test("native AM semantic drawings reject missing names, cells, source marks and headers", () => {
   const b = fixture();
@@ -104,7 +107,11 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     Object.keys(sourceFigureDomains).sort(),
   );
   assert.equal(stage3MorningDefinitions.length,75);
-  assert.equal(stage3AllMorningDefinitions.length,152);
+  assert.equal(stage3AllMorningDefinitions.filter(definition =>
+    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 152);
+  assert.deepEqual(stage3AllMorningDefinitions.filter(definition => isAutumn2015Source(definition.source)).map(definition => definition.source),
+    autumn2015Official.records.filter(row => !autumn2015Review.held.some(held => held.number === row.number))
+      .map(row => `${autumn2015Official.collectionId}-${row.number}`));
   const stage3ReferenceBlocks = stage3AllMorningDefinitions.flatMap(definition => {
     const body = definition.build([...definition.reference!]);
     return [...body.prompt, ...body.choices.flat(), ...(body.contexts ?? []).flatMap(context => context.blocks)];
@@ -158,7 +165,7 @@ test("every independently declared eligible official source has exactly one gene
   const b = fixture();
   await validateBundle(b);
   const c = generationCoverage(b);
-  const expected=sourceScope.filter(id=>!Object.hasOwn(sourceExclusions,id)).length;
+  const expected = publishedSourceScope.originalCount;
   assert.equal(c.total, expected);
   assert.equal(c.covered, expected);
   assert(
@@ -173,8 +180,7 @@ test("every independently declared eligible official source has exactly one gene
       size: "full",
       bindingMode: "generated_values",
     });
-    // Keep the previous 682 A families and append all 77 eligible autumn sources.
-    assert.equal(prepared.set.questionRefs.length, subject === "A" ? 682 + 77 : 49);
+    assert.equal(prepared.set.questionRefs.length, publishedSourceScope.subjectPoolCounts[subject]);
   }
   const missing = structuredClone(b);
   missing.templates = missing.templates.filter(

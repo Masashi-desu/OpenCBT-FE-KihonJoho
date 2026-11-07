@@ -1,0 +1,71 @@
+{
+  "collectionId": "2015h27a-fe-am",
+  "checkedOn": "2026-11-07",
+  "status": "source_reviewed_for_candidate",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "questionPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_qs.pdf",
+    "sha256": "d9e1e4ae74f5d1736ab67339637c6ce32a3f50ec7cced76b532489a48e5a0df5"
+  },
+  "answerPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_ans.pdf",
+    "sha256": "326e6dd325ba0b9ae3ce9e3585d82d3cade0186edc44f24d3be088995c9d13d4"
+  },
+  "officialListing": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2015h27.html",
+    "sha256": "1795c3ba4020d8155071617bb0a529e9065a2e32ca8fd9ec282f4c35df9d2d4b"
+  },
+  "faq": {
+    "url": "https://www.ipa.go.jp/shiken/faq.html",
+    "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474"
+  },
+  "sitePolicy": {
+    "url": "https://www.ipa.go.jp/siteinfo.html",
+    "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3"
+  },
+  "sourcePreflightSHA256": "1a1473e3165273f6ff9d268db6ba7043bb27c51493e212f14b4eb4ee1ba24f8b",
+  "cropCandidatesSHA256": "ba53ef0ab975dc47b6bdda0c011c2002cb4ade1cf77b225c051c0995f28afdb5",
+  "held": [
+    {
+      "number": 40,
+      "reason": "プライバシーマーク制度の説明と2015年以前の第三者資料との表現の境界を確認中。原画像・全文・可変版の一対一の配布を保留。"
+    },
+    {
+      "number": 50,
+      "reason": "共通フレーム2013の説明と第三者規格本文の境界、公開ガイダンスの利用条件が原問へ適用される範囲を確認中。"
+    },
+    {
+      "number": 55,
+      "reason": "ITIL 2011のサービスデスク組織に関する具体的表現の由来と、転載・改変の利用条件を確認中。"
+    }
+  ],
+  "commonPages": [2, 3],
+  "materialFindings": [
+    "共通p.2はIPAの試験中の表記と規格・標準の名称・版の対応表。p.3は9種の論理回路の凡例と否定の注記。両頁に規格条文や製品ロゴを含まない。",
+    "問52の五行表、例示値、補正係数と選択肢はIPAの2011年度秋期問52にも存在する。規格の本文を追加転載せず、出題用の例示と一般的な計算法を扱う。",
+    "p.40の商標注記は権利の確認に使う。試験の会場・退室案内は問題素材に含めない。"
+  ],
+  "contentFindings": [
+    "問15の原問題には2台の故障の独立性が明示されない。原問題の説明では公式正答に対応するモデルを示し、生成側では独立性を解答前に明示する。",
+    "問65の原問題と基準入力はIRRが0という原注記を保持する。生成条件1〜3では2019年度春期旧午前問65に沿って割引率を考慮しないと明示し、IRRの定義と区別する。",
+    "問79・80の解答と可変条件は2015年10月18日の出題時点の条文に基づいて査読した。"
+  ],
+  "supportingSources": [
+    {
+      "question": 52,
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_am_qs.pdf",
+      "locator": "2011年度秋期 旧午前 問52、例題の五行表と選択肢"
+    },
+    {
+      "question": 65,
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000ddiw-att/2019h31h_fe_am_qs.pdf",
+      "locator": "2019年度春期 旧午前 問65、割引率に関する条件"
+    },
+    {
+      "question": 65,
+      "url": "https://www.mlit.go.jp/common/001205703.pdf",
+      "locator": "CRE戦略実践ガイドライン 2010改訂版 印刷p.86（PDF p.96）、IRRの定義"
+    }
+  ]
+}

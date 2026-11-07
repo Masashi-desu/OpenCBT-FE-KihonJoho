@@ -2,6 +2,7 @@ import { checkEndlessSessionHistory } from "./helpers/booklet-endless-practice-p
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "./fixtures";
+import { publishedSourceScope } from "./helpers/published-source-scope";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { nextQuestionRef, selectQuestions } from "../src/core/selection";
 import { refKey, refOf, type Selection } from "../src/core/types";
@@ -87,7 +88,7 @@ test("endless current-subject pools retain all applicable series and explicit bo
         !row.original.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"))
       .map((row) => refKey(row.linked[0].baseQuestionRef)).sort();
     assert.deepEqual(clean.set.questionRefs.map(refKey).sort(), expected);
-    assert.equal(expected.length, subject === "A" ? 759 : 49);
+    assert.equal(expected.length, publishedSourceScope.subjectPoolCounts[subject]);
     if (subject === "A") assert.deepEqual(clean.set.questionRefs.filter(ref=>ref.questionId.startsWith("question-template-source-2016h28a-fe-am-"))
       .map(ref=>Number(ref.questionId.split("-").at(-1))).sort((a,b)=>a-b),
       Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)));

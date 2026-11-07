@@ -16,6 +16,7 @@ import {
   autumn2016FixedSignatures,
   isAutumn2016Source,
   isNativeStage3Source,
+  isAutumn2015Source,
   bindQuestion,
   parametersForSeed,
   answerSignature,
@@ -50,7 +51,7 @@ export async function registerBookletContentContractTests(scope: string) {
     assert.equal(base.choices.length, original.choices.length);
     assert.equal(base.origin.derivedFrom[0].questionId, original.id);
     const before = JSON.stringify(base),
-      answers = new Set<string>();
+      answers = new Set<string>(), visibleConditions = new Set<string>();
     for (let i = 0; i < 64; i++) {
       const seed = i.toString(16).padStart(32, "0"),
         params = await parametersForSeed(seed, t);
@@ -73,6 +74,7 @@ export async function registerBookletContentContractTests(scope: string) {
       assert.equal(q.assetRefs.length, 0);
       assert(q.explanation.blocks.length > 0);
       answers.add(answerSignature(q));
+      if (isAutumn2015Source(d.source)) visibleConditions.add(JSON.stringify([q.prompt.blocks, q.contexts]));
       for (const content of [
         q.prompt,
         ...q.contexts.map((c) => c.content),
@@ -89,7 +91,7 @@ export async function registerBookletContentContractTests(scope: string) {
               assert.equal(block.rendererRef.version, activityNetworkRenderer.version);
               readActivityNetwork(block.scene);
             }
-            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isNativeStage3Source(d.source));
+            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isNativeStage3Source(d.source) || isAutumn2015Source(d.source));
           }
     }
     const reviewedAM = amCapacityBySource.get(d.source);
@@ -143,6 +145,11 @@ export async function registerBookletContentContractTests(scope: string) {
       assert.equal(displays.size,count,d.source + " must retain all substantively distinct conditions");
       assert([...answers].every(signature => finiteAnswers.has(signature)));
       for(const values of [[],[-1],[count],[.5],[0,0]])assert.throws(()=>d.build(values),/PARAMETER_CONSTRAINT/);
+    } else if (isAutumn2015Source(d.source)) {
+      // The booklet's independent tests check each finite candidate's answer,
+      // source role and viable alternate conditions. Keep seeded dispatch here.
+      assert.equal(d.answerVariation, "fixed");
+      assert(visibleConditions.size >= 2, `${d.source}: distinct conditions before answering`);
     } else if (d.source === "2024-a-20") {
       assert.equal(d.source, "2024-a-20");
       assert.equal(answers.size, 1);

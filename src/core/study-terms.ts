@@ -13,6 +13,7 @@ import {legacy2016SpringStudyTerms} from './generators/legacy-2016-spring-fundam
 import {legacy2016SpringAm5780StudyTerms} from './generators/legacy-2016-spring-am-57-80-study-terms';
 import {isSpring2016CommonContext} from './generators/legacy-2016-spring-am-common';
 import {isAutumn2016CommonContext} from './generators/legacy-2016-autumn-am-common';
+import {isAutumn2015CommonContext} from './generators/legacy-2015-autumn-am-common';
 import {legacy2016AutumnAm0140StudyTerms} from './generators/legacy-2016-autumn-am-01-40-study-terms';
 import {legacy2016AutumnAm4180StudyTerms} from './generators/legacy-2016-autumn-am-41-80-study-terms';
 
@@ -199,7 +200,11 @@ export function questionStudyTerms(
   );
   const texts = [
     ...question.contextRefs.flatMap(
-      (id) => {const context=question.contexts.find(c=>c.id===id);return context && !isSpring2016CommonContext(question,context)&&!isAutumn2016CommonContext(question,context)?context.content.blocks:[];},
+      (id) => {
+        const context = question.contexts.find(c => c.id === id);
+        return context && !isSpring2016CommonContext(question, context) && !isAutumn2016CommonContext(question, context) &&
+          !isAutumn2015CommonContext(question, context) ? context.content.blocks : [];
+      },
     ),
     ...question.prompt.blocks,
     ...question.choices.flatMap((c) => c.content.blocks),

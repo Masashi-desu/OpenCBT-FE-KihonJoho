@@ -11,10 +11,14 @@ import { legacy2016SpringAm5780Definitions } from './legacy-2016-spring-am-57-80
 import { legacy2016AutumnAm0140Definitions } from './legacy-2016-autumn-am-01-40';
 import { legacy2016AutumnAm4180Definitions } from './legacy-2016-autumn-am-41-80';
 import { autumn2016CommonContexts } from './legacy-2016-autumn-am-common';
+import { legacy2015AutumnAm0126Definitions } from './legacy-2015-autumn-am-01-26';
+import { legacy2015AutumnAm2753Definitions } from './legacy-2015-autumn-am-27-53';
+import { legacy2015AutumnAm5480Definitions } from './legacy-2015-autumn-am-54-80';
+import { autumn2015CommonContexts } from './legacy-2015-autumn-am-common';
 
 // Implementations are application-owned capabilities. Catalog admission and
 // material/answer validation still apply to every requested template.
-const sourcePattern = /^generator-source-(2016h28[ha]-fe-am-(?:[1-9]|[1-7]\d|80))$/;
+const sourcePattern = /^generator-source-((?:2015h27a|2016h28[ha])-fe-am-(?:[1-9]|[1-7]\d|80))$/;
 export const isStage3MorningSource=(source:string)=>sourcePattern.test('generator-source-'+source);
 export const stage3MorningDefinitions: readonly GenerationDefinition[] = [
   ...legacy2016SpringFundamentalDefinitions,
@@ -31,7 +35,19 @@ export const stage3AutumnMorningDefinitions:readonly GenerationDefinition[]=[
   ...legacy2016AutumnAm0140Definitions(),...legacy2016AutumnAm4180Definitions,
 ].map(d=>({...d,notes:d.notes+' 2016年度秋期の共通表記p2–3（規格の版、論理回路・回路記号と注記）を解答前の参照資料に保持する。',
   build:(values:number[])=>{const body=d.build(values);return{...body,contexts:[...autumn2016CommonContexts(),...(body.contexts??[])]};}}));
-export const stage3AllMorningDefinitions:readonly GenerationDefinition[]=[...stage3MorningDefinitions,...stage3AutumnMorningDefinitions].map(addReviewedStemCase);
+export const stage3Autumn2015MorningDefinitions: readonly GenerationDefinition[] = [
+  ...legacy2015AutumnAm0126Definitions, ...legacy2015AutumnAm2753Definitions(), ...legacy2015AutumnAm5480Definitions,
+].map(definition => ({
+  ...definition,
+  notes: definition.notes + ' 2015年度秋期の規格・標準の版と論理回路の共通表記p.2–3を解答前に参照できる。',
+  build(values) {
+    const body = definition.build(values);
+    return { ...body, contexts: [...autumn2015CommonContexts(), ...(body.contexts ?? [])] };
+  },
+}));
+export const stage3AllMorningDefinitions:readonly GenerationDefinition[]=[
+  ...stage3MorningDefinitions, ...stage3AutumnMorningDefinitions, ...stage3Autumn2015MorningDefinitions,
+].map(addReviewedStemCase);
 
 export function ensureStage3MorningGenerators(bundle: Bundle, executable?: ReadonlySet<string>) {
   const requested = bundle.templates.filter(t => sourcePattern.test(t.generatorRef.id) &&

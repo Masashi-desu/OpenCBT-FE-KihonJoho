@@ -49,7 +49,9 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
   assert.equal(morning.length, publishedSourceScope.morningCount);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 152);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => [2017, 2018, 2019].includes(ref.locator.year ?? 0))).length, 467);
-  assert(morning.every(q => q.learning.tags.some(tag => tag === "legacy-morning" || /^legacy-201[6789]$/.test(tag))), "AM source classifications remain attached");
+  assert(morning.every(q => q.learning.tags.includes("legacy-morning") || q.origin.sourceRefs.some(ref =>
+    ref.locator.timeSlot === "午前" && ref.locator.year !== undefined && q.learning.tags.includes(`legacy-${ref.locator.year}`))),
+    "AM source classifications remain attached to the official year");
   assert.equal(b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, publishedSourceScope.afternoonCount);
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {

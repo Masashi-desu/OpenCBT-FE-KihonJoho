@@ -12,12 +12,20 @@ export type Stage3MorningFact = {
   choiceShuffleAllowed?: boolean;
 };
 export type Stage3MorningRecords = Pick<Bundle,'questions'|'templates'|'assets'|'sets'|'exams'|'sources'|'rights'>;
-export type Stage3MorningCollection = '2016h28h-fe-am'|'2016h28a-fe-am';
+const stage3MorningBooklets = {
+  '2016h28h-fe-am': { year: 2016, officialYear: '平成28年度', period: '春期', taskId: 'S3-001' },
+  '2016h28a-fe-am': { year: 2016, officialYear: '平成28年度', period: '秋期', taskId: 'S3-002' },
+  '2015h27a-fe-am': { year: 2015, officialYear: '平成27年度', period: '秋期', taskId: 'S3-005' },
+} as const;
+export type Stage3MorningCollection = keyof typeof stage3MorningBooklets;
+export function isStage3MorningCollection(collection: string): collection is Stage3MorningCollection {
+  return Object.hasOwn(stage3MorningBooklets, collection);
+}
 export function stage3MorningSourceRef(collection:Stage3MorningCollection,n?: number,page?: number,answer=false):SourceRef{
-  assert(collection==='2016h28h-fe-am'||collection==='2016h28a-fe-am','known reviewed booklet identity');
-  const period=collection==='2016h28h-fe-am'?'春期':'秋期';
-  return {sourceId:'source-ipa-'+collection+(answer?'-ans':'-qs'),locator:{year:2016,period,exam:'基本情報技術者試験',timeSlot:'午前',subject:'旧制度・午前',
-    section:`平成28年度 ${period} 基本情報技術者試験 午前${n?' 問'+n:''}${answer?' 解答例':''}`,
+  assert(isStage3MorningCollection(collection),'known reviewed booklet identity');
+  const { year, officialYear, period } = stage3MorningBooklets[collection];
+  return {sourceId:'source-ipa-'+collection+(answer?'-ans':'-qs'),locator:{year,period,exam:'基本情報技術者試験',timeSlot:'午前',subject:'旧制度・午前',
+    section:`${officialYear} ${period} 基本情報技術者試験 午前${n?' 問'+n:''}${answer?' 解答例':''}`,
     ...(page?{page}:{}),...(n?{questionNumber:String(n)}:{})}};
 }
 export function spring2016SourceRef(n?: number,page?: number,answer=false):SourceRef{
@@ -33,7 +41,8 @@ export async function makeStage3MorningRecords(input: {
   collectionId?: Stage3MorningCollection;
 }): Promise<Stage3MorningRecords> {
   const collection=input.collectionId??'2016h28h-fe-am';
-  const period=collection==='2016h28h-fe-am'?'春期':'秋期',taskId=collection==='2016h28h-fe-am'?'S3-001':'S3-002';
+  assert(isStage3MorningCollection(collection),'known reviewed booklet identity');
+  const { year, period, taskId } = stage3MorningBooklets[collection];
   const ref=(n?:number,page?:number,answer=false)=>stage3MorningSourceRef(collection,n,page,answer);
   const numbers=input.facts.map(f=>f.number);
   assert(numbers.length>0 && new Set(numbers).size===numbers.length);
@@ -46,7 +55,7 @@ export async function makeStage3MorningRecords(input: {
   for(const fact of input.facts){
     assert(Number.isInteger(fact.number)&&fact.number>=1&&fact.number<=80);
     assert.equal(fact.source,collection+'-'+fact.number);
-    if(collection==='2016h28a-fe-am'){
+    if(collection!=='2016h28h-fe-am'){
       assert(['technology','management','strategy'].includes(fact.area??''),'autumn learning area requires its own source review');
       assert.equal(typeof fact.choiceShuffleAllowed,'boolean','autumn choice order requires its own review');
     }
@@ -62,7 +71,7 @@ export async function makeStage3MorningRecords(input: {
       sourceRefs:[...structuredClone(attribution.sourceRefs),ref(undefined,2),ref(undefined,3)],
       rightsRefs:[...attribution.rightsRefs,'rights-original']};
     const original:Question={schemaVersion:'3.0.0',id:'question-ipa-'+fact.source,revision:1,lifecycle:'active',subject:'A',
-      learning:{area:fact.area??(fact.number<=50?'technology':fact.number<=61?'management':'strategy'),tags:['legacy-2016'],topics:[definition.title],keywords:[definition.title]},
+      learning:{area:fact.area??(fact.number<=50?'technology':fact.number<=61?'management':'strategy'),tags:[`legacy-${year}`],topics:[definition.title],keywords:[definition.title]},
       origin:{kind:'official_reprint',sourceRefs:[ref(fact.number,fact.page),ref(undefined,2),ref(undefined,3)],derivedFrom:[],isModified:false,modificationBasis:'official_source',
         changes:[{at:input.checkedOn+'T00:00:00Z',actorId:'codex',kind:'layout',summary:'原画像・原問番号・全選択肢・注記と共通表記を保持',details:`原PDF p${fact.page}。画像切出し座標${fact.crop.cropBox.join(',')}。構造化した完全な代替説明を保持。`,affectsAnswer:false}]},
       contributors:[{actorId:'ipa',role:'author'},{actorId:'codex',role:'editor'},{actorId:'codex',role:'verifier'}],
@@ -93,10 +102,10 @@ export async function makeStage3MorningRecords(input: {
     records.questions.push(original,base);records.templates.push(template);records.assets.push(asset);
   }
   const count=numbers.length;
-  records.exams.push(...(['study','practice'] as const).map(mode=>({schemaVersion:'3.0.0',id:`exam-${collection}-${mode}`,revision:1,title:`2016年度 ${period} 旧午前（${mode==='study'?'学習・復習':'時間付き練習'}）`,subject:'A' as const,mode,
+  records.exams.push(...(['study','practice'] as const).map(mode=>({schemaVersion:'3.0.0',id:`exam-${collection}-${mode}`,revision:1,title:`${year}年度 ${period} 旧午前（${mode==='study'?'学習・復習':'時間付き練習'}）`,subject:'A' as const,mode,
     questionCount:count,...(mode==='practice'?{timeLimitSeconds:9000,practiceScope:count===80?'full_exam' as const:'public_subset' as const}:{}),
     questionOrder:'set' as const,choiceOrder:'fixed' as const,duplicatePolicy:'lineage_unique' as const,shortagePolicy:'block' as const})));
-  records.sets.push({schemaVersion:'3.0.0',id:'set-annual-'+collection,revision:1,title:`2016年度 ${period} 午前`,subject:'A',
+  records.sets.push({schemaVersion:'3.0.0',id:'set-annual-'+collection,revision:1,title:`${year}年度 ${period} 午前`,subject:'A',
     questionRefs:numbers.map(n=>({questionId:`question-ipa-${collection}-${n}`,revision:1})),examConfigRefs:records.exams.map(e=>({id:e.id,revision:1})),distribution:'excluded',generationBindings:[]});
   return records;
 }

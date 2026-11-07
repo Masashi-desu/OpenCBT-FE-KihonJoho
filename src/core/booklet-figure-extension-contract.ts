@@ -1,5 +1,6 @@
 import { DataError } from './errors';
 import { bookletFigureExtensions } from './booklet-figure-extensions';
+export { bookletFigureExtensions };
 
 export type BookletFigureDefinition = {
   readonly profile: string;
@@ -25,12 +26,16 @@ export function validateBookletFigureExtensions(entries: readonly BookletFigureE
   const scopes = new Set<string>(), profiles = new Set<string>();
   const figures: BookletFigureDefinition[] = [];
   for (const entry of entries) {
-    if (!/^20\d{2}-(?:spring|autumn|special)-pm$/.test(entry.scope) || scopes.has(entry.scope) || !entry.figures.length)
+    const section = /^20\d{2}-(?:spring|autumn|special)-(am|pm)$/.exec(entry.scope)?.[1];
+    if (!section || scopes.has(entry.scope) || !entry.figures.length)
       throw new DataError('FIGURE_PROFILE', '問題集の図登録が空又は重複しています');
     scopes.add(entry.scope);
+    const suffixPattern = section === 'am'
+      ? /^(?:[1-9]|[1-7]\d|80)-[a-z0-9]+(?:-[a-z0-9]+)*$/
+      : /^(?:[1-9]|1[0-3])-[a-z0-9]+(?:-[a-z0-9]+)*$/;
+    const prefix = `legacy-${entry.scope}-`;
     for (const figure of entry.figures) {
-      const suffix = figure.profile.slice(('legacy-' + entry.scope + '-').length);
-      if (figure.profile.length>200 || !figure.profile.startsWith('legacy-' + entry.scope + '-') || !/^(?:[1-9]|1[0-3])-[a-z0-9]+(?:-[a-z0-9]+)*$/.test(suffix) || profiles.has(figure.profile) ||
+      if (figure.profile.length > 200 || !figure.profile.startsWith(prefix) || !suffixPattern.test(figure.profile.slice(prefix.length)) || profiles.has(figure.profile) ||
         !denseArray(figure.domain) ||
         figure.domain.some(pair => !denseArray(pair) || pair.length !== 2 || !pair.every(Number.isSafeInteger) || pair[0] > pair[1]) ||
         typeof figure.validate !== 'function' || typeof figure.alt !== 'function')

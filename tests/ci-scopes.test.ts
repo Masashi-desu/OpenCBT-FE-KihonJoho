@@ -139,9 +139,26 @@ test('strict registration declarations permit append-only owned definitions and 
 });
 test('core and UI figure extension declarations use the same guarded append-only scope grammar', () => {
     for (const [file, c] of Object.entries(EXTENSION_DECLARATIONS).filter(([p]) => p !== 'src/core/generators/afternoon-booklet-extensions.ts')) {
-        const config = c as any, head = `import type { ${config.type} } from '${config.contract}';\n`, module = file.startsWith('src/ui/') ? 'Legacy2016AutumnPmFigures' : 'generators/legacy-2016-autumn-pm-figures', empty = head + `export const ${config.variable}: readonly ${config.type}[] = [];`, after = head + `import { figures } from './${module}';\nexport const ${config.variable}: readonly ${config.type}[] = [{scope:'2016-autumn-pm',${config.property}:figures}];`;
-        assert.deepEqual(appendOnlyExtensionScopes(empty, after, file), ['2016-autumn-pm']);
-        assert.equal(parseBookletExtensions(after.replace('figures}', 'figures, hook:run}'), file), null);
+        const declaration = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
+        const entries = parseBookletExtensions(declaration, file);
+        assert(entries);
+        assert(entries.some(entry => entry.scope === '2015-autumn-am'));
+        assert(entries.some(entry => entry.scope === '2016-autumn-pm'));
+
+        const morningModule = file.startsWith('src/ui/') ? 'Legacy2015AutumnAmFigures' : 'generators/legacy-2015-autumn-am-figures';
+        const afternoonModule = file.startsWith('src/ui/') ? 'Legacy2015AutumnPmFigures' : 'generators/legacy-2015-autumn-pm-figures';
+        const before = [
+            `import type { ${c.type} } from '${c.contract}';`,
+            `import { morningFigures } from './${morningModule}';`,
+            `export const ${c.variable}: readonly ${c.type}[] = [`,
+            `  { scope: '2015-autumn-am', ${c.property}: morningFigures },`,
+            '];',
+        ].join('\n');
+        const after = `import { nextFigures } from './${afternoonModule}';\n` + before.replace(/\];$/, `  { scope: '2015-autumn-pm', ${c.property}: nextFigures },\n];`);
+        assert.deepEqual(appendOnlyExtensionScopes(before, after, file), ['2015-autumn-pm']);
+        assert.equal(parseBookletExtensions(after.replace("'2015-autumn-pm'", "'2015-spring-pm'"), file), null);
+        assert.equal(parseBookletExtensions(before.replace("'2015-autumn-am'", "'2015-autumn-pm'"), file), null);
+        assert.equal(parseBookletExtensions(after.replace(`${c.property}: nextFigures }`, `${c.property}: nextFigures, hook: run }`), file), null);
     }
 });
 test('a deletion retains the old owner and multiple changed booklets are selected together', () => {

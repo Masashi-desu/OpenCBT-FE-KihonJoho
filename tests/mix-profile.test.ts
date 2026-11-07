@@ -1,6 +1,7 @@
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "./fixtures";
+import { publishedSourceScope } from "./helpers/published-source-scope";
 import { refOf, refKey, type Bundle, type Selection } from "../src/core/types";
 import { mixProfile, scaleAreaCounts } from "../src/core/mix-profile";
 import { selectQuestions } from "../src/core/selection";
@@ -193,7 +194,7 @@ test("all-year mixes expose every eligible source family while keeping old after
     const expected = b.questions.filter(q => q.origin.kind === "official_reprint" && q.subject === subject &&
       q.distribution === "included" && q.lifecycle === "active" &&
       (subject === "A" || !q.origin.sourceRefs.some(ref => ref.locator.timeSlot)));
-    assert.equal(expected.length, subject === "A" ? 759 : 49);
+    assert.equal(expected.length, publishedSourceScope.subjectPoolCounts[subject]);
     const profile = mixProfile(b, s), out = selectQuestions(b, s, a => a);
     assert.equal(profile.publicCount, subject === "A" ? 20 : 6);
     assert.equal(out.questions.length, profile.publicCount);

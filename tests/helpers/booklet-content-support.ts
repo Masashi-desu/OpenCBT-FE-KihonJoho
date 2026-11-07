@@ -9,6 +9,7 @@ import { additionalDefinitions } from "../../src/core/generators";
 import amCapacity from "../fixtures/stage1-am-capacity-review.json";
 const amCapacityBySource = new Map(amCapacity.rows.map(r => [r.source, r]));
 import { stage3MorningDefinitions, stage3AllMorningDefinitions } from "../../src/core/generators/stage3-morning-install";
+import { autumn2015CommonProfile } from "../../src/core/generators/legacy-2015-autumn-am-common";
 import autumn2016FirstReview from "../fixtures/legacy-2016-autumn-am-01-40-review.json";
 import autumn2016LastReview from "../fixtures/legacy-2016-autumn-am-41-80-review.json";
 import stage3FundamentalsContracts from "../fixtures/legacy-2016-spring-fundamentals-input-contracts.json";
@@ -60,6 +61,7 @@ for (const row of stemReview.rows.filter(row => row.outcome === "revised")) {
   }
 }
 const isAutumn2016Source=(source:string)=>/^2016h28a-fe-am-\d+$/.test(source);
+const isAutumn2015Source = (source: string) => /^2015h27a-fe-am-\d+$/.test(source);
 const isNativeStage3Source=(source:string)=>isStage3Source(source)||isAutumn2016Source(source);
 import {
   bindQuestion,
@@ -109,6 +111,12 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
   assert(!html.includes("diagram-alt"));
   const scene = block.scene;
   const profile = scene.kind === "source_figure" ? scene.profile : "";
+  if (scene.kind === "source_figure" && profile === "legacy-2015-autumn-am-27-relation") {
+    assert(html.includes('role="img" aria-label="' + escapeHTML(block.alt) + '"'));
+    assert.equal([...html.matchAll(/class="diagram-scroll"/g)].length, 1);
+    assert.equal(html.includes('<u data-primary-key='), scene.values[1] !== 0);
+    return;
+  }
   const namedHTML = nativeAM && ["legacy-2019-database-diagnosis", "legacy-2019-data-feedback",
     "legacy-2019-truth-table", "legacy-2019-score-relation"].includes(profile);
   if (namedHTML) {
@@ -246,7 +254,7 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
       assert(html.includes('data-positive-input="true"')&&html.includes('data-negative-input="true"'));
       assert(html.includes('○')&&html.includes('論理状態の反転又は否定'));return;
     }
-    assert(scene.kind === "source_figure" && scene.profile.endsWith("-am-common-gates"));
+    assert(scene.kind === "source_figure" && (scene.profile.endsWith("-am-common-gates") || scene.profile === autumn2015CommonProfile));
     assert(html.includes('<table aria-label="' + escapeHTML(block.caption) + '"'));
     assert(html.includes('<th scope="col">図記号</th><th scope="col">説明</th>'));
     assert.deepEqual([...html.matchAll(/data-common-gate="([^"]+)"/g)].map(m => m[1]),
@@ -287,6 +295,7 @@ export {
   autumn2016FixedSignatures,
   isAutumn2016Source,
   isNativeStage3Source,
+  isAutumn2015Source,
   bindQuestion,
   parametersForSeed,
   answerSignature,
