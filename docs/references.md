@@ -379,3 +379,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 共通擬似言語は冊子3〜4頁、表計算の付属資料は79〜84頁を参照する。CASL IIの75頁は上部の命令と注記を収録し、下部のJIS文字の符号表は配布対象外とする。問11にはJava SE 8の必要なAPIの動作を独自に説明した資料を用意する。原資料の71〜72頁には出典からアクセスできる。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Java SE 8 List](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)・[Java SE 8 ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)・[Java SE 8 System.arraycopy](https://docs.oracle.com/javase/8/docs/api/java/lang/System.html#arraycopy-java.lang.Object-int-java.lang.Object-int-int-)。
 
 素材の範囲、出典、正答と画像の照合値は `scripts/source-evidence/legacy-2015-autumn-pm-source-review.json` に記録する。既知最小3,062問／大問のうち899件が掲載範囲となり、2,163件の未収録と取得境界の未確定を管理する。
+
+### 第3段階 S3-007 2015年度春期・旧午前
+
+2015年4月19日の旧制度・午前は80問・150分。分野区分は原冊子の問1〜51がテクノロジ、問52〜61がマネジメント、問62〜80がストラテジ。原問番号と解答順を維持し、利用条件と内容を確認した77問を年度別・ミックスに収録する。[IPA 平成27年度 春期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2015h27.html)
+
+原画像は各問の本文・図表・四択と共通表記p.2–3に限定する。冊子に示された規格名と版、論理回路の図記号と反転の注記を保持する。問56・57・66は外部教材や規格に由来する表現の利用条件を確認するまで、原画像・本文・生成器を掲載対象から外す。素材・出典の照合値と保留理由は `scripts/source-evidence/legacy-2015-spring-am-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html)

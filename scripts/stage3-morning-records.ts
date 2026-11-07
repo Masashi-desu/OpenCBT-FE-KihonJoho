@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import type { Asset, Attribution, Bundle, Question, Rights, Source, SourceRef, Template } from '../src/core/types';
 import { additionalVersion } from '../src/core/generators';
+import { additionalStage3MorningBooklet } from '../src/core/generators/stage3-morning-booklet-extension-contract';
 import { preserveChoiceOrder } from '../src/core/generators/ordered-choices';
 import { contentHash } from '../src/core/hash';
 import { bindBodyAnswers, ownContexts, type GenerationDefinition } from '../src/core/generators/definition';
@@ -17,13 +18,17 @@ const stage3MorningBooklets = {
   '2016h28a-fe-am': { year: 2016, officialYear: '平成28年度', period: '秋期', taskId: 'S3-002' },
   '2015h27a-fe-am': { year: 2015, officialYear: '平成27年度', period: '秋期', taskId: 'S3-005' },
 } as const;
-export type Stage3MorningCollection = keyof typeof stage3MorningBooklets;
-export function isStage3MorningCollection(collection: string): collection is Stage3MorningCollection {
-  return Object.hasOwn(stage3MorningBooklets, collection);
+function morningBooklet(collection: string) {
+  return Object.hasOwn(stage3MorningBooklets, collection) ? stage3MorningBooklets[collection as keyof typeof stage3MorningBooklets]
+    : additionalStage3MorningBooklet(collection);
 }
-export function stage3MorningSourceRef(collection:Stage3MorningCollection,n?: number,page?: number,answer=false):SourceRef{
-  assert(isStage3MorningCollection(collection),'known reviewed booklet identity');
-  const { year, officialYear, period } = stage3MorningBooklets[collection];
+export function isStage3MorningCollection(collection: string): boolean {
+  return morningBooklet(collection) !== undefined;
+}
+export function stage3MorningSourceRef(collection: string, n?: number, page?: number, answer = false): SourceRef {
+  const booklet = morningBooklet(collection);
+  assert(booklet, 'known reviewed booklet identity');
+  const { year, officialYear, period } = booklet;
   return {sourceId:'source-ipa-'+collection+(answer?'-ans':'-qs'),locator:{year,period,exam:'基本情報技術者試験',timeSlot:'午前',subject:'旧制度・午前',
     section:`${officialYear} ${period} 基本情報技術者試験 午前${n?' 問'+n:''}${answer?' 解答例':''}`,
     ...(page?{page}:{}),...(n?{questionNumber:String(n)}:{})}};
@@ -38,11 +43,12 @@ export async function makeStage3MorningRecords(input: {
   facts: readonly Stage3MorningFact[]; definitions: readonly GenerationDefinition[];
   commonAssets: readonly Asset[]; sources: Source[]; rights: Rights[];
   checkedOn: string; supplementaryRights?: Readonly<Record<number, string[]>>;
-  collectionId?: Stage3MorningCollection;
+  collectionId?: string;
 }): Promise<Stage3MorningRecords> {
   const collection=input.collectionId??'2016h28h-fe-am';
-  assert(isStage3MorningCollection(collection),'known reviewed booklet identity');
-  const { year, period, taskId } = stage3MorningBooklets[collection];
+  const booklet = morningBooklet(collection);
+  assert(booklet, 'known reviewed booklet identity');
+  const { year, period, taskId } = booklet;
   const ref=(n?:number,page?:number,answer=false)=>stage3MorningSourceRef(collection,n,page,answer);
   const numbers=input.facts.map(f=>f.number);
   assert(numbers.length>0 && new Set(numbers).size===numbers.length);
@@ -56,8 +62,8 @@ export async function makeStage3MorningRecords(input: {
     assert(Number.isInteger(fact.number)&&fact.number>=1&&fact.number<=80);
     assert.equal(fact.source,collection+'-'+fact.number);
     if(collection!=='2016h28h-fe-am'){
-      assert(['technology','management','strategy'].includes(fact.area??''),'autumn learning area requires its own source review');
-      assert.equal(typeof fact.choiceShuffleAllowed,'boolean','autumn choice order requires its own review');
+      assert(['technology','management','strategy'].includes(fact.area??''),'learning area requires its own source review');
+      assert.equal(typeof fact.choiceShuffleAllowed,'boolean','choice order requires its own review');
     }
     assert(fact.alt.length>30 && fact.crop.width>0 && fact.crop.height>0 && fact.crop.byteLength>0);
     const candidates=input.definitions.filter(d=>d.source===fact.source);assert.equal(candidates.length,1);

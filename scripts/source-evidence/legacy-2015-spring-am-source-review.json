@@ -1,0 +1,83 @@
+{
+  "collectionId": "2015h27h-fe-am",
+  "task": "S3-007",
+  "checkedOn": "2026-11-08",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 51,
+      "page": 4
+    },
+    {
+      "area": "management",
+      "first": 52,
+      "last": 61,
+      "page": 26
+    },
+    {
+      "area": "strategy",
+      "first": 62,
+      "last": 80,
+      "page": 30
+    }
+  ],
+  "commonPages": [
+    2,
+    3
+  ],
+  "held": [
+    {
+      "number": 56,
+      "reason": "ITIL 2011 editionの可用性管理で挙げられた指標例と第三者資料との表現の境界を確認中。"
+    },
+    {
+      "number": 57,
+      "reason": "JIS Q 20000-1:2012／ISO/IEC 20000-1:2011のプロセス・活動の表現と試験独自の記述の境界を確認中。"
+    },
+    {
+      "number": 66,
+      "reason": "共通フレーム2013とJIS系の要求事項記述の表現の境界を確認中。"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_am_qs.pdf",
+      "sha256": "64a598d846041dbcf90b4646aef1407ac31173dc2f60c91ce5393e9019834f54",
+      "byteLength": 4795602
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_am_ans.pdf",
+      "sha256": "c0c40c0860ba769528ad6db9cb8a0fda655878f860c64e97e02c0782ccd13c44",
+      "byteLength": 56184
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2015h27.html",
+      "sha256": "1795c3ba4020d8155071617bb0a529e9065a2e32ca8fd9ec282f4c35df9d2d4b",
+      "byteLength": 122870
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474",
+      "byteLength": 108408
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "sourcePreflightSHA256": "a9884d6e2ae290f079a0d8f71092806a496789e8d45d137bbcbf601bacd19583",
+  "cropCandidatesSHA256": "5eb37c6ef536eaa71b196c6fe1e01e1b1e8d75d6f4edd7e78f7de2bd03ddf242",
+  "materialFindings": [
+    "各原問と四択を画像で照合した。問56・57・66は第三者の規格・教材由来の表現の利用条件を確認できるまで保留。",
+    "p.2の表記と規格の版は事実の照合表。試験冊子の注記と版の識別子を保持し、規格の条項本文を含まない。",
+    "p.3はIPA冊子の図記号9種と反転の注記。規格文書の表や転載元の表示はない。生成版の独自描画と出典を区別する。",
+    "問53のWBSの短い行為記述、問79の刑法事例、問80の団体名と審議の役割はIPA作問部分と歴史的事実を区別。規格本文やロゴの転用は確認されない。",
+    "原資料画像は当該問と2頁の共通表記だけ。保留問、冊子全体、空白の付録を含めない。"
+  ],
+  "verifiedEligibleCount": 77,
+  "sourceVerification": "All 80 keys, source pages and three area boundaries were verified against the official PDFs and three independent source review packets."
+}

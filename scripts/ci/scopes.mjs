@@ -164,6 +164,7 @@ export function appendedSetScopes(before, after, ownership) {
 }
 export const EXTENSION_DECLARATIONS = {
     'src/core/generators/afternoon-booklet-extensions.ts': { type: 'AfternoonBookletExtension', contract: './afternoon-booklet-extension-contract', variable: 'bookletExtensions', property: 'definitions', module: /^(legacy-(20\d{2})-(spring|autumn|special)-afternoon)$/ },
+    'src/core/generators/stage3-morning-booklet-extensions.ts': { type: 'MorningBookletExtension', contract: './stage3-morning-booklet-extension-contract', variable: 'morningBookletExtensions', property: 'booklet', module: /^(legacy-(20\d{2})-(spring|autumn|special)-(am))$/ },
     'src/core/booklet-figure-extensions.ts': { type: 'BookletFigureExtension', contract: './booklet-figure-extension-contract', variable: 'bookletFigureExtensions', property: 'figures', module: /^(generators\/legacy-(20\d{2})-(spring|autumn|special)-(am|pm)-figures)$/ },
     'src/ui/booklet-figure-renderers.ts': { type: 'BookletFigureRendererExtension', contract: './booklet-figure-renderer-contract', variable: 'bookletFigureRenderers', property: 'renderers', module: /^(Legacy(20\d{2})(Spring|Autumn|Special)(Am|Pm)Figures)$/ },
 };

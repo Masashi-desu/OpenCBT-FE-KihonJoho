@@ -15,11 +15,12 @@ import { legacy2015AutumnAm0126Definitions } from './legacy-2015-autumn-am-01-26
 import { legacy2015AutumnAm2753Definitions } from './legacy-2015-autumn-am-27-53';
 import { legacy2015AutumnAm5480Definitions } from './legacy-2015-autumn-am-54-80';
 import { autumn2015CommonContexts } from './legacy-2015-autumn-am-common';
+import { additionalStage3MorningDefinitions, isAdditionalStage3MorningSource } from './stage3-morning-booklet-extension-contract';
 
 // Implementations are application-owned capabilities. Catalog admission and
 // material/answer validation still apply to every requested template.
-const sourcePattern = /^generator-source-((?:2015h27a|2016h28[ha])-fe-am-(?:[1-9]|[1-7]\d|80))$/;
-export const isStage3MorningSource=(source:string)=>sourcePattern.test('generator-source-'+source);
+const sourcePattern = /^(?:2015h27a|2016h28[ha])-fe-am-(?:[1-9]|[1-7]\d|80)$/;
+export const isStage3MorningSource = (source: string) => sourcePattern.test(source) || isAdditionalStage3MorningSource(source);
 export const stage3MorningDefinitions: readonly GenerationDefinition[] = [
   ...legacy2016SpringFundamentalDefinitions,
   ...legacy2016SpringAm0932Definitions,
@@ -47,14 +48,16 @@ export const stage3Autumn2015MorningDefinitions: readonly GenerationDefinition[]
 }));
 export const stage3AllMorningDefinitions:readonly GenerationDefinition[]=[
   ...stage3MorningDefinitions, ...stage3AutumnMorningDefinitions, ...stage3Autumn2015MorningDefinitions,
+  ...additionalStage3MorningDefinitions,
 ].map(addReviewedStemCase);
 
 export function ensureStage3MorningGenerators(bundle: Bundle, executable?: ReadonlySet<string>) {
-  const requested = bundle.templates.filter(t => sourcePattern.test(t.generatorRef.id) &&
-    (!executable || executable.has(`${t.id}@${t.revision}`)));
+  const prefix = 'generator-source-';
+  const requested = bundle.templates.filter(t => t.generatorRef.id.startsWith(prefix) &&
+    isStage3MorningSource(t.generatorRef.id.slice(prefix.length)) && (!executable || executable.has(`${t.id}@${t.revision}`)));
   const missing: GenerationDefinition[] = [];
   for (const template of requested) {
-    const source = sourcePattern.exec(template.generatorRef.id)![1];
+    const source = template.generatorRef.id.slice(prefix.length);
     const candidates = stage3AllMorningDefinitions.filter(d => d.source === source);
     if (candidates.length !== 1 || additionalVersion(candidates[0]) !== template.generatorRef.version)
       throw new DataError('GENERATOR_REF', '第三段階の査読済み生成器・版がありません');

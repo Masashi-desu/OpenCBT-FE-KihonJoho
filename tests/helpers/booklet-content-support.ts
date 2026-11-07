@@ -9,7 +9,6 @@ import { additionalDefinitions } from "../../src/core/generators";
 import amCapacity from "../fixtures/stage1-am-capacity-review.json";
 const amCapacityBySource = new Map(amCapacity.rows.map(r => [r.source, r]));
 import { stage3MorningDefinitions, stage3AllMorningDefinitions } from "../../src/core/generators/stage3-morning-install";
-import { autumn2015CommonProfile } from "../../src/core/generators/legacy-2015-autumn-am-common";
 import autumn2016FirstReview from "../fixtures/legacy-2016-autumn-am-01-40-review.json";
 import autumn2016LastReview from "../fixtures/legacy-2016-autumn-am-41-80-review.json";
 import stage3FundamentalsContracts from "../fixtures/legacy-2016-spring-fundamentals-input-contracts.json";
@@ -254,7 +253,7 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
       assert(html.includes('data-positive-input="true"')&&html.includes('data-negative-input="true"'));
       assert(html.includes('○')&&html.includes('論理状態の反転又は否定'));return;
     }
-    assert(scene.kind === "source_figure" && (scene.profile.endsWith("-am-common-gates") || scene.profile === autumn2015CommonProfile));
+    assert(scene.kind === "source_figure" && /-am-(?:23-)?common-gates$/.test(scene.profile));
     assert(html.includes('<table aria-label="' + escapeHTML(block.caption) + '"'));
     assert(html.includes('<th scope="col">図記号</th><th scope="col">説明</th>'));
     assert.deepEqual([...html.matchAll(/data-common-gate="([^"]+)"/g)].map(m => m[1]),

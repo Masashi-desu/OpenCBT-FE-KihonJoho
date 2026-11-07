@@ -138,7 +138,7 @@ test('strict registration declarations permit append-only owned definitions and 
     assert.equal(appendOnlyExtensionScopes(one, one, file), null);
 });
 test('core and UI figure extension declarations use the same guarded append-only scope grammar', () => {
-    for (const [file, c] of Object.entries(EXTENSION_DECLARATIONS).filter(([p]) => p !== 'src/core/generators/afternoon-booklet-extensions.ts')) {
+    for (const [file, c] of Object.entries(EXTENSION_DECLARATIONS).filter(([p]) => p.includes('booklet-figure-'))) {
         const declaration = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
         const entries = parseBookletExtensions(declaration, file);
         assert(entries);
@@ -160,6 +160,25 @@ test('core and UI figure extension declarations use the same guarded append-only
         assert.equal(parseBookletExtensions(before.replace("'2015-autumn-am'", "'2015-autumn-pm'"), file), null);
         assert.equal(parseBookletExtensions(after.replace(`${c.property}: nextFigures }`, `${c.property}: nextFigures, hook: run }`), file), null);
     }
+});
+test('morning booklet declarations can append only a matching owned morning module', () => {
+    const file = 'src/core/generators/stage3-morning-booklet-extensions.ts';
+    const actual = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
+    assert(parseBookletExtensions(actual, file)?.some(row => row.scope === '2015-spring-am'));
+    const before = [
+        "import type { MorningBookletExtension } from './stage3-morning-booklet-extension-contract';",
+        "import { reviewed } from './legacy-2015-spring-am';",
+        "export const morningBookletExtensions: readonly MorningBookletExtension[] = [{scope:'2015-spring-am',booklet:reviewed},];",
+    ].join('\n');
+    const after = `import { older } from './legacy-2014-autumn-am';\n` + before.trimEnd().replace(/\];$/, "  { scope: '2014-autumn-am', booklet: older },\n];");
+    assert.deepEqual(appendOnlyExtensionScopes(before, after, file), ['2014-autumn-am']);
+    for (const bad of [after.replace("2014-autumn-am', booklet", "2014-spring-am', booklet"),
+        after.replace('./legacy-2014-autumn-am', './legacy-2014-autumn-pm'),
+        after.replace('booklet: older', 'booklet: make(older)'),
+        after.replace('booklet: older', 'booklet: older, effect: run')]) {
+        assert.equal(parseBookletExtensions(bad, file), null);
+    }
+    assert.equal(appendOnlyExtensionScopes(after, before, file), null);
 });
 test('a deletion retains the old owner and multiple changed booklets are selected together', () => {
     const a = fixture(), b = structuredClone(a);

@@ -14,6 +14,7 @@ import {legacy2016SpringAm5780StudyTerms} from './generators/legacy-2016-spring-
 import {isSpring2016CommonContext} from './generators/legacy-2016-spring-am-common';
 import {isAutumn2016CommonContext} from './generators/legacy-2016-autumn-am-common';
 import {isAutumn2015CommonContext} from './generators/legacy-2015-autumn-am-common';
+import { isAdditionalStage3MorningCommonContext } from './generators/stage3-morning-booklet-extension-contract';
 import {legacy2016AutumnAm0140StudyTerms} from './generators/legacy-2016-autumn-am-01-40-study-terms';
 import {legacy2016AutumnAm4180StudyTerms} from './generators/legacy-2016-autumn-am-41-80-study-terms';
 
@@ -203,7 +204,7 @@ export function questionStudyTerms(
       (id) => {
         const context = question.contexts.find(c => c.id === id);
         return context && !isSpring2016CommonContext(question, context) && !isAutumn2016CommonContext(question, context) &&
-          !isAutumn2015CommonContext(question, context) ? context.content.blocks : [];
+          !isAutumn2015CommonContext(question, context) && !isAdditionalStage3MorningCommonContext(question, context) ? context.content.blocks : [];
       },
     ),
     ...question.prompt.blocks,

@@ -3,6 +3,7 @@
  * the all-choice, finite-capacity or diagram assertions. Old multi-answer PM
  * definitions keep their separate independent per-major content tests. */
 import { bookletRows, partitionBookletRows } from "./generation-paths/scope";
+import { isAdditionalStage3MorningSource } from "../../src/core/generators/stage3-morning-booklet-extension-contract";
 import {
   test,
   assert,
@@ -50,6 +51,7 @@ export async function registerBookletContentContractTests(scope: string) {
     assert.equal(correctOriginal.text, d.sourceAnswer);
     assert.equal(base.choices.length, original.choices.length);
     assert.equal(base.origin.derivedFrom[0].questionId, original.id);
+    const reviewedFiniteMorning = isAutumn2015Source(d.source) || isAdditionalStage3MorningSource(d.source);
     const before = JSON.stringify(base),
       answers = new Set<string>(), visibleConditions = new Set<string>();
     for (let i = 0; i < 64; i++) {
@@ -74,7 +76,7 @@ export async function registerBookletContentContractTests(scope: string) {
       assert.equal(q.assetRefs.length, 0);
       assert(q.explanation.blocks.length > 0);
       answers.add(answerSignature(q));
-      if (isAutumn2015Source(d.source)) visibleConditions.add(JSON.stringify([q.prompt.blocks, q.contexts]));
+      if (reviewedFiniteMorning) visibleConditions.add(JSON.stringify([q.prompt.blocks, q.contexts]));
       for (const content of [
         q.prompt,
         ...q.contexts.map((c) => c.content),
@@ -91,11 +93,12 @@ export async function registerBookletContentContractTests(scope: string) {
               assert.equal(block.rendererRef.version, activityNetworkRenderer.version);
               readActivityNetwork(block.scene);
             }
-            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isNativeStage3Source(d.source) || isAutumn2015Source(d.source));
+            assertDiagramMarkup(block, diagramMarkup(block), amCapacityBySource.has(d.source) || isNativeStage3Source(d.source) || reviewedFiniteMorning);
           }
     }
     const reviewedAM = amCapacityBySource.get(d.source);
     if (reviewedAM) assert.equal(answerCanVary(t), reviewedAM.answerCanVary, d.source);
+    if (reviewedFiniteMorning) assert(visibleConditions.size >= 2, `${d.source}: distinct conditions before answering`);
     if (answerCanVary(t))
       assert(
         answers.size >= 2,
@@ -145,11 +148,10 @@ export async function registerBookletContentContractTests(scope: string) {
       assert.equal(displays.size,count,d.source + " must retain all substantively distinct conditions");
       assert([...answers].every(signature => finiteAnswers.has(signature)));
       for(const values of [[],[-1],[count],[.5],[0,0]])assert.throws(()=>d.build(values),/PARAMETER_CONSTRAINT/);
-    } else if (isAutumn2015Source(d.source)) {
+    } else if (reviewedFiniteMorning) {
       // The booklet's independent tests check each finite candidate's answer,
       // source role and viable alternate conditions. Keep seeded dispatch here.
       assert.equal(d.answerVariation, "fixed");
-      assert(visibleConditions.size >= 2, `${d.source}: distinct conditions before answering`);
     } else if (d.source === "2024-a-20") {
       assert.equal(d.source, "2024-a-20");
       assert.equal(answers.size, 1);

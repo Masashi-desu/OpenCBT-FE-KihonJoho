@@ -18,8 +18,8 @@ export function Legacy2017AutumnAmCommonRules({profile,values,caption}:{profile:
  return <LegacyCommonGateTable collection="2017h29a-fe-am" caption={caption}/>;
 }
 /** The source pixels confirm the same nine logic symbols in these booklets. */
-export function LegacyCommonGateTable({collection,caption}:{collection:"2015h27a-fe-am"|"2016h28h-fe-am"|"2017h29a-fe-am"|"2018h30h-fe-am"|"2018h30a-fe-am";caption?:string}){
- const continuation = collection==='2015h27a-fe-am'||collection==='2016h28h-fe-am';
+export function LegacyCommonGateTable({collection,caption}:{collection:"2015h27a-fe-am"|"2015h27h-fe-am"|"2016h28h-fe-am"|"2017h29a-fe-am"|"2018h30h-fe-am"|"2018h30a-fe-am";caption?:string}){
+ const continuation = collection==='2015h27a-fe-am'||collection==='2015h27h-fe-am'||collection==='2016h28h-fe-am';
  return <section className="legacy2017-autumn-am-common" data-common-reference={collection+(continuation?'-p3':'-p2')}>
   <h3>{continuation?'2. 論理回路':legacy2017AutumnAmCommonHeading}</h3>{!continuation&&<p>{legacy2017AutumnAmCommonPremise}</p>}
   <div className="table-scroll"><table aria-label={caption}><thead><tr><th scope="col">図記号</th><th scope="col">説明</th></tr></thead>

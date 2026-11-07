@@ -3,6 +3,7 @@ import { legacy2016AutumnPmFigures } from './generators/legacy-2016-autumn-pm-fi
 import { legacy2016SpringPmFigures } from './generators/legacy-2016-spring-pm-figures';
 import { legacy2015AutumnAmFigures } from './generators/legacy-2015-autumn-am-figures';
 import { legacy2015AutumnPmFigures } from './generators/legacy-2015-autumn-pm-figures';
+import { spring2015AmFigures } from './generators/legacy-2015-spring-am-figures';
 
 // Only source-owned figure declarations belong here. Validation stays shared.
 export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
@@ -10,4 +11,5 @@ export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
   { scope: '2016-spring-pm', figures: legacy2016SpringPmFigures },
   { scope: '2015-autumn-am', figures: legacy2015AutumnAmFigures },
   { scope: '2015-autumn-pm', figures: legacy2015AutumnPmFigures },
+  { scope: '2015-spring-am', figures: spring2015AmFigures },
 ];
