@@ -391,3 +391,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 13大問・72解答欄を収録する。時間付き練習は問1・8を必須とし、問2〜7から4大問、問9〜13から1大問を選ぶ。制限時間は150分。問13の正誤表は、表引き関数に行の位置0を渡すと空値を返す条件を追加している。原問題では解答前の付属資料に示し、基準問題と可変問題では本文にも反映する。[公式問題冊子・正誤表](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_pm_ans.pdf)・[出題趣旨・採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_pm_cmnt.pdf)。
 
 共通擬似言語は冊子3〜4頁、表計算の付属資料は74〜79頁を参照する。CASL IIは冊子70頁上部の命令・注記までを抜粋し、JIS文字の符号表を配布対象から外す。問11のJava APIは原資料PDF 67〜68頁に出典を示し、必要な動作を一次資料に基づいて独自に説明する。素材範囲・正答・出典・画像の照合値は `scripts/source-evidence/legacy-2015-spring-pm-source-review.json` に記録する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Java SE 8 String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)・[Java SE 8 Map](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)・[Java SE 8 HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)・[Java SE 8 Set](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)・[Java SE 8 Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html)。
+
+### 第3段階 S3-009 2014年度秋期・旧午前
+
+2014年度秋期の旧制度・午前は80問・150分。原冊子の問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。原問番号と四択の順序を維持し、利用条件を確認した77問を年度別と年度指定ミックスに収録する。[IPA 平成26年度 秋期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html)
+
+各問の原画像は問題本文・図表・選択肢に限定する。共通表記p.2–3は当時の規格名・版と論理回路の図記号を保持する。問55・65・66は第三者資料との表現の境界や利用条件を確認中のため、原画像・本文・生成器を保留する。素材の範囲と照合値は `scripts/source-evidence/legacy-2014-autumn-am-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html)

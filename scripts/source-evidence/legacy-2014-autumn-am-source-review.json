@@ -1,0 +1,82 @@
+{
+  "collectionId": "2014h26a-fe-am",
+  "task": "S3-009",
+  "checkedOn": "2026-11-08",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 4
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 22
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 26
+    }
+  ],
+  "commonPages": [
+    2,
+    3
+  ],
+  "held": [
+    {
+      "number": 55,
+      "reason": "PMBOKガイド第4版のリスク対応戦略の分類と、選択肢の転載・改変の利用条件を確認中。"
+    },
+    {
+      "number": 65,
+      "reason": "非機能要件の作業に関する記述と共通フレームの素材条件を確認中。既収録の二つの問65に限定された査読・ライセンス範囲とは分ける。"
+    },
+    {
+      "number": 66,
+      "reason": "共通フレーム2013の要件定義プロセスの記述と、外部規格・資料との表現の境界を確認中。"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000ye5-att/2014h26a_fe_am_qs.pdf",
+      "sha256": "6ac3641c17dba91814f5064a6adbb0d4d3116f28fbe55bf6dd160b7dd43bd4ae",
+      "byteLength": 4516242
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000ye5-att/2014h26a_fe_am_ans.pdf",
+      "sha256": "33c4523255ed2c0bad9ffc394e9a7df3d4929d78a3012d3ea3fb1b860236ca89",
+      "byteLength": 74674
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html",
+      "sha256": "99353ae8bdc7a3652e03ebd12a5a2b05d8f7ed4b563270e01bab6f9656e7fbb0",
+      "byteLength": 122848
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474",
+      "byteLength": 108408
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "sourcePreflightSHA256": "7f0ce99b65ea735b32e9856bddf7810c1aa7b8a58070dc03657032b32d5eeb54",
+  "cropCandidatesSHA256": "28d7a9638d4bfd43d2b08994ff772b51d0bb7c33aa0711be4dfa40a7bf7df9fb",
+  "materialFindings": [
+    "表紙の全80問必須・150分と、問1–50、51–60、61–80の分野区分を現物で照合した。",
+    "p.2は規格・標準名と版の対応表。規格本文は含まない。p.3は論理素子9種の図記号と反転の丸印を説明するIPA冊子の資料。",
+    "問20はコピーレフトの一般概念を表すIPAの設問説明。GNUは独立の用語参照に限定し、外部資料の文言を同梱しない。",
+    "問59・61は当時の公的基準と照合したIPAの設問表現。外部基準の本文・画像は同梱せず、分類と役割の参照に限る。",
+    "掲載は個別の原問領域と共通資料を対象にする。保留問の画像と全文は配布候補に含めない。"
+  ],
+  "verifiedEligibleCount": 77
+}

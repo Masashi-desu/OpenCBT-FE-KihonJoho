@@ -1,0 +1,232 @@
+{
+  "hold": [
+    55,
+    65,
+    66
+  ],
+  "originalPDF": "6ac3641c17dba91814f5064a6adbb0d4d3116f28fbe55bf6dd160b7dd43bd4ae",
+  "answerPDF": "33c4523255ed2c0bad9ffc394e9a7df3d4929d78a3012d3ea3fb1b860236ca89",
+  "records": [
+    {
+      "number": 54,
+      "page": 23,
+      "key": "イ",
+      "check": "独立に作業種ごとに人日を積み、N人の処理能力を順に評価して最初の成立を求める。端数切上げ、正答と前人数の境界を検査。",
+      "reference": [],
+      "statementHash": "94a915e465401ca26b7886b3754e4f419a228d3bd9774c0545af38e21ba5683a"
+    },
+    {
+      "number": 56,
+      "page": 24,
+      "key": "エ",
+      "check": "資産とサービスの依存グラフ、削除した資産の状態、残存契約の状態から各結果を独立に分類。",
+      "reference": [],
+      "statementHash": "dd8aeb6c361f3f449e15a3f2df1be3bf07fe9544e30b5725a0a73af70ecf7598"
+    },
+    {
+      "number": 57,
+      "page": 24,
+      "key": "ア",
+      "check": "稼働、待機切替、保存、復元、再開、再起動、DBログを処理の開始状態と結果で区別し四択を判定。",
+      "reference": [],
+      "statementHash": "6c4d9c3c6e65050b0e6e74818949ac56d50fdae831ff37fbbba55c40182f12f3"
+    },
+    {
+      "number": 58,
+      "page": 25,
+      "key": "イ",
+      "check": "イベント→観測→オペレータ通知の到達性を、監視・通知・解析・復旧用途で照合。",
+      "reference": [],
+      "statementHash": "a9896f73eb5a8ed95c9cb40399d7b63cca1fd3e8185d288b3023ef27fe836a42"
+    },
+    {
+      "number": 59,
+      "page": 25,
+      "key": "ア",
+      "check": "当時の監査基準に基づく役割と監査の成果物を固定し、各択の権限・対象・報告先が整合するかを判定。",
+      "reference": [
+        "https://www.saaj.or.jp/kijun/system_kansa.pdf",
+        "https://www.meti.go.jp/main/rules.html"
+      ],
+      "statementHash": "b19d84df096c1fdd2c9fa06a928d8edb88fdd2884e78f5a15e0bd88262579c16"
+    },
+    {
+      "number": 60,
+      "page": 25,
+      "key": "ウ",
+      "check": "資産台帳、権利証拠、実使用、契約期間と確認目的の対応を判定。技術適合・可用性等を独立の役割へ分類。",
+      "reference": [],
+      "statementHash": "0674b8218e8bcf37a74afd7833f87be258407201306109bc3956fb4cf6a92cb3"
+    },
+    {
+      "number": 61,
+      "page": 26,
+      "key": "エ",
+      "check": "Ⅰ.1.3(5)とⅡ.1(3)の対象レベルを独立に分類し、各作業が全体／個別であるかを全択で照合。",
+      "reference": [
+        "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+        "https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf",
+        "https://www.meti.go.jp/policy/netsecurity/downloadfiles/system_kanri.pdf",
+        "https://www.meti.go.jp/main/rules.html"
+      ],
+      "statementHash": "ba768d583aff2939dfe215bb5ba11953805b98998af916b337226a1cbc1d469a"
+    },
+    {
+      "number": 62,
+      "page": 26,
+      "key": "ウ",
+      "check": "提供者・自社の実施責任と提供範囲を固定資料から分類し、提示サービスと説明の全四択を照合。",
+      "reference": [],
+      "statementHash": "bc75cbeb6422c29f4960c899e4566ea498a029c741b291e49e63ef6a6b557303",
+      "generatedReview": "BPO、ホスティング、SaaS、労働者派遣を対象位置で切り替える。派遣版は本文の開発用途を削除し、責任の分担と提供する範囲から判定する。サービスの定義は解説側に置く。"
+    },
+    {
+      "number": 63,
+      "page": 27,
+      "key": "エ",
+      "check": "対象、データ、用途を4分類して全択の真偽を検査。",
+      "reference": [],
+      "statementHash": "851089104d31a88b468c4bce5d661588289469e152a78d6b484160f9e3600961",
+      "generatedReview": "健康支援、テレワーク用のグループウェア、車両のテレマティクスを対象とする。勤務形態や連絡の仕組みを本文で説明せず、対象・データ・処理の組合せを四択で比較する。"
+    },
+    {
+      "number": 64,
+      "page": 27,
+      "key": "エ",
+      "check": "2×2の所有と用途の真理表で全択。個人の私用だけ、会社貸与の業務利用を別扱い。",
+      "reference": [],
+      "statementHash": "d376c72ecd0a74d50a165496a62270c8ffa2ea64b1ca525943d825babd7829af",
+      "generatedReview": "返却や資産台帳、購入の事実から所有者を判定し、見積書の送信か個人契約サービスの利用かから用途を判定する。会社・個人と業務・私用の全四組を両軸で独立検査する。本文に選択肢の貸与、会社所有、個人所有、私的等の区分を反復しない。"
+    },
+    {
+      "number": 67,
+      "page": 28,
+      "key": "ウ",
+      "check": "調達の目的と手段を二軸で分類し、リスク分散、コスト、通信手続とCSR基準を分離。",
+      "reference": [],
+      "statementHash": "076cceb6fe9009b2f7cd25d9da55e77cf5fc98a1fc285e882e977a5adce1901e",
+      "generatedReview": "他の条件を満たした発注での予算超過、在庫で補えない停止、注文照合の誤りを与える。価格、供給継続、EDI、社会的責任という目的と具体策の対応を比較し、目的語や施策名を本文で先に示さない。"
+    },
+    {
+      "number": 68,
+      "page": 28,
+      "key": "エ",
+      "check": "競争力の源泉、理念、目標、外部要因の区別を独立分類。",
+      "reference": [],
+      "statementHash": "754acca0e21e506ceddf9e665dc33876278779b4c5579888f916ae5215c90b71",
+      "generatedReview": "理念、戦略目標、SWOTのO・Tを対象位置に置く。戦略目標版の四択は価値観、計画期間末の状態、外部要因、中核能力に言い換え、用語の一致ではなく役割を判定する。"
+    },
+    {
+      "number": 69,
+      "page": 29,
+      "key": "ウ",
+      "check": "対象と構成軸から分析手法を独立分類。",
+      "reference": [],
+      "statementHash": "ffeac011914bbece9cd5b71506fdafc4149d3934ee13f2aff642433465c95577",
+      "generatedReview": "利用者が他社を選ぶ理由と自社の供給力、メーカー内外の有利・不利、清掃業界の収益圧力を業務場面で示す。分析法の定義・構成要素の名称を列挙せず、分析対象の粒度と目的から四法を比較する。"
+    },
+    {
+      "number": 70,
+      "page": 29,
+      "key": "エ",
+      "check": "四段階と売上・市場浸透・投資方針の対応を固定し全択を分類。",
+      "reference": [],
+      "statementHash": "00ad8abb048daa62f95f37ca3d6e05230429462f1ed6e9911c42c911ed70cd85",
+      "generatedReview": "段階名だけを対象位置で切り替え、成長率や競争、投資判断は四択に置く。段階を特定できる追加説明は不要と判断。"
+    },
+    {
+      "number": 71,
+      "page": 29,
+      "key": "イ",
+      "check": "図の軸、対象と表現される関係から判定。四つの視点と因果の両方を要求。",
+      "reference": [],
+      "statementHash": "7c2d5f3545a5357aa8214a50e378858beaaa3bdec7df43fb17b8f4f3c90668bd",
+      "generatedReview": "マップや事業ドメインの名前を対象位置で示し、生成版の全四択を顧客評価の平面配置、目標の因果、事業の投資区分、事業範囲にそろえた。二軸という説明を本文に先回りさせず、座標・分類・因果・範囲から判定する。"
+    },
+    {
+      "number": 72,
+      "page": 30,
+      "key": "イ",
+      "check": "工程の重複、実装からの逆向き、機能／コスト価値の有無で全択を分類。",
+      "reference": [],
+      "statementHash": "d7aecd509cd5cee1807b5c68956282140b18f12549b692f784fc9849afe008e9",
+      "generatedReview": "手法の名前だけを対象位置で切り替える。工程を進める順序、機能と費用、実装から仕様へ戻る向きは四択で比較する。"
+    },
+    {
+      "number": 73,
+      "page": 30,
+      "key": "ウ",
+      "check": "各工程の入力と成果物を固定し全択を比較。",
+      "reference": [],
+      "statementHash": "b170cd9261271d198f8cbe220d0de3982e1800643380cb0c6f8baa7317766a87",
+      "generatedReview": "CAD、CAE、MRP、CAMの名前のみを対象位置で切り替える。処理に必要な入力と成果物は四択にあり、本文への説明の追加は不要と判断。"
+    },
+    {
+      "number": 74,
+      "page": 31,
+      "key": "ウ",
+      "check": "各工程で作れる整数個数を独立に床関数で求め、需要個数を満たすか判定。丸めを問いの外へ追加しない。",
+      "reference": [],
+      "statementHash": "fff37d85000f21b59410d14c504914d10fcdfca1de4d330045b349d35c00cae3"
+    },
+    {
+      "number": 75,
+      "page": 31,
+      "key": "ウ",
+      "check": "制度が変更する対象（労働時間、職務、生活との両立、福利厚生）で分類。",
+      "reference": [],
+      "statementHash": "72ee05b76cbc7c8434f17e58cf88c059fc94af4d9b76d958e7fc3e9657cbf476",
+      "generatedReview": "社内公募とカフェテリアプランは制度名だけを提示し、職務の希望や福利厚生という正答側の説明を本文に繰り返さない。制度が変える対象を四択で比較する。"
+    },
+    {
+      "number": 76,
+      "page": 31,
+      "key": "ウ",
+      "check": "各kの累積を全列挙し100×累積≥閾値×合計の最初を検査。丸めた割合を使用しない。",
+      "reference": [],
+      "statementHash": "e1b0e16507c26344e1c6d7f59e014292bb0297bcc1d078e8d3b2c2a42f319e23"
+    },
+    {
+      "number": 77,
+      "page": 32,
+      "key": "イ",
+      "check": "各セルでAだけ変更、Bだけ変更を独立比較。四つを走査して一意の均衡を求める。",
+      "reference": [],
+      "statementHash": "eb9dd60102353f71a3fd2a7145a2f9dd5d0974ce78dc2cda81265c806055173f"
+    },
+    {
+      "number": 78,
+      "page": 32,
+      "key": "イ",
+      "check": "ロットの順番を配列に積み、必要数だけ先頭から取り出す別解で全候補を照合。期限や追加の端数処理は導入しない。",
+      "reference": [],
+      "statementHash": "884c66874c0cdac72b38d6089f9a7b2f7badb1a8dc83f592f756cc6146c9b10a"
+    },
+    {
+      "number": 79,
+      "page": 33,
+      "key": "エ",
+      "check": "2条1項10号の2と10条1項9号・3項を根拠に、著作物たり得る表現と、言語・規約・解法・対価を分類し、各記述を検査。",
+      "reference": [
+        "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/10219850614062.htm",
+        "https://www.bunka.go.jp/seisaku/chosakuken/hokaisei/h26_hokaisei/",
+        "https://laws.e-gov.go.jp/law/345AC0000000048"
+      ],
+      "statementHash": "7131f27fe88cefaf01cb4199d66c43b6ca84a72ab119d12c5e9bab82e9b81e4c"
+    },
+    {
+      "number": 80,
+      "page": 33,
+      "key": "ウ",
+      "check": "民法632、644、656条に基づく独立分類。現行648条の2の成果報酬と完成義務は別軸とし、全択の真偽を検証。",
+      "reference": [
+        "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/housei/16120041201147.htm",
+        "https://www.moj.go.jp/content/000056015.pdf",
+        "https://www.moj.go.jp/content/001127397.pdf",
+        "https://www.moj.go.jp/MINJI/minji06_001070000",
+        "https://laws.e-gov.go.jp/law/129AC0000000089"
+      ],
+      "statementHash": "bf4f78dc98a5703483d33c4f421aa8579ba5eb8d6f21891909354a9f1c5ab806"
+    }
+  ]
+}
