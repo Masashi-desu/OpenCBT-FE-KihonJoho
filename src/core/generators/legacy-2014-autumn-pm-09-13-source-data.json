@@ -1,0 +1,447 @@
+{
+  "9": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "a",
+        "key": "イ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "b",
+        "key": "ウ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "イ"
+      },
+      {
+        "id": "d",
+        "section": 1,
+        "bank": "d",
+        "key": "ウ"
+      },
+      {
+        "id": "e",
+        "section": 2,
+        "bank": "ef",
+        "key": "イ"
+      },
+      {
+        "id": "f",
+        "section": 2,
+        "bank": "ef",
+        "key": "カ"
+      }
+    ],
+    "banks": {
+      "a": {
+        "options": [
+          "(NewEof != EOF) && (OldEof != EOF)",
+          "(NewEof != EOF) || (OldEof != EOF)",
+          "NewEof != OldEof",
+          "NewEof == OldEof"
+        ],
+        "page": 51
+      },
+      "b": {
+        "options": [
+          "((NewAttr & OldAttr) & (BitS + BitO)) != 0x00",
+          "((NewAttr | OldAttr) & (BitS + BitO)) != 0x00",
+          "(NewAttr & (BitS + BitO)) != (OldAttr & (BitS + BitO))",
+          "(NewAttr | (BitS + BitO)) != (OldAttr | (BitS + BitO))"
+        ],
+        "page": 51
+      },
+      "c": {
+        "options": [
+          "ReadNewRecord();",
+          "ReadNewRecord();\nReadOldRecord();",
+          "ReadOldRecord();"
+        ],
+        "page": 51
+      },
+      "d": {
+        "options": [
+          "(NewAttr & (BitS + BitO)) != 0x00",
+          "NewAttr > OldAttr",
+          "strcmp(NewID, OldID) < 0",
+          "strcmp(NewID, OldID) > 0"
+        ],
+        "page": 51
+      },
+      "ef": {
+        "options": [
+          "(NewAttr & BitR) != (OldAttr & BitR)",
+          "(NewAttr & BitR) == BitR",
+          "strcmp(NewDate, OldDate) == 0",
+          "strcmp(NewID, OldID) == 0",
+          "strcmp(NewID, OldID) == 0 && (NewAttr & BitR) == BitR",
+          "strcmp(NewID, OldID) == 0 && strcmp(NewDate, OldDate) == 0"
+        ],
+        "page": 52
+      }
+    }
+  },
+  "10": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "ab",
+        "key": "オ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "ab",
+        "key": "イ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "エ"
+      },
+      {
+        "id": "d",
+        "section": 2,
+        "bank": "def",
+        "key": "イ"
+      },
+      {
+        "id": "e",
+        "section": 2,
+        "bank": "def",
+        "key": "ア"
+      },
+      {
+        "id": "f",
+        "section": 2,
+        "bank": "def",
+        "key": "エ"
+      }
+    ],
+    "banks": {
+      "ab": {
+        "options": [
+          "ADD 1 TO CR-MONTH",
+          "ADD S-AMOUNT TO AMOUNT-MONTH(IX-COL)",
+          "MOVE 1 TO CR-MONTH",
+          "MOVE S-AMOUNT TO AMOUNT-MONTH(CR-MONTH)",
+          "MOVE S-MM TO CR-MONTH",
+          "MOVE S-MM TO IX-LINE IX-COL"
+        ],
+        "page": 56
+      },
+      "c": {
+        "options": [
+          "PRINT-ELM(IX-COL, IX-LINE)",
+          "PRINT-ELM(IX-LINE, IX-COL)",
+          "PRINT-MK(IX-COL, IX-LINE)",
+          "PRINT-MK(IX-LINE, IX-COL)"
+        ],
+        "page": 56
+      },
+      "def": {
+        "options": [
+          "ADD AMOUNT-MONTH(IX-AMOUNT) TO Z-TOTAL",
+          "ADD AMOUNT-MONTH(IX-AMOUNT) TO Z-YEAR",
+          "ADD Z-TOTAL TO Z-YEAR",
+          "COMPUTE Z-YEAR = Z-YEAR\n    + AMOUNT-MONTH(IX-AMOUNT) - AMOUNT-MONTH(IX-AMOUNT - 12)",
+          "COMPUTE Z-YEAR = Z-YEAR + Z-TOTAL + AMOUNT-MONTH(IX-COL - 1)",
+          "MOVE AMOUNT-MONTH(IX-COL) TO Z-TOTAL"
+        ],
+        "page": 59
+      }
+    }
+  },
+  "11": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "abc",
+        "key": "ウ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "abc",
+        "key": "オ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "abc",
+        "key": "イ"
+      },
+      {
+        "id": "d",
+        "section": 1,
+        "bank": "de",
+        "key": "キ"
+      },
+      {
+        "id": "e",
+        "section": 1,
+        "bank": "de",
+        "key": "イ"
+      },
+      {
+        "id": "f",
+        "section": 2,
+        "bank": "f",
+        "key": "ア"
+      },
+      {
+        "id": "g",
+        "section": 2,
+        "bank": "g",
+        "key": "イ"
+      }
+    ],
+    "banks": {
+      "abc": {
+        "options": [
+          "!=",
+          "<",
+          "<=",
+          "==",
+          ">",
+          ">="
+        ],
+        "page": 63
+      },
+      "de": {
+        "options": [
+          "IllegalArgumentException",
+          "IllegalArgumentException.class",
+          "IllegalArgumentException.getClass()",
+          "new IllegalArgumentException()",
+          "new NullPointerException()",
+          "NullPointerException",
+          "NullPointerException.class",
+          "NullPointerException.getClass()"
+        ],
+        "page": 64
+      },
+      "f": {
+        "options": [
+          "(Date) start.clone()",
+          "null",
+          "start.clone()",
+          "start.getTime()",
+          "start.setTime(start.getTime())"
+        ],
+        "page": 65
+      },
+      "g": {
+        "options": [
+          "0",
+          "DELTA",
+          "DELTA * 2",
+          "DELTA * 3",
+          "DELTA / 2",
+          "DELTA / 3"
+        ],
+        "page": 65
+      }
+    }
+  },
+  "12": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "ab",
+        "key": "ア"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "ab",
+        "key": "エ"
+      },
+      {
+        "id": "c",
+        "section": 2,
+        "bank": "cd",
+        "key": "カ"
+      },
+      {
+        "id": "d",
+        "section": 2,
+        "bank": "cd",
+        "key": "ウ"
+      },
+      {
+        "id": "e",
+        "section": 3,
+        "bank": "ef",
+        "key": "イ"
+      },
+      {
+        "id": "f",
+        "section": 3,
+        "bank": "ef",
+        "key": "オ"
+      }
+    ],
+    "banks": {
+      "ab": {
+        "options": [
+          "JMI CONT",
+          "JMI LOOP1",
+          "JPL CONT",
+          "JPL LOOP1",
+          "JZE CONT",
+          "JZE LOOP1"
+        ],
+        "page": 67
+      },
+      "cd": {
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6"
+        ],
+        "page": 67
+      },
+      "ef": {
+        "options": [
+          "AND GR0,=#000F",
+          "AND GR3,=#000F",
+          "SLL GR0,4",
+          "SLL GR3,4",
+          "SRL GR0,4",
+          "SRL GR3,4"
+        ],
+        "page": 69
+      }
+    }
+  },
+  "13": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "a",
+        "key": "ア"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "b",
+        "key": "エ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "ア"
+      },
+      {
+        "id": "d",
+        "section": 1,
+        "bank": "d",
+        "key": "カ"
+      },
+      {
+        "id": "e",
+        "section": 1,
+        "bank": "e",
+        "key": "エ"
+      },
+      {
+        "id": "f",
+        "section": 2,
+        "bank": "f",
+        "key": "イ"
+      },
+      {
+        "id": "g",
+        "section": 2,
+        "bank": "g",
+        "key": "イ"
+      }
+    ],
+    "banks": {
+      "a": {
+        "options": [
+          "論理積",
+          "論理和"
+        ],
+        "page": 75
+      },
+      "b": {
+        "options": [
+          "照合一致(A2, A$2〜A$33, 0)<最小(C$34〜C$35)",
+          "照合一致(A2, A$2〜A$33, 0)≦最小(C$34〜C$35)",
+          "照合一致(A2, A$2〜A$33, 0)>最小(C$34〜C$35)",
+          "照合一致(A2, A$2〜A$33, 0)≧最小(C$34〜C$35)"
+        ],
+        "page": 75
+      },
+      "c": {
+        "options": [
+          "照合一致(A2, A$2〜A$33, 0)<最大(C$34〜C$35)",
+          "照合一致(A2, A$2〜A$33, 0)≦最大(C$34〜C$35)",
+          "照合一致(A2, A$2〜A$33, 0)>最大(C$34〜C$35)",
+          "照合一致(A2, A$2〜A$33, 0)≧最大(C$34〜C$35)"
+        ],
+        "page": 75
+      },
+      "d": {
+        "options": [
+          "B5",
+          "E5",
+          "合計(B$5〜B5)",
+          "合計(B$5〜B$8)",
+          "合計(E5〜E$8)",
+          "合計(E$5〜E5)"
+        ],
+        "page": 75
+      },
+      "e": {
+        "options": [
+          "切上げ(B5, 0)／C5 * D5",
+          "切上げ(B5／C5, 0) * D5",
+          "切上げ(E5, 0)／C5 * D5",
+          "切上げ(E5／C5, 0) * D5",
+          "切捨て(B5／C5 + 1, 0) * D5",
+          "切捨て(E5／C5 + 1, 0) * D5"
+        ],
+        "page": 76
+      },
+      "f": {
+        "options": [
+          "J：0, J ≦ 4",
+          "J：1, J ≦ 4",
+          "J：0, J ≦ 5",
+          "J：1, J ≦ 5",
+          "J：0, J ≦ 31",
+          "J：1, J ≦ 31"
+        ],
+        "page": 77
+      },
+      "g": {
+        "options": [
+          "Dist2 | Dist3",
+          "(Dist2 − B5) | (Dist3 − B6)",
+          "(Dist2 − Dist1) | (Dist3 − Dist2)",
+          "(Dist2 − B5 + 1) | (Dist3 − B6 + 1)",
+          "(Dist2 − Dist1 + 1) | (Dist3 − Dist2 + 1)"
+        ],
+        "page": 77
+      }
+    }
+  }
+}

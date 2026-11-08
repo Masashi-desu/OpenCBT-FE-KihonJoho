@@ -1,0 +1,399 @@
+{
+  "task": "S3-010",
+  "scope": "2014-autumn-pm",
+  "examDate": "2014-10-19",
+  "sources": {
+    "ipaListing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html",
+    "ipaTerms": "https://www.ipa.go.jp/shiken/faq.html",
+    "question": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000ye5-att/2014h26a_fe_pm_qs.pdf",
+    "answer": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000ye5-att/2014h26a_fe_pm_ans.pdf",
+    "commentary": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000ye5-att/2014h26a_fe_pm_cmnt.pdf",
+    "hashes": {
+      "question.pdf": "c3e598dabeabc13651403d809c51859a1ffaee98fa0baf7e15c538d24e0db131",
+      "answer.pdf": "9f7142e11fd0d7e3ec773e068bd3e0e3c82e21394a5ec943c32178c107a112c8",
+      "comments.pdf": "20878782f57eed7e5f18d36eeebcce8600dc36683358613a8e5354028d7813ea",
+      "oracle-date.html": "df654a665130e2ead6074727b28c33e5c26462e75bb58342c5cc71561c0faaba"
+    }
+  },
+  "officialFieldCount": 32,
+  "verification": {
+    "independentContentTests": 7,
+    "inputConditions": 40,
+    "answerFieldsPerBaseline": 32,
+    "candidateEvaluationsPerCondition": 175,
+    "figures": 16,
+    "figureCases": 128,
+    "native": {
+      "c": "Apple clang 21.0.0 -std=c11。2処理×8入力＋空/片EOF/同日別ID/全0等8件、計24実行。mainのC11互換化は検算時のみ。",
+      "java": "javac 21.0.10 --release 8とJDK21実行。原プログラム1・2と防御的コピー版×8入力、計16実行。"
+    },
+    "remaining": "共通資料の実レジストリ、アプリ通常経路、配布Schemaとassetの照合は統合時。"
+  },
+  "records": [
+    {
+      "number": 9,
+      "printedPages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "excludedPages": [],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "カ"
+          ]
+        }
+      ],
+      "variantPlan": "ID・日付・属性の例と、特権判定から独立した利用状態ビットの極性を束縛。利用不可の極性を反転するケースでは共通解答群の否定候補・図3・独自解説を更新する。",
+      "independentOracle": [
+        "IDを辞書にして集合差・積を求め、正解のマージ走査と独立に図2・3を作る。空ファイル、一方だけ終了、同一ID、無関係ビット、利用不可かつ未使用、同日付だが異なるID、全0日付を含める。",
+        "C11で公式完成コードを入出力ファイル上で実行する。試験紙面のvoid mainは検算時だけint main(void)へ置換し、改行付き入力を用いる。"
+      ],
+      "references": []
+    },
+    {
+      "number": 10,
+      "printedPages": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "excludedPages": [],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "エ"
+          ]
+        }
+      ],
+      "variantPlan": "月額を束縛して2図を同時生成。累積と直近12か月の上書き優先を変えるケースは表1の更新順と式・記号・解答・図を一体で変更する。月額の同じ軸への丸めや印字重複を変える。",
+      "independentOracle": [
+        "月別に日付をキーとして加算し、積上げ月と直近12か月は配列切出しの別計算で求める。円の厳密整数から行を算出して最後に優先順で同セルを合成する。",
+        "候補の代入先、PIC X(2)とX(3)の印字範囲、年またぎ、複数取引、対象外商品、1・100000・100001・999999円、初月の記号衝突を反例付き照合。",
+        "原図1の2013年4〜9月の各上限の合計は260万円、原図3の09累計表示は350万円（300万円超）なので、公式の二つの図例を同一データとして復元しない。原図の点は個別に現物照合し、生成版だけ単一の内部データから両図を作る。"
+      ],
+      "references": []
+    },
+    {
+      "number": 11,
+      "printedPages": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "excludedPages": [
+        78
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "キ"
+          ]
+        },
+        {
+          "locator": "1e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2g",
+          "key": [
+            "イ"
+          ]
+        }
+      ],
+      "variantPlan": "開始側か終了側を含む半開区間、元の長さおよび変更時の相対時刻を束縛。前向き・逆向き・空・境界・nullとコピー検査を同時更新し、演算子と長さの選択肢を選ばせる。",
+      "independentOracle": [
+        "基準時刻からのlong値と有向離散集合で含有を独立計算する。候補演算子を総当たりし、両端とその前後・等値で照合。",
+        "公式コードに解答を入れて javac --release 8 と java で実行し、公式テストとコピー後の元参照・取得参照の変更を検証。型候補はClass引数およびDate戻り値の静的型で分類。"
+      ],
+      "references": [
+        {
+          "excludedOriginalPages": [
+            78
+          ],
+          "editorialTitle": "問11 Java APIの参考資料（編集資料）",
+          "sourceUrls": [
+            "https://docs.oracle.com/javase/8/docs/api/java/util/Date.html"
+          ],
+          "facts": [
+            "Dateは一つの時点を表す。基準時刻は1970年1月1日00:00:00 UTCで，基準から前後したミリ秒数をlongで扱う。",
+            "Date(long milliseconds) は指定時点を表すDateを作る。負の値は基準より前を指す。",
+            "int compareTo(Date other) は，呼出し元が比較先より早いと負，同時なら0，遅いと正を返す。比較先がnullならNullPointerExceptionを投げる。",
+            "long getTime() で保持時点を読み取る。void setTime(long milliseconds) はそのインスタンスの保持時点を書き換える。",
+            "Object clone() は別のインスタンスを作って返す。java.util.Dateとして扱うには，戻り値の宣言型Objectから変換する。"
+          ],
+          "reason": "OracleのAPI説明と重なる可能性があるため原頁の画像・表・記述を配布せず、APIの事実だけ独自記述する。"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "printedPages": [
+        66,
+        67,
+        68,
+        69
+      ],
+      "excludedPages": [
+        70
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2c",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "3e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "3f",
+          "key": [
+            "オ"
+          ]
+        }
+      ],
+      "variantPlan": "昇順／降順と配列の値・n・数字列を束縛。図1〜4、説明と正答を連動させる。2〜4要素の比較回数と、等値も含む入れ替え回数が原六択1〜6に収まる配列を用いる。",
+      "independentOracle": [
+        "CPLとJMI/JPL/JZEのフラグを符号なし比較で解釈し、三角数、異なる値だけの場合の逆順ペアを別計算する。同値は複数周で同じ対を再交換し得るため命令順を別手順で追跡。初回分岐・次周・配列の端・同値を含む。",
+        "数値から十進表記を作って4桁に右揃えする独立参照と、16ビット語をマスク／シフトして1文字ずつ書く解法を比較する。0、1/4桁、末尾0、途中0、重複、最大9999を検査する。"
+      ],
+      "references": [
+        {
+          "originalPages": [
+            79,
+            80,
+            81,
+            82,
+            83,
+            84
+          ],
+          "croppedPage": 81,
+          "pixelExtent": [
+            0,
+            0,
+            1433,
+            1184
+          ],
+          "excluded": "p81の1.3と下部のJIS X 0201原符号表。"
+        },
+        {
+          "editorialTitle": "問12 数字と空白の文字コード（編集資料）",
+          "facts": [
+            "このプログラムの入出力で使う数字「0」から「9」の文字コードは，16進数の#30から#39まで順に並ぶ。空白の文字コードは#20である。"
+          ],
+          "sourceUrls": [
+            "https://www.rfc-editor.org/rfc/rfc20.html"
+          ],
+          "sourceLocator": "RFC 20 §2 Standard Code・§4.2 Graphic Characters。IPA p81の該当数字・空白も照合。"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "printedPages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "excludedPages": [],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "1e",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2g",
+          "key": [
+            "イ"
+          ]
+        }
+      ],
+      "variantPlan": "32駅のうち図示される距離、運賃、乗降向きと、最長区間窓5/6および比率を束縛。公式空欄fは同じ六択で窓の境界により答えが変わる。変形の全長・セル・数式・丸め・解説を十進整数で一致させる。",
+      "independentOracle": [
+        "駅位置の独立な累積差を用いて、全32×32乗降対の区間集合を最小/最大参照式と比較。同じ駅、逆向き、終点、先頭の含有と最後の排除を含む。",
+        "0.1km単位の整数で区分ごとの長さ・必要単位数を求め、丸め・セル参照の全候補を境界入力で識別。前の帯との丸め後差と全窓列挙からマクロを検算する。"
+      ],
+      "references": [
+        {
+          "originalPages": [
+            3,
+            4
+          ],
+          "title": "共通に使用される擬似言語の記述形式",
+          "locator": "p3 宣言・注釈・処理とループ、p4 演算子。"
+        },
+        {
+          "originalPages": [
+            85,
+            86,
+            87,
+            88,
+            89,
+            90
+          ],
+          "title": "表計算ソフトの機能・用語（基本情報技術者試験用）",
+          "locator": "照合一致、条件付合計、複写、切上げ、相対、マクロ。現物で出典固有図表なし。"
+        }
+      ]
+    }
+  ]
+}
