@@ -1,0 +1,361 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-008",
+  "collectionId": "2015h27h-fe-pm",
+  "checkedOn": "2026-11-08",
+  "questionPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_pm_qs.pdf",
+    "sha256": "1491a9b7c1d2016097a53599a7c03860101945059e39e4b02b50f6ed47792460",
+    "pageCount": 85,
+    "byteLength": 13238554
+  },
+  "answerPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_pm_ans.pdf",
+    "sha256": "6126008cce08d8665ee6c91a4a0b87878ffaa0cc56805369c2566f970205005f",
+    "pageCount": 4,
+    "byteLength": 118277,
+    "keyPage": 1
+  },
+  "commentary": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_pm_cmnt.pdf",
+    "sha256": "39392526750076da75e22cfdd2637de076e6284258bb4304e050696a5079ad2c",
+    "pageCount": 4,
+    "byteLength": 162717
+  },
+  "officialListing": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2015h27.html",
+    "sha256": "1795c3ba4020d8155071617bb0a529e9065a2e32ca8fd9ec282f4c35df9d2d4b"
+  },
+  "rights": {
+    "url": "https://www.ipa.go.jp/shiken/faq.html",
+    "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474",
+    "terms": "試験の過去問題の使用方法／留意点",
+    "scope": "教育目的の公式公表問題を使い、出典・時間区分・問番号と改変を表示する。原資料の第三者表現、Java APIとJISの原資料を別扱いとする。",
+    "materials": [
+      {
+        "pages": [
+          2
+        ],
+        "treatment": "問13の公式正誤表。画像を読みやすい方向へ90度回転。行位置0→nullの前提を本文にも保持する。"
+      },
+      {
+        "pages": [
+          4,
+          5
+        ],
+        "treatment": "当該冊子の共通擬似言語の原資料。"
+      },
+      {
+        "pages": [
+          67,
+          68
+        ],
+        "treatment": "Oracle Java SE 8一次資料の事実から独自説明を用意。付属API原画像・転記を配布しない。"
+      },
+      {
+        "pages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74
+        ],
+        "treatment": "当該冊子のCOMET II／CASL II資料。p.71の上部を使い、JIS X 0201の規格本文と文字符号表は除外する。"
+      },
+      {
+        "pages": [
+          75,
+          76,
+          77,
+          78,
+          79,
+          80
+        ],
+        "treatment": "当該冊子の表計算ソフトの機能・用語。問13の表引き行0は正誤表で扱う。"
+      }
+    ]
+  },
+  "selection": {
+    "coverPage": 1,
+    "durationSeconds": 9000,
+    "required": [
+      1,
+      8
+    ],
+    "groups": [
+      {
+        "first": 2,
+        "last": 7,
+        "choose": 4
+      },
+      {
+        "first": 9,
+        "last": 13,
+        "choose": 1
+      }
+    ]
+  },
+  "officialAnswerRows": 72,
+  "appSelectionSlots": 72,
+  "printedPageOffset": -1,
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "keys": "イイウウイ",
+      "answerRows": 5,
+      "selectionSlots": 5
+    },
+    {
+      "number": 2,
+      "pages": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "keys": "エアオエ",
+      "answerRows": 4,
+      "selectionSlots": 4
+    },
+    {
+      "number": 3,
+      "pages": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "keys": "イエウウエ",
+      "answerRows": 5,
+      "selectionSlots": 5
+    },
+    {
+      "number": 4,
+      "pages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "keys": "ウエイイ",
+      "answerRows": 4,
+      "selectionSlots": 4
+    },
+    {
+      "number": 5,
+      "pages": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "keys": "ウクカエカキ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 6,
+      "pages": [
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "keys": "アエウウイイウ",
+      "answerRows": 7,
+      "selectionSlots": 7
+    },
+    {
+      "number": 7,
+      "pages": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "keys": "ウアアウア",
+      "answerRows": 5,
+      "selectionSlots": 5
+    },
+    {
+      "number": 8,
+      "pages": [
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "keys": "アウイエオエ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 9,
+      "pages": [
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "keys": "キエエエイカ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 10,
+      "pages": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "keys": "オイイエオイ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 11,
+      "pages": [
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "keys": "ウイウアイウ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 12,
+      "pages": [
+        57,
+        58,
+        59,
+        60
+      ],
+      "keys": "エオウエオウ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 13,
+      "pages": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "keys": "エオイエウエ",
+      "answerRows": 6,
+      "selectionSlots": 6
+    }
+  ],
+  "erratum": {
+    "physicalPage": 2,
+    "number": 13,
+    "affectedPrintedPage": 63,
+    "affectedPhysicalPage": 64,
+    "condition": "関数「表引き」は行位置0でnullを返す。"
+  },
+  "caslExcerpt": {
+    "page": 71,
+    "width": 1433,
+    "height": 1173
+  },
+  "assetSHA256ByPage": {
+    "2": "32cf55739fe79f857feb56136443c35a922bb1007fd44a44612a5dc086b0373f",
+    "4": "51ebad9ba4f0edd3e8c47ade25af85a012d546d5788f6aace82955579c13f853",
+    "5": "00ebae2ad3b36ca5350c868de73e6bda37d5f6d1741fc598fe0cb1e6d80df07d",
+    "6": "4fbe0c6bcffa90b6a50f8ec38450691978757919a8e50c6e06fd878e8a29706a",
+    "7": "4012a07143ba89cf18d6b2d7e140637afc260ab6b938973fd2ca0ce1a6e8a126",
+    "8": "6b2685d17ae5b37763a1771d285ffbd714a1e227fe6f66568cb381bf81599008",
+    "9": "5bd4bd3f4b31071b244333a7060bc522dce44da347337796effd16971df3aacd",
+    "10": "22764443a53f71fac8e5cd6018e85fa155559d88f0aafe37a6d7242be5ac1f9c",
+    "11": "aacc37ad9fd4d3c0ef446c78f1e9865954ef402168204b67f134df8573ecdb3d",
+    "12": "a72e90e74371f9bd41bb9b7f9f3bcbcdd174afb4b31a31e8df954f39678ef8e6",
+    "13": "92c8e4d07fa808dd83691570d8f30f9a33b1bc9a751df15abd003e3ffc7dd324",
+    "14": "6278d2849dcb0993b26f26765d64ef1efc04cf831194a7da48624d32641f4455",
+    "15": "f09b80e808b4dfc1a7e62b1ab77b43686a770289607469ff4d17928da1e6acea",
+    "16": "025d6292da7c90b26550ce0878a14a270a4cbdabfa92eddcb3630f33887a6a04",
+    "17": "b652b3a02d5756bfc2a4c07998a043a0d385f8d1164203baa6e1f3ffaabb5df2",
+    "18": "2ba6d4e66676f87c241ff30035a65cc13987e6b5929e2b0a0c48ebdaee42bfc6",
+    "19": "c13aa4e967967b75da7e055498ece4ff3622b01f44f20846916afefc7f26db30",
+    "20": "64b236909cc4619d595efc0f942782247e3540da2702cf0036b921e1f0248324",
+    "21": "2f39334fc5a2ff12b1b198c4a35c4f00342d5b46253ae18b56ad0135661c8263",
+    "22": "5507babe1d5d15b704135e9c1502431d43aeb59c74cae0de7c4bc52374afd792",
+    "23": "430c4e27e878de327cd45bff7c19a84bbc9356353f34dd86d42944b938453380",
+    "24": "079ce5ae80eaef5fe5ccd6832b22b18593aa1de23b414d24e260c206ca2869fb",
+    "25": "05e38cc9ff0a6470587c6f59602f79aea3dbce865693e415a58e9e5796c6fd45",
+    "26": "4ebbd71791930ccd745a39848d715e07a39ef11e5cc117d8bd7b8b998b312b17",
+    "27": "1d9be6a8d999af422ae47bba6fb211b1ece681a784a5a8b694aa7f9257053f32",
+    "28": "e0eba519354cfa9aaff74b91b2411f2129c8d368e5d844cf16c28d96e39adf47",
+    "29": "0753f2d09beaa4f10d6a22c5be9db763831f9430c3ea9fdf77c601553f9b728b",
+    "30": "f9d16504a479fef51b6755eb36bbd3e7268f7993df2aadb8de3abd3a2ba6ae4d",
+    "31": "deffe905c8a304393a96ebac72dc4b7e5d0144973ee691b6dd4d2b561a8c0c2a",
+    "32": "5e8bb8505522d33b03fd5efacda9cbcfbcce0e885b11212d062f007627f3e8a4",
+    "33": "63de8710970a17f3ce0412b3a83be76edc1714b7d6ea07ad1a0944bbafe643c2",
+    "34": "2a39f424b3d6aad41438ab8027ea9b4636d42ac42b3566ea189a409824e7d35c",
+    "35": "ec762bc221ce3cbbf09aa63a02607ea33bf121c7448b1becd5b5f19b92dcad2d",
+    "36": "fb46eae39250ce7e7580a63ec7ddc1e1dc0c581f8fda75c6357bca01f97210cf",
+    "37": "1785e86d205a3aa5aabf9f41aa61e82e25ab68a1f3eeb657b21feea84000ab9a",
+    "38": "acb6df095dbecdbed4a6d3662755cdb02b940697233a8880a8e5db7428981676",
+    "39": "89ba38366abed4142048ca599709ee6e4eb699277ef36e7fab97923584c6a8e0",
+    "40": "09a93a935d05ca61b6d11b3a695a38adb2b2437e6496745552784cf93a859e6e",
+    "41": "59d065b144f21162809b7c68f21a9a1bd661a6b65d3cb6a9c99d01b1c40ce929",
+    "42": "e5ef9c412601bc3711eceac6e18880d22c1c52537fc6592604da86de15a63558",
+    "43": "07f1953411ea8297429dda394218dbcd471b8125d92d6666405aa1fe28199c05",
+    "44": "80abf68d54baee28c63e2db3536e490d4635d9867e837c302899a6d34d7d8c93",
+    "45": "f8a95de6069e822051bc265afbc20864f1511a1227e1e7e2ef1b7befa4c9cc2d",
+    "46": "f4e626828e6d832882d0a3c946fb47aaa9cb1dd41fe1deefca563dbe15e3729e",
+    "47": "fc83e43d9a8e413ac955af7930b20cee5ecfbee8c90d65d9a6ae05922f9a120c",
+    "48": "f2b369b0eaeedacc196fb843a2be64a1bd22f5db28280f3def4637314f40ade5",
+    "49": "23f656a55ef4e7cce15cc80f595ecc0519e05cc15ea7ffc9ae374f8efabf5a1d",
+    "50": "cbc936f6c2bdefb1f9ffb2571c03ab37b86de5d5dacfb9b866da50868cda7775",
+    "51": "fcf7da9c297be44cb4876a5b8bd96682cd5110df4eada08709f471b990e9df13",
+    "52": "dbaa646fa3d680121a7ac616900de722c02bcf291bf04aa8fdc3850a4de19d7d",
+    "53": "b3750c2d4693f4db32df1d2060fae2c742f5e6040a949182797d44121bdabfd5",
+    "54": "50d7a3b53e0fc909f6365d12c270487b5b6724f61a9bbff896807182a63b741f",
+    "55": "96f74f01da7a660d80142e02a15070faf1cff33c45fb6e917e2f75a9e840df35",
+    "56": "23aa6858b6f252ef5af9b3576830e7a4560685c092c94178a9aef46f58294989",
+    "57": "9486dff9b2100462bc2feee6cd1f85a2483143dbd93b1759d6e47387cfdb66a4",
+    "58": "8788db67ecf7ace5d5bbd0e5a0a599dfda9bc37f37d09455bea3576c60446af3",
+    "59": "09cdc67074638f99f00a2cbe31fd51b8ad036280cf5229d943b70663cbec75c0",
+    "60": "f4b3c2a9b3fd833dc166d66e8f021af2d880833a28d2b8fcea721ba635200fd6",
+    "61": "95effcfcce96bbef0dfa4666523a534915cf8461b6a96a529e971660d689917f",
+    "62": "de4bcbde87eeadcb1506bc6f1007e50e0c2bd8024e328883fb5ff264abd2a780",
+    "63": "54450cbe34f515867ea2db476fc8c921d8fa83083052dd000cfbd9227d5c35bd",
+    "64": "a524269bf95dc36cdc8e0806dab1bd9a47123449ef984c64ab6cbcbc430954a7",
+    "65": "64928e5ae2071c25932ccaed68867670dc856f684e8e289ae6b1fa4a91811e2b",
+    "66": "bbec3bd90526b4c80d960eb06dde46f180e54a474863c4ad7a722af870a48eee",
+    "69": "be5b94e4449c9d21814a6edade4ac1c276b74df5bd46e11df73d00c12c45f8c5",
+    "70": "6c2488baf8bbfa56e3cf65047408e648339d879891bdcb83cbecb5690d6f9577",
+    "71": "643ea905bbe3f140b7180a23fd20b64b7aff71e81ff5d08b3b67c05ddaf370cf",
+    "72": "b60efd4de12637b0d73846078e6d713d723224157959037df33a6fe259fc4c17",
+    "73": "d883a705bbf43700299f0f9e359b52a502cceb1900ca5290340e2f9749549c9c",
+    "74": "4e347cb44f7c522bd6450d7607d809dd083c78c172211f56022bf1f507a0706b",
+    "75": "aa51cbf12d751ddab5f8a13b46c875df005f7e6027fe1b77d96a12ecdc381483",
+    "76": "b6a8b10657d9c6d0244d2cdfb6211334c4d520438e13902bf15067edc412d03d",
+    "77": "61db00f0b07a241b8a94c9912cedb3ffdea78fbc9bb00539aef8ff053e07ec02",
+    "78": "2e3256adfb4a0de5206ba44de1e2939805b9f5cb2e4538e3f6f0d22991d691fa",
+    "79": "c2910d0351c615759efe89f27904c8502126e91bac2c469d7009e2a8db89d4b9",
+    "80": "d8a347256384251905a397c84c4eff9d8d26e08fd83ee8d92dcfd969729ee84a"
+  },
+  "sourcePreflightSHA256": "07543c980f4b188ece94ce157a51e57fcbca104f5d8e3e042daea6f106e45d70",
+  "materialCandidatesSHA256": "19a9e9c1824c5170045ec03bbf1957f76e5ce9d29d5be0aa57abe82e652e6c32"
+}

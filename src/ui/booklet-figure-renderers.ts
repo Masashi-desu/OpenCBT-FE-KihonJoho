@@ -4,6 +4,7 @@ import { legacy2016SpringPmFigureRenderers } from './Legacy2016SpringPmFigures';
 import { legacy2015AutumnAmFigureRenderers } from './Legacy2015AutumnAmFigures';
 import { legacy2015AutumnPmFigureRenderers } from './Legacy2015AutumnPmFigures';
 import { spring2015AmFigureRenderers } from './Legacy2015SpringAmFigures';
+import { legacy2015SpringPmFigureRenderers } from './Legacy2015SpringPmFigures';
 
 // Statically imported application components only; problem data supplies no code.
 export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] = [
@@ -12,4 +13,5 @@ export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] =
   { scope: '2015-autumn-am', renderers: legacy2015AutumnAmFigureRenderers },
   { scope: '2015-autumn-pm', renderers: legacy2015AutumnPmFigureRenderers },
   { scope: '2015-spring-am', renderers: spring2015AmFigureRenderers },
+  { scope: '2015-spring-pm', renderers: legacy2015SpringPmFigureRenderers },
 ];

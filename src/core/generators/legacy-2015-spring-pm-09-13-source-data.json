@@ -1,0 +1,711 @@
+{
+  "9": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "ab",
+        "key": "キ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "ab",
+        "key": "エ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "エ"
+      },
+      {
+        "id": "d",
+        "section": 1,
+        "bank": "d",
+        "key": "エ"
+      },
+      {
+        "id": "e",
+        "section": 1,
+        "bank": "e",
+        "key": "イ"
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "bank": "s2",
+        "key": "カ"
+      }
+    ],
+    "banks": {
+      "ab": {
+        "page": 46,
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ]
+      },
+      "c": {
+        "page": 46,
+        "options": [
+          "'F'",
+          "'S'",
+          "'t'",
+          "'v'",
+          "'7'"
+        ]
+      },
+      "d": {
+        "page": 46,
+        "options": [
+          "'n'",
+          "'0'",
+          "'y'",
+          "'Z'",
+          "空白文字"
+        ]
+      },
+      "e": {
+        "page": 46,
+        "options": [
+          "11",
+          "12",
+          "13",
+          "14",
+          "15"
+        ]
+      },
+      "s2": {
+        "page": 46,
+        "options": [
+          "CVa",
+          "iAP",
+          "iCN",
+          "iNC",
+          "PIa",
+          "VCa"
+        ]
+      }
+    },
+    "plain": "Function  f(x,y) is given.",
+    "table": [
+      "abcdefghijklm",
+      "nopqrstuvwxyz",
+      "0123456789,. ",
+      "ZYXWVUTSRQPON",
+      "MLKJIHGFEDCBA"
+    ]
+  },
+  "10": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "ab",
+        "key": "オ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "ab",
+        "key": "イ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "イ"
+      },
+      {
+        "id": "d",
+        "section": 1,
+        "bank": "d",
+        "key": "エ"
+      },
+      {
+        "id": "e",
+        "section": 2,
+        "bank": "ef",
+        "key": "オ"
+      },
+      {
+        "id": "f",
+        "section": 2,
+        "bank": "ef",
+        "key": "イ"
+      }
+    ],
+    "banks": {
+      "ab": {
+        "page": 50,
+        "options": [
+          "PIC 9(2)",
+          "PIC 9(3)",
+          "PIC 9(4)",
+          "PIC 9(5)",
+          "PIC 9(6)"
+        ]
+      },
+      "c": {
+        "page": 50,
+        "options": [
+          "INITIALIZE ATD-HST",
+          "INITIALIZE ATD-HST REPLACING NUMERIC BY 9999",
+          "MOVE 9999 TO ATD-HST",
+          "MOVE ALL ZERO TO ATD-HST"
+        ]
+      },
+      "d": {
+        "page": 50,
+        "options": [
+          "ATD-OUT(IDX)",
+          "HA",
+          "W-MINUTE",
+          "W-TIME-ACCUM"
+        ]
+      },
+      "ef": {
+        "page": 51,
+        "options": [
+          "ATD-IN(IDX)",
+          "ATD-NIGHTSUM",
+          "ATD-OUT(IDX)",
+          "ATD-SUM",
+          "NIGHT-TIME"
+        ]
+      }
+    }
+  },
+  "11": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "a",
+        "key": "ウ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "b",
+        "key": "イ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "ウ"
+      },
+      {
+        "id": "d",
+        "section": 1,
+        "bank": "d",
+        "key": "ア"
+      },
+      {
+        "id": "e",
+        "section": 1,
+        "bank": "e",
+        "key": "イ"
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "bank": "s2",
+        "key": "ウ"
+      }
+    ],
+    "banks": {
+      "a": {
+        "page": 55,
+        "options": [
+          "clear()",
+          "get(c)",
+          "put(c, String.valueOf(c))",
+          "remove(c)"
+        ]
+      },
+      "b": {
+        "page": 55,
+        "options": [
+          ": conversionTable.keySet()",
+          ": s.toCharArray()",
+          "= 0; c < s.length(); c++",
+          "= 0; s.indexOf(c) > 0; c++"
+        ]
+      },
+      "c": {
+        "page": 55,
+        "options": [
+          "addConversion(c, t)",
+          "addNoConversion(c)",
+          "conversionTable.get(c)",
+          "conversionTable.remove(c)"
+        ]
+      },
+      "d": {
+        "page": 55,
+        "options": [
+          "\"&#\" + (int) c + \";\"",
+          "\"&#\" + c + \";\"",
+          "\"\\\\u\" + (int) c",
+          "\"\\\\u\" + c"
+        ]
+      },
+      "e": {
+        "page": 55,
+        "options": [
+          "!=",
+          "<",
+          "==",
+          ">"
+        ]
+      },
+      "s2": {
+        "page": 56,
+        "options": [
+          "0",
+          "4",
+          "5",
+          "13",
+          "30"
+        ]
+      }
+    }
+  },
+  "12": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "a",
+        "key": "エ"
+      },
+      {
+        "id": "b",
+        "section": 1,
+        "bank": "b",
+        "key": "オ"
+      },
+      {
+        "id": "c",
+        "section": 1,
+        "bank": "c",
+        "key": "ウ"
+      },
+      {
+        "id": "s2",
+        "section": 2,
+        "bank": "s2",
+        "key": "エ"
+      },
+      {
+        "id": "d",
+        "section": 3,
+        "bank": "d",
+        "key": "オ"
+      },
+      {
+        "id": "e",
+        "section": 3,
+        "bank": "e",
+        "key": "ウ"
+      }
+    ],
+    "banks": {
+      "a": {
+        "page": 58,
+        "options": [
+          "JMI NEXT",
+          "JNZ NEXT",
+          "JOV NEXT",
+          "JPL NEXT",
+          "JZE NEXT"
+        ]
+      },
+      "b": {
+        "page": 58,
+        "options": [
+          "ADDL GR1,=1",
+          "LAD GR1,1,GR1",
+          "LD GR1,GR1",
+          "SRL GR1,1",
+          "SUBL GR1,=1"
+        ]
+      },
+      "c": {
+        "page": 58,
+        "options": [
+          "SLL GR0,0,GR3",
+          "SLL GR1,0,GR3",
+          "SLL GR4,0,GR3",
+          "SRL GR0,0,GR3",
+          "SRL GR1,0,GR3",
+          "SRL GR4,0,GR3"
+        ]
+      },
+      "s2": {
+        "page": 59,
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "d": {
+        "page": 60,
+        "options": [
+          "B + 1",
+          "B + 2",
+          "B",
+          "B - 1",
+          "B - 2"
+        ]
+      },
+      "e": {
+        "page": 60,
+        "options": [
+          "1",
+          "2",
+          "3",
+          "行番号4の命令が置かれたアドレス",
+          "行番号14の命令が置かれたアドレス"
+        ]
+      }
+    }
+  },
+  "13": {
+    "fields": [
+      {
+        "id": "a",
+        "section": 1,
+        "bank": "a",
+        "key": "エ"
+      },
+      {
+        "id": "b",
+        "section": 2,
+        "bank": "b",
+        "key": "オ"
+      },
+      {
+        "id": "c",
+        "section": 2,
+        "bank": "c",
+        "key": "イ"
+      },
+      {
+        "id": "d",
+        "section": 2,
+        "bank": "d",
+        "key": "エ"
+      },
+      {
+        "id": "e",
+        "section": 3,
+        "bank": "e",
+        "key": "ウ"
+      },
+      {
+        "id": "f",
+        "section": 3,
+        "bank": "f",
+        "key": "エ"
+      }
+    ],
+    "banks": {
+      "a": {
+        "page": 62,
+        "options": [
+          "IF(F2－E2＋1≦D2,'○','△'), null",
+          "IF(F2－E2≦D2,'○','△'), null",
+          "IF(F2－E2－1≦D2,'○','△'), null",
+          "null, IF(F2－E2＋1≦D2,'○','△')",
+          "null, IF(F2－E2≦D2,'○','△')",
+          "null, IF(F2－E2－1≦D2,'○','△')"
+        ]
+      },
+      "b": {
+        "page": 64,
+        "options": [
+          "照合一致(切捨て(I2,－2), $A$2～$A$13, 0)",
+          "照合一致(切捨て(I2,－2), $A$2～$A$13, 0)－1",
+          "照合一致(切捨て(I2,－2), $A$2～$A$13, 0)＋1",
+          "照合一致(切捨て(I3,－2), $A$2～$A$13, 0)",
+          "照合一致(切捨て(I3,－2), $A$2～$A$13, 0)－1",
+          "照合一致(切捨て(I3,－2), $A$2～$A$13, 0)＋1"
+        ]
+      },
+      "c": {
+        "page": 65,
+        "options": [
+          "'順次'",
+          "'任意'"
+        ]
+      },
+      "d": {
+        "page": 65,
+        "options": [
+          "L3＝null",
+          "L3≠null",
+          "M2＝null",
+          "M2≠null",
+          "M3＝null",
+          "M3≠null"
+        ]
+      },
+      "e": {
+        "page": 66,
+        "options": [
+          "表引き(K2～K53, ItemRow, 1)＝'可', 表引き(E2～E13, UnitRow, 1)＝null",
+          "表引き(K2～K53, ItemRow, 1)＝'可', 表引き(E2～E13, UnitRow, 1)≠null",
+          "表引き(K2～K53, ItemRow, 1)＝'可', 表引き(L2～L53, ItemRow, 1)＝null",
+          "表引き(K2～K53, ItemRow, 1)＝'可', 表引き(L2～L53, ItemRow, 1)≠null",
+          "表引き(K2～K53, ItemRow, 1)＝'不可', 表引き(E2～E13, UnitRow, 1)＝null",
+          "表引き(K2～K53, ItemRow, 1)＝'不可', 表引き(E2～E13, UnitRow, 1)≠null",
+          "表引き(K2～K53, ItemRow, 1)＝'不可', 表引き(L2～L53, ItemRow, 1)＝null",
+          "表引き(K2～K53, ItemRow, 1)＝'不可', 表引き(L2～L53, ItemRow, 1)≠null"
+        ]
+      },
+      "f": {
+        "page": 66,
+        "options": [
+          "表引き(E2～E13, ItemRow, 1)",
+          "表引き(F2～F13, ItemRow, 1)",
+          "表引き(F2～F13, UnitRow, 1)",
+          "表引き(L2～L53, ItemRow, 1)",
+          "表引き(L2～L53, UnitRow, 1)",
+          "表引き(M2～M53, ItemRow, 1)",
+          "表引き(M2～M53, UnitRow, 1)"
+        ]
+      }
+    },
+    "worksheets": [
+      {
+        "columns": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G"
+        ],
+        "headers": [
+          "ID",
+          "単元名",
+          "項目学習順序",
+          "標準日数",
+          "学習開始日",
+          "学習完了日",
+          "判定"
+        ],
+        "rows": [
+          [
+            "2",
+            100,
+            "1. 基礎理論",
+            "任意",
+            10,
+            "2014-05-20",
+            "2014-05-29",
+            "○"
+          ],
+          [
+            "3",
+            200,
+            "2. アルゴリズム",
+            "順次",
+            15,
+            "2014-05-30",
+            "2014-06-20",
+            "△"
+          ],
+          [
+            "4",
+            300,
+            "3. コンピュータ構成要素",
+            "順次",
+            15,
+            "2014-06-22",
+            null,
+            null
+          ],
+          [
+            "5",
+            400,
+            "4. システム構成要素",
+            "任意",
+            25,
+            null,
+            null,
+            null
+          ],
+          [
+            "13",
+            1200,
+            "12. 企業と法務",
+            "任意",
+            10,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      {
+        "columns": [
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O"
+        ],
+        "headers": [
+          "ID",
+          "項目名",
+          "学習開始可能",
+          "学習開始日",
+          "学習完了日",
+          null,
+          "登録"
+        ],
+        "rows": [
+          [
+            "2",
+            101,
+            "1.1 離散数学",
+            "可",
+            "2014-05-20",
+            "2014-05-23",
+            null,
+            301
+          ],
+          [
+            "3",
+            102,
+            "1.2 応用数学",
+            "可",
+            "2014-05-23",
+            "2014-05-23",
+            null,
+            null
+          ],
+          [
+            "4",
+            103,
+            "1.3 情報通信",
+            "可",
+            "2014-05-22",
+            "2014-05-23",
+            null,
+            null
+          ],
+          [
+            "5",
+            104,
+            "1.4 計測制御",
+            "可",
+            "2014-05-25",
+            "2014-05-29",
+            null,
+            null
+          ],
+          [
+            "6",
+            201,
+            "2.1 データ構造",
+            "可",
+            "2014-05-30",
+            "2014-06-02",
+            null,
+            null
+          ],
+          [
+            "7",
+            202,
+            "2.2 アルゴリズム",
+            "可",
+            "2014-06-03",
+            "2014-06-08",
+            null,
+            null
+          ],
+          [
+            "8",
+            203,
+            "2.3 プログラミング",
+            "可",
+            "2014-06-12",
+            "2014-06-20",
+            null,
+            null
+          ],
+          [
+            "9",
+            301,
+            "3.1 プロセッサ",
+            "可",
+            "2014-06-22",
+            null,
+            null,
+            null
+          ],
+          [
+            "10",
+            302,
+            "3.2 メモリ",
+            "不可",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "11",
+            303,
+            "3.3 入出力装置",
+            "不可",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "12",
+            401,
+            "4.1 システムの構成",
+            "不可",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "53",
+            1203,
+            "12.3 法務",
+            "不可",
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    ]
+  }
+}
