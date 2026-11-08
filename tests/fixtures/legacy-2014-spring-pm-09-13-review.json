@@ -1,0 +1,561 @@
+{
+  "status": "draft_source_and_independent_checks_pass",
+  "task": "S3-012",
+  "scope": "2014-spring-pm",
+  "collectionId": "2014h26h-fe-pm",
+  "examDate": "2014-04-20",
+  "officialFieldCount": 32,
+  "physicalPrintedOffset": 1,
+  "sources": {
+    "ipaListing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html",
+    "ipaTerms": "https://www.ipa.go.jp/shiken/faq.html",
+    "question": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_qs.pdf",
+    "answer": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_ans.pdf",
+    "commentary": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_cmnt.pdf",
+    "hashes": {
+      "question.pdf": "663decd31d600bfa4a2bd6763816e67c986af71e6c4ecd54b4fb91348dc19eed",
+      "answer.pdf": "1ee4bca6c278574be3918f62c966813ae16ea6d66935fc2a174594ceadd08366",
+      "comments.pdf": "d24b01a1df507f4fe8c188dd15bc7601bcf3c2a4a50f1736b6c76befebe9aa98",
+      "erratum-pdf2-oriented.png": "6c269eb5b704412403a60ee9167ff47bbb5b944761b9f10f00b1f6c3fa6a1620"
+    }
+  },
+  "rightsHolds": [],
+  "omittedExternalMaterial": {
+    "Java": {
+      "physicalPages": [
+        78,
+        79
+      ],
+      "reason": "Oracle APIの原資料・翻刻は配布対象外。署名と動作の事実を独自に説明。",
+      "editedContextTitle": "問11 Java APIの参考資料（編集資料）",
+      "sources": [
+        {
+          "url": "https://docs.oracle.com/javase/8/docs/api/java/util/Map.html",
+          "path": "source/reference/java-Map.html",
+          "sha256": "753c88ecacf3f23e4b8d1db9eec81bff6523be2eda231c3708a781bebf9d5ac2",
+          "byteLength": 90983
+        },
+        {
+          "url": "https://docs.oracle.com/javase/8/docs/api/java/util/TreeMap.html",
+          "path": "source/reference/java-TreeMap.html",
+          "sha256": "abe436b05609c2a03b3bcbac6c2bdd5586246d1294b5de59cc7360cb2386a973",
+          "byteLength": 142425
+        },
+        {
+          "url": "https://docs.oracle.com/javase/8/docs/api/java/util/Set.html",
+          "path": "source/reference/java-Set.html",
+          "sha256": "bca780d0a4ea8612783478d1e4098660c0bc18b4f7d896da67741b449bb3721f",
+          "byteLength": 52786
+        },
+        {
+          "url": "https://docs.oracle.com/javase/8/docs/api/java/util/TimeZone.html",
+          "path": "source/reference/java-TimeZone.html",
+          "sha256": "c65b9ad1c382ac0acdb97d799fa2bae390aa519bd9e2072fa4e828e4052f17cd",
+          "byteLength": 57583
+        }
+      ]
+    },
+    "CASL": {
+      "physicalPage": 82,
+      "sourceImageDimensions": [
+        895,
+        1267
+      ],
+      "excerptBottom": 730,
+      "reason": "第1.3節とJIS X 0201の符号表を除く。必要な空白、ピリオド、数字の範囲及び演算子だけRFC 20から独自に説明。",
+      "editedContextTitle": "問12 使用する文字のコード（編集資料）",
+      "source": {
+        "url": "https://www.rfc-editor.org/rfc/rfc20.html",
+        "path": "source/reference/rfc20.html",
+        "sha256": "cc3b46923e013deef0d5d6facace44960d4bc64ddcdad88ba46a0175fa724b9d",
+        "byteLength": 20815
+      }
+    }
+  },
+  "erratum": {
+    "question": 13,
+    "physicalPage": 2,
+    "affectedPhysicalPage": 73,
+    "affectedPrintedPage": 72,
+    "targets": [
+      "上から12–14行目のIF／垂直照合式2箇所",
+      "bに関する解答群の全参照範囲"
+    ],
+    "rangeDelimiter": "～",
+    "description": "L$2:M$41とK$2:K$10のコロンを、公式表計算仕様の範囲記号～へ訂正する。",
+    "correctedFormulaRanges": 2,
+    "correctedBankRanges": 8,
+    "bankOptions": 6
+  },
+  "verification": {
+    "contentTests": 8,
+    "inputConditions": 40,
+    "answerFieldsPerBaseline": 32,
+    "candidateEvaluationsPerCondition": 186,
+    "figures": 18,
+    "figureCases": 144,
+    "native": {
+      "C11": 26,
+      "JavaSE8": 16
+    },
+    "independentMethod": "原問題・解答例を物理p46〜77の画像で目視照合。生成器の結果を個別の独立計算、完成C11・Java SE8対象の実行、HTML静的描画と比較。"
+  },
+  "questions": [
+    {
+      "number": 9,
+      "title": "テキストの編集",
+      "physicalPages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "printedPages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ア"
+          ],
+          "bank": "a",
+          "optionCount": 5
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "イ"
+          ],
+          "bank": "b",
+          "optionCount": 4
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "ア"
+          ],
+          "bank": "c",
+          "optionCount": 5
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "カ"
+          ],
+          "bank": "d",
+          "optionCount": 6
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "ウ"
+          ],
+          "bank": "e",
+          "optionCount": 6
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "ウ"
+          ],
+          "bank": "f",
+          "optionCount": 5
+        }
+      ],
+      "figures": [
+        "legacy-2014-spring-pm-9-words",
+        "legacy-2014-spring-pm-9-wrapping",
+        "legacy-2014-spring-pm-9-indenting",
+        "legacy-2014-spring-pm-9-edits"
+      ],
+      "referencePhysicalPages": [],
+      "sourceReview": "40文字以上の最大文字数、20文字以下の単語、文字の範囲、入出力引数と空白・改行を保持。図1の文字位置と単語、図2・3の入力と出力を目視で照合。表1は4行の追加位置と記号。図2・3の英語は試験本文の例示で外部出典表示なし。",
+      "variantPlan": "入力例・最大文字数・字下げの直前記号を変える。実行例と表1を更新するが、行の追跡・単語確定・文字更新の正答は同一である。",
+      "independentOracle": [
+        "文字列を単語、空白、改行へ独立分割し、原図2・3の全行と40条件のうち問9の8条件を照合。",
+        "全選択肢を行列とバッファ状態、代入・条件式の効果で判定。完成C11を原版・変更版各8条件と終端、空入力、空白だけ、改行重複等で合計26回実行。"
+      ],
+      "reviewStatus": "source_transcription_rights_boundary_and_independent_checks_pass"
+    },
+    {
+      "number": 10,
+      "title": "英語の検定テストの結果管理",
+      "physicalPages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "printedPages": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ア"
+          ],
+          "bank": "ab",
+          "optionCount": 5
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "オ"
+          ],
+          "bank": "ab",
+          "optionCount": 5
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "イ"
+          ],
+          "bank": "c",
+          "optionCount": 4
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "ア"
+          ],
+          "bank": "d",
+          "optionCount": 4
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "ウ"
+          ],
+          "bank": "e",
+          "optionCount": 4
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "ウ"
+          ],
+          "bank": "f",
+          "optionCount": 4
+        },
+        {
+          "locator": "2g",
+          "key": [
+            "エ"
+          ],
+          "bank": "g",
+          "optionCount": 4
+        }
+      ],
+      "figures": [
+        "legacy-2014-spring-pm-10-master",
+        "legacy-2014-spring-pm-10-scoring",
+        "legacy-2014-spring-pm-10-ranking"
+      ],
+      "referencePhysicalPages": [],
+      "sourceReview": "得点マスタは6桁の従業員番号、3桁の平均、8桁日付と3桁得点を繰返し。採点ファイルは2様式。順ファイル・昇順・欠日ゼロ・0点有効・小数点以下切捨て、順位同点を保持。",
+      "variantPlan": "履歴件数と上位表示人数を変更し、繰返し・変更表・条件候補へ束縛する。順位境界の異なる判定式で8種類の意味正答。",
+      "independentOracle": [
+        "順マージ、古い側からの移動、日付が有効な履歴、平均切捨ての照合。未受検と0点を区別。",
+        "順位を「自分より得点の高い人数」で独立定義し、候補のカウンタ・得点更新を同点と別点に適用。COBOLソースは命令状態による検算。"
+      ],
+      "reviewStatus": "source_transcription_rights_boundary_and_independent_checks_pass"
+    },
+    {
+      "number": 11,
+      "title": "雑誌記事のオンライン購読サイト",
+      "physicalPages": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "printedPages": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "イ"
+          ],
+          "bank": "ad",
+          "optionCount": 7
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "ウ"
+          ],
+          "bank": "b",
+          "optionCount": 8
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "ウ"
+          ],
+          "bank": "c",
+          "optionCount": 5
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "キ"
+          ],
+          "bank": "ad",
+          "optionCount": 7
+        },
+        {
+          "locator": "1e",
+          "key": [
+            "キ"
+          ],
+          "bank": "ef",
+          "optionCount": 7
+        },
+        {
+          "locator": "1f",
+          "key": [
+            "カ"
+          ],
+          "bank": "ef",
+          "optionCount": 7
+        },
+        {
+          "locator": "2",
+          "key": [
+            "エ"
+          ],
+          "bank": "s2",
+          "optionCount": 6
+        }
+      ],
+      "figures": [
+        "legacy-2014-spring-pm-11-subscription"
+      ],
+      "referencePhysicalPages": [],
+      "sourceReview": "無料・有料の3利用者、記事IDの一対一、日付の境界と設問2の同日、クラス／プログラム1〜6の元構成を保持。付属p78–79の画像と説明は除外し、型・署名・動作の事実を独自編集。",
+      "variantPlan": "無料フラグ、記事の内容・登録順・識別子、設問2で有料に変更する識別子を変える。拒否1、3、5回を生成。",
+      "independentOracle": [
+        "識別子の順に記事へアクセスする独立のポリシー計算と、全候補の型・継承・日にちの真理値を照合。",
+        "Java SE8対象で全コードをコンパイルし、変更前と変更後を8組ずつ実行。"
+      ],
+      "reviewStatus": "source_transcription_rights_boundary_and_independent_checks_pass"
+    },
+    {
+      "number": 12,
+      "title": "文字列中の単語の切出し処理",
+      "physicalPages": [
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "printedPages": [
+        64,
+        65,
+        66,
+        67,
+        68
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "イ"
+          ],
+          "bank": "a",
+          "optionCount": 6
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "カ"
+          ],
+          "bank": "b",
+          "optionCount": 6
+        },
+        {
+          "locator": "2",
+          "key": [
+            "カ"
+          ],
+          "bank": "s2",
+          "optionCount": 6
+        },
+        {
+          "locator": "3c",
+          "key": [
+            "エ"
+          ],
+          "bank": "c",
+          "optionCount": 6
+        },
+        {
+          "locator": "3d",
+          "key": [
+            "エ"
+          ],
+          "bank": "d",
+          "optionCount": 5
+        },
+        {
+          "locator": "3e",
+          "key": [
+            "オ"
+          ],
+          "bank": "e",
+          "optionCount": 5
+        }
+      ],
+      "figures": [
+        "legacy-2014-spring-pm-12-get-tokens",
+        "legacy-2014-spring-pm-12-trace-tokens",
+        "legacy-2014-spring-pm-12-calc-string",
+        "legacy-2014-spring-pm-12-dtob"
+      ],
+      "referencePhysicalPages": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "sourceReview": "ピリオド終端、空白、数字と記号、語開始アドレス、3語の領域、－1、GR1〜GR7保存、DTOBの2語引数、桁あふれなし、加減乗と分岐表を保持。付属p82は第1.3節の手前まで。",
+      "variantPlan": "入力の単語、先頭アドレス、設問2でNEXTが2回目に実行される文字を変える。設問2の正答はA、B、C。",
+      "independentOracle": [
+        "COMET II命令の独立実行で全候補を差し替え、正規表現の単語分割・開始位置・長さ・種別・文字を比較。",
+        "空・空白のみ、0と9、記号付き、16ビット上限の数と0、加算・減算・乗算の全候補を照合。"
+      ],
+      "reviewStatus": "source_transcription_rights_boundary_and_independent_checks_pass"
+    },
+    {
+      "number": 13,
+      "title": "顧客情報の匿名化",
+      "physicalPages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "printedPages": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "エ"
+          ],
+          "bank": "a",
+          "optionCount": 5
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "イ"
+          ],
+          "bank": "b",
+          "optionCount": 6
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "イ"
+          ],
+          "bank": "c",
+          "optionCount": 5
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "ウ"
+          ],
+          "bank": "d",
+          "optionCount": 8
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "オ"
+          ],
+          "bank": "ef",
+          "optionCount": 10
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "ケ"
+          ],
+          "bank": "ef",
+          "optionCount": 10
+        }
+      ],
+      "figures": [
+        "legacy-2014-spring-pm-13-customers",
+        "legacy-2014-spring-pm-13-anonymous",
+        "legacy-2014-spring-pm-13-ages",
+        "legacy-2014-spring-pm-13-job-layout",
+        "legacy-2014-spring-pm-13-published",
+        "legacy-2014-spring-pm-13-packing"
+      ],
+      "referencePhysicalPages": [
+        2,
+        4,
+        5,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "sourceReview": "公式正誤表p2を解答前に表示。p73の原altはコロンのまま、基準と生成はIF式2箇所とb全8箇所を訂正。A〜N列、行位置、7桁郵便番号・上位2桁、表示年齢、職業3分類、K10終端、N2下限、8桁評価値、マクロの分岐を保持。原資料にある例示氏名と伏字等は可視範囲のみ。生成例は独自のラベル。",
+      "variantPlan": "年齢区分、職業変換、5,000人の入力例、多重度の下限を変更し、匿名化後の表・提供リストも更新。式と繰返しにおける正答は同一。",
+      "independentOracle": [
+        "文字列の桁切出し、年齢境界、各階層の職業コードの比較でa〜cの全候補を判定し、原資料の可視行と生成5,000人×7条件の集計・表示セルを独立照合。",
+        "d〜fの全候補をマーク付き最小値の追跡で評価し、辞書と辞書順による多重度集計と比較。下限ちょうど・前後・複数採用組・途中と末尾の低多重度も検査。"
+      ],
+      "reviewStatus": "source_transcription_rights_boundary_and_independent_checks_pass"
+    }
+  ],
+  "remaining": "親の配布検査、通常アプリへの統合、保存・再開・履歴・ランダムミックス経路、実ブラウザ表示を確認する。"
+}

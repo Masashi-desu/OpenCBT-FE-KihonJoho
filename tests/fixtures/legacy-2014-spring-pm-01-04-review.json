@@ -1,0 +1,360 @@
+{
+  "task": "S3-012",
+  "scope": "2014-spring-pm",
+  "collectionId": "2014h26h-fe-pm",
+  "status": "owner-content-tests-passed-integration-and-release-pending",
+  "date": "2026-11-08",
+  "sources": {
+    "question": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_qs.pdf",
+    "answer": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_ans.pdf",
+    "comments": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_cmnt.pdf",
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html",
+    "rights": "https://www.ipa.go.jp/shiken/faq.html"
+  },
+  "evidence": {
+    "question": {
+      "path": "source/question.pdf",
+      "sha256": "663decd31d600bfa4a2bd6763816e67c986af71e6c4ecd54b4fb91348dc19eed",
+      "byteLength": 14779847
+    },
+    "answer": {
+      "path": "source/answer.pdf",
+      "sha256": "1ee4bca6c278574be3918f62c966813ae16ea6d66935fc2a174594ceadd08366",
+      "byteLength": 175777
+    },
+    "comments": {
+      "path": "source/comments.pdf",
+      "sha256": "d24b01a1df507f4fe8c188dd15bc7601bcf3c2a4a50f1736b6c76befebe9aa98",
+      "byteLength": 155027
+    },
+    "answerCells": {
+      "path": "source/answer-key-cells.json",
+      "sha256": "e71642a71217dd314097c05a953aa29016b3e9a8d6b252837d9e4ae2bb59eb9d",
+      "byteLength": 876
+    },
+    "orientedErratum": {
+      "path": "source/erratum-pdf2-oriented.png",
+      "sha256": "6c269eb5b704412403a60ee9167ff47bbb5b944761b9f10f00b1f6c3fa6a1620",
+      "byteLength": 308632
+    }
+  },
+  "rights": "物理6〜24の原文・図・表・選択肢に第三者の引用出典、写真、企業ロゴや規格本文を確認しなかった。Ethernetは技術名称として使用。IPAの過去問利用条件に従い、出典・権利、改変明示とソフトウェアライセンスの分離を要する。",
+  "originalAnswerCheck": "解答例物理1の欄・備考を目視。問1 a,bの順不同を確認。",
+  "rightsHolds": [],
+  "questions": [
+    {
+      "number": 1,
+      "title": "情報資産についてのリスクアセスメント",
+      "physicalPageRange": [
+        6,
+        11
+      ],
+      "printedPageRange": [
+        5,
+        10
+      ],
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "エ"
+          ],
+          "choiceBankIndex": 0,
+          "choices": 6
+        },
+        {
+          "locator": "2",
+          "key": [
+            "イ"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 4
+        },
+        {
+          "locator": "3a",
+          "key": [
+            "イ"
+          ],
+          "choiceBankIndex": 2,
+          "choices": 6
+        },
+        {
+          "locator": "3b",
+          "key": [
+            "カ"
+          ],
+          "choiceBankIndex": 2,
+          "choices": 6
+        }
+      ],
+      "unorderedGroups": [
+        [
+          "3a",
+          "3b"
+        ]
+      ],
+      "format": "必須の告知、Z社の開発条件、図1と表1〜5、網掛け、3成分、7脅威、原3設問を保持。設問3 a/bは同じ6択を参照する順不同の独立2欄。",
+      "generation": "CIA評価の順、脅威値・閾値・価値、事故の発生機序を可変化し、2・3・1・4件の判定を検証。元の事例はIとAの誤分類を防ぐ説明を明記。順不同対策は同一の答えの重複では得点しない。",
+      "cases": 4,
+      "choicesPerCase": 16,
+      "independentCheck": "7脅威×CIAの閾値、観点の理由、事故機序と再発抑止策を別に照合。設問3の両順序と重複禁止を確認。",
+      "officialCommentary": "採点講評p1が版管理の不整合は完全性という判定と、提示したリスク式を適用することを確認している。",
+      "profileIds": [
+        "legacy-2014-spring-pm-1-risk-stages"
+      ],
+      "thirdParty": "none_identified_in_visual_source",
+      "sourceVisualCheck": [
+        "物理6・印刷5：必須案内、図1手順、Yの条件、開発環境。",
+        "物理7・印刷6：開発標準、三成分の式と閾値12、表1、網掛け注。",
+        "物理8・印刷7：表2・表3、（ii）（iii）の下線。",
+        "物理9・印刷8：表4・表5、R1・R2だけにリスク値、網掛け注。",
+        "物理10・印刷9：設問1の二列表6択、設問2の1〜4。",
+        "物理11・印刷10：事故の本文、a/b二欄、共通6択。"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "機械語命令",
+      "physicalPageRange": [
+        12,
+        15
+      ],
+      "printedPageRange": [
+        11,
+        14
+      ],
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "オ"
+          ],
+          "choiceBankIndex": 0,
+          "choices": 6
+        },
+        {
+          "locator": "2a",
+          "key": [
+            "キ"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 9
+        },
+        {
+          "locator": "2b",
+          "key": [
+            "ア"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 9
+        },
+        {
+          "locator": "2c",
+          "key": [
+            "ア"
+          ],
+          "choiceBankIndex": 2,
+          "choices": 2
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "ア"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 9
+        }
+      ],
+      "unorderedGroups": [],
+      "format": "選択規則、16ビット命令の5区分、表1〜3、レジスタとメモリの図2〜4、CCの注記、解答の重複可を保持。",
+      "generation": "命令語、初期レジスタ・主記憶を変える。4桁16進表記・9値の共通群・2桁CCを維持。条件コードで0013hが分岐する・しないの両方を検査し、最後の0016hに到達する。",
+      "cases": 4,
+      "choicesPerCase": 35,
+      "independentCheck": "16桁文字列で命令を分割し、独立のビット列操作とPC追跡でレジスタ・CC・分岐を検算。",
+      "officialCommentary": "採点講評p1がベース・指標・変位と、命令ごとのレジスタ更新を追う論点を確認している。",
+      "profileIds": [
+        "legacy-2014-spring-pm-2-instruction-word"
+      ],
+      "thirdParty": "none_identified_in_visual_source",
+      "sourceVisualCheck": [
+        "物理12・印刷11：問2〜7選択規則、図1 bit15〜0、表1、16ビットとCC。",
+        "物理13・印刷12：表2 x/b=0時にreg0を加えない、表3 CC注、op3は排他的論理和。",
+        "物理14・印刷13：設問1の1983h、図2・3のレジスタ、図4のアドレスと内容、重複選択可。",
+        "物理15・印刷14：実行番地とa〜d、a/b/d共通9択、cの2択。"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "プログラムの並列実行",
+      "physicalPageRange": [
+        16,
+        20
+      ],
+      "printedPageRange": [
+        15,
+        19
+      ],
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "オ"
+          ],
+          "choiceBankIndex": 0,
+          "choices": 6
+        },
+        {
+          "locator": "2b",
+          "key": [
+            "ア"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 4
+        },
+        {
+          "locator": "2c",
+          "key": [
+            "ウ"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 4
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "イ"
+          ],
+          "choiceBankIndex": 2,
+          "choices": 4
+        },
+        {
+          "locator": "3",
+          "key": [
+            "イ"
+          ],
+          "choiceBankIndex": 3,
+          "choices": 4
+        }
+      ],
+      "unorderedGroups": [],
+      "format": "原図5点とAmdahlの式、同期、競合なし、CPU数・比率の域、4スレッド、原20要素×4候補を保持。 解答群の表は21列を専用HTML図表で描画し、通常の表用Schemaの上限内に収まる形式で配布する。",
+      "generation": "直列・並列の比と目標、ループ範囲、順方向の依存、4スレッドへの分割を変える。変形のプログラム3では0以下の添字も有効と明記し、m≦0がm＝0のみに限定されない。正答を同一スレッド内だけ重複させる条件を含む。 図表の第2入力0は全候補、1〜4は該当行。図5と同じ範囲で破線を引く。",
+      "cases": 4,
+      "choicesPerCase": 22,
+      "independentCheck": "CPU数を整数探索し、読み書きの添字集合の依存及びスレッド間の書込み衝突を独立照合。",
+      "officialCommentary": "採点講評p1が速度とCPU数の関係、配列の参照・更新順、異なるスレッドの同一要素更新を確認している。",
+      "profileIds": [
+        "legacy-2014-spring-pm-3-parallel-process",
+        "legacy-2014-spring-pm-3-shared-memory",
+        "legacy-2014-spring-pm-3-split-loop",
+        "legacy-2014-spring-pm-3-loop-dependencies",
+        "legacy-2014-spring-pm-3-indirect-writes",
+        "legacy-2014-spring-pm-3-ip-answer-table"
+      ],
+      "thirdParty": "none_identified_in_visual_source",
+      "sourceVisualCheck": [
+        "物理16・印刷15：図1プロセス生成・同期、CPU等性能と共有メモリ、バス競合なし。",
+        "物理17・印刷16：図2 CPU/バス、E式と変数域、比7:90:3、最低5倍、オーバヘッドなし。",
+        "物理18・印刷17：図3 4スレッドへの分割、iはスレッド固有・配列共有、十分な大きさ、b〜d。",
+        "物理19・印刷18：図4三つの配列アクセス、二組の4択。",
+        "物理20・印刷19：図5のi範囲、a[ip[i]]更新、20要素×4択表。"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "ネットワークにおけるスループットの改善",
+      "physicalPageRange": [
+        21,
+        24
+      ],
+      "printedPageRange": [
+        20,
+        23
+      ],
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "ウ"
+          ],
+          "choiceBankIndex": 0,
+          "choices": 4
+        },
+        {
+          "locator": "2a",
+          "key": [
+            "エ"
+          ],
+          "choiceBankIndex": 1,
+          "choices": 4
+        },
+        {
+          "locator": "2b",
+          "key": [
+            "ウ"
+          ],
+          "choiceBankIndex": 2,
+          "choices": 4
+        },
+        {
+          "locator": "2c",
+          "key": [
+            "イ"
+          ],
+          "choiceBankIndex": 3,
+          "choices": 4
+        }
+      ],
+      "unorderedGroups": [],
+      "format": "原4図、応答と転送の時間の区別、2回目以降のACK、データリンク層の①、局所時間無視、再送なし、1M＝1,000kと四捨五入を保持。",
+      "generation": "回線、応答時間、ブロック長・集約単位・期限を変える。分割数は整数。類題は整数Mbps契約と明記。原 b は9.125秒を9.13へ丸め、a=19.25秒、c=4Mbps。",
+      "cases": 4,
+      "choicesPerCase": 16,
+      "independentCheck": "ビット換算した時間を独立イベント積算し、応答回数・丸め・本社速度制約・最小契約値を照合。",
+      "officialCommentary": "採点講評p2が上位プロトコルとデータリンク層の区別、応答と伝送時間の加算を確認している。",
+      "profileIds": [
+        "legacy-2014-spring-pm-4-network",
+        "legacy-2014-spring-pm-4-stop-and-wait",
+        "legacy-2014-spring-pm-4-paired-devices",
+        "legacy-2014-spring-pm-4-batch-sequence"
+      ],
+      "thirdParty": "none_identified_in_visual_source",
+      "sourceVisualCheck": [
+        "物理21・印刷20：4拠点と図1、Mbps凡例、データリンク層①、確認応答と応答時間。",
+        "物理22・印刷21：45/24 ms、再送なし、aのファイル条件と図2の時系列。",
+        "物理23・印刷22：図3配線、図4の4本の軸と10ブロック注、bと局所伝送無視。",
+        "物理24・印刷23：8秒、cの最小Mbps、設問1の4択、十進単位・丸め、a/b/c各4択。"
+      ]
+    }
+  ],
+  "checks": {
+    "pages": 19,
+    "officialAnswerRows": 18,
+    "choiceSlots": 18,
+    "finiteInputs": 16,
+    "answerGroupCandidates": 356,
+    "registeredManagedFigures": 12,
+    "independentTestsPassed": 6,
+    "scopedTypeScript": "pass",
+    "display": "静的SVG・HTML出力で全12プロファイルの共通色、拡大、タイトル、説明と構造を確認。問3解答表は見出しiと20列、全4行又は該当1行、境界線、代替説明を照合。通常アプリ上の操作・画面確認は統合工程。",
+    "blockSchema": {
+      "blocks": 896,
+      "contents": 300,
+      "latexBlocks": 4,
+      "failures": 0
+    }
+  },
+  "fileHashes": {
+    "Legacy2014SpringPm0104Figures.tsx": "d7614d929f13afcc6a22378a7a26a44192f2a0621c0f7bf3461b1dfa7dc36f99",
+    "legacy-2014-spring-pm-01-04-banks.json": "ba01e2a9f841471a2fc72e1362907b85520b2e3729c1c06f86627af1d113510d",
+    "legacy-2014-spring-pm-01-04-figures.ts": "68e705970f8e1667522c074c308f0c07fcd3827962f97f3c0d0193eaa4ea207f",
+    "legacy-2014-spring-pm-01-04-models.ts": "f837058a7c2843710bee74f8a1fb519f4ef13ecc2127d3e37126b13a88f5f501",
+    "legacy-2014-spring-pm-01-04-shared.ts": "836683fe98bf2522b1dbbb0e9402c0f63a61440d69c585a6e277779d83f302f5",
+    "legacy-2014-spring-pm-01-04-specs.ts": "66148e359e776e08f62a375413aedd4761bb69532e124d1863ccb503f959c1b7",
+    "legacy-2014-spring-pm-01-04.test.ts": "c67d74593607f5089f48e1720aac9febc0292adef9058ecd3afabf044d551d1e",
+    "legacy-2014-spring-pm-1.ts": "2c81a3ae10bc66179d65e4727f2fa8d0b6a598e238dd4701a640af19bc3cf541",
+    "legacy-2014-spring-pm-2.ts": "a88042623178d1735d1f9e4cccb4f3386fbce15e644ba321f6fcaf06abda108d",
+    "legacy-2014-spring-pm-3.ts": "5b81f0fd3e6e5bf6fa2e02a03d21bb63660aa459d01840aab933733b235ee40a",
+    "legacy-2014-spring-pm-4.ts": "c72c60caa3e51f17e97a6fe7ebae712d2d96ddfc3d9ba17eb4a3a0929fa199cc"
+  }
+}

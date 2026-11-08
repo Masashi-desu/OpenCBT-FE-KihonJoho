@@ -811,6 +811,78 @@
         "2014-spring-am: 78 domains, 309 valid inputs, 1545 initial draws, 309 draws with complete prior history; current-format domains retain all five paths."
       ]
     },
+    "tests/booklets/2014-spring-pm/bookmarks.test.ts": {
+      "count": 4,
+      "scopes": [
+        "2014-spring-pm"
+      ],
+      "names": [
+        "2014-spring-pm: annual and generated entries bookmark the same source for every included question",
+        "2014-spring-pm: bookmark previews identify every source without choices, figure labels or answers",
+        "2014-spring-pm: all bookmarked sources generate consecutive fresh practice runs without changing saved content",
+        "bookmark paths 2014-spring-pm: every registered series retains repeats, answers and resumed history"
+      ]
+    },
+    "tests/booklets/2014-spring-pm/open-ended-sessions.test.ts": {
+      "count": 2,
+      "scopes": [
+        "2014-spring-pm"
+      ],
+      "names": [
+        "2014-spring-pm: all bookmarked series append to one session and aggregate every answer without replacing saved content",
+        "endless paths 2014-spring-pm: every series retains answers and saved instances across resume"
+      ]
+    },
+    "tests/booklets/2014-spring-pm/random-bindings.test.ts": {
+      "count": 2,
+      "scopes": [
+        "2014-spring-pm"
+      ],
+      "names": [
+        "generation paths 2014-spring-pm: publication pools retain every registered series",
+        "generation paths 2014-spring-pm: every finite input survives issuance and history"
+      ],
+      "coverage": {
+        "sourceIds": [
+          "question-ipa-2014h26h-fe-pm-1",
+          "question-ipa-2014h26h-fe-pm-10",
+          "question-ipa-2014h26h-fe-pm-11",
+          "question-ipa-2014h26h-fe-pm-12",
+          "question-ipa-2014h26h-fe-pm-13",
+          "question-ipa-2014h26h-fe-pm-2",
+          "question-ipa-2014h26h-fe-pm-3",
+          "question-ipa-2014h26h-fe-pm-4",
+          "question-ipa-2014h26h-fe-pm-5",
+          "question-ipa-2014h26h-fe-pm-6",
+          "question-ipa-2014h26h-fe-pm-7",
+          "question-ipa-2014h26h-fe-pm-8",
+          "question-ipa-2014h26h-fe-pm-9"
+        ],
+        "smallIds": [
+          "template-source-2014h26h-fe-pm-1",
+          "template-source-2014h26h-fe-pm-10",
+          "template-source-2014h26h-fe-pm-11",
+          "template-source-2014h26h-fe-pm-12",
+          "template-source-2014h26h-fe-pm-13",
+          "template-source-2014h26h-fe-pm-2",
+          "template-source-2014h26h-fe-pm-3",
+          "template-source-2014h26h-fe-pm-4",
+          "template-source-2014h26h-fe-pm-5",
+          "template-source-2014h26h-fe-pm-6",
+          "template-source-2014h26h-fe-pm-7",
+          "template-source-2014h26h-fe-pm-8",
+          "template-source-2014h26h-fe-pm-9"
+        ],
+        "largeIds": [],
+        "notApplicable": [
+          "large"
+        ]
+      },
+      "diagnostics": [
+        "2014-spring-pm: 13 domains, 68 valid inputs, 204 initial draws, 68 draws with complete prior history; current-format domains retain all five paths.",
+        "2014-spring-pm: old afternoon: 13 domains, all 68 finite inputs, 204 initial draws on three applicable explicit routes, 68 history draws; all75 booklet selections separately retained."
+      ]
+    },
     "tests/booklets/2015-autumn-am/bookmarks.test.ts": {
       "count": 4,
       "scopes": [
@@ -7575,6 +7647,30 @@
       "count": 6,
       "scopes": [
         "2014-spring-am"
+      ]
+    },
+    "tests/legacy-2014-spring-pm-01-04.test.ts": {
+      "count": 6,
+      "scopes": [
+        "2014-spring-pm"
+      ]
+    },
+    "tests/legacy-2014-spring-pm-05-08.test.ts": {
+      "count": 5,
+      "scopes": [
+        "2014-spring-pm"
+      ]
+    },
+    "tests/legacy-2014-spring-pm-09-13.test.ts": {
+      "count": 8,
+      "scopes": [
+        "2014-spring-pm"
+      ]
+    },
+    "tests/legacy-2014-spring-pm-integration.test.ts": {
+      "count": 6,
+      "scopes": [
+        "2014-spring-pm"
       ]
     },
     "tests/legacy-2015-autumn-am-01-26.test.ts": {

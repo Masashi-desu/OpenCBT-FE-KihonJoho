@@ -410,3 +410,10 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 2014年度春期の旧制度・午前は80問・150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。利用条件を確認した78問は、原問番号・四択・公式正答を維持して年度別と年度指定ミックスに収録する。共通表記p.2–3は当時の規格名と版、論理素子の記号と注記を保持する。[IPA 平成26年度 春期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html)
 
 問56・61は規格・基準書の記述との境界と利用条件を確認中のため、原画像・本文・生成器を保留する。問65は開発計画の参照項目を経済産業省の公表資料と照合し、出典と利用条件を当該問に表示する。素材の範囲と照合値は `scripts/source-evidence/legacy-2014-spring-am-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html) · [経済産業省 システム管理基準 追補版](https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf) · [公共データ利用規約（第1.0版）](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)
+
+
+### 第3段階 S3-012 2014年度春期・旧午後
+
+全13大問を収録する。公式解答例の76行に対し、問7設問3の二つの解答を別枠とするため、アプリでは77選択枠になる。問1設問3の2欄と問7設問3の2枠は順不同で採点する。時間付き練習は150分で、問1・8を必須とし、問2〜7から4大問、問9〜13から1大問を選ぶ。[公式問題冊子・正誤表](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_ans.pdf)・[出題趣旨・採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_cmnt.pdf)。
+
+問13の原問題では、冊子に添付された公式正誤表を解答前の資料に表示する。基準・生成問題では、表計算の範囲記号の訂正を本文と選択肢へ反映する。問11のJava API付属資料は原資料の該当頁へ出典からアクセスでき、必要な仕様の事実は独自資料で説明する。問12のCASL II付属資料はPDF物理82頁上部までを抜粋し、JISの符号表を配布から外す。必要な文字の符号値はRFC 20を参照する。原資料の範囲、正答、出典、画像の照合値は `scripts/source-evidence/legacy-2014-spring-pm-source-review.json` に記録する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Java SE 8 API](https://docs.oracle.com/javase/8/docs/api/)・[RFC 20](https://www.rfc-editor.org/rfc/rfc20.html)。

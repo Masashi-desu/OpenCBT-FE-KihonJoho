@@ -1,0 +1,95 @@
+{
+  "status": "isolated-draft-verified",
+  "collection": "2014h26h-fe-pm",
+  "officialAnswerPage": 1,
+  "figures": 14,
+  "finiteInputs": 12,
+  "officialRows": 26,
+  "responseSlots": 27,
+  "testFiles": [
+    "legacy-2014-spring-pm-05-08.test.ts"
+  ],
+  "isolatedTypeCheck": "pass",
+  "independentTestCount": 5,
+  "independentCases": [
+    {
+      "question": 5,
+      "officialKey": "イ／ア／キ／エ／カ／イ",
+      "physicalPages": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "cases": 3,
+      "checks": [
+        "C/D社連携方向と固有機能",
+        "8在庫イベントの表示と、解答対象となる6イベントの全択・三列の対応",
+        "図の矢線と表の結合セル"
+      ]
+    },
+    {
+      "question": 6,
+      "officialKey": "ウ／エ／ウ／ウ／イ",
+      "physicalPages": [
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "cases": 3,
+      "checks": [
+        "処理フローの出力インタフェースによる書込件数",
+        "独立積和による工数と処理別合計",
+        "工程比率・対象ファンクションの組合せ"
+      ]
+    },
+    {
+      "question": 7,
+      "officialKey": "ア／エ／エ／ウ／ア／ウ／ア・オ",
+      "physicalPages": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "cases": 3,
+      "checks": [
+        "すべての矢線候補の先行作業閉包",
+        "時刻・要員最適化の分刻み列挙",
+        "短縮対象の全五択と順不同の二解答欄"
+      ]
+    },
+    {
+      "question": 8,
+      "officialKey": "ア／エ／イ／ウ／ウ／ア／エ／イ",
+      "physicalPages": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "commonPhysicalPages": [
+        4,
+        5
+      ],
+      "cases": 3,
+      "independentCellStatesAndIntervals": 5630,
+      "checks": [
+        "有限セルの状態から空き区間を再構築",
+        "連続する独立条件、両方向シフトと非実行条件、先頭と末尾の番兵",
+        "全式の最大・全割当て評価"
+      ]
+    }
+  ],
+  "materialReview": "Q5–8 物理25–45・公式解答物理1を原画像で照合。図表と擬似言語にこの担当範囲で追加の第三者帰属を確認せず。公式共通形式は物理4–5を使用。",
+  "pending": [
+    "統合された通常アプリのブラウザ表示",
+    "配布台帳・公開用資料の最終照合"
+  ]
+}
