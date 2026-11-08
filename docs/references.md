@@ -403,3 +403,10 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 全13大問の原問題、基準問題、生成器を収録する。時間付き練習は150分とし、問1・問8は必須、問2〜7から4大問、問9〜13から1大問を選ぶ。公式解答例の78行を、問4設問1の二つの選択枠を含む79枠として扱う。問2設問3の3欄は順不同。[IPA 平成26年度 秋期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html)
 
 原画像は本文72頁と付属資料14頁。擬似言語はp.3–4、CASL IIはp.79–84、表計算はp.85–90を参照する。JavaのDateの動作と、CASL IIで必要な数字・空白の文字コードは、出典付きの編集資料にする。原冊子p.78のJava API説明とp.81下部のJIS文・符号表は配布画像の範囲外とする。素材、原解答と出典の照合値は `scripts/source-evidence/legacy-2014-autumn-pm-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html)・[Oracle Java SE 8 Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)・[RFC 20](https://www.rfc-editor.org/rfc/rfc20.html)
+
+
+### 第3段階 S3-011 2014年度春期・旧午前
+
+2014年度春期の旧制度・午前は80問・150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。利用条件を確認した78問は、原問番号・四択・公式正答を維持して年度別と年度指定ミックスに収録する。共通表記p.2–3は当時の規格名と版、論理素子の記号と注記を保持する。[IPA 平成26年度 春期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html)
+
+問56・61は規格・基準書の記述との境界と利用条件を確認中のため、原画像・本文・生成器を保留する。問65は開発計画の参照項目を経済産業省の公表資料と照合し、出典と利用条件を当該問に表示する。素材の範囲と照合値は `scripts/source-evidence/legacy-2014-spring-am-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html) · [経済産業省 システム管理基準 追補版](https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf) · [公共データ利用規約（第1.0版）](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)

@@ -1,0 +1,105 @@
+{
+  "collectionId": "2014h26h-fe-am",
+  "task": "S3-011",
+  "checkedOn": "2026-11-08",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 4
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 24
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 28
+    }
+  ],
+  "commonPages": [
+    2,
+    3
+  ],
+  "held": [
+    {
+      "number": 56,
+      "reason": "ITサービスマネジメントの既知の誤りについて、JIS Q 20000-1:2012の定義と選択肢表現との境界および利用条件を確認中。"
+    },
+    {
+      "number": 61,
+      "reason": "共通フレーム2013のシステム化構想と業務全体像の記述について、外部規格の表現と利用条件の境界を確認中。"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_am_qs.pdf",
+      "sha256": "fa3a494cc2c38efb57ed678eb5524729d3428dc80dec6993dcdb561533c58abd",
+      "byteLength": 4615978
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_am_ans.pdf",
+      "sha256": "01bb16d0bd153f527fe27123873e167a35ab65ef5f637778f8dc24fc2902c795",
+      "byteLength": 62291
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html",
+      "sha256": "99353ae8bdc7a3652e03ebd12a5a2b05d8f7ed4b563270e01bab6f9656e7fbb0",
+      "byteLength": 122848
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474",
+      "byteLength": 108408
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "表紙の全80問必須・150分と、問1–50、51–60、61–80の分野区分を現物で照合した。",
+    "p.2は2014年度の規格・標準の名称と版の対応表。p.3は九つの論理素子と反転を示す丸印の注記。規格本文・規格図は含めない。",
+    "問52の試験用WBS図は短い工程名を含む。外部の基準書本文・図の再録を確認せず、可変条件は同じWBS構造で独自の工程を用いる。",
+    "問60は監査の公的基準を判定参照に限り、問67は既収録の同型設問と一般分類名を照合した。",
+    "問65の四つの項目は経済産業省の公式資料と照合し、当該問に限って別の出典と利用条件を表示する。",
+    "問79と問80は試験時点の契約・労働者派遣の用語と判定を保つ。法令・行政資料の原文や画像を同梱しない。",
+    "保留問の原画像と全文は配布候補に含めない。"
+  ],
+  "metiQuestion65": {
+    "number": 65,
+    "status": "source_material_confirmed",
+    "checkedOn": "2026-11-08",
+    "officialAppendix": {
+      "url": "https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf",
+      "locator": "付録2-1 印刷p.7 Ⅱ.1(3) 開発計画",
+      "verifiedFrom": "official indexed PDF text",
+      "limits": "再確認用URL。直接取得が403のため、本文バイト列の照合値は記録しない。"
+    },
+    "publisherTerms": {
+      "url": "https://www.meti.go.jp/main/rules.html",
+      "locator": "PDL1.0に関する重要事項 1・2",
+      "verifiedFrom": "official indexed site text",
+      "limits": "出典と改変の明示、個別制約と第三者権利の確認を適用。"
+    },
+    "pdl": {
+      "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+      "path": "source/reference/pdl-v1.0.html",
+      "locator": "1・1.1・1.2",
+      "sha256": "054207223d50951d1a8b5f7fb409f88cd76f63d97136f0ef833c04f68670c614",
+      "byteLength": 59216
+    },
+    "boundary": "原問が参照する4項目と開発計画の対応に限定する。経済産業省の表・基準の原文や第三者による解説は配布せず、設問と原画像の出典はIPAと表示する。"
+  },
+  "sourcePreflightSHA256": "a95a5a10ca2017f6ed424b3dbbd2a66f2f646b26bae2fe552a25bcf3be125ea9",
+  "cropCandidatesSHA256": "800da9cee5c9731b8c96d394abaa90b04ed65aab3efa937dbc76edf762d3b970",
+  "verifiedEligibleCount": 78
+}

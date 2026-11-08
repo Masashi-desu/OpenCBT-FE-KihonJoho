@@ -1,0 +1,362 @@
+{
+  "scope": "2014-spring-am",
+  "collectionId": "2014h26h-fe-am",
+  "sources": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2014h26.html",
+    "question": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_am_qs.pdf",
+    "answer": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_am_ans.pdf",
+    "terms": "https://www.ipa.go.jp/shiken/faq.html",
+    "questionHash": "fa3a494cc2c38efb57ed678eb5524729d3428dc80dec6993dcdb561533c58abd",
+    "answerHash": "01bb16d0bd153f527fe27123873e167a35ab65ef5f637778f8dc24fc2902c795"
+  },
+  "holds": [
+    56,
+    61
+  ],
+  "records": [
+    {
+      "number": 54,
+      "page": 25,
+      "key": "エ",
+      "statementHash": "49569d67ef5e370c97e022cb5cd2fa942e18fd651a8912ef7ef46d6dec4a932d",
+      "check": "人月への換算と率を整数で別計算。管理不要、開発のみ、導入教育のみの誤りを全入力照合。",
+      "variation": "FP、FP/人月、導入教育、管理率を整数結果の範囲で束縛。四択の役割は管理率の対象の誤りと管理の計上漏れ。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 55,
+      "page": 25,
+      "key": "ウ",
+      "statementHash": "f74d63b0d25b06fc8ec56dd1b95cf2a56c96fa50023eb84398097a7fff9b62ae",
+      "check": "切替の同時性、システムの重複稼働、境界連携、費用と障害の発生条件を分けて各選択肢を判定。",
+      "variation": "方式と運用上の関心を束縛し，同じ4役の切替・接続・障害・運用費を比較。並行移行の2択が同時成立する問い方を避ける。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 57,
+      "page": 26,
+      "key": "イ",
+      "statementHash": "c3a44a8107e2de51a0768672bb91f93850d51ceb971d193de10c68610f838c5a",
+      "check": "分を基準に毎日の開始〜終了の合計を求め、各候補停止で可用性を逆算。最長と丸め、予定停止なし。",
+      "variation": "営業日・午前/午後の時間帯・一桁小数の可用性を束縛。時間帯取り違い・24時間誤計上・比率誤用が別値になる組を選ぶ。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 58,
+      "page": 26,
+      "key": "ア",
+      "statementHash": "1191364f438c7d46d7c67e4cb79d00fa335a9a071eb1135de7df22e808c65f47",
+      "check": "依頼者、監査人、被監査部門、支援専門家の権限と責任の組を分類。",
+      "variation": "報告・独立性・専門家利用の具体事例を選び、適切な体制の四択を設計する。",
+      "sourceReferences": [
+        "https://www.saaj.or.jp/kijun/system_kansa.pdf"
+      ],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 59,
+      "page": 27,
+      "key": "エ",
+      "statementHash": "ca933df9297971dcf1aa8e2ef55898198a38e10a168dabb81a6b6b3c2ab59fa1",
+      "check": "各監査対象の工程と確認する成果物を対応付ける。",
+      "variation": "要件と設計、仕様への具体化、受入準備、実装標準を異なる失敗例として本文に束縛する。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 60,
+      "page": 27,
+      "key": "ア",
+      "statementHash": "98cb61e07380490294112bd25f60c736ec8150d1420ba42384a902fe5c91127b",
+      "check": "対象時点と運用の達成状態を独立に分類し、四つの機能を区別。",
+      "variation": "被害の想定（権限超過、縮退、無停止、事後回復）を具体化して対応する検証を選ぶ。",
+      "sourceReferences": [
+        "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+        "https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf",
+        "https://www.meti.go.jp/main/rules.html"
+      ],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 62,
+      "page": 28,
+      "key": "イ",
+      "statementHash": "86b387d119f7907763d29b9b0917abc9a63cf997f8e9a1a3688ab9760e123aa4",
+      "check": "列ごとの独立内積を計算。重み無視や一項目の最大とは区別。",
+      "variation": "重み・評価点を束縛し、一意最大で各案が候補になれる。表の結合見出しと案1〜4順維持。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 63,
+      "page": 29,
+      "key": "イ",
+      "statementHash": "ab59504f297c40b6e4728eab1b3f5d6b32c8b39bf0041ccab01e96e74ab49cc7",
+      "check": "扱う設計範囲とモデル、単位、構造を四分類。",
+      "variation": "用語を本文に束縛する。答えの特徴を用語以外に加えない。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 64,
+      "page": 29,
+      "key": "ウ",
+      "statementHash": "f90dce78b8edecf1206be6ea645a24a22679f9d8b5e7052822e11c04a13b43f6",
+      "check": "事前投資評価、消費エネルギー、アクセス機会、流通履歴を分類。",
+      "variation": "施策の目的を別の具体例に束縛し、対象と手段の関係を問う。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 65,
+      "page": 29,
+      "key": "ア",
+      "statementHash": "d2f40a894a0b6cca40424169f5f2f6650c66e1f7dc124c6d82c69991bd23ad4c",
+      "check": "個別開発、全社整合、事業継続、日常運用の目的と範囲を四択と照合。",
+      "variation": "別の活動の対象と制約を具体化して計画名称を問う。引用元の文や図表は追加しない。",
+      "sourceReferences": [
+        "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+        "https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf",
+        "https://www.meti.go.jp/main/rules.html"
+      ],
+      "rights": {
+        "status": "candidate",
+        "basis": "経産省平成16年基準II.1(3)（p4、SAAJの原版ミラー）と、同じ項目がある経産省公式2007年追補の付録2-1（印刷p7）を照合。経産省の利用規約のPDL1.0・別の利用条件や第三者に関する留保を確認。原問の短い4項目とIPA作問文に限り、経産省の出典・権利参照を別立て。外部資料や追加引用は配布しない。公式PDF直接取得は403、検索から一次本文を取得。"
+      }
+    },
+    {
+      "number": 66,
+      "page": 30,
+      "key": "エ",
+      "statementHash": "71f03348c50c3b99933ed449fa148b29817c0f54bcb9b6b824d3522faf680403",
+      "check": "管理対象・主体・目的で四択分類。",
+      "variation": "用語を本文に束縛。略語の展開や手掛かりは解説のみ。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 67,
+      "page": 30,
+      "key": "イ",
+      "statementHash": "bc4fec5218ff08b1852f3f752a07ab7cfb25bf9ed6999e5b711cd89e1f370ac0",
+      "check": "競争規模・攻勢/追随・資源集中・市場主導を独立分類。出版物の原文・図表は使わない。",
+      "variation": "2015秋67は選択肢・意味が一致、原文の「ことで」と「ことによって」が異なるため基準文は本冊子に別に保持。各分類の市場地位と経営行動を束縛する。",
+      "sourceReferences": [
+        "https://www.pearson.com/en-us/schools/subject-catalog/p/marketing-management/P200000015427"
+      ],
+      "rights": {
+        "status": "candidate",
+        "basis": "2015秋67でレビュー済みの一般的分類名と独自説明。問本文の相違は本年のIPA原図で確認。出版社の文章・図表を追加しない。"
+      }
+    },
+    {
+      "number": 68,
+      "page": 30,
+      "key": "ア",
+      "statementHash": "722d2e366194f9b9aa432ffcfb385f22e97dd7cd079a7dbff4f5149de36dda2a",
+      "check": "市場浸透、売上傾向、施策の組合せを4段階に分類。",
+      "variation": "2014秋70と同じ4択から段階名だけを本文に束縛。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 69,
+      "page": 31,
+      "key": "エ",
+      "statementHash": "8c98338112ee77383813edc2b03da5ffdb60fe9eb80ec622947b1b5d99874af0",
+      "check": "上下価格差と数量差の比例式を交差積で検算。",
+      "variation": "価格3値と需要を同程度の桁数・差・整数比に束縛。四択5,000刻み維持。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 70,
+      "page": 31,
+      "key": "エ",
+      "statementHash": "fc6012ce7d524d0b14a93c268898c7f335a5097be35b85704a5e81837a78d70e",
+      "check": "入力、作業、成果物の対応で分類。",
+      "variation": "同時点の横断分析、複数将来の記述、専門家回答の反復を3手順のまま変える。親和図法自体を定量予測だと扱わない。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 71,
+      "page": 32,
+      "key": "エ",
+      "statementHash": "32fc5643408e9c17c92f28ab01d4f99e12d80bf79445dc0c72c0d8e4087cacac",
+      "check": "2製品の個数を列挙し最後の製品は上限まで追加する独立整数最適化。4つの優先順の実行可能解も照合。",
+      "variation": "期間・需要制約を束縛し、時間当たり優先と需要上限による選択を維持。貪欲が整数最適となる入力のみ。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 72,
+      "page": 32,
+      "key": "ア",
+      "statementHash": "21bd0551f0f728c4eaf84a7fe32ca7639b4e1ee0f3c1c237000da3c8dd796f2c",
+      "check": "売買、支払預託、発送、受領確認、払出しを資金と物品の保有状態から推定。",
+      "variation": "尋ねる順番を③〜⑥の中で束縛し、図の実際の矢印・順序を保つ。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 73,
+      "page": 33,
+      "key": "イ",
+      "statementHash": "d764dd9ecc5e88243056a252c96804b190877b95faf196e629374d6cbcc62588",
+      "check": "販売構成、コンテンツ、紹介料、発送主体で全択の役割を判定。",
+      "variation": "CMS、アフィリエイト、ドロップシッピングの説明を同じ四択で問う。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 74,
+      "page": 33,
+      "key": "イ",
+      "statementHash": "441cbd395a3a22fbc5c29b063a88b2ffcd62955d4fbcd5fb0f43eb7ca0e2ae58",
+      "check": "端末外への回線共有、SIM利用、他網利用、閲覧制限の役割を区別。",
+      "variation": "端末・回線の利用形態を用語で変える。SIMロック解除は他網・端末互換等の成立条件を説明で扱う。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 75,
+      "page": 34,
+      "key": "イ",
+      "statementHash": "bda945940e3b7244b7bf76846f2e0843cffb4b12f6b86bb8e98f239d47791aa4",
+      "check": "事業採算、目的終了、二重指揮、助言と執行の四分類。",
+      "variation": "4特性のまま組織の責任、指揮系統、存続条件を差し替え。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 76,
+      "page": 34,
+      "key": "ウ",
+      "statementHash": "98b25abdb76c574c0bfd1a82f530fca7d945e14d01cc8415cde9047b5712e04c",
+      "check": "単体と複数ライセンスの個数を列挙し残りを単品で満たす整数最適化。全候補の意味と最小値。",
+      "variation": "PC・部署・価格を同程度の数で束縛。過剰購入可、必要マニュアル、全部署が条件。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 77,
+      "page": 35,
+      "key": "エ",
+      "statementHash": "56e6e306d84192f1cd8b7980c217307faf6bd0f2d4b161b391f1df6dc1fa9758",
+      "check": "描画値のΣxy−ΣxΣy/nの符号を独立計算。原点軸と全33点の画像照合。",
+      "variation": "値群を束縛し正負を変える。4択の方向と散布図の軸・無目盛を維持。点を置く位置をaltで解答語に置換しない。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 78,
+      "page": 35,
+      "key": "エ",
+      "statementHash": "fb66c7acbb5c0e3b63b55996b58d5be45431885e68d6846796a21a3db6a99779",
+      "check": "各候補売上に対する費用総額・営業利益を独立計算し、0の一意性。両変動費と固定費を足す。",
+      "variation": "売上・変動費・固定費を束縛し、両費用分類、整数分岐点、同程度の桁と意味ある誤答を維持。",
+      "sourceReferences": [],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 79,
+      "page": 36,
+      "key": "ア",
+      "statementHash": "5c0de2e0ef15ae9888b339a43280d417224b53fb229ecbedb4869d8a47d02731",
+      "check": "旧民法634・637等と現行法務省の整理から各条項が対象とする義務を独立分類。",
+      "variation": "歴史時点を明示し、注意義務・損害・機密を別の事例で問う。",
+      "sourceReferences": [
+        "https://www.moj.go.jp/content/001259612",
+        "https://www.moj.go.jp/MINJI/minji06_001070000.html"
+      ],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    },
+    {
+      "number": 80,
+      "page": 36,
+      "key": "ア",
+      "statementHash": "0e520f483a20108ef4ceec0146400beb01066d90da4a2549403b1d01e72e091a",
+      "check": "派遣法44条・厚労省の派遣元と派遣先の責任分担で、手続、業務指揮、実際の時間と環境を全択照合。",
+      "variation": "派遣元・派遣先の責任を交互に問う。派遣先の責任を問うときは他3択を派遣元に対応する事例とし重複を避ける。",
+      "sourceReferences": [
+        "https://www.mhlw.go.jp/content/11600000/000644110.pdf",
+        "https://www.mhlw.go.jp/web/t_doc?dataId=00005660&dataType=0&pageNo=1",
+        "https://www.mhlw.go.jp/web/t_doc?dataId=75021000&dataType=0&pageNo=1"
+      ],
+      "rights": {
+        "status": "candidate",
+        "basis": "IPA試験冊子の作問本文・一般用語・出題用の数値。外部原資料・定義文は配布しない。"
+      }
+    }
+  ]
+}

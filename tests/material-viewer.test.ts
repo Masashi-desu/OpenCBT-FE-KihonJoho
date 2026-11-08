@@ -16,7 +16,7 @@ test("material pages preserve every distributed question's complete reading orde
     ["2018h30a-fe-am", "source-ipa-2018h30a-fe-am-common-p2"],
     ["2019r01a-fe-am", "source-ipa-2019r01a-fe-am-common-p2"],
   ]);
-  const twoPageBooklets = ["2014h26a-fe-am", "2015h27h-fe-am", "2015h27a-fe-am", "2016h28h-fe-am", "2016h28a-fe-am"];
+  const twoPageBooklets = ["2014h26h-fe-am", "2014h26a-fe-am", "2015h27h-fe-am", "2015h27a-fe-am", "2016h28h-fe-am", "2016h28a-fe-am"];
   const twoPageSources = new Set(twoPageBooklets.map(book => `source-ipa-${book}-qs`));
   const twoPageTitles = [2, 3].map(page => `問題文中で共通に使用される表記ルール（p.${page}）`);
   const commonPageCounts = new Map<string, number>([
