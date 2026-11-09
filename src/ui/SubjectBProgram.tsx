@@ -74,16 +74,57 @@ function programSpacing(text: string, source: string) {
   }).join("\n");
 }
 
+// Each capture is the text before the original alignment column, followed by
+// the lines starting at that column. Keep the bound values in every capture.
+const sourceContinuations: Partial<Record<string, RegExp[]>> = {
+  "2023-b-5": [/^(○実数型: calcCosineSimilarity\()([^\n]+,)\n +([^\n]+\))$/m],
+  "2024-b-3": [/^(○整数型の二次元配列: edgesToMatrix\()([^\n]+?,) (整数型: nodeNum\))$/m],
+  "2024-b-5": [
+    /^(大域: 文字列型配列の配列: orders ← \{)((?:\{[^{}\n]*\}, ){2}\{[^{}\n]*\},) ([^\n]+)$/m,
+    /^( +文字列型の配列: allItems ← )(ordersに含まれる文字列を)(重複なく辞書順に格納した配列)\n +(\/\/ 表の例では [^\n]+)$/m,
+    /^( +文字列型の配列: otherItems ← )(allItemsの複製から値がitemである)(要素を除いた配列)$/m,
+    /^( +valueL ← [^\n]+?\(item)(Count × arrayK\[i\]\))\n +(\/\* 実数として計算する \*\/)$/m,
+  ],
+  "2025-b-5": [/^( +result\[r, c\] ← )([^\n]+ ×)\n +(\(dataの列番号cの要素の和\) ÷ t)$/m],
+  "sample-2022-dec-b-9": [
+    /^(大域: 整数型配列の配列: tree ← \{)((?:\{[^{}\n]*\}, ){3}\{[^{}\n]*\},) ((?:\{[^{}\n]*\}, ){5}\{[^{}\n]*\},) ([^\n]+)$/m,
+  ],
+};
+
+type ProgramPart = string | { prefix: string; lines: string[] };
+
+function programLayout(text: string, source: string): ProgramPart[] {
+  const spaced = programSpacing(text, source);
+  // The current annual transcriptions use four spaces for one nesting level.
+  // The source uses two Latin character cells for that level.
+  const program = /^202[3-6]-b-/.test(source)
+    ? spaced.replace(/^(?: {4})+/gm, indent => " ".repeat(indent.length / 2))
+    : spaced;
+  return (sourceContinuations[source] ?? []).reduce<ProgramPart[]>((parts, pattern) =>
+    parts.flatMap(part => {
+      if (typeof part !== "string") return [part];
+      const match = pattern.exec(part);
+      if (!match) return [part];
+      const [full, prefix, ...lines] = match;
+      return [part.slice(0, match.index), { prefix, lines }, part.slice(match.index + full.length)];
+    }), [program]);
+}
+
 // These three bindings historically use 【a】 for a single, unlettered slot.
 const unnamedA = ["2025-b-2", "2026-b-2", "2026-b-3"];
 
 export function SubjectBProgram({ text, source, answerChoice }: { text: string; source: string; answerChoice: boolean }) {
-  const program = answerChoice ? text : programSpacing(text, source);
+  const programText = (value: string) => splitBlanks(value, /【(空欄|[a-z])】|空欄([a-z])?/g, unnamedA.includes(source)).map((part, i) =>
+    typeof part === "string" ? part : <ContentBlank key={i} blank={part.blank} />
+  );
   return (
     <div className={answerChoice ? "subject-b-code-choice" : "subject-b-program"}>
       {!answerChoice && <div>［プログラム］</div>}
-      <pre><code>{answerChoice ? program : splitBlanks(program, /【(空欄|[a-z])】|空欄([a-z])?/g, unnamedA.includes(source)).map((part, i) =>
-        typeof part === "string" ? part : <ContentBlank key={i} blank={part.blank} />
+      <pre><code>{answerChoice ? text : programLayout(text, source).map((part, i) =>
+        typeof part === "string" ? programText(part) :
+          <span className="subject-b-code-continuation" key={i}>
+            <span>{programText(part.prefix)}</span><span>{programText(part.lines.join("\n"))}</span>
+          </span>
       )}</code></pre>
     </div>
   );

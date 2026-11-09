@@ -87,21 +87,26 @@ function Quality() {
   </g>;
 }
 function Program({ detail }: { detail: boolean }) {
-  const rows = detail ? autumn2016Pm8DetailLines : autumn2016Pm8ProgramLines, y = (i: number) => 30 + i * 42;
+  const main = autumn2016Pm8ProgramLines;
+  // The explanation inside the dashed frame occupies three lines on PDF p.37.
+  const summary = (main[9] + main[10]).replace('どれに', '\nどれに').replace('Pattern[p]', '\nPattern[p]');
+  const rows = detail ? autumn2016Pm8DetailLines : [...main.slice(0, 9), ...summary.split('\n'), ...main.slice(11)];
+  const y = (i: number) => 30 + i * 42;
   const branch = (x: number, start: number, end: number, divider?: number, square = false) => <g {...stroke}>
     <path d={`M${x} ${start}V${end}${divider === undefined ? '' : `M${x} ${divider}h36`}`} />
     {square ? <><rect x={x - 6} y={start - 6} width="12" height="12" fill={ink} /><rect x={x - 6} y={end - 6} width="12" height="12" fill={ink} /></> : <><path d={`M${x - 7} ${start + 7}l7 -14 7 14Z`} fill={ink} /><path d={`M${x - 7} ${end - 7}l7 14 7 -14Z`} fill={ink} /></>}
   </g>;
   return <g fontSize="21" fill={ink} data-pseudocode={detail ? 'detail' : 'main'}>
     {rows.map((row, i) => {
-      const leading = detail ? [50, 100, 135, 0, 140, 175, 100, 135, 0, 135, 0, 100, 135, 100][i] : i < 8 ? 50 : i === 8 ? 90 : i < 12 ? 130 : i === 12 ? 680 : 130;
+      const leading = detail ? [50, 100, 135, 0, 140, 175, 100, 135, 0, 135, 0, 100, 135, 100][i] :
+        i < 8 ? 50 : i === 8 ? 90 : i === 13 ? 680 : 130;
       return <g key={i} data-program-row={i}><SvgBlanks x={leading} y={y(i)} size={21} blankWidth={200} text={row.replace(/^▲ /, '').replace(/^■ /, '')} /></g>;
     })}
     {detail ? <>
       {branch(25, y(0) - 8, y(13) + 28, y(10))}{branch(75, y(1) - 8, y(5) + 10, y(3))}{branch(115, y(4) - 8, y(5) + 10)}{branch(75, y(6) - 8, y(9) + 25, y(8))}{branch(75, y(11) - 8, y(12) + 25)}
     </> : <>
-      {branch(25, y(7) - 8, y(14) + 36, undefined, true)}{branch(65, y(8) - 8, y(14) + 12, y(12) - 15)}{branch(105, y(13) - 8, y(14) + 12)}
-      <rect x="115" y={y(9) - 26} width="1280" height="77" {...stroke} strokeDasharray="7 6" />
+      {branch(25, y(7) - 8, y(15) + 36, undefined, true)}{branch(65, y(8) - 8, y(15) + 12, y(13) - 15)}{branch(105, y(14) - 8, y(15) + 12)}
+      <rect x="115" y={y(9) - 26} width="725" height="119" {...stroke} strokeDasharray="7 6" />
     </>}
   </g>;
 }
@@ -125,7 +130,7 @@ function DiagramFigure({ profile, values, caption }: BookletFigureProps & { prof
   if (profile.endsWith('-classes')) content = <Classes />;
   else if (profile.endsWith('-sequence')) { width = 1440; height = 920; content = <Sequence arrow={arrow} />; }
   else if (profile.endsWith('-quality-graph')) { width = 880; height = 625; content = <Quality />; }
-  else { width = profile.endsWith('-detail-program') ? 760 : 1450; height = profile.endsWith('-detail-program') ? 640 : 690; content = <Program detail={profile.endsWith('-detail-program')} />; }
+  else { width = profile.endsWith('-detail-program') ? 760 : 1450; height = profile.endsWith('-detail-program') ? 640 : 732; content = <Program detail={profile.endsWith('-detail-program')} />; }
   return <figure className={'managed-diagram source-figure profile-' + profile} data-figure-kind={kind}><div className="diagram-scroll" style={{ position: 'relative' }} tabIndex={0} aria-label="問題の図。幅が足りない場合は左右にスクロールできます。">
     <svg role="img" aria-labelledby={id + '-title'} aria-describedby={id + '-desc'} viewBox={`0 0 ${width} ${height}`} style={{ display: 'block', width: `calc(${width}px * var(--image-scale, 1))`, maxWidth: 'none', height: 'auto', color: ink }}>
       <title id={id + '-title'}>{caption}</title><desc id={id + '-desc'}>{alt}</desc><defs><marker id={id + '-arrow'} markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M1 1L7 4L1 7" fill="none" stroke={ink} strokeWidth="1.6" /></marker></defs>{content}

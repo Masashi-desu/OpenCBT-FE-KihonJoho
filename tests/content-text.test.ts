@@ -5,6 +5,8 @@ import {renderToStaticMarkup} from "react-dom/server";
 import {contentTextParts,ContentParagraph} from "../src/ui/ContentText";
 import {Content} from "../src/ui/Content";
 import {fixture} from "./fixtures";
+import {decemberProgramDefinitions} from "../src/core/generators/sample-2022-dec-programs";
+import {subjectBDefinitions} from "../src/core/generators/subject-b";
 test("paragraph numeric layout preserves exact input while protecting IPv4, signed decimals, fractions, dates and units",()=>{
   const text="IPは192.168.0.254、経路192.0.2.1/24、接続192.0.2.1:8080。−12.50秒、-1,234.50円、＋20％、1/72インチ、10⁶ビット、2.30件／秒、25 cm、2018-04-01。";
   const parts=contentTextParts(text);assert.equal(parts.map(p=>p.text).join(""),text);assert.deepEqual(parts.filter(p=>p.atomic).map(p=>p.text),["192.168.0.254","192.0.2.1/24","192.0.2.1:8080","−12.50秒","-1,234.50円","＋20％","1/72インチ","10⁶ビット","2.30件／秒","25 cm","2018-04-01"]);
@@ -126,4 +128,49 @@ test("all23 reviewed paragraph names preserve exact text at ASCII namespace and 
 test("2018 identifiers change only paragraph and list spans while code table and literal markup keep their characters",()=>{
  const bundle=fixture(),q=bundle.questions[0],text=added2018CobolNames.join(' '),content={...q.prompt,blocks:[{type:'paragraph'as const,text},{type:'list'as const,ordered:false,items:[text]},{type:'code'as const,language:'cobol',text},{type:'table'as const,caption:'原の表',columns:['値'],rows:[[text]]}]},before=JSON.stringify(content),html=renderToStaticMarkup(createElement(Content,{content,bundle,assetUrls:{},showAttribution:false}));assert.equal(JSON.stringify(content),before);assert.equal((html.match(/class="content-text-token"/g)??[]).length,16);assert(html.includes(`<pre><code>${text}</code></pre>`));assert(html.includes(`<td><span class="table-cell-prose">${text}</span></td>`));
  const literal='<img src=x onerror="bad()"> CR-DATE-X & ORD-EOF </p><script>bad()</script>\nW-CNT 日本語😀',rendered=renderToStaticMarkup(createElement(ContentParagraph,{text:literal}));assertAtomicText(literal,['CR-DATE-X','ORD-EOF','W-CNT']);assert.equal(decodeCodeText(rendered.replace(/<[^>]+>/g,'')),literal);assert(!/<img\b|<script\b/i.test(rendered));assert(!/[\u200b\u2060]/.test(rendered));
+});
+
+test("subject B renders source continuation lines without changing generated code or blanks", () => {
+  const bundle = fixture();
+  // Breaks and continuation starts from 2022 December p.15, 2023 p.10,
+  // 2024 pp.7, 11 and 2025 p.13. Compare the reference and maximum inputs.
+  const cases = [
+    ["sample-2022-dec-b-9", [/^\{.*\},\n\{.*\},\n\{\}, \{\}, \{\}, \{\}\}/]],
+    ["2023-b-5", [/vector1,\n実数型の配列: vector2\)/]],
+    ["2024-b-3", [/edgeList,\n整数型: nodeNum\)/]],
+    ["2024-b-5", [/^\{"A".*\},\n\{"A"/, /を\n重複なく辞書順に格納した配列\n\/\/ 表の例/, /である\n要素を除いた配列/, /arrayK\[i\]\)\n\/\* 実数として計算する/]],
+    ["2025-b-5", [/要素の和\) ×\n\(dataの列番号cの要素の和\) ÷ t/]],
+  ] as const;
+
+  for (const [source, expected] of cases) {
+    const definition = [...decemberProgramDefinitions, ...subjectBDefinitions].find(d => d.source === source)!;
+    const [, sourceId, questionNumber] = /^(.*)-(\d+)$/.exec(source)!;
+    for (const values of [definition.reference, definition.fields.map(f => f.maximum)]) {
+      const program = definition.build(values).prompt.find(b => b.type === "code");
+      assert(program?.type === "code");
+      const content = {
+        attribution: {
+          ...bundle.questions[0].prompt.attribution,
+          origin: "adapted" as const,
+          sourceRefs: [{ sourceId: `source-ipa-${sourceId}-qs`, locator: { section: "プログラム", subject: "科目B", questionNumber } }],
+        },
+        blocks: [program],
+      };
+      const html = renderToStaticMarkup(createElement(Content, { content, bundle, assetUrls: {}, showAttribution: false }));
+      const aligned = [...html.matchAll(/class="subject-b-code-continuation"><span>[\s\S]*?<\/span><span>([^<]+)<\/span><\/span>/g)];
+      assert.equal(aligned.length, expected.length, source);
+      for (const [i, pattern] of expected.entries()) assert.match(decodeCodeText(aligned[i][1]), pattern, source);
+
+      const code = html.match(/<pre><code>([\s\S]*?)<\/code><\/pre>/)![1];
+      const blanks = [...program.text.matchAll(/【(空欄|[a-z])】|空欄([a-z])?/g)];
+      assert.equal((code.match(/class="question-blank"/g) ?? []).length, blanks.length, source);
+      const withoutWhitespace = (text: string) => text.replace(/\s/g, "");
+      assert.equal(
+        withoutWhitespace(decodeCodeText(code.replace(/<span class="question-blank"[^>]*>[^<]*<\/span>|<[^>]+>/g, ""))),
+        withoutWhitespace(program.text.replace(/【(空欄|[a-z])】|空欄([a-z])?/g, "")),
+        source,
+      );
+      if (source === "2024-b-3") assert.match(code, /\n  for \([\s\S]*?\n    u ← [^\n]+\n    v ← /);
+    }
+  }
 });

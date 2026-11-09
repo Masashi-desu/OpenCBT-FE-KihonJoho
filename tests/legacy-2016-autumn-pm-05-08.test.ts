@@ -123,6 +123,15 @@ test('all source-owned managed figures have bijective semantic/render registrati
     if(figure.profile.endsWith('-sequence')){assert.equal((html.match(/data-lifeline=/g)??[]).length,8);for(const label of ['data-pm2016-blank="c"','data-pm2016-blank="d"','α','省略'])assert(html.includes(label));}
     if(figure.profile.endsWith('-quality-graph'))for(const label of ['Ⅰ','Ⅱ','Ⅲ','Ⅳ','80','100','4','5','6'])assert(html.includes(label));
     if(figure.profile.endsWith('-forecast')){assert.equal((html.match(/網掛け・非表示/g)??[]).length,3);assert(html.includes('data-pm2016-blank="d"'));assert(!html.includes('11.55'));}
+    if (figure.profile === 'legacy-2016-autumn-pm-8-program') {
+      // Printed p.36 (PDF p.37) puts all three lines inside the dashed frame.
+      const summary = [...html.matchAll(/data-program-row="(?:9|10|11)"><g><text[^>]*>([^<]+)/g)].map(match => match[1]);
+      assert.deepEqual(summary, [
+        '現在の変数・配列要素の内容が，表2のケース1〜7の',
+        'どれに該当するかを決定し，そのケースに従って',
+        'Pattern[p]とsignifの更新処理を行う。',
+      ]);
+    }
     if(figure.profile.endsWith('-detail-program')){assert(html.includes('data-pm2016-blank="d"'));assert(html.includes('data-pm2016-blank="e"'));assert(html.includes('何もしない'));}
   }
 });

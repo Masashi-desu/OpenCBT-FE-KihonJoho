@@ -1713,6 +1713,11 @@ select {
 .subject-b-code-choice pre {
   margin: 0;
 }
+.subject-b-code-continuation,
+.subject-b-code-continuation > span {
+  display: inline-block;
+  vertical-align: top;
+}
 .question-blank {
   display: inline-block;
   box-sizing: border-box;

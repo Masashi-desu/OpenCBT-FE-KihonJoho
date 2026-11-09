@@ -218,7 +218,7 @@ export const sourcePrerequisites: Record<string, string[]> = {
     "2種類以上の商品",
     "引数itemはその中にある商品",
     "関連度が最も大きい商品のうちの一つ",
-    "allItems ← ordersに含まれる文字列を重複なく辞書順に格納した配列",
+    "allItems ← ordersに含まれる文字列を\\s*重複なく辞書順に格納した配列",
     "maxL ← −∞",
     "relatedItemの値とmaxLの値",
   ],

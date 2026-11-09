@@ -2,6 +2,14 @@ import React from'react';
 import{useId}from'react';
 import{legacy2019BitapPrograms,legacy2019BitapCodeAlt}from'../core/generators/legacy-2019-autumn-pm8';
 import{legacy2019BitapModel}from'../core/generators/legacy-2019-autumn-pm8-model';
+
+// First text columns of the continuation rows on PDF pp.40, 41 and 43.
+const continuationColumns: Record<number, Record<number, number>> = {
+  1: { 9: 284 },
+  2: { 10: 540 },
+  3: { 2: 446 },
+};
+
 /** Year-only code geometry. Profiles stay outside the shared registry. */
 export function Legacy2019AutumnPm8Figure({profile,values,caption}:{profile:string;values:number[];caption:string}){
  const id=useId().replace(/:/g,'');
@@ -20,6 +28,9 @@ export function Legacy2019AutumnPm8Figure({profile,values,caption}:{profile:stri
  });if(stack.length)throw Error('INVALID_CODE_SCOPE');
  return <figure className={`managed-diagram source-figure profile-${profile}`}><div className="diagram-scroll" tabIndex={0} aria-label="プログラム。幅が足りない場合は左右にスクロールできます。"><svg className="source-figure-svg" viewBox={`0 0 ${width} ${height}`} style={{width:`calc(${width}px * var(--image-scale, 1))`,minWidth:'100%'}} role="img" aria-labelledby={`${id}-title`} aria-describedby={`${id}-desc`}><title id={`${id}-title`}>{caption}</title><desc id={`${id}-desc`}>{legacy2019BitapCodeAlt(n)}</desc><g aria-hidden="true">
  {ranges.map((r,i)=><line key={'range'+i} data-kind={r.kind} data-start={r.start+1} data-end={r.end+1} x1={r.x} x2={r.x} y1={35+r.start*row+8} y2={35+r.end*row-16} stroke="currentColor"/>)}
- {lines.map((line,i)=><text key={i} data-code-line={i+1} x={50} y={35+i*row} xmlSpace="preserve" fill="currentColor" stroke="none" style={{fontFamily:'ui-monospace,monospace',fontSize:22}}>{line}</text>)}
+ {lines.map((line,i)=>{
+   const continuationX=continuationColumns[n]?.[i+1];
+   return <text key={i} data-code-line={i+1} x={continuationX??50} y={35+i*row} xmlSpace="preserve" fill="currentColor" stroke="none" style={{fontFamily:'ui-monospace,monospace',fontSize:22}}>{continuationX===undefined?line:line.trimStart()}</text>;
+ })}
  </g></svg></div><figcaption>{caption}</figcaption></figure>;
 }
