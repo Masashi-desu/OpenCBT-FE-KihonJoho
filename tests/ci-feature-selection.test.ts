@@ -5,7 +5,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { validFeatureTest, classifyFeatureChanges } from '../scripts/ci/feature-changes.mjs';
 import { DEV_SCHEMA_PLUGIN } from '../scripts/ci/startup-changes.mjs';
-import { ERROR_DETAIL, MENU_CARD, SEARCH_MATERIALS, uiConsumerBoundary } from '../scripts/ci/ui-changes.mjs';
+import { ERROR_DETAIL, MENU_CARD, MENU_SELECTION, SEARCH_MATERIALS, uiConsumerBoundary } from '../scripts/ci/ui-changes.mjs';
 import { RECORD_KINDS, distributionOwnership } from '../scripts/ci/scopes.mjs';
 import { makeParts, validateTestManifest, sha } from '../scripts/ci/plan.mjs';
 import { aggregate } from '../scripts/ci/results.mjs';
@@ -169,6 +169,56 @@ test('Pages installs the pinned Chromium runtime for each browser part before ex
   assert.match(workflow.slice(install - 130, install), /if: startsWith\(matrix\.part, 'browser-'\)/);
   assert(install < workflow.indexOf('node scripts/ci/run-part.mjs'));
   assert.match(workflow, /needs: \[build, aggregate\]/);
+});
+
+test('menu transition changes select menu and verification tests without reducing booklet coverage', () => {
+  const menuTest = 'tests/menu-selection.test.ts', mixTest = 'tests/mix-profile.test.ts';
+  const legacyTest = 'tests/legacy-afternoon-selection.test.ts';
+  const previous = {
+    ...entries, ...startupEntries,
+    [menuTest]: { count: 12, scopes: [] },
+    [mixTest]: { count: 12, scopes: [] },
+    [legacyTest]: { count: 4, scopes: ['2017-spring-pm'] },
+  };
+  const tests = { ...previous, ...Object.fromEntries([menuTest, mixTest, legacyTest].map(file =>
+    [file, { ...previous[file], features: ['menu-ui'] }])) };
+  const source = [
+    "import type { Selection } from './types';",
+    "export function menuSourceGroups() { return []; }",
+    "export function patchMenuSelection(old: Selection, value: Partial<Selection>): Selection { return old; }",
+  ].join('\n');
+  const changed = source.replace('return old;', 'return { ...old, ...value };');
+  const select = (files: Record<string, string>, testEntries = tests) => classify({ ...fixture(), files }, {
+    beforeTestEntries: previous, testEntries,
+    readBefore: (file: string) => file === MENU_SELECTION ? Buffer.from(source) : null,
+  });
+  const menu = select({ [MENU_SELECTION]: changed, [menuTest]: '// test change' })!;
+  assert.equal(menu.profile, 'features');
+  assert.deepEqual(menu.features, ['menu-ui', 'verification']);
+  const parts = makeParts(Object.keys(tests), tests, [], false, menu);
+  assert.deepEqual(Object.keys(parts), ['browser-menu-ui', 'common']);
+  assert.deepEqual(parts['browser-menu-ui'].files, [browserMenu]);
+  assert.deepEqual(parts.common.files, [legacyTest, menuTest, mixTest, verify].sort());
+
+  const beforeBooklet = makeParts(Object.keys(previous), previous, ['2017-spring-pm']);
+  assert.deepEqual(makeParts(Object.keys(tests), tests, ['2017-spring-pm']), beforeBooklet);
+  assert.equal(select({ [MENU_SELECTION]: changed }, {
+    ...tests, [content]: { ...previous[content], features: ['menu-ui'] },
+  }), null);
+  for (const unsafe of [
+    changed.replace('return [];', 'return [1];'),
+    changed.replace('value: Partial<Selection>', 'value: Selection'),
+    changed + "\nimport './storage';",
+  ]) assert.equal(select({ [MENU_SELECTION]: unsafe }), null);
+  assert.equal(select({ [MENU_SELECTION]: changed, 'src/core/selection.ts': 'changed' }), null);
+
+  const host = 'src/ui/App.tsx';
+  const graph = { [host]: [MENU_SELECTION], [MENU_SELECTION]: ['src/core/errors.ts', 'src/core/source-collections.ts', 'src/core/types.ts'] };
+  assert.equal(uiConsumerBoundary(MENU_SELECTION, graph, graph), host);
+  assert.equal(uiConsumerBoundary(MENU_SELECTION, graph, { ...graph, 'src/ui/other.ts': [MENU_SELECTION] }), false);
+  assert.equal(uiConsumerBoundary(MENU_SELECTION, graph, {
+    ...graph, [MENU_SELECTION]: [...graph[MENU_SELECTION], 'src/core/selection.ts'],
+  }), false);
 });
 
 test('only an exact pinned development browser dependency may accompany feature changes; production and unrelated lock changes widen', () => {

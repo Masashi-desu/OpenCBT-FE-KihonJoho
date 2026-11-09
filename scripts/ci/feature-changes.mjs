@@ -1,7 +1,7 @@
 import ts from 'typescript';
 import { classifyDetailChanges } from './detail-changes.mjs';
 import { isDevSchemaChange } from './startup-changes.mjs';
-import { uiFeaturesFor } from './ui-changes.mjs';
+import { MENU_SELECTION_TESTS, uiFeaturesFor } from './ui-changes.mjs';
 
 export const BROWSER_FEATURE_PARTS = {
     storage: 'browser-storage',
@@ -78,10 +78,10 @@ export function classifyFeatureChanges(args) {
             check(changed.includes(file) || equal(omit(old ?? {}, ['features', 'runtime']), omit(next, ['features', 'runtime'])));
             if (old) {
                 if (!old.features && next.features.some(f => f === 'dev-schema' || f.endsWith('-ui'))) {
-                    // The existing watcher regression can move to its new owner
-                    // with the same test source and the same manifest count.
-                    check(file === 'tests/dev-schema-validators.test.ts' && equal(next.features, ['dev-schema']) &&
-                        next.count === old.count && !changed.includes(file));
+                    const watcher = file === 'tests/dev-schema-validators.test.ts' && equal(next.features, ['dev-schema']) &&
+                        !changed.includes(file);
+                    const menu = MENU_SELECTION_TESTS.includes(file) && equal(next.features, ['menu-ui']) && next.runtime === undefined;
+                    check((watcher || menu) && next.count === old.count);
                 }
                 check(equal(old.scopes, next.scopes) && equal(old.detail, next.detail));
                 check(next.count >= old.count);

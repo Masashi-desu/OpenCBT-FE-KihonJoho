@@ -1,14 +1,21 @@
 import postcss from 'postcss';
+import ts from 'typescript';
 import { inertModuleSource } from './scopes.mjs';
 
 export const ERROR_DETAIL = 'src/ui/ErrorDetails.tsx';
 export const MENU_CARD = 'src/ui/MenuOptionCard.tsx';
+export const MENU_SELECTION = 'src/core/menu-selection.ts';
+export const MENU_SELECTION_TESTS = [
+    'tests/menu-selection.test.ts', 'tests/mix-profile.test.ts', 'tests/legacy-afternoon-selection.test.ts',
+];
 export const SEARCH_MATERIALS = 'src/ui/SearchQuestionMaterials.tsx';
 const searchPage = 'src/ui/SearchPage.tsx';
 const styles = 'src/ui/style.css';
 const modules = {
     [ERROR_DETAIL]: { feature: 'error-ui', host: 'src/ui/App.tsx', specifiers: ['react', 'lucide-react'], imports: [] },
     [MENU_CARD]: { feature: 'menu-ui', host: 'src/ui/App.tsx', specifiers: ['react', 'lucide-react'], imports: [] },
+    [MENU_SELECTION]: { feature: 'menu-ui', host: 'src/ui/App.tsx',
+        imports: ['src/core/errors.ts', 'src/core/source-collections.ts', 'src/core/types.ts'] },
     [SEARCH_MATERIALS]: { feature: 'search-ui', host: searchPage, specifiers: ['../core/types', './Content', './MaterialViewer'],
         imports: ['src/core/types.ts', 'src/ui/Content.tsx', 'src/ui/MaterialViewer.tsx'] },
 };
@@ -18,6 +25,15 @@ const selectorOwners = {
     'search-ui': /^\.search-[a-z][a-z0-9-]*(?=$|[\s.:\[>#])/,
 };
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+function outsideMenuTransition(bytes) {
+    if (!bytes) return null;
+    const source = ts.createSourceFile(MENU_SELECTION, bytes.toString(), ts.ScriptTarget.Latest, true);
+    const transitions = source.statements.filter(s => ts.isFunctionDeclaration(s) && s.name?.text === 'patchMenuSelection');
+    const body = transitions.length === 1 ? transitions[0].body : undefined;
+    if (!body || source.parseDiagnostics.length) return null;
+    return source.text.slice(0, body.getStart(source)) + source.text.slice(body.end);
+}
 
 function styleRegions(bytes) {
     const tree = postcss.parse(bytes.toString());
@@ -67,6 +83,11 @@ export function uiFeaturesFor(file, readBefore, readAfter, samePublicApi) {
     if (file !== styles && file !== searchPage && !Object.hasOwn(modules, file)) return [];
     const before = readBefore(file), after = readAfter(file);
     if (!after) return [];
+    if (file === MENU_SELECTION) {
+        // The collection helpers, imports and transition signature are shared contracts.
+        const prior = outsideMenuTransition(before);
+        return prior !== null && prior === outsideMenuTransition(after) ? ['menu-ui'] : [];
+    }
     if (file === styles && before) {
         const a = styleRegions(before), b = styleRegions(after);
         return a.shared === b.shared ? Object.keys(selectorOwners).filter(id => !same(a.byFeature[id], b.byFeature[id])) : [];

@@ -111,7 +111,9 @@ export function makeParts(files, entries, selectedScopes, full = false, options 
     const features = !full && profile === 'features';
     const selectedDetail = f => validDetailTest(entries[f]) && (!entries[f].detail.packages.length || entries[f].detail.packages.some(p => detailDirectories.includes(p)));
     const selectedFeature = f => validFeatureTest(entries[f]) && entries[f].features.some(id => options.features.includes(id));
-    const wanted = full ? files : features ? files.filter(f => selectedFeature(f) || detailDirectories.length && selectedDetail(f)) : details ? files.filter(selectedDetail) : files.filter(f => entries[f].scopes.some(s => selectedScopes.includes(s)) || !entries[f].scopes.length && (!entries[f].features || entries[f].features.includes('verification'))), parts = {};
+    const sharedBookletTest = ({ scopes, features, runtime }) => !scopes.length &&
+        (!features || features.includes('verification') || features.includes('menu-ui') && runtime === undefined);
+    const wanted = full ? files : features ? files.filter(f => selectedFeature(f) || detailDirectories.length && selectedDetail(f)) : details ? files.filter(selectedDetail) : files.filter(f => entries[f].scopes.some(s => selectedScopes.includes(s)) || sharedBookletTest(entries[f])), parts = {};
     for (const file of wanted) {
         const browserFeature = entries[file].features?.find(feature => Object.hasOwn(BROWSER_FEATURE_PARTS, feature));
         const browserPart = BROWSER_FEATURE_PARTS[browserFeature];
