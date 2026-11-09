@@ -126,12 +126,13 @@ export function menuSubjectNotice(group?: MenuSourceGroup, finite = true) {
 export function patchMenuSelection(
   bundle: Bundle | undefined, old: Selection, value: Partial<Selection>, finite: Selection,
 ): { selection: Selection; finite: Selection } {
-  if (value.mode === "endless") {
-    const next: Selection = { ...old, ...value, kind: "mix", bindingMode: "generated_values" };
-    delete next.sourceCollectionId;
-    delete next.mixProfileCollectionId;
-    delete next.mixScope;
-    delete next.selectedQuestionRefs;
+  if ((value.mode ?? old.mode) === "endless") {
+    const next: Selection = {
+      subject: value.subject ?? old.subject,
+      kind: "mix",
+      mode: "endless",
+      bindingMode: "generated_values",
+    };
     return { selection: next, finite: old.mode === "endless" ? finite : old };
   }
   const restoring = old.mode === "endless" && value.mode !== undefined;

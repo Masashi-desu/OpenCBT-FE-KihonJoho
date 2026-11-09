@@ -249,6 +249,16 @@ test("mix and endless retain their subject pools without a source-collection res
   const mix = patchMenuSelection(b, initial, { kind: "mix", bindingMode: "generated_values" }, initial).selection;
   assert.equal(mix.sourceCollectionId, undefined); assert.equal(selectQuestions(b, mix).questions.length, 20);
   assert(menuSubjectOptions(undefined, false).every(o => o.available));
+  let endless = patchMenuSelection(b, mix, { mode: "endless" }, mix);
+  for (const subject of ["B", "A"] as const) {
+    endless = patchMenuSelection(b, endless.selection, { subject }, endless.finite);
+    const selected = selectQuestions(b, endless.selection);
+    assert.equal(selected.exam.subject, subject);
+    assert.equal(selected.questions.length, 1);
+    assert.equal(selected.exam.timeLimitSeconds, undefined);
+  }
+  const restored = patchMenuSelection(b, endless.selection, { mode: mix.mode }, endless.finite).selection;
+  assert.deepEqual(restored, mix);
   const annual = patchMenuSelection(b, mix, { kind: "annual", bindingMode: "original_data" }, initial).selection;
   assert.equal(annual.sourceCollectionId, "set-annual-2026-a");
   assert.equal(selectQuestions(b, annual).questions.length, 20);
