@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { validFeatureTest, classifyFeatureChanges } from '../scripts/ci/feature-changes.mjs';
+import { DEV_SCHEMA_PLUGIN, ERROR_DETAIL } from '../scripts/ci/startup-changes.mjs';
 import { RECORD_KINDS, distributionOwnership } from '../scripts/ci/scopes.mjs';
 import { makeParts, validateTestManifest, sha } from '../scripts/ci/plan.mjs';
 import { aggregate } from '../scripts/ci/results.mjs';
@@ -15,6 +16,13 @@ const entries: any = {
   [native]: { count: 1, scopes: [], features: ['storage'], runtime: 'chromium' },
   [content]: { count: 1, scopes: ['2024-a'] },
 };
+const dev = 'tests/dev-schema.test.ts', browserError = 'tests/browser-error.test.ts';
+const startupEntries = {
+  [dev]: { count: 1, scopes: [], features: ['dev-schema'] },
+  [browserError]: { count: 1, scopes: [], features: ['error-ui'], runtime: 'chromium' },
+};
+const plugin = "import { compileSchemas } from './compile-schemas.mjs'; export function devSchemaValidators() { let config; return { name: 'dev-schema-validators', apply: 'serve', configureServer() { compileSchemas(config.root); } }; }";
+const detail = "import { useState } from 'react'; export function ErrorDetails() { return <details>コピーしました</details>; }";
 function distribution() {
   const records: any = Object.fromEntries(RECORD_KINDS.map(k => [k, []]));
   records.questions = [{ id: 'question-probe', revision: 1, subject: 'A', origin: { sourceRefs: [{ locator: { year: 2024, subject: '科目A', questionNumber: '1' } }], derivedFrom: [], changes: [] }, prompt: { text: 'unchanged' }, correctAnswer: { choiceId: 'one' } }];
@@ -33,9 +41,10 @@ function classify(f = fixture(), options: any = {}) {
     readAfter: (file: string) => f.files[file] === undefined ? null : Buffer.from(f.files[file]), ...options });
 }
 
-test('feature ownership accepts only declared features and requires browser tests to belong to storage', () => {
-  assert(validFeatureTest(entries[native])); validateTestManifest(Object.keys(entries).sort(), entries);
-  for (const entry of [{ features: [] }, { features: ['other'] }, { features: ['storage', 'storage'] }, { features: ['verification'], runtime: 'chromium' }, { features: ['storage'], runtime: 'other' }]) {
+test('feature ownership accepts only declared features and requires an unambiguous browser owner', () => {
+  assert(validFeatureTest(entries[native])); assert(validFeatureTest(startupEntries[browserError]));
+  validateTestManifest(Object.keys(entries).sort(), entries);
+  for (const entry of [{ features: [] }, { features: ['other'] }, { features: ['storage', 'storage'] }, { features: ['verification'], runtime: 'chromium' }, { features: ['storage', 'error-ui'], runtime: 'chromium' }, { features: ['storage'], runtime: 'other' }]) {
     assert(!validFeatureTest(entry)); assert.throws(() => validateTestManifest(['tests/probe.test.ts'], { 'tests/probe.test.ts': { count: 1, scopes: [], ...entry } }));
   }
 });
@@ -77,11 +86,49 @@ test('verification-only changes run verification tests and preserve full-invento
   assert.deepEqual(Object.values(makeParts(Object.keys(entries), entries, [], false, selected)).flatMap(p => p.files), [verify]);
 });
 
-test('Pages installs the pinned Chromium runtime for the mandatory native-storage part before executing its witnessed tests', () => {
+test('startup-only features select their own regressions and reject shared compiler, app or CSS changes', () => {
+  const tests = { ...entries, ...startupEntries };
+  const css = 'body { margin: 0; }\n.error-details pre { white-space: pre; }\n';
+  const styles = 'src/ui/style.css';
+  const sources: Record<string, string> = { [DEV_SCHEMA_PLUGIN]: plugin, [ERROR_DETAIL]: detail, [styles]: css };
+  const select = (files: Record<string, string>, testEntries = tests) => classify({ ...fixture(), files }, {
+    beforeTestEntries: tests, testEntries,
+    readBefore: (file: string) => sources[file] === undefined ? null : Buffer.from(sources[file]),
+  });
+  const devOnly = select({ [DEV_SCHEMA_PLUGIN]: plugin.replace('compileSchemas(config.root);', 'compileSchemas(config.root, undefined);') })!;
+  assert.deepEqual(devOnly.features, ['dev-schema', 'verification']);
+  assert.deepEqual(Object.values(makeParts(Object.keys(tests), tests, [], false, devOnly)).flatMap(p => p.files), [dev, verify].sort());
+  const uiOnly = select({ [ERROR_DETAIL]: detail.replace('コピーしました', 'コピー完了'), [styles]: css.replace('white-space: pre', 'white-space: pre-wrap') })!;
+  assert.deepEqual(uiOnly.features, ['error-ui', 'verification']);
+  const parts = makeParts(Object.keys(tests), tests, [], false, uiOnly);
+  assert.deepEqual(parts['browser-error-ui'].files, [browserError]);
+  assert.deepEqual(parts.common.files, [verify]);
+  assert.throws(() => makeParts(Object.keys(tests).filter(f => f !== browserError), tests, [], false, uiOnly));
+  const unsafeChanges: Record<string, string>[] = [
+    { [DEV_SCHEMA_PLUGIN]: plugin.replace("apply: 'serve'", "apply: 'build'") },
+    { [DEV_SCHEMA_PLUGIN]: plugin.replace('let config;', 'compileSchemas(); let config;') },
+    { [ERROR_DETAIL]: detail + '\nimport "../core/storage";' },
+    { [styles]: css.replace('margin: 0', 'margin: 8px') },
+    { [styles]: css.replace('.error-details pre', '.error-details pre, .main') },
+    { [styles]: css.replace('.error-details pre', '.error-details ~ .main') },
+    { 'scripts/compile-schemas.mjs': 'changed' },
+    { 'src/ui/App.tsx': 'changed' },
+    { 'docs/public/schemas/catalog.schema.json': 'changed' },
+  ];
+  for (const changed of unsafeChanges) assert.equal(select(changed), null, Object.keys(changed).join(', '));
+  assert.equal(select({ [ERROR_DETAIL]: detail.replace('コピーしました', 'コピー完了') },
+    { ...tests, [browserError]: { count: 1, scopes: [], features: ['error-ui'] } } as typeof tests), null);
+  assert.equal(classify(fixture(), {
+    beforeTestEntries: { ...tests, [content]: { count: 1, scopes: ['2024-a'] } },
+    testEntries: { ...tests, [content]: { count: 1, scopes: ['2024-a'], features: ['dev-schema'] } },
+  }), null);
+});
+
+test('Pages installs the pinned Chromium runtime for each browser part before executing its witnessed tests', () => {
   const workflow = fs.readFileSync('.github/workflows/pages.yml', 'utf8');
   const install = workflow.indexOf('npx playwright install --with-deps chromium');
   assert(install > workflow.indexOf('- run: npm ci'));
-  assert.match(workflow.slice(install - 110, install), /if: matrix\.part == 'browser-storage'/);
+  assert.match(workflow.slice(install - 130, install), /if: matrix\.part == 'browser-storage' \|\| matrix\.part == 'browser-error-ui'/);
   assert(install < workflow.indexOf('node scripts/ci/run-part.mjs'));
   assert.match(workflow, /needs: \[build, aggregate\]/);
 });
@@ -111,7 +158,7 @@ test('real Git plans execute each functional part, aggregate exact witnesses and
     );
     const scopeEntries = Object.fromEntries(['2016-autumn-am', '2016-autumn-pm', '2024-b'].map(scope =>
       [`tests/booklets/${scope}/content-contract.test.ts`, { count: 1, scopes: [scope], names: [`${scope}: contract`] }]));
-    const localEntries = { ...entries, ...scopeEntries };
+    const localEntries = { ...entries, ...startupEntries, ...scopeEntries };
   const env = Object.fromEntries(Object.entries(process.env).filter(([k]) => !k.startsWith('GITHUB_') && !['NODE_TEST_CONTEXT', 'NODE_OPTIONS'].includes(k)));
   const write = (file: string, value: string) => { fs.mkdirSync(path.dirname(path.join(dir, file)), { recursive: true }); fs.writeFileSync(path.join(dir, file), value); };
   const git = (...args: string[]) => execFileSync('git', args, { cwd: dir, env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -160,5 +207,29 @@ test('real Git plans execute each functional part, aggregate exact witnesses and
     assert.deepEqual(onlyMorning.scopes, ['2016-autumn-am']);
     assert.deepEqual(onlyMorning.parts, ['booklet-2016-autumn-am', 'common']);
     assert(!onlyMorning.selectedFiles.includes(content));
+
+    const errorStyle = 'src/ui/style.css', errorUI = 'export function ErrorDetails() { return <details/>; }';
+    write(ERROR_DETAIL, errorUI);
+    write('src/main.tsx', "import './ui/style.css';");
+    write(errorStyle, '.error-details { display: block; }');
+    write('src/ui/App.tsx', "import {ErrorDetails} from './ErrorDetails'; export function App() { return <ErrorDetails/>; }");
+    write(DEV_SCHEMA_PLUGIN, plugin);
+    git('add', '.'); git('commit', '-qm', 'synthetic verified startup boundaries'); baseCommit = git('rev-parse', 'HEAD');
+    write(errorStyle, '.error-details { display: grid; }');
+    write(ERROR_DETAIL, errorUI.replace('<details/>', '<details open/>'));
+    const onlyError = plan();
+    assert.equal(onlyError.profile, 'features', JSON.stringify(onlyError.unknown));
+    assert.deepEqual(onlyError.features, ['error-ui', 'verification']);
+    assert.deepEqual(onlyError.parts, ['browser-error-ui', 'common']);
+    assert.deepEqual(onlyError.selectedFiles, [browserError, verify].sort());
+    write(morningFile, "import '../../ui/ErrorDetails'; export const probe=1;");
+    assert.equal(plan().profile, 'full', 'another application consumer breaks the error UI proof');
+    write(morningFile, 'export const probe = 1;');
+    write(ERROR_DETAIL, errorUI);
+    write(errorStyle, '.error-details { display: block; }');
+    write(DEV_SCHEMA_PLUGIN, plugin + '\n// Vite dev only');
+    const onlyDev = plan();
+    assert.deepEqual(onlyDev.features, ['dev-schema', 'verification']);
+    assert.deepEqual(onlyDev.selectedFiles, [dev, verify].sort());
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });

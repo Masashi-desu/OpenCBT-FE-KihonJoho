@@ -25,15 +25,18 @@ function inertInitializer(node) {
         ts.isPropertyAssignment(p) && (ts.isIdentifier(p.name) || ts.isStringLiteral(p.name)) && inertInitializer(p.initializer));
     return false;
 }
-export function inertDisplaySource(file, bytes) {
-    const owner = SCOPED_DISPLAYS[file];
-    if (!owner || !bytes) return false;
-    const source = ts.createSourceFile(file, bytes.toString(), ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+export function inertModuleSource(file, bytes, specifiers) {
+    if (!bytes) return false;
+    const source = ts.createSourceFile(file, bytes.toString(), ts.ScriptTarget.Latest, true);
     return !source.parseDiagnostics.length && source.statements.every(s =>
-        ts.isImportDeclaration(s) && s.importClause && ts.isStringLiteral(s.moduleSpecifier) && owner.specifiers.includes(s.moduleSpecifier.text) ||
+        ts.isImportDeclaration(s) && s.importClause && ts.isStringLiteral(s.moduleSpecifier) && specifiers.includes(s.moduleSpecifier.text) ||
         ts.isFunctionDeclaration(s) || ts.isTypeAliasDeclaration(s) || ts.isInterfaceDeclaration(s) ||
         ts.isVariableStatement(s) && Boolean(s.declarationList.flags & ts.NodeFlags.Const) &&
         s.declarationList.declarations.every(d => ts.isIdentifier(d.name) && inertInitializer(d.initializer)));
+}
+export function inertDisplaySource(file, bytes) {
+    const owner = SCOPED_DISPLAYS[file];
+    return !!owner && inertModuleSource(file, bytes, owner.specifiers);
 }
 export function scopedDisplayImports(file, imports) {
     const owner = SCOPED_DISPLAYS[file];

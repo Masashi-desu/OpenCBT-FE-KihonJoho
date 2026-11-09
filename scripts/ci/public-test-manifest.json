@@ -7357,7 +7357,7 @@
       ]
     },
     "tests/ci-feature-selection.test.ts": {
-      "count": 9,
+      "count": 10,
       "scopes": [],
       "features": [
         "verification"
@@ -7485,7 +7485,10 @@
     },
     "tests/dev-schema-validators.test.ts": {
       "count": 1,
-      "scopes": []
+      "scopes": [],
+      "features": [
+        "dev-schema"
+      ]
     },
     "tests/endless-practice.test.ts": {
       "count": 7,
@@ -7498,6 +7501,14 @@
     "tests/engine.test.ts": {
       "count": 13,
       "scopes": []
+    },
+    "tests/error-ui-browser.test.ts": {
+      "count": 1,
+      "scopes": [],
+      "features": [
+        "error-ui"
+      ],
+      "runtime": "chromium"
     },
     "tests/flow-simulator.test.ts": {
       "count": 13,

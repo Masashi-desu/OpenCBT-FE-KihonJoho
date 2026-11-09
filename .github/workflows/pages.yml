@@ -62,8 +62,8 @@ jobs:
           name: verification-plan-${{ github.run_attempt }}
           path: output/ci
       - run: npm run pretest
-      - name: Install isolated native-storage browser
-        if: matrix.part == 'browser-storage'
+      - name: Install isolated browser
+        if: matrix.part == 'browser-storage' || matrix.part == 'browser-error-ui'
         run: npx playwright install --with-deps chromium
       - name: Run planned tests
         run: node scripts/ci/run-part.mjs output/ci/plan.json ${{ matrix.part }} output/ci/results/${{ matrix.part }}
