@@ -3726,6 +3726,9 @@ dialog dt {
 .search-pagination button { min-height: 44px; }
 .search-question-topics { margin-bottom: 24px; }
 .search-question-material { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+.search-question-prerequisites { margin-top: 16px; border-top: 1px solid var(--line); }
+.search-question-prerequisites > summary { padding: 10px 0; min-height: 44px; font-weight: 650; cursor: pointer; }
+.search-question-prerequisites > section { margin-top: 16px; }
 .search-question-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
 .search-question-actions button { min-height: 44px; max-width: 100%; }
 .search-question-actions .search-practice { margin-left: auto; }

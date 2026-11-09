@@ -14,6 +14,7 @@ import { AttributionLine, Content } from "./Content";
 import { DetailViewer, explanationBase, useDetailedExplanation } from "./DetailedExplanation";
 import { Dialog } from "./Dialog";
 import { QuestionFooter } from "./QuestionFooter";
+import { SearchQuestionMaterials } from "./SearchQuestionMaterials";
 import { StudyTerms } from "./StudyTerms";
 import { ensureMath } from "./math";
 import type { Theme } from "./theme";
@@ -186,11 +187,7 @@ function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses
       {assets.loading ? <p role="status"><LoaderCircle size={17} className="spinning" />問題を読み込んでいます</p> : assets.error ?
         <p role="alert">{assets.error} <button onClick={() => setAttempt(value => value + 1)}>再試行</button></p> : <>
         <div className="search-question-material">
-          {question.contextRefs.map(id => {
-            const material = question.contexts.find(value => value.id === id)!;
-            return <section key={id} aria-label={material.title}><Content content={material.content} bundle={bundle} assetUrls={assets.urls} credit /></section>;
-          })}
-          <Content content={question.prompt} bundle={bundle} assetUrls={assets.urls} credit />
+          <SearchQuestionMaterials question={question} bundle={bundle} assetUrls={assets.urls} />
         </div>
         <div className="search-question-actions" role="group" aria-label="問題の操作">
           <button className="primary search-reveal" aria-expanded={revealed} aria-controls={revealed ? "search-explanation" : undefined} onClick={() => setRevealed(value => !value)}>

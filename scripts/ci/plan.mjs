@@ -9,8 +9,8 @@ import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
 import { callbackDeclarations } from './callback-locations.mjs';
 import { classifyDetailChanges, validDetailTest } from './detail-changes.mjs';
-import { classifyFeatureChanges, validFeatureTest, STORAGE_RUNTIME } from './feature-changes.mjs';
-import { errorUiHosts, errorUiImports } from './startup-changes.mjs';
+import { BROWSER_FEATURE_PARTS, classifyFeatureChanges, validFeatureTest, STORAGE_RUNTIME } from './feature-changes.mjs';
+import { uiConsumerBoundary } from './ui-changes.mjs';
 export const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export const blob = bytes => crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
 export const canonical = value => JSON.stringify(value);
@@ -113,7 +113,8 @@ export function makeParts(files, entries, selectedScopes, full = false, options 
     const selectedFeature = f => validFeatureTest(entries[f]) && entries[f].features.some(id => options.features.includes(id));
     const wanted = full ? files : features ? files.filter(f => selectedFeature(f) || detailDirectories.length && selectedDetail(f)) : details ? files.filter(selectedDetail) : files.filter(f => entries[f].scopes.some(s => selectedScopes.includes(s)) || !entries[f].scopes.length && (!entries[f].features || entries[f].features.includes('verification'))), parts = {};
     for (const file of wanted) {
-        const browserPart = entries[file].features?.includes('error-ui') ? 'browser-error-ui' : 'browser-storage';
+        const browserFeature = entries[file].features?.find(feature => Object.hasOwn(BROWSER_FEATURE_PARTS, feature));
+        const browserPart = BROWSER_FEATURE_PARTS[browserFeature];
         const wrapper = /^tests\/booklets\/([^/]+)\/[^/]+\.test\.ts$/.exec(file), part = entries[file].runtime === 'chromium' ? browserPart : features ? entries[file].features?.includes('storage') ? 'feature-storage' : validDetailTest(entries[file]) && entries[file].detail.packages.length ? 'details' : 'common' : details ? entries[file].detail.packages.length ? 'details' : 'common' : wrapper ? 'booklet-' + wrapper[1] : entries[file].scopes.length ? 'related' : 'common';
         (parts[part] ??= []).push(file);
     }
@@ -122,8 +123,8 @@ export function makeParts(files, entries, selectedScopes, full = false, options 
         requireCI(detailDirectories.length > 0 && detailDirectories.every(p => wanted.some(f => entries[f].detail.packages.includes(p))), 'content tests for every changed detail package');
     if (features) {
         requireCI(options.features?.length && options.features.every(id => wanted.some(f => entries[f].features?.includes(id))), 'tests for every selected feature');
-        if (options.features.includes('storage')) requireCI(parts['browser-storage']?.length, 'native IndexedDB coverage cannot be omitted');
-        if (options.features.includes('error-ui')) requireCI(parts['browser-error-ui']?.length, 'startup error browser coverage cannot be omitted');
+        for (const [feature, part] of Object.entries(BROWSER_FEATURE_PARTS))
+            if (options.features.includes(feature)) requireCI(parts[part]?.length, 'browser coverage cannot be omitted: ' + feature);
         requireCI(detailDirectories.every(p => wanted.some(f => entries[f].detail?.packages.includes(p))), 'content tests for mixed feature/detail changes');
     }
     return Object.fromEntries(Object.entries(parts).sort(([a], [b]) => a.localeCompare(b)).map(([part, names]) => [part, { files: names.sort(), expectedByFile: Object.fromEntries(names.map(f => [f, entries[f].count])), expectedNames: Object.fromEntries(names.filter(f => entries[f].names).map(f => [f, entries[f].names])), expectedDeclarations: Object.fromEntries(names.map(f => [f, callbackDeclarations(f, entries[f].names)]).filter(([, declarations]) => declarations)), expectedCount: names.reduce((n, f) => n + entries[f].count, 0), requiredDiagnostics: names.flatMap(f => entries[f].diagnostics ?? []), coverage: Object.fromEntries(names.filter(f => entries[f].coverage).map(f => [f, entries[f].coverage])), filters: [] }]));
@@ -240,12 +241,13 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
             else
                 displayUnknown.push('unproven display module boundary: ' + file);
         }
-        if (selected.features?.includes('error-ui')) {
-            for (const [file, host] of Object.entries(errorUiHosts).filter(([file]) => changed.includes(file))) {
-                if (errorUiImports(file, oldGraph) && errorUiImports(file, newGraph))
+        if (selected.features?.some(feature => feature.endsWith('-ui'))) {
+            for (const file of changed) {
+                const host = uiConsumerBoundary(file, oldGraph, newGraph);
+                if (host)
                     graph[host] = graph[host].filter(dependency => dependency !== file);
-                else
-                    displayUnknown.push('unproven error UI consumer boundary: ' + file);
+                else if (host === false)
+                    displayUnknown.push('unproven UI consumer boundary: ' + file);
             }
         }
         const affected = expandOwnedDependencies(sourceChanges, graph, after.scopes, carriers);

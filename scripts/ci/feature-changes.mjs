@@ -1,15 +1,22 @@
 import ts from 'typescript';
 import { classifyDetailChanges } from './detail-changes.mjs';
-import { ERROR_DETAIL, startupFeatureFor } from './startup-changes.mjs';
+import { isDevSchemaChange } from './startup-changes.mjs';
+import { uiFeaturesFor } from './ui-changes.mjs';
 
-export const FEATURE_IDS = ['storage', 'verification', 'dev-schema', 'error-ui'];
+export const BROWSER_FEATURE_PARTS = {
+    storage: 'browser-storage',
+    'error-ui': 'browser-error-ui',
+    'menu-ui': 'browser-menu-ui',
+    'search-ui': 'browser-search-ui',
+};
+export const FEATURE_IDS = ['verification', 'dev-schema', ...Object.keys(BROWSER_FEATURE_PARTS)];
 export const STORAGE_RUNTIME = ['src/core/storage.ts', 'src/core/storage-schema.ts', 'src/core/storage-snapshot.ts', 'src/core/bookmark-storage.ts'];
 const storageSupport = ['scripts/storage-browser-harness.ts', 'scripts/verify-storage-browser.mjs'];
 const verificationFiles = [
     'scripts/ci/aggregate.mjs', 'scripts/ci/base-evidence.mjs', 'scripts/ci/booklet-manifest.mjs', 'scripts/ci/booklet-scope.mjs',
     'scripts/ci/callback-locations.mjs', 'scripts/ci/check-changed.mjs', 'scripts/ci/detail-changes.mjs', 'scripts/ci/feature-changes.mjs',
     'scripts/ci/plan.mjs', 'scripts/ci/policy.json', 'scripts/ci/reporter.mjs', 'scripts/ci/results.mjs', 'scripts/ci/run-part.mjs',
-    'scripts/ci/runtime-dependencies.mjs', 'scripts/ci/scopes.mjs', 'scripts/ci/startup-changes.mjs', 'scripts/ci/test.mjs', '.github/workflows/pages.yml',
+    'scripts/ci/runtime-dependencies.mjs', 'scripts/ci/scopes.mjs', 'scripts/ci/startup-changes.mjs', 'scripts/ci/test.mjs', 'scripts/ci/ui-changes.mjs', '.github/workflows/pages.yml',
 ];
 const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const omit = (v, keys) => Object.fromEntries(Object.entries(v).filter(([k]) => !keys.includes(k)));
@@ -20,7 +27,7 @@ const doc = file => /^(?:README\.md|AGENTS\.md|NOTICE\.md)$|^docs\/.*\.md$|^\.ag
 export function validFeatureTest(entry) {
     return entry?.features !== undefined && Array.isArray(entry.features) && entry.features.length > 0 &&
         entry.features.every(f => FEATURE_IDS.includes(f)) && new Set(entry.features).size === entry.features.length &&
-        (entry.runtime === undefined || entry.runtime === 'chromium' && entry.features.filter(f => f === 'storage' || f === 'error-ui').length === 1);
+        (entry.runtime === undefined || entry.runtime === 'chromium' && entry.features.filter(f => Object.hasOwn(BROWSER_FEATURE_PARTS, f)).length === 1);
 }
 function packagesUnchangedExceptBrowser(beforeBytes, afterBytes, lock = false) {
     const a = json(beforeBytes), b = json(afterBytes); check(a && b);
@@ -70,7 +77,7 @@ export function classifyFeatureChanges(args) {
             if (!next?.features) continue; // Existing detail proof validates these.
             check(changed.includes(file) || equal(omit(old ?? {}, ['features', 'runtime']), omit(next, ['features', 'runtime'])));
             if (old) {
-                if (!old.features && next.features.some(f => f === 'dev-schema' || f === 'error-ui')) {
+                if (!old.features && next.features.some(f => f === 'dev-schema' || f.endsWith('-ui'))) {
                     // The existing watcher regression can move to its new owner
                     // with the same test source and the same manifest count.
                     check(file === 'tests/dev-schema-validators.test.ts' && equal(next.features, ['dev-schema']) &&
@@ -97,11 +104,9 @@ export function classifyFeatureChanges(args) {
                 features.add('verification'); features.add('storage'); continue;
             }
             if (featureTests.has(file)) { testEntries[file].features.forEach(f => features.add(f)); continue; }
-            const startupFeature = startupFeatureFor(file, readBefore, readAfter);
-            if (startupFeature) {
-                if (file === ERROR_DETAIL) check(equal(publicNames(readBefore(file), file), publicNames(readAfter(file), file)));
-                features.add(startupFeature); continue;
-            }
+            if (isDevSchemaChange(file, readBefore, readAfter)) { features.add('dev-schema'); continue; }
+            const uiFeatures = uiFeaturesFor(file, readBefore, readAfter, (before, after, path) => equal(publicNames(before, path), publicNames(after, path)));
+            if (uiFeatures.length) { uiFeatures.forEach(f => features.add(f)); continue; }
             // Existing browser fixtures use the app's current DB version. Only
             // this exact read-version removal can accompany a storage upgrade.
             if (/^scripts\/verify-[a-z-]+-browser\.(ts|mjs)$/.test(file)) {
@@ -117,7 +122,7 @@ export function classifyFeatureChanges(args) {
         // reclassified; every feature has explicit tests and browser ownership.
         for (const file of Object.keys(beforeTestEntries)) if (beforeTestEntries[file].features) check(testEntries[file]);
         for (const feature of features) check([...featureTests].some(f => testEntries[f].features.includes(feature)));
-        for (const browserFeature of ['storage', 'error-ui'])
+        for (const browserFeature of Object.keys(BROWSER_FEATURE_PARTS))
             if (features.has(browserFeature)) check([...featureTests].some(f => testEntries[f].features.includes(browserFeature) && testEntries[f].runtime === 'chromium'));
         features.add('verification');
         check([...featureTests].some(f => testEntries[f].features.includes('verification')));
@@ -134,6 +139,6 @@ export function classifyFeatureChanges(args) {
         }
         return { profile: 'features', features: [...features].sort(), scopes: [], changed, unknown: [],
             detailDirectories: detail?.detailDirectories ?? [], changedRecords: detail?.changedRecords ?? [],
-            reasons: ['closed functional ownership; unchanged content/generation/scoring contracts; native storage and verification tests required'] };
+            reasons: ['closed functional ownership; unchanged content/generation/scoring contracts; selected feature and verification tests required'] };
     } catch { return null; }
 }

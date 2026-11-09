@@ -4,7 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { validFeatureTest, classifyFeatureChanges } from '../scripts/ci/feature-changes.mjs';
-import { DEV_SCHEMA_PLUGIN, ERROR_DETAIL } from '../scripts/ci/startup-changes.mjs';
+import { DEV_SCHEMA_PLUGIN } from '../scripts/ci/startup-changes.mjs';
+import { ERROR_DETAIL, MENU_CARD, SEARCH_MATERIALS, uiConsumerBoundary } from '../scripts/ci/ui-changes.mjs';
 import { RECORD_KINDS, distributionOwnership } from '../scripts/ci/scopes.mjs';
 import { makeParts, validateTestManifest, sha } from '../scripts/ci/plan.mjs';
 import { aggregate } from '../scripts/ci/results.mjs';
@@ -17,9 +18,12 @@ const entries: any = {
   [content]: { count: 1, scopes: ['2024-a'] },
 };
 const dev = 'tests/dev-schema.test.ts', browserError = 'tests/browser-error.test.ts';
+const browserMenu = 'tests/browser-menu.test.ts', browserSearch = 'tests/browser-search.test.ts';
 const startupEntries = {
   [dev]: { count: 1, scopes: [], features: ['dev-schema'] },
   [browserError]: { count: 1, scopes: [], features: ['error-ui'], runtime: 'chromium' },
+  [browserMenu]: { count: 1, scopes: [], features: ['menu-ui'], runtime: 'chromium' },
+  [browserSearch]: { count: 1, scopes: [], features: ['search-ui'], runtime: 'chromium' },
 };
 const plugin = "import { compileSchemas } from './compile-schemas.mjs'; export function devSchemaValidators() { let config; return { name: 'dev-schema-validators', apply: 'serve', configureServer() { compileSchemas(config.root); } }; }";
 const detail = "import { useState } from 'react'; export function ErrorDetails() { return <details>コピーしました</details>; }";
@@ -124,11 +128,45 @@ test('startup-only features select their own regressions and reject shared compi
   }), null);
 });
 
+test('audited search and menu presentation select only the relevant browser parts and reject shared changes', () => {
+  const tests = { ...entries, ...startupEntries };
+  const styles = 'src/ui/style.css';
+  const css = 'body { margin: 0; }\n.selection-option:not(.selected) span { display: block; }\n.search-question > p { margin: 5px; }\n';
+  const card = 'export function MenuOptionCard() { return <button/>; }';
+  const select = (files: Record<string, string>) => classify({ ...fixture(), files }, {
+    beforeTestEntries: tests, testEntries: tests,
+    readBefore: (file: string) => file === styles ? Buffer.from(css) : file === MENU_CARD ? Buffer.from(card) : null,
+  });
+  const search = select({ [styles]: css.replace('margin: 5px', 'margin: 6px') })!;
+  assert.deepEqual(search.features, ['search-ui', 'verification']);
+  assert.deepEqual(Object.keys(makeParts(Object.keys(tests), tests, [], false, search)), ['browser-search-ui', 'common']);
+  const menu = select({ [MENU_CARD]: card.replace('<button/>', '<button type="button"/>'),
+    [styles]: css.replace('display: block', 'display: inline-block') })!;
+  assert.deepEqual(menu.features, ['menu-ui', 'verification']);
+  assert.deepEqual(Object.keys(makeParts(Object.keys(tests), tests, [], false, menu)), ['browser-menu-ui', 'common']);
+  const mixed = select({ [styles]: css.replace('display: block', 'display: grid').replace('margin: 5px', 'margin: 6px') })!;
+  assert.deepEqual(mixed.features, ['menu-ui', 'search-ui', 'verification']);
+  assert.deepEqual(Object.keys(makeParts(Object.keys(tests), tests, [], false, mixed)), ['browser-menu-ui', 'browser-search-ui', 'common']);
+  for (const after of [css.replace('margin: 0', 'margin: 8px'),
+    css.replace('.search-question > p', '.search-question + p'),
+    css.replace('.selection-option:not(.selected) span', '.selection-option span, body')])
+    assert.equal(select({ [styles]: after }), null);
+  assert.equal(select({ [MENU_CARD]: card + 'import "../core/session";' }), null);
+  assert.equal(select({ [MENU_CARD]: card.replace('MenuOptionCard()', 'MenuOptionCard(props: unknown)') }), null);
+
+  const host = 'src/ui/SearchPage.tsx';
+  const before = { [host]: [] };
+  const after = { [host]: [SEARCH_MATERIALS], [SEARCH_MATERIALS]: ['src/core/types.ts', 'src/ui/Content.tsx', 'src/ui/MaterialViewer.tsx'] };
+  assert.equal(uiConsumerBoundary(SEARCH_MATERIALS, before, after), host);
+  assert.equal(uiConsumerBoundary(SEARCH_MATERIALS, before, { ...after, 'src/ui/App.tsx': [SEARCH_MATERIALS] }), false);
+  assert.equal(uiConsumerBoundary(SEARCH_MATERIALS, before, { ...after, [SEARCH_MATERIALS]: ['src/core/answers.ts'] }), false);
+});
+
 test('Pages installs the pinned Chromium runtime for each browser part before executing its witnessed tests', () => {
   const workflow = fs.readFileSync('.github/workflows/pages.yml', 'utf8');
   const install = workflow.indexOf('npx playwright install --with-deps chromium');
   assert(install > workflow.indexOf('- run: npm ci'));
-  assert.match(workflow.slice(install - 130, install), /if: matrix\.part == 'browser-storage' \|\| matrix\.part == 'browser-error-ui'/);
+  assert.match(workflow.slice(install - 130, install), /if: startsWith\(matrix\.part, 'browser-'\)/);
   assert(install < workflow.indexOf('node scripts/ci/run-part.mjs'));
   assert.match(workflow, /needs: \[build, aggregate\]/);
 });

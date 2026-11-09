@@ -1,11 +1,7 @@
-import postcss from 'postcss';
 import ts from 'typescript';
 import { inertModuleSource } from './scopes.mjs';
 
 export const DEV_SCHEMA_PLUGIN = 'scripts/dev-schema-validators.ts';
-export const ERROR_DETAIL = 'src/ui/ErrorDetails.tsx';
-const styles = 'src/ui/style.css';
-export const errorUiHosts = { [ERROR_DETAIL]: 'src/ui/App.tsx', [styles]: 'src/main.tsx' };
 
 function devOnlyPlugin(bytes) {
     if (!inertModuleSource(DEV_SCHEMA_PLUGIN, bytes, ['node:path', 'vite', './compile-schemas.mjs'])) return false;
@@ -32,32 +28,6 @@ function devOnlyPlugin(bytes) {
         });
 }
 
-function withoutErrorRules(bytes) {
-    const tree = postcss.parse(bytes.toString());
-    tree.walkRules(rule => {
-        // A mixed selector, sibling selector or nested rule stays in the comparison.
-        const owned = selector => /^\.error-(?:banner(?:-content|-heading)?|details(?:-panel|-tools)?)(?=$|[\s.:\[>#])/.test(selector) &&
-            !/[+~()\\]/.test(selector);
-        if (!rule.selectors.every(owned) || !rule.nodes.every(node => node.type === 'decl' || node.type === 'comment')) return;
-        for (let ancestor = rule.parent; ancestor.type !== 'root'; ancestor = ancestor.parent)
-            if (ancestor.type !== 'atrule' || !['media', 'container', 'supports'].includes(ancestor.name)) return;
-        rule.remove();
-    });
-    return tree.toString();
-}
-
-export function startupFeatureFor(file, readBefore, readAfter) {
-    if (file !== DEV_SCHEMA_PLUGIN && !Object.hasOwn(errorUiHosts, file)) return null;
-    const before = readBefore(file), after = readAfter(file);
-    if (!before || !after) return null;
-    if (file === DEV_SCHEMA_PLUGIN && devOnlyPlugin(before) && devOnlyPlugin(after)) return 'dev-schema';
-    if (file === ERROR_DETAIL && [before, after].every(bytes => inertModuleSource(file, bytes, ['react', 'lucide-react']))) return 'error-ui';
-    if (file === styles && withoutErrorRules(before) === withoutErrorRules(after)) return 'error-ui';
-    return null;
-}
-
-export function errorUiImports(file, graph) {
-    const consumers = Object.keys(graph).filter(consumer => graph[consumer].includes(file));
-    return consumers.length === 1 && consumers[0] === errorUiHosts[file] &&
-        (file !== ERROR_DETAIL || graph[file]?.length === 0);
+export function isDevSchemaChange(file, readBefore, readAfter) {
+    return file === DEV_SCHEMA_PLUGIN && [readBefore(file), readAfter(file)].every(devOnlyPlugin);
 }
