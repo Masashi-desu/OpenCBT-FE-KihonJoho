@@ -120,6 +120,7 @@ import { emptySearch, parseSearchRoute, searchRouteHash, type SearchRoute } from
 import { DetailedExplanation, useDetailedExplanation } from "./DetailedExplanation";
 import { canOpenDetail, detailRouteHash, parseDetailRoute, type DetailRoute } from "../core/detailed-explanation";
 import { Dialog } from "./Dialog";
+import { ErrorDetails } from "./ErrorDetails";
 import { QuestionFooter, screenNotice } from "./QuestionFooter";
 import { QuestionRail } from "./QuestionRail";
 import { MaterialPane, MaterialToolbar, useMaterialViewer } from "./MaterialViewer";
@@ -247,7 +248,7 @@ export function App() {
     [bookmarkMessage, setBookmarkMessage] = useState(""),
     [bookmarkError, setBookmarkError] = useState(""),
     [busy, setBusy] = useState("公開問題を読み込んでいます"),
-    [error, setError] = useState(""),
+    [error, setError] = useState<string | { message: string; details: string }>(""),
     [storageIssue, setStorageIssue] = useState(""),
     [temporaryStorage, setTemporaryStorage] = useState(false),
     [dialog, setDialog] = useState<
@@ -518,9 +519,10 @@ export function App() {
       else if (["history", "licenses", "bookmarks"].includes(hash[1]))
         navigate(hash[1] as View);
     } catch (e) {
-      setError(
-        `起動に必要なデータを確認できません。${e instanceof Error ? e.message : String(e)}`,
-      );
+      const message = "起動に必要なデータを確認できません。";
+      setError(e instanceof DataError && e.code === "SCHEMA"
+        ? { message, details: e.message }
+        : message + (e instanceof Error ? e.message : String(e)));
     } finally {
       setBusy("");
     }
@@ -1077,34 +1079,39 @@ export function App() {
   const notifications = (
     <div className="header-messages">
         {error && (
-          <div className="error-banner" role="alert">
-            <AlertCircle size={21} />
-            <div>
-              <strong>操作を続けられません</strong>
-              <p>{error}</p>
-              <div className="inline-actions">
-                <button
-                  disabled={Boolean(busy)}
-                  onClick={() => {
-                    if (view === "instructions") void begin();
-                    else location.reload();
-                  }}
-                >
-                  <RotateCcw size={16} />
-                  {view === "instructions" ? "再試行" : "再読込み"}
-                </button>
-                <button
-                  onClick={() => {
-                    setError("");
-                    navigate("menu");
-                  }}
-                >
-                  メニューへ
-                </button>
-                <button onClick={() => navigate("licenses")}>
-                  ライセンス表記
-                </button>
+          <div className="error-banner">
+            <AlertCircle size={21} aria-hidden="true" />
+            <div className="error-banner-content">
+              <div className="error-banner-heading">
+                <div role="alert">
+                  <strong>操作を続けられません</strong>
+                  <p>{typeof error === "string" ? error : error.message}</p>
+                </div>
+                <div className="inline-actions">
+                  <button
+                    disabled={Boolean(busy)}
+                    onClick={() => {
+                      if (view === "instructions") void begin();
+                      else location.reload();
+                    }}
+                  >
+                    <RotateCcw size={16} />
+                    {view === "instructions" ? "再試行" : "再読込み"}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setError("");
+                      navigate("menu");
+                    }}
+                  >
+                    メニューへ
+                  </button>
+                  <button onClick={() => navigate("licenses")}>
+                    ライセンス表記
+                  </button>
+                </div>
               </div>
+              {typeof error !== "string" && <ErrorDetails key={error.details} value={error.details} />}
             </div>
           </div>
         )}

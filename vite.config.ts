@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
+import { devSchemaValidators } from "./scripts/dev-schema-validators";
 import { detailRuntimePlugin } from "./scripts/detail-runtime";
 import {
   packageRootForModule,
@@ -8,6 +9,7 @@ import {
 } from "./scripts/licenses";
 export default defineConfig(({ command }) => ({
   plugins: [
+    devSchemaValidators(),
     react(),
     detailRuntimePlugin(),
     {

@@ -47,7 +47,7 @@ npm run devで本体を127.0.0.1:5175に起動する。使用中なら別ポー�
 | npm run assets:check | 描画コード・設定と配布資産の一致を読取り専用で確認 |
 | npm run check | 本体テスト・本体ビルド・文書ビルド |
 
-Schemaの正本はdocs/public/schemas。npm run dev・test・data:validateの前処理で固定検証関数をsrc/generatedへ生成する。生成物を手編集しない。本体データはpublic/data、ライセンス原文はpublic/noticesを編集し、カタログのファイルhashと検証を更新する。リリースの具体的な収録数・除外・検証限界は[実装範囲](/implementation)へ記録する。
+Schemaの正本はdocs/public/schemas。開発サーバーの起動時とSchemaの変更時に固定検証関数をsrc/generatedへ自動生成し、開いている画面にも反映する。変更後のSchemaをコンパイルできない場合はターミナルにエラーを表示し、次の変更時に再試行する。test・data:validateでも前処理で生成する。生成物を手編集しない。本体データはpublic/data、ライセンス原文はpublic/noticesを編集し、カタログのファイルhashと検証を更新する。リリースの具体的な収録数・除外・検証限界は[実装範囲](/implementation)へ記録する。
 
 登録生成器を変更した場合は、原資料を確認してsrc/core/generation.ts及びsrc/core/generatorsの契約と計算を更新する。次の開発用コマンドで、既存の公式問題データから基準問題・テンプレート・セットとカタログhashを再構築する。外部資料の取得・画像変換・外部公開は行わない。配布済みの版を変更する際は基準問題のrevisionと生成器versionも更新し、保存済みの出題内容を再生成しない。
 

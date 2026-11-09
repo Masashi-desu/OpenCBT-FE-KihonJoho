@@ -28,7 +28,7 @@
     "sources:readiness": "tsx scripts/audit-pre-2023-readiness.ts",
     "release:check:pre2023": "npm run check && npm run sources:readiness",
     "schema:compile": "node scripts/compile-schemas.mjs",
-    "predev": "npm run assets:generate && npm run schema:compile",
+    "predev": "npm run assets:generate",
     "pretest": "npm run colors:check && npm run assets:check && npm run schema:compile",
     "predata:validate": "npm run schema:compile",
     "doc:generation": "tsx scripts/generation-reference.ts",
