@@ -49,10 +49,10 @@ export function scopesForOwnedPath(file, available) {
     const wrapper = /^tests\/booklets\/([^/]+)\/random-bindings\.test\.ts$/.exec(file);
     if (wrapper)
         return validScope(wrapper[1]) ? [wrapper[1]] : [];
-    const nativeUI = /Legacy(20\d{2})(Spring|Autumn)(Am|Pm|Afternoon)/.exec(file);
+    const nativeUI = /Legacy(20\d{2})(Spring|Autumn|Special)(Am|Pm|Afternoon)/.exec(file);
     const year = /(?:legacy-|stage[123]-|stage-|spring-|autumn-)(20\d{2})(?:[-.]|$)/.exec(file)?.[1] ?? nativeUI?.[1];
     if (year) {
-        const term = /autumn|Autumn/.test(file) ? 'autumn' : /spring|Spring/.test(file) ? 'spring' : file.includes('special') ? 'special' : null;
+        const term = /autumn|Autumn/.test(file) ? 'autumn' : /spring|Spring/.test(file) ? 'spring' : /special|Special/.test(file) ? 'special' : null;
         const section = /(?:^|-)am(?:[-.]|$)|-morning|-fundamentals/.test(file) || nativeUI?.[3] === 'Am' ? 'am' : /(?:^|-)pm\d*(?:[-.]|$)|-afternoon/.test(file) || nativeUI ? 'pm' : null;
         return available.filter(scope => scope.startsWith(year + '-') && (!term || scope.includes('-' + term + '-')) && (!section || scope.endsWith('-' + section)));
     }
@@ -223,6 +223,9 @@ export function sourceInventoryAppendScopes(beforeText, afterText) {
         return null;
     }
     const exact = (value, keys) => value && typeof value === 'object' && !Array.isArray(value) && stable(Object.keys(value).sort()) === stable([...keys].sort());
+    const collectionPattern = /^(20\d{2})(?:h(\d{2})|r(\d{2}))([hat]|tokubetsu)-fe-(am|pm)$/;
+    const periods = { h: 'spring', a: 'autumn', t: 'special', tokubetsu: 'special' };
+    const collectionScope = match => `${match[1]}-${periods[match[4]]}-${match[5]}`;
     const valid = value => {
         if (!exact(value, ['version', 'collections']) || value.version !== 1 || !Array.isArray(value.collections))
             return false;
@@ -230,10 +233,13 @@ export function sourceInventoryAppendScopes(beforeText, afterText) {
         for (const row of value.collections) {
             if (!exact(row, ['collectionId', 'excluded']) || !Array.isArray(row.excluded))
                 return false;
-            const m = /^(20\d{2})(?:h(\d{2})|r(\d{2}))([hat])-fe-(am|pm)$/.exec(row.collectionId);
-            if (!m || Number(m[1]) < 2004 || Number(m[1]) > 2019 || Number(m[1]) !== Number(m[2] ?? m[3]) + (m[2] ? 1988 : 2018) || seen.has(row.collectionId) || m[4] === 't' && m[1] !== '2011')
+            const m = collectionPattern.exec(row.collectionId);
+            if (!m || Number(m[1]) < 2004 || Number(m[1]) > 2019 || Number(m[1]) !== Number(m[2] ?? m[3]) + (m[2] ? 1988 : 2018) || (m[4] === 't' || m[4] === 'tokubetsu') && m[1] !== '2011')
                 return false;
-            seen.add(row.collectionId);
+            const scope = collectionScope(m);
+            if (seen.has(scope))
+                return false;
+            seen.add(scope);
             const numbers = new Set(), maximum = m[5] === 'am' ? 80 : 13;
             for (const held of row.excluded) {
                 if (!exact(held, ['number', 'reason', 'sourceId', 'checkedOn']) || !Number.isSafeInteger(held.number) || held.number < 1 || held.number > maximum || numbers.has(held.number) || [...numbers].some(n => n >= held.number) || typeof held.reason !== 'string' || held.reason.trim().length < 10 || held.sourceId !== `source-ipa-${row.collectionId}-qs` || typeof held.checkedOn !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(held.checkedOn) || !Number.isFinite(Date.parse(held.checkedOn + 'T00:00:00Z')) || new Date(held.checkedOn + 'T00:00:00Z').toISOString().slice(0, 10) !== held.checkedOn)
@@ -245,7 +251,7 @@ export function sourceInventoryAppendScopes(beforeText, afterText) {
     };
     if (!valid(before) || !valid(after) || after.collections.length <= before.collections.length || stable(after.collections.slice(0, before.collections.length)) !== stable(before.collections))
         return null;
-    return after.collections.slice(before.collections.length).map(row => { const m = /^(20\d{2})(?:h\d{2}|r\d{2})([hat])-fe-(am|pm)$/.exec(row.collectionId); return `${m[1]}-${{ h: 'spring', a: 'autumn', t: 'special' }[m[2]]}-${m[3]}`; });
+    return after.collections.slice(before.collections.length).map(row => collectionScope(collectionPattern.exec(row.collectionId)));
 }
 /** Follow direct imports between owned modules. Generic runtime consumers are
  * full-scope unless they are an explicit, separately tested registry boundary. */

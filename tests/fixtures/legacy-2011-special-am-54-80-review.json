@@ -1,0 +1,1856 @@
+{
+  "booklet": "2011-special-am",
+  "checkedOn": "2026-11-11",
+  "sources": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf",
+      "sha256": "3019b2dfd633c91a3da222cb2f417f90c7bbb1891779718804739ffec9624ef6",
+      "byteLength": 2161038
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_ans.pdf",
+      "sha256": "8789641f14a0d143d4699849201949ffd957a49ae22c0a0d320842eff2f3bc69",
+      "byteLength": 39513
+    }
+  },
+  "rightsHolds": [],
+  "records": [
+    {
+      "number": 54,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-54",
+        "printedPage": 25,
+        "officialAnswer": "エ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.25。原問と同じ四つの品質管理図から、観察された特徴と調べたい関係を本文の同じ位置で差し替える。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "24cc15eaef1f21ddb22e5c23f745779b3dadfe07d972c2c255018cd954d9f7a9"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "41d44b0b6632ea60a70dd546575fdbb43b827fdc8ba0083f97cc500d42af670e"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "90e7ce5b84d4b5f622b7319857c601fd641615909bf8d570f0d1dddaf0776ce9"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "15554a050f0bc4db3a5d8803213a2ef2b5edc6aa30cf7ea2bc8edd1d963dc985"
+        }
+      ]
+    },
+    {
+      "number": 55,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-55",
+        "printedPage": 25,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.25。バックアップの目的と復旧条件を本文に置き、媒体、復旧系列、データの静止点、障害の独立性を同じ位置で比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "17aa6b2aefba5771bfe9e59ca16d3f5c9e506de83281ba33e77fcfc152469826"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "bab32b3b34e7b71a4a174e53dff9c6e13612775f5ea95988d3d22ede333806db"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "afbd24049da9bdfd6fd756913d8950e0cf050193d1da7a883a43b7241ad5eecb"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "7dbc46652dd15a494682f56e9ba7bd0be97a3edabe43ec55adabe7c7968c738b"
+        }
+      ]
+    },
+    {
+      "number": 56,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-56",
+        "printedPage": 26,
+        "officialAnswer": "エ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAの四つの業務例と、サービス管理の一般的な活動分類を目視照合。第三者の図版、規格本文、長い定義の転載はない。",
+        "referenceSources": [
+          "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil4-practices-incident-management-3684"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.26。管理活動の名称を本文で変更し、事例でその活動を判定する。選択肢はIPAの出題例で、ベンダーの規格文や図版を引用しない。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "3481f9de5600953d94a119d5075d0cbc6065df39f9d5a289867732f035cfe598"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "26131affbc28259fc891aff7e218a87c15fdf3dd709924c67a7a4ee07c04e17f"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "cfc65e1f88b35bc4a735960d8da51a5dbdff2e353e18e771f595425ce3565414"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "a8411217c9055374aadc8ba242d4592a26c3c70b049ca74823442f2a1959eafe"
+        }
+      ]
+    },
+    {
+      "number": 57,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-57",
+        "printedPage": 26,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "利用料金と使用量を示す四つの模式図。アは減少、イは頭打ち、ウは傾き逓減、エは傾き逓増。第三者図版の出典表記はなく、生成図は傾きと節位置を再構成した。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "隣接線分の増分の交差積で、減少・頭打ち・比例・逓減・逓増を分類。四択に同じ軸と0を表示。",
+      "reviewPoints": "二軸の意味、アの負の傾き、イの頭打ち、ウの正で緩やかになる傾き、エの正で急になる傾き。第3変更例のアは原点を通る一定傾き。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "cfdc00d1799f9a4468a69302d5b70525eecd8ef47527db9db4a37c23525e5334"
+        },
+        {
+          "input": 1,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "dab98f2116239debada226cb232a040fe3360a56bd8ca65c1c0d06aa20f25600"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "5e89a4a73d694fb86c5fe725279a9f9d170d8aec1f9aabf88fbfa87f0b271ee5"
+        },
+        {
+          "input": 3,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "18e20c6d1bb348777b9b21da7df495e0efefc5ad6d293df1f79a25f378155b0f"
+        }
+      ]
+    },
+    {
+      "number": 58,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-58",
+        "printedPage": 27,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原問と平成16年基準を照合。正答は四つの短い工程名の事実のみを挙げ、基準の管理項目本文を転載しない。参照資料PDFは検証用。",
+        "referenceSources": [
+          "https://www.meti.go.jp/policy/netsecurity/downloadfiles/system_kanri.pdf"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.27。平成16年基準の同じライフサイクル区分を問う。平成16年版の同一の四工程を答える形式のため正答内容は固定する。別の工程名への変更は基準との不一致になるため採用せず、想定作業と、それを誤って独立区分扱いする誤答の組合せを変える。工程名だけを使用する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "2c5e825cf34ba69ca5190d80f9dcb4971f372fbfa10b9c1c58773c6fc0f96873"
+        },
+        {
+          "input": 1,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "2ea8e3a2cb417939d140b951719d58a25b4da88d61a7791c6863cf7bc6e34b31"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "0da70633990dfda0e41ac87e93199d9394b2fb35849925af2d1ad95c64899b66"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "5f54da75abbd6265df252a3f62e2b86ae857081d33b6670c092a999d696f8e8d"
+        }
+      ]
+    },
+    {
+      "number": 59,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-59",
+        "printedPage": 27,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAの設問と四つの監査事例。出題当時のシステム監査基準を照合し、外部専門家の責任・監査結果の報告・監査対象からの独立性を確認。基準本文は転載しない。",
+        "referenceSources": [
+          "https://www.saaj.or.jp/kijun/system_kansa.pdf"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.27。監査体制の判断を、独立性・専門家の支援・報告のそれぞれが問われる業務場面に置く。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "99bc8deae2d5e5b0253f10877bbd3bbce3f6879687c76d9f31194337966a80a4"
+        },
+        {
+          "input": 1,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "909852d3f133aa448b43cfb17dd4143a6ad8d744f90b28b19197803b12383532"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "2902c8288a0ab1029a6a0c1f980f9bb3aca26847ce899cacac6619e343a51b5f"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "3287cee5fd800d0dd82c1aa6db211c0de24a8ed971ef5246aab5c728d73c88c3"
+        }
+      ]
+    },
+    {
+      "number": 60,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-60",
+        "printedPage": 27,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAのヒアリングの四つの対応例。監査証拠の入手と報告の責任を出題当時のシステム監査基準と照合。基準本文は転載しない。",
+        "referenceSources": [
+          "https://www.saaj.or.jp/kijun/system_kansa.pdf"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.27。ヒアリングで得た情報の確認、質問対象者の選定、実施者と改善の権限を同じ四択の位置で再構成する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "bffe4cc039d78092c377e032bd5567ff7757cb9b9f380129e5b3cd900b078dc3"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "70fbf9885a307683d42dded9a478f8e68280884deaf7783f5c997b880d99d62b"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "dea1a6b90112e524d46309117b10ddfd65cf68b105d9435ece6c611e1856b5ae"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "939dc13a6380e853ee795d7a774d2ff791939f7d36faf5602b2b52064a943878"
+        }
+      ]
+    },
+    {
+      "number": 61,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-61",
+        "printedPage": 28,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.28。EAの四体系から本文に示す三体系を入れ替え、残り一つを選ばせる。原問同様に残り三択は四体系の標準名称に該当しない関連語。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "38cdc566f5f7f8ccb28db1ca103a193107777f1566a8529dc4f8f5430c6bda2f"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "0cd487b7ec3a614d4f40c64d20b5c40d5b958f0358473740fc87723fd0aab2c0"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "6f8099eb0506908bab0a5b207c2f4f968d7fbe9ce4d703074ea05be51e7bece6"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "5abaee9eb62318cc2967d6023ca334e2359245759d7f9377906f31afcb92bc54"
+        }
+      ]
+    },
+    {
+      "number": 62,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-62",
+        "printedPage": 28,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.28。目的を尋ねる対象概念を選択肢が表す業務管理・経営資源・顧客・分析の間で変更する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "62800739001670c855b66633174ba52ca85e0669da2a48fa206b4b6d52b7b32a"
+        },
+        {
+          "input": 1,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "a4a1c7a139e3b1b480cf2bbb2fadeb392122d253ecaa6167e28fb176bc4badf9"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "4a7cb176edeb161e6980dfdc38c55a69113067e018249244b8ffa29278a56b41"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "bc6f8c51075143eab3e6f41e83e4392f4b68a3d6abdb01a93d774c277ebb93b9"
+        }
+      ]
+    },
+    {
+      "number": 63,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-63",
+        "printedPage": 28,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPA資料の共通フレーム2007で短い活動名と分類を照合。プロセス定義本文・規格図版は収録しない。",
+        "referenceSources": [
+          "https://www.ipa.go.jp/archive/publish/qv6pgp0000000zef-att/000005141.pdf",
+          "https://www.meti.go.jp/policy/it_policy/softseibi/model_tuiho/model_tuiho.pdf"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.28。共通フレーム2007の工程名は出題時点のIPA資料で確認。本文でプロセスを選び、同じ粒度の活動名を比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "8539d993b4611971b08a6d0a2949ecaaf55427b0f1562fea63c735480ef25328"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "fc5d2f9c282f3bc12425bc704deef5277fe82b28e6fe62b1ec1f985d9bf093da"
+        },
+        {
+          "input": 2,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "883c2d72562c834ba4c6686944075c92860860199999f21cce03b6203087467a"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "43399da022a227f7eb2d54a71b7b8a333906d8377ce202013099115cef8b3870"
+        }
+      ]
+    },
+    {
+      "number": 64,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-64",
+        "printedPage": 28,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "調達文書の意味を経済産業省のモデル契約資料と照合。RFI/RFP等の用語とIPAの架空の依頼事例であり、モデル契約のひな形や条文は収録しない。",
+        "referenceSources": [
+          "https://www.meti.go.jp/policy/it_policy/softseibi/model_tuiho/model_tuiho.pdf"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.28。調達時の依頼に関して略称や文書を本文で指定し、受け取る情報・提案・見積り・契約変更の差を比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "f8b7a35519694696c2e7515cd9efe1efc9bcdc0da9eaeec5ada64c2866afd332"
+        },
+        {
+          "input": 1,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "062f7c4a6dabc04d9b278c04c074d89162c030fb53c2144d91e77e9957e6fa5a"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "045ce6f7d87153fae96e36cf7c7d913bfbe2cabdea847db34392dea90369eb7f"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "c48e2f29b2a0963e7b108497be22e83383c09919110fa60dc8cfc80e89ed0a61"
+        }
+      ]
+    },
+    {
+      "number": 65,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-65",
+        "printedPage": 29,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPA図は市場占有率が右に増えるa〜dの単純な四区画。BCGの図版・アイコン・文を用いず、図の軸と各区画の関係だけを使用する。",
+        "referenceSources": [
+          "https://www.bcg.com/publications/1970/strategy-the-product-portfolio"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "図中の上下・左右と区画を独立に読み、占有率から資金流入、成長率から投資必要性を評価。",
+      "reviewPoints": "横軸は左が小、右が大。aは左上、bは右上、cは左下、dは右下。四択の資金供給と投資条件を各区画へ対応させる。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "a308c260ed402905d956785af75683836f574194b3d33f790a81eb2f38f07e83"
+        },
+        {
+          "input": 1,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "832545885d89963f0f5b232c1d4554a2fa2ae53ffdd20735c745e774cff60ae1"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "fec2571f39ac607dde9b610c45061c469d16b084f5218814e5b14a86b04af5d0"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "156ec34410a00fb25e44b6ff5e5248d53aa2dc8baa7a6ae60bcbe82abd5d023d"
+        }
+      ]
+    },
+    {
+      "number": 66,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-66",
+        "printedPage": 29,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.29。原問の手法と関連分析を本文で切り替える。原問で広い表現の誤答は、変化時に資料・目的の差が明確な説明に具体化する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "ffeaa37cd27a1736313c493dafc6215cca91b4a6b502ccd1ce399a124140f9e2"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "4ac49db111ff5fd7a914ffcccc70387f41e14aba234e2f3a3a8783259998dc0b"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "34b2a28599cb6c4026d9291ee27320680c583b85e2f778e06652dded32cf06ff"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "e6a2b46c455a9aa10eb09a575e94936186dd5bbe03d1526da44cf2ecee9d6c12"
+        }
+      ]
+    },
+    {
+      "number": 67,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-67",
+        "printedPage": 30,
+        "officialAnswer": "エ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "架空の製品価格と需要の三条件。数字と条件の図示・転記に第三者素材は含まれない。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "表示の価格と需要の2点から、傾きと切片を別々に求める。表示4択を全比較。",
+      "reviewPoints": "aの枠付き空欄と価格3条件。原問45,000個。四択の5,000刻み、昇順、整数表示と原問と同程度の桁数を確認。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "9412e36fa6d156f189c13439e9b09aa4d10c18555e007fff61185987cb8740b4"
+        },
+        {
+          "input": 1,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "a366328077d1db65fb4795becb2b3e213700989f581393134c42fbcf739c3203"
+        },
+        {
+          "input": 2,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "3a96abc0e4ef73ee4060e4b9fafcd10771d6f789c8219eed84eed18e6a49733e"
+        },
+        {
+          "input": 3,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "e9f06a7adfca50b2e0f0e43a44130721327a56c06261dd9bd1ac85fae45f9258"
+        }
+      ]
+    },
+    {
+      "number": 68,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-68",
+        "printedPage": 30,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.30。SFAの担当機能を本文で指定し、営業支援に必要な情報と組織内での利用の違いを事例で比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "7f198cdfa5e33771c24f3234d0dead6e0660b4142eee9030809535c52646c90b"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "9f761775a561c7f48bdd97d2354d7149657c8f24342d196a62b4f867b0dbfa9e"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "4476b82771a2f6cdbfbe80fe75f56efd246279cce50f4e89f65ee97430caaaed"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "2d8353ac24b485fed49c0e6436bf6b73f9685c7ae13e242a2f50b2276b8a3257"
+        }
+      ]
+    },
+    {
+      "number": 69,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-69",
+        "printedPage": 31,
+        "officialAnswer": "エ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "小売チェーンの分類を中小企業庁資料で照合。ボランタリーチェーンの広義には小売主宰型もあるため、生成時の卸主宰型を限定した。特定企業の文書、名称、図版はない。",
+        "referenceSources": [
+          "https://www.chusho.meti.go.jp/koukai/shingikai/shogyo/2005/051111shogyo3_gijiroku.html"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.31。小売組織の形態を本文で切り替え、主導者・独立性・出店・契約の違いを保つ。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "afd4ef7778a38af89f6e2d198dfd850d30cdf180b77f762918258f52b8c55466"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "b571f430ddd3a12306081b5a956faa99166becbbcdbea73510554dc8b4efdee4"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "99f6c42f2489a17e9794e5d451f5da4d4f96abb5d67edc19be5a8fc5f5563877"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "090e9f5650496e650fb5b5a9f1ee8387d64a25844b2b54d54104f661a0bf91eb"
+        }
+      ]
+    },
+    {
+      "number": 70,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-70",
+        "printedPage": 31,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.31。やり取りの相手を企業、住民、別の行政機関、同じ組織内で区別する。原問の例は当時の出題例として残す。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "b12c5243fe9763983d634b11d3c8fd71a85feb9bdc707fbeb7949f7f4a9e80fc"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "1953b1a3c2bdfccd9755c10a45daaf072e8bd42750e9da6292cc97f3557f50e0"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "2dd35c1e7e5be87c5c7fc83a66a25b0784036f95ea8ceebd125cf5300734d64b"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "294bc8e18bcee85376a9da025e298debd9259f8a1d85b6c2a0eb162d2b9ee1a6"
+        }
+      ]
+    },
+    {
+      "number": 71,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-71",
+        "printedPage": 31,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAの四工程の架空データ表。1個の製造時間、機械台数及び1台当たりの月間能力を示し、外部表の出典表記はない。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "1台で生産できる整数個数を床関数で求め、台数を掛けて月間必要量と比較。",
+      "reviewPoints": "原問の必要時間400・300・700・1,200と、使用可能時間450・320・680・1,260。1台当たりの能力を四工程別に判定。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "19c314739dff2318ac7292d8baa6c91a3f541aa75495eff6e31bf5a94fbfd150"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "56af36ea4fa2b06467bb09a965f85f9978e1bebb08bdc35861a60a673ed39ccc"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "77a6f97a41302424711d11a62dae9f6f9d18de5bd099b559f9e85c80ee3831de"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "fd3d486faf9e686362468bd1ed530d9e5a1337f506ec88885b239983f8d65326"
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-72",
+        "printedPage": 32,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.32。EDIと同じ選択肢が表す通信規格・付加価値通信・発注システムの間で、説明する対象を変える。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "dd3eed77f572b5311ab75cbf92166e2ac1cb5bd2c910848c91e7e222cb4890ef"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "9dbbf5375e6bd85106c8098702336f4f3c75072252a6d01afddce8512e0d230f"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "367895e3d86537e12383cdecdfb8fc6f2de9fdafc1fe3ac7baeb1dd8dc9c1877"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "538e4faa9193c1e8dbedeea2808e4d998693600260b166faa56e760cf0f136e5"
+        }
+      ]
+    },
+    {
+      "number": 73,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-73",
+        "printedPage": 32,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAの単純な職能別組織図。経営者から五つの機能への指揮線を再構成し、組織のロゴや社内資料を使用していない。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "指揮線の隣接関係と複数親の有無から機能別・事業別・期限付き活動別・二重指揮を区別。",
+      "reviewPoints": "基準の経営者直下の5職能。生成では事業別の機能反復、完了までの活動、二責任者からの同時指揮。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "e0062434feed78b853b98b51946a88c801a60d7e1e70f8fece40d55618eec149"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "b6cda363aa0feba691c842633e3492294264f3563e6ec735214376c5c3bc6a42"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "97c1776a20fbf9b48c5c7e57808731aa9b0adff625f0ba115c90b2d5eeb23081"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "0fae7e316e86d6d6986c8312ed0ae27455adf338e79879dff1a975646a3acb40"
+        }
+      ]
+    },
+    {
+      "number": 74,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-74",
+        "printedPage": 32,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.32。分析する手法を本文で切り替え、販売寄与、買物かご、時系列監視、聞き取りの四つの場面を比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "f2e8f218dcdaf50e94cd7a7affa654c91c3eb1e4de00b9d83df4e5bed9893968"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "a70b3e01d145e4e6903d6526469343dc2bef392a5a0cc3dd7b64b7c177d760c3"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "e932e553b4dcdcfb51a5d8b57d9e5822a1a901ac65d03bced1e0e66f496226f1"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "b90a9e0cb581620890385be1a4729a30548085ff3bb3d002c325a78af0b231e1"
+        }
+      ]
+    },
+    {
+      "number": 75,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-75",
+        "printedPage": 33,
+        "officialAnswer": "ウ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAの四案の架空の費用表。第三者の出典表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "表示確率と同じ構成の10個分の費用を各案で逐次加算し、最小を比較。",
+      "reviewPoints": "原問の期待費用は150・136・122・128。良品と不良品の割合は補数、小数第1位。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "addc576fcb8dfb4aa40b7f7c4bcf7f2d5c943e827da0b6fe767ef92a5f078915"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "7357f2eba3445b93b6d056d783fc16ef5ac4cba09386fb4e86d6ea1f2356897a"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "18960e65aa7ea1c191bd7257e54d1a19233a8766a9df848e7c65d060c59ec385"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "f9514288be7061f50752d32f1d2120dd994d2ee01374064a7b3eb24eed414dc4"
+        }
+      ]
+    },
+    {
+      "number": 76,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-76",
+        "printedPage": 33,
+        "officialAnswer": "エ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "IPAの月内の架空の在庫記録。原表の二段見出し、受入・払出と払出単価の斜線を維持し、第三者の表を転載しない。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "入庫を単価別の1個ずつの列に展開してFIFO、LIFO、総平均、最終単価の評価額を独立に照合。",
+      "reviewPoints": "原問の月末在庫は130円×20個＋110円×10個＝3,700円。元の6行・単価斜線、変更例では整数円・昇順・40円以上の間隔。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "057fd59b02eeda6291a430f9b35323ecb93d597c62d6dbe08db66653880aeb6a"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "e42ddb72bed47bce9f1d08938834794a6c82427c24ea11b880338194390511e8"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "68fb48d635820dc3147488d81263303618b0430cf661dd6d0d6b43d5b3b96f38"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "deda2c7f7dc34665b2bda466355e7d45337c86d00ced45264d9e20b5abfec6ff"
+        }
+      ]
+    },
+    {
+      "number": 77,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-77",
+        "printedPage": 33,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "原冊子の設問と四択を目視照合。第三者図版・第三者文章の転載表記なし。",
+        "referenceSources": [],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.33。損益計算書上の利益の段階を本文で変える。選択肢は同じ増減項目の順で比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "8395cb2bdddd23bff68213710c5f255e9306cc42a39991c35b91a40a4dc88f9e"
+        },
+        {
+          "input": 1,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "14af6027bae844e8c04b7a2e8e712b4b2e06d1d18515dfade5342eb7a56b54b4"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "6ca30eb77235c52799feca6f4d852a447fce9355a4f8a252f22ce814efc096ec"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "7c036e4607a6fd0a8cbed8e1cdfaa4dad96815330d9c27820a0495d9e2e2ab59"
+        }
+      ]
+    },
+    {
+      "number": 78,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-78",
+        "printedPage": 34,
+        "officialAnswer": "イ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "2010年改正までの著作権法30条1項・32条1項と2項・48条を照合。選択肢は利用の架空事例であり、写真、新聞記事、雑誌記事、経済白書の実物を収録しない。",
+        "referenceSources": [
+          "https://www.wipo.int/wipolex/en/legislation/details/8881"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.34。公表時の法的な類型を元に、複製・転載を適法に行える具体的条件を本文で切り替える。出所明示だけで任意の資料を転載できるとは説明しない。写真・記事・白書の実物を収録しない。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "ecc0962c0fc6204d102294932dbb8758c9dca8c0d68e28b6630792c00e0e3761"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "746107921be34bdb5c0eda4fc8ac5f3b469b1982323fa73f021d330761ad3c1c"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "83f044baaea0a720053847cd40bd9a97fb3a6a966b21bc537f9a60bcbd9eda1d"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "e27616a829d686b9cb8574cefa4f5fc9ade157771ce4fa99e715bca1836e41fc"
+        }
+      ]
+    },
+    {
+      "number": 79,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-79",
+        "printedPage": 34,
+        "officialAnswer": "ア"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "出題当時の特許法2条1項、実用新案法2条1項・3条1項、意匠法2条1項、著作権法2条1項1号の定義で対象を確認。法令の定義、IPAの設問以外の第三者文章・図版を収録しない。",
+        "referenceSources": [
+          "https://www.wipo.int/wipolex/en/legislation/details/6858",
+          "https://www.wipo.int/wipolex/en/legislation/details/6984",
+          "https://www.wipo.int/wipolex/en/legislation/details/6938",
+          "https://www.wipo.int/wipolex/en/legislation/details/8881"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.34。出題時点の法律が定義する対象名を本文で切り替える。登録要件を満たすかは別の判定であり、四択は保護対象の定義として比較する。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "9979399d9b78daf1c3bde536cab939c74be6400e0a7c9e451e6b104c95571096"
+        },
+        {
+          "input": 1,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "52739fb647ee28933fac4e397aae0cd01c5ae177eabb9c6f5eeed11db73129af"
+        },
+        {
+          "input": 2,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "eaf0359ea83f0c73cef4eea68a52e96c39f75b9d04d817830f15000f9ca18d6c"
+        },
+        {
+          "input": 3,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "ea0c9f9606d5b5e004f94a4e7567c274a31890fcb100f14b59f1c4d8541c8786"
+        }
+      ]
+    },
+    {
+      "number": 80,
+      "sourceRef": {
+        "questionId": "2011h23tokubetsu-fe-am-80",
+        "printedPage": 34,
+        "officialAnswer": "エ"
+      },
+      "material": {
+        "status": "review-candidate",
+        "basis": "出題時の不正アクセス禁止法3条2項1〜3号と警察庁の解釈通知を照合。原問の文章は架空の事例で、特定の新聞記事やアクセス手順を収録しない。",
+        "referenceSources": [
+          "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/housei/h145128.htm",
+          "https://www.npa.go.jp/pdc/notification/seian/jyohotaisaku/jyohotaisaku20000121-2.pdf",
+          "https://www.npa.go.jp/hakusyo/h24/honbun/html/o2180000.html"
+        ],
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "formatAndMethod": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原冊子p.34。2011年時点の不正アクセス行為に該当する二類型の条件を、制限された通信・識別符号・承諾・利用の有無として本文と状況に置く。回避の具体的手順は収録しない。",
+      "reviewPoints": "原冊子の本文・前提と四択を確認。本文で指定した判断対象に対する各肢の意味を独立査読表で照合。",
+      "cases": [
+        {
+          "input": 0,
+          "answer": "エ",
+          "choiceTruth": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "digest": "4045a5a882be0291b1533d88c7c48023193d3976b10e412dbc1f27021b0f0725"
+        },
+        {
+          "input": 1,
+          "answer": "ア",
+          "choiceTruth": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "digest": "bc6a9c4aae954082106396f5a1919e330b525ecc3f5221a3bb269cb8188300e5"
+        },
+        {
+          "input": 2,
+          "answer": "イ",
+          "choiceTruth": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "digest": "67a645682678e46fb57a12a1da8a0ca007561605651a166a0b63d0cd15671114"
+        },
+        {
+          "input": 3,
+          "answer": "ウ",
+          "choiceTruth": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "digest": "6e3b968d398d5fd85872557ded9c1c997e3ffffe71bc5597326202638f8d8ab6"
+        }
+      ]
+    }
+  ]
+}

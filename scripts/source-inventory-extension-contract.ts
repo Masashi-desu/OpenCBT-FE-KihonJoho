@@ -4,11 +4,12 @@ export type InventoryExclusion = { reason: string; sourceId: string; checkedOn: 
 export type InventoryExtensions = { version: number; collections: { collectionId: string; excluded: (InventoryExclusion & { number: number })[] }[] };
 
 export function inventoryCollectionIdentity(id: string) {
-  const match = /^(20\d{2})(h\d{2}|r\d{2})([hat])-fe-(am|pm)$/.exec(id);
+  const match = /^(20\d{2})(h\d{2}|r\d{2})([hat]|tokubetsu)-fe-(am|pm)$/.exec(id);
   assert(match, 'source inventory: explicit historical collection identity');
   const year = Number(match[1]), era = year === 2019 && match[3] !== 'h' ? 'r01' : 'h' + String(year - 1988).padStart(2, '0');
   assert(year >= 2004 && year <= 2019 && match[2] === era, 'source inventory: known year/era scope; earlier acquisition boundaries remain separate');
-  return { scope: `${year}-${({ h: 'spring', a: 'autumn', t: 'special' } as Record<string, string>)[match[3]]}-${match[4]}`, count: match[4] === 'am' ? 80 : 13 };
+  assert(!['t', 'tokubetsu'].includes(match[3]) || year === 2011, 'source inventory: 2011 special edition');
+  return { scope: `${year}-${({ h: 'spring', a: 'autumn', t: 'special', tokubetsu: 'special' } as Record<string, string>)[match[3]]}-${match[4]}`, count: match[4] === 'am' ? 80 : 13 };
 }
 
 /** Extends obligations independently of the released catalogue. An exclusion
@@ -19,8 +20,8 @@ export function inventoryExtensionRecords(input: InventoryExtensions, retainedId
   const sources: string[] = [], exclusions: Record<string, InventoryExclusion> = {}, seen = new Set(retainedIds), collections = new Set<string>();
   for (const collection of input.collections) {
     assert.deepEqual(Object.keys(collection).sort(), ['collectionId', 'excluded']);
-    const { count } = inventoryCollectionIdentity(collection.collectionId);
-    assert(!collections.has(collection.collectionId), 'duplicate source collection'); collections.add(collection.collectionId);
+    const { count, scope } = inventoryCollectionIdentity(collection.collectionId);
+    assert(!collections.has(scope), 'duplicate source collection'); collections.add(scope);
     const ids = Array.from({ length: count }, (_, i) => collection.collectionId + '-' + (i + 1));
     assert(ids.every(id => !seen.has(id)), 'new source declaration cannot replace retained obligations');
     ids.forEach(id => seen.add(id)); sources.push(...ids);

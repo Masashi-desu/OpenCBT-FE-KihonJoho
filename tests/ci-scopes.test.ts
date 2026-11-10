@@ -120,6 +120,9 @@ test('unknown distribution records and catalogue semantic metadata cannot author
 test('legacy source modules narrow by section and term, and year-wide modules conservatively expand both', () => {
     assert.deepEqual(scopesForOwnedPath('src/core/generators/legacy-2016-autumn-afternoon.ts', scopes), ['2016-autumn-pm']);
     assert.deepEqual(scopesForOwnedPath('src/ui/Legacy2016AutumnPmFigures.tsx', scopes), ['2016-autumn-pm']);
+    const specialScopes = ['2011-autumn-am', '2011-special-am', '2011-special-pm'];
+    assert.deepEqual(scopesForOwnedPath('src/ui/Legacy2011SpecialAm0126Figures.tsx', specialScopes), ['2011-special-am']);
+    assert.deepEqual(scopesForOwnedPath('src/ui/Legacy2011SpecialPmFigures.tsx', specialScopes), ['2011-special-pm']);
     assert.deepEqual(scopesForOwnedPath('src/core/generators/legacy-2016.ts', scopes), scopes.slice(0, 4));
 });
 test('common processing, Schema, dependencies, executable documentation and unlisted content require full tests', () => {
@@ -221,6 +224,12 @@ test('unresolved aliases, computed dynamic imports, require arguments and malfor
 test('source obligations accept only closed append-only collection declarations with retained held source numbers', () => {
     const empty = JSON.stringify({ version: 1, collections: [] }), row = { collectionId: '2016h28a-fe-pm', excluded: [{ number: 12, reason: 'Third-party material conditions pending', sourceId: 'source-ipa-2016h28a-fe-pm-qs', checkedOn: '2026-11-02' }] }, after = JSON.stringify({ version: 1, collections: [row] });
     assert.deepEqual(sourceInventoryAppendScopes(empty, after), ['2016-autumn-pm']);
+    const special = { collectionId: '2011h23tokubetsu-fe-am', excluded: [] };
+    const specialOnly = JSON.stringify({ version: 1, collections: [special] });
+    assert.deepEqual(sourceInventoryAppendScopes(empty, specialOnly), ['2011-special-am']);
+    assert.deepEqual(sourceInventoryAppendScopes(specialOnly, JSON.stringify({ version: 1, collections: [special, row] })), ['2016-autumn-pm']);
+    assert.equal(sourceInventoryAppendScopes(empty, JSON.stringify({ version: 1, collections: [{ ...special, collectionId: '2012h24tokubetsu-fe-am' }] })), null);
+    assert.equal(sourceInventoryAppendScopes(specialOnly, JSON.stringify({ version: 1, collections: [special, { ...special, collectionId: '2011h23t-fe-am' }] })), null);
     for (const bad of [{ ...row, collectionId: '2016h27a-fe-pm' }, { ...row, extra: 'hook' }, { ...row, excluded: [{ ...row.excluded[0], number: 14 }] }, { ...row, excluded: [{ ...row.excluded[0], sourceId: 'source-foreign' }] }, { ...row, excluded: [row.excluded[0], row.excluded[0]] }])
         assert.equal(sourceInventoryAppendScopes(empty, JSON.stringify({ version: 1, collections: [bad] })), null);
     assert.equal(sourceInventoryAppendScopes(after, empty), null);

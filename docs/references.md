@@ -481,3 +481,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 公式13大問・86解答欄。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問11の設問2は6候補から2つを選び、順不同で1欄として採点する。保存する選択枠は計87。印刷頁とPDFの物理頁は一致する。 [公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_pm_qs.pdf) [公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_pm_ans.pdf) [採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_pm_cmnt.pdf)
 
 問8・13は共通の擬似言語p.3〜4を参照する。問11ではJava APIの原資料p.69〜70に出典を付け、操作に必要な仕様を独自に説明する。問12はCASL II資料p.71〜76を参照し、p.73は命令と注記までの抜粋を使う。数字文字の符号値は一次資料から独立記述する。問13は表計算の機能・用語p.77〜82を参照し、関数の注1・注2はp.81にある。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [Java SE 7 API](https://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html) [Unicodeの文字対応アーカイブ](https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT)
+
+### 第3段階 S3-023 2011年度特別試験・旧午前
+
+基本情報技術者試験は2011年7月10日実施。公式は全80問必須で制限時間150分。年度別オリジナルとランダムミックスに80問を収録する。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。共通の論理回路表記はp.2、問題はp.3〜34。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2011h23.html) [試験実施日](https://www.ipa.go.jp/shiken/goukaku/happyobi.html) [公表問題の利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問43の虹彩認証は出題時の前提を明記し、経時変化と撮影条件を区別する。問58・63は工程や作業の名称を照合し、参照した規格本文・図表は配布データに含めない。 [NISTの虹彩照合研究](https://doi.org/10.6028/NIST.IR.7948) [平成16年版システム管理基準](https://www.saaj.or.jp/kijun/system_kanri.pdf) [IPAの共通フレーム2007資料](https://www.ipa.go.jp/archive/publish/qv6pgp0000000zef-att/000005141.pdf)

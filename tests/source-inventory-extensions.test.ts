@@ -21,9 +21,11 @@ test('inventory extensions retain every official target independently of the eli
 
 test('historical inventory identities preserve era boundaries and the2011 special period', () => {
   assert.deepEqual(inventoryCollectionIdentity('2011h23t-fe-pm'), { scope: '2011-special-pm', count: 13 });
+  assert.deepEqual(inventoryCollectionIdentity('2011h23tokubetsu-fe-am'), { scope: '2011-special-am', count: 80 });
+  assert.deepEqual(inventoryCollectionIdentity('2011h23tokubetsu-fe-pm'), { scope: '2011-special-pm', count: 13 });
   assert.deepEqual(inventoryCollectionIdentity('2019h31h-fe-am'), { scope: '2019-spring-am', count: 80 });
   assert.deepEqual(inventoryCollectionIdentity('2019r01a-fe-pm'), { scope: '2019-autumn-pm', count: 13 });
-  for (const id of ['2016h27a-fe-pm', '2019h31a-fe-pm', '2019r01h-fe-am', '2003h15a-fe-pm', '2022r04a-fe-pm', collectionId + '-1'])
+  for (const id of ['2016h27a-fe-pm', '2012h24t-fe-am', '2012h24tokubetsu-fe-am', '2019h31a-fe-pm', '2019r01h-fe-am', '2003h15a-fe-pm', '2022r04a-fe-pm', collectionId + '-1'])
     assert.throws(() => inventoryCollectionIdentity(id));
 });
 
@@ -31,6 +33,9 @@ test('retained obligations, duplicate collections and malformed or cross-source 
   assert.throws(() => inventoryExtensionRecords(input(), [collectionId + '-1']));
   const duplicate = input(); duplicate.collections.push(structuredClone(duplicate.collections[0]));
   assert.throws(() => inventoryExtensionRecords(duplicate, []));
+  const specialAliases: InventoryExtensions = { version: 1, collections:
+    ['2011h23tokubetsu-fe-am', '2011h23t-fe-am'].map(collectionId => ({ collectionId, excluded: [] })) };
+  assert.throws(() => inventoryExtensionRecords(specialAliases, []), /duplicate source collection/);
   for (const changes of [{ number: 0 }, { number: 14 }, { reason: '' }, { checkedOn: 'unknown' }, { checkedOn: '2026-02-31' }, { sourceId: 'source-ipa-2016h28h-fe-pm-qs' }]) {
     const invalid = input(); Object.assign(invalid.collections[0].excluded[0], changes);
     assert.throws(() => inventoryExtensionRecords(invalid, []));

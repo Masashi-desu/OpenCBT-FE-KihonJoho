@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問1731件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1321問、旧午後221大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問1811件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1401問、旧午後221大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -1947,6 +1947,91 @@
 | [旧午前問79 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_am_qs.pdf#page=32) | generator-source-2011h23a-fe-am-79@3.7.0 | 著作権法が保護する表現。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
 | [旧午前問80 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_am_qs.pdf#page=33) | generator-source-2011h23a-fe-am-80@3.7.0 | 派遣先の指揮命令と責任の範囲。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
 
+### 2011年度 特別・午前
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午前問1 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=3) | generator-source-2011h23tokubetsu-fe-am-1@3.7.0 | 論理式の等価変形。変数に付く否定線：0〜3（0） | 図・文章／4択 |
+| [旧午前問2 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=3) | generator-source-2011h23tokubetsu-fe-am-2@3.7.0 | 相対誤差の比較。X・Y・Zの真の値：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問3 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=3) | generator-source-2011h23tokubetsu-fe-am-3@3.7.0 | 符号の平均ビット数。文字A〜Eの出現確率：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問4 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=4) | generator-source-2011h23tokubetsu-fe-am-4@3.7.0 | 状態遷移表と文字列。状態遷移と検査する文字列：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問5 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=4) | generator-source-2011h23tokubetsu-fe-am-5@3.7.0 | 2分探索木への挿入。挿入する七つの整数と順序：0〜3（0） | 図・文章／4択 |
+| [旧午前問6 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=5) | generator-source-2011h23tokubetsu-fe-am-6@3.7.0 | 再帰関数と剰余。再帰関数の引数xとy：0〜3（0） | 図・文章・コード／4択 |
+| [旧午前問7 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=5) | generator-source-2011h23tokubetsu-fe-am-7@3.7.0 | 整数の総和を求める流れ図。加算の上限と誤っている処理：0〜3（0） | 図・文章／4択 |
+| [旧午前問8 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=6) | generator-source-2011h23tokubetsu-fe-am-8@3.7.0 | 整列アルゴリズムの記述。説明を選ぶ整列アルゴリズム：0〜3（0） | 図・文章／4択 |
+| [旧午前問9 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=6) | generator-source-2011h23tokubetsu-fe-am-9@3.7.0 | 外部割込みと処理中の例外。問われる割込み・例外の種類：0〜3（0） | 図・文章／4択 |
+| [旧午前問10 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=7) | generator-source-2011h23tokubetsu-fe-am-10@3.7.0 | ベースレジスタ修飾とロード。命令のレジスタ番号・番地と主記憶の内容：0〜3（0） | 図・文章・コード／4択 |
+| [旧午前問11 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=7) | generator-source-2011h23tokubetsu-fe-am-11@3.7.0 | キャッシュのヒット率。主記憶・キャッシュ・実効アクセス時間：0〜3（0） | 図・文章／4択 |
+| [旧午前問12 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=8) | generator-source-2011h23tokubetsu-fe-am-12@3.7.0 | 記憶装置のアクセス方式。説明を選ぶ記憶装置へのアクセス方式：0〜3（0） | 図・文章／4択 |
+| [旧午前問13 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=8) | generator-source-2011h23tokubetsu-fe-am-13@3.7.0 | タグ・識別媒体の読取り。対象とする識別媒体・タグ：0〜3（0） | 図・文章／4択 |
+| [旧午前問14 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=8) | generator-source-2011h23tokubetsu-fe-am-14@3.7.0 | PCM録音のデータ量。PCMのサンプリング周波数・時間・チャンネル数：0〜3（0） | 図・文章／4択 |
+| [旧午前問15 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=9) | generator-source-2011h23tokubetsu-fe-am-15@3.7.0 | コンピュータシステムの構成。説明を選ぶシステム構成：0〜3（0） | 図・文章／4択 |
+| [旧午前問16 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=9) | generator-source-2011h23tokubetsu-fe-am-16@3.7.0 | 直列システムの稼働率。装置aとbのMTBFとMTTR：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問17 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=10) | generator-source-2011h23tokubetsu-fe-am-17@3.7.0 | システムの信頼性設計。選択対象となる信頼性設計：0〜3（0） | 図・文章／4択 |
+| [旧午前問18 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=10) | generator-source-2011h23tokubetsu-fe-am-18@3.7.0 | I/Oを直列処理した場合のCPU使用率。二つのタスクのCPU時間と入出力時間：0〜3（0） | 図・文章／4択 |
+| [旧午前問19 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=11) | generator-source-2011h23tokubetsu-fe-am-19@3.7.0 | Web・データベースサーバの処理上限。1件当たりの処理時間・ブロック数・CPU使用率の上限：0〜3（0） | 図・文章／4択 |
+| [旧午前問20 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=11) | generator-source-2011h23tokubetsu-fe-am-20@3.7.0 | 記憶管理と入出力の方式。説明を選ぶ記憶管理・入出力方式：0〜3（0） | 図・文章／4択 |
+| [旧午前問21 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=11) | generator-source-2011h23tokubetsu-fe-am-21@3.7.0 | ページ置換えの判断基準。ページを置き換える際の判断方式：0〜3（0） | 図・文章／4択 |
+| [旧午前問22 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=12) | generator-source-2011h23tokubetsu-fe-am-22@3.7.0 | リアルタイムOSの利用目的。組込み機器の処理期限とイベント：0〜3（0） | 図・文章／4択 |
+| [旧午前問23 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=12) | generator-source-2011h23tokubetsu-fe-am-23@3.7.0 | インタプリタとコンパイルの時間比較。100行当たりの実行・コンパイル時間と固定オーバヘッド：0〜3（0） | 図・文章／4択 |
+| [旧午前問24 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=13) | generator-source-2011h23tokubetsu-fe-am-24@3.7.0 | 4ビット入力のパリティ回路。偶奇条件と第1段・第2段のゲート：0〜3（0） | 図・文章／4択 |
+| [旧午前問25 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=13) | generator-source-2011h23tokubetsu-fe-am-25@3.7.0 | 半加算器の論理素子。素子A・Bと出力線の対応・出力ビットの極性：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問26 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=14) | generator-source-2011h23tokubetsu-fe-am-26@3.7.0 | 機械式接点のチャタリング。スイッチ入力を扱う際の現象・処理：0〜3（0） | 図・文章／4択 |
+| [旧午前問27 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=14) | generator-source-2011h23tokubetsu-fe-am-27@3.7.0 | 受注実績を集計できる粒度。受注額と担当者を対応付けるマスタ：0〜1（0） | 図・文章・表／4択 |
+| [旧午前問28 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=15) | generator-source-2011h23tokubetsu-fe-am-28@3.7.0 | ドローソフトと画像表現。作画ツール：0〜2（0） | 図・文章／4択 |
+| [旧午前問29 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=15) | generator-source-2011h23tokubetsu-fe-am-29@3.7.0 | UML関連の多重度。関連両端の多重度：0〜3（0） | 図・文章／4択 |
+| [旧午前問30 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=16) | generator-source-2011h23tokubetsu-fe-am-30@3.7.0 | 四半期販売実績のSQL抽出。平均・各期の販売金額の基準：0〜3（0） | 図・文章・表・コード／4択 |
+| [旧午前問31 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=17) | generator-source-2011h23tokubetsu-fe-am-31@3.7.0 | 更新とビューの行数。収益条件と商品表の更新値：0〜3（0） | 図・文章・表・コード／4択 |
+| [旧午前問32 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=17) | generator-source-2011h23tokubetsu-fe-am-32@3.7.0 | Javaの標準データベースAPI。Java・Web技術の役割：0〜3（0） | 図・文章／4択 |
+| [旧午前問33 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=17) | generator-source-2011h23tokubetsu-fe-am-33@3.7.0 | データベースの更新記録。保存ファイルの役割：0〜2（0） | 図・文章／4択 |
+| [旧午前問34 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=18) | generator-source-2011h23tokubetsu-fe-am-34@3.7.0 | データベースの外部キー。データベース機構の目的：0〜3（0） | 図・文章／4択 |
+| [旧午前問35 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=18) | generator-source-2011h23tokubetsu-fe-am-35@3.7.0 | DBMSが管理するメタデータ。分析用データ集合の範囲：0〜2（0） | 図・文章／4択 |
+| [旧午前問36 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=18) | generator-source-2011h23tokubetsu-fe-am-36@3.7.0 | 通信相手の識別子。通信処理で識別する対象：0〜3（0） | 図・文章／4択 |
+| [旧午前問37 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=19) | generator-source-2011h23tokubetsu-fe-am-37@3.7.0 | LANの媒体アクセス方式。LANの送信許可の方式：0〜2（0） | 図・文章／4択 |
+| [旧午前問38 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=19) | generator-source-2011h23tokubetsu-fe-am-38@3.7.0 | LANの中継装置。中継時に使う情報：0〜2（0） | 図・文章／4択 |
+| [旧午前問39 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=19) | generator-source-2011h23tokubetsu-fe-am-39@3.7.0 | DHCPとネットワークの設定。ネットワークサービスの機能：0〜2（0） | 図・文章／4択 |
+| [旧午前問40 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=20) | generator-source-2011h23tokubetsu-fe-am-40@3.7.0 | NTPの用途と時刻情報。時刻情報を扱う作業：0〜2（0） | 図・文章／4択 |
+| [旧午前問41 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=20) | generator-source-2011h23tokubetsu-fe-am-41@3.7.0 | TCP/IPのアプリケーションプロトコル。TCP/IPプロトコルの提供機能：0〜3（0） | 図・文章／4択 |
+| [旧午前問42 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=20) | generator-source-2011h23tokubetsu-fe-am-42@3.7.0 | 暗号と署名の方式。暗号・署名方式の条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問43 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=20) | generator-source-2011h23tokubetsu-fe-am-43@3.7.0 | 認証デバイスの特性。認証デバイスの動作条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問44 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=21) | generator-source-2011h23tokubetsu-fe-am-44@3.7.0 | パケットフィルタの方向とポート番号。サーバとクライアントのポート範囲：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問45 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=21) | generator-source-2011h23tokubetsu-fe-am-45@3.7.0 | ディジタルコンテンツの追跡。コンテンツ・文書の証跡：0〜2（0） | 図・文章／4択 |
+| [旧午前問46 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=22) | generator-source-2011h23tokubetsu-fe-am-46@3.7.0 | E-R図で表す対象。モデル図が示す関係：0〜2（0） | 図・文章／4択 |
+| [旧午前問47 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=22) | generator-source-2011h23tokubetsu-fe-am-47@3.7.0 | 設計レビューと検査手法。設計・プログラムの検査方法：0〜3（0） | 図・文章／4択 |
+| [旧午前問48 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=22) | generator-source-2011h23tokubetsu-fe-am-48@3.7.0 | オブジェクト指向の特徴。オブジェクト指向の設計特性：0〜2（0） | 図・文章／4択 |
+| [旧午前問49 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=23) | generator-source-2011h23tokubetsu-fe-am-49@3.7.0 | 内部構造に基づくテスト。テストケースを決める観点：0〜2（0） | 図・文章／4択 |
+| [旧午前問50 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=23) | generator-source-2011h23tokubetsu-fe-am-50@3.7.0 | 構成管理で防げる開発上の問題。構成管理に起因しない問題：0〜2（0） | 図・文章／4択 |
+| [旧午前問51 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=24) | generator-source-2011h23tokubetsu-fe-am-51@3.7.0 | ファストトラッキングによる日程短縮。作業Eと分割作業の所要日数：0〜3（0） | 図・文章／4択 |
+| [旧午前問52 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=24) | generator-source-2011h23tokubetsu-fe-am-52@3.7.0 | ソフトウェアの見積り方法。開発の規模・工数の見積り：0〜3（0） | 図・文章／4択 |
+| [旧午前問53 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=25) | generator-source-2011h23tokubetsu-fe-am-53@3.7.0 | ウォータフォール型開発の修復範囲。修復の影響を受ける成果物：0〜2（0） | 図・文章／4択 |
+| [旧午前問54 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=25) | generator-source-2011h23tokubetsu-fe-am-54@3.7.0 | 品質の原因分析に使う図。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問55 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=25) | generator-source-2011h23tokubetsu-fe-am-55@3.7.0 | バックアップとデータの整合性。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問56 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=26) | generator-source-2011h23tokubetsu-fe-am-56@3.7.0 | ITサービスマネジメントの活動。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問57 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=26) | generator-source-2011h23tokubetsu-fe-am-57@3.7.0 | 使用量に応じた課金方式。課金方式と料金曲線：0〜3（0） | 図・文章／4択 |
+| [旧午前問58 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=27) | generator-source-2011h23tokubetsu-fe-am-58@3.7.0 | システム管理基準とライフサイクル。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問59 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=27) | generator-source-2011h23tokubetsu-fe-am-59@3.7.0 | システム監査の実施体制。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問60 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=27) | generator-source-2011h23tokubetsu-fe-am-60@3.7.0 | システム監査のヒアリングと証拠。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問61 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=28) | generator-source-2011h23tokubetsu-fe-am-61@3.7.0 | エンタープライズアーキテクチャの四体系。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問62 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=28) | generator-source-2011h23tokubetsu-fe-am-62@3.7.0 | BPMと経営手法の目的。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問63 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=28) | generator-source-2011h23tokubetsu-fe-am-63@3.7.0 | 共通フレーム2007の企画プロセス。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問64 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=28) | generator-source-2011h23tokubetsu-fe-am-64@3.7.0 | 情報システム調達のRFI。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問65 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=29) | generator-source-2011h23tokubetsu-fe-am-65@3.7.0 | 市場成長率と市場占有率による事業分類。事業分類の区画：0〜3（0） | 図・文章／4択 |
+| [旧午前問66 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=29) | generator-source-2011h23tokubetsu-fe-am-66@3.7.0 | SWOT分析と市場・財務分析。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問67 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=30) | generator-source-2011h23tokubetsu-fe-am-67@3.7.0 | 設定価格と需要の一次式。設定価格と需要：0〜3（0） | 図・文章／4択 |
+| [旧午前問68 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=30) | generator-source-2011h23tokubetsu-fe-am-68@3.7.0 | SFAのコンタクト管理。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問69 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=31) | generator-source-2011h23tokubetsu-fe-am-69@3.7.0 | フランチャイズチェーンと小売組織。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問70 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=31) | generator-source-2011h23tokubetsu-fe-am-70@3.7.0 | 電子自治体のサービス提供先。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問71 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=31) | generator-source-2011h23tokubetsu-fe-am-71@3.7.0 | 月間の生産能力が不足する工程。必要個数と工程能力：0〜3（0） | 図・文章／4択 |
+| [旧午前問72 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=32) | generator-source-2011h23tokubetsu-fe-am-72@3.7.0 | EDIと電子取引・通信の用語。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問73 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=32) | generator-source-2011h23tokubetsu-fe-am-73@3.7.0 | 企業組織と指揮系統。部門構造と指揮線：0〜3（0） | 図・文章／4択 |
+| [旧午前問74 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=32) | generator-source-2011h23tokubetsu-fe-am-74@3.7.0 | ABC分析を使う事例。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問75 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=33) | generator-source-2011h23tokubetsu-fe-am-75@3.7.0 | 受入検査案の期待費用。良品・不良品の確率と費用：0〜3（0） | 図・文章／4択 |
+| [旧午前問76 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=33) | generator-source-2011h23tokubetsu-fe-am-76@3.7.0 | 先入先出法で求める月末在庫評価額。在庫受払数量と単価：0〜3（0） | 図・文章／4択 |
+| [旧午前問77 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=33) | generator-source-2011h23tokubetsu-fe-am-77@3.7.0 | 売上総利益と各段階の利益。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問78 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=34) | generator-source-2011h23tokubetsu-fe-am-78@3.7.0 | 著作権法上の引用・転載・配布。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問79 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=34) | generator-source-2011h23tokubetsu-fe-am-79@3.7.0 | 特許法と各法律が保護する対象。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問80 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_am_qs.pdf#page=34) | generator-source-2011h23tokubetsu-fe-am-80@3.7.0 | 不正アクセス禁止法の対象行為。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+
 ## 登録図の入力契約
 
 renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は査読済みの登録tuple又はprofile別モデルの制約に限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／desc又は明示したアクセシブル名に保持する。
@@ -2559,6 +2644,27 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2011-autumn-pm-13-coefficient-sheet | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-autumn-pm-13-coefficient-sheet」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2011-autumn-pm-13-base-pay-sheet | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-autumn-pm-13-base-pay-sheet」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2011-autumn-pm-13-revised-pay-sheet | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-autumn-pm-13-revised-pay-sheet」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-24-common-gates | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-24-common-gates」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-1-logic-expression | 0：0〜19 | 問題集が所有する有限入力20組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-1-logic-expression」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-5-binary-tree | 0：0〜15 | 問題集が所有する有限入力16組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-5-binary-tree」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-7-sum-flow | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-7-sum-flow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-10-memory | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-10-memory」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-18-task-timeline | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-18-task-timeline」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-24-parity | 0：0〜15 | 問題集が所有する有限入力16組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-24-parity」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-25-half-adder | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-25-half-adder」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-29-multiplicity | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-29-multiplicity」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-51-plan-before | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-51-plan-before」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-51-plan-after | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-51-plan-after」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-57-tariff-a | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-57-tariff-a」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-57-tariff-i | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-57-tariff-i」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-57-tariff-u | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-57-tariff-u」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-57-tariff-e | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-57-tariff-e」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-65-growth-share | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-65-growth-share」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-67-demand-conditions | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-67-demand-conditions」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-71-production-capacity | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-71-production-capacity」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-73-organization | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-73-organization」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-75-inspection-cost | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-75-inspection-cost」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2011-special-am-76-inventory-movements | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2011-special-am-76-inventory-movements」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -12497,6 +12603,316 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | ｜A｜B｜C｜D｜…｜H｜I｜J｜K｜L｜M 1｜｜｜｜｜…｜｜本部｜本部利益 （千円）｜本部賞与合計 上限 （千円）｜本部 加点｜本部賞与 合計 （千円） 2｜｜｜｜｜…｜｜第1本部｜372,575｜44,709｜20｜43,234 3｜｜｜｜｜…｜｜第2本部｜284,450｜34,134｜15｜33,854 4｜｜｜｜｜…｜｜第3本部｜448,450｜53,814｜6｜53,071 5｜社員 番号｜役職｜役職 ランク｜本部｜…｜基本給 （千円）｜役職 係数｜個人 評価点｜個人 評価係数｜本部 加点｜賞与 （千円） 6｜H0006｜本部長｜1｜第1本部｜…｜550｜3.5｜22｜0.85｜20｜3,493 7｜H0011｜本部長｜1｜第2本部｜…｜550｜3.5｜60｜1.00｜15｜3,300 8｜H0003｜本部長｜1｜第3本部｜…｜550｜3.5｜60｜1.00｜6｜2,805 9｜H0010｜部長｜2｜第1本部｜…｜500｜3.0｜66｜1.15｜20｜3,075 10｜H0018｜部長｜2｜第1本部｜…｜500｜3.0｜34｜0.85｜20｜2,925 11｜H0008｜部長｜2｜第2本部｜…｜500｜3.0｜72｜1.15｜15｜2,825 ：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜： 29｜H0067｜課長｜3｜第2本部｜…｜345｜2.5｜60｜1.00｜15｜1,725 30｜H0009｜課長｜3｜第3本部｜…｜450｜2.5｜40｜0.85｜6｜1,778 31｜H0013｜課長｜3｜第3本部｜…｜450｜2.5｜80｜1.15｜6｜1,913 32｜H0002｜主任｜4｜第1本部｜…｜400｜2.0｜52｜1.00｜20｜1,600 33｜H0016｜主任｜4｜第1本部｜…｜400｜2.0｜98｜1.25｜20｜1,700 ：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜： 111｜H0106｜なし｜5｜第3本部｜…｜161｜1.5｜36｜0.85｜6｜427 112｜H0107｜なし｜5｜第3本部｜…｜161｜1.5｜20｜0.75｜6｜411 注記 本部賞与合計上限，本部賞与合計及び賞与は，小数第1位を四捨五入した値を表示している。 |
 | `[2]` | ｜A｜B｜C｜D｜…｜H｜I｜J｜K｜L｜M 1｜｜｜｜｜…｜｜本部｜本部利益 （千円）｜本部賞与合計 上限 （千円）｜本部 加点｜本部賞与 合計 （千円） 2｜｜｜｜｜…｜｜第1本部｜248,383｜44,709｜20｜43,234 3｜｜｜｜｜…｜｜第2本部｜189,633｜34,134｜15｜33,854 4｜｜｜｜｜…｜｜第3本部｜298,967｜53,814｜6｜53,071 5｜社員 番号｜役職｜役職 ランク｜本部｜…｜基本給 （千円）｜役職 係数｜個人 評価点｜個人 評価係数｜本部 加点｜賞与 （千円） 6｜H0006｜本部長｜1｜第1本部｜…｜550｜3.5｜22｜0.85｜20｜3,493 7｜H0011｜本部長｜1｜第2本部｜…｜550｜3.5｜60｜1.00｜15｜3,300 8｜H0003｜本部長｜1｜第3本部｜…｜550｜3.5｜60｜1.00｜6｜2,805 9｜H0010｜部長｜2｜第1本部｜…｜500｜3.0｜66｜1.15｜20｜3,075 10｜H0018｜部長｜2｜第1本部｜…｜500｜3.0｜34｜0.85｜20｜2,925 11｜H0008｜部長｜2｜第2本部｜…｜500｜3.0｜72｜1.15｜15｜2,825 ：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜： 29｜H0067｜課長｜3｜第2本部｜…｜345｜2.5｜60｜1.00｜15｜1,725 30｜H0009｜課長｜3｜第3本部｜…｜450｜2.5｜40｜0.85｜6｜1,778 31｜H0013｜課長｜3｜第3本部｜…｜450｜2.5｜80｜1.15｜6｜1,913 32｜H0002｜主任｜4｜第1本部｜…｜400｜2.0｜52｜1.00｜20｜1,600 33｜H0016｜主任｜4｜第1本部｜…｜400｜2.0｜98｜1.25｜20｜1,700 ：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜： 111｜H0106｜なし｜5｜第3本部｜…｜161｜1.5｜36｜0.85｜6｜427 112｜H0107｜なし｜5｜第3本部｜…｜161｜1.5｜20｜0.75｜6｜411 注記 本部賞与合計上限，本部賞与合計及び賞与は，小数第1位を四捨五入した値を表示している。 |
 | `[3]` | ｜A｜B｜C｜D｜…｜H｜I｜J｜K｜L｜M 1｜｜｜｜｜…｜｜本部｜本部利益 （千円）｜本部賞与合計 上限 （千円）｜本部 加点｜本部賞与 合計 （千円） 2｜｜｜｜｜…｜｜第1本部｜223,545｜44,709｜20｜43,234 3｜｜｜｜｜…｜｜第2本部｜170,670｜34,134｜15｜33,854 4｜｜｜｜｜…｜｜第3本部｜269,070｜53,814｜6｜53,071 5｜社員 番号｜役職｜役職 ランク｜本部｜…｜基本給 （千円）｜役職 係数｜個人 評価点｜個人 評価係数｜本部 加点｜賞与 （千円） 6｜H0006｜本部長｜1｜第1本部｜…｜550｜3.5｜22｜0.85｜20｜3,493 7｜H0011｜本部長｜1｜第2本部｜…｜550｜3.5｜60｜1.00｜15｜3,300 8｜H0003｜本部長｜1｜第3本部｜…｜550｜3.5｜60｜1.00｜6｜2,805 9｜H0010｜部長｜2｜第1本部｜…｜500｜3.0｜66｜1.15｜20｜3,075 10｜H0018｜部長｜2｜第1本部｜…｜500｜3.0｜34｜0.85｜20｜2,925 11｜H0008｜部長｜2｜第2本部｜…｜500｜3.0｜72｜1.15｜15｜2,825 ：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜： 29｜H0067｜課長｜3｜第2本部｜…｜345｜2.5｜60｜1.00｜15｜1,725 30｜H0009｜課長｜3｜第3本部｜…｜450｜2.5｜40｜0.85｜6｜1,778 31｜H0013｜課長｜3｜第3本部｜…｜450｜2.5｜80｜1.15｜6｜1,913 32｜H0002｜主任｜4｜第1本部｜…｜400｜2.0｜52｜1.00｜20｜1,600 33｜H0016｜主任｜4｜第1本部｜…｜400｜2.0｜98｜1.25｜20｜1,700 ：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜：｜： 111｜H0106｜なし｜5｜第3本部｜…｜161｜1.5｜36｜0.85｜6｜427 112｜H0107｜なし｜5｜第3本部｜…｜161｜1.5｜20｜0.75｜6｜411 注記 本部賞与合計上限，本部賞与合計及び賞与は，小数第1位を四捨五入した値を表示している。 |
+
+</details>
+
+### legacy-2011-special-am-24-common-gates
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 問題文中で共通に使用される表記ルール。各問題文中に注記がない限り，次の表記ルールが適用されているものとする。表は図記号と説明の2列、次の9行。論理積は左が平面、右が半円の形に入力2本と出力1本。否定論理積はその出力部に○。論理和は入力側がくぼみ、出力側が尖った曲線形に入力2本と出力1本。否定論理和はその出力部に○。排他的論理和は論理和形の入力側にもう1本の曲線。論理一致は排他的論理和形の出力部に○。バッファは右向きの三角形に入力1本と出力1本。論理否定器はその出力部に○。スリーステートバッファは三角形にデータ入力、制御入力、出力。1行目、論理積素子（AND）。2行目、否定論理積素子（NAND）。3行目、論理和素子（OR）。4行目、否定論理和素子（NOR）。5行目、排他的論理和素子（XOR）。6行目、論理一致素子。7行目、バッファ。8行目、論理否定器（NOT）。9行目、スリーステートバッファ。注記　入力部又は出力部に示されている○印は，論理状態の反転又は否定を表す。 |
+
+</details>
+
+### legacy-2011-special-am-1-logic-expression
+
+<details><summary>許可する20組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 全体を否定：(Aの否定+B)・(A+Cの否定) |
+| `[1]` | A・Bの否定+Aの否定・C |
+| `[2]` | Aの否定・B+A・Cの否定 |
+| `[3]` | (A+Bの否定)・(Aの否定+C) |
+| `[4]` | (Aの否定+B)・(A+Cの否定) |
+| `[5]` | 全体を否定：(Aの否定+Bの否定)・(A+Cの否定) |
+| `[6]` | A・B+Aの否定・C |
+| `[7]` | Aの否定・Bの否定+A・Cの否定 |
+| `[8]` | (A+B)・(Aの否定+C) |
+| `[9]` | (Aの否定+Bの否定)・(A+Cの否定) |
+| `[10]` | 全体を否定：(Aの否定+B)・(A+C) |
+| `[11]` | A・Bの否定+Aの否定・Cの否定 |
+| `[12]` | Aの否定・B+A・C |
+| `[13]` | (A+Bの否定)・(Aの否定+Cの否定) |
+| `[14]` | (Aの否定+B)・(A+C) |
+| `[15]` | 全体を否定：(A+Bの否定)・(Aの否定+Cの否定) |
+| `[16]` | Aの否定・B+A・C |
+| `[17]` | A・Bの否定+Aの否定・Cの否定 |
+| `[18]` | (Aの否定+B)・(A+C) |
+| `[19]` | (A+Bの否定)・(Aの否定+Cの否定) |
+
+</details>
+
+### legacy-2011-special-am-5-binary-tree
+
+<details><summary>許可する16組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 根は8。8の左の子は5，8の右の子は10，5の左の子は3，5の右の子は6，10の左の子は7，10の右の子は12。 |
+| `[1]` | 根は8。8の左の子は5，8の右の子は10，5の左の子は3，5の右の子は7，7の左の子は6，10の右の子は12。 |
+| `[2]` | 根は8。8の左の子は5，8の右の子は12，5の左の子は3，5の右の子は6，3の右の子は7，12の左の子は10。 |
+| `[3]` | 根は8。8の左の子は5，8の右の子は12，5の左の子は3，5の右の子は7，7の左の子は6，12の左の子は10。 |
+| `[4]` | 根は9。9の左の子は6，9の右の子は11，6の左の子は4，6の右の子は7，11の左の子は8，11の右の子は13。 |
+| `[5]` | 根は9。9の左の子は6，9の右の子は11，6の左の子は4，6の右の子は8，8の左の子は7，11の右の子は13。 |
+| `[6]` | 根は9。9の左の子は6，9の右の子は13，6の左の子は4，6の右の子は7，4の右の子は8，13の左の子は11。 |
+| `[7]` | 根は9。9の左の子は6，9の右の子は13，6の左の子は4，6の右の子は8，8の左の子は7，13の左の子は11。 |
+| `[8]` | 根は10。10の左の子は7，10の右の子は14，7の左の子は5，7の右の子は8，8の右の子は9，14の左の子は12。 |
+| `[9]` | 根は10。10の左の子は7，10の右の子は12，7の左の子は5，7の右の子は9，9の左の子は8，12の右の子は14。 |
+| `[10]` | 根は10。10の左の子は7，10の右の子は14，7の左の子は5，7の右の子は8，5の右の子は9，14の左の子は12。 |
+| `[11]` | 根は10。10の左の子は7，10の右の子は14，7の左の子は5，7の右の子は9，9の左の子は8，14の左の子は12。 |
+| `[12]` | 根は11。11の左の子は8，11の右の子は13，8の左の子は6，8の右の子は9，13の左の子は10，13の右の子は15。 |
+| `[13]` | 根は11。11の左の子は8，11の右の子は13，8の左の子は6，8の右の子は10，10の左の子は9，13の右の子は15。 |
+| `[14]` | 根は11。11の左の子は8，11の右の子は13，8の左の子は6，8の右の子は9，9の右の子は10，13の右の子は15。 |
+| `[15]` | 根は11。11の左の子は8，11の右の子は15，8の左の子は6，8の右の子は10，10の左の子は9，15の左の子は13。 |
+
+</details>
+
+### legacy-2011-special-am-7-sum-flow
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 開始。① 1 → x，1 → i。② i：100で判定。iが右辺以下なら③ x ＋ i → x，④ i ＋ 1 → iを実行して②へ戻る。iが右辺より大きければ終了。 |
+| `[1]` | 開始。① 0 → x，1 → i。② i：89で判定。iが右辺以下なら③ x ＋ i → x，④ i ＋ 1 → iを実行して②へ戻る。iが右辺より大きければ終了。 |
+| `[2]` | 開始。① 0 → x，1 → i。② i：80で判定。iが右辺以下なら③ x ＋ i → i，④ i ＋ 1 → iを実行して②へ戻る。iが右辺より大きければ終了。 |
+| `[3]` | 開始。① 0 → x，1 → i。② i：60で判定。iが右辺以下なら③ x ＋ i → x，④ x ＋ 1 → xを実行して②へ戻る。iが右辺より大きければ終了。 |
+
+</details>
+
+### legacy-2011-special-am-10-memory
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | ベースレジスタ1の値は100。主記憶の番地と内容は順に100：1100，101：1101，200：1200，201：1201，300：1300，301：1301，1200：2200，1201：2201，1300：2300，1301：2301。 |
+| `[1]` | ベースレジスタ2の値は99。主記憶の番地と内容は順に100：1120，101：1121，200：1200，201：1201，300：1301，301：1300，1200：2210，1201：2211，1300：2310，1301：2311。 |
+| `[2]` | ベースレジスタ3の値は200。主記憶の番地と内容は順に100：1150，101：1151，200：1200，201：1201，300：1300，301：1200，1200：2250，1201：2251，1300：2350，1301：2351。 |
+| `[3]` | ベースレジスタ4の値は201。主記憶の番地と内容は順に100：1170，101：1171，200：1200，201：1201，300：1300，301：1201，1200：2270，1201：2271，1300：2370，1301：2371。 |
+
+</details>
+
+### legacy-2011-special-am-18-task-timeline
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | タスクA：CPU 0–2，I/O(A) 2–10，CPU 10–13，I/O(A) 13–17，CPU 17–20。タスクB：待ち 0–2，CPU 2–4，I/O(B) 4–8，CPU 8–10，I/O(B) 10–14，CPU 14–17。時間目盛は等間隔。 |
+| `[1]` | タスクA：CPU 0–2，I/O(A) 2–9，CPU 9–12，I/O(A) 12–17，CPU 17–20。タスクB：待ち 0–2，CPU 2–5，I/O(B) 5–9，待ち 9–12，CPU 12–14，I/O(B) 14–17，待ち 17–20，CPU 20–24。時間目盛は等間隔。 |
+| `[2]` | タスクA：CPU 0–3，I/O(A) 3–11，CPU 11–13，I/O(A) 13–17，待ち 17–18，CPU 18–21。タスクB：待ち 0–3，CPU 3–5，I/O(B) 5–8，CPU 8–10，I/O(B) 10–14，CPU 14–18。時間目盛は等間隔。 |
+| `[3]` | タスクA：CPU 0–2，I/O(A) 2–9，CPU 9–13，I/O(A) 13–16，CPU 16–19。タスクB：待ち 0–2，CPU 2–5，I/O(B) 5–10，待ち 10–13，CPU 13–15，I/O(B) 15–18，待ち 18–19，CPU 19–23。時間目盛は等間隔。 |
+
+</details>
+
+### legacy-2011-special-am-24-parity
+
+<details><summary>許可する16組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を論理積に入力し，その出力をそのまま取り出す。 |
+| `[1]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を論理和に入力し，その出力を否定して取り出す。 |
+| `[2]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を排他的論理和に入力し，その出力をそのまま取り出す。 |
+| `[3]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を排他的論理和に入力し，その出力を否定して取り出す。 |
+| `[4]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を論理積に入力し，その出力をそのまま取り出す。 |
+| `[5]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を論理和に入力し，その出力を否定して取り出す。 |
+| `[6]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を排他的論理和に入力し，その出力をそのまま取り出す。 |
+| `[7]` | 第1・第2入力は排他的論理和へ，第3・第4入力は排他的論理和へ。二つの素子の出力を排他的論理和に入力し，その出力を否定して取り出す。 |
+| `[8]` | 第1・第2入力は論理一致へ，第3・第4入力は排他的論理和へ。二つの素子の出力を排他的論理和に入力し，その出力をそのまま取り出す。 |
+| `[9]` | 第1・第2入力は論理一致へ，第3・第4入力は排他的論理和へ。二つの素子の出力を論理和に入力し，その出力を否定して取り出す。 |
+| `[10]` | 第1・第2入力は論理一致へ，第3・第4入力は排他的論理和へ。二つの素子の出力を論理積に入力し，その出力をそのまま取り出す。 |
+| `[11]` | 第1・第2入力は論理一致へ，第3・第4入力は排他的論理和へ。二つの素子の出力を排他的論理和に入力し，その出力を否定して取り出す。 |
+| `[12]` | 第1・第2入力は排他的論理和へ，第3・第4入力は論理一致へ。二つの素子の出力を論理積に入力し，その出力を否定して取り出す。 |
+| `[13]` | 第1・第2入力は排他的論理和へ，第3・第4入力は論理一致へ。二つの素子の出力を排他的論理和に入力し，その出力を否定して取り出す。 |
+| `[14]` | 第1・第2入力は排他的論理和へ，第3・第4入力は論理一致へ。二つの素子の出力を論理和に入力し，その出力をそのまま取り出す。 |
+| `[15]` | 第1・第2入力は排他的論理和へ，第3・第4入力は論理一致へ。二つの素子の出力を排他的論理和に入力し，その出力をそのまま取り出す。 |
+
+</details>
+
+### legacy-2011-special-am-25-half-adder
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 入力xとyをそれぞれ素子Aと素子Bの両方に接続する。Aの出力はz（和の1けた目），Bの出力はc（けた上げ）。 |
+| `[1]` | 入力xとyをそれぞれ素子Aと素子Bの両方に接続する。Aの出力はc（けた上げ），Bの出力はz（和の1けた目）。 |
+| `[2]` | 入力xとyをそれぞれ素子Aと素子Bの両方に接続する。Aの出力はz（和の1けた目），Bの出力はc（けた上げの反転）。 |
+| `[3]` | 入力xとyをそれぞれ素子Aと素子Bの両方に接続する。Aの出力はc（けた上げ），Bの出力はz（和の1けた目の反転）。 |
+
+</details>
+
+### legacy-2011-special-am-29-multiplicity
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 「組織」と「社員」を実線で結ぶUML関連。組織側の多重度は1、社員側の多重度は1..&#42;。 |
+| `[1]` | 「組織」と「社員」を実線で結ぶUML関連。組織側の多重度は0..1、社員側の多重度は0..&#42;。 |
+| `[2]` | 「組織」と「社員」を実線で結ぶUML関連。組織側の多重度は1..&#42;、社員側の多重度は0..&#42;。 |
+| `[3]` | 「組織」と「社員」を実線で結ぶUML関連。組織側の多重度は1、社員側の多重度は0..1。 |
+
+</details>
+
+### legacy-2011-special-am-51-plan-before
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からEへ進み、EとFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、Eは9日。 |
+| `[1]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からEへ進み、EとFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、Eは10日。 |
+| `[2]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からEへ進み、EとFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、Eは11日。 |
+| `[3]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からEへ進み、EとFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、Eは12日。 |
+
+</details>
+
+### legacy-2011-special-am-51-plan-after
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からE1とE2が分岐。E2終了点からE1終了点へダミー作業を結ぶ。E1終了点からE3へ進み、E3とFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、E1は3日、E2は4日、E3は2日。 |
+| `[1]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からE1とE2が分岐。E2終了点からE1終了点へダミー作業を結ぶ。E1終了点からE3へ進み、E3とFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、E1は4日、E2は4日、E3は2日。 |
+| `[2]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からE1とE2が分岐。E2終了点からE1終了点へダミー作業を結ぶ。E1終了点からE3へ進み、E3とFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、E1は5日、E2は3日、E3は3日。 |
+| `[3]` | Aの終了からBとCが分岐。Bの終了からDを経てGへ進む。Cの終了からFへ進む。Bの終了からE1とE2が分岐。E2終了点からE1終了点へダミー作業を結ぶ。E1終了点からE3へ進み、E3とFがHの開始点で合流。Hの後にIへ進み、GとIが全体の終了点で合流。所要日数はAは5日、Bは8日、Cは7日、Dは7日、Fは5日、Gは7日、Hは4日、Iは2日、E1は4日、E2は5日、E3は3日。 |
+
+</details>
+
+### legacy-2011-special-am-57-tariff-a
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，88） → （16，50） → （45，31） → （91，22） |
+| `[1]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，88） → （16，50） → （45，31） → （91，22） |
+| `[2]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，88） → （16，50） → （45，31） → （91，22） |
+| `[3]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （91，78） |
+
+</details>
+
+### legacy-2011-special-am-57-tariff-i
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （51，69） → （96，69） |
+| `[1]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （51，69） → （96，69） |
+| `[2]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （51，69） → （96，69） |
+| `[3]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （51，69） → （96，69） |
+
+</details>
+
+### legacy-2011-special-am-57-tariff-u
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （18，39） → （45，69） → （89，81） |
+| `[1]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （18，39） → （45，69） → （89，81） |
+| `[2]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （18，39） → （45，69） → （89，81） |
+| `[3]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （18，39） → （45，69） → （89，81） |
+
+</details>
+
+### legacy-2011-special-am-57-tariff-e
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （34，12） → （66，36） → （95，89） |
+| `[1]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （34，12） → （66，36） → （95，89） |
+| `[2]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （34，12） → （66，36） → （95，89） |
+| `[3]` | 縦軸は利用料金，横軸は使用量。原点の目盛は0。折れ線の節を左から相対位置（使用量，利用料金）で示す。（0，0） → （34，12） → （66，36） → （95，89） |
+
+</details>
+
+### legacy-2011-special-am-65-growth-share
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 縦軸は市場成長率（下が低，上が高），横軸は市場占有率（左が小，右が大）。a：成長率高，占有率小。b：成長率高，占有率大。c：成長率低，占有率小。d：成長率低，占有率大 |
+| `[1]` | 縦軸は市場成長率（下が低，上が高），横軸は市場占有率（左が小，右が大）。a：成長率高，占有率小。b：成長率高，占有率大。c：成長率低，占有率小。d：成長率低，占有率大 |
+| `[2]` | 縦軸は市場成長率（下が低，上が高），横軸は市場占有率（左が小，右が大）。a：成長率高，占有率小。b：成長率高，占有率大。c：成長率低，占有率小。d：成長率低，占有率大 |
+| `[3]` | 縦軸は市場成長率（下が低，上が高），横軸は市場占有率（左が小，右が大）。a：成長率高，占有率小。b：成長率高，占有率大。c：成長率低，占有率小。d：成長率低，占有率大 |
+
+</details>
+
+### legacy-2011-special-am-67-demand-conditions
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | （1）設定価格を3,000円にすると，需要は0個になる。 （2）設定価格を1,000円にすると，需要は60,000個になる。 （3）設定価格を1,500円にすると，需要は［a］個になる。 |
+| `[1]` | （1）設定価格を3,200円にすると，需要は0個になる。 （2）設定価格を1,200円にすると，需要は60,000個になる。 （3）設定価格を1,700円にすると，需要は［a］個になる。 |
+| `[2]` | （1）設定価格を2,400円にすると，需要は0個になる。 （2）設定価格を1,400円にすると，需要は50,000個になる。 （3）設定価格を1,800円にすると，需要は［a］個になる。 |
+| `[3]` | （1）設定価格を3,400円にすると，需要は0個になる。 （2）設定価格を1,400円にすると，需要は40,000個になる。 （3）設定価格を1,900円にすると，需要は［a］個になる。 |
+
+</details>
+
+### legacy-2011-special-am-71-production-capacity
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 工程｜1個製造時間（時間）｜保有機械台数（台）｜生産能力（時間） A｜0.4｜3｜150 B｜0.3｜2｜160 C｜0.7｜4｜170 D｜1.2｜7｜180 |
+| `[1]` | 工程｜1個製造時間（時間）｜保有機械台数（台）｜生産能力（時間） A｜0.5｜3｜140 B｜0.3｜2｜150 C｜0.7｜4｜170 D｜1.2｜7｜170 |
+| `[2]` | 工程｜1個製造時間（時間）｜保有機械台数（台）｜生産能力（時間） A｜0.4｜3｜160 B｜0.3｜2｜160 C｜0.6｜4｜170 D｜1.1｜7｜180 |
+| `[3]` | 工程｜1個製造時間（時間）｜保有機械台数（台）｜生産能力（時間） A｜0.4｜3｜170 B｜0.3｜2｜190 C｜0.6｜4｜185 D｜1.1｜7｜180 |
+
+</details>
+
+### legacy-2011-special-am-73-organization
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 経営者から生産，販売，研究開発，経理，人事へ指揮線。 |
+| `[1]` | 経営者から家電事業，産業機器事業へ指揮線。家電事業から生産，販売，経理へ指揮線。産業機器事業から生産，販売，経理へ指揮線。 |
+| `[2]` | 経営者から刷新責任者，移転責任者へ指揮線。刷新責任者から開発担当，運用担当，営業担当へ指揮線。移転責任者から運用担当，設備担当，総務担当へ指揮線。 |
+| `[3]` | 経営者から開発部門長，刷新責任者へ指揮線。開発部門長から設計担当，テスト担当へ指揮線。刷新責任者から設計担当，テスト担当へ指揮線。 |
+
+</details>
+
+### legacy-2011-special-am-75-inspection-cost
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 案｜良品に掛かる費用｜不良品に掛かる費用 A｜0｜1,500 B｜40｜1,000 C｜80｜500 D｜120｜200 |
+| `[1]` | 案｜良品に掛かる費用｜不良品に掛かる費用 A｜0｜1,200 B｜50｜900 C｜90｜480 D｜130｜220 |
+| `[2]` | 案｜良品に掛かる費用｜不良品に掛かる費用 A｜0｜1,600 B｜40｜800 C｜80｜500 D｜120｜220 |
+| `[3]` | 案｜良品に掛かる費用｜不良品に掛かる費用 A｜0｜1,400 B｜40｜900 C｜80｜550 D｜120｜200 |
+
+</details>
+
+### legacy-2011-special-am-76-inventory-movements
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 日付｜摘要｜受払個数・受入｜受払個数・払出｜単価（円） 1｜前月繰越｜10｜｜100 4｜仕入｜40｜｜120 5｜売上｜｜30｜／ 7｜仕入｜30｜｜130 10｜仕入｜10｜｜110 30｜売上｜｜30｜／ |
+| `[1]` | 日付｜摘要｜受払個数・受入｜受払個数・払出｜単価（円） 1｜前月繰越｜20｜｜150 4｜仕入｜30｜｜140 5｜売上｜｜30｜／ 7｜仕入｜30｜｜110 10｜仕入｜10｜｜120 30｜売上｜｜30｜／ |
+| `[2]` | 日付｜摘要｜受払個数・受入｜受払個数・払出｜単価（円） 1｜前月繰越｜10｜｜100 4｜仕入｜30｜｜140 5｜売上｜｜20｜／ 7｜仕入｜40｜｜120 10｜仕入｜10｜｜110 30｜売上｜｜40｜／ |
+| `[3]` | 日付｜摘要｜受払個数・受入｜受払個数・払出｜単価（円） 1｜前月繰越｜10｜｜140 4｜仕入｜40｜｜100 5｜売上｜｜30｜／ 7｜仕入｜20｜｜110 10｜仕入｜20｜｜130 30｜売上｜｜30｜／ |
 
 </details>
 

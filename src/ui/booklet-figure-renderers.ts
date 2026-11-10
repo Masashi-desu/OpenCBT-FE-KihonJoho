@@ -19,6 +19,7 @@ import { spring2015AmFigureRenderers } from './Legacy2015SpringAmFigures';
 import { legacy2015SpringPmFigureRenderers } from './Legacy2015SpringPmFigures';
 import { autumn2014AmFigureRenderers } from './Legacy2014AutumnAmFigures';
 import { legacy2014AutumnPmFigureRenderers } from './Legacy2014AutumnPmFigures';
+import { special2011AmFigureRenderers } from './Legacy2011SpecialAmFigures';
 
 // Statically imported application components only; problem data supplies no code.
 export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] = [
@@ -42,4 +43,5 @@ export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] =
   { scope: '2012-spring-pm', renderers: legacy2012SpringPmFigureRenderers },
   { scope: '2011-autumn-am', renderers: autumn2011AmFigureRenderers },
   { scope: '2011-autumn-pm', renderers: legacy2011AutumnPmFigureRenderers },
+  { scope: '2011-special-am', renderers: special2011AmFigureRenderers },
 ];

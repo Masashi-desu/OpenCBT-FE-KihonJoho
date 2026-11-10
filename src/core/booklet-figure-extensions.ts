@@ -19,6 +19,7 @@ import { spring2015AmFigures } from './generators/legacy-2015-spring-am-figures'
 import { legacy2015SpringPmFigures } from './generators/legacy-2015-spring-pm-figures';
 import { autumn2014AmFigures } from './generators/legacy-2014-autumn-am-figures';
 import { legacy2014AutumnPmFigures } from './generators/legacy-2014-autumn-pm-figures';
+import { special2011AmFigures } from './generators/legacy-2011-special-am-figures';
 
 // Only source-owned figure declarations belong here. Validation stays shared.
 export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
@@ -42,4 +43,5 @@ export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
   { scope: '2012-spring-pm', figures: legacy2012SpringPmFigures },
   { scope: '2011-autumn-am', figures: autumn2011AmFigures },
   { scope: '2011-autumn-pm', figures: legacy2011AutumnPmFigures },
+  { scope: '2011-special-am', figures: special2011AmFigures },
 ];

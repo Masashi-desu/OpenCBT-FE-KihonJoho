@@ -11,7 +11,7 @@ const olderCollections=new Set(['2022-apr-sample-b','2022-dec-sample-a','2022-de
 // Expectations come from the independent obligations and review ledgers,
 // never from the audit result or observed catalog counts. The fixed known
 // minimum and every per-booklet semantic contract stay asserted below.
-const sourcePrefix=(collection:string)=>({'2022-apr-sample-b':'sample-2022-apr-b','2022-dec-sample-a':'sample-2022-dec-a','2022-dec-sample-b':'sample-2022-dec-b'} as Record<string,string>)[collection]??collection.replace('2011h23tokubetsu','2011h23t');
+const sourcePrefix=(collection:string)=>({'2022-apr-sample-b':'sample-2022-apr-b','2022-dec-sample-a':'sample-2022-dec-a','2022-dec-sample-b':'sample-2022-dec-b'} as Record<string,string>)[collection]??collection;
 const minimumSources=new Set(pre2023Scope.flatMap(collection=>Array.from({length:collection.count},(_,i)=>sourcePrefix(collection.collectionId)+'-'+(i+1))));
 function expectedReadinessSummary(reviews:typeof pre2023Reviews,absentCollection?:string){
  const absentPrefix=absentCollection?sourcePrefix(absentCollection)+'-':undefined;
