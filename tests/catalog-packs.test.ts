@@ -127,7 +127,20 @@ test("packing the actual distributed originals/bases preserves every revision, c
   const before = fixture(), t = transport(before.questions);
   const after = await readCatalog(t.read);
   assert.equal(after.questions.length, before.questions.length);
-  assert.equal(t.files.length, Math.ceil(before.questions.length / PACK_MAX_RECORDS));
+  let packed = 0;
+  for (const { entry, bytes } of t.files) {
+    const count = entry.recordCount;
+    assert(count !== undefined && count > 0 && count <= PACK_MAX_RECORDS);
+    assert(bytes.length <= RECORD_FILE_MAX_BYTES);
+    packed += count;
+    const next = before.questions[packed];
+    if (next) {
+      const nextBytes = Buffer.byteLength(JSON.stringify(next));
+      assert(count === PACK_MAX_RECORDS || bytes.length + 1 + nextBytes > RECORD_FILE_MAX_BYTES,
+        "a non-final pack ends only when its record or byte limit would be exceeded");
+    }
+  }
+  assert.equal(packed, before.questions.length);
   const originals = new Map(before.questions.map(q => [q.id, q]));
   for (const q of after.questions) {
     assert.equal(q.revision, originals.get(q.id)!.revision);

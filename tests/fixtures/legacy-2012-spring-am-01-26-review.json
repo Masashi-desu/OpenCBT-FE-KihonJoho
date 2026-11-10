@@ -1,0 +1,666 @@
+{
+  "schema": "stage3-morning-authoring-review-v1",
+  "task": "S3-019",
+  "scope": "2012-spring-am",
+  "range": [
+    1,
+    26
+  ],
+  "checkedOn": "2026-11-11",
+  "questions": [
+    {
+      "number": 1,
+      "source": "2012h24h-fe-am-1",
+      "printedPage": 3,
+      "officialAnswer": "ウ",
+      "form": "有限小数になる10進小数を選ぶ",
+      "visiblePremisesAndVariation": "10進小数・変換先の基数・有限性。基数と1桁小数を変更する。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。既約分母が10，5，2，5。分母の素因数が基数で約分できる候補を比較。",
+      "independentCheck": "分母10の筆算で剰余が0になるか循環するかを全択で判定。",
+      "precision": "小数第1位、4択の昇順。長い桁変換は不要。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 2,
+      "source": "2012h24h-fe-am-2",
+      "printedPage": 3,
+      "officialAnswer": "ア",
+      "form": "任意の非負2進数を定数倍した式を選ぶ",
+      "visiblePremisesAndVariation": "ビット列b₁b₂⋯bₙ、非負、末尾へのビット追加と加減。定数倍を3・5・6・9で変更する。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "記号式が一般の非負整数に成立するかを比較。1の場合に複数候補が同じ値でも恒等式は一つ。",
+      "independentCheck": "各式の入力0・1から一次式の係数と定数を特定し、異なる桁長でも検算。",
+      "precision": "整数、1〜3ビット相当の桁シフト。同じ数に対する偶然の一致を恒等式と区別。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 3,
+      "source": "2012h24h-fe-am-3",
+      "printedPage": 4,
+      "officialAnswer": "エ",
+      "form": "隣接行列に対応する無向グラフを図で選ぶ",
+      "visiblePremisesAndVariation": "n行n列、対称、1は枝あり、0は枝なし。行列の非対角要素を変える。図択は元の4パターン。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "同じ四節点で、枝が異なるグラフを比較。図の形だけでなく節点ラベルの組を照合。",
+      "independentCheck": "レンダリングされた16セルを読み、全4図の枝の集合と照合。",
+      "precision": "0・1の対称4×4、自己ループなし。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。 図形・回路の教材用構成で，出典の別記や外部製品の図版はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 4,
+      "source": "2012h24h-fe-am-4",
+      "printedPage": 4,
+      "officialAnswer": "イ",
+      "form": "代入を含む後置記法を選ぶ",
+      "visiblePremisesAndVariation": "逆ポーランド記法の例、Yへの代入、括弧と演算の優先順位。二つの括弧内と括弧間の演算子を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "括弧・除算の優先順位・被演算子の順・部分式のまとまりを比較。原問と同じく代入先Yを先頭、代入記号を末尾とする。",
+      "independentCheck": "中置記法を再帰下降で、全候補の後置記法をスタックで構文木にし、等価を判定。",
+      "precision": "5変数、四則演算、4択。数値の除算は不要。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 5,
+      "source": "2012h24h-fe-am-5",
+      "printedPage": 5,
+      "officialAnswer": "エ",
+      "form": "自動販売機の強調された遷移を起こす硬貨を選ぶ",
+      "visiblePremisesAndVariation": "Q₀は未投入、硬貨は1枚ずつ、Eは価格以上で切符・釣銭を出す。価格・額面・遷移元を本文と図で変更。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "額面集合を比較。投入は一度に1枚。最後に釣銭を返すので合計は価格以上でよい。",
+      "independentCheck": "金額0から硬貨ごとの到達額を探索し、状態数・全辺・強調線と全択の硬貨集合を比較。",
+      "precision": "価格・硬貨は10円刻み。加算と閾値比較。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。 図形・回路の教材用構成で，出典の別記や外部製品の図版はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 6,
+      "source": "2012h24h-fe-am-6",
+      "printedPage": 6,
+      "officialAnswer": "イ",
+      "form": "二つの関数が操作するデータ構造を選ぶ",
+      "visiblePremisesAndVariation": "十分な配列、初期値0、関数fとgのみからアクセス。挿入・取出しの位置を変更し、追加条件では非空でgを呼ぶ。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "取出し順、添字による直接参照、優先度の構造を区別。",
+      "independentCheck": "表示された2関数の代入順・添字・字下げを確認し、複数の入力列から全択の取出し順を比較。",
+      "precision": "配列の端だけを扱う。固定長の数値計算や丸めなし。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 7,
+      "source": "2012h24h-fe-am-7",
+      "printedPage": 6,
+      "officialAnswer": "エ",
+      "form": "単方向リストで参照回数が最多の操作を選ぶ",
+      "visiblePremisesAndVariation": "多数のデータ、先頭と末尾のポインタ、両端の挿入・削除。たどれる向きと中央付近の補助ポインタの有無を変える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "同じ単方向リンクで、先頭・末尾と、挿入・削除の組を比較。",
+      "independentCheck": "8件・101件の単方向リンクを端・中央からたどり、削除時に新しい端になる要素までの参照数を全択で比較。",
+      "precision": "厳密な回数の差より、端の隣接要素の走査が必要かを判定。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 8,
+      "source": "2012h24h-fe-am-8",
+      "printedPage": 7,
+      "officialAnswer": "イ",
+      "form": "処理制御の名称から説明を選ぶ",
+      "visiblePremisesAndVariation": "自己呼出し、事象駆動、関数のメモリ保持、ロールバックを切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "事象駆動、再帰、メモリ常駐、処理前への復元を比較。",
+      "independentCheck": "原資料・事実査読の各候補から処理を分類し、指定された役割との一致を検査。",
+      "precision": "概念と説明の対応。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.nist.gov/publications/dads-line-dictionary-algorithms-and-data-structures"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 9,
+      "source": "2012h24h-fe-am-9",
+      "printedPage": 7,
+      "officialAnswer": "ウ",
+      "form": "Webの動的処理を担う技術の名称を選ぶ",
+      "visiblePremisesAndVariation": "サーバ実行、ECMAScript、クライアントJava、対応するInternet Explorerでのスクリプト。当時の実行条件を必要に応じ明示。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "2012年当時の実行モデル。サーバに置かれたコードをブラウザで実行することとサーバ側での実行を分ける。",
+      "independentCheck": "当時のOracle API・チュートリアル、ECMA仕様、Microsoft資料に照合した全択の実行場所・言語の事実表。",
+      "precision": "2012年当時の技術。現行ブラウザが当時の技術を実行できることを前提にしない。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。 Java等は技術の名称としてのみ言及し，外部ソースコード・ロゴ・画面は含まない。",
+      "verificationReferences": [
+        "https://docs.oracle.com/javaee/6/api/javax/servlet/Servlet.html",
+        "https://docs.oracle.com/javase/tutorial/deployment/applet/index.html",
+        "https://262.ecma-international.org/5.1/",
+        "https://learn.microsoft.com/en-us/windows/win32/com/translating-to-vbscript"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 10,
+      "source": "2012h24h-fe-am-10",
+      "printedPage": 7,
+      "officialAnswer": "イ",
+      "form": "マルチコアプロセッサの適切な特徴を選ぶ",
+      "visiblePremisesAndVariation": "消費電力・共有バスの競合・並列化できない部分・クロックを切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "コア数、消費電力、資源競合、クロック周波数の効果を区別。",
+      "independentCheck": "各設問の条件に対し並列化と資源競合の論理を個別に確認し、4択の事実表と照合。",
+      "precision": "n倍・n²倍は処理性能の関係を問う記号。計算不要。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://doi.org/10.1145/1465482.1465560"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 11,
+      "source": "2012h24h-fe-am-11",
+      "printedPage": 7,
+      "officialAnswer": "ア",
+      "form": "指定された割込み・例外に該当する事象を選ぶ",
+      "visiblePremisesAndVariation": "外部タイマ、算術例外、ページフォルト、明示命令を切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "タイマ、算術例外、ページフォルト、ソフトウェア割込み命令という発生原因を区別。",
+      "independentCheck": "CPUへの外部事象、命令に同期する例外、明示的割込みの原因を個別に照合。",
+      "precision": "命令の発生条件と外部機器の通知を区別。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 12,
+      "source": "2012h24h-fe-am-12",
+      "printedPage": 8,
+      "officialAnswer": "ウ",
+      "form": "DRAMの指定動作の説明を選ぶ",
+      "visiblePremisesAndVariation": "リフレッシュ、読出し、書込み、給電停止。各動作を本文で切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "バックアップ、起動時初期化、定期的な電荷の回復、消去後の更新を区別。",
+      "independentCheck": "電荷保持、行の選択と電荷回復、指定セルの書換え、揮発性をメーカ資料と全択の事実表で確認。",
+      "precision": "読出しとリフレッシュを外部への保存や事前消去から区別。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.micron.com/sales-support/sales/faqs"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 13,
+      "source": "2012h24h-fe-am-13",
+      "printedPage": 8,
+      "officialAnswer": "ウ",
+      "form": "キャッシュについて適切な記述を選ぶ",
+      "visiblePremisesAndVariation": "階層化、局所性、ミス、汎用レジスタとの役割の違いを切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "ページとブロック、汎用レジスタとキャッシュ、階層化、置換単位を比較。",
+      "independentCheck": "ブロック単位の転送・置換と汎用レジスタ・ページ管理を分け、全択の事実表を照合。",
+      "precision": "キャッシュ可能な読出しと条件を表示。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 14,
+      "source": "2012h24h-fe-am-14",
+      "printedPage": 8,
+      "officialAnswer": "ア",
+      "form": "名称からディスプレイの動作原理を選ぶ",
+      "visiblePremisesAndVariation": "プラズマ、透過型液晶、有機EL、CRTの機構を切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "ガス放電、バックライト、有機EL、ブラウン管の機構を比較。",
+      "independentCheck": "ガス放電・バックライト・有機化合物・電子ビームを全択に対応させる。",
+      "precision": "液晶の変種を透過型に限定。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://electronics.sony.com/types-of-tvs-explained-oled-mini-led-rgb-led-and-led"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 15,
+      "source": "2012h24h-fe-am-15",
+      "printedPage": 9,
+      "officialAnswer": "ウ",
+      "form": "ネットワーク技術名から説明を選ぶ",
+      "visiblePremisesAndVariation": "クラウド、ネットワーク家電、分散計算、P2Pの役割を切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "機器の遠隔管理、複数PCの分散計算、資源のネットワーク提供、対等通信を比較。",
+      "independentCheck": "提供される資源と通信構造の事実表を、クラウドのNIST定義と合わせて検査。",
+      "precision": "用途の違いを問う。製品名・特定プロトコルに依存しない。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://csrc.nist.gov/pubs/sp/800/145/final"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 16,
+      "source": "2012h24h-fe-am-16",
+      "printedPage": 9,
+      "officialAnswer": "ア",
+      "form": "システム運用に不可欠な設計を選ぶ",
+      "visiblePremisesAndVariation": "処理継続、障害前の変更追跡、定期保存時点への復元、誤操作防止を切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "冗長化による処理継続、変更履歴、復元用バックアップ、操作ミス防止の目的を比較。",
+      "independentCheck": "冗長化・履歴・バックアップ・誤操作対策の機能を個別に判定し、全択を検査。",
+      "precision": "復元時点を明記し、可用性と復元可能性を区別。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 17,
+      "source": "2012h24h-fe-am-17",
+      "printedPage": 10,
+      "officialAnswer": "イ",
+      "form": "二つのサイトを含む全体稼働率の式を選ぶ",
+      "visiblePremisesAndVariation": "装置別稼働率、磁気ディスクとCPU、各サイトで端末1台以上。装置数・ディスク条件を変える。派生条件ではCPU稼働と独立を明記。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "ディスクの正常・異常と、端末が全て正常・全て異常の補集合を組み合わせた4式。",
+      "independentCheck": "全装置の稼働停止を全列挙して確率を合計し、境界を含む6点で全択の式を個別に評価。",
+      "precision": "記号式の補集合と積。指数2・3の範囲。原問の独立性は式選択の前提として解説に表示。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。 図形・回路の教材用構成で，出典の別記や外部製品の図版はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 18,
+      "source": "2012h24h-fe-am-18",
+      "printedPage": 10,
+      "officialAnswer": "イ",
+      "form": "システム性能の評価手法の説明を選ぶ",
+      "visiblePremisesAndVariation": "ベンチマーク、実稼働モニタリング、モデルの模擬実験、命令数の机上解析。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "実稼働の監視、標準負荷の実行、モデルによる模擬実験、机上の解析を比較。",
+      "independentCheck": "標準負荷実行・測定・モデル・解析を独立した事実表に固定し、全択と照合。",
+      "precision": "評価方法の違い。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.spec.org/cpu2006/Docs/readme1st.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 19,
+      "source": "2012h24h-fe-am-19",
+      "printedPage": 11,
+      "officialAnswer": "エ",
+      "form": "応答時間の内訳を表す式を選ぶ",
+      "visiblePremisesAndVariation": "一つのトランザクション、応答・回線・端末・サーバ、他オーバヘッドなし。求める未知時間を切り替える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "同じ時間項目に対する加減の符号を比較。",
+      "independentCheck": "具体的な時間区間を足し合わせた応答時間で、全4式を複数の値に代入して照合。",
+      "precision": "時間項3個の足し引き。追加の丸めや経路換算なし。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 20,
+      "source": "2012h24h-fe-am-20",
+      "printedPage": 11,
+      "officialAnswer": "ウ",
+      "form": "CPU処理と印刷の終了時刻を昇順4択から選ぶ",
+      "visiblePremisesAndVariation": "多重度1、CPU終了後スプーリング、プリンタ1台、並行処理可、他の時間は無視。件数・CPU時間・データ量を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。CPU分と一部の印刷だけ、印刷の合計だけ、最初のCPUと全印刷、全処理直列の候補を区別。",
+      "independentCheck": "CPUとプリンタの終了イベントを1件ずつ追跡して全択の正誤を検算。",
+      "precision": "時間は整数、100Mバイト当たり10分。印刷1件がCPU処理1件より長い入力に制約。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 21,
+      "source": "2012h24h-fe-am-21",
+      "printedPage": 12,
+      "officialAnswer": "ア",
+      "form": "仮想記憶の現象や方式の名称を選ぶ",
+      "visiblePremisesAndVariation": "主記憶不足・多重度増加によるスラッシング、断片化、固定長区画のページング、律速箇所。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "過剰なページ入出力、断片化、通常のページ単位管理、処理能力の制約を比較。",
+      "independentCheck": "原因と症状を事実表で分類し、全択の用語と照合。",
+      "precision": "スラッシングと通常のページングを区別。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.ibm.com/docs/en/txseries/11.1.0?topic=shortages-physical-memory-improved-performance",
+        "https://www.ibm.com/think/topics/virtual-memory"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 22,
+      "source": "2012h24h-fe-am-22",
+      "printedPage": 12,
+      "officialAnswer": "イ",
+      "form": "ページ置換え方式名から方式を説明するものを選ぶ",
+      "visiblePremisesAndVariation": "LRU、MRU、LFU、FIFOの置換基準を切り替える。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "MRU、LRU、LFU、FIFOの選択基準を比較。",
+      "independentCheck": "最後の参照時刻、参照回数、格納時刻の独立した意味表で全択を比較。",
+      "precision": "最古・最新・最少・格納順を取り違えない。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.nist.gov/publications/dads-line-dictionary-algorithms-and-data-structures"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 23,
+      "source": "2012h24h-fe-am-23",
+      "printedPage": 12,
+      "officialAnswer": "ウ",
+      "form": "固定長と可変長方式の効率・獲得返却を比較する",
+      "visiblePremisesAndVariation": "異種サイズと均一サイズを切替え。均一時は固定長の空きリスト・可変長の管理情報と探索・結合を明記。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "空き領域とブロック管理の負担を比較。可変長の外部断片化と固定長のブロック内余りを区別。",
+      "independentCheck": "ブロックの余り・ブロック内管理情報・空きリスト更新・探索と結合の比較から四択を判定。",
+      "precision": "処理時間は要求が直ちに充足できる管理処理の比較。実測時間が厳密に一定という主張ではない。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://docs.zephyrproject.org/latest/kernel/memory_management/slabs.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 24,
+      "source": "2012h24h-fe-am-24",
+      "printedPage": 13,
+      "officialAnswer": "ウ",
+      "form": "シェルのリダイレクトによる実現の可否を選ぶ",
+      "visiblePremisesAndVariation": "入力・出力のファイル切替え、追記、標準エラーを扱う。変種ではアクセス権限と上書き条件を表示。",
+      "order": "混合出題で並べ替え可",
+      "choiceRoles": "標準入力と標準出力の切替え、標準出力の追記の可否を比較。",
+      "independentCheck": "GNU Bashの仕様と、標準入力・標準出力・標準エラー・ファイル内容の独立事実表を照合。",
+      "precision": "ファイル内容の切替えと追記、ファイル記述子1と2を区別。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [
+        "https://www.gnu.org/s/bash/manual/html_node/Redirections.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 25,
+      "source": "2012h24h-fe-am-25",
+      "printedPage": 13,
+      "officialAnswer": "ウ",
+      "form": "7セグメントLEDの表示状態を図で選ぶ",
+      "visiblePremisesAndVariation": "P7がMSB、P0がLSB、出力1で点灯、a〜g・Dtの配線、抵抗、接地、白抜き／塗りの凡例。16進出力値を変更。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "同じ表示器の各セグメント・小数点の点灯マスクを比較。16進数とLSBからポート配線を照合。",
+      "independentCheck": "各16進桁を4ビットずつ展開し、表示された配線と4択全ての点灯を比較。",
+      "precision": "常に8ビット。原図の配線と共通表記p.2の抵抗・接地を保持。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。 図形・回路の教材用構成で，出典の別記や外部製品の図版はない。 抵抗・接地の記号は冊子p.2の共通表記を参照。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 26,
+      "source": "2012h24h-fe-am-26",
+      "printedPage": 14,
+      "officialAnswer": "ウ",
+      "form": "PCM方式の非圧縮モノラル音声データ量の概数を選ぶ",
+      "visiblePremisesAndVariation": "標本化周波数と音声時間を切替え、モノラル・非圧縮・16ビット・Mバイトの概数を保持。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。量子化ビット数、時間換算、チャンネル数、ビットからバイトへの換算を照合。",
+      "independentCheck": "1分当たりのサイズを求め、各選択肢との距離から最も近い候補を比較。",
+      "precision": "十進Mバイト、80・160・320・640の昇順。時間・周波数は倍・半分。",
+      "materialDisposition": "IPAの公式紙面で本文・注記・全選択肢・図表を照合。 引用元・転載表記・第三者素材を特定する表示はない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "catalog-fe-public",
-  "revision": 86,
+  "revision": 87,
   "scope": "distribution",
   "withdrawals": [
     {
@@ -180,6 +180,11 @@
         "path": "sources/pack-cc0392f8d0c86bf14f0bb4382755b82dd8670c24207f2122c35a40cb09432361.json",
         "sha256": "cc0392f8d0c86bf14f0bb4382755b82dd8670c24207f2122c35a40cb09432361",
         "recordCount": 30
+      },
+      {
+        "path": "sources/pack-1a7b8c880b80b95a93ef053cf4e57de76a08acb50310a4c0fcf8cfe1f210d805.json",
+        "sha256": "1a7b8c880b80b95a93ef053cf4e57de76a08acb50310a4c0fcf8cfe1f210d805",
+        "recordCount": 4
       }
     ],
     "rights": [
@@ -272,6 +277,11 @@
         "path": "rights/pack-9e352c5f8b0feeb5ce970032e1f75aac3e4f68dd3b3574e0f748f7666266c896.json",
         "sha256": "9e352c5f8b0feeb5ce970032e1f75aac3e4f68dd3b3574e0f748f7666266c896",
         "recordCount": 14
+      },
+      {
+        "path": "rights/pack-3ed7e54ef65326c3bb467e233066f50c391d80f0b4f10519c3abc00413828b91.json",
+        "sha256": "3ed7e54ef65326c3bb467e233066f50c391d80f0b4f10519c3abc00413828b91",
+        "recordCount": 1
       }
     ],
     "assets": [
@@ -534,6 +544,16 @@
         "path": "assets/pack-b4507776d2abd6fbb6317e508821e02bfabe5a4f31c1a7cfbbafd3517b014b86.json",
         "sha256": "b4507776d2abd6fbb6317e508821e02bfabe5a4f31c1a7cfbbafd3517b014b86",
         "recordCount": 22
+      },
+      {
+        "path": "assets/pack-51b3bedcd61cfab31618312b2293c6e7e3761bd422b042f51fef8052c74f3dc3.json",
+        "sha256": "51b3bedcd61cfab31618312b2293c6e7e3761bd422b042f51fef8052c74f3dc3",
+        "recordCount": 64
+      },
+      {
+        "path": "assets/pack-8166f15b87da5a9760a200f48d50ef5d3c5d4ac641667a8645138d472fdca95f.json",
+        "sha256": "8166f15b87da5a9760a200f48d50ef5d3c5d4ac641667a8645138d472fdca95f",
+        "recordCount": 17
       }
     ],
     "questions": [
@@ -821,12 +841,27 @@
         "path": "questions/pack-baf1e65e4da8df71e5d84a8036c338d1fb527404491467763b147d63cb720813.json",
         "sha256": "baf1e65e4da8df71e5d84a8036c338d1fb527404491467763b147d63cb720813",
         "recordCount": 26
+      },
+      {
+        "path": "questions/pack-53dfa38803499442a80c16df16d68873660aa02a4cc4a14c9cd62a14bb4ef062.json",
+        "sha256": "53dfa38803499442a80c16df16d68873660aa02a4cc4a14c9cd62a14bb4ef062",
+        "recordCount": 64
+      },
+      {
+        "path": "questions/pack-ef0b9248a193291eb80613c057af4ae504b7d0b34b5922fa139ed1f42db7f1e1.json",
+        "sha256": "ef0b9248a193291eb80613c057af4ae504b7d0b34b5922fa139ed1f42db7f1e1",
+        "recordCount": 64
+      },
+      {
+        "path": "questions/pack-f0e7839a332c971df6a9ef3d51b6adff08081d70ad438e8402646b9aed7636bd.json",
+        "sha256": "f0e7839a332c971df6a9ef3d51b6adff08081d70ad438e8402646b9aed7636bd",
+        "recordCount": 32
       }
     ],
     "sets": [
       {
-        "path": "sets/pack-3e3866496e84a14a8f3045991fea88fa2b9cf4521bdc86945a3bd9e353eae7ca.json",
-        "sha256": "3e3866496e84a14a8f3045991fea88fa2b9cf4521bdc86945a3bd9e353eae7ca",
+        "path": "sets/pack-c87dacf8381917c3e143769ddca397a9a490928451ca50cfe8ad2f7d949676a2.json",
+        "sha256": "c87dacf8381917c3e143769ddca397a9a490928451ca50cfe8ad2f7d949676a2",
         "recordCount": 37
       },
       {
@@ -898,6 +933,11 @@
         "path": "sets/pack-31c54e9b547b8bb9c8f9c855bcbdd89e37b1e55aa291cda0f8e5b30a4380b2d3.json",
         "sha256": "31c54e9b547b8bb9c8f9c855bcbdd89e37b1e55aa291cda0f8e5b30a4380b2d3",
         "recordCount": 2
+      },
+      {
+        "path": "sets/pack-5389e76ab9f838e07b9cd0e70fa2c83211cc503cc0c6a6932e010d8cddd5e869.json",
+        "sha256": "5389e76ab9f838e07b9cd0e70fa2c83211cc503cc0c6a6932e010d8cddd5e869",
+        "recordCount": 1
       }
     ],
     "exams": [
@@ -980,6 +1020,11 @@
         "path": "exams/pack-0292bc5650517150674af39138bf122c208f748162da018f22d568978fa15b89.json",
         "sha256": "0292bc5650517150674af39138bf122c208f748162da018f22d568978fa15b89",
         "recordCount": 4
+      },
+      {
+        "path": "exams/pack-26a4d21df5b6c08e3165a87ceb7602084ec78e8a12ee823fffeb7ad5cf789072.json",
+        "sha256": "26a4d21df5b6c08e3165a87ceb7602084ec78e8a12ee823fffeb7ad5cf789072",
+        "recordCount": 2
       }
     ],
     "templates": [
@@ -1162,6 +1207,16 @@
         "path": "templates/pack-523e8bdb1e4a603ef1894d19b9409d5d7ff8b91b8ef22514c88205beb63fad6a.json",
         "sha256": "523e8bdb1e4a603ef1894d19b9409d5d7ff8b91b8ef22514c88205beb63fad6a",
         "recordCount": 13
+      },
+      {
+        "path": "templates/pack-194a683e2f3c1552890395dc8881dc29431dd125e9c6f0e2fb55d5ae9cbea438.json",
+        "sha256": "194a683e2f3c1552890395dc8881dc29431dd125e9c6f0e2fb55d5ae9cbea438",
+        "recordCount": 64
+      },
+      {
+        "path": "templates/pack-dcc6167bf01e274b58bbc90b48a270dfe5cca15755caa9f4406fc58939369824.json",
+        "sha256": "dcc6167bf01e274b58bbc90b48a270dfe5cca15755caa9f4406fc58939369824",
+        "recordCount": 16
       }
     ]
   },

@@ -457,3 +457,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 問9の冊子は `strlen` の戻り型を `unsigned int` と表記する。標準Cの宣言は `size_t` で、この設問で扱う長さの比較結果は一致する。[WG14 N1570 §7.24.6.3](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf#page=390)。
 
 問8・13は共通の擬似言語p.3–4を参照する。問11のJava API原頁p.77–78へ出典リンクを設け、スレッドの操作と時刻の表示は仕様の事実を独自に整理する。問12はCASL II資料のp.81から命令表と注記を抜粋し、JIS文字表の節の手前までを掲載する。問13は表計算の機能・用語p.85–90を参照し、関数表の注1・注2はp.89にある。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[OracleのThread仕様](https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html)・[OracleのDate仕様](https://docs.oracle.com/javase/7/docs/api/java/util/Date.html)。
+
+### 第3段階 S3-019 2012年度春期・旧午前
+
+公式は全80問必須、150分。掲載対象の80問を年度別オリジナルとランダムミックスに収録します。論理回路と抵抗・接地の共通表記はp.2、問題はp.3〜36です。素材条件の保留はありません。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html) [公表問題の利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問58〜60・62は当時の監査・管理基準との表現境界を確認し、基準の本文や図表を配布しません。問78〜80はプログラムの著作権、商品の識別標識、組込みソフトウェアを含む製造物の欠陥を照合しました。 [システム監査基準（平成16年）](https://www.saaj.or.jp/kijun/system_kansa.pdf) [システム管理基準（平成16年）](https://www.saaj.or.jp/kijun/system_kanri.pdf) [著作権法](https://laws.e-gov.go.jp/law/345AC0000000048#Mp-At_10) [商標法](https://laws.e-gov.go.jp/law/334AC0000000127#Mp-At_2) [消費者庁の製造物責任法Q&A](https://www.caa.go.jp/policies/policy/consumer_safety/other/pl_qa.html)
