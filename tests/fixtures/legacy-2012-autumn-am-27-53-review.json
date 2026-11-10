@@ -1,0 +1,759 @@
+{
+  "status": "independent_content_review_passed",
+  "task": "S3-017",
+  "scope": "2012-autumn-am",
+  "collectionId": "2012h24a-fe-am",
+  "questionSHA256": "d6384768e2e84d3154ec4e6bf3bd477e683d67b20a360709d409079e93c56aea",
+  "answerSHA256": "cd684f1f9742b266d610719114b0508cff48d6f58c0d05fdf141b645a7914d8b",
+  "sourcePolicies": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html",
+    "policy": "https://www.ipa.go.jp/shiken/faq.html",
+    "scope": "IPA公表過去問の教育利用。原問出典に年度・期・区分・午前・問番号を表示し、可変版は改変と表示。第三者規格・資料は学習事実の参照だけに用い、原文や図表を配布しない。"
+  },
+  "checkedOn": "2026-11-10",
+  "expectedQuestions": 27,
+  "heldNumbers": [],
+  "independentTests": "tests/legacy-2012-autumn-am-27-53.test.ts",
+  "finiteConditions": 106,
+  "evaluatedOptions": 424,
+  "figures": {
+    "profiles": 2,
+    "reviewedStates": 8,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "drawing": "SVGを実際のReactマークアップから描画して目視照合。"
+  },
+  "questions": [
+    {
+      "number": 27,
+      "physicalPage": 12,
+      "printedPage": 12,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "列に設定するアクセス構造・制約",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 関係データベースの機能を設定する目的を選ぶ。元の分散格納の誤答に対応する候補では，容量節約を約束せず，格納単位を分けて管理するというパーティションの役割を示す。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.postgresql.org/docs/current/indexes-intro.html | https://www.postgresql.org/docs/current/ddl-constraints.html | https://www.postgresql.org/docs/current/ddl-partitioning.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 28,
+      "physicalPage": 13,
+      "printedPage": 13,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "二項の命名規約を読んで，それだけでは回避できない四つの問題を判定。否定の方向を固定。",
+      "parameter": {
+        "name": "型・値域・辞書・区分語を規定する二つの規約",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 命名規約の二項と「回避できない」の否定方向を維持する。型・値域・同義語・区分語のうち一つだけを規約から外し，同じ四つの問題を査読する。",
+      "precision": "計算なし。型・値域・意味・名称末尾の四つの規約要素を独立に扱う。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "本文中で制約を一つずつ検出し，四つの問題を防ぐ条件と独立に突き合わせる。",
+        "referenceFacts": "原問に表示した数値・条件と別実装による照合",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 29,
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの例題用商品表・SQL。第三者のコード・図表は見当たらない。",
+      "format": "商品表の3行5列，インデントを持つCREATE VIEWと，売値又は仕入値を1回更新する四候補。",
+      "parameter": {
+        "name": "商品表の売値と仕入値・SQLの収益下限・更新値",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 3行5列とCREATE VIEW，売値−仕入値の境界を含む条件式，一件更新による減少判定を保持する。元と同程度の5〜6桁整数で各候補を比較する。",
+      "precision": "売値・仕入値は5〜6桁整数。表示した収益差額の下限を含む比較を保持。小数なし。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "実SQLiteで基準ビューと四つのUPDATEをそれぞれセーブポイント内で実行し，行数の増減と解説の値を照合。",
+        "referenceFacts": "https://www.sqlite.org/lang_createview.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 30,
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "DBMSが更新時に保証する性質",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 更新に対して保証する単位を問う。原子性・一貫性・独立性・耐久性はいずれもトランザクションの性質であり，正答を別の単位へ変更すると原問の概念を崩すため，答えの単位を固定する。本文側では保証する性質を切り替える。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "fixed",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.postgresql.org/docs/current/tutorial-transactions.html | https://www.postgresql.org/docs/current/transaction-iso.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 31,
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの例題用注文・顧客表と操作行。第三者のデータ表は見当たらない。",
+      "format": "注文・顧客の二つの表，参照方向，列順と，操作対象を2セルで示した四候補。",
+      "parameter": {
+        "name": "注文の参照先・削除する顧客・追加する注文",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 注文表と顧客表，外部キーの方向，元の列順に従う行の削除・追加を保つ。伝票番号は4桁で，判定に必要な参照先を表内の値で確定する。",
+      "precision": "顧客番号は英字1＋数字3，伝票番号は先頭0を含む4桁。識別子を整数化しない。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "外部キーを有効にした実SQLiteで全候補を1件ずつ実行し，参照制約エラーが一意であることを確認。",
+        "referenceFacts": "https://www.sqlite.org/foreignkeys.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 32,
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "転送速度（ビット／秒），平均バイト数，秒間隔と追加制御情報率から利用率を選ぶ。昇順の四択。",
+      "parameter": {
+        "name": "回線速度・ファイルのバイト数・制御情報率",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 元のビット／秒・バイト・秒・％を保ち，正答は小数第1位以内で厳密に求められる組だけを使う。誤答はバイトのまま，制御情報抜き，秒数を掛ける誤り。原問の小数1桁と数値昇順を保持。",
+      "precision": "正答は小数1桁以内で厳密。誤答は8倍換算漏れ・制御情報抜き・秒数の乗除逆。原選択肢の小数1桁表示。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "ファイルを送り切る所要時間を先に求め，転送間隔で割って使用率を検算。全誤算も再計算。",
+        "referenceFacts": "原問に表示した数値・条件と別実装による照合",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 33,
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IEEEのOUIの用語とビット区分の事実。組合せ表はIPAの試験用の選択肢で、IEEEの図表・規格文言を転載していない。IEEE RAのMA-L資料で事実のみ照合。",
+      "format": "先頭・後続のビット数を列にした四つの組合せ。原は24＋24，派生ではビット数と構成の関係を保持。",
+      "parameter": {
+        "name": "IEEEの識別子の種類とビット区分",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原の四択を組合せ表で表示する。原問は従来の24＋24の割当てに対応する。可変時は2012年時点でも使われたOUI方式のEUI-64とIABを扱い，先頭・後続のビット数と役割を同期する。",
+      "precision": "固定整数。原の48ビットMAC，24ビットOUI方式のEUI-64，2012年時点のIABの組を区別。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "RFC 5342 §§2.1–2.2の幅と先頭・拡張の独立した対応から四つの組合せをすべて照合。",
+        "referenceFacts": "https://www.rfc-editor.org/rfc/rfc5342.html | https://standards.ieee.org/products-programs/regauth/mac/",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 34,
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "OSI層名と役割の事実のみ。ITU-T X.200の原文・図表を転載していない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "OSI基本参照モデルの機能",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 四つの層名を固定し，対象の機能を変える。隣接する層にもある処理と区別できるよう，中継・リンク・エンド間の転送・対話という範囲を明示する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.itu.int/rec/T-REC-X.200-199407-I/en",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 35,
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "ネットワーク機器と与えられた転送条件",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 対象機器を四つの機能に対応させる。スイッチは学習済み宛先のユニキャストとして区別し，ルータの分割はIPv4で許される条件に限定する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.itu.int/rec/T-REC-X.200-199407-I/en | https://www.rfc-editor.org/rfc/rfc2131.html | https://www.rfc-editor.org/rfc/rfc791.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 36,
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "マスクを読み，2台のIPv4アドレスが同一ネットワークの組を選ぶ。元の隣接する四つの組。",
+      "parameter": {
+        "name": "IPv4サブネットマスクとアドレス候補",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 同一ネットワークを問うIPv4の対を4組，原と同じ隣接する候補順で提示する。ホスト部4〜6ビット又は3ビットの小規模な刻みで，ネットワーク・ブロードキャストアドレスはホスト候補にしない。",
+      "precision": "先頭3オクテット共通，第4のみ3〜6ビットのホスト範囲。境界・ブロードキャストをホスト候補から除く。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "IPの構文・割当て可能な端点を検査し，ビット演算と別にオクテットの区間番号を割算で求めて全対を照合。",
+        "referenceFacts": "https://www.rfc-editor.org/rfc/rfc4632.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 37,
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "DNSサーバを利用した攻撃の種類",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 攻撃名から行為を選ぶ方向を維持する。応答偽造，版情報の偵察，反射型妨害，ゾーン情報の列挙を，それぞれの操作と目的で区別する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.rfc-editor.org/rfc/rfc5452.html | https://www.rfc-editor.org/rfc/rfc5358.html | https://www.rfc-editor.org/rfc/rfc5936.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 38,
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の架空平文・暗号文・送受信図。第三者の図・原文を見出さなかった。",
+      "format": "送信側の平文→暗号化→暗号文，ネットワーク，受信側の暗号文→復号→平文。鍵の持ち主を問う四択。",
+      "parameter": {
+        "name": "送信者・受信者と秘密に送る平文",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 送信元での鍵Kによる暗号化，ネットワーク，受信側の秘密鍵による復号と四つの鍵候補を保つ。受信者の変更を本文・図・鍵候補・解説に反映。",
+      "precision": "計算なし。公開鍵の持ち主を切り替え，秘密鍵を含む混同候補を保持。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "本文の送受信者，図の受信側の秘密鍵，四つの鍵の役割を照合。目的に合う受信者の公開鍵を選ぶ。四状態のSVGと読み上げを検査。",
+        "referenceFacts": "https://www.rfc-editor.org/rfc/rfc8017.html#section-7",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 39,
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "バイオメトリクスの方法の説明は試験用の独自設問。規格番号・第三者図版・引用表記は見当たらない。",
+      "format": "身体の形態と行動に関する二分類。観測法を選ぶ四つの記述候補。",
+      "parameter": {
+        "name": "身体的特徴・行動的特徴と取得条件",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 身体の形態と動作の特徴を区別する。署名に含まれる外形と署名時の運動を混同せず，動的に観測した動作を選べる条件を設定する。",
+      "precision": "計算なし。測定対象が時間変化か形態かで判定する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "選択肢が測る現象を時間的動作と身体の形態に分類し，全ての候補の真偽を判定。",
+        "referenceFacts": "https://www.nist.gov/itl/iad/image-group/biometrics",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 40,
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の説明選択。IPA「安全なウェブサイトの作り方」を意味の独立参照とし、外部資料の本文は転載しない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "同じ攻撃例群から説明を選ぶ攻撃名",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 名称から説明を選ぶ問いを保ち，同じ四つの攻撃の実行箇所・被害・自己伝染の有無を比較する。攻撃を実行するためのコードは付けない。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.ipa.go.jp/security/vuln/websecurity/about.html | https://csrc.nist.gov/glossary/term/worm",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 41,
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "監視したい変化と観測対象",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 何を検知するかを本文で変更し，更新日時・ハッシュ・メモリ・通信の観測対象の違いを判断する。ハッシュの比較元は信頼できる基準を想定。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final | https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 42,
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "0・中間・7の三試行，独立した3ビットと8進表記0〜7。昇順の四択。",
+      "parameter": {
+        "name": "三つの権限を持つOSの中間試行の値と結果",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 0・一部許可・7の3試行と，昇順の8進数候補を保つ。未確定な二つの許可ビットの対応を決め打ちしない。試行で唯一確定する権限に合う記述を正答とする。",
+      "precision": "3ビット，整数，丸めなし。残る対応の交換可能性を維持。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "3権限のビット割当て全6通りから条件を満たす2通りを列挙し，各候補が両方で真又は偽になることを検証。",
+        "referenceFacts": "原問に表示した数値・条件と別実装による照合",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 43,
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "ウイルス調査で明らかにする情報",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 逆アセンブル・パターン照合・完全一致・振る舞い観測という原候補の役割を保ち，調査目的に合う記述を選ぶ。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://csrc.nist.gov/pubs/sp/800/83/r1/final | https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 44,
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "対象の評価方法・参加者・試験目的",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 各手法の説明から名称を選ぶ方向を固定。許可された侵入，作成者主導，役割を決めたレビュー，変更後の既存機能の再検査を区別する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://csrc.nist.gov/pubs/sp/800/115/final | https://www.istqb.org/certifications/certified-tester-foundation-level",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 45,
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "安全・信頼性設計の方式名",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 方式名から故障時又は誤操作時の振る舞いを選ぶ。安全停止，縮退継続，冗長化による機能維持，誤操作防止を同じ四択で比較する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html | https://csrc.nist.gov/glossary/term/fault_tolerance",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 46,
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "UMLの図種名称・分類と役割の事実のみ。OMG UML 2.4.1の原文・図表を転載していない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "UMLダイアグラムの表現対象",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 図種を名称から識別する方向を維持し，インスタンス間・処理の流れ・構成要素・アクターの目的という表現対象を切り替える。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.omg.org/spec/UML/2.4.1/About-UML",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 47,
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "説明を選ぶオブジェクト指向の概念",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 名称から説明を選ぶ方向を保ち，分類，継承，汎化，カプセル化を同じ候補で区別する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.omg.org/spec/UML/2.4.1/About-UML | https://docs.oracle.com/javase/tutorial/java/concepts/",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 48,
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "仕様ベースか構造ベースかと検査条件",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 ブラックボックスと構造ベースの四択の役割を保つ。構造ベースの候補が複数正答にならないよう，データ作成・経路計測・全経路数の各検査条件を本文で区別する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.istqb.org/certifications/certified-tester-foundation-level",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 49,
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "検査する工程と対象",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 工程名から検査内容を選ぶ方向を保つ。運用する利用者の要求，単体の仕様，ユニット間のインタフェースを区別する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.istqb.org/certifications/certified-tester-foundation-level | https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 50,
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の設問・全選択肢。第三者の出典表示、規格文言、転載図表は見当たらない。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "完了する工程と対象範囲",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 完了時に承認する成果物を選ぶ。利用者に見える外部設計，開発を始めるための計画，DBの物理設計，プログラム詳細設計を区別する。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 51,
+      "physicalPage": 23,
+      "printedPage": 23,
+      "officialAnswer": "イ",
+      "officialArea": "management",
+      "materialReview": "WBSと計画作業の一般概念・簡潔な設問選択肢。PMIの定義文・図表を転載していない。PMIの解説で階層分解と順序付けの区別を事実照合。",
+      "format": "問題文で指定した対象又は条件に合う記述・用語を選ぶ。元の肯定方向と四候補の役割を維持。",
+      "parameter": {
+        "name": "プロジェクトの計画プロセス",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 計画プロセスから行う作業を選ぶ。WBSの階層化と，コスト見積り，日程作成，アクティビティの定義を区別する。PMIの規格文言や図版は使用しない。",
+      "precision": "手計算・端数処理は不要。用語の定義・適用範囲と説明の対応を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立資料で条件の類型と候補の役割を固定し，実際の四択を分類して一意の正答・解説と照合。",
+        "referenceFacts": "https://www.pmi.org/learning/library/work-breakdown-structure-practice-standard-4591",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 52,
+      "physicalPage": 23,
+      "printedPage": 23,
+      "officialAnswer": "エ",
+      "officialArea": "management",
+      "materialReview": "IPAの試験用5節点・6作業・凡例の図。第三者図表は見当たらない。",
+      "format": "5節点・作業A〜Fの矢印と所要日数・凡例，短縮対象A〜Eの各1日と全体2日，四つの作業の組。",
+      "parameter": {
+        "name": "作業A〜Fの所要日数",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 5節点・6作業・凡例・作業A〜Eの各1日と全体2日の短縮条件・4組の順番を保つ。数日単位の整数で前後の最長経路を比較し，全体を2日短縮できる候補は一つ。",
+      "precision": "数日単位の整数で，短縮対象は1日を超える。工程A・C・Eはどの経路も1日しか短縮しないため，その候補の誤答役割を保つ。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "トポロジカル順の実装と別に3経路を列挙し，最大値の差で四つの短縮日数を検算。四状態のSVG・altとラベルを照合。",
+        "referenceFacts": "原問に表示した数値・条件と別実装による照合",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    },
+    {
+      "number": 53,
+      "physicalPage": 23,
+      "printedPage": 23,
+      "officialAnswer": "エ",
+      "officialArea": "management",
+      "materialReview": "IPAの試験用数値例。ファンクションポイントの規格原文・表は掲載していない。",
+      "format": "開発規模，1人月当たりの生産性，導入と教育，両者に掛ける管理率から全工数を選ぶ。",
+      "parameter": {
+        "name": "ファンクションポイント・生産性・導入教育・管理率",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 元と同じ3桁の規模・2桁の生産性で割り切れる組を使用し，人月・管理率の単位と，導入・教育の加算と管理率の基礎を保つ。誤答は導入教育を計上しない，管理を計上しない，管理を開発だけに掛ける。",
+      "precision": "規模は3桁，生産性は2桁で整数商。管理の人月も整数。原候補の桁数と昇順を維持。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "合計に整数の比率を掛けて全工数を求め，各誤答の計上漏れ及び解説中の合計を全条件で照合。",
+        "referenceFacts": "原問に表示した数値・条件と別実装による照合",
+        "coverage": "全有限入力の本文・解答群・正答と解説，基準入力，境界，範囲外の拒否，同一入力の再現性を検証。"
+      }
+    }
+  ]
+}

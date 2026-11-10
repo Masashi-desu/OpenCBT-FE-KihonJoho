@@ -1,0 +1,701 @@
+{
+  "schema": "stage3-morning-authoring-review-v1",
+  "task": "S3-017",
+  "scope": "2012-autumn-am",
+  "range": [
+    1,
+    26
+  ],
+  "checkedOn": "2026-11-10",
+  "questions": [
+    {
+      "number": 1,
+      "source": "2012h24a-fe-am-1",
+      "printedPage": 3,
+      "officialAnswer": "ウ",
+      "form": "8ビット算術右シフトと減算",
+      "visiblePremisesAndVariation": "負の2の補数、右2ビット、8桁を固定し、二つのオペランドを変える。イの誤りは減算でビット反転後の+1を落とすこと。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "アは算術シフト結果を足す、イは減算でビット反転後に1を加え忘れる、ウは算術シフトして減じる、エは上位を0埋めして減じる。",
+      "independentCheck": "符号ビットを複製する文字列操作と、ビット反転による全誤答モデル",
+      "precision": "丸めなし。原問の8桁と減算方向。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 2,
+      "source": "2012h24a-fe-am-2",
+      "printedPage": 3,
+      "officialAnswer": "イ",
+      "form": "手順を実行する回数の昇順4択",
+      "visiblePremisesAndVariation": "3桁と2桁の正の整数と大小を固定し、入力対を切り替える。4段階の手順と剰余0の終了を表示。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。アは剰余0の回を落とす。ウ・エは初期項を回数に数える場合の過大候補。",
+      "independentCheck": "反復減算による剰余と反復回数。剰余0を含む",
+      "precision": "3・4・6・7回。入力桁数と1桁の商を維持。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 3,
+      "source": "2012h24a-fe-am-3",
+      "printedPage": 4,
+      "officialAnswer": "ア",
+      "form": "探索方法と時間のオーダの3列表",
+      "visiblePremisesAndVariation": "n、c、ハッシュ衝突無視の前提と3列を維持し、2分・線形探索が一致する箇所を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "列は問題の解答群と同順。典型的な計算量の取り違えを比較。",
+      "independentCheck": "一定・候補半減・全件を調べる場合の比較回数。全4択の3成分",
+      "precision": "算術丸めなし。代表的増加量の比較。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 4,
+      "source": "2012h24a-fe-am-4",
+      "printedPage": 4,
+      "officialAnswer": "イ",
+      "form": "固定長の最小ビット数",
+      "visiblePremisesAndVariation": "一意のコード、同一ビット数、範囲の列挙と数値昇順を固定。文字集合を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。容量不足と過大ビット数を比較。",
+      "independentCheck": "範囲の全列挙と、b−1ビットで不足しbビットで足りるかの容量判定",
+      "precision": "2の累乗に対する境界を維持し、最少値を整数で答える。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 5,
+      "source": "2012h24a-fe-am-5",
+      "printedPage": 4,
+      "officialAnswer": "イ",
+      "form": "二つの手続によるキュー反転の最少回数",
+      "visiblePremisesAndVariation": "空のスタック・先頭の取り出しと末尾の挿入・逆順を固定し、3〜6個のデータに変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。最少回数と全要素移動などの過大候補を比較。",
+      "independentCheck": "両操作を遷移とする0–1コストの全状態探索",
+      "precision": "原問の回数昇順。最小候補と全要素を移した場合を区別。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 6,
+      "source": "2012h24a-fe-am-6",
+      "printedPage": 5,
+      "officialAnswer": "イ",
+      "form": "二分探索の流れ図の空欄",
+      "visiblePremisesAndVariation": "整数除算、m=0の未発見、探索範囲の判定と比較を固定。昇順/降順と上端包含/除外を切り替える。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "両端の和・平均・差を同じ役割で比較。",
+      "independentCheck": "実表示した式ごとの探索シミュレーション。1〜14要素の各一致・不一致、上端と下端を検査",
+      "precision": "整数除算の切捨てを保持。両端の平均がどの区間でも正答となるため正答式は固定。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 7,
+      "source": "2012h24a-fe-am-7",
+      "printedPage": 5,
+      "officialAnswer": "イ",
+      "form": "階乗の再帰の乗算回数式",
+      "visiblePremisesAndVariation": "基底と再帰の改行を保ち、nの下限と基底の階乗値を同期する。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "再帰の回数と境界、二乗、戻り値の取り違えを比較。",
+      "independentCheck": "各基底から先の乗算因子の列挙と積、各選択肢の式を独立に評価",
+      "precision": "nが基底なら0回。整数の回数式。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 8,
+      "source": "2012h24a-fe-am-8",
+      "printedPage": 6,
+      "officialAnswer": "イ",
+      "form": "言語の名称から特徴を選ぶ",
+      "visiblePremisesAndVariation": "XML、HTML、SGML、XSLTのどれを説明するか変える。外部規格本文や図は複製しない。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "仕様の目的、タグ定義、スタイル、SGML由来の4記述。",
+      "independentCheck": "W3C等の文書処理仕様を根拠に全候補の役割を査読",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。仕様・名称・一般的事実への言及のみ。外部文書本文、外部図版、ロゴを含まない。",
+      "verificationReferences": [
+        "https://www.w3.org/TR/xml/",
+        "https://html.spec.whatwg.org/multipage/introduction.html",
+        "https://www.w3.org/TR/xslt-10/"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 9,
+      "source": "2012h24a-fe-am-9",
+      "printedPage": 6,
+      "officialAnswer": "ウ",
+      "form": "割込み処理の4手順の並べ方",
+      "visiblePremisesAndVariation": "特権移行・状態退避・番地決定・実行、参照手順番号と順序を保持し、番地の決め方を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "手順番号の参照と4ステップの順序を保持。",
+      "independentCheck": "表示した4手順の依存順を4候補で照合。方式名に応じた可視ステップを検査",
+      "precision": "原問のプロセッサモデルの順序で固定。個別のCPU製品の仕様とは区別。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 10,
+      "source": "2012h24a-fe-am-10",
+      "printedPage": 6,
+      "officialAnswer": "エ",
+      "form": "実効アクセス時間からヒット率を求める",
+      "visiblePremisesAndVariation": "ナノ秒の主記憶・キャッシュ・実効の3値を同期し、比の昇順を維持。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。重みの反転、差分を主記憶だけで割る等を区別。",
+      "independentCheck": "候補を100回中のヒット回数として総アクセス時間を逆算",
+      "precision": "正答は有限小数。誤答の分離に小数第2位までを用い、選択肢の桁を原問と同程度にする。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 11,
+      "source": "2012h24a-fe-am-11",
+      "printedPage": 7,
+      "officialAnswer": "ウ",
+      "form": "ストレージ処理から方式名を選ぶ",
+      "visiblePremisesAndVariation": "並列の分散配置、一時記憶、複製、光ディスクの一括書込みを区別。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "各ディスク手法の名称と動作を区別。",
+      "independentCheck": "全候補の読み書きと冗長配置の役割に対する独立対応",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 12,
+      "source": "2012h24a-fe-am-12",
+      "printedPage": 7,
+      "officialAnswer": "エ",
+      "form": "解像度から正方フォントの縦ドット数を求める",
+      "visiblePremisesAndVariation": "1ポイント=1/72インチの前提を保ち、dpiとポイントを整数になる組で変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。換算の逆転・省略・過小値を比較。",
+      "independentCheck": "候補のドット数×72を、ポイント×dpiと比較。整数かと昇順も検査",
+      "precision": "丸めなし。半値、逆換算、ポイント値の流用を区別。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 13,
+      "source": "2012h24a-fe-am-13",
+      "printedPage": 7,
+      "officialAnswer": "ウ",
+      "form": "3層Webシステムの適切な特徴を選ぶ",
+      "visiblePremisesAndVariation": "表示・業務処理・データ管理を区別し、確認する層や変更操作を変える。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "文書記述・処理実行位置・更新配布・通信の役割を区別。",
+      "independentCheck": "全候補のHTMLとHTTP、処理・表示・データ層の役割を固定資料に照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。仕様・名称・一般的事実への言及のみ。外部文書本文、外部図版、ロゴを含まない。",
+      "verificationReferences": [
+        "https://html.spec.whatwg.org/multipage/introduction.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 14,
+      "source": "2012h24a-fe-am-14",
+      "printedPage": 8,
+      "officialAnswer": "ア",
+      "form": "冗長方式の名称から説明を選ぶ",
+      "visiblePremisesAndVariation": "デュアルとデュプレックスの起動・切替え状態を変え、装置単位の冗長化と分ける。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "同時実行照合、別処理を行う待機系、即時待機系、構成部品の冗長化を比較。",
+      "independentCheck": "IPAのデュアル・デュプレックス・ホット/ウォーム/コールドの区別と全候補の照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [
+        "https://www.ipa.go.jp/archive/publish/qv6pgp0000000ysl-att/000005118.pdf",
+        "https://www.ipa.go.jp/archive/files/000004636.pdf"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 15,
+      "source": "2012h24a-fe-am-15",
+      "printedPage": 8,
+      "officialAnswer": "エ",
+      "form": "直列・並列の構成図から全体の稼働率式を選ぶ",
+      "visiblePremisesAndVariation": "共通直列部、上下の直列枝、片枝の稼働でよい条件を保つ。枝の装置数と式を同期。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "共通1台を並列扱い、4台全並列、2台並列の直列、直列枝の並列を比較。",
+      "independentCheck": "稼働・停止のビット集合を全列挙。図の装置数に応じた式の値と照合",
+      "precision": "装置ごとの同一稼働率P。3〜7次の式を判別し、小数の丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 16,
+      "source": "2012h24a-fe-am-16",
+      "printedPage": 9,
+      "officialAnswer": "エ",
+      "form": "信頼性と保守に関する適切な記述",
+      "visiblePremisesAndVariation": "平均故障間隔、平均修復時間、稼働率のどれが変わるかを条件にして保守の効果を比較。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "MTTR・MTBFの方向、構成複雑性、予防保守を比較。",
+      "independentCheck": "全候補の故障間隔・修復時間・稼働率の向きを別資料に照合",
+      "precision": "比率は分子・分母の関係。選択肢は文章で丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 17,
+      "source": "2012h24a-fe-am-17",
+      "printedPage": 9,
+      "officialAnswer": "ウ",
+      "form": "CPU割当て方式の特性を選ぶ",
+      "visiblePremisesAndVariation": "優先度の待ち補正、ラウンドロビン、最短処理時間、到着順の候補を保ち、要求特性を変える。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "優先度経年補正、ラウンドロビン、最短処理時間、到着順の記述。",
+      "independentCheck": "全候補をスケジュール手順と待機特性の固定資料に照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [
+        "https://research.cs.wisc.edu/wind/OSTEP/cpu-sched.pdf"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 18,
+      "source": "2012h24a-fe-am-18",
+      "printedPage": 9,
+      "officialAnswer": "ウ",
+      "form": "記憶管理の現象・操作名を選ぶ",
+      "visiblePremisesAndVariation": "記憶の断片化、空き領域の連続化、退避・復帰、固定長ページを切り替える。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "領域圧縮、退避、領域断片化、固定長ページの区別。",
+      "independentCheck": "全候補の名称と実現する記憶管理の作用の独立照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 19,
+      "source": "2012h24a-fe-am-19",
+      "printedPage": 10,
+      "officialAnswer": "エ",
+      "form": "初期状態が空のLRUで置換えページを求める",
+      "visiblePremisesAndVariation": "ページ6を最後に参照する10回の列を保ち、枠数と途中の参照順を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "昇順。直近・最初の追い出し・真の最終追い出し等を区別。",
+      "independentCheck": "参照順の逆走査で最も新しい相異なるページを抽出して置換え対象を判定",
+      "precision": "整数ページ番号の昇順。丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 20,
+      "source": "2012h24a-fe-am-20",
+      "printedPage": 10,
+      "officialAnswer": "エ",
+      "form": "モジュールの結合時点などの説明から方式名を選ぶ",
+      "visiblePremisesAndVariation": "静的・動的な結合、逐次解釈、同一領域の再利用を比較。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "逐次解釈・重ね合わせ・実行前結合・実行時結合を区別。",
+      "independentCheck": "4方式の処理と時点の違いを独立査読",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 21,
+      "source": "2012h24a-fe-am-21",
+      "printedPage": 10,
+      "officialAnswer": "ア",
+      "form": "OSSの利用目的から名称を選ぶ",
+      "visiblePremisesAndVariation": "実在する4製品を維持し、開発環境、コンパイラ、カーネル、コンテナの役割を切り替える。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "統合開発環境・コンパイラ集・カーネル・Servletコンテナ。",
+      "independentCheck": "公式製品ページの役割と全候補の名称を照合",
+      "precision": "計算・丸めなし。製品コード・画像・ロゴを含めない。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。仕様・名称・一般的事実への言及のみ。外部文書本文、外部図版、ロゴを含まない。",
+      "verificationReferences": [
+        "https://www.eclipse.org/downloads/packages/",
+        "https://gcc.gnu.org/",
+        "https://www.kernel.org/doc/html/latest/admin-guide/README.html",
+        "https://tomcat.apache.org/"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 22,
+      "source": "2012h24a-fe-am-22",
+      "printedPage": 10,
+      "officialAnswer": "イ",
+      "form": "NANDの結線図から論理式を選ぶ",
+      "visiblePremisesAndVariation": "論理積・論理和・否定の本文注記、結線図と4つの式を保持。否定は式全体を覆う上線。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "積・和とそれぞれの否定。",
+      "independentCheck": "SSR出力からゲートの接続を読み全4入力を照合。全4式、記号、上線の範囲もSSRで検査",
+      "precision": "真理値の2値。丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 23,
+      "source": "2012h24a-fe-am-23",
+      "printedPage": 11,
+      "officialAnswer": "エ",
+      "form": "回路・素子の性質から名称を選ぶ",
+      "visiblePremisesAndVariation": "二安定の順序回路、論理演算、数値加算、受動素子の違いを判定する。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "単一ゲート・演算回路・受動素子・1ビット記憶回路を比較。",
+      "independentCheck": "全候補の回路又は素子の働きを独立した対応資料と照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 24,
+      "source": "2012h24a-fe-am-24",
+      "printedPage": 11,
+      "officialAnswer": "イ",
+      "form": "Webに必要な機能から仕組みの略称を選ぶ",
+      "visiblePremisesAndVariation": "スタイル、コンテンツ管理、ラスター、ベクターの役割を切り替える。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "文書管理、スタイル、ラスター、ベクターを比較。",
+      "independentCheck": "W3Cの形式仕様等から意味を査読し、全候補の略称と役割を照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。仕様・名称・一般的事実への言及のみ。外部文書本文、外部図版、ロゴを含まない。",
+      "verificationReferences": [
+        "https://www.w3.org/TR/CSS2/intro.html",
+        "https://www.w3.org/TR/PNG/",
+        "https://www.w3.org/TR/SVG11/intro.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 25,
+      "source": "2012h24a-fe-am-25",
+      "printedPage": 11,
+      "officialAnswer": "エ",
+      "form": "月次の4ファイルから出力できる集計を選ぶ",
+      "visiblePremisesAndVariation": "当月に顧客×商品、過去に単軸の合計、担当者マスタを保つ。担当者の割当先と過去月数を変える。",
+      "order": "原形式の順序を固定",
+      "choiceRoles": "同一粒度のア・イは歴史明細がなく、ウは商品と担当者を結べない。エは顧客の履歴と担当者コードを結べる。",
+      "independentCheck": "同じ周辺合計をもつ二つの受注行列で、結合して分かる集計と不定な集計を分離",
+      "precision": "過去2〜3か月。額の計算を追加せずデータの粒度だけを問う。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 26,
+      "source": "2012h24a-fe-am-26",
+      "printedPage": 12,
+      "officialAnswer": "ア",
+      "form": "E-R図の適切な説明を選ぶ",
+      "visiblePremisesAndVariation": "関連、属性、多重度の説明を切り替え、特定の記法を全記法に当てはめない。",
+      "order": "独立した4候補。基準は原順",
+      "choiceRoles": "多重度、方向の決め付け、属性の主体、関係表記を比較。",
+      "independentCheck": "エンティティ、関連、属性、件数を独立した対応資料に照合",
+      "precision": "計算・丸めなし。",
+      "materialDisposition": "公式紙面の本文・注記・全選択肢・図表を目視照合。引用元、転載表示、第三者図版又は規格原表なし。仕様・名称・一般的事実への言及のみ。外部文書本文、外部図版、ロゴを含まない。",
+      "verificationReferences": [
+        "https://www.ibm.com/think/topics/entity-relationship-diagram"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    }
+  ],
+  "heldNumbers": [],
+  "officialSource": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_am_qs.pdf",
+      "sha256": "d6384768e2e84d3154ec4e6bf3bd477e683d67b20a360709d409079e93c56aea",
+      "byteLength": 4455863
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_am_ans.pdf",
+      "sha256": "cd684f1f9742b266d610719114b0508cff48d6f58c0d05fdf141b645a7914d8b",
+      "byteLength": 24355
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html",
+      "sha256": "20c1272c8dd9ae69551c7ab0d0ba0b37adff9a9a6b019875092635fa6475eced",
+      "byteLength": 123022
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "execution": {
+    "reviewer": "Codex AI",
+    "independentTestFiles": [
+      "tests/legacy-2012-autumn-am-01-26.test.ts"
+    ],
+    "testsPassed": 9,
+    "finiteInputs": 104,
+    "optionsEvaluated": 416,
+    "figureProfiles": 4,
+    "visualStates": 16,
+    "rasterizedStates": 32,
+    "typeCheck": "strict passed",
+    "colors": "candidate references validated",
+    "notes": "紙面と生成図のライト・ダークを目視し、SVGの全状態を検査。通常アプリでの登録・操作・採点と配布可否は問題集全体を統合して判定。統計的な識別力の実測は行っていない。"
+  }
+}

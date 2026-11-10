@@ -253,7 +253,7 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
       assert(html.includes('data-positive-input="true"')&&html.includes('data-negative-input="true"'));
       assert(html.includes('○')&&html.includes('論理状態の反転又は否定'));return;
     }
-    assert(scene.kind === "source_figure" && /-am-(?:23-)?common-gates$/.test(scene.profile));
+    assert(scene.kind === "source_figure" && /-am-(?:(?:[1-9]|[1-7]\d|80)-)?common-gates$/.test(scene.profile));
     assert(html.includes('<table aria-label="' + escapeHTML(block.caption) + '"'));
     assert(html.includes('<th scope="col">図記号</th><th scope="col">説明</th>'));
     assert.deepEqual([...html.matchAll(/data-common-gate="([^"]+)"/g)].map(m => m[1]),

@@ -1,0 +1,271 @@
+{
+  "collectionId": "2012h24a-fe-am",
+  "task": "S3-017",
+  "checkedOn": "2026-11-10",
+  "examDate": "2012-10-21",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 3
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 23
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 27
+    }
+  ],
+  "commonPages": [
+    2
+  ],
+  "held": [
+    {
+      "number": 56,
+      "reason": "ITIL v3 Service Operation・同時代の用語集のプロセス目標とサービスデスクの複合的な具体表現を含む。四択の日本語表現の由来と旧版の再配布・改変条件を確認できるまで保留。"
+    },
+    {
+      "number": 61,
+      "reason": "平成16年10月8日版のⅠ1.1(3)の最適化目標、Ⅰ1.2(1)の経営戦略との整合性、関連する費用・開発計画項目と表現が近い。発行主体の旧版利用条件又は個別許諾を確認できるまで保留。"
+    },
+    {
+      "number": 66,
+      "reason": "共通フレーム2007第2版1.4／1.5／1.6.2の要求事項の具体的な記述。企画・要件定義のIPA拡張は確認できるが、選択肢全体の市販書籍・JIS系原文との表現境界を確認できるまで保留。同じ選択肢構成の2015年度春期問66も保留。"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_am_qs.pdf",
+      "sha256": "d6384768e2e84d3154ec4e6bf3bd477e683d67b20a360709d409079e93c56aea",
+      "byteLength": 4455863
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_am_ans.pdf",
+      "sha256": "cd684f1f9742b266d610719114b0508cff48d6f58c0d05fdf141b645a7914d8b",
+      "byteLength": 24355
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html",
+      "sha256": "20c1272c8dd9ae69551c7ab0d0ba0b37adff9a9a6b019875092635fa6475eced",
+      "byteLength": 123022
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "冊子p.2はIPAの共通表記で、九つの標準的な論理素子の図記号と入力部又は出力部の反転の注記を保持する。",
+    "公式表紙の全80問必須・150分、p.3・23・27の分野区分、物理頁と印刷頁の一致を確認。",
+    "各問の原文、注意、全選択肢、図表、外部出典・原版転載の有無を目視し、保留3問を配布素材と生成器から除外。",
+    "問33・34・46・51は標準・用語の事実とIPA作問の選択肢。標準原文・図版の転載は確認されなかった。",
+    "問59は経済産業省の平成23年12月1日改訂指針第3章2(2)①・②(ア)(a)に基づくIPA独自の監査設問。媒体表示の学習事実を用い、当時版の具体例・画像・原文は同梱しない。",
+    "問75・79・80は試験時点の法令・公式資料を参照し、法令の要件を学習できる解説を独自に作成する。",
+    "原問題は印刷順、生成問題は数値や図の比較を維持するため各問の選択肢順を固定する。",
+    "公表過去問の教育利用では年度・期・試験区分・時間区分・原問番号と改変を表示する。"
+  ],
+  "independentFactSources": [
+    {
+      "questions": [
+        33
+      ],
+      "url": "https://standards.ieee.org/products-programs/regauth/mac/",
+      "scope": "原問の技術・用語の学習事実を照合"
+    },
+    {
+      "questions": [
+        34
+      ],
+      "url": "https://www.itu.int/rec/T-REC-X.200-199407-I/en",
+      "scope": "原問の技術・用語の学習事実を照合"
+    },
+    {
+      "questions": [
+        37
+      ],
+      "url": "https://www.rfc-editor.org/rfc/rfc5452.html",
+      "scope": "原問の技術・用語の学習事実を照合"
+    },
+    {
+      "questions": [
+        40
+      ],
+      "url": "https://www.ipa.go.jp/security/vuln/websecurity/about.html",
+      "scope": "原問の技術・用語の学習事実を照合"
+    },
+    {
+      "questions": [
+        46
+      ],
+      "url": "https://www.omg.org/spec/UML/2.4.1/About-UML",
+      "scope": "原問の技術・用語の学習事実を照合"
+    },
+    {
+      "questions": [
+        51
+      ],
+      "url": "https://www.pmi.org/learning/library/work-breakdown-structure-practice-standard-4591",
+      "scope": "原問の技術・用語の学習事実を照合"
+    },
+    {
+      "questions": [
+        56
+      ],
+      "title": "PeopleCert 第三者製品ライセンス",
+      "url": "https://www.peoplecert.org/Organizations/Services/third-party-product-licensing-service",
+      "role": "版別の著作物利用条件の照会先"
+    },
+    {
+      "questions": [
+        56
+      ],
+      "title": "GOV.UK Service management good practice",
+      "url": "https://www.gov.uk/government/publications/public-services-network-psn-service-management-good-practice/service-management-good-practice",
+      "role": "問題管理とインシデント管理の区別の参考。ITIL原文の利用許可には用いない"
+    },
+    {
+      "questions": [
+        59
+      ],
+      "title": "経済産業省 営業秘密管理指針 平成23年12月1日改訂",
+      "url": "https://www.meti.go.jp/policy/economy/chizai/chiteki/pdf/111216hontai.pdf",
+      "locator": "第3章2(2)①・②(ア)(a)、冊子p.37–38",
+      "role": "当時の官庁URL。取得時403"
+    },
+    {
+      "questions": [
+        59
+      ],
+      "title": "平成23年12月1日改訂版の写し",
+      "url": "https://www.it-shikaku.jp/kougi/doc/eigyouhimitsukanri.pdf",
+      "locator": "表紙、PDF p.38–39・冊子p.37–38",
+      "role": "表紙と同版の本文の照合のみ。PDF・表現は配布しない",
+      "sha256": "134f20d23130115eba9b76be532fafc375bb125d2efdccfb9cc8e4ead0fa049a"
+    },
+    {
+      "questions": [
+        59
+      ],
+      "title": "経済産業省 人材を通じた技術流出に関する調査研究報告書",
+      "url": "https://www.meti.go.jp/policy/economy/chizai/chiteki/pdf/honpen.pdf",
+      "locator": "冊子p.1脚注1",
+      "role": "改訂日と官庁URLの同定、営業秘密の三要件の区別"
+    },
+    {
+      "questions": [
+        59
+      ],
+      "title": "裁判所 知財高裁の公開判決",
+      "url": "https://www.courts.go.jp/assets/hanrei/hanrei-pdf-91195.pdf",
+      "locator": "平成23年12月1日改訂指針第3章2(2)②の参照箇所",
+      "role": "同版の該当箇所の補助照合"
+    },
+    {
+      "questions": [
+        61
+      ],
+      "title": "経済産業省 システム管理基準 平成16年10月8日版",
+      "url": "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+      "locator": "Ⅰ1.1(3)、Ⅰ1.2(1)、開発・企画計画項目",
+      "role": "原版の写し。掲載元独自の再利用条件は確認できていない"
+    },
+    {
+      "questions": [
+        66
+      ],
+      "title": "IPA 原理原則17ヶ条と共通フレーム2007",
+      "url": "https://www.ipa.go.jp/archive/publish/qv6pgp0000000zef-att/000005141.pdf",
+      "locator": "1.4企画、1.5要件定義、1.6開発",
+      "role": "同版の工程と学習対象の確認"
+    },
+    {
+      "questions": [
+        66
+      ],
+      "title": "IPA 共通フレーム2007との差異",
+      "url": "https://www.ipa.go.jp/archive/files/000027415.pdf",
+      "locator": "スライド20–22",
+      "role": "IPAの拡張プロセスとJIS系工程の境界"
+    },
+    {
+      "questions": [
+        66
+      ],
+      "title": "IPA 平成27年春期 FE 午前 問66",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000000f52-att/2015h27h_fe_am_qs.pdf",
+      "role": "同一型の四択が共通フレーム2013の出典境界で保留"
+    },
+    {
+      "questions": [
+        75
+      ],
+      "title": "厚生労働省 平成22年就労条件総合調査 用語定義",
+      "url": "https://www.mhlw.go.jp/toukei/itiran/roudou/jikan/syurou/10/yougo.html",
+      "locator": "専門業務型／企画業務型裁量労働制",
+      "role": "試験時点より前の公的定義"
+    },
+    {
+      "questions": [
+        75
+      ],
+      "title": "労働基準法",
+      "url": "https://laws.e-gov.go.jp/law/322AC0000000049",
+      "locator": "第38条の3・第38条の4",
+      "role": "法令の条項の同定。後年の細則を原問へ移さない"
+    },
+    {
+      "questions": [
+        79
+      ],
+      "title": "昭和60年法律第62号 著作権法の一部を改正する法律",
+      "url": "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/10219850614062.htm",
+      "locator": "第10条第1項第9号・第3項、第2条",
+      "role": "プログラム著作物と言語・規約・解法の区別を試験時点以前の改正で確認"
+    },
+    {
+      "questions": [
+        80
+      ],
+      "title": "厚生労働省 労働者派遣法",
+      "url": "https://www.mhlw.go.jp/web/t_doc?dataId=75021000",
+      "locator": "第2条、第26条、第40条第1項",
+      "role": "派遣元の雇用と派遣先の指揮命令、契約範囲、苦情対応"
+    },
+    {
+      "questions": [
+        80
+      ],
+      "title": "厚生労働省 平成24年法律第27号の公布通知",
+      "url": "https://www.mhlw.go.jp/web/t_doc?dataId=00tb8238&dataType=1&pageNo=1",
+      "locator": "平成24年4月6日",
+      "role": "試験時点の改正範囲の照合"
+    },
+    {
+      "questions": [
+        80
+      ],
+      "title": "厚生労働省 派遣元の労働条件確保",
+      "url": "https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei29/pdf/040617-1b.pdf",
+      "locator": "年次有給休暇",
+      "role": "試験時点以前の派遣元の年休・時季変更権の扱い"
+    }
+  ],
+  "sourcePreflightSHA256": "eded4aff27c4aa493c2fa8dceef3a30a87143fcd2cb4512de23a0e15b8e8f0c1",
+  "cropCandidatesSHA256": "4a6897e7e4cde96bef24eae3c9fdae95e76bfc70a8a511e9fd4a53b330f790da",
+  "verifiedEligibleCount": 77
+}
