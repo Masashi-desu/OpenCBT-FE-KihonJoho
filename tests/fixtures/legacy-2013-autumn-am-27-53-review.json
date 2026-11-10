@@ -1,0 +1,728 @@
+{
+  "collectionId": "2013h25a-fe-am",
+  "checkedOn": "2026-11-10",
+  "source": {
+    "questions": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_qs.pdf",
+    "answers": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_ans.pdf",
+    "questionSHA256": "83102f43611ea194ca17d7876a272073fb7000a35ba1a4ef24ca4954e73cc641",
+    "answerSHA256": "52a425f89bcdafd1652ac46e880559b9d87a56a71500605e3a1b0f7dabdaf6f4"
+  },
+  "coverage": {
+    "numbers": [
+      27,
+      53
+    ],
+    "eligible": 27,
+    "held": [],
+    "finiteConditions": 91,
+    "choiceChecks": 364,
+    "figureProfiles": 2,
+    "figureInputTuples": 8,
+    "scopeTests": 29
+  },
+  "validation": {
+    "reviewer": "Codex AI",
+    "typecheck": "pass",
+    "autotests": "pass",
+    "display": "登録図2種・8入力をSSRし、変化後のラベル・接続・凡例・色参照を照合。実ブラウザと出題／保存復元の全アプリ検査は冊子統合時。"
+  },
+  "questions": [
+    {
+      "number": 27,
+      "printedPage": 13,
+      "officialAnswer": "ア",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 技法名から説明を選ぶ。中間画像の補間、実測動作、レイヤ合成、領域彩色の区別を保持する。",
+      "version": "3.7.0",
+      "field": "説明する制作技法",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "中間画像の補間は形状変化。撮影した運動の再生は実測データを利用。奥行きを作る合成と領域内の塗りつぶしは別の処理。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 28,
+      "printedPage": 14,
+      "officialAnswer": "エ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 サーバでの動作と目的から仕組み名を選ぶ。命令群の保存、分散確定、ログ書込みの集約、スレッド並行を区別する。",
+      "version": "3.7.0",
+      "field": "必要なサーバ処理",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "DBMSへ処理を預けると複数の命令をまとめて呼び出せる。分散原子確定の準備と、ログflushの共用、実行単位の並行化は機構が異なる。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.postgresql.org/docs/17/two-phase.html",
+        "https://www.postgresql.org/docs/19/runtime-config-wal.html"
+      ]
+    },
+    {
+      "number": 29,
+      "printedPage": 14,
+      "officialAnswer": "エ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 データ構造の説明を選ぶ。関係、階層、オブジェクト、タグ付き文書の構造を区別する。",
+      "version": "3.7.0",
+      "field": "説明するデータモデル",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "関係は属性と組の集合、階層は木、XMLは要素と属性、オブジェクトは状態と動作を保持。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 30,
+      "printedPage": 14,
+      "officialAnswer": "ア",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 列に必要な条件を問う。主キーを単一列に限定せず、NULLと空文字列を区別する。外部キー候補では別表の候補キーへの参照とNULL許容を明記する。",
+      "version": "3.7.0",
+      "field": "構成列に必要な制約",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "主キーは非NULLと一意性を要求し列順に依存しない。複合主キーも可能。NULLを許す外部キーで値があるときは対応先が必要。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.postgresql.org/docs/current/ddl-constraints.html"
+      ]
+    },
+    {
+      "number": 31,
+      "printedPage": 15,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "商品表、表示専用SQL、候補の四表。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 商品表、更新SQLと四つの結果表を保持する。異常終了・他のトランザクションは参照のみという条件を維持し、DELETEの対象又はUPDATEの更新内容を変更する。原子性により常に変更前の表が正答となるが、表の値と取り消す操作は異なる。",
+      "version": "3.7.0",
+      "field": "取り消す更新命令と対象行",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "全変更SQLを実SQLiteで発行しROLLBACK。実行前、変更中、取消後を直接比較し、四表の正誤を確認。ロックの実装をSQLiteで再現したとは扱わない。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 32,
+      "printedPage": 16,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "ロック表、A〜C、行番号1〜3、斜線見出しと3記号の注記。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原のロック表、共有Sと専有Xと未取得の定義、開始時に取得する前提と全候補の開始順を保持する。資源ごとのロックの割当てを変える。",
+      "version": "3.7.0",
+      "field": "三つのトランザクションのロック種別",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "共有・専有・未取得の互換表を独立に固定し、本文から各候補の取得順を解析して、各資源の競合の有無を全条件で検査。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 33,
+      "printedPage": 16,
+      "officialAnswer": "エ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "本文の十進k、10⁶バイト、効率。四択は数値昇順を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 十進のk、10⁶バイト単位、1バイト8ビット、伝送効率と近似時間の問いを維持。4候補を元の昇順と表示精度で出す。最初の誤答はビット換算漏れを表す近似値で、基準選択肢19.6を保持する。",
+      "version": "3.7.0",
+      "field": "回線速度・ファイル容量・伝送効率",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "全選択肢の時間から送信バイト数を逆算して近似の誤差を独立に照合し、ビット換算漏れ、効率を掛けた理想値、無視した理想値、正答を区別。19.6は原の小数1桁の概算として保持。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 34,
+      "printedPage": 17,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。",
+        "externalTermReview": {
+          "url": "https://www.itu.int/rec/T-REC-X.200-199407-I/en",
+          "note": "参照モデルの層名は用語。図表・定義文の転載はない。"
+        }
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 OSIの層からLAN中継装置を選ぶ。扱う単位が信号、フレーム、パケットのいずれかを本文の層に対応させる。",
+      "version": "3.7.0",
+      "field": "中継を行うOSI層",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "物理信号の中継はリピータ、フレーム単位の中継はブリッジ、IPパケットの経路転送はルータ。上位プロトコル変換と区別する。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.itu.int/rec/T-REC-X.200-199407-I/en"
+      ]
+    },
+    {
+      "number": 35,
+      "printedPage": 17,
+      "officialAnswer": "ア",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 動作からプロトコルを選ぶ。ARPとRARPの方向、設定配布と通信制御の違いを保持し、RARPは当時の方式として扱う。",
+      "version": "3.7.0",
+      "field": "IP通信で実現する動作",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "RFC 826、2131、792、903で、解決の向き、アドレス設定配布、エラー通知、旧方式の逆解決を区別。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.rfc-editor.org/rfc/rfc826",
+        "https://www.rfc-editor.org/rfc/rfc2131",
+        "https://www.rfc-editor.org/rfc/rfc792",
+        "https://www.rfc-editor.org/rfc/rfc903"
+      ]
+    },
+    {
+      "number": 36,
+      "printedPage": 17,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 機能記述から名称を選ぶ。電子メールの内容形式、受信、ファイル転送、遠隔端末の違いを問う。",
+      "version": "3.7.0",
+      "field": "必要とする通信の役割",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "RFC 2045、1939、959、854で、内容形式、メール取得、ファイル転送、対話型端末の機能を区別。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.rfc-editor.org/rfc/rfc2045",
+        "https://www.rfc-editor.org/rfc/rfc1939",
+        "https://www.rfc-editor.org/rfc/rfc959",
+        "https://www.rfc-editor.org/rfc/rfc854"
+      ]
+    },
+    {
+      "number": 37,
+      "printedPage": 17,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "本文と同じ三フィールドを並べる四択。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 送出順を選ぶ方向を固定し、宛先・送信元・識別フィールドの組を変える。外側からイーサネット、IP、TCPの順を維持する。",
+      "version": "3.7.0",
+      "field": "照合するヘッダ内フィールド",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "各選択肢のフィールド名を外側リンク・IP・TCPへ分類し、全順列を比較。送信元と宛先の区別及びIPv4プロトコル番号への変更も照合。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.rfc-editor.org/rfc/rfc894",
+        "https://www.rfc-editor.org/rfc/rfc791",
+        "https://www.rfc-editor.org/rfc/rfc9293"
+      ]
+    },
+    {
+      "number": 38,
+      "printedPage": 18,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。",
+        "externalTermReview": {
+          "url": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final",
+          "note": "ハッシュに関する機能上の事実を照合。規格の文言・表を取り込まない。"
+        }
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 衝突探索、異入力の同一性、原像復元、出力長の四役割を固定する。固定長の事実と、衝突が存在し得ること、容易に探索できないことを区別する。",
+      "version": "3.7.0",
+      "field": "使用する関数と照合条件",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "原像探索と衝突探索の困難性、入力に依存しない固定長、出力が全入力で同じではないことを別に評価し、四役割の全記述を検査。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://csrc.nist.gov/pubs/fips/180-4/upd1/final"
+      ]
+    },
+    {
+      "number": 39,
+      "printedPage": 18,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。",
+        "externalTermReview": {
+          "url": "https://csrc.nist.gov/pubs/sp/800/39/final",
+          "note": "リスク対応分類の用語を照合。保険加入の日本語選択肢はIPAの試験例であり、規格の定義文・図表の転載は認められない。"
+        }
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 対応名から対応の説明を選ぶ。損失発生率の低下、他者との分担、原因除去・回避、単位整理を区別する。",
+      "version": "3.7.0",
+      "field": "該当するリスク対応",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "NIST SP 800-39 §3.3。共有・移転は負担分担、低減は発生又は影響の緩和、回避はリスクが生じる活動の中止。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://csrc.nist.gov/pubs/sp/800/39/final"
+      ]
+    },
+    {
+      "number": 40,
+      "printedPage": 18,
+      "officialAnswer": "エ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 端末所有と利用目的の四組合せを区別する。BYODと企業所有の私用許容・業務専用を比較し、条件とリスクを各選択肢で示す。",
+      "version": "3.7.0",
+      "field": "説明する端末の所有・利用方針",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "NIST SP 1800-21のモバイル配備区分。所有者と、業務・私的利用の許可を別々に評価する。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.nccoe.nist.gov/publication/1800-21/VolB/"
+      ]
+    },
+    {
+      "number": 41,
+      "printedPage": 19,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 通信・サーバの機能を選ぶ。リクエスト検査、暗号化した遠隔接続、冗長構成、負荷分散を区別する。",
+      "version": "3.7.0",
+      "field": "解決するWeb通信上の課題",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "攻撃の検査はアプリケーション層、暗号化トンネルは接続保護、負荷分散は要求の行先制御、クラスタは構成。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 42,
+      "printedPage": 19,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 適切な対策を選ぶ。検査対象期間、脆弱性修正、メール添付とポート制御の関係、アドレスの付与を区別する。",
+      "version": "3.7.0",
+      "field": "対処する感染経路・ファイル",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "定義更新時刻は保存済みファイルの感染時刻ではない。脆弱性を修正し、ファイル検査は別に行う。ポート制限・動的公開IPで添付を検査しない。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 43,
+      "printedPage": 19,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 攻撃手法名から説明を選ぶ。多数資産からの微少額詐取、通信傍受、残留情報探索を区別する。",
+      "version": "3.7.0",
+      "field": "説明する攻撃手口",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "資産を微少量ずつ取る、流れているデータを観測する、処理後の残留情報から回収する、認証情報を窃取するという対象・時点の違い。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 44,
+      "printedPage": 20,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の権限3行を解答前に表示。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 権限の範囲と選択肢の四つの付与パターンを固定する。利用者情報の参照、更新、参照と更新の組に応じて必要最小限を求める。",
+      "version": "3.7.0",
+      "field": "アプリケーションが実行する操作",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "検索・表示、登録・変更、テーブル管理から必要権限の集合を求め、包含ではなく必要最小の集合で四候補を選ぶ。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 45,
+      "printedPage": 21,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の四表、PCとWebサーバの方向、両ポート列。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 クライアント→サーバとサーバ→クライアントの両方向、送信元・宛先とポートの対応を四つの選択肢表で保持する。待受ポートはPCの送信元範囲の外に限定する。",
+      "version": "3.7.0",
+      "field": "Webサーバの待受ポートとPCの送信元範囲",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "4表の送信元と宛先を機械的に照合し、最低ポート、次値、最大ポート65535の要求・応答に対する規則の成立を全候補で検査。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 46,
+      "printedPage": 22,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。",
+        "externalTermReview": {
+          "url": "https://www.omg.org/spec/UML/2.4.1/",
+          "note": "汎化などの接続記法は形式的事実。自動車・車検証・タイヤ等の4個の原図はIPAの試験用の具体例で、規格本文・原図・ロゴ・テンプレートを再録しない。"
+        }
+      },
+      "format": "クラスごとの区画と4図。図の別順化なし。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 関係名から図を選ぶ原形式を保持する。クラスの区画、接続の方向、線種、多重度、終端記号の違いで、汎化・コンポジション・依存・単純な関連を区別する。",
+      "version": "3.7.0",
+      "field": "図から識別するUMLの関係",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "レンダーされたSVGの終端記号、方向、線種、多重度、実クラス名から独立に分類。規格の図版は使用しない。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.omg.org/spec/UML/2.4.1/"
+      ]
+    },
+    {
+      "number": 47,
+      "printedPage": 22,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 技法名から特徴を選ぶ。機能分割、データと手続の局所化、業務の情報資源のモデル化、物理アクセス効率を区別する。",
+      "version": "3.7.0",
+      "field": "特徴を問う設計技法",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "処理機能の階層分解、業務データの概念モデル化、状態と手続のカプセル化、物理アクセス最適化を分ける。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 48,
+      "printedPage": 23,
+      "officialAnswer": "エ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 定義を読んで名称を選ぶ。実体・型・状態・振る舞いを区別する。",
+      "version": "3.7.0",
+      "field": "名称を問うオブジェクトの要素",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "クラスは型、インスタンスはその値又は実体、属性は状態の項目、メソッドは動作。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 49,
+      "printedPage": 23,
+      "officialAnswer": "ア",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 検証の方法から名称を選ぶ。実行中の論理式、通過順、瞬時の状態記録、網羅率を区別する。",
+      "version": "3.7.0",
+      "field": "検証で直接測定する内容",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "命題の真偽、イベント列、状態断面、対象集合に対する被覆率はそれぞれ独立した観測結果。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 50,
+      "printedPage": 23,
+      "officialAnswer": "イ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 結合試験の方式と目的から必要手段を選ぶ。上位を代替するドライバ、下位を代替するスタブ、機器の動作代替、実行状態の調査を区別する。",
+      "version": "3.7.0",
+      "field": "統合段階で代替・調査する対象",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "呼ばれる下位の代役と呼ぶ上位の代役、対象機械の挙動再現、ブレークポイント観測を区別。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    },
+    {
+      "number": 51,
+      "printedPage": 24,
+      "officialAnswer": "ウ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。",
+        "externalTermReview": {
+          "url": "https://www.pmi.org/about/what-is-a-project",
+          "note": "有期性と独自性はプロジェクトの性質。規格の定義文や著作物を転載しない。"
+        }
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 独自性と有期性の四組を同じ順序で提示する。定型業務の継続と一回分の実行を区別し、判断対象の範囲を本文で明記する。",
+      "version": "3.7.0",
+      "field": "独自性・有期性を判断する対象業務",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "PMIのプロジェクト定義で独自性と終了の存在を照合。定型業務では業務全体の継続性と単一回の有限性を分けて読む。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.pmi.org/about/what-is-a-project"
+      ]
+    },
+    {
+      "number": 52,
+      "printedPage": 24,
+      "officialAnswer": "エ",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。",
+        "externalTermReview": {
+          "url": "https://www.pmi.org/learning/library/work-breakdown-structure-basics-5919",
+          "note": "WBS（Work Breakdown Structure）は用語であり、階層分解という事実を照合。標準本文や図表を転載しない。"
+        }
+      },
+      "format": "原の文章で対象を示し、同じ問いの方向・判定条件の四択を保持。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 計画技法から使用目的を選ぶ。費用最適化、依存関係・クリティカルパス、日程の横棒表示、階層分解の四役割を維持。",
+      "version": "3.7.0",
+      "field": "目的を問う計画技法",
+      "finiteConditions": 3,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "PMIのWBS解説で階層的なスコープ分解を照合。依存経路、時間軸表示、期間と費用のトレードオフを区別する。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      },
+      "factReferenceURLs": [
+        "https://www.pmi.org/learning/library/work-breakdown-structure-basics-5919"
+      ]
+    },
+    {
+      "number": 53,
+      "printedPage": 25,
+      "officialAnswer": "ア",
+      "materialReview": {
+        "status": "candidate_for_admission",
+        "reproduction": "原画像・元の四択はIPAの試験問題として確認。出典と改変有無を表示して教育目的で使用。第三者の引用・転載表示は当該設問に見当たらない。",
+        "independentExplanation": "解説は独自に記述。"
+      },
+      "format": "作業A〜E、円、上下ラベル、ダミー2本と凡例。",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 A・B→C→D・Eの先行関係とダミー作業、全体を一人が担当する条件、期間限定の助っ人を保持。同じ作業に二人を同時に割り当てず、日をまたいだ引継ぎに追加日数は不要。原と同じ昇順の四択を保持する。",
+      "version": "3.7.0",
+      "field": "作業日数と手伝いの開始・終了日",
+      "finiteConditions": 4,
+      "reference": [
+        0
+      ],
+      "checking": {
+        "independent": "実際にレンダーした矢線から先行関係を求め、一日ごとの作業者割当てを全探索。並行区間の連続時間の容量下界とも一致する。選択肢順とダミーの凡例を保持。",
+        "coverage": "基準を含む全入力、全四択、正答の一意性、範囲外と再現性を照合。"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "src/core/generators/legacy-2013-autumn-am-27-53.ts",
+      "sha256": "7196bb4d2b3269945b1dfa8f63197afb71e702c4a7d350bff92e742bead7f460"
+    },
+    {
+      "path": "src/core/generators/legacy-2013-autumn-am-27-53-shared.ts",
+      "sha256": "bcddbe5f848e17bab9d4247b62b97269ad20f0ad92e49ebac6f0027858c3b879"
+    },
+    {
+      "path": "src/core/generators/legacy-2013-autumn-am-27-53-knowledge.ts",
+      "sha256": "1d702774505ebb07c30cc5a489d10f136912f8d22f1fe4c442cd6781ea0800f7"
+    },
+    {
+      "path": "src/core/generators/legacy-2013-autumn-am-27-53-figures.ts",
+      "sha256": "de6a3f44bb28a563f1d8ff12e1df8aff42762481af6a71c258437d89ef7e4f9c"
+    },
+    {
+      "path": "src/core/generators/legacy-2013-autumn-am-27-53-source.ts",
+      "sha256": "e47d0c2f909fd7ffb919b8a9af66f9c6055c80fe736340f0a48d92a33d59f8a4"
+    },
+    {
+      "path": "src/ui/Legacy2013AutumnAm2753Figures.tsx",
+      "sha256": "c929c076b84b69a5effcf7615dcb57d7f016a3587048f491610e087200ec8012"
+    },
+    {
+      "path": "tests/legacy-2013-autumn-am-27-53.test.ts",
+      "sha256": "84c011fe87534add9a487a93064649e95042581da9b82b7fe14a70c2809ea61b"
+    },
+    {
+      "path": "tests/fixtures/legacy-2013-autumn-am-27-53-facts.ts",
+      "sha256": "e65be8be11e3760a4e7ef2eb15124cc386f1b059602db1b6e5c6b500a6c15a5e"
+    }
+  ]
+}

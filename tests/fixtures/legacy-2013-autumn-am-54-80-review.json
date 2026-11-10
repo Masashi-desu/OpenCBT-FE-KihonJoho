@@ -1,0 +1,393 @@
+{
+  "taskId": "S3-013",
+  "collectionId": "2013h25a-fe-am",
+  "checkedOn": "2026-11-10",
+  "questionPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_qs.pdf",
+    "sha256": "83102f43611ea194ca17d7876a272073fb7000a35ba1a4ef24ca4954e73cc641"
+  },
+  "answerPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_ans.pdf",
+    "sha256": "52a425f89bcdafd1652ac46e880559b9d87a56a71500605e3a1b0f7dabdaf6f4"
+  },
+  "usePolicy": "https://www.ipa.go.jp/shiken/faq.html",
+  "rightsHolds": [],
+  "sourceBoundary": "同梱はIPA原問題の個別問、生成版は改変の表示。外部資料からは事実・定義の概念のみ参照。規格・第三者の図、全文、シンボル画像は持ち込まない。",
+  "externalComparisons": {
+    "55": [
+      "https://www.ipa.go.jp/archive/publish/qv6pgp0000000y34-att/000005124.pdf",
+      "第6章の機能種別名。原問は規模計測の比較で、IFPUGの規範的な数え方を引用しない。"
+    ],
+    "59": [
+      "https://www.saaj.or.jp/kijun/system_kansa.pdf",
+      "経済産業省平成16年システム監査基準（日本システム監査人協会掲載）p.2・3。独立性、監査証拠の入手と評価。基準本文・図表は配布しない。"
+    ],
+    "60": [
+      "https://www.saaj.or.jp/kijun/system_kansa.pdf",
+      "経済産業省平成16年システム監査基準（日本システム監査人協会掲載）p.3 実施基準3.1。ヒアリングで得た情報を証拠で裏付ける考え方。基準本文・図表は配布しない。"
+    ],
+    "61": [
+      "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f01f-att/2018h30a_fe_am_qs.pdf",
+      "問61のIPA原問にも四つの説明があることを確認。2013年版の問題番号・語順は維持。"
+    ],
+    "65": [
+      "https://www.ipa.go.jp/archive/digital/tools/ep/ep2.html",
+      "非機能要件の項目の品質・技術・運用／操作は一致。事例企業の資料と項目の定義文、ISO/JISの規範文言、図、指標は原問にも生成版にも持ち込まない。",
+      "https://www.ipa.go.jp/archive/files/000027415.pdf",
+      "p.22・53の共通フレーム2013説明資料の別表現も比較。原問の項目名以上の表現の転用は確認していない。"
+    ],
+    "66": [
+      "https://www.env.go.jp/policy/hozen/green/g-law/",
+      "環境物品等の調達の位置付け。認定図柄と原資料本文は配布しない。"
+    ],
+    "78": [
+      "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/06319700506048.htm",
+      "昭和45年法律第48号第2条第1項第12号・第17条・第65条。著作者、共同著作物、著作権の享有と共有の条件を確認。",
+      "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/houritsu/10219850614062.htm",
+      "昭和60年法律第62号により著作権法第15条第2項追加。職務上のプログラムの著作者の要件を確認。法文は再録しない。"
+    ],
+    "79": [
+      "https://www.mhlw.go.jp/web/t_doc?dataId=75024000&dataType=0&pageNo=1",
+      "昭和61年労働省告示第37号第2条。平成24年改正文と、請負側が自ら指示する条件を確認。告示や図の文言は配布しない。"
+    ],
+    "80": [
+      "https://www.shugiin.go.jp/internet/itdb_housei.nsf/html/housei/15620030530057.htm",
+      "平成15年法律第57号第2条第1項の制定時の識別要件。",
+      "https://www.ppc.go.jp/all_faq_index/faq1-q1-4/",
+      "メールアドレスについての現行FAQは理解の補助に限定し、後年の定義を持ち込まない。"
+    ]
+  },
+  "shapeDecisions": [
+    "問54は斜線で区分した行列見出し、問77は受入・払出の結合見出しを専用の読み上げ可能な表として実装。",
+    "問58・69・76の図は軸・折れ線・矢印を管理された描画で組版し、原画像を生成版へ流用しない。",
+    "問69は市場成長率とシェアの図で問う目的を固定し、事業の比較条件を変える。別の分析目的を正答とする案は、軸と分析手法が変わるため採らない。",
+    "問54・75・77は整数、人日又は円の4択。原の昇順を全入力で保持し、表示上の丸めを追加しない。",
+    "法令問題は出題当時の範囲。法令・告示・外部教材をアプリに複製しない。"
+  ],
+  "records": [
+    {
+      "number": 54,
+      "page": 25,
+      "officialAnswer": "エ",
+      "inputs": 4,
+      "visual": true,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "fd9af4a572b3d09f196bc3170a84cd3a20812b625169ab0eee98f5c889e9b033",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "表示した3×3表と4分類を、1画面ずつ十進固定小数で積算。全択が原の見落とし4種に一対一かを検査。"
+    },
+    {
+      "number": 55,
+      "page": 26,
+      "officialAnswer": "ウ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "d04df237f68f3d2d003eb34e8d2415eb81625907c18058ff7c1b372b77fd14bf",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "一般的な機能規模の計測項目名と見積り方式の説明。IFPUG等の算定手順、定義本文及び図表を転載しない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 56,
+      "page": 26,
+      "officialAnswer": "イ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "73abb82dece52656748bfd29b5af39c40cc0630eebd35d0ca3f72ac1a9304a45",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "SLAの策定に関する一般的な実務判断。ITILやJIS等の規格本文・図を引用していない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 57,
+      "page": 26,
+      "officialAnswer": "ア",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "57ec25a0536a5195e7aed37cc761b143f14be3c1f50a8d3daf0a16b83848f9aa",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 58,
+      "page": 27,
+      "officialAnswer": "ウ",
+      "inputs": 3,
+      "visual": true,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "19ff86491da802610e39a1e3a59792a652e69ee0115f86240107e74f36fb2c05",
+      "originalChoiceForm": "選択肢は四つの折れ線図、照合値の選択肢文字列は読取り内容",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "表示SVGの四折れ線を読む。点差と区間長から傾きを独立算出して逓減、逓増、上限を区別。"
+    },
+    {
+      "number": 59,
+      "page": 27,
+      "officialAnswer": "イ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "050e9688b9ec40a97255cebb121f038bf127c9446188afffd637336675548e52",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "アクセス制御の管理・運用と監査の分担を問う独自例。監査基準の条項、引用・表を含まない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 60,
+      "page": 28,
+      "officialAnswer": "イ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "e94b4e763c1c3b23bf968d12db0269b1bf7c2c390edb9b9222e0667a169dd4ca",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "ヒアリングと証拠による裏付けの判断例。監査基準の原文・図表を含まない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 61,
+      "page": 29,
+      "officialAnswer": "エ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "d1712fa42e10193ca9d3649cdd2618e2bbf657573d717ab4bece95afae320087",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "同趣旨のIPA公式2018年秋問61と照合。計画・中間・事後の一般的役割を用いる。第三者の図表や固有文言を確認できず、外部資料は収録しない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 62,
+      "page": 29,
+      "officialAnswer": "ウ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "2d7b7c948885fb52ad7d4017ced3133de746306f2e925ab67227dfebf5d1149c",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "四つの一般的な体系名だけを用いる。固有の標準の本文や図表を転載しない。",
+      "independentMethod": "表示した3体系を、確定した四体系から集合差し引き。候補全ての分類帰属を検査。"
+    },
+    {
+      "number": 63,
+      "page": 30,
+      "officialAnswer": "ア",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "7b5beed0ff80d8a348e6a87cdc204b24f12f2f057880c9c0a903beb310e7abda",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 64,
+      "page": 30,
+      "officialAnswer": "イ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "fbe33ac754b622bd47a145812052d7136356437dcd0be388dde46be897f3bc95",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 65,
+      "page": 30,
+      "officialAnswer": "イ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "05a2e4618f0b99b2acbcad2f522863a766fc69b58a1155e945f976f8f69c0b1a",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "IPA事例集の非機能要件欄とMETIモデル契約書の非機能要件項目は品質・技術・運用の項目概念で一致する。原問は三つの短い分類名を挙げるだけで、対応する定義文、規格の文言・図、事例企業の資料を含まない。外部資料は事実確認のみ。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 66,
+      "page": 31,
+      "officialAnswer": "エ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "9b100b981f6e65e55a0c502176e465837d17f4a438b6c83f2332c0f52852bfee",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "環境配慮調達の一般名及び制度の名称。エコマークの図柄・認定基準本文は使用しない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 67,
+      "page": 31,
+      "officialAnswer": "イ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "82e376d037c0ab69fbf509dfa2d9b20f235dd6f741d37240f23bd880ce406797",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 68,
+      "page": 31,
+      "officialAnswer": "ア",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "3c4e514853e342181f1e93c8e4464fbfb9c20326f3d45bc3fb062dc127e1aaac",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 69,
+      "page": 32,
+      "officialAnswer": "イ",
+      "inputs": 3,
+      "visual": true,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "5d00e392840b00bc45392d3d9e554392364ffa5eb1759b4fa9a1bbcc3f4f6043",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "名称・区分名・出典のない汎用の二軸・四区分グリッド。外部の図版や個別の分析用ブランド名は追加しない。",
+      "independentMethod": "実際に表示される四象限と軸の向きを照合し、市場シェアと成長率から異なる事業の位置を確認。資源配分・広告・品質・季節変動の目的を区別。"
+    },
+    {
+      "number": 70,
+      "page": 33,
+      "officialAnswer": "イ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "9733dcb3b205641344aff845c5b4f31661f38af0dc9b63bac1ec3d09743c5f63",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 71,
+      "page": 33,
+      "officialAnswer": "ア",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "299a86342871c94eebeb5609c59393d6c69143e717abfff4ca1ddaaf1f27e8eb",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 72,
+      "page": 34,
+      "officialAnswer": "ウ",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "d0d69e5ef027f7b0c33edd84c30c813fb25e097cd3db2df26dbb51ec42cc8aa8",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "OSI及びX.400等の役割の独自説明。国際規格の仕様本文・図表は転載しない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 73,
+      "page": 34,
+      "officialAnswer": "エ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "e6d1c20bc4fd5c67b0f5c2525b90bea79fc3e8d9bf0f254de2f9c533f6afc861",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 74,
+      "page": 34,
+      "officialAnswer": "ア",
+      "inputs": 4,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "310a2a7eec39075e0593a471511c443e5035ca0b4e485705ade5b2f0c0082ad5",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    },
+    {
+      "number": 75,
+      "page": 35,
+      "officialAnswer": "ウ",
+      "inputs": 4,
+      "visual": true,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "2f0ce950a8d94eade76bb5923e87925739b4124fe62db7c899651c6d5694c303",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "数値と一般的な見出しの表。生成版はパラメータ化した数値を独自組版。",
+      "independentMethod": "表示表と1個当たり利益から、製造可能な整数個数の全組を列挙する。原の軸端・交点・数を取り違えた点の全候補も照合。"
+    },
+    {
+      "number": 76,
+      "page": 35,
+      "officialAnswer": "ア",
+      "inputs": 3,
+      "visual": true,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "f088c0da6af7ca8ce8839ac4149d0678955dcb67e34f70a2267abef134bbab44",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "二つの枠と矢印だけの一般的な図の一部。第三者の図版の引用表示なし。生成版は自前の図形。",
+      "independentMethod": "実描画の矢印の終点と枝の接続を読み、二ラベルの原因と結果の向きを独立判定。"
+    },
+    {
+      "number": 77,
+      "page": 36,
+      "officialAnswer": "イ",
+      "inputs": 9,
+      "visual": true,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "0598f0cfb0e7d229aec3d5b8e44ff763c0ca5012e39229c72371aaf9b412dca2",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "原紙面に第三者の引用表示・図版出典を認めず、独立行政法人情報処理推進機構の過去問題利用条件で対象部分を確認。生成版と解説は改変・独自作成として表示。",
+      "independentMethod": "受払表から単品ごとにキューで払い出し、移動平均・総平均・原比較値を別計算で照合。"
+    },
+    {
+      "number": 78,
+      "page": 36,
+      "officialAnswer": "エ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "e3414d784626a5d28d5658a329ce3aa0bd3c61acc539816b52017fcb65b3ab97",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "著作権法15条・17条・2条の要件に基づく事実参照。原問は当事者をA社B社とする独自事例で法条文の転載なし。",
+      "independentMethod": "2013年10月の著作権法15条2項と共同著作物の条件で、表示事例の作成者と職務上の寄与を照合。"
+    },
+    {
+      "number": 79,
+      "page": 37,
+      "officialAnswer": "ウ",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "fd0b43dac126c6ca9147b1eed23e6322efa2c40c36de7b231925beb57754ede6",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "昭和61年労働省告示第37号第2条、平成24年改正時点の指揮命令の基準を事実参照。原問は独自事例で条文・問答集の文言を再録しない。",
+      "independentMethod": "2013年10月の37号告示で請負者の従業者と発注者の直接指揮を照合。場所や仕様連絡を判定に流用しない。"
+    },
+    {
+      "number": 80,
+      "page": 37,
+      "officialAnswer": "ア",
+      "inputs": 3,
+      "visual": false,
+      "sourceCheck": "公式冊子の問い・四択・明示条件・図表を紙面で確認し、公式解答を照合。紙面の折返しと英字前後の間隔のみ組版で調整。",
+      "statementHash": "703c756d874ccc6b21086607b5a02d1c4e08b826e7d90d92079e4b0871076e82",
+      "originalChoiceForm": "四択本文・数量の意味と順序を保持",
+      "rightsNote": "平成15年法律第57号第2条1項の識別可能性を事実参照。原問の選択肢は独自具体例で法令・FAQの文言を転載しない。",
+      "independentMethod": "固定済み意味資料から、実際の本文が問う対象と四候補すべての成立条件、解説の根拠を照合。"
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "status": "passed_draft_content_and_static_rendering",
+  "scope": "2013-autumn-am",
+  "collectionId": "2013h25a-fe-am",
+  "checkedOn": "2026-11-10",
+  "questionCount": 26,
+  "finiteConditions": 82,
+  "choiceChecks": 328,
+  "staticFigureProfiles": 3,
+  "independentTestCases": 9,
+  "heldNumbers": [],
+  "officialSource": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html",
+    "questionPaper": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_qs.pdf",
+    "answerPaper": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_ans.pdf",
+    "licensePolicy": "https://www.ipa.go.jp/shiken/faq.html",
+    "question.pdf": {
+      "sha256": "83102f43611ea194ca17d7876a272073fb7000a35ba1a4ef24ca4954e73cc641",
+      "byteLength": 4810019
+    },
+    "answer.pdf": {
+      "sha256": "52a425f89bcdafd1652ac46e880559b9d87a56a71500605e3a1b0f7dabdaf6f4",
+      "byteLength": 58658
+    },
+    "faq.html": {
+      "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474",
+      "byteLength": 108408
+    },
+    "siteinfo.html": {
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "primaryReferences": [
+    {
+      "questions": [
+        19
+      ],
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm",
+      "purpose": "固定回数の独立試行での成功数の分布。"
+    },
+    {
+      "questions": [
+        20
+      ],
+      "url": "https://docs.oracle.com/javase/tutorial/deployment/applet/",
+      "purpose": "JDK 8のアプレットの実行場所。"
+    },
+    {
+      "questions": [
+        20
+      ],
+      "url": "https://docs.oracle.com/javaee/7/tutorial/servlets001.htm",
+      "purpose": "Java EE 7のサーブレットの実行場所。"
+    },
+    {
+      "questions": [
+        21
+      ],
+      "url": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
+      "purpose": "GNU GPL v2第2・3項。設例での対応ソースの提供。原文は配布物に転載しない。",
+      "sha256": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6"
+    },
+    {
+      "questions": [
+        21
+      ],
+      "url": "https://www.gnu.org/licenses/gpl-faq.en.html#InternalDistribution",
+      "purpose": "FSFの同一組織内複製・利用と他者への配布の説明。"
+    }
+  ],
+  "results": {
+    "source": "p4–13の原問題の全26問・各四択・図表・注記と公式解答例を目視照合。第三者素材の表示なし。",
+    "scopeTypes": "下書きスコープのtsc成功。",
+    "tests": "独立テスト9件成功。実際の本文・図表、原選択肢、全候補、独自解説の結論を検査。",
+    "rendering": "SSR全図域と、Resvgのライト配色オフライン描画を比較。網掛け、判定枝、ゲートの反転小円を目視。アプリ内の色・狭幅、保存・配布の統合検証は親担当。"
+  },
+  "filePins": {
+    "source-review/flow-render.png": "d28ba30a82f5c8c1e775c32af36892275f57989e1d240115a79830695b44b65c",
+    "source-review/gate-render.png": "30f05993cf0ab1c37cf6e64bc3d035dff25a3fb439b5c7563571b0537b4021a3",
+    "source-review/venn-render.png": "52dcb6ec421e156656bff8872ec70db79c32e97c9ac5e053b9b6f1b08faa4b5b",
+    "src/core/generators/legacy-2013-autumn-am-01-09.ts": "864c5f95188919beb15311af7a60ccae403c05f431644921e24ff92d70133378",
+    "src/core/generators/legacy-2013-autumn-am-01-26-figures.ts": "1dafaab5abf7acc98c19174f0641864e7ec38a0ac30045850f25fc302affb099",
+    "src/core/generators/legacy-2013-autumn-am-01-26-shared.ts": "caf8053511f2eff5961283ce74af5bae4ab206ffe843d380fea9498d9c826b60",
+    "src/core/generators/legacy-2013-autumn-am-01-26-source.json": "e360e902add4acf72316edac709f0349352406245deb92eec422af41dbc7d43f",
+    "src/core/generators/legacy-2013-autumn-am-01-26.ts": "17b07018e305015b6d0736f0a98ffd8345d3b37a58868e8bab1344610867114e",
+    "src/core/generators/legacy-2013-autumn-am-10-18.ts": "1040da7c453bb2bd4c6b8ccb3f4795e29815db8733ce3cfa80f8de6305072184",
+    "src/core/generators/legacy-2013-autumn-am-19-26.ts": "35db27ff4e40baba1f520f0e968eddd21c7c860ee7c3aaf14c87c2444b366cdb",
+    "src/ui/Legacy2013AutumnAm0126Figures.tsx": "38d0499bf04e0ef86b5691351a0b893ef6c8751fbbee5332835e00e7753861ce",
+    "tests/fixtures/legacy-2013-autumn-am-01-26-knowledge-review.ts": "8a2f121e0962280612cf7813f5a51bea8d6fb33c32bf1b17bfcdb8ae0b8a163e",
+    "tests/legacy-2013-autumn-am-01-26.test.ts": "d901da38cd0734b73fddd0bd76595e897edb1b0f87ffdabe04fd2ca3fe629700"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "printedPage": 4,
+      "physicalPage": 4,
+      "officialAnswer": "ウ",
+      "format": "三円の網掛けを四図から選ぶ。共通円配置、積・和・補集合の凡例を維持。",
+      "variations": "積に含む集合と否定。4図の位置は固定。",
+      "oracle": "8領域の真偽とSVGの網掛け。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 2,
+      "printedPage": 4,
+      "physicalPage": 4,
+      "officialAnswer": "ア",
+      "format": "32ビット幅、16進4桁、右論理シフト。尺度順。",
+      "variations": "2〜3ビットの移動と4桁の元値。左方向の移動と16ビット側の上位充填を誤答。",
+      "oracle": "32桁の二進表現から末尾を落とし、全誤答も桁操作で評価。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 3,
+      "printedPage": 5,
+      "physicalPage": 5,
+      "officialAnswer": "ウ",
+      "format": "1〜9の先頭桁、後続各1桁、重み1〜4、10による剰余。尺度順。",
+      "variations": "小さな整数の積和。残り桁の剰余、重み漏れ、重みの混同を比較。",
+      "oracle": "先頭桁を1〜9で全探索し、表示式に代入。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 4,
+      "printedPage": 5,
+      "physicalPage": 5,
+      "officialAnswer": "ウ",
+      "format": "非圧縮の8ビット標本、ビット／秒とマイクロ秒。",
+      "variations": "40,000〜80,000ビット／秒。正答は整数で丸め不要、1ビット・3ビット・接頭辞の誤り。",
+      "oracle": "転送速度から標本周波数を求め、候補を周期との積で判定。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 5,
+      "printedPage": 5,
+      "physicalPage": 5,
+      "officialAnswer": "ウ",
+      "format": "空の待ち行列、ENQ/DEQの定義、6挿入と4取出し。尺度順。",
+      "variations": "6値の挿入順。取出しが先行して空にならないケースに限定。",
+      "oracle": "時系列と先行取出し数から、全候補をFIFOの位置と照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 6,
+      "printedPage": 6,
+      "physicalPage": 6,
+      "officialAnswer": "ア",
+      "format": "リストの配列・ポインタ実装を比較する説明選択。",
+      "variations": "実装方式と確保領域・途中要素への到達費用。",
+      "oracle": "固定容量・一定時間・順次到達・リンク領域の査読対応。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 7,
+      "printedPage": 6,
+      "physicalPage": 6,
+      "officialAnswer": "エ",
+      "format": "正整数、0初期化、添字0〜9、三つの剰余探索。尺度順。",
+      "variations": "5個の格納順と衝突。第1・第2・第3位置の三分岐。",
+      "oracle": "占有添字の集合で規則を順に追跡し、候補位置と比較。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 8,
+      "printedPage": 7,
+      "physicalPage": 7,
+      "officialAnswer": "ア",
+      "format": "左の論理式と右の二段判定の流れ図、a/bの解答表。",
+      "variations": "P・Qの否定位置の4通り。枝と解答群の行列は固定。",
+      "oracle": "実描画の条件をP、Q、a、bの16組で評価。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 9,
+      "printedPage": 7,
+      "physicalPage": 7,
+      "officialAnswer": "イ",
+      "format": "命令数（万ステップ）・MIPS・使用率から件／秒。",
+      "variations": "50〜80万ステップ、200〜288 MIPS、75〜80％。正答は整数、単位・使用率の誤りを比較。",
+      "oracle": "表示候補と命令数・使用率の積の等式。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 10,
+      "printedPage": 8,
+      "physicalPage": 8,
+      "officialAnswer": "ウ",
+      "format": "キャッシュ制御装置が行う転送元・転送先の選択。",
+      "variations": "キャッシュミス、下位キャッシュのヒット、更新済みラインの書戻し。",
+      "oracle": "読取り補充の出所とライトバック前提を各候補の転送方向で照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 11,
+      "printedPage": 8,
+      "physicalPage": 8,
+      "officialAnswer": "イ",
+      "format": "2値ビットマップ、縦横ドット、文字数、非圧縮、二進k/M。",
+      "variations": "縦32〜64、横32、4,096〜8,192字。正答は0.5〜1.5M、8倍と64倍の単位誤り。",
+      "oracle": "各候補をバイトに直し全画素数との8倍関係を照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 12,
+      "printedPage": 8,
+      "physicalPage": 8,
+      "officialAnswer": "イ",
+      "format": "方式名からタッチパネルの検出機構を選ぶ。",
+      "variations": "静電容量、赤外線、抵抗膜、マトリックスの4方式。",
+      "oracle": "電界、遮光、抵抗膜、電極導通を識別する査読対応。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 13,
+      "printedPage": 9,
+      "physicalPage": 9,
+      "officialAnswer": "ア",
+      "format": "故障への備えを実現方法で選ぶ。",
+      "variations": "多重化による継続、フェールソフトの縮退、安全側停止。",
+      "oracle": "全機能継続・縮退・停止・異常値固定の役割を個別比較。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 14,
+      "printedPage": 9,
+      "physicalPage": 9,
+      "officialAnswer": "イ",
+      "format": "同じMTBFのディスク群、週当たり運転時間、冗長化なし。",
+      "variations": "50〜125台と週80〜140時間。可変版は故障の独立・一定率を本文で明記。",
+      "oracle": "週数×台数×週運転時間が個別のMTBFに一致するかを全択で確認。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 15,
+      "printedPage": 9,
+      "physicalPage": 9,
+      "officialAnswer": "ウ",
+      "format": "四つの番号付き作業項目と、順序を並べる解答群。",
+      "variations": "現行容量から限界を予測、繁忙期の増設案比較、新サービスで負荷を定義して測定。",
+      "oracle": "本文にある作業の依存関係を別に定義し、四順列を比較。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 16,
+      "printedPage": 10,
+      "physicalPage": 10,
+      "officialAnswer": "エ",
+      "format": "性能等の評価方法の名前から説明を選ぶ。",
+      "variations": "ベンチマーク、可用性の評価、負荷テストを切り替え。",
+      "oracle": "平均命令時間・稼働時間比・想定負荷耐性・共通測定ソフトを査読。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 17,
+      "printedPage": 10,
+      "physicalPage": 10,
+      "officialAnswer": "ア",
+      "format": "メモリ管理の現象又は手法の説明を選ぶ。",
+      "variations": "リーク、スラッシング、オーバレイ、外部断片化。",
+      "oracle": "未解放、過度のページング、モジュールの入替え、非連続空きの真偽。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 18,
+      "printedPage": 11,
+      "physicalPage": 11,
+      "officialAnswer": "ウ",
+      "format": "二タスクの優先度プリエンプションの動作を選ぶ。",
+      "variations": "優先度の高いタスクと、起動・入出力完了で実行可能になる契機。",
+      "oracle": "実行可能になるタスクと中断されたタスクの状態を4候補で照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 19,
+      "printedPage": 11,
+      "physicalPage": 11,
+      "officialAnswer": "ア",
+      "format": "ハッシュに関係する確率分布の名称を選ぶ。",
+      "variations": "理想のアドレス分布、初回到達までの回数、固定試行内の到達数。",
+      "oracle": "一様・幾何・二項・ポアソンの定義と試行の条件を照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 20,
+      "printedPage": 11,
+      "physicalPage": 11,
+      "officialAnswer": "ア",
+      "format": "転送・実行形態からプログラム名を選ぶ。",
+      "variations": "クライアントJava、サーバJava、テキストの処理系による命令実行。",
+      "oracle": "アプレット、サーブレット、スクリプト、スレッドの実行場所と役割。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 21,
+      "printedPage": 12,
+      "physicalPage": 12,
+      "officialAnswer": "ウ",
+      "format": "GPL対象のソースを提供しないときの違反例を選ぶ。",
+      "variations": "GPL v2の無償社外配布、機器を介した有償配布、組織内利用、独立製品。",
+      "oracle": "GNU GPL v2 §2–3とFSF FAQに基づき、対象実行形式の配布と提供手段を照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。GPL・OSSは制度・ライセンスの名称と設例であり，ライセンス原文・第三者作成図の引用なし。GNU GPL本文及び公式FAQは事実関係の確認のみ。",
+      "held": false
+    },
+    {
+      "number": 22,
+      "printedPage": 12,
+      "physicalPage": 12,
+      "officialAnswer": "ア",
+      "format": "8ビットD/A変換器の入力2点と出力電圧、1 LSBの電圧差。",
+      "variations": "0又は32から64又は128、出力差1.5〜2.5 V。分数のまま、最大コード・階調数などを誤答。",
+      "oracle": "電圧を10分の1 V単位の整数にして、全候補とコード差の積を照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 23,
+      "printedPage": 12,
+      "physicalPage": 12,
+      "officialAnswer": "エ",
+      "format": "半導体メモリの方式名から説明を選ぶ。",
+      "variations": "DRAM、SRAM、フラッシュを原の候補配置で切替え。",
+      "oracle": "揮発性、リフレッシュ、セル構造、バイト／ブロック消去と用途を査読。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 24,
+      "printedPage": 12,
+      "physicalPage": 12,
+      "officialAnswer": "ウ",
+      "format": "出力電力と効率から入力電力の最小値。Wの尺度順。",
+      "variations": "出力450〜600 W、効率75〜90％。正答は整数。積・損失・加算を誤答。",
+      "oracle": "入力候補×効率と出力の積の等式で判定。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 25,
+      "printedPage": 13,
+      "physicalPage": 13,
+      "officialAnswer": "イ",
+      "format": "二入力一出力の論理式と四つの基本ゲートを選ぶ。",
+      "variations": "論理積・論理和・否定の組合せ。図の端子と位置は原順。",
+      "oracle": "式を独立に構文解析し4入力の真理値表を実描画のゲートと比較。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 26,
+      "printedPage": 13,
+      "physicalPage": 13,
+      "officialAnswer": "ウ",
+      "format": "項目と様式・規則の表からプルダウン適性を選ぶ。",
+      "variations": "商品区分、分館、固定価格。規則表の四行・選択肢の対応を保持。",
+      "oracle": "候補が少数・固定・全列挙可能という基準を実表示の四行に適用。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPAの公式設問・解答例。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    }
+  ]
+}

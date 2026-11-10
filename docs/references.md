@@ -417,3 +417,10 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 全13大問を収録する。公式解答例の76行に対し、問7設問3の二つの解答を別枠とするため、アプリでは77選択枠になる。問1設問3の2欄と問7設問3の2枠は順不同で採点する。時間付き練習は150分で、問1・8を必須とし、問2〜7から4大問、問9〜13から1大問を選ぶ。[公式問題冊子・正誤表](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_ans.pdf)・[出題趣旨・採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000001dzu-att/2014h26h_fe_pm_cmnt.pdf)。
 
 問13の原問題では、冊子に添付された公式正誤表を解答前の資料に表示する。基準・生成問題では、表計算の範囲記号の訂正を本文と選択肢へ反映する。問11のJava API付属資料は原資料の該当頁へ出典からアクセスでき、必要な仕様の事実は独自資料で説明する。問12のCASL II付属資料はPDF物理82頁上部までを抜粋し、JISの符号表を配布から外す。必要な文字の符号値はRFC 20を参照する。原資料の範囲、正答、出典、画像の照合値は `scripts/source-evidence/legacy-2014-spring-pm-source-review.json` に記録する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Java SE 8 API](https://docs.oracle.com/javase/8/docs/api/)・[RFC 20](https://www.rfc-editor.org/rfc/rfc20.html)。
+
+
+### 第3段階 S3-013 2013年度秋期・旧午前
+
+2013年10月20日の旧午前は四肢択一の全80問・150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。全80問の原問番号・選択肢順・公式正答と、それぞれの改変系列を収録する。冊子p.2–3は当時の規格名と版、論理素子の図記号と反転の注記を保持する。[IPA 平成25年度秋期の公開資料](https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html)・[試験要綱 Ver 1.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/youkou_ver1_6.pdf)。
+
+問21のGPL、問46のUML、問65の非機能要件と問78〜80の法令・告示は必要な事実と適用条件を照合し、外部資料の原文・原図は同梱しない。出典、素材範囲、公式解答と画像の照合値は `scripts/source-evidence/legacy-2013-autumn-am-source-review.json` に記録する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[GNU GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html)・[OMG UML 2.4.1](https://www.omg.org/spec/UML/2.4.1/)・[IPAの要件定義事例](https://www.ipa.go.jp/archive/digital/tools/ep/ep2.html)。

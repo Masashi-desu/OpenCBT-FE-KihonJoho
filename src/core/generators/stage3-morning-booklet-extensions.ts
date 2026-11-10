@@ -1,4 +1,5 @@
 import type { MorningBookletExtension } from './stage3-morning-booklet-extension-contract';
+import { autumn2013MorningBooklet } from './legacy-2013-autumn-am';
 import { spring2014MorningBooklet } from './legacy-2014-spring-am';
 import { spring2015MorningBooklet } from './legacy-2015-spring-am';
 import { autumn2014MorningBooklet } from './legacy-2014-autumn-am';
@@ -8,4 +9,5 @@ export const morningBookletExtensions: readonly MorningBookletExtension[] = [
   { scope: '2015-spring-am', booklet: spring2015MorningBooklet },
   { scope: '2014-autumn-am', booklet: autumn2014MorningBooklet },
   { scope: '2014-spring-am', booklet: spring2014MorningBooklet },
+  { scope: '2013-autumn-am', booklet: autumn2013MorningBooklet },
 ];

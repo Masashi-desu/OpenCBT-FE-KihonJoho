@@ -1,0 +1,77 @@
+{
+  "collectionId": "2013h25a-fe-am",
+  "task": "S3-013",
+  "checkedOn": "2026-11-10",
+  "examDate": "2013-10-20",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 4
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 24
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 29
+    }
+  ],
+  "commonPages": [
+    2,
+    3
+  ],
+  "held": [],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_qs.pdf",
+      "sha256": "83102f43611ea194ca17d7876a272073fb7000a35ba1a4ef24ca4954e73cc641",
+      "byteLength": 4810019
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_ans.pdf",
+      "sha256": "52a425f89bcdafd1652ac46e880559b9d87a56a71500605e3a1b0f7dabdaf6f4",
+      "byteLength": 58658
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html",
+      "sha256": "d4d2e36f421b5605542b1f9fd5870a6fe210268b59a92f560247c204cc52e0ac",
+      "byteLength": 122863
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "78a3dc91a5dc7ee1b2d3790acbd4cfee29948daf37e7e8361950e1adc2cbe474",
+      "byteLength": 108408
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "reference/ipa-syllabus-1.6.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/youkou_ver1_6.pdf",
+      "sha256": "087783429f6672dbf54ba7d88fa2f03066cdecce744b5e3da679429d65ff72c3",
+      "byteLength": 871798
+    }
+  },
+  "materialFindings": [
+    "表紙p.1の全80問必須・150分、本文p.4・24・29の分野区分、各問の物理頁と印刷頁の一致を照合した。",
+    "p.2は規格名と版の対応表で、JIS Q 20000-2:2007を含む12件を保持する。p.3は九つの論理素子と反転の注記。規格本文・原規格図は同梱しない。",
+    "問21はGNU GPLの版と配布条件、問46はUMLの接続記法を事実として照合。ライセンス本文・規格図は同梱しない。",
+    "問51・52はプロジェクト管理の用語・事実、問59・60は原冊子の監査事例。外部規格の本文・図は含めない。",
+    "問61は同じ評価段階の出題をIPAの2018年度秋期問61と照合。問65の品質・技術・運用の分類は、IPA要件定義事例集などを事実参照とし、その定義文、外部図版、規格の本文は同梱しない。",
+    "問78–80は試験時点の著作権・請負と指揮命令・個人情報の事実を確認し、法令原文や行政資料の図表は同梱しない。",
+    "教育用のリポジトリ同梱・画面表示・改変にIPAの公表問題利用条件を適用する。元の出典、権利留保、改変を表示する。"
+  ],
+  "sourcePreflightSHA256": "1fb2cb79146986aadf4679baaaa4e90692e4b90bfae3883981cd1d4548f6247f",
+  "cropCandidatesSHA256": "74658bf2da47eb9958a0e0ffed841c1c8a0de5c9502931143fcc94241c291e9c",
+  "verifiedEligibleCount": 80
+}
