@@ -1,0 +1,352 @@
+{
+  "schema": "booklet-group-content-review/v1",
+  "task": "S3-022",
+  "booklet": "2011h23a-fe-pm",
+  "scope": "2011-autumn-pm",
+  "reviewedOn": "2026-11-11",
+  "source": {
+    "issuer": "独立行政法人情報処理推進機構",
+    "examDate": "2011-10-16",
+    "publishedOn": "2011-10-16",
+    "listingURL": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2011h23.html",
+    "inputs": {
+      "question.pdf": {
+        "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_pm_qs.pdf",
+        "sha256": "4013b2086cc62fd08aff6a1255039cefcd9751126e28ef34022f8b1f1f380229",
+        "byteLength": 6940924,
+        "pageCount": 84
+      },
+      "answer.pdf": {
+        "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_pm_ans.pdf",
+        "sha256": "99d3afe8598a3a7e50cedf4fcb74a6f7e84ab3f17f74db9aafb099b92b9977c9",
+        "byteLength": 144984,
+        "pageCount": 4
+      },
+      "commentary.pdf": {
+        "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_pm_cmnt.pdf",
+        "sha256": "c3123cdd5ead7e66225026975f7d30481c327f07a7f4acb62fff4fb19ef0fddb",
+        "byteLength": 175443,
+        "pageCount": 3
+      },
+      "listing.html": {
+        "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2011h23.html",
+        "sha256": "5076a299636e94352fafc8ad9d3c2bec0d81580788f008e6182adf0d7625fd62",
+        "byteLength": 125462
+      },
+      "faq.html": {
+        "url": "https://www.ipa.go.jp/shiken/faq.html",
+        "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+        "byteLength": 108562
+      },
+      "siteinfo.html": {
+        "url": "https://www.ipa.go.jp/siteinfo.html",
+        "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+        "byteLength": 46881
+      }
+    },
+    "answerPage": 1,
+    "policyURL": "https://www.ipa.go.jp/shiken/faq.html"
+  },
+  "coverage": {
+    "eligible": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "held": [],
+    "officialFields": 22,
+    "storageSlots": 22,
+    "wholeBookletReleaseVerified": false
+  },
+  "externalFactChecks": [
+    {
+      "question": 2,
+      "sources": [
+        "https://www.sqlite.org/lang_createview.html",
+        "https://www.sqlite.org/lang_select.html#the_group_by_clause_in_a_simple_select"
+      ],
+      "scope": "独立した実行の構文・ビュー定義・集合述語を照合。規格文言は収録しない。"
+    },
+    {
+      "question": 3,
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc2131#section-4.4.1"
+      ],
+      "scope": "探索のブロードキャスト範囲の技術事項を確認。RFC本文は収録しない。"
+    }
+  ],
+  "rightsBasis": "IPA試験FAQの教育利用条件を確認。原頁は出典として年度・期・試験区分・時間区分・問番号を明示し、生成は改変表示と出典を継承する。説明は独自記述。公式の採点講評は参照のみ。",
+  "questions": [
+    {
+      "number": 1,
+      "status": "eligible",
+      "pages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "marks": [
+        "エ",
+        "ウ",
+        "イ",
+        "キ",
+        "ウ",
+        "オ"
+      ],
+      "labels": [
+        "設問1 a",
+        "設問1 b",
+        "設問2 c",
+        "設問2 d",
+        "設問2 e",
+        "設問3 f"
+      ],
+      "counts": [
+        5,
+        5,
+        10,
+        10,
+        5,
+        7
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6,
+      "rights": "図1の連続波形、図2の標本点・電圧軸・vmaxと省略記号・丸印と注記、表1・2、6欄と4解答群。IPAの出題用作図。第三者出典、引用、外部製品図版の表記なし。",
+      "materialsDecision": "図1の連続波形、図2の標本点・電圧軸・vmaxと省略記号・丸印と注記、表1・2、6欄と4解答群。IPAの出題用作図。第三者出典、引用、外部製品図版の表記なし。",
+      "format": "等間隔dで11点を測る。nビットのFSRは2ⁿ−1区間に分け、下限を含み上限を含まない。量子化後の電圧を2進数にする。設問3の原文は50ミリ秒間隔で5秒間、公式キーは2.0mV。派生の表示に開始時刻t0と終了時刻をともに含むことを追記。",
+      "precision": "電圧幅は整数Vまたは整数mV。nは整数、量子化の閾値は原問の半開区間。設問2の入力は小数第2位までで示し、後続桁のどの値でも結果が変わらない。刻み幅と測定値の共有10択は昇順で、FSRを2⁴で割る誤り、刻み倍、値の過不足を区別。",
+      "variation": "t6・t10の高さと見える丸印、4ビットのFSR・入力電圧、標本周期・期間・許容ビット数を連動。先頭4個の既知符号、t3をv2とする説明、表2の5網掛けは波形と一致。",
+      "oracle": "SVGの各実座標とデータから試料を読み、境界比較で0〜7の全水準を走査。整数の交差積で刻み幅・最近水準を求め、開始と終了を含めて時刻列を実際に数え、総ビット以下の最大ビットを全候補で比較。",
+      "display": "図の座標、v(tj)のラベル、各×と○、刻み幅と1区間の矢印、網掛けと記号、t0の原点、軸の省略を表示。p.5の公式選択上の注意を原頁altに保持。",
+      "sourceAssets": [
+        {
+          "page": 5,
+          "sha256": "617af5b00a31a463bf46e22c4594120051cce178e6042a44732343bb7a3630b7",
+          "byteLength": 48920,
+          "crop": null
+        },
+        {
+          "page": 6,
+          "sha256": "71bc1f7d7aff7770408d43f7a8d6dc59d0b7303b52152fb05c700e7a850d60da",
+          "byteLength": 70904,
+          "crop": null
+        },
+        {
+          "page": 7,
+          "sha256": "b0d24d50e6a1e8564ddf68d6ca9434b0af0e3f4ba62ba302bfa220ae6193b5ed",
+          "byteLength": 68660,
+          "crop": null
+        },
+        {
+          "page": 8,
+          "sha256": "63856006cb8ebb1b4bc6d5cafd9b7901645486a47a1432cb19dbafd6efb87208",
+          "byteLength": 21126,
+          "crop": null
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "status": "eligible",
+      "pages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "marks": [
+        "エ",
+        "エ",
+        "イ",
+        "ア",
+        "エ",
+        "ア"
+      ],
+      "labels": [
+        "設問1 a",
+        "設問1 b",
+        "設問1 c",
+        "設問2",
+        "設問3",
+        "設問4"
+      ],
+      "counts": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6,
+      "rights": "IPA作問の架空企業と組織図2点、関係構成図4点、SQL三本と解答群。情報太郎、都・電話の省略つき表記は原問の作例。第三者著作物の引用表示・規格原文なし。",
+      "materialsDecision": "IPA作問の架空企業と組織図2点、関係構成図4点、SQL三本と解答群。情報太郎、都・電話の省略つき表記は原問の作例。第三者著作物の引用表示・規格原文なし。",
+      "format": "部署コードへの部名と課名の連結、別の部表と課表、重複更新、LIKEによる所属部検索。課コードでの結合とグループ化、4列の公開ビュー、受注日の範囲は両端を含み対象期間の異動なし。",
+      "precision": "各欄4択。SQLのSELECT・FROM・WHERE・GROUP BY、CREATE VIEW、BETWEEN、ANYとサブクエリの改行、主キー下線、全候補の役割と並びを維持。",
+      "variation": "組織例と格納例、課コード・受注期間、課ごとの年齢の集計関数を変える。ビューの公開列と利用目的を固定。",
+      "oracle": "3階層の組織・表の格納例と部名・課名の依存を独立に確認。SQLiteでデータを作成して全SQL択を試行し、投影列・部署ごとの集計・日付境界と参照配列解を比較。未対応の＝ANYは集合へのINで同じ真偽を検証。",
+      "display": "組織図の部と課の親子関係、六つの図のキャプション、8列の従業員表・主キー下線、3本のSQLと複数行の候補。",
+      "sourceAssets": [
+        {
+          "page": 9,
+          "sha256": "727e0cdd9058a0fb59eac4d7f059c1a9583e95acd202920bd83b7b6cd91e893d",
+          "byteLength": 64476,
+          "crop": null
+        },
+        {
+          "page": 10,
+          "sha256": "d40141f7d4677ddef1bfb2d98706183ceea0044e739e36e7d5c8e47f0a860acd",
+          "byteLength": 58512,
+          "crop": null
+        },
+        {
+          "page": 11,
+          "sha256": "d14375550a39ce2ff4a350ac83e3c01a95bde6560410a9bc7eef53799011abbd",
+          "byteLength": 69468,
+          "crop": null
+        },
+        {
+          "page": 12,
+          "sha256": "7188da84d022dcdf8d65c9b626362c4ebd15dc51b3a1276ac2928142c4149a31",
+          "byteLength": 66282,
+          "crop": null
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "status": "eligible",
+      "pages": [
+        13,
+        14,
+        15
+      ],
+      "marks": [
+        "ウ",
+        "イ",
+        "エ",
+        "ア",
+        "カ"
+      ],
+      "labels": [
+        "設問1 a",
+        "設問1 b",
+        "設問2 c",
+        "設問2 d",
+        "設問2 e"
+      ],
+      "counts": [
+        4,
+        8,
+        4,
+        4,
+        8
+      ],
+      "officialFields": 5,
+      "selectionSlots": 5,
+      "rights": "IPA作問の架空企業ネットワーク図、プライベートIPの設問例、アドレス候補表。製品固有資料、外部転載、標準原文なし。",
+      "materialsDecision": "IPA作問の架空企業ネットワーク図、プライベートIPの設問例、アドレス候補表。製品固有資料、外部転載、標準原文なし。",
+      "format": "ファイアウォールは基幹とインターネットの直接通信を両方向とも遮断。Aに社内Web、BにPC、DMZにメール・DNS・公開Web。DHCP中継なし。キャッシュ未利用100、平均が半分以下になる最小ヒット率。",
+      "precision": "マスク4択、IP候補は2行×5、使用可能数8択、2欄が同じ配置4択を参照、ヒット率は5ポイント刻み8択。受け入れは閾値以上、最小の閾値を明示。",
+      "variation": "プライベートIPの接続条件を変え、/24または/25を選ばせる。指定済みとネットワーク・ブロードキャストを除外。ヒット・ミス両時の応答時間を変える。",
+      "oracle": "各候補マスクのビット文字列で5つの機器アドレスを3区画に分類。各候補ホストの上位・下位ビットを判定。ネットワーク構成に照らしてサーバを置く。100回の応答時間を合計し全ヒット率の中から50以下となる最小を求める。",
+      "display": "社外インターネットと社内境界、DMZ・基幹・A/B、各ルータとWebサーバ1のIP、2×5の候補、DNS/メール/Web/PCの接続。p.14からp.15へ続く原文は原頁altで分け、生成本文では一つに接続。",
+      "sourceAssets": [
+        {
+          "page": 13,
+          "sha256": "c7534485d69a26987a78219fd1125aa4f218e06854310376c1264422df861bbd",
+          "byteLength": 57996,
+          "crop": null
+        },
+        {
+          "page": 14,
+          "sha256": "9abb5d0b241b9e93a87a08a3fc534a97e5b52c427f45f1553b34ed75a92cd957",
+          "byteLength": 67430,
+          "crop": null
+        },
+        {
+          "page": 15,
+          "sha256": "ff66192a3599deecb4d56605ac28f25f88e7c232a66e64ac0adf75d9a49bf979",
+          "byteLength": 54824,
+          "crop": null
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "status": "eligible",
+      "pages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "marks": [
+        "ウ",
+        "キ",
+        "ケ",
+        "ウ",
+        "イ"
+      ],
+      "labels": [
+        "設問1 a",
+        "設問1 b",
+        "設問1 c",
+        "設問1 d",
+        "設問2"
+      ],
+      "counts": [
+        10,
+        10,
+        10,
+        5,
+        5
+      ],
+      "officialFields": 5,
+      "selectionSlots": 5,
+      "rights": "IPA作問の社内試行リスク評価。表1〜8はF社を例とする仮の基準と数値。外部の規格文言、製品図版、第三者引用なし。",
+      "materialsDecision": "IPA作問の社内試行リスク評価。表1〜8はF社を例とする仮の基準と数値。外部の規格文言、製品図版、第三者引用なし。",
+      "format": "資産価値・脅威・脆弱性の積、該当するうち最小の評価値、停止時間以上が不可、許容以下は保有、表8の破線囲みのみを設問2で評価。",
+      "precision": "価値・脅威・脆弱性の整数の積と昇順10択、可用性は時間と分を同一単位へ換算して比較、対策5択。対象領域の閾値超過は各条件で1件。",
+      "variation": "開示範囲と業務影響、停止時間、各脅威と脆弱性の値と受容水準を連動させる。ウイルス対策かパスワード管理のいずれかが該当。",
+      "oracle": "本文のヒアリングと表1〜5の基準から値を選び、表示された表6の5組を使って、表8のa/b/cと破線3行を独立に計算。停止時間を分に換算し、表3の許容と比較。表7の閾値を超える一組と、その脆弱性に対する五つの対策を照合。",
+      "display": "表1〜8、結合見出し、X/Yの機密性・完全性・可用性、非表示の網掛け、3値の破線、…による省略と脚注。p.18からp.19へ続く文は原頁altで分け、生成本文で接続。",
+      "sourceAssets": [
+        {
+          "page": 16,
+          "sha256": "ca74cdd428907e05c48e40bd9182944df1ff42b8815ef97f9771d3837c62586d",
+          "byteLength": 85240,
+          "crop": null
+        },
+        {
+          "page": 17,
+          "sha256": "e03ca28d12acec3b20415a21a38f6c2cb8ac1900cc6dd197a06ca1e089c1c48e",
+          "byteLength": 89862,
+          "crop": null
+        },
+        {
+          "page": 18,
+          "sha256": "3617591e2dccd63380fe5961286c9ec399a591ed7bbd52163da42850420f1147",
+          "byteLength": 66594,
+          "crop": null
+        },
+        {
+          "page": 19,
+          "sha256": "e94a91f469549397e15b5efe2a36e4c03f6fbbc747f6ad6870314f284fd5c03f",
+          "byteLength": 380038,
+          "crop": null
+        },
+        {
+          "page": 20,
+          "sha256": "850bcd9aa5e0e2e4830c0366b7fccfd46e781108db7051a4ee9bb19de15327e1",
+          "byteLength": 19970,
+          "crop": null
+        }
+      ]
+    }
+  ]
+}
