@@ -7,7 +7,7 @@ import { answerSignature, answerCanVary, bindQuestion, checkParameters, contract
 import { selectQuestions } from "../../../src/core/selection";
 import { sourceCollections } from "../../../src/core/source-collections";
 import { appendRunQuestion, prepareRun, startRun, validateRun } from "../../../src/core/session";
-import { seedControl, seedsFor, isAfternoon, legalAfternoonSelections, routesFor, finiteSeedBudget } from "./issuance";
+import { seedControl, seedsFor, isAfternoon, legalAfternoonSelections, routesFor, finiteSeedBudget, expectedAfternoonSelectionCount } from "./issuance";
 import { bookletRows, bookletKinds, generationPathTestName } from "./scope";
 
 type Row = ReturnType<typeof generationCoverage>["rows"][number];
@@ -59,7 +59,7 @@ async function checkPublicationPools(ctx: TestContext, bundle: Bundle, rows: Row
         assert.equal(annual.exam.timeLimitSeconds, prepared.exam.timeLimitSeconds);
         expectedBases.forEach(ref => visited.add(refKey(ref)));
       }
-      ctx.diagnostic(`${collection.id}: all13 study and all75 legal seven-major paper-order mixes retained.`);
+      ctx.diagnostic(`${collection.id}: all13 study and all${cases.length - 1} legal seven-major paper-order mixes retained.`);
       continue;
     }
     const poolRows = legacy ? collectionRows : currentRows;
@@ -160,7 +160,7 @@ async function checkEveryFiniteInput(ctx: TestContext, bundle: Bundle, rows: Row
   assert.equal(initialDraws - afternoonInitialDraws, (inputs - afternoonInputs) * 5);
   assert(templates > 0, `${scope}: no finite inputs were tested`);
   ctx.diagnostic(`${scope}: ${templates} domains, ${inputs} valid inputs, ${initialDraws} initial draws, ${appendedDraws} draws with complete prior history; current-format domains retain all five paths.`);
-  if (afternoonTemplates.length) ctx.diagnostic(`${scope}: old afternoon: ${afternoonTemplates.length} domains, all ${afternoonInputs} finite inputs, ${afternoonInitialDraws} initial draws on three applicable explicit routes, ${afternoonAppendedDraws} history draws; all75 booklet selections separately retained.`);
+  if (afternoonTemplates.length) ctx.diagnostic(`${scope}: old afternoon: ${afternoonTemplates.length} domains, all ${afternoonInputs} finite inputs, ${afternoonInitialDraws} initial draws on three applicable explicit routes, ${afternoonAppendedDraws} history draws; all${expectedAfternoonSelectionCount(scope)} booklet selections separately retained.`);
 }
 
 async function checkLargerSeededInputs(ctx: TestContext, bundle: Bundle, rows: Row[], scope: string) {

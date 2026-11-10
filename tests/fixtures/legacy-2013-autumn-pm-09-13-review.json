@@ -1,0 +1,321 @@
+{
+  "task": "S3-014",
+  "scope": "2013-autumn-pm",
+  "status": "source_visual_and_independent_authoring_pass",
+  "reviewedOn": "2026-11-10",
+  "method": "物理45〜72頁の原資料を拡大視認。物理1頁の公式解答表右側から7×5欄を目視。",
+  "hashes": {
+    "question.pdf": "85636074443711d95d5545860b37e4e11091330f3b2e9c5dfb531eed3a919f35",
+    "answer.pdf": "83f78930a662bdd4320966c4e7e2622f61ebf8e15a149838e9779114fa62d0b2",
+    "answer-1.png": "a3b2f23181a1f9ce759158dc3439b69898eabbd2c6a53df29fa73b8f7af589f9",
+    "comments.pdf": "d016b83209f84d19d03f9406e06fdc807737ac1d6c78ae4e48b8dd2a21e578bc",
+    "listing.html": "b86aa9de025184ded345464daf893446e508a8a46850411154dad0f7db31d006",
+    "faq.html": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+    "siteinfo.html": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3"
+  },
+  "questions": [
+    {
+      "number": 9,
+      "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "officialAnswerSlots": {
+        "a": "ク",
+        "b": "ア",
+        "c": "イ",
+        "d": "エ",
+        "e": "ア",
+        "f": "エ",
+        "g": "イ"
+      },
+      "bankSizes": [
+        8,
+        8,
+        3,
+        6,
+        4,
+        4,
+        4
+      ],
+      "sharedBanks": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "unordered": [],
+      "form": "Cプログラム2関数、条件1〜4、比較前処理の図表、辞書順比較、範囲外入力表と網掛け2箇所。空欄a/bの共有群と記号順を保持。",
+      "input": "上限30/24/28/32。等しい基本文字列・異なる基本文字列、正負・等値、大小文字と記号の付属先を変え、コードと本文・表の境界を同時変更。",
+      "method": "実際のC表示をC11でコンパイルして全4条件を実行。順列6択を比較関数の全16対、終端NULと最終英字直後の記号・先頭記号を範囲外入力で独立照合。",
+      "limit": "原のライブラリ説明に従う。ネイティブ確認は標準Cロケールの英字・ASCII記号で行い、負のchar値をctypeへ渡す実行環境固有の動作を仮定しない。"
+    },
+    {
+      "number": 10,
+      "pages": [
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "officialAnswerSlots": {
+        "a": "ア",
+        "b": "ク",
+        "c": "イ",
+        "d": "エ",
+        "e": "ア",
+        "f": "オ",
+        "g": "カ"
+      },
+      "bankSizes": [
+        8,
+        8,
+        8,
+        5,
+        7,
+        7,
+        7
+      ],
+      "sharedBanks": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "e",
+          "f",
+          "g"
+        ]
+      ],
+      "unordered": [
+        [
+          "e",
+          "f",
+          "g"
+        ]
+      ],
+      "form": "4面×9枠、2パラメタ、索引ファイル、75行、追加表、フェンス図と順不同e/f/g。全欄は同じ各解答群と1始まりの添字。",
+      "input": "営業開始8/7/9/6時、配列の時刻欄、フェンス両側の番号割当て、警告コード4/5/6/7を同期。終了時刻は開始+9、探索順は1〜4。",
+      "method": "表示命令から4面の連続2枠の空き全256マスク・先頭/中間/末端・希望1〜4面を独立に評価。7候補から3条件の全35組と全6順列、重複・誤答・未選択を採点。",
+      "limit": "ネイティブCOBOLのファイルI/Oは実行せず、資料に対応する索引更新・局所状態の参照モデルで照合。"
+    },
+    {
+      "number": 11,
+      "pages": [
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "officialAnswerSlots": {
+        "a": "イ",
+        "b": "エ",
+        "c": "エ",
+        "d": "ウ",
+        "e": "イ",
+        "2": "ウ",
+        "f": "エ"
+      },
+      "bankSizes": [
+        4,
+        4,
+        4,
+        6,
+        6,
+        5,
+        4
+      ],
+      "sharedBanks": [
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "unordered": [],
+      "form": "木構造例、ディレクトリ登録・絶対パス・全部分木探索、2つの出力例、根と葉の変更、4/4/4/6/6/5/4択。元のインスタンス数の候補6〜10を維持。",
+      "input": "4組のパス追加。空と絶対パスの拒否、重複枝、連続・末尾区切り、深さ、子があるlocalと葉のlocalの違いを出題前に可視化。",
+      "method": "順に登録する独立木で全候補とノード数を評価。生成表示JavaをJDK21でJava 8向けにコンパイルし、変更前後の全8件で図2/3の出力を照合。API動作はOracle Java SE 7の一次資料。",
+      "rights": "IPA p71–72のAPI原資料画像・原文を配布しない。必要な動作だけを著者独自の説明へ再構成し、資料文脈へ出典を分離。"
+    },
+    {
+      "number": 12,
+      "pages": [
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "officialAnswerSlots": {
+        "a": "イ",
+        "b": "カ",
+        "c": "ア",
+        "d": "イ",
+        "e": "ウ",
+        "f": "ア",
+        "g": "キ"
+      },
+      "bankSizes": [
+        4,
+        6,
+        6,
+        7,
+        7,
+        7,
+        7
+      ],
+      "sharedBanks": [
+        [
+          "b",
+          "c"
+        ],
+        [
+          "d",
+          "e"
+        ],
+        [
+          "f",
+          "g"
+        ]
+      ],
+      "unordered": [],
+      "form": "4桁m₁m₂s₁s₂、3本の命令列、2図、GR1〜GR7復元、1秒未満切捨て、命令行番号・分岐・コメント・三つの共有バンクを保持。",
+      "input": "274/332/498/538秒を表示。減算回数7/8/9/13、dの6回を基準どおり残し、候補を昇順で表示。元の候補19・272・274を基準で保持。",
+      "method": "実表示を解析する独立COMET II機械で、TOSECとTOTIMEの全6000秒往復、全レジスタの保存・命令回数、平均処理の境界、代入候補の反例を検査。",
+      "rights": "IPA p73–78、p75はJIS文字表・規格文言を除く上部抜粋。必要な数字の符号値と区切りの扱いは独立資料に分離し、RFC 20を出典表示。"
+    },
+    {
+      "number": 13,
+      "pages": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "officialAnswerSlots": {
+        "a": "ク",
+        "b": "イ",
+        "c": "ア",
+        "d": "イ",
+        "e": "カ",
+        "f": "キ",
+        "g": "イ"
+      },
+      "bankSizes": [
+        8,
+        4,
+        7,
+        6,
+        8,
+        8,
+        8
+      ],
+      "sharedBanks": [
+        [
+          "e",
+          "g"
+        ]
+      ],
+      "unordered": [],
+      "form": "2ワークシート、5組・各組に1名の長、受講者番号・グループ番号の同点優先、A列/行2のアンカー、マクロの入れ子・字下げ・e/g共有群を保持。",
+      "input": "学生50/40/45/55名、定員10/8/9/11、長・定員充足・対称な類似度・同率条件を変える。行列・参照式の範囲・計算結果・残り人数の式は同期。",
+      "method": "独立の有効組合せ列挙と同点規則から表示セル・順位・推薦を検査。参照式全択のアンカー・照合・相対セルの読出し位置と反例を検査。",
+      "limit": "基準の表は公式の見えるセルを照合。省略セルは公式の未公表数値とせず、表示例を整合させるための検証用補完。生成値は編集した例。表計算ソフトの独自機能や任意式はアプリで実行しない。",
+      "rights": "IPAの共通疑似言語p3–4と表計算仕様p79–84を固定資料として紐付け、再録出典を保持。"
+    }
+  ],
+  "heldProposals": [],
+  "appendices": {
+    "java": {
+      "pages": [
+        71,
+        72
+      ],
+      "admission": "hold_original_assets_and_source_text",
+      "editorialTitle": "Java APIの参照（独自編集）",
+      "sourceUrls": [
+        "https://docs.oracle.com/javase/7/docs/api/java/util/List.html",
+        "https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html",
+        "https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html",
+        "https://docs.oracle.com/javase/7/docs/api/java/lang/String.html"
+      ]
+    },
+    "casl": {
+      "pages": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "page75": "1.3文字の表現とJISの表を除く上部",
+      "editorialTitle": "時刻文字列に使う文字と符号値（独自編集）",
+      "sourceUrl": "https://www.rfc-editor.org/rfc/rfc20.html"
+    },
+    "spreadsheet": {
+      "pages": [
+        3,
+        4,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "admission": "pending_root_appendix_review"
+    }
+  },
+  "scopeLimits": "原画像の読み上げ・生成器・表示・通常アプリ統合・配布は別工程。",
+  "generationVersion": "3.7.0",
+  "coverage": {
+    "majors": 5,
+    "physicalQuestionPages": 26,
+    "officialFields": 35,
+    "finiteInputs": 20,
+    "distinctChoicesAcrossConditions": 564,
+    "partChoiceReferencesAcrossConditions": 852,
+    "figureProfiles": 13,
+    "figuresRendered": 52,
+    "semanticTests": 8
+  },
+  "usePolicy": {
+    "publisher": "IPA",
+    "questionListing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html",
+    "terms": "https://www.ipa.go.jp/shiken/faq.html",
+    "siteTerms": "https://www.ipa.go.jp/siteinfo.html",
+    "scope": "出典を表示する教育目的の公開問題・選択肢・答えとIPA作成の原問図表。独自編集と第三者資料の留保は別記録。"
+  },
+  "validated": {
+    "sourcePageAlt": "全26頁。写真再録の読み上げでは紙面途中の解答群を元の順で配置し、図表と各コードの形を確認。",
+    "semanticTestLogSHA256": "d14bed566a0bb633552fb44de2b5090aef7a9b728370725c7ad17117240e5332",
+    "typeCheck": "隔離した正本src・自身の追加14ファイル・本番と同じTypeScriptの厳格設定でexit 0。",
+    "typeLogSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "display": "各管理図×各入力のReact SSR。通常アプリと配布の検証は親統合で実施する。"
+  },
+  "files": {
+    "src/core/generators/legacy-2013-autumn-pm-09-13-figures.ts": "eea622af9fe8dcd62167d5aa0c69db694245941cbcc63960c2e2b581997994f4",
+    "src/core/generators/legacy-2013-autumn-pm-09-13-models.ts": "43a0b706245097a1e2ad7e84d15b397cb31606d77d22c2a98390e16b6856b69c",
+    "src/core/generators/legacy-2013-autumn-pm-09-13-support.ts": "2e18f7c8c0e9f70e657e571b870cb3cb1e84522de60d401773230168722dbfc5",
+    "src/core/generators/legacy-2013-autumn-pm-09-13.ts": "e4ca437dd5c2707484cf0a42bbf10eee950d3e0ed75e3df3bb01e76fc92c51c3",
+    "src/core/generators/legacy-2013-autumn-pm-10.ts": "f5c67c553bd8ac58dbf15b227a0d8b43ce998fe3ab82d7b5579ab1cae0b5c555",
+    "src/core/generators/legacy-2013-autumn-pm-11.ts": "53ec33871bff6cd9d206b398fa32fb34c363557c2de460d078f24f8427591a1d",
+    "src/core/generators/legacy-2013-autumn-pm-12.ts": "b940b9d4445511ac4aee822fa64d0fc0eed81ffd1e693956b1658e55b39e5f1a",
+    "src/core/generators/legacy-2013-autumn-pm-13-sheet.ts": "51b692e608c98f6d74fa129ab56fd22d511241f85d2aa1b5f12a0e0a1682df55",
+    "src/core/generators/legacy-2013-autumn-pm-13.ts": "e0c92c70ef27596f23f2b6ce46d338008eb542ee3a23bb6740e85757fde67859",
+    "src/core/generators/legacy-2013-autumn-pm-9.ts": "189ca75f0e64698f069010720c0f6c45eed58457f9fd6203e9baa2708adf6e85",
+    "src/ui/Legacy2013AutumnPm0913Figures.tsx": "dc5ea4711b493d1afb918ac7cee6ccad33a20c80e3dcfc42926ad86e770a0b54",
+    "scripts/legacy-2013-autumn-pm-09-13-specs.ts": "8169d62cc1516f33dae507eb1be35837022e37a17ef98c8dababb68a00e84cc9",
+    "tests/legacy-2013-autumn-pm-09-13.test.ts": "937f1b7ff6d9f2cc2251e2bf4a88a9b00f1be59c37466cdbc15f356452b35779",
+    "tests/fixtures/legacy-2013-autumn-pm-09-13-comet.ts": "090d57d69d588ee537113ed8f3df22be6ec366202cc16686119f5e5575499824"
+  }
+}

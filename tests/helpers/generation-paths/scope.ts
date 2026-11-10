@@ -4,7 +4,7 @@ import { refKey, refOf, type Bundle } from "../../../src/core/types";
 import { generationCoverage } from "../../../src/core/generation-coverage";
 import { sourceCollections } from "../../../src/core/source-collections";
 import { checkParameters, contractFor } from "../../../src/core/generation";
-import { finiteSeedBudget, isAfternoon } from "./issuance";
+import { finiteSeedBudget, isAfternoon, expectedAfternoonSelectionCount } from "./issuance";
 
 type Row = ReturnType<typeof generationCoverage>["rows"][number];
 export type GenerationPathKind = "pool" | "small" | "large";
@@ -133,7 +133,7 @@ export function generationPathWorkInventory(bundle: Bundle) {
       requiredDiagnostics: Partial<Record<GenerationPathKind, string[]>> = {};
     if (kinds.small.length) {
       requiredDiagnostics.small = [`${scope}: ${kinds.small.length} domains, ${finiteInputs} valid inputs, ${finiteInitialDraws} initial draws, ${finiteInputs} draws with complete prior history; current-format domains retain all five paths.`];
-      if (afternoonTemplates) requiredDiagnostics.small.push(`${scope}: old afternoon: ${afternoonTemplates} domains, all ${afternoonInputs} finite inputs, ${afternoonInputs * 3} initial draws on three applicable explicit routes, ${afternoonInputs} history draws; all75 booklet selections separately retained.`);
+      if (afternoonTemplates) requiredDiagnostics.small.push(`${scope}: old afternoon: ${afternoonTemplates} domains, all ${afternoonInputs} finite inputs, ${afternoonInputs * 3} initial draws on three applicable explicit routes, ${afternoonInputs} history draws; all${expectedAfternoonSelectionCount(scope)} booklet selections separately retained.`);
     }
     if (kinds.large.length) requiredDiagnostics.large = [`${scope}: ${kinds.large.length} larger domains, ${largerInputs} seeded inputs, ${largerInitialDraws} initial draws on applicable issuance paths, ${largerInputs} draws with prior history.`];
     return { scope, finiteDomains: kinds.small.length, finiteInputs, finiteInitialDraws, finiteHistoryDraws: finiteInputs,

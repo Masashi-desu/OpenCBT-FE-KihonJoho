@@ -35,6 +35,7 @@ export type AfternoonBookletRecordSource = {
   period: string;
   officialTitle: string;
   questionPages: readonly [number, number];
+  printedPageNumber?: (physicalPage: number) => number;
   pageAssetId: (page: number) => string;
   area: (number: number) => Question['learning']['area'];
   learningTag: string;
@@ -117,7 +118,7 @@ export async function makeAfternoonBookletRecords(booklet: AfternoonBookletRecor
           summary: '原頁と全解答群・解答欄を保持', details: '公式の原画像と原問番号を保持し、必要な訂正・付属資料は個別の出典で表示します。', affectsAnswer: false }] },
       contributors: [{ actorId: 'ipa', role: 'author' }, { actorId: 'codex', role: 'editor' }, { actorId: 'codex', role: 'verifier' }],
       prompt: { attribution: structuredClone(official), blocks: mainAssets.map((asset, index) => ({ type: 'image', assetId: asset.id,
-        caption: `原資料 問${n}（印刷p.${spec.pages[index] - 1}／PDF p.${spec.pages[index]}）` })) },
+        caption: `原資料 問${n}（印刷p.${booklet.printedPageNumber?.(spec.pages[index]) ?? spec.pages[index] - 1}／PDF p.${spec.pages[index]}）` })) },
       contexts: originalContexts, contextRefs: originalContexts.map(context => context.id),
       choices: originalBody.choices.map((_, index) => { const symbol = symbols.get('choice-value-' + (index + 1)); assert(symbol);
         return { id: 'choice-original-' + (index + 1), content: { attribution: structuredClone(official), blocks: [{ type: 'paragraph', text: symbol }] } }; }),

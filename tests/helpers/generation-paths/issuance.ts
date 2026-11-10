@@ -39,19 +39,29 @@ export function isAfternoon(original: Question) {
   return original.subject === "B" && slots.size === 1 && slots.has("午後");
 }
 
+export function expectedAfternoonSelectionCount(scope: string) {
+  return scope === "2013-autumn-pm" ? 105 : 75;
+}
+
 export function legalAfternoonSelections(collection: Bundle["sets"][number]) {
-  // Independently enumerate the source cover's omitted pair and language;
-  // neither the production group counter nor shuffled question order is used.
+  // Enumerate the two omissions and the language independently of the
+  // production rule. The 2013 autumn cover does not require question 1.
   const refs = collection.questionRefs, policy = collection.questionSelection;
-  assert.equal(refs.length, 13); assert(policy);
-  assert.deepEqual(policy.requiredQuestionRefs, [refs[0], refs[7]]);
+  const scope = collection.id.replace(/^set-annual-/, "");
+  const beforeMandatorySecurity = scope === "2013-autumn-pm";
+  const firstRequired = beforeMandatorySecurity ? [] : [refs[0]];
+  const general = refs.slice(beforeMandatorySecurity ? 0 : 1, 7);
+  const languages = refs.slice(8);
+  assert.equal(refs.length, 13);
+  assert(policy);
+  assert.deepEqual(policy.requiredQuestionRefs, [...firstRequired, refs[7]]);
   assert.deepEqual(policy.optionalGroups.map(group => ({ refs: group.questionRefs, choose: group.choose })),
-    [{ refs: refs.slice(1, 7), choose: 4 }, { refs: refs.slice(8), choose: 1 }]);
+    [{ refs: general, choose: beforeMandatorySecurity ? 5 : 4 }, { refs: languages, choose: 1 }]);
   const selections = [];
-  for (let first = 1; first <= 6; first++) for (let second = first + 1; second <= 6; second++)
-    for (let language = 8; language <= 12; language++)
-      selections.push([refs[0], ...refs.slice(1, 7).filter((_, i) => i + 1 !== first && i + 1 !== second), refs[7], refs[language]]);
-  assert.equal(selections.length, 75);
+  for (let first = 0; first < general.length; first++) for (let second = first + 1; second < general.length; second++)
+    for (const language of languages)
+      selections.push([...firstRequired, ...general.filter((_, i) => i !== first && i !== second), refs[7], language]);
+  assert.equal(selections.length, expectedAfternoonSelectionCount(scope));
   return selections;
 }
 

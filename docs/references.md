@@ -424,3 +424,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 2013年10月20日の旧午前は四肢択一の全80問・150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。全80問の原問番号・選択肢順・公式正答と、それぞれの改変系列を収録する。冊子p.2–3は当時の規格名と版、論理素子の図記号と反転の注記を保持する。[IPA 平成25年度秋期の公開資料](https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html)・[試験要綱 Ver 1.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/youkou_ver1_6.pdf)。
 
 問21のGPL、問46のUML、問65の非機能要件と問78〜80の法令・告示は必要な事実と適用条件を照合し、外部資料の原文・原図は同梱しない。出典、素材範囲、公式解答と画像の照合値は `scripts/source-evidence/legacy-2013-autumn-am-source-review.json` に記録する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[GNU GPL FAQ](https://www.gnu.org/licenses/gpl-faq.html)・[OMG UML 2.4.1](https://www.omg.org/spec/UML/2.4.1/)・[IPAの要件定義事例](https://www.ipa.go.jp/archive/digital/tools/ep/ep2.html)。
+
+### 第3段階 S3-014 2013年度秋期・旧午後
+
+全13大問・86解答欄を収録する。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問10設問2のe・f・gは順不同で採点する。物理頁と印刷頁の番号は一致する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_pm_ans.pdf)・[採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_pm_cmnt.pdf)。
+
+問5・8・13には共通の擬似言語p.3–4を付ける。問11のJava API原頁p.71–72は公式資料へのリンクを表示し、必要なAPIの動作はOracleの仕様から独自編集する。問12のCASL II資料p.75は上部の命令と注記までを抜粋する。JIS符号表と規格説明の部分は除外し、数字とコロンの符号値を別の参照資料に記す。問13では当時の表計算の機能・用語p.79–84を表示する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Oracle Java SE 7 API](https://docs.oracle.com/javase/7/docs/api/)・[RFC 20](https://www.rfc-editor.org/rfc/rfc20.html)。

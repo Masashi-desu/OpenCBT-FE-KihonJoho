@@ -1,0 +1,321 @@
+{
+  "schema": "stage3-booklet-independent-review/v1",
+  "status": "authoring_verified",
+  "checkedOn": "2026-11-10",
+  "taskId": "S3-014",
+  "collectionId": "2013h25a-fe-pm",
+  "part": "01-04",
+  "questions": [
+    {
+      "variation": "NAND/NOR/XOR/XNORから問う2演算と半加算器で空欄にする出力端子を変更。",
+      "constraints": "各1ビット、2の補数4ビット、βが2行、VFとZFの注記、図中の同じdが2箇所。丸め・補助表の追加なし。",
+      "oracle": "SVGからゲート順と空欄位置を読み、独立真理値、二段加算、256組の符号付き整数の範囲、16出力で全候補の反例を確認。",
+      "number": 1,
+      "sourcePages": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "officialKeys": [
+        {
+          "locator": "1:a",
+          "key": [
+            "イ"
+          ],
+          "choices": 4
+        },
+        {
+          "locator": "1:b",
+          "key": [
+            "ア"
+          ],
+          "choices": 4
+        },
+        {
+          "locator": "2",
+          "key": [
+            "オ"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "3",
+          "key": [
+            "エ"
+          ],
+          "choices": 4
+        },
+        {
+          "locator": "4:c",
+          "key": [
+            "オ"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "4:d",
+          "key": [
+            "ウ"
+          ],
+          "choices": 5
+        }
+      ],
+      "rightsHold": false
+    },
+    {
+      "variation": "8/6/10/12チーム、打撃表のホームラン/ヒット/三振、表の得点例を変更。",
+      "constraints": "シーズン4月〜3月、総当たり1回、勝点3/0/1、日程・結果表の粒度、主キー、打席番号注記、同点時の得点順と所属の履歴を保持。",
+      "oracle": "組の列挙で件数、固定した関数従属・所属履歴の依存関係で知識択、実際の表示SQLをSQLiteで全候補実行。",
+      "number": 2,
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "officialKeys": [
+        {
+          "locator": "1:a",
+          "key": [
+            "イ"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "1:b",
+          "key": [
+            "イ"
+          ],
+          "choices": 6
+        },
+        {
+          "locator": "2:c",
+          "key": [
+            "イ"
+          ],
+          "choices": 4
+        },
+        {
+          "locator": "3:d",
+          "key": [
+            "ア"
+          ],
+          "choices": 4
+        },
+        {
+          "locator": "4:e",
+          "key": [
+            "エ"
+          ],
+          "choices": 6
+        },
+        {
+          "locator": "4:f",
+          "key": [
+            "ア"
+          ],
+          "choices": 6
+        }
+      ],
+      "rightsHold": false
+    },
+    {
+      "variation": "世界人口を億単位、IPv4の各オクテット、圧縮する節の非ゼロ値を変更。",
+      "constraints": "先行0、::1回、基本形は8節4桁、圧縮形は最短、IPv4は説明用アドレスの例。候補の仮数は小数第1位、指数の元の差を保持。",
+      "oracle": "BigIntで2の128乗の換算とビット連結、IPv6文法・基本形への展開、WHATWG URLの正規化による最短形で全候補を照合。",
+      "number": 3,
+      "sourcePages": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "officialKeys": [
+        {
+          "locator": "1:a",
+          "key": [
+            "イ"
+          ],
+          "choices": 6
+        },
+        {
+          "locator": "1:b",
+          "key": [
+            "ウ"
+          ],
+          "choices": 9
+        },
+        {
+          "locator": "1:c",
+          "key": [
+            "オ"
+          ],
+          "choices": 7
+        },
+        {
+          "locator": "2:d",
+          "key": [
+            "ウ"
+          ],
+          "choices": 7
+        },
+        {
+          "locator": "2:e",
+          "key": [
+            "ク"
+          ],
+          "choices": 8
+        },
+        {
+          "locator": "2:f",
+          "key": [
+            "ウ"
+          ],
+          "choices": 7
+        }
+      ],
+      "rightsHold": false
+    },
+    {
+      "variation": "X/Yを変え、鍵の余りが2・5・7・10の四つに変わる。図3のデータ送受信方向も変更。",
+      "constraints": "基数2、素数Z=11、X/Y正整数、剰余とべき乗の注記、鍵交換とRSA署名の区別、個別7欄。13は原問にある法の範囲外候補。",
+      "oracle": "BigIntで単一の指数積を剰余し、RSA鍵・IPsec層・機密性・送信元認証はRFCの事実を固定した全択判定。",
+      "number": 4,
+      "sourcePages": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "officialKeys": [
+        {
+          "locator": "1",
+          "key": [
+            "エ"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "2:a",
+          "key": [
+            "オ"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "2:b",
+          "key": [
+            "ア"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "2:c",
+          "key": [
+            "エ"
+          ],
+          "choices": 5
+        },
+        {
+          "locator": "3:d",
+          "key": [
+            "エ"
+          ],
+          "choices": 4
+        },
+        {
+          "locator": "3:e",
+          "key": [
+            "オ"
+          ],
+          "choices": 6
+        },
+        {
+          "locator": "3:f",
+          "key": [
+            "カ"
+          ],
+          "choices": 6
+        }
+      ],
+      "rightsHold": false
+    }
+  ],
+  "sourceReview": {
+    "sha256": "d1b9a6e8208c6d9ab633128bd9f648ca202a19fa62a8228065e353d74b636a90",
+    "byteLength": 36353
+  },
+  "primaryFacts": [
+    "https://www.rfc-editor.org/rfc/rfc4291.html#section-2.2",
+    "https://www.rfc-editor.org/rfc/rfc5952.html#section-4",
+    "https://www.rfc-editor.org/rfc/rfc3056.html#section-2",
+    "https://www.rfc-editor.org/rfc/rfc4301.html#section-3",
+    "https://www.rfc-editor.org/rfc/rfc5737.html#section-3",
+    "https://www.rfc-editor.org/rfc/rfc3447.html#section-8"
+  ],
+  "rightsHolds": [],
+  "validation": {
+    "typecheck": "pass",
+    "independentTests": 8,
+    "finiteInputs": 16,
+    "answerSlots": 25,
+    "choiceAssessments": 552,
+    "profiles": 11,
+    "renderedInputs": 51,
+    "visualReview": "SVGをローカルのResvgでラスタ化し、余白・回路配線・鍵交換の矢印・署名の方向・旗・注記を原冊子と比較。HTML表とARIAは全入力を静的描画して照合。",
+    "remaining": "配布レジストリ、通常アプリ、保存採点と全冊子の検査は統合工程。"
+  },
+  "files": {
+    "src/core/generators/legacy-2013-autumn-pm-01-04-figures.ts": {
+      "sha256": "49f00a8b53148b1435aad9881c4a3d8af7533660600d1093e082eaea93475d1a",
+      "byteLength": 5960
+    },
+    "src/core/generators/legacy-2013-autumn-pm-01-04-models.ts": {
+      "sha256": "8299aa921242de4fc78c1803469682a689780a81bdd6e04553f7bab8de93598e",
+      "byteLength": 4226
+    },
+    "src/core/generators/legacy-2013-autumn-pm-01-04-shared.ts": {
+      "sha256": "cc4aaeb51d78d01856275d97ad8295a262b9e8de6ca927de3a5e2bf35bdba6ee",
+      "byteLength": 2060
+    },
+    "src/core/generators/legacy-2013-autumn-pm-01-04.ts": {
+      "sha256": "d7712ab0fb0ca1df4eafb6008e252b5061f6577460ac1edc33b64bd6fe7b2ceb",
+      "byteLength": 485
+    },
+    "src/core/generators/legacy-2013-autumn-pm-1.ts": {
+      "sha256": "b94377fac09ad610a3ece8e5fb51b5170db276a497f7ef8bacdc751923b7ae83",
+      "byteLength": 6742
+    },
+    "src/core/generators/legacy-2013-autumn-pm-2.ts": {
+      "sha256": "88c9d44d8cef85d1d33edb4aa9c2924f87fe9ebf2fb3d2bdb813cc969eed70c9",
+      "byteLength": 10463
+    },
+    "src/core/generators/legacy-2013-autumn-pm-3.ts": {
+      "sha256": "67d970227b6a32a697e099732ca2d7f9e5ea95e82ba0dd52150be44d565ce49c",
+      "byteLength": 9505
+    },
+    "src/core/generators/legacy-2013-autumn-pm-4.ts": {
+      "sha256": "dc68105604db988a874b50ccf5b201ba487e7117ca6a4f9d63a0f82c50055f58",
+      "byteLength": 6627
+    },
+    "src/ui/Legacy2013AutumnPm0104Figures.tsx": {
+      "sha256": "4265e8a97e2798d5a7f4bce17be724c6d4a844f42848ec293243e6190c8a0015",
+      "byteLength": 15240
+    },
+    "scripts/legacy-2013-autumn-pm-01-04-specs.ts": {
+      "sha256": "becf11972401af2462bc8f0585e42f446276e1150510e4a1420b0e27e38cd0fd",
+      "byteLength": 1770
+    },
+    "tests/fixtures/legacy-2013-autumn-pm-01-04-facts.ts": {
+      "sha256": "24be949904c68a00cd7dbd619971441f981a8946887668d071febcbf6a30e3df",
+      "byteLength": 2236
+    },
+    "tests/legacy-2013-autumn-pm-01-04.test.ts": {
+      "sha256": "f1d378a3d5f2a41ea2c3d140b3cca1f3010b525b00d3bcc9c6c50104db553334",
+      "byteLength": 19049
+    }
+  }
+}
