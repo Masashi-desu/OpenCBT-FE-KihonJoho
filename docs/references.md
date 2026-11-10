@@ -463,3 +463,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 公式は全80問必須、150分。掲載対象の80問を年度別オリジナルとランダムミックスに収録します。論理回路と抵抗・接地の共通表記はp.2、問題はp.3〜36です。素材条件の保留はありません。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html) [公表問題の利用条件](https://www.ipa.go.jp/shiken/faq.html)
 
 問58〜60・62は当時の監査・管理基準との表現境界を確認し、基準の本文や図表を配布しません。問78〜80はプログラムの著作権、商品の識別標識、組込みソフトウェアを含む製造物の欠陥を照合しました。 [システム監査基準（平成16年）](https://www.saaj.or.jp/kijun/system_kansa.pdf) [システム管理基準（平成16年）](https://www.saaj.or.jp/kijun/system_kanri.pdf) [著作権法](https://laws.e-gov.go.jp/law/345AC0000000048#Mp-At_10) [商標法](https://laws.e-gov.go.jp/law/334AC0000000127#Mp-At_2) [消費者庁の製造物責任法Q&A](https://www.caa.go.jp/policies/policy/consumer_safety/other/pl_qa.html)
+
+### 第3段階 S3-020 2012年度春期・旧午後
+
+公式13大問・79解答欄。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問10のb・c・dは順不同で、3つの解答欄として採点する。印刷頁とPDFの物理頁は一致する。 [公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000038er-att/2012h24h_fe_pm_qs.pdf) [公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000038er-att/2012h24h_fe_pm_ans.pdf) [採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000038er-att/2012h24h_fe_pm_cmnt.pdf)
+
+問8と問13は共通の擬似言語p.3〜4を参照する。問11のJava APIは原資料p.71〜75に出典を付け、学習に必要な操作を独立に説明する。問12はCASL II資料p.76〜81を参照し、p.78は命令と注記までの抜粋を使う。数字の符号値は独立記述する。問13は表計算の機能・用語p.82〜87を参照し、関数表の注1・注2はp.86にある。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [Java SE 7 API](https://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html) [Unicodeの文字対応アーカイブ](https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT)
