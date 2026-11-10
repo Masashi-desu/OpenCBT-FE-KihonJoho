@@ -11,7 +11,13 @@ before(async () => {
   // A fresh optimizer cache belongs to this server, never another test process
   // or the user's development server.
   cacheDir = fs.mkdtempSync(path.resolve("output", "recovery-vite-"));
-  server = await createServer({ cacheDir, server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false }, logLevel: "error" });
+  server = await createServer({
+    cacheDir,
+    // Review artifacts can contain unrelated HTML from other build snapshots.
+    optimizeDeps: { entries: ["index.html"] },
+    server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false },
+    logLevel: "error",
+  });
   await new Promise<void>((resolve, reject) => {
     server.httpServer!.once("error", reject);
     server.httpServer!.listen(0, "127.0.0.1", () => { server.httpServer!.off("error", reject); resolve(); });
@@ -26,9 +32,14 @@ after(async () => {
     finally { if (cacheDir) fs.rmSync(cacheDir, { recursive: true, force: true }); }
   }
 });
-const ready = async (p: Page) => { await p.getByRole("button", { name: "開始前の説明へ", exact: true }).and(p.locator(":enabled")).waitFor(); };
+// Each assertion waits for the application's own ready or recovery state.
+const documentNavigation = { waitUntil: "commit" } as const;
+const applicationWait = { timeout: 60000 };
+const ready = async (p: Page) => {
+  await p.getByRole("button", { name: "開始前の説明へ", exact: true }).and(p.locator(":enabled")).waitFor(applicationWait);
+};
 const warning = async (p: Page) => {
-  await p.getByText("保存機能を利用できません", { exact: true }).waitFor();
+  await p.getByText("保存機能を利用できません", { exact: true }).waitFor(applicationWait);
   assert.equal(await p.locator(".error-banner").count(), 0);
   assert.equal(await p.getByRole("button", { name: "開始前の説明へ", exact: true }).isDisabled(), true);
 };
@@ -122,8 +133,8 @@ test("one malformed bookmark, session, legacy snapshot or withdrawal policy cann
   ] as const) {
     const context = await browser.newContext(), p = await context.newPage();
     try {
-      await p.goto(origin); await ready(p); await raw(p, store, row);
-      await p.reload(); await warning(p);
+      await p.goto(origin, documentNavigation); await ready(p); await raw(p, store, row);
+      await p.reload(documentNavigation); await warning(p);
       const retained = store === "storagePolicy" ? await p.evaluate(async () => {
         const r = indexedDB.open("opencbt-fe-kihonjoho-v2"), db = await new Promise<IDBDatabase>(resolve => { r.onsuccess = () => resolve(r.result); });
         const q = db.transaction("storagePolicy").objectStore("storagePolicy").get("withdrawals");
@@ -152,7 +163,7 @@ test("same-version incomplete stores and a newer database version preserve raw r
         r.onupgradeneeded = () => r.result.createObjectStore("evidence", { keyPath: "id" }).put({ id: "kept", answer: "original" });
         await new Promise<void>((resolve, reject) => { r.onsuccess = () => { r.result.close(); resolve(); }; r.onerror = () => reject(r.error); });
       }, version);
-      await p.goto(origin); await warning(p); await p.reload(); await warning(p);
+      await p.goto(origin, documentNavigation); await warning(p); await p.reload(documentNavigation); await warning(p);
       assert.deepEqual(await p.evaluate(async () => {
         const r = indexedDB.open("opencbt-fe-kihonjoho-v2"), db = await new Promise<IDBDatabase>(resolve => { r.onsuccess = () => resolve(r.result); });
         const q = db.transaction("evidence").objectStore("evidence").get("kept");
@@ -166,9 +177,9 @@ test("same-version incomplete stores and a newer database version preserve raw r
 test("denied storage supports explicit temporary answers, results and bookmarks without IDB calls; reload discards only temporary records", async () => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 } }), p = await context.newPage();
   try {
-    await fault(p, "deny"); await p.goto(origin); await ready(p);
+    await fault(p, "deny"); await p.goto(origin, documentNavigation); await ready(p);
     await p.evaluate(() => sessionStorage.setItem("recovery-fault", "on"));
-    await p.reload(); await warning(p); await p.screenshot({ path: "output/recovery/storage-unavailable.png", fullPage: true });
+    await p.reload(documentNavigation); await warning(p); await p.screenshot({ path: "output/recovery/storage-unavailable.png", fullPage: true });
     for (const width of [390, 320]) for (const theme of ["ライトモード", "ダークモード"]) {
       await p.setViewportSize({ width, height: 720 });
       await p.getByRole("button", { name: theme, exact: true }).click();
@@ -199,7 +210,7 @@ test("denied storage supports explicit temporary answers, results and bookmarks 
     await p.locator(".exam-brand").click();
     await p.getByRole("button", { name: "ブックマーク", exact: true }).click();
     assert.equal(await p.locator(".bookmark-card").count(), 1);
-    await p.reload(); await warning(p); assert.equal(await p.getByText("このタブだけの一時的な練習です", { exact: true }).count(), 0);
+    await p.reload(documentNavigation); await warning(p); assert.equal(await p.getByText("このタブだけの一時的な練習です", { exact: true }).count(), 0);
     await p.evaluate(() => { sessionStorage.removeItem("recovery-fault"); (window as any).__documentMarker = true; });
     await p.locator('.storage-recovery').getByRole("button", { name: "再読込み", exact: true }).click();
     await p.waitForFunction(() => !(window as any).__documentMarker); await ready(p);
@@ -212,9 +223,9 @@ test("denied storage supports explicit temporary answers, results and bookmarks 
 test("quota failures during startup retain the persistent database and allow temporary operation", async () => {
   const context = await browser.newContext(), p = await context.newPage();
   try {
-    await fault(p, "quota"); await p.goto(origin); await ready(p);
+    await fault(p, "quota"); await p.goto(origin, documentNavigation); await ready(p);
     await raw(p, "storagePolicy", { id: "broken", answer: "retained" });
-    await p.evaluate(() => sessionStorage.setItem("recovery-fault", "on")); await p.reload(); await warning(p);
+    await p.evaluate(() => sessionStorage.setItem("recovery-fault", "on")); await p.reload(documentNavigation); await warning(p);
     assert.deepEqual(await raw(p, "storagePolicy"), { id: "broken", answer: "retained" });
     await p.getByRole("button", { name: "記録を保存せずに新しく練習", exact: true }).click(); await ready(p); await searchQuestion(p);
     assert.equal(await p.locator(".error-banner").count(), 0);
@@ -226,11 +237,11 @@ test("rejected lock requests are surfaced instead of being swallowed and can swi
   for (const mode of ["lock", "lock-sync", "lock-stall", "no-lock"]) {
   const context = await browser.newContext(), p = await context.newPage();
   try {
-    await fault(p, mode); await p.goto(origin); await p.clock.install();
+    await fault(p, mode); await p.goto(origin, documentNavigation); await p.clock.install();
     if (mode === "no-lock") await warning(p);
     else { await ready(p); await searchQuestion(p); await p.getByRole("button", { name: "類題を解く", exact: true }).click(); }
     if (mode === "lock-stall") { await p.waitForFunction(() => (window as any).__hungLock); await p.clock.fastForward(15001); }
-    await p.getByText("保存機能を利用できません", { exact: true }).waitFor();
+    await p.getByText("保存機能を利用できません", { exact: true }).waitFor(applicationWait);
     await p.getByRole("button", { name: "記録を保存せずに新しく練習", exact: true }).click(); await ready(p);
     await searchQuestion(p); await p.getByRole("button", { name: "類題を解く", exact: true }).click();
     await p.locator('.answer-choice').first().click();
@@ -240,32 +251,42 @@ test("rejected lock requests are surfaced instead of being swallowed and can swi
   }
 });
 
-test("unresponsive DB and network requests have finite deadlines, and real reload retries transient failures", { timeout: 180000 }, async () => {
-  const trace = (stage: string) => fs.writeFileSync("output/recovery/deadline-stage.json", JSON.stringify({ stage, time: new Date().toISOString() }));
-  for (const mode of ["stall", "read", "commit", "cursor", "cursor-pending", "gc-cursor", "network"]) {
-    const context = await browser.newContext(), p = await context.newPage();
-    try {
-      trace(mode + ": start");
-      await fault(p, mode); await p.goto(origin); await ready(p); await p.clock.install();
-      await p.evaluate(() => sessionStorage.setItem("recovery-fault", "on")); await p.reload();
-      if (mode !== "network") await p.getByRole("combobox", { name: "公開問題集", exact: true }).and(p.locator(":enabled")).waitFor();
-      else await p.waitForFunction(() => (window as any).__hungFetch);
-      if (mode === "commit" || mode === "cursor-pending") await p.waitForFunction(() => (window as any).__nativeCommitDone);
-      if (mode === "cursor" || mode === "gc-cursor") await p.waitForFunction(() => (window as any).__cursorStopped);
-      else await p.clock.fastForward(mode === "stall" ? 15001 : mode === "read" || mode === "commit" || mode === "cursor-pending" ? 30001 : 20001);
-      if (mode !== "network") await warning(p); else await p.locator(".error-banner").waitFor();
-      trace(mode + ": rejected");
-      await p.evaluate(() => { sessionStorage.removeItem("recovery-fault"); (window as any).__documentMarker = true; });
-      await p.getByRole("button", { name: "再読込み", exact: true }).click();
-      await p.waitForFunction(() => !(window as any).__documentMarker); await ready(p);
-      assert.equal(await p.locator(".error-banner").count(), 0);
-    } finally { await context.close(); }
-  }
+const traceDeadline = (stage: string) => fs.writeFileSync(
+  "output/recovery/deadline-stage.json",
+  JSON.stringify({ stage, time: new Date().toISOString() }),
+);
+
+async function verifyStartupDeadline(mode: string) {
+  const context = await browser.newContext(), p = await context.newPage();
+  try {
+    traceDeadline(mode + ": start");
+    await fault(p, mode); await p.goto(origin, documentNavigation); await ready(p); await p.clock.install();
+    await p.evaluate(() => sessionStorage.setItem("recovery-fault", "on")); await p.reload(documentNavigation);
+    if (mode !== "network") await p.getByRole("combobox", { name: "公開問題集", exact: true }).and(p.locator(":enabled")).waitFor();
+    else await p.waitForFunction(() => (window as any).__hungFetch);
+    if (mode === "commit" || mode === "cursor-pending") await p.waitForFunction(() => (window as any).__nativeCommitDone);
+    if (mode === "cursor" || mode === "gc-cursor") await p.waitForFunction(() => (window as any).__cursorStopped);
+    else await p.clock.fastForward(mode === "stall" ? 15001 : mode === "read" || mode === "commit" || mode === "cursor-pending" ? 30001 : 20001);
+    if (mode !== "network") await warning(p); else await p.locator(".error-banner").waitFor();
+    traceDeadline(mode + ": rejected");
+    await p.evaluate(() => { sessionStorage.removeItem("recovery-fault"); (window as any).__documentMarker = true; });
+    await p.getByRole("button", { name: "再読込み", exact: true }).click();
+    await p.waitForFunction(() => !(window as any).__documentMarker); await ready(p);
+    assert.equal(await p.locator(".error-banner").count(), 0);
+  } finally { await context.close(); }
+}
+
+test("unresponsive database requests have finite deadlines and a real reload retries", { timeout: 180000 }, async () => {
+  for (const mode of ["stall", "read", "commit", "cursor", "cursor-pending", "gc-cursor"])
+    await verifyStartupDeadline(mode);
+});
+
+test("unresponsive bookmark requests reject and a real reload retries", { timeout: 180000 }, async () => {
   for (const mode of ["bookmark-read", "commit"]) {
     const context = await browser.newContext(), p = await context.newPage();
     try {
-      trace("bookmark-" + mode + ": start");
-      await fault(p, mode); await p.goto(origin); await ready(p); await p.clock.install();
+      traceDeadline("bookmark-" + mode + ": start");
+      await fault(p, mode); await p.goto(origin, documentNavigation); await ready(p); await p.clock.install();
       await p.evaluate(async () => {
         const storagePath = "/src/core/storage.ts", bookmarkPath = "/src/core/bookmarks.ts", catalogPath = "/src/core/catalog.ts";
         const storage = await import(storagePath), { makeBookmark } = await import(bookmarkPath), { loadCatalog } = await import(catalogPath);
@@ -283,20 +304,24 @@ test("unresponsive DB and network requests have finite deadlines, and real reloa
       } else await p.waitForFunction(() => (window as any).__bookmarkReadStopped);
       await p.waitForFunction(() => (window as any).__bookmarkOutcome !== "pending");
       assert.match(await p.evaluate(() => (window as any).__bookmarkOutcome), /ブックマーク.*再読み込み/);
-      trace("bookmark-" + mode + ": rejected");
-      await p.evaluate(() => sessionStorage.removeItem("recovery-fault")); await p.reload(); await ready(p);
+      traceDeadline("bookmark-" + mode + ": rejected");
+      await p.evaluate(() => sessionStorage.removeItem("recovery-fault")); await p.reload(documentNavigation); await ready(p);
       assert.equal(await p.locator(".error-banner").count(), 0);
     } finally { await context.close(); }
   }
+});
+
+test("unresponsive catalog and generator requests have finite deadlines and a real reload retries", { timeout: 180000 }, async () => {
+  await verifyStartupDeadline("network");
   const context = await browser.newContext(), p = await context.newPage();
   try {
-    trace("module: start");
+    traceDeadline("module: start");
     let stalled = false, held: import("playwright").Route | undefined;
     await p.route("**/src/core/generators/legacy-morning-registry.ts", route => {
       if (stalled) held = route; else void route.continue();
     });
-    await p.goto(origin); await ready(p); await p.clock.install();
-    stalled = true; await p.reload();
+    await p.goto(origin, documentNavigation); await ready(p); await p.clock.install();
+    stalled = true; await p.reload(documentNavigation);
     await assert.doesNotReject(async () => {
       for (let attempt = 0; !held && attempt < 300; attempt++) await new Promise(resolve => setTimeout(resolve, 50));
       assert(held, "native module request reached the stalled transport");
@@ -306,6 +331,6 @@ test("unresponsive DB and network requests have finite deadlines, and real reloa
     stalled = false; await held!.abort();
     await p.getByRole("button", { name: "再読込み", exact: true }).click(); await ready(p);
     assert.equal(await p.locator(".error-banner").count(), 0);
-    trace("complete");
+    traceDeadline("complete");
   } finally { await context.close(); }
 });

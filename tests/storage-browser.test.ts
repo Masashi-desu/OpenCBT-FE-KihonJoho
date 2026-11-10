@@ -12,7 +12,13 @@ before(async () => {
   // Each parallel Vite optimizer owns its cache; a shared cold cache can race
   // while renaming deps_temp into deps (ENOTEMPTY on the Linux CI runner).
   cacheDir = fs.mkdtempSync(path.resolve("output", "storage-vite-"));
-  server = await createServer({ cacheDir, server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false }, logLevel: "error" });
+  server = await createServer({
+    cacheDir,
+    // Review artifacts can contain unrelated HTML from other build snapshots.
+    optimizeDeps: { entries: ["index.html"] },
+    server: { host: "127.0.0.1", port: 0, strictPort: true, hmr: false },
+    logLevel: "error",
+  });
   // Vite 6 treats config port 0 as its default port; bind the HTTP server to an
   // OS-assigned port so parallel browser files never compete with each other.
   await new Promise<void>((resolve, reject) => {
