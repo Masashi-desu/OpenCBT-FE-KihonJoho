@@ -1,0 +1,291 @@
+{
+  "scope": "2013年度春期 基本情報技術者試験 午前 問54〜80",
+  "reviewedAt": "2026-11-10",
+  "questionPdf": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf",
+  "answerPdf": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_ans.pdf",
+  "questionSha256": "39c169249a825961c710a248b5bc8e30c474679fed5f93516e610a308a13d9bc",
+  "answerSha256": "fb78aba7d1c13c367190474c0257f5b2e2fc463be76237a6cabb0fbe1f779023",
+  "method": "200dpi紙面p26–36と公式解答表を全問確認。紙面上の余白・行送り・振り仮名のみ正規化。問69・76・80の図表は原冊子の値と向きを個別確認。",
+  "rightsHolds": [
+    {
+      "number": 55,
+      "reason": "ITIL v3 Service Operation §6.2.3の組織構成と具体例（言語・文化、VIP、集中時の少数拠点と大量コール）の選択・組合せに対応。第三者の日本語表現の境界と本アプリでの再利用条件を確認するまで保留。"
+    },
+    {
+      "number": 62,
+      "reason": "経済産業省の平成16年版システム管理基準Ⅰ1.1(4)と原問本文の表現が近接。原版・年度・条項は照合済み。旧版の著作物に現在の公共データ利用規約が適用されること又は別の許諾を確認するまで保留。"
+    }
+  ],
+  "references": {
+    "reuse": "https://www.ipa.go.jp/shiken/mondai-kaiotu/",
+    "audit2004": "https://www.saaj.or.jp/kijun/system_kansa.pdf",
+    "management2004": "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+    "process2007": "https://www.ipa.go.jp/archive/files/000024493.pdf",
+    "process2013": "https://www.ipa.go.jp/archive/files/000027415.pdf",
+    "greenPurchase": "https://www.env.go.jp/policy/hozen/green/g-law/index.html",
+    "environmentLabel": "https://www.env.go.jp/policy/hozen/green/ecolabel/a04_01.html",
+    "unfairCompetition": "https://laws.e-gov.go.jp/law/405AC0000000047",
+    "laborDispatch": "https://www.mhlw.go.jp/bunya/koyou/gigi_outou01.html",
+    "civilCode2013": "https://www.moj.go.jp/content/000047330.pdf"
+  },
+  "independence": "数値問題は表示した表を解析して、元入力モデルを使わず顧客数を別の方法で集計し、最大利益を整数全列挙と線形計画の双対上界で検算。契約は表示した取引前提と図の矢印・参照番号から当時の契約成立を判定。知識選択は独立査読した概念表で全選択肢を分類。学習者による難易度の実測は未実施。",
+  "records": [
+    {
+      "number": 54,
+      "page": 26,
+      "officialAnswer": "ア",
+      "statementHash": "ef95b8ed1ed4a2e25cf2fc3626a3187dd681143dfa91323c948982ac09765351",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 56,
+      "page": 26,
+      "officialAnswer": "ア",
+      "statementHash": "c0d6ab3215b744182462660ec4341528db00914b88a81142b35a07ed889277b7",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 57,
+      "page": 27,
+      "officialAnswer": "ア",
+      "statementHash": "f4f726c99f714e116eda5463f8b9b9b40f4288f9e9dac94ee63ecb8baef19a28",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 58,
+      "page": 27,
+      "officialAnswer": "ウ",
+      "statementHash": "c714e25ec4441d5ec2dc8f583a1e9593934702e0381a037ad54a73712de7b749",
+      "conditions": "当時の「システム監査基準」を参照する。基準からの出典付き引用や転載図はなく、問いは監査目的の識別。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "rightsReview": "平成16年10月8日経済産業省システム監査基準Ⅱを原版と照合。独立した監査人による検証・評価、保証又は助言を定める原版に対して、IPA選択肢は統制の改善とITガバナンスへの寄与を短く要約。逐語転載や図版はない。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 59,
+      "page": 27,
+      "officialAnswer": "イ",
+      "statementHash": "b82a3afbb51e351f79c92f174ca30d2d735e21d961e341abe95b5affc201bc89",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 60,
+      "page": 28,
+      "officialAnswer": "イ",
+      "statementHash": "3508bcf67fbeb0a1ad20e3acf60ef70394957a2515eb3c620d08842c93cc5f2e",
+      "conditions": "原文は電子メールを用いた四択。別手段は同じ電子メールの再送ではない。現代の推奨手順と混同しない。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 61,
+      "page": 29,
+      "officialAnswer": "ア",
+      "statementHash": "761d2be44f54c0f43c11d24e4ced494299d5f5c02afdb9211cbdb8b41ac2fc8d",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 63,
+      "page": 29,
+      "officialAnswer": "エ",
+      "statementHash": "02c9a2fa144ce79519c6ffba9762bf30a4e5db6a577a088f209c3e1d152d6abb",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 64,
+      "page": 30,
+      "officialAnswer": "イ",
+      "statementHash": "fdc377b39b072c2f94bb030fcad7bdc61c36300dae358dde49653ae47ca2a945",
+      "conditions": "企画、要件定義、開発、運用、保守の五区分を明示。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "rightsReview": "IPAが発行した共通フレーム2007第2版誌および共通フレーム2013セミナーp20–21で、企画はJISの外からIPAが追加したプロセスであることを確認。原問はJISからの転載と判断される文章・図版を含まない。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 65,
+      "page": 30,
+      "officialAnswer": "イ",
+      "statementHash": "f518c5a80d8d0f4f401b23b3f76ea70db40d34312409b7ca2893847a8678579f",
+      "conditions": "原正答は開発言語に合わせた開発基準・標準。非機能要件の技術・開発制約の位置づけで読む。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 66,
+      "page": 31,
+      "officialAnswer": "エ",
+      "statementHash": "7646d3381369cbbd284dbbb22a4870408d65cd6fb4adf5e8b717cc469c3fd86d",
+      "conditions": "選択肢にエコマーク名のみ記載。図版・標章なし。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "rightsReview": "環境省のグリーン購入法の基本方針、エコマークの公表説明を照合。品質・価格と環境負荷を併記した一般概念の問いで、法令・基本方針の逐語引用や、第三者の標章画像・規格本文はない。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 67,
+      "page": 31,
+      "officialAnswer": "ウ",
+      "statementHash": "21e4e9e700616ba4bf1ed20c4f1629f60c5cc53e8204c616ef3b46d78e42a736",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 68,
+      "page": 32,
+      "officialAnswer": "イ",
+      "statementHash": "1f117c9fb4aa55756c69832792e77d7c28861066ba04317c2b04cd5ec8338406",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 69,
+      "page": 32,
+      "officialAnswer": "エ",
+      "statementHash": "a42ebfec2d90e7ab2695a7bdb5ed1a49d1b296efb5cd3573064dd61282572f6e",
+      "conditions": "毎月の購入者、翌年の新商品、移行割合と新規顧客数。原表は小数1桁。既存／新規顧客数の行と列対応を保持。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "figureAlt": "列は人数，P，Q，R，S。商品Aは10,000，0.5，0.3，0.1，0.1。Bは20,000，0.1，0.6，0.1，0.1。Cは80,000，0.1，0.1，0.3，0.3。既存顧客数は15,000，23,000，27,000，27,000。新規顧客数は5,000，7,000，13,000，23,000。",
+      "inputs": 4,
+      "oracle": "表示表の人数と割合を別途読取り、全4択の積・合計・割合・不等式を照合。"
+    },
+    {
+      "number": 70,
+      "page": 33,
+      "officialAnswer": "ア",
+      "statementHash": "fb11f78c1947993ab62acbe118ed31ebc1832bb6e81fd7235ffdd3b5b2e156a1",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 71,
+      "page": 33,
+      "officialAnswer": "ウ",
+      "statementHash": "f746b06615923a299d72e2ca688d6c5c9ef80dc649be4d5c9bd09d44da361d90",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 72,
+      "page": 33,
+      "officialAnswer": "イ",
+      "statementHash": "41df0c3c49d701027a3446f3e4ff7f6b21282d19155140ff5e5e2e54c9108f5a",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 73,
+      "page": 34,
+      "officialAnswer": "エ",
+      "statementHash": "547da05e73aa79e10568fb810a424ca9167c1d984e3c80a82bc7c737f09cb44c",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 74,
+      "page": 34,
+      "officialAnswer": "エ",
+      "statementHash": "18dc16e194862708b16de6aecde23c910e9076b6af8679374fd3087c8ecb3f4a",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 75,
+      "page": 34,
+      "officialAnswer": "ア",
+      "statementHash": "79ee321db522e48fb852ea8238dc3dd3b5048023470824881a62b4f5b04d0994",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 76,
+      "page": 35,
+      "officialAnswer": "ウ",
+      "statementHash": "803ff63db4162191c6d08e0f110e97b6b1f53c13f5e00b12fd1b1c8044077a0b",
+      "conditions": "製品1単位ごとの原料・設備と1日当たりの上限。利益は万円。最大利益の4択は尺度順。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "figureAlt": "列は製品A，製品B，制約条件。原料（kg／製品）は2，4，1日当たり合計16 kgまで使用可能。設備（時間／製品）は3，2，1日当たり延べ12時間まで使用可能。",
+      "inputs": 4,
+      "oracle": "表示上限・利益から整数全列挙と実数上界を検算。数値昇順。"
+    },
+    {
+      "number": 77,
+      "page": 35,
+      "officialAnswer": "エ",
+      "statementHash": "bac9849416490a8cd32b74713cb8517080bbbd888f5c3ffedeadffa3cd6ee176",
+      "conditions": "追加注記なし。紙面の前提と四択を照合。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 4,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 78,
+      "page": 35,
+      "officialAnswer": "ウ",
+      "statementHash": "626e16aceeaedff4e48646185318c54e1209e534554d1bedc6978bb7a163920c",
+      "conditions": "2013年春の問題として、日本の不正競争防止法に規定する保護対象。知財法令の定義・分類で選択する。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 79,
+      "page": 36,
+      "officialAnswer": "ア",
+      "statementHash": "bdfa047c31a8add82a3deeef0067a76ef9e205032eb721b49bf3c8f173a92577",
+      "conditions": "契約上は請負。発注者側の指示と受託者による独立管理を区別する。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "inputs": 3,
+      "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 80,
+      "page": 36,
+      "officialAnswer": "イ",
+      "statementHash": "0c074336c524b5c853e520052bb0d5ed55b8e6bdd9ea596c118d8ee414a2686f",
+      "conditions": "見積書以降で取引内容は変わらない。原図の4時点の参照順を保持。",
+      "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
+      "rightsReview": "法務省の旧民法第526条第1・第2項の資料を照合。原問の注文請書②は承諾通知を示す。隔地者間の書面の承諾通知は発信時、通知を要しないときは承諾の意思表示と認める事実があった時。図はIPAの出題用の模式図であり第三者素材の表記なし。",
+      "figureAlt": "上段はS社（購入元），下段はK社（購入先），時間は右向き。左から順にS社からK社へ見積り依頼，K社からS社へ見積書，①S社からK社へ注文書，②K社からS社へ注文請書，③K社からS社へ納品／納品書，④S社からK社へ受領書，K社からS社へ請求書，S社からK社へ支払。",
+      "inputs": 3,
+      "oracle": "紙面の矢印、当事者、①〜④、表示した契約条件と旧民法526条を照合。時点順を維持。"
+    }
+  ]
+}

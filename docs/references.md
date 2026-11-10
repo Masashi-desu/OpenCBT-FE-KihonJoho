@@ -430,3 +430,10 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 全13大問・86解答欄を収録する。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問10設問2のe・f・gは順不同で採点する。物理頁と印刷頁の番号は一致する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_pm_ans.pdf)・[採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_pm_cmnt.pdf)。
 
 問5・8・13には共通の擬似言語p.3–4を付ける。問11のJava API原頁p.71–72は公式資料へのリンクを表示し、必要なAPIの動作はOracleの仕様から独自編集する。問12のCASL II資料p.75は上部の命令と注記までを抜粋する。JIS符号表と規格説明の部分は除外し、数字とコロンの符号値を別の参照資料に記す。問13では当時の表計算の機能・用語p.79–84を表示する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[Oracle Java SE 7 API](https://docs.oracle.com/javase/7/docs/api/)・[RFC 20](https://www.rfc-editor.org/rfc/rfc20.html)。
+
+
+### 第3段階 S3-015 2013年度春期・旧午前
+
+2013年4月21日に実施された旧午前は四肢択一の全80問・150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。素材条件を確認した78問の原問番号・全選択肢・公式正答と、対応する改変系列を収録する。冊子p.2にある九つの論理素子の図記号と反転の注記を原問題と生成問題の双方で参照できる。[IPAの公式公開資料](https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html)・[当時の試験要綱 Ver 1.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/youkou_ver1_5.pdf)・[公表問題の利用条件](https://www.ipa.go.jp/shiken/faq.html)。
+
+問55はサービスデスクの第三者表現、問62は経済産業省の平成16年版システム管理基準に近い文言の再配布・改変条件を確認中。両問は原問番号を台帳に保持して掲載を保留する。問58は当時の監査基準の目的に照らしてIPAの要約を確認した。問64の企画プロセスは共通フレームのIPA独自追加。問80は出題時の民法を適用する。対象と出典を `scripts/source-evidence/legacy-2013-spring-am-source-review.json` に記録する。[平成16年版システム監査基準](https://www.saaj.or.jp/kijun/system_kansa.pdf)・[平成16年版システム管理基準](https://www.saaj.or.jp/kijun/system_kanri.pdf)・[IPAの共通フレームの説明](https://www.ipa.go.jp/archive/files/000027415.pdf)・[法務省の旧民法資料](https://www.moj.go.jp/content/000047330.pdf)。

@@ -16,24 +16,31 @@ test("material pages preserve every distributed question's complete reading orde
     ["2018h30a-fe-am", "source-ipa-2018h30a-fe-am-common-p2"],
     ["2019r01a-fe-am", "source-ipa-2019r01a-fe-am-common-p2"],
   ]);
+  const onePageNumberedBooklets = ["2013h25h-fe-am"];
   const twoPageBooklets = ["2013h25a-fe-am", "2014h26h-fe-am", "2014h26a-fe-am", "2015h27h-fe-am", "2015h27a-fe-am", "2016h28h-fe-am", "2016h28a-fe-am"];
-  const twoPageSources = new Set(twoPageBooklets.map(book => `source-ipa-${book}-qs`));
-  const twoPageTitles = [2, 3].map(page => `問題文中で共通に使用される表記ルール（p.${page}）`);
+  const numberedPages = new Map<string, readonly number[]>([
+    ...onePageNumberedBooklets.map(book => [`source-ipa-${book}-qs`, [2]] as const),
+    ...twoPageBooklets.map(book => [`source-ipa-${book}-qs`, [2, 3]] as const),
+  ]);
   const commonPageCounts = new Map<string, number>([
     ...Array.from(commonSources.keys(), book => [book, 1] as const),
+    ...onePageNumberedBooklets.map(book => [book, 1] as const),
     ...twoPageBooklets.map(book => [book, 2] as const),
   ]);
   for (const question of bundle.questions) {
     const saved = structuredClone(question);
     const pages = materialPages(question);
     const contexts = question.contextRefs.map(id => question.contexts.find(context => context.id === id)!);
-    const hasTwoPageAppendix = question.origin.sourceRefs.some(ref =>
-      ref.locator.timeSlot === "午前" && twoPageSources.has(ref.sourceId));
-    const common = contexts.filter(context => (hasTwoPageAppendix && twoPageTitles.includes(context.title)) || [...commonSources].some(([book, sourceId]) =>
+    const numberedSource = question.origin.sourceRefs.find(ref =>
+      ref.locator.timeSlot === "午前" && numberedPages.has(ref.sourceId));
+    const numberedTitles = numberedSource
+      ? numberedPages.get(numberedSource.sourceId)!.map(page => `問題文中で共通に使用される表記ルール（p.${page}）`)
+      : [];
+    const common = contexts.filter(context => numberedTitles.includes(context.title) || [...commonSources].some(([book, sourceId]) =>
       context.id === `context-${book}-common` &&
       question.origin.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.timeSlot === "午前") &&
       context.content.attribution.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.page === 2 && !ref.locator.questionNumber)));
-    if (hasTwoPageAppendix) assert.deepEqual(common.map(context => context.title), twoPageTitles, question.id);
+    if (numberedSource) assert.deepEqual(common.map(context => context.title), numberedTitles, question.id);
     const native = contexts.filter(context => !common.includes(context));
     commonCount += common.length;
     const expected = [

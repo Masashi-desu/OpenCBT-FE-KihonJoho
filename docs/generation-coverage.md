@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問1366件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1008問、旧午後169大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問1444件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1086問、旧午後169大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -1542,6 +1542,89 @@
 | [旧午前問79 p.37](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_qs.pdf#page=37) | generator-source-2013h25a-fe-am-79@3.2.0 | 請負の指揮命令と偽装請負。説明の対象・判断条件：0〜2（0） | 文章・表・図／4択 |
 | [旧午前問80 p.37](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000027za-att/2013h25a_fe_am_qs.pdf#page=37) | generator-source-2013h25a-fe-am-80@3.2.0 | 個人情報に該当する情報。説明の対象・判断条件：0〜2（0） | 文章・表・図／4択 |
 
+### 2013年度 春期・午前
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午前問1 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=3) | generator-source-2013h25h-fe-am-1@3.7.0 | 16進数の桁を取り出す論理演算。2進数のビット数と桁数：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問2 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=3) | generator-source-2013h25h-fe-am-2@3.7.0 | パルスで送れる文字数。パルス数と符号化する文字の集合：0〜3（0） | 図・文章／4択 |
+| [旧午前問3 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=3) | generator-source-2013h25h-fe-am-3@3.7.0 | PCMのサンプリング間隔。毎秒データ量と量子化ビット数：0〜3（0） | 図・文章／4択 |
+| [旧午前問4 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=4) | generator-source-2013h25h-fe-am-4@3.7.0 | 垂直パリティによる誤り検出。パリティの方式と生じる反転ビット数：0〜2（0） | 図・文章／4択 |
+| [旧午前問5 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=4) | generator-source-2013h25h-fe-am-5@3.7.0 | 2分探索木からの要素の削除。太枠で示す削除要素：0〜3（0） | 図・文章／4択 |
+| [旧午前問6 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=5) | generator-source-2013h25h-fe-am-6@3.7.0 | 逆ポーランド表記法のスタック最大深さ。逆ポーランド表記法の被演算子と並び：0〜2（0） | 図・文章／4択 |
+| [旧午前問7 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=5) | generator-source-2013h25h-fe-am-7@3.7.0 | ハッシュ値と配列の位置。5桁の数とハッシュ関数の法：0〜3（0） | 図・文章／4択 |
+| [旧午前問8 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=6) | generator-source-2013h25h-fe-am-8@3.7.0 | 引き算を繰り返す流れ図。被除数・除数と結果を格納する変数：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問9 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=6) | generator-source-2013h25h-fe-am-9@3.7.0 | MIPSと平均命令実行時間。プロセッサのMIPS値：0〜3（0） | 図・文章／4択 |
+| [旧午前問10 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=7) | generator-source-2013h25h-fe-am-10@3.7.0 | 主記憶のアドレス指定方式。命令と主記憶の間のアドレス解決経路：0〜3（0） | 図・文章／4択 |
+| [旧午前問11 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=7) | generator-source-2013h25h-fe-am-11@3.7.0 | MPUの外部割込み。内部・外部割込みと発生原因：0〜2（0） | 図・文章／4択 |
+| [旧午前問12 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=8) | generator-source-2013h25h-fe-am-12@3.7.0 | 処理時間が等しくなるキャッシュヒット率。CPU X・Yのキャッシュと主記憶のアクセス時間：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問13 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=8) | generator-source-2013h25h-fe-am-13@3.7.0 | Bluetoothの説明。機器を接続する通信方式：0〜2（0） | 図・文章／4択 |
+| [旧午前問14 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=9) | generator-source-2013h25h-fe-am-14@3.7.0 | フォールトトレラントシステム。システムの設計目的：0〜2（0） | 図・文章／4択 |
+| [旧午前問15 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=9) | generator-source-2013h25h-fe-am-15@3.7.0 | 直列システムの稼働率。平均故障間隔と平均修理時間：0〜3（0） | 図・文章／4択 |
+| [旧午前問16 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=9) | generator-source-2013h25h-fe-am-16@3.7.0 | 単位時間当たりの仕事量。性能量又は時間の定義：0〜3（0） | 図・文章／4択 |
+| [旧午前問17 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=10) | generator-source-2013h25h-fe-am-17@3.7.0 | データベース応答性能の調査。性能悪化の原因と対応する調査項目：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問18 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=10) | generator-source-2013h25h-fe-am-18@3.7.0 | タスクの実行とCPUの遊休時間。優先度別のCPUとI/Oの処理時間：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問19 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=11) | generator-source-2013h25h-fe-am-19@3.7.0 | スラッシングが発生しやすい組合せ。管理方式と多重度で変わる動作・ページ競合：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問20 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=11) | generator-source-2013h25h-fe-am-20@3.7.0 | 仮想記憶のページ置換え。仮想記憶で採用するページ置換え方式：0〜3（0） | 図・文章／4択 |
+| [旧午前問21 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=12) | generator-source-2013h25h-fe-am-21@3.7.0 | 磁気テープからの復元時間。バックアップ後の故障曜日とフルバックアップ量：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問22 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=12) | generator-source-2013h25h-fe-am-22@3.7.0 | ホワイトボックステストの実行範囲。テストの目的と確認する量：0〜3（0） | 図・文章／4択 |
+| [旧午前問23 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=13) | generator-source-2013h25h-fe-am-23@3.7.0 | DRAMの特徴。メモリの種類とセルの動作：0〜2（0） | 図・文章／4択 |
+| [旧午前問24 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=13) | generator-source-2013h25h-fe-am-24@3.7.0 | 等価な論理回路。4素子の組合せ論理回路：0〜3（0） | 図・文章／4択 |
+| [旧午前問25 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=13) | generator-source-2013h25h-fe-am-25@3.7.0 | クリッピングの説明。3次元グラフィックス処理の種類：0〜3（0） | 図・文章／4択 |
+| [旧午前問26 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=14) | generator-source-2013h25h-fe-am-26@3.7.0 | UMLの多重度と一意制約。UMLの関連の多重度と一意制約：0〜2（0） | 図・文章／4択 |
+| [旧午前問27 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=14) | generator-source-2013h25h-fe-am-27@3.7.0 | SQLと関係代数。SQLで行う表の操作：0〜2（0） | 図・文章・コード／4択 |
+| [旧午前問28 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=15) | generator-source-2013h25h-fe-am-28@3.7.0 | 集約と表示順を指定するSQL。集計表・集約列・ソートの優先順：0〜2（0） | 図・文章・コード／4択 |
+| [旧午前問29 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=15) | generator-source-2013h25h-fe-am-29@3.7.0 | SQLのLIKEパターン。書名の検索語と照合位置：0〜3（0） | 図・文章・コード／4択 |
+| [旧午前問30 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=16) | generator-source-2013h25h-fe-am-30@3.7.0 | データベースの共有・専有ロック。資源別の保持ロックと要求：0〜2（0） | 図・文章／4択 |
+| [旧午前問31 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=16) | generator-source-2013h25h-fe-am-31@3.7.0 | IPv4のドット区切り十進表記。対象ネットワークの先頭部分とアドレス候補：0〜3（0） | 図・文章／4択 |
+| [旧午前問32 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=16) | generator-source-2013h25h-fe-am-32@3.7.0 | 伝票のまとめ送信と回線利用率。伝票長・集約件数・ヘッダ長・時間当たり発生数・回線速度：0〜2（0） | 図・文章／4択 |
+| [旧午前問33 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=17) | generator-source-2013h25h-fe-am-33@3.7.0 | OSI基本参照モデルの各層。説明する層：0〜3（0） | 図・文章／4択 |
+| [旧午前問34 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=17) | generator-source-2013h25h-fe-am-34@3.7.0 | FTTH接続装置の機能。装置Aが果たす通信上の目的：0〜3（0） | 図・文章／4択 |
+| [旧午前問35 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=18) | generator-source-2013h25h-fe-am-35@3.7.0 | 通信の識別情報。識別する通信単位と層：0〜2（0） | 図・文章・表／4択 |
+| [旧午前問36 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=18) | generator-source-2013h25h-fe-am-36@3.7.0 | アプリケーションプロトコルのトランスポート。下位プロトコルの要件：0〜2（0） | 図・文章／4択 |
+| [旧午前問37 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=19) | generator-source-2013h25h-fe-am-37@3.7.0 | 通信手順が実現するセキュリティ特性。送受信の処理と保証範囲：0〜2（0） | 図・文章／4択 |
+| [旧午前問38 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=20) | generator-source-2013h25h-fe-am-38@3.7.0 | 攻撃手順と攻撃の種類。攻撃の対象・入力・効果：0〜2（0） | 図・文章／4択 |
+| [旧午前問39 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=20) | generator-source-2013h25h-fe-am-39@3.7.0 | 公開鍵暗号における暗号化鍵。守秘の対象となる電子メールの送受信方向：0〜2（0） | 図・文章／4択 |
+| [旧午前問40 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=20) | generator-source-2013h25h-fe-am-40@3.7.0 | 入力値によるセキュリティ攻撃の対策。防ぐ攻撃・データを解釈する処理：0〜2（0） | 図・文章／4択 |
+| [旧午前問41 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=21) | generator-source-2013h25h-fe-am-41@3.7.0 | 磁気ディスクの機密データの消去。磁気媒体の書込み可否と再利用要件：0〜2（0） | 図・文章／4択 |
+| [旧午前問42 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=21) | generator-source-2013h25h-fe-am-42@3.7.0 | ファイアウォールの先勝ち規則。評価するパケット：0〜4（0） | 図・文章・表／4択 |
+| [旧午前問43 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=22) | generator-source-2013h25h-fe-am-43@3.7.0 | 処理目的とデータ形式。使用目的：0〜3（0） | 図・文章／4択 |
+| [旧午前問44 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=22) | generator-source-2013h25h-fe-am-44@3.7.0 | セキュリティ手段で実現する機能。使用するセキュリティ機構：0〜2（0） | 図・文章／4択 |
+| [旧午前問45 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=22) | generator-source-2013h25h-fe-am-45@3.7.0 | ソフトウェアの開発プロセスと成果物。対象とする設計・要求の工程：0〜2（0） | 図・文章／4択 |
+| [旧午前問46 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=22) | generator-source-2013h25h-fe-am-46@3.7.0 | システムの設計で使う表現と目的。設計上の表現技法：0〜2（0） | 図・文章／4択 |
+| [旧午前問47 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=23) | generator-source-2013h25h-fe-am-47@3.7.0 | テストの代替モジュールと観測方法。使うテスト用機構：0〜2（0） | 図・文章／4択 |
+| [旧午前問48 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=23) | generator-source-2013h25h-fe-am-48@3.7.0 | テストの目的の区別。目的を説明するテストの種類：0〜3（0） | 図・文章／4択 |
+| [旧午前問49 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=23) | generator-source-2013h25h-fe-am-49@3.7.0 | 特許の相互許諾と周辺概念。説明する権利処理の種類：0〜2（0） | 図・文章／4択 |
+| [旧午前問50 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=24) | generator-source-2013h25h-fe-am-50@3.7.0 | 開発管理の課題とその原因。原因として除外する管理領域：0〜2（0） | 図・文章／4択 |
+| [旧午前問51 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=25) | generator-source-2013h25h-fe-am-51@3.7.0 | プロジェクトで定義する計画と作業の粒度。対象とするプロジェクトマネジメントの成果物・工程：0〜2（0） | 図・文章／4択 |
+| [旧午前問52 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=25) | generator-source-2013h25h-fe-am-52@3.7.0 | 計画と分析の技法の選択。対象と目的：0〜3（0） | 図・文章／4択 |
+| [旧午前問53 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=25) | generator-source-2013h25h-fe-am-53@3.7.0 | ファンクションポイントの補正計算。機能種別の個数と補正係数：0〜2（0） | 図・文章・表／4択 |
+| [旧午前問54 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=26) | generator-source-2013h25h-fe-am-54@3.2.0 | プロジェクトのコミュニケーション方式。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問56 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=26) | generator-source-2013h25h-fe-am-56@3.2.0 | 情報システムの過電圧対策。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問57 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=27) | generator-source-2013h25h-fe-am-57@3.2.0 | 監査調書と他の監査資料。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問58 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=27) | generator-source-2013h25h-fe-am-58@3.2.0 | システム監査の目的。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問59 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=27) | generator-source-2013h25h-fe-am-59@3.2.0 | ソフトウェア資産管理の監査。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問60 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=28) | generator-source-2013h25h-fe-am-60@3.2.0 | 電子メール利用時の情報漏えい防止。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問61 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=29) | generator-source-2013h25h-fe-am-61@3.2.0 | 情報化投資の評価。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問63 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=29) | generator-source-2013h25h-fe-am-63@3.2.0 | サービス指向と周辺概念。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問64 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=30) | generator-source-2013h25h-fe-am-64@3.2.0 | ソフトウェアライフサイクルの企画。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問65 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=30) | generator-source-2013h25h-fe-am-65@3.2.0 | 機能要件と非機能要件。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問66 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=31) | generator-source-2013h25h-fe-am-66@3.2.0 | グリーン調達と環境施策。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問67 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=31) | generator-source-2013h25h-fe-am-67@3.2.0 | 製品と事業の戦略分析。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問68 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=32) | generator-source-2013h25h-fe-am-68@3.2.0 | コアコンピタンスと経営手法。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問69 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=32) | generator-source-2013h25h-fe-am-69@3.2.0 | 既存顧客の新商品への移行。移行率と既存・新規顧客の条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問70 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=33) | generator-source-2013h25h-fe-am-70@3.2.0 | サプライチェーンマネジメントと業務管理。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問71 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=33) | generator-source-2013h25h-fe-am-71@3.2.0 | インターネット上の取引形態。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問72 p.33](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=33) | generator-source-2013h25h-fe-am-72@3.2.0 | 無線識別と周辺技術。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問73 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=34) | generator-source-2013h25h-fe-am-73@3.2.0 | ソーシャルメディアと広告。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問74 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=34) | generator-source-2013h25h-fe-am-74@3.2.0 | 経営における執行責任。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問75 p.34](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=34) | generator-source-2013h25h-fe-am-75@3.2.0 | 実現可能性の評価と周辺手法。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問76 p.35](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=35) | generator-source-2013h25h-fe-am-76@3.2.0 | 原料と設備の制約下での最大利益。日別の原料・設備制約と単位利益：0〜3（0） | 図・文章／4択 |
+| [旧午前問77 p.35](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=35) | generator-source-2013h25h-fe-am-77@3.2.0 | 財務諸表の役割。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問78 p.35](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=35) | generator-source-2013h25h-fe-am-78@3.2.0 | 不正競争防止法の保護対象。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問79 p.36](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=36) | generator-source-2013h25h-fe-am-79@3.2.0 | 請負と労働者派遣の区分。問いの対象・判断条件：0〜2（0） | 図・文章／4択 |
+| [旧午前問80 p.36](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf#page=36) | generator-source-2013h25h-fe-am-80@3.2.0 | 売買契約の成立時点。当時の取引手順で承諾となる行為：0〜2（0） | 図・文章／4択 |
+
 ## 登録図の入力契約
 
 renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は査読済みの登録tuple又はprofile別モデルの制約に限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／desc又は明示したアクセシブル名に保持する。
@@ -1951,6 +2034,20 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2013-autumn-pm-12-runner-addresses | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-autumn-pm-12-runner-addresses」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2013-autumn-pm-13-similarity-sheet | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-autumn-pm-13-similarity-sheet」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2013-autumn-pm-13-grouping-sheet | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-autumn-pm-13-grouping-sheet」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-23-common-gates | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-23-common-gates」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-5-search-tree | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-5-search-tree」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-6-postfix-stack | 0：0〜2 | 問題集が所有する有限入力3組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-6-postfix-stack」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-7-hash-array | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-7-hash-array」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-8-division-flow | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-8-division-flow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-10-addressing | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-10-addressing」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-12-cache-configuration | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-12-cache-configuration」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-24-logic-circuit | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-24-logic-circuit」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-24-logic-choice | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-24-logic-choice」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-26-uml-multiplicity | 0：0〜2 | 問題集が所有する有限入力3組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-26-uml-multiplicity」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-34-ftth | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-34-ftth」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-69-customer-transition | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-69-customer-transition」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-76-profit-constraints | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-76-profit-constraints」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2013-spring-am-80-purchase-timeline | 0：0〜2 | 問題集が所有する有限入力3組。位置ごとの値と描画条件の全対応は後掲の「legacy-2013-spring-am-80-purchase-timeline」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -9170,6 +9267,176 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | ｜A｜B｜C｜D｜E｜F｜G｜H｜I｜J｜K｜L｜M｜N｜O｜P｜Q 1｜｜グループ番号｜1｜2｜3｜4｜5｜｜｜1｜2｜3｜4｜5｜｜｜ 2｜｜グループ長｜2｜10｜15｜25｜35｜済｜｜2｜10｜15｜25｜35｜｜｜ 3｜1｜佐藤一郎｜0｜0｜0｜0｜1｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜15｜1 4｜2｜鈴木二郎｜1｜0｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜15｜1 5｜3｜高橋三郎｜0｜0｜0｜0｜0｜0｜｜0.016｜-1｜0.095｜0.065｜0.035｜0.095｜14｜3 6｜4｜田中四郎｜0｜0｜0｜0｜0｜0｜｜0.035｜-1｜0.166｜0.136｜0.106｜0.166｜9｜3 ⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮ 41｜39｜伊藤花子｜0｜1｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜15｜1 42｜40｜山本礼子｜0｜1｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜15｜1 43｜｜定員充足｜0｜1｜0｜0｜0｜｜｜｜｜｜｜｜｜｜ 44｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜ 45｜｜受講者番号｜11｜の学生をグループ｜3｜に推薦する｜｜｜｜｜｜｜ |
 | `[2]` | ｜A｜B｜C｜D｜E｜F｜G｜H｜I｜J｜K｜L｜M｜N｜O｜P｜Q 1｜｜グループ番号｜1｜2｜3｜4｜5｜｜｜1｜2｜3｜4｜5｜｜｜ 2｜｜グループ長｜2｜12｜17｜26｜40｜済｜｜2｜12｜17｜26｜40｜｜｜ 3｜1｜佐藤一郎｜0｜0｜0｜0｜1｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜17｜1 4｜2｜鈴木二郎｜1｜0｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜17｜1 5｜3｜高橋三郎｜0｜0｜0｜0｜0｜0｜｜0.053｜0.075｜-1｜0.121｜0.167｜0.167｜13｜5 6｜4｜田中四郎｜0｜0｜0｜0｜0｜0｜｜0.072｜0.146｜-1｜0.192｜0.018｜0.192｜8｜4 ⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮ 46｜44｜伊藤花子｜0｜0｜1｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜17｜1 47｜45｜山本礼子｜0｜0｜1｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜17｜1 48｜｜定員充足｜0｜0｜1｜0｜0｜｜｜｜｜｜｜｜｜｜ 49｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜ 50｜｜受講者番号｜14｜の学生をグループ｜2｜に推薦する｜｜｜｜｜｜｜ |
 | `[3]` | ｜A｜B｜C｜D｜E｜F｜G｜H｜I｜J｜K｜L｜M｜N｜O｜P｜Q 1｜｜グループ番号｜1｜2｜3｜4｜5｜｜｜1｜2｜3｜4｜5｜｜｜ 2｜｜グループ長｜2｜13｜19｜36｜47｜済｜｜2｜13｜19｜36｜47｜｜｜ 3｜1｜佐藤一郎｜0｜0｜0｜0｜1｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜20｜1 4｜2｜鈴木二郎｜1｜0｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜20｜1 5｜3｜高橋三郎｜0｜0｜0｜0｜0｜0｜｜-1｜0.131｜0.025｜0.128｜0.117｜0.131｜15｜2 6｜4｜田中四郎｜0｜0｜0｜0｜0｜0｜｜-1｜0.202｜0.096｜0.199｜0.188｜0.202｜7｜2 ⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮｜⋮ 56｜54｜伊藤花子｜1｜0｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜20｜1 57｜55｜山本礼子｜1｜0｜0｜0｜0｜1｜｜-1｜-1｜-1｜-1｜-1｜-1｜20｜1 58｜｜定員充足｜1｜0｜0｜0｜0｜｜｜｜｜｜｜｜｜｜ 59｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜｜ 60｜｜受講者番号｜22｜の学生をグループ｜4｜に推薦する｜｜｜｜｜｜｜ |
+
+</details>
+
+### legacy-2013-spring-am-23-common-gates
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 問題文中で共通に使用される表記ルール。各問題文中に注記がない限り，次の表記ルールが適用されているものとする。表は図記号と説明の2列、次の9行。論理積は左が平面、右が半円の形に入力2本と出力1本。否定論理積はその出力部に○。論理和は入力側がくぼみ、出力側が尖った曲線形に入力2本と出力1本。否定論理和はその出力部に○。排他的論理和は論理和形の入力側にもう1本の曲線。論理一致は排他的論理和形の出力部に○。バッファは右向きの三角形に入力1本と出力1本。論理否定器はその出力部に○。スリーステートバッファは三角形にデータ入力、制御入力、出力。1行目、論理積素子（AND）。2行目、否定論理積素子（NAND）。3行目、論理和素子（OR）。4行目、否定論理和素子（NOR）。5行目、排他的論理和素子（XOR）。6行目、論理一致素子。7行目、バッファ。8行目、論理否定器（NOT）。9行目、スリーステートバッファ。注記　入力部又は出力部に示されている○印は，論理状態の反転又は否定を表す。 |
+
+</details>
+
+### legacy-2013-spring-am-5-search-tree
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 根は6。太枠は12。6の左は4，右は8。4の左は2，右は5。8の左は7，右は12。2の左は1，右は3。12の左は10，右は14。10の左は9，右は11。14の左は13，右は15。 |
+| `[1]` | 根は6。太枠は4。6の左は4，右は8。4の左は2，右は5。8の左は7，右は12。2の左は1，右は3。12の左は10，右は14。10の左は9，右は11。14の左は13，右は15。 |
+| `[2]` | 根は6。太枠は10。6の左は4，右は8。4の左は2，右は5。8の左は7，右は12。2の左は1，右は3。12の左は10，右は14。10の左は9，右は11。14の左は13，右は15。 |
+| `[3]` | 根は6。太枠は14。6の左は4，右は8。4の左は2，右は5。8の左は7，右は12。2の左は1，右は3。12の左は10，右は14。10の左は9，右は11。14の左は13，右は15。 |
+
+</details>
+
+### legacy-2013-spring-am-6-postfix-stack
+
+<details><summary>許可する3組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左から右へ矢印でつないだスタック。1番目は底から順にa，b，c，d。2番目は底から順にa，b，c+d。3番目は底から順にa，b+c+d。4番目は底から順にa+b+c+d。 |
+| `[1]` | 左から右へ矢印でつないだスタック。1番目は底から順にa，b，c，d，e。2番目は底から順にa，b，c，d+e。3番目は底から順にa，b，c+d+e。4番目は底から順にa，b+c+d+e。5番目は底から順にa+b+c+d+e。 |
+| `[2]` | 左から右へ矢印でつないだスタック。1番目は底から順にa，b，c，d，e，f。2番目は底から順にa，b，c，d，e+f。3番目は底から順にa，b，c，d+e+f。4番目は底から順にa，b，c+d+e+f。5番目は底から順にa，b+c+d+e+f。6番目は底から順にa+b+c+d+e+f。 |
+
+</details>
+
+### legacy-2013-spring-am-7-hash-array
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 縦の配列。位置は上から0，1，2，省略記号，11，12。各位置の配列要素は空欄で，省略位置のみ縦の省略記号がある。 |
+| `[1]` | 縦の配列。位置は上から0，1，2，省略記号，9，10。各位置の配列要素は空欄で，省略位置のみ縦の省略記号がある。 |
+| `[2]` | 縦の配列。位置は上から0，1，2，省略記号，10，11。各位置の配列要素は空欄で，省略位置のみ縦の省略記号がある。 |
+| `[3]` | 縦の配列。位置は上から0，1，2，省略記号，12，13。各位置の配列要素は空欄で，省略位置のみ縦の省略記号がある。 |
+
+</details>
+
+### legacy-2013-spring-am-8-division-flow
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 開始からq←0，r←xを実行し，r＜yを判定する。Yesなら右に進み終了。Noなら下へ進みr←r−y，q←q＋1を順に行って左から判定へ戻る。 |
+| `[1]` | 開始からr←0，q←xを実行し，q＜yを判定する。Yesなら右に進み終了。Noなら下へ進みq←q−y，r←r＋1を順に行って左から判定へ戻る。 |
+| `[2]` | 開始からq←0，r←yを実行し，r＜xを判定する。Yesなら右に進み終了。Noなら下へ進みr←r−x，q←q＋1を順に行って左から判定へ戻る。 |
+| `[3]` | 開始からr←0，q←yを実行し，q＜xを判定する。Yesなら右に進み終了。Noなら下へ進みq←q−x，r←r＋1を順に行って左から判定へ戻る。 |
+
+</details>
+
+### legacy-2013-spring-am-10-addressing
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 命令部の右にあるアドレス部の値は20。アドレス部から主記憶のアドレス20の行へ矢印が向く。その行の値25から主記憶のアドレス25の「データ」の行へ矢印が向く。主記憶の上下と各行の間に省略記号。 |
+| `[1]` | 命令部の右にあるアドレス部の値は18。アドレス部から主記憶のアドレス18の「データ」の行へ矢印が向く。主記憶の上下と各行の間に省略記号。 |
+| `[2]` | 命令部の右にあるアドレス部の値は36。アドレス部とレジスタIX（14）から加算記号へ進み，そこから主記憶のアドレス50の「データ」の行へ矢印が向く。 |
+| `[3]` | 命令部の右にあるアドレス部の値は44。アドレス部とプログラムカウンタ（24）から加算記号へ進み，そこから主記憶のアドレス68の「データ」の行へ矢印が向く。 |
+
+</details>
+
+### legacy-2013-spring-am-12-cache-configuration
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | CPUの枠内にキャッシュメモリ256kバイト。CPUの右には線で接続された主記憶256Mバイト。 |
+
+</details>
+
+### legacy-2013-spring-am-24-logic-circuit
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 入力A・B，出力Y。左の素子（左辺が直線で右辺が半円，出力端に小円あり）にAとBが入る。その出力が上と下の素子に分岐する。Aの枝は上の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入り，Bの枝は下の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入る。上と下の出力が右の素子（左辺が直線で右辺が半円，出力端に小円あり）に入り，出力がYに向かう。 |
+| `[1]` | 入力A・B，出力Y。左の素子（入力側が弧で出力側が尖り，出力端に小円なし）にAとBが入る。その出力が上と下の素子に分岐する。Aの枝は上の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入り，Bの枝は下の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入る。上と下の出力が右の素子（左辺が直線で右辺が半円，出力端に小円あり）に入り，出力がYに向かう。 |
+| `[2]` | 入力A・B，出力Y。左の素子（入力側が弧で出力側が尖り，出力端に小円なし）にAとBが入る。その出力が上と下の素子に分岐する。Aの枝は上の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入り，Bの枝は下の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入る。上と下の出力が右の素子（入力側が弧で出力側が尖り，出力端に小円あり）に入り，出力がYに向かう。 |
+| `[3]` | 入力A・B，出力Y。左の素子（入力側が弧で出力側が尖り，出力端に小円なし）にAとBが入る。その出力が上と下の素子に分岐する。Aの枝は上の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入り，Bの枝は下の素子（左辺が直線で右辺が半円，出力端に小円あり）にも入る。上と下の出力が右の素子（左辺が直線で右辺が半円，出力端に小円なし）に入り，出力がYに向かう。 |
+
+</details>
+
+### legacy-2013-spring-am-24-logic-choice
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 入力はAとB，出力はY。入力側が弧で出力側が尖り，出力端に小円なしの素子。 |
+| `[1]` | 入力はAとB，出力はY。左辺が直線で右辺が半円，出力端に小円なしの素子。 |
+| `[2]` | 入力はAとB，出力はY。入力側に平行な二本の弧があり出力側が尖り，出力端に小円なしの素子。 |
+| `[3]` | 入力はAとB，出力はY。入力側が弧で出力側が尖り，出力端に小円ありの素子。 |
+
+</details>
+
+### legacy-2013-spring-am-26-uml-multiplicity
+
+<details><summary>許可する3組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 中央にプロジェクト参画，上にプロジェクト内役割分担，左にプロジェクト，下に社員，社員の右に部門。参画と役割分担，参画とプロジェクトの関係は，それぞれ参画側が0..&#42;で，反対の端が1。参画と社員の関係は参画側が0..&#42;，社員側が1。社員から部門へ「所属する」の関係があり，社員側は1..&#42;，部門側は1。参画に破線でつながる注記は「制約：プロジェクト・社員・プロジェクト内役割分担で一意に定まる」。 |
+| `[1]` | 中央にプロジェクト参画，上にプロジェクト内役割分担，左にプロジェクト，下に社員，社員の右に部門。参画と役割分担，参画とプロジェクトの関係は，それぞれ参画側が0..&#42;で，反対の端が1。参画と社員の関係は参画側が1..&#42;，社員側が1。社員から部門へ「所属する」の関係があり，社員側は1..&#42;，部門側は1。参画に破線でつながる注記は「制約：プロジェクト・社員で一意に定まる」。 |
+| `[2]` | 中央にプロジェクト参画，上にプロジェクト内役割分担，左にプロジェクト，下に社員，社員の右に部門。参画と役割分担，参画とプロジェクトの関係は，それぞれ参画側が0..&#42;で，反対の端が1。参画と社員の関係は参画側が0..&#42;，社員側が1。社員から部門へ「所属する」の関係があり，社員側は1..&#42;，部門側は1..&#42;。参画に破線でつながる注記は「制約：プロジェクト・社員で一意に定まる」。 |
+
+</details>
+
+### legacy-2013-spring-am-34-ftth
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 利用者宅内には複数のPC、ハブ、装置A、ONUがある。各PCはハブにつながる。ハブから装置A、装置AからONUにつながり、ONUから宅外へ光ファイバケーブル（FTTH）が延びている。 |
+
+</details>
+
+### legacy-2013-spring-am-69-customer-transition
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 列は人数，P，Q，R，S。商品Aは10,000，0.5，0.3，0.1，0.1。Bは20,000，0.1，0.6，0.1，0.1。Cは80,000，0.1，0.1，0.3，0.3。既存顧客数は15,000，23,000，27,000，27,000。新規顧客数は5,000，7,000，13,000，23,000。 |
+| `[1]` | 商品｜人数｜P｜Q｜R｜S。A｜20,000｜0.4｜0.3｜0.2｜0.1。B｜30,000｜0.1｜0.5｜0.2｜0.1。C｜60,000｜0.1｜0.2｜0.3｜0.2。既存顧客数｜17,000｜33,000｜28,000｜17,000。新規顧客数｜7,000｜8,000｜11,000｜12,000 |
+| `[2]` | 商品｜人数｜P｜Q｜R｜S。A｜30,000｜0.3｜0.4｜0.2｜0.1。B｜40,000｜0.2｜0.4｜0.3｜0.1。C｜50,000｜0.1｜0.2｜0.3｜0.3。既存顧客数｜22,000｜38,000｜33,000｜22,000。新規顧客数｜6,000｜8,000｜10,000｜18,000 |
+| `[3]` | 商品｜人数｜P｜Q｜R｜S。A｜40,000｜0.4｜0.2｜0.2｜0.1。B｜30,000｜0.1｜0.4｜0.3｜0.1。C｜50,000｜0.1｜0.2｜0.3｜0.2。既存顧客数｜24,000｜30,000｜32,000｜17,000。新規顧客数｜8,000｜9,000｜10,000｜14,000 |
+
+</details>
+
+### legacy-2013-spring-am-76-profit-constraints
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 列は製品A，製品B，制約条件。原料（kg／製品）は2，4，1日当たり合計16 kgまで使用可能。設備（時間／製品）は3，2，1日当たり延べ12時間まで使用可能。 |
+| `[1]` | 列は製品A，製品B，制約条件。原料（kg／製品）｜2｜4｜1日当たり合計14 kgまで使用可能。設備（時間／製品）｜3｜2｜1日当たり延べ13時間まで使用可能 |
+| `[2]` | 列は製品A，製品B，制約条件。原料（kg／製品）｜2｜4｜1日当たり合計20 kgまで使用可能。設備（時間／製品）｜3｜2｜1日当たり延べ14時間まで使用可能 |
+| `[3]` | 列は製品A，製品B，制約条件。原料（kg／製品）｜2｜4｜1日当たり合計12 kgまで使用可能。設備（時間／製品）｜3｜2｜1日当たり延べ10時間まで使用可能 |
+
+</details>
+
+### legacy-2013-spring-am-80-purchase-timeline
+
+<details><summary>許可する3組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 上段はS社（購入元），下段はK社（購入先），時間は右向き。左から順にS社からK社へ見積り依頼，K社からS社へ見積書，①S社からK社へ注文書，②K社からS社へ注文請書，③K社からS社へ納品／納品書，④S社からK社へ受領書，K社からS社へ請求書，S社からK社へ支払。 |
+| `[1]` | 上段はM社（購入元），下段はN社（購入先），時間は右向き。左から順にM社からN社へ見積り依頼，N社からM社へ見積書，①M社からN社へ注文書，②N社からM社へ注文請書，③N社からM社へ納品／納品書，④M社からN社へ受領書，N社からM社へ請求書，M社からN社へ支払。 |
+| `[2]` | 上段はP社（購入元），下段はQ社（購入先），時間は右向き。左から順にP社からQ社へ見積り依頼，Q社からP社へ見積書，①P社からQ社へ注文書，②Q社からP社へ注文請書，③Q社からP社へ納品／納品書，④P社からQ社へ受領書，Q社からP社へ請求書，P社からQ社へ支払。 |
 
 </details>
 

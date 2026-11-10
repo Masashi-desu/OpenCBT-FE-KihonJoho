@@ -53,7 +53,12 @@ export async function makeStage3MorningRecords(input: {
   const numbers=input.facts.map(f=>f.number);
   assert(numbers.length>0 && new Set(numbers).size===numbers.length);
   assert.deepEqual(numbers,[...numbers].sort((a,b)=>a-b));
-  assert(input.commonAssets.length===2);
+  assert(input.commonAssets.length===1 || input.commonAssets.length===2);
+  const commonRefs=input.commonAssets.map((asset,index)=>{
+    const expected=ref(undefined,index+2);
+    assert.deepEqual(asset.attribution.sourceRefs,[expected],'reviewed common page and source must match');
+    return expected;
+  });
   const own:Attribution={origin:'original',sourceRefs:[],rightsRefs:['rights-original'],creatorIds:['codex']};
   const official=(n:number,page:number,answer=false):Attribution=>({origin:'official',sourceRefs:[ref(n,page,answer)],
     rightsRefs:['rights-ipa-'+collection,...(input.supplementaryRights?.[n]??[])],creatorIds:['ipa']});
@@ -74,11 +79,11 @@ export async function makeStage3MorningRecords(input: {
       mediaType:'image/png',sha256:fact.crop.sha256,width:fact.crop.width,height:fact.crop.height,byteLength:fact.crop.byteLength,
       alt:fact.alt,attribution:official(fact.number,fact.page)};
     const attribution=official(fact.number,fact.page), adapted:Attribution={...structuredClone(attribution),origin:'adapted',creatorIds:['codex'],
-      sourceRefs:[...structuredClone(attribution.sourceRefs),ref(undefined,2),ref(undefined,3)],
+      sourceRefs:[...structuredClone(attribution.sourceRefs),...structuredClone(commonRefs)],
       rightsRefs:[...attribution.rightsRefs,'rights-original']};
     const original:Question={schemaVersion:'3.0.0',id:'question-ipa-'+fact.source,revision:1,lifecycle:'active',subject:'A',
       learning:{area:fact.area??(fact.number<=50?'technology':fact.number<=61?'management':'strategy'),tags:[`legacy-${year}`],topics:[definition.title],keywords:[definition.title]},
-      origin:{kind:'official_reprint',sourceRefs:[ref(fact.number,fact.page),ref(undefined,2),ref(undefined,3)],derivedFrom:[],isModified:false,modificationBasis:'official_source',
+      origin:{kind:'official_reprint',sourceRefs:[ref(fact.number,fact.page),...structuredClone(commonRefs)],derivedFrom:[],isModified:false,modificationBasis:'official_source',
         changes:[{at:input.checkedOn+'T00:00:00Z',actorId:'codex',kind:'layout',summary:'原画像・原問番号・全選択肢・注記と共通表記を保持',details:`原PDF p${fact.page}。画像切出し座標${fact.crop.cropBox.join(',')}。構造化した完全な代替説明を保持。`,affectsAnswer:false}]},
       contributors:[{actorId:'ipa',role:'author'},{actorId:'codex',role:'editor'},{actorId:'codex',role:'verifier'}],
       prompt:{attribution,blocks:[{type:'image',assetId:asset.id,caption:'問'+fact.number}]},

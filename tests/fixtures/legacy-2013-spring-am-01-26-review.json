@@ -1,0 +1,487 @@
+{
+  "status": "passed_draft_content_and_static_rendering",
+  "scope": "2013-spring-am",
+  "collectionId": "2013h25h-fe-am",
+  "checkedOn": "2026-11-10",
+  "questionCount": 26,
+  "finiteConditions": 97,
+  "choiceChecks": 388,
+  "staticFigureProfiles": 9,
+  "staticFigureCases": 31,
+  "independentTestCases": 11,
+  "heldNumbers": [],
+  "officialSource": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html",
+    "questionPaper": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf",
+    "answerPaper": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_ans.pdf",
+    "licensePolicy": "https://www.ipa.go.jp/shiken/faq.html",
+    "question.pdf": {
+      "sha256": "39c169249a825961c710a248b5bc8e30c474679fed5f93516e610a308a13d9bc",
+      "byteLength": 4791205
+    },
+    "answer.pdf": {
+      "sha256": "fb78aba7d1c13c367190474c0257f5b2e2fc463be76237a6cabb0fbe1f779023",
+      "byteLength": 58669
+    },
+    "faq.html": {
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "primaryReferences": [
+    {
+      "questions": [
+        11
+      ],
+      "url": "https://support.arm.com/documentation/102412/0103/Exception-types/Synchronous-exceptions",
+      "purpose": "命令実行に起因する同期例外と周辺装置からの通知の区別。"
+    },
+    {
+      "questions": [
+        13
+      ],
+      "url": "https://www.bluetooth.com/learn-about-bluetooth/tech-overview/",
+      "purpose": "Bluetooth SIGによる2.4 GHz帯の使用。"
+    },
+    {
+      "questions": [
+        13
+      ],
+      "url": "https://www.bluetooth.com/learn-about-bluetooth/key-attributes/range/",
+      "purpose": "機器の条件で通信距離が異なる。1,000 mを一律に要求しない。"
+    },
+    {
+      "questions": [
+        13
+      ],
+      "url": "https://www.usb.org/document-library/usb-20-specification",
+      "purpose": "USB 2.0仕様のアドレス空間。原規格文言は配布物へ収録しない。"
+    },
+    {
+      "questions": [
+        13
+      ],
+      "url": "https://ww1.microchip.com/downloads/en/DeviceDoc/01071B.pdf",
+      "purpose": "IrDAの光通信の実装資料。"
+    },
+    {
+      "questions": [
+        22
+      ],
+      "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf",
+      "purpose": "静的テストとホワイトボックスの実行カバレージ。"
+    },
+    {
+      "questions": [
+        25
+      ],
+      "url": "https://registry.khronos.org/OpenGL/specs/gl/glspec21.pdf",
+      "purpose": "描画パイプライン、クリッピング、アンチエイリアシング、陰影の区別。"
+    },
+    {
+      "questions": [
+        26
+      ],
+      "url": "https://www.omg.org/spec/UML/2.4.1",
+      "purpose": "試験時点で公開済みのUML仕様。関連と多重度の記法。"
+    }
+  ],
+  "results": {
+    "source": "冊子p3–14の原問題全26問、全四択・図表・注記と、解答例p1の該当欄を目視照合。第三者由来の素材表示なし。",
+    "scopeTypes": "下書きのtsc --noEmitが成功。",
+    "tests": "独立テスト11件成功。全97入力・388択の参照解又は査読済み意味対応、原形式、無効入力、解説、静的描画。",
+    "rendering": "全9図profileの31有限域をSSR・ライト配色のResvgで比較し、文字・図形の重なり、接続、強調を目視確認。アプリ内の狭幅・色切替・保存・出題の統合確認は合流側で実施。",
+    "limits": "問題集の通常アプリへの登録、権利付き原資料画像の配布、アプリ操作・配信検証はこの担当範囲の外。受験者の実測による難易度比較は未実施。"
+  },
+  "filePins": {
+    "review/figure-1.png": "832b4fe5e3a5d8eb7bf693f88c631a90f704e4a33bb77105ee57a33504a8ecbe",
+    "review/figure-2.png": "7995715f43038b5f485d9d8dc1afa1d09023a02b7f12c3c251edcf17faa17ef3",
+    "review/figure-3.png": "cf8f228ca3b901ca810e9e416242b7bafa76a5faa5e1c0260620c11d52d8b92a",
+    "review/figure-4.png": "49ad8d813d7fd38ac29219c43f06bd4e9ee70dc3f55fb6845944fbb08f6f197b",
+    "review/figure-5.png": "1d485348537e0983132923efc41c5d4593bd8c634152717086cad75dabac9ec0",
+    "review/figure-6.png": "b11820847ddf295b9693e1f4c2befbabe6129bf3ddc705ac595792c09b108294",
+    "review/figure-7.png": "67d646c901004271109dd31d1388afcd1556cedaf4d235254927b40c542db87c",
+    "review/figure-8.png": "05d64890414166c0d0dc38ddd327a2351e58bc3e3a3f91ccd9606388824ccf03",
+    "review/figure-9.png": "e2165dcaacc15e164c7368ae8d524868969818f00782e91b05231da502bce529",
+    "src/core/generators/legacy-2013-spring-am-01-09.ts": "ed500169962e34b30cae7e1fff35e44dfbedc303fb8ca2d4803cac5a15851b8a",
+    "src/core/generators/legacy-2013-spring-am-01-26-figures.ts": "dbe284366324c4f754bb4d30a215851b9fb20bfcc4732922be94767ce564a4a4",
+    "src/core/generators/legacy-2013-spring-am-01-26-shared.ts": "4d897ca07f0b737efe557cbe6abe2c8d6ccf54ef970b179cee83ac46515bff8b",
+    "src/core/generators/legacy-2013-spring-am-01-26-source.json": "9b76a19817a9945f509bb34d639aa34a8dc5a9643aab495ca4408a7a3045b507",
+    "src/core/generators/legacy-2013-spring-am-01-26.ts": "d7de509bf9bb1802f53b83685f76e3029497aabbef7e937183a548b4f2624651",
+    "src/core/generators/legacy-2013-spring-am-10-18.ts": "5d166e1e870b6c15af65f0c3573f0bcbb22ce1300f28a41914cdd90f22234f60",
+    "src/core/generators/legacy-2013-spring-am-19-26.ts": "33bb06e9107b030bac8a770d23bc37fae9374b8df7209a2438b1f8d85d20707a",
+    "src/ui/Legacy2013SpringAm0126Figures.tsx": "8a60bff7fe52d5f79e2e0207b0658fde873c546eac2538c951650d43fb0c9140",
+    "tests/fixtures/legacy-2013-spring-am-01-26-knowledge-review.ts": "ae226fd7b6322fbe390aff6b689673dfa132d09d7bb53ec95139c4671d9d854f",
+    "tests/legacy-2013-spring-am-01-26.test.ts": "c0f0353679cf7d97a7daf6dfc495e30525cffd19e3bc829b80427708f7e34e3d"
+  },
+  "questions": [
+    {
+      "number": 1,
+      "printedPage": 3,
+      "physicalPage": 3,
+      "officialAnswer": "イ",
+      "format": "論理積・論理シフトの空欄a・b、4通りの組合せ、下位桁からスタックへ格納。",
+      "variations": "8／12／16／20ビット、桁数と反復回数、マスク表記幅を連動。左右シフトは4ビット。",
+      "oracle": "16進文字列の逆順と、零・全1・全単一ビット基底でのマスク・シフトの桁移動。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 2,
+      "printedPage": 3,
+      "physicalPage": 3,
+      "officialAnswer": "ウ",
+      "format": "一定間隔のパルス、1ビット1パルス、非圧縮の通信で最大文字数を選ぶ。",
+      "variations": "文字集合の範囲と種類数、秒当たりのパルス数。選択肢は2倍刻みで昇順。",
+      "oracle": "文字集合を範囲から計数し、ビット列の個数と容量の境界を全択で評価。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 3,
+      "printedPage": 3,
+      "physicalPage": 3,
+      "officialAnswer": "ウ",
+      "format": "PCMの毎秒ビット数と量子化ビット数からマイクロ秒の標本間隔を求める。",
+      "variations": "64,000／80,000／40,000／48,000ビット毎秒と8／4／8／12ビットの組。整数の正答と元の桁を模した誤答。",
+      "oracle": "選択した秒間隔と毎秒データ量の積が量子化ビット数の100万倍になるかを検査。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 4,
+      "printedPage": 4,
+      "physicalPage": 4,
+      "officialAnswer": "ア",
+      "format": "垂直パリティの伝送誤り検出と訂正の記述を選ぶ。",
+      "variations": "偶数・奇数パリティ、反転数1〜4と偶奇一般の比較。",
+      "oracle": "4ビットの全反転パターン、検出可能性と誤り位置の特定を区別。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 5,
+      "printedPage": 4,
+      "physicalPage": 4,
+      "officialAnswer": "ウ",
+      "format": "二分探索木の削除ノードの位置へ要素を一つ移す。太枠と元の全14枝。",
+      "variations": "二つの子がある4種の削除対象、元の図配置、選択肢昇順。",
+      "oracle": "描画した枝を抽出し、候補を移した木を中間順で巡回して単調性を検証。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 6,
+      "printedPage": 5,
+      "physicalPage": 5,
+      "officialAnswer": "ア",
+      "format": "逆ポーランド表記法、加算だけのスタック状態と深さの最小を問う。",
+      "variations": "4〜6項、途中状態の数と式を連動。最大負担は最後の6項で、計算自体はプッシュ・ポップの計数。",
+      "oracle": "各接頭部の項数と演算数の差の最大、スタックの描画ラベルの照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 7,
+      "printedPage": 5,
+      "physicalPage": 5,
+      "officialAnswer": "イ",
+      "format": "10進5桁の桁和をmodで配列位置にし、配列の先頭と末尾だけを表示。",
+      "variations": "桁列と除数11〜14。配列の添字と剰余の定義を連動させる。",
+      "oracle": "桁を単位要素に展開して総数を数え、除数を繰り返し引いて剰余を全択と照合。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 8,
+      "printedPage": 6,
+      "physicalPage": 6,
+      "officialAnswer": "イ",
+      "format": "二分岐と反復の流れ図からq・rの値を四つの組合せで選ぶ。",
+      "variations": "被除数・除数のx／yと、カウンタ・残量のq／rの入替え。Yes／Noと反復枝は維持。",
+      "oracle": "SVG内の実式を49組の自然数で実行し、各択の式の商と余りを独立算出。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 9,
+      "printedPage": 6,
+      "physicalPage": 6,
+      "officialAnswer": "ア",
+      "format": "MIPSから平均命令実行時間を求め、整数のナノ秒・マイクロ秒四択を比較。",
+      "variations": "50／20／25／10 MIPS。ナノ秒2つ・マイクロ秒2つで、実時間順。",
+      "oracle": "単位をナノ秒にそろえ、命令率と時間の積が1,000になる選択肢を検出。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 10,
+      "printedPage": 7,
+      "physicalPage": 7,
+      "officialAnswer": "ア",
+      "format": "命令部・アドレス部と主記憶を図示してアドレス指定方式を選ぶ。",
+      "variations": "間接・直接・指標・相対の4方式。主記憶の参照回数、加算と加算元を変更。",
+      "oracle": "実描画のラベル・矢印・加算記号を読み、各方式の定義と算出したアドレスを確認。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 11,
+      "printedPage": 7,
+      "physicalPage": 7,
+      "officialAnswer": "イ",
+      "format": "MPUの内部／外部割込みの適切な例を選ぶ。",
+      "variations": "要求する割込み分類と機器の文脈。命令に同期する例外と、装置・タイマからの通知。",
+      "oracle": "固定資料の分類と、実際の本文・全択・説明の照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 12,
+      "printedPage": 8,
+      "physicalPage": 8,
+      "officialAnswer": "イ",
+      "format": "キャッシュと主記憶の構成、CPU X・Yのアクセス表、等しい処理時間からヒット率を求める。",
+      "variations": "アクセス時間4値。差の比は原と同じ小数第2位以内で厳密、原の数値選択肢を維持。",
+      "oracle": "各択を100回中のヒット数とミス数に展開し、双方の総アクセス時間の一致を検査。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 13,
+      "printedPage": 8,
+      "physicalPage": 8,
+      "officialAnswer": "エ",
+      "format": "短距離の通信方式の説明を選ぶ。接続数・媒体・通信範囲を選択肢に置く。",
+      "variations": "Bluetooth・USB 2.0・IrDAを本文で指定。規格の逐語引用やロゴは使用しない。",
+      "oracle": "Bluetooth SIG、USB-IF、IrDA実装資料を基に、方式と実際の全択の意味を照合。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。Bluetooth又はUMLは設問の用語。外部のロゴ、規格文、出典付き素材を使用していない。",
+      "held": false
+    },
+    {
+      "number": 14,
+      "printedPage": 9,
+      "physicalPage": 9,
+      "officialAnswer": "ア",
+      "format": "システムの説明を選ぶ。",
+      "variations": "部分故障での機能維持・遠隔予備・分散処理を切り替え、結果照合を対比。",
+      "oracle": "運用の目的と原選択肢の分類を固定資料に対応させて検査。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 15,
+      "printedPage": 9,
+      "physicalPage": 9,
+      "officialAnswer": "ア",
+      "format": "同じ装置二つの直列、MTBF／MTTRから稼働率。小数2桁昇順。",
+      "variations": "平均故障間隔45／40／35／30、平均修理時間5／10／15／20時間。改変は装置の故障と修理の独立を明示。",
+      "oracle": "稼働・非稼働の二装置の組合せを全列挙し、各択を整数百分率で評価。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 16,
+      "printedPage": 9,
+      "physicalPage": 9,
+      "officialAnswer": "ア",
+      "format": "測定対象の定義から性能量・時間の用語を選ぶ。",
+      "variations": "仕事量／時間、投入から完了、要求から初回応答、実行権の割当時間。",
+      "oracle": "固定資料で開始時点・終了時点・測定量と原四択を照合。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 17,
+      "printedPage": 10,
+      "physicalPage": 10,
+      "officialAnswer": "エ",
+      "format": "応答性能の悪化、四つの調査項目と原因の表、選ばれた原因に対する調査を問う。",
+      "variations": "a〜dのうち本文で問う行を変更。原の原因と四択は維持。原問題画像ではcの太枠を保持。",
+      "oracle": "実際の表から行を探し、原因と調査方法の独立対応で全択を評価。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 18,
+      "printedPage": 10,
+      "physicalPage": 10,
+      "officialAnswer": "ウ",
+      "format": "高・中・低の3タスク、CPU・I/O・CPU、同時到着、I/O非競合、OS負荷なし、ミリ秒。",
+      "variations": "3タスクのI/O時間の組。CPUを横取りするか否かで遊休時間が変わらないケースだけ。",
+      "oracle": "表示表を1ミリ秒刻みで独立にシミュレーション。全四択を遊休合計と比較。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 19,
+      "printedPage": 11,
+      "physicalPage": 11,
+      "officialAnswer": "ア",
+      "format": "記憶管理方式と多重度の二列から適切な組合せを選ぶ。",
+      "variations": "ページ置換えと競合の条件、全体の常駐と同時実行数の条件。原の四組と順序。",
+      "oracle": "本文の条件を二つの独立した軸に分類し、全択の組合せの真偽を検査。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 20,
+      "printedPage": 11,
+      "physicalPage": 11,
+      "officialAnswer": "ウ",
+      "format": "仮想記憶でのページ置換えの説明を選ぶ。",
+      "variations": "LRU・FIFO・ランダム・NRU。参照時刻・投入順・一様確率・二フラグ。",
+      "oracle": "固定資料の各方式の判断基準に全選択肢を照合。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 21,
+      "printedPage": 12,
+      "physicalPage": 12,
+      "officialAnswer": "エ",
+      "format": "日曜フル・月〜土の増分、各曜日の磁気テープ、故障日の媒体装着済みで復元時間を求める。",
+      "variations": "水・木・金・土の故障、フル容量100／120 Gバイト。読出し単位と交換時間を保持。",
+      "oracle": "テープを日曜から物理交換し、1 Gバイトずつ読出し時間を計上。初回交換漏れなどの全択を評価。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 22,
+      "printedPage": 12,
+      "physicalPage": 12,
+      "officialAnswer": "エ",
+      "format": "テストで行う確認の定義から使用する手段を選ぶ。",
+      "variations": "実行範囲・アサーション・機器の模擬・コードを実行しない解析。",
+      "oracle": "固定資料の確認目的と方法の対応を実際の四択と照合。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 23,
+      "printedPage": 13,
+      "physicalPage": 13,
+      "officialAnswer": "エ",
+      "format": "対象メモリの特徴を説明から選ぶ。",
+      "variations": "DRAM・SRAM・NANDフラッシュ。セル構造・保持・リフレッシュ・書込み／消去の区別。",
+      "oracle": "固定資料によるセル構造と操作の対応を全択で評価。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 24,
+      "printedPage": 13,
+      "physicalPage": 13,
+      "officialAnswer": "ウ",
+      "format": "A・Bを入力しYを出力する四素子の回路と等価な単一素子を四図から選ぶ。",
+      "variations": "四ゲートの配線は維持し、原の全NANDと三つの組合せを生成。共通記号資料は冊子p2。",
+      "oracle": "実描画の枝を照合し、各素子の独立真理値表で4入力を全列挙。全選択肢の描画と比較。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 25,
+      "printedPage": 13,
+      "physicalPage": 13,
+      "officialAnswer": "イ",
+      "format": "3次元グラフィックスの処理の説明を選ぶ。",
+      "variations": "クリッピング・レンダリング・アンチエイリアシング・シェーディング。",
+      "oracle": "固定資料で処理の目的を区別し、実際の本文と全択・説明を検査。",
+      "conditions": 4,
+      "choicesChecked": 16,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。",
+      "held": false
+    },
+    {
+      "number": 26,
+      "printedPage": 14,
+      "physicalPage": 14,
+      "officialAnswer": "イ",
+      "format": "UMLの五クラス、関連の多重度、注記の一意制約。四つの説明を選ぶ。",
+      "variations": "社員の参画下限、所属先上限、参画キーの属性集合。",
+      "oracle": "図のラベルを取り、二プロジェクトと二役割の実現可能な関係を全列挙。",
+      "conditions": 3,
+      "choicesChecked": 12,
+      "generatorVersion": "3.7.0",
+      "materialReview": "IPA公式問題・解答例を目視確認。紙面に第三者の出典・引用・権利表示なし。Bluetooth又はUMLは設問の用語。外部のロゴ、規格文、出典付き素材を使用していない。",
+      "held": false
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "collectionId": "2013h25h-fe-am",
+  "task": "S3-015",
+  "checkedOn": "2026-11-10",
+  "examDate": "2013-04-21",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 3
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 25
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 29
+    }
+  ],
+  "commonPages": [
+    2
+  ],
+  "held": [
+    {
+      "number": 55,
+      "reason": "ITIL Service Operationのサービスデスク組織の具体的説明に対応し、当該訳文の再配布・改変条件を未確認"
+    },
+    {
+      "number": 62,
+      "reason": "経済産業省の平成16年版システム管理基準Ⅰ1.1(4)と近い表現について、原版に適用される再配布・改変条件を未確認"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_qs.pdf",
+      "sha256": "39c169249a825961c710a248b5bc8e30c474679fed5f93516e610a308a13d9bc",
+      "byteLength": 4791205
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_am_ans.pdf",
+      "sha256": "fb78aba7d1c13c367190474c0257f5b2e2fc463be76237a6cabb0fbe1f779023",
+      "byteLength": 58669
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html",
+      "sha256": "b86aa9de025184ded345464daf893446e508a8a46850411154dad0f7db31d006",
+      "byteLength": 123017
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "reference/ipa-syllabus-1.5.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/youkou_ver1_5.pdf",
+      "sha256": "bdf9026224a82f2d967853943e296320fe380e78979c9f6c24ee97eb783d939b",
+      "byteLength": 827888
+    }
+  },
+  "materialFindings": [
+    "表紙p.1の全80問必須・150分、本文p.3・25・29の分野区分、各問の物理頁と印刷頁の一致を照合した。",
+    "冊子p.2はIPAの共通表記で、九つの標準的な論理素子の図記号と入力部又は出力部の反転の注記を保持する。",
+    "問13のBluetooth、問26のUMLは技術名・記法。問26はIPA作成の事例図で、外部規格の本文や図版は含まない。",
+    "問49の特許と問51のWBSは用語と事実。WBSの選択肢はIPAの要約・比較で、PMIの定義文・図表の転載は含まない。",
+    "問58は経済産業省平成16年版システム監査基準Ⅱの目的を要約したIPAの選択肢。監査主体・保証・助言の原文の構成を再掲していない。",
+    "問64の企画プロセスは共通フレーム2007第2版と2013年のIPA説明資料でJISに対するIPA独自追加と確認した。",
+    "問78–80は法令・告示と2013年当時の適用条件を照合し、外部の解説資料は同梱しない。",
+    "教育用途での収録にIPAの公表問題利用条件を適用し、出典、権利留保、改変の有無を明示する。"
+  ],
+  "independentFactSources": [
+    {
+      "questions": [
+        51
+      ],
+      "url": "https://www.pmi.org/learning/library/developing-elaborating-work-breakdown-structures-7241",
+      "scope": "WBSの末端作業単位と対象範囲の照合"
+    },
+    {
+      "questions": [
+        58
+      ],
+      "url": "https://www.saaj.or.jp/kijun/system_kansa.pdf",
+      "scope": "平成16年10月8日改訂版Ⅱ",
+      "officialArchive": "https://web.archive.org/web/20050428033203id_/http://www.meti.go.jp:80/policy/netsecurity/downloadfiles/system_kansa.pdf",
+      "officialArchiveSHA256": "e74646a3135318b2a7eb7639d31adb994132f312e3a0adb2f31c9aabdb3e4d83"
+    },
+    {
+      "questions": [
+        62
+      ],
+      "url": "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+      "scope": "平成16年10月8日策定版Ⅰ1.1(4)。利用条件確認待ち。",
+      "officialArchive": "https://web.archive.org/web/20120726055132id_/http://www.meti.go.jp/policy/netsecurity/docs/isaudit/system_kanrikijyun.pdf",
+      "officialArchiveSHA256": "43a944ea78e26081bffa5d381b648db2e70574897d66c3f4f1d948d1302ae9f7"
+    },
+    {
+      "questions": [
+        64
+      ],
+      "url": "https://www.ipa.go.jp/archive/files/000027415.pdf",
+      "scope": "p.20–21 企画プロセスのIPA独自追加"
+    },
+    {
+      "questions": [
+        80
+      ],
+      "url": "https://www.moj.go.jp/content/000047330.pdf",
+      "scope": "出題時の民法第526条"
+    }
+  ],
+  "sourcePreflightSHA256": "9b8f0db971cc76a9863d3de2b2818f229aea9b37f0efd8a24cee47ae6f336469",
+  "cropCandidatesSHA256": "2a9112885df0b06c4d93d687b323b53385be41917a8c9d8eaf2f31b1bdcca73d",
+  "verifiedEligibleCount": 78
+}
