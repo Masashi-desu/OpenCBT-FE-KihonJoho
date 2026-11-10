@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, LoaderCircle, Play, Search } from "lucide-react";
 import type { Bundle, Question } from "../core/types";
-import { answerLabels, partAnswerLabels } from "../core/answers";
+import { answerLabels, displayedAnswerParts, partAnswerLabels } from "../core/answers";
 import { areas, labels } from "../core/types";
 import {
   SEARCH_PAGE_SIZE, detailSearchDocuments, emptySearch, findSearchDocuments, questionSearchDocuments,
@@ -199,7 +199,7 @@ function SearchQuestion({ question, bundle, route, theme, onNavigate, onLicenses
         </div>
         {revealed && <section id="search-explanation" className="search-explanation" aria-label="正答と解説">
           <h2>{question.answerParts ? "正答" : `正答：${answerLabels(question)}`}</h2>
-          {question.answerParts && <dl>{question.answerParts.map(part => <div key={part.id}><dt>{part.label}</dt><dd>{partAnswerLabels(question, part, question.choices.map(c => c.id))}</dd></div>)}</dl>}
+          {question.answerParts && <dl>{displayedAnswerParts(question).map(part => <div key={part.id}><dt>{part.label}</dt><dd>{partAnswerLabels(question, part, question.choices.map(c => c.id))}</dd></div>)}</dl>}
           <Content content={question.explanation} bundle={bundle} assetUrls={assets.urls} credit />
           <StudyTerms question={question} assets={bundle.assets} />
         </section>}

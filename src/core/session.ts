@@ -458,6 +458,7 @@ export function updatePartAnswer(run: Run, partId: string, choiceId: string | un
   const next = structuredClone(run), entry = next.session.entries[index];
   const answers = { ...entry.selectedPartChoices };
   if (choiceId === undefined) delete answers[partId]; else answers[partId] = choiceId;
+  validateEntryAnswers(next.issued[index], { selectedPartChoices: answers });
   if (Object.keys(answers).length) entry.selectedPartChoices = answers; else delete entry.selectedPartChoices;
   return touch(next, at);
 }

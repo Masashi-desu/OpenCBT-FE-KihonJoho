@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-10",
+  "scope": "2013-spring-pm",
+  "source": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2013h25.html",
+    "questionSha256": "6427b45a2742e0694c3b2f1a85c423ebd963981f3225dd29ca720c07107ecbb3",
+    "answerSha256": "1c0f052bdf56753cfad22c971290e95165962f03d54ff06b65287d5ff2304898",
+    "commentarySha256": "9db19bcb703bfc308a468d759da816ebff4b2893cc832580f1d0b063c37744cb",
+    "rights": ["https://www.ipa.go.jp/shiken/faq.html", "https://www.ipa.go.jp/siteinfo.html"]
+  },
+  "questions": [
+    {
+      "number": 1,
+      "pages": [5, 6, 7, 8],
+      "marks": "イオアイオコ",
+      "labels": ["設問1 a", "設問2 b", "設問2 c", "設問3 d", "設問3 e", "設問3 f"],
+      "counts": [3, 8, 8, 10, 10, 10],
+      "formats": ["3ビットの混色", "色の説明選択", "色の説明選択", "階調数", "全色数", "10進kバイト"],
+      "facts": "発光の集合で8色を同定する。プレーン先頭バイトを8桁の2進数に変換して左から数える。階調・色数はビットの直積。容量はその色数を格納できる最少ビット数、8ビット/バイト、1,000バイト/kバイト。",
+      "capacity": "全4条件で画素のビット列は8ビット、kバイトは整数。共通数値群は元の並びを保ち、階調と色数の候補を増やすための近似や丸めを行わない。",
+      "material": "冊子p.5〜8と図1・図2・表1・表2、網掛け注記を目視照合。第三者の出典記載なし。"
+    },
+    {
+      "number": 2,
+      "pages": [9, 10, 11, 12],
+      "marks": "オウエウエ",
+      "labels": ["設問1 a", "設問1 b", "設問2", "設問3 c", "設問3 d"],
+      "counts": [5, 5, 6, 5, 5],
+      "formats": ["割込みが生じる空間", "ページ置換え方式名", "六候補の処理順", "3枠の回数", "4枠の回数"],
+      "facts": "LFUは最少参照回数、LIFOは最終ロード、LRUは最終参照から最長。物理記憶に対象ページがなければ割込み。退避・存在消去・読込み・対応付け・存在設定を依存順に判定。独立FIFOはフレームごとのロード時刻を比較する。",
+      "capacity": "全4条件で5ページ・13参照、物理フレーム3と4、空から開始。図1は別の時点での対応例として扱う。",
+      "references": ["https://www.ibm.com/think/topics/virtual-memory", "https://www.ibm.com/docs/en/webmethods-integration/bigmemory-max/4.4.0?topic=tiers-configuring-memory-store"],
+      "material": "冊子p.9〜12のページ表、存在ビット、両方向の補助記憶転送、処理記号の順と注記を目視照合。第三者の出典記載なし。"
+    },
+    {
+      "number": 3,
+      "pages": [13, 14, 15, 16, 17],
+      "marks": "アイエイア",
+      "labels": ["設問1 a", "設問1 b", "設問2 c", "設問3", "設問4 d"],
+      "counts": [5, 5, 4, 4, 4],
+      "formats": ["現在の保有ポイントを置く表", "付与・利用履歴を置く表", "SELECTの集約式", "HAVINGで取得する会員の説明", "WHEREの抽出条件"],
+      "facts": "保有は会員単位、付与・利用は会計単位。境界・重複来店・NULL・店舗を含む独立データでSQLと参照集合を照合。= ANYはここで扱う等値比較だけをSQLiteで等価なINに置換する。",
+      "capacity": "全4条件でカレンダー月・年初・一つの従業員コード。設問3は最大/最小、年初より前/年初以降の組合せ。設問4は指名だけ、担当だけ、両方、同じ店舗だけの会員を区別する。",
+      "references": ["https://www.sqlite.org/lang_select.html", "https://www.sqlite.org/lang_aggfunc.html", "https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-ANY-SOME"],
+      "material": "冊子p.13〜17の図1〜3、表1、主キー下線、付与・利用・割引後金額、全SQL選択肢を目視照合。第三者の出典記載なし。"
+    },
+    {
+      "number": 4,
+      "pages": [18, 19, 20, 21, 22],
+      "marks": "ウウアエエ",
+      "labels": ["設問1", "設問2", "設問3 a", "設問4", "設問5"],
+      "counts": [4, 4, 4, 4, 5],
+      "formats": ["耐タンパ性の説明", "監査ログ項目の組合せ", "遷移条件の空欄", "協力社員の遷移矢印", "監査時の遷移先"],
+      "facts": "耐タンパ性は機密情報の不正読取り・改変を防ぐ性質。ログから日時・出入口・使用者を特定。誤入力でロック。契約終了ではカードを返却し、直前の許可状態から対応する矢印を選ぶ。入退室ログ不整合時は管理者が解除できる一時停止へ。",
+      "capacity": "全4条件で誤入力回数の桁数は一桁。選択肢の順と五状態を固定し、契約終了時が参画中か、執務室のみ許可される待機中かを本文で確定させる。",
+      "references": ["https://csrc.nist.gov/glossary/term/tamper_resistant"],
+      "material": "冊子p.18〜22の下線、表1・表2、図1の五状態・灰色行・矢印・凡例、管理責任と操作条件を目視照合。第三者の出典記載なし。"
+    }
+  ]
+}

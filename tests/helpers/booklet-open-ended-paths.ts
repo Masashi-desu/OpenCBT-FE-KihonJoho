@@ -68,9 +68,13 @@ export function registerBookletOpenEndedTests(scope: string) {
     assert.equal(completed.result!.learningAccuracyPercent, 33.3);
     if (row.original.answerParts) {
       // A repaired generated field can have a different scoring status from its official source.
-      const fields = completed.issued[0].answerParts!.length,
-        unscored = completed.issued[0].correctAnswer.parts!.filter(answer => answer.kind === "no_correct_answer").length,
-        scored = fields - unscored;
+      const issued = completed.issued[0], keys = issued.correctAnswer.parts!;
+      // A checklist stores one entry per selected choice and awards one field.
+      const extraChecklistSlots = keys.reduce((sum, key) =>
+        key.kind === "unordered" && key.presentation === "checklist" ? sum + key.partIds.length - 1 : sum, 0);
+      const fields = issued.answerParts!.length - extraChecklistSlots;
+      const unscored = keys.filter(answer => answer.kind === "no_correct_answer").length;
+      const scored = fields - unscored;
       assert(scored > 0, "The one-wrong exercise requires a scored answer slot");
       if (row.original.id === "question-ipa-2019r01a-fe-pm-12") {
         assert.equal(row.original.correctAnswer.parts!.filter(a => a.kind === "no_correct_answer").length, 1);

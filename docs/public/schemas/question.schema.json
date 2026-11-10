@@ -458,6 +458,12 @@
                     "$comment": "必須：親項目がある場合は欠落を拒否する。",
                     "const": "unordered"
                   },
+                  "presentation": {
+                    "type": "string",
+                    "description": "一つの解答群から重複なしで複数選択し、一欄として採点する。選択数はpartIdsの要素数。",
+                    "$comment": "任意：省略時は順不同の個別欄として表示・採点する。",
+                    "const": "checklist"
+                  },
                   "partIds": {
                     "type": "array",
                     "description": "同じ解答群を使う順不同の解答欄ID。",

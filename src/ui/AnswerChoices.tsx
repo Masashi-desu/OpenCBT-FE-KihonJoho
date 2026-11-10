@@ -1,6 +1,6 @@
 import type { AnswerPart, Bundle, Entry, Question } from "../core/types";
 import { labels } from "../core/types";
-import { gradeAnswer, partAnswerLabels, selectedPartChoice } from "../core/answers";
+import { displayedAnswerParts, gradeAnswer, partAnswerLabels, selectedPartChoice } from "../core/answers";
 import { Content } from "./Content";
 import { tableChoiceName, diagramChoiceName } from "./tableChoiceName";
 import { legacyAfternoonSourceChoices } from "../core/generators/legacy-afternoon-definitions";
@@ -26,22 +26,35 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
   const grade = revealed && q.answerParts ? gradeAnswer(q, entry) : undefined;
   const field = (part?: AnswerPart) => {
     const order = part ? entry.choiceOrder.filter(id => part.choiceIds.includes(id)) : entry.choiceOrder;
-    const selectedId = part ? selectedPartChoice(entry, part.id) : entry.selectedChoiceId;
     const key = part && q.correctAnswer.parts!.find(a => a.kind === "unordered" ? a.partIds.includes(part.id) : a.partId === part.id);
+    const checklist = key && key.kind === "unordered" && key.presentation === "checklist" ? key : undefined;
+    const selectedIds = checklist ? checklist.partIds.map(id => selectedPartChoice(entry, id)).filter(id => id !== undefined)
+      : [part ? selectedPartChoice(entry, part.id) : entry.selectedChoiceId].filter(id => id !== undefined);
     const correctIds = !key ? [q.correctAnswer.choiceId] : key.kind === "choice" ? [key.choiceId] : key.kind === "unordered" ? key.choiceIds : [];
     const choose = (id: string | undefined) => part ? onPartAnswer?.(part.id, id) : onAnswer?.(id);
+    const toggleChecklist = (id: string, partIds: readonly string[]) => {
+      const selectedSlot = partIds.find(slot => selectedPartChoice(entry, slot) === id);
+      const slot = selectedSlot ?? partIds.find(slot => selectedPartChoice(entry, slot) === undefined);
+      if (slot) onPartAnswer?.(slot, selectedSlot ? undefined : id);
+    };
+    const labelFor = (index: number) => labels[index] ?? String(index + 1);
     return <fieldset key={part?.id ?? "single"} className="answer-choices" disabled={disabled}>
-      <legend className={part ? "answer-part-title" : "sr-only"}>{part?.label ?? "解答を選択"}</legend>
+      <legend className={part ? "answer-part-title" : "sr-only"}>
+        {part?.label ?? "解答を選択"}{checklist && `（${checklist.partIds.length}つ選択）`}
+      </legend>
+      {checklist && <p className="answer-part-result" aria-live="polite">{selectedIds.length}／{checklist.partIds.length}選択済み</p>}
       {order.map((id, index) => {
-        const choice = q.choices.find(c => c.id === id)!, selected = selectedId === id, correct = revealed && correctIds.includes(id);
-        const label = labels[index] ?? String(index + 1);
+        const choice = q.choices.find(c => c.id === id)!, selected = selectedIds.includes(id), correct = revealed && correctIds.includes(id);
+        const label = labelFor(index);
         const explicitName = q.origin.kind === "official_reprint" && !isLegacy2017Pm4OriginalTable(q, id) ? undefined
           : tableChoiceName(choice.content, bundle) ?? diagramChoiceName(choice.content, bundle);
         return <label key={id} className={`answer-choice ${selected ? "selected" : ""} ${correct ? "correct" : ""}`}>
-          <input className="sr-only" type="radio" name={part ? `answer-${part.id}` : "answer"} value={id} checked={selected}
+          <input className="sr-only" type={checklist ? "checkbox" : "radio"} name={part ? `answer-${part.id}` : "answer"} value={id} checked={selected}
             aria-label={explicitName === undefined ? undefined : `${label} ${explicitName}${correct ? " 正答" : ""}`}
-            onChange={() => choose(id)} onClick={() => { if (selected) choose(undefined); }}
-            onKeyDown={event => { if (event.key === " ") { event.preventDefault(); if (!event.repeat) choose(selected ? undefined : id); } }} />
+            disabled={checklist && !selected && selectedIds.length === checklist.partIds.length}
+            onChange={() => checklist ? toggleChecklist(id, checklist.partIds) : choose(id)}
+            onClick={checklist ? undefined : () => { if (selected) choose(undefined); }}
+            onKeyDown={checklist ? undefined : event => { if (event.key === " ") { event.preventDefault(); if (!event.repeat) choose(selected ? undefined : id); } }} />
           <span className="choice-label">{label}</span>
           <span className="choice-body">{legacyAfternoonSourceChoices(q) ? `本文の「${label}」`
             : q.origin.kind === "official_reprint" && !isLegacy2017Pm4OriginalTable(q, id)
@@ -52,9 +65,9 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
       })}
       {revealed && part && <div className="answer-part-result">
         <p>正答：{partAnswerLabels(q, part, entry.choiceOrder)}</p>
-        {showResponse && <p>あなたの解答：{selectedId ? labels[order.indexOf(selectedId)] ?? String(order.indexOf(selectedId) + 1) : "未解答"} · {outcomeLabels[grade!.parts!.find(p => p.partId === part.id)!.outcome]}</p>}
+        {showResponse && <p>あなたの解答：{selectedIds.length ? order.filter(id => selectedIds.includes(id)).map(id => labelFor(order.indexOf(id))).join("・") : "未解答"} · {outcomeLabels[grade!.parts!.find(p => p.partId === part.id)!.outcome]}</p>}
       </div>}
     </fieldset>;
   };
-  return q.answerParts ? <div className="compound-answers">{q.answerParts.map(part => field(part))}</div> : field();
+  return q.answerParts ? <div className="compound-answers">{displayedAnswerParts(q).map(part => field(part))}</div> : field();
 }

@@ -817,6 +817,7 @@
 | `correctAnswer.parts[]{choice}.partId` | 正答が対応する解答欄ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `correctAnswer.parts[]{choice}.choiceId` | その解答欄の正答選択肢ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `correctAnswer.parts[]{unordered}.kind` | 順序を問わない複数欄の正答。重複の個数も一致させる。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | const="unordered" |
+| `correctAnswer.parts[]{unordered}.presentation` | 一つの解答群から重複なしで複数選択し、一欄として採点する。選択数はpartIdsの要素数。 | 任意 | 任意：省略時は順不同の個別欄として表示・採点する。 | string | const="checklist" |
 | `correctAnswer.parts[]{unordered}.partIds` | 同じ解答群を使う順不同の解答欄ID。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=2 / maxItems=200 / uniqueItems=true |
 | `correctAnswer.parts[]{unordered}.partIds[]` | 参照先を識別するID。 | 配列要素 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
 | `correctAnswer.parts[]{unordered}.choiceIds` | 順不同の正答を構成する選択肢ID。重複する正答は個数を保持する。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=2 / maxItems=200 |

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import { readDistributionBundle } from "./distribution-files";
+import { displayedAnswerParts } from "../src/core/answers";
 import type { Bundle, Block } from "../src/core/types";
 import { generationCoverage } from "../src/core/generation-coverage";
 import { additionalDefinition } from "../src/core/generators";
@@ -79,7 +80,7 @@ for (const group of groups) {
           `${f.name}：${f.minimum}〜${f.maximum}（${t.referenceParameters.values[i]}）`,
       )
       .join("、");
-    md += `| [${ref.locator.timeSlot ? `旧${ref.locator.timeSlot}` : `科目${q.subject}`}問${ref.locator.questionNumber} p.${ref.locator.page}](${s.url}#page=${ref.locator.page}) | ${t.generatorRef.id}@${t.generatorRef.version} | ${escape(d?.title ?? t.title)}。${escape(inputs)} | ${media}／${q.choices.length}択${q.answerParts ? `・${q.answerParts.length}解答欄` : ""} |\n`;
+    md += `| [${ref.locator.timeSlot ? `旧${ref.locator.timeSlot}` : `科目${q.subject}`}問${ref.locator.questionNumber} p.${ref.locator.page}](${s.url}#page=${ref.locator.page}) | ${t.generatorRef.id}@${t.generatorRef.version} | ${escape(d?.title ?? t.title)}。${escape(inputs)} | ${media}／${q.choices.length}択${q.answerParts ? `・${displayedAnswerParts(q).length}解答欄` : ""} |\n`;
   }
 }
 md +=
@@ -279,6 +280,8 @@ for (const [profile, rows] of Object.entries(legacyMorningDomains)) {
   figureMeaning[profile] = `固定の有限組合せ${rows.length}件。各values全体と描画条件の一対一対応は後掲の「${profile}」を参照。位置ごとの範囲内でも未登録の組合せは拒否する。`;
 }
 const sceneText = (value: string) => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+  // VitePress interprets raw braces as attributes on the enclosing table cell.
+  .replaceAll("{", "&#123;").replaceAll("}", "&#125;")
   .replaceAll("|", "&#124;").replaceAll("*", "&#42;").replaceAll("_", "&#95;").replaceAll("`", "&#96;").replaceAll("\n", " ");
 
 const bookletReferences=bookletFigureReferenceRows(additionalBookletFigures);

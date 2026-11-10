@@ -39,16 +39,18 @@ export function isAfternoon(original: Question) {
   return original.subject === "B" && slots.size === 1 && slots.has("午後");
 }
 
+const preMandatorySecurity = new Set(["2013-spring-pm", "2013-autumn-pm"]);
+
 export function expectedAfternoonSelectionCount(scope: string) {
-  return scope === "2013-autumn-pm" ? 105 : 75;
+  return preMandatorySecurity.has(scope) ? 105 : 75;
 }
 
 export function legalAfternoonSelections(collection: Bundle["sets"][number]) {
   // Enumerate the two omissions and the language independently of the
-  // production rule. The 2013 autumn cover does not require question 1.
+  // production rule. Both 2013 covers leave question 1 optional.
   const refs = collection.questionRefs, policy = collection.questionSelection;
   const scope = collection.id.replace(/^set-annual-/, "");
-  const beforeMandatorySecurity = scope === "2013-autumn-pm";
+  const beforeMandatorySecurity = preMandatorySecurity.has(scope);
   const firstRequired = beforeMandatorySecurity ? [] : [refs[0]];
   const general = refs.slice(beforeMandatorySecurity ? 0 : 1, 7);
   const languages = refs.slice(8);

@@ -6,6 +6,13 @@ function fail(message: string): never { throw new DataError("ANSWER_PARTS", mess
 export function selectedPartChoice(entry: Pick<Entry, "selectedPartChoices">, partId: string): string | undefined {
   return entry.selectedPartChoices && Object.hasOwn(entry.selectedPartChoices, partId) ? entry.selectedPartChoices[partId] : undefined;
 }
+/** Checklist slots use the existing saved answers, but the source presents one field. */
+export function displayedAnswerParts(q: Question): AnswerPart[] {
+  const parts = q.answerParts ?? [];
+  const hidden = q.correctAnswer.parts?.flatMap(answer =>
+    answer.kind === "unordered" && answer.presentation === "checklist" ? answer.partIds.slice(1) : []) ?? [];
+  return hidden.length ? parts.filter(part => !hidden.includes(part.id)) : parts;
+}
 export function validateAnswerDefinition(q: Question) {
   const ids = new Set(q.choices.map(c => c.id));
   if (!q.answerParts) {
@@ -26,6 +33,9 @@ export function validateAnswerDefinition(q: Question) {
     const answerIds = answer.kind === "unordered" ? answer.partIds : [answer.partId];
     if (answer.kind === "unordered" && (answer.partIds.length < 2 || answer.partIds.length !== answer.choiceIds.length))
       fail("順不同の解答欄数と正答数が一致しません");
+    if (answer.kind === "unordered" && answer.presentation === "checklist" &&
+      new Set(answer.choiceIds).size !== answer.choiceIds.length)
+      fail("一つの解答群から複数選ぶ欄の正答は重複できません");
     for (const id of answerIds) {
       const part = parts.get(id);
       if (!part || covered.has(id)) fail("正答の解答欄参照が不正又は重複しています");
@@ -54,6 +64,11 @@ export function validateEntryAnswers(q: Question, entry: Pick<Entry, "selectedCh
       const part = q.answerParts.find(p => p.id === partId);
       if (!part || !part.choiceIds.includes(choiceId)) throw new DataError("ANSWER_REF", "解答欄の選択肢が不正です");
     }
+    for (const answer of q.correctAnswer.parts!) {
+      if (answer.kind !== "unordered" || answer.presentation !== "checklist") continue;
+      const selected = answer.partIds.map(id => selectedPartChoice(entry, id)).filter(id => id !== undefined);
+      if (new Set(selected).size !== selected.length) throw new DataError("ANSWER_REF", "複数選択の解答が重複しています");
+    }
   }
 }
 export function gradeAnswer(q: Question, entry: Pick<Entry, "selectedChoiceId" | "selectedPartChoices">) {
@@ -67,6 +82,11 @@ export function gradeAnswer(q: Question, entry: Pick<Entry, "selectedChoiceId" |
     else if (answer.kind === "choice") {
       const selected = selectedPartChoice(entry, answer.partId);
       outcomes.set(answer.partId, !selected ? "unanswered" : selected === answer.choiceId ? "correct" : "incorrect");
+    } else if (answer.presentation === "checklist") {
+      const selected = answer.partIds.map(partId => selectedPartChoice(entry, partId)).filter(id => id !== undefined);
+      const outcome = selected.length < answer.partIds.length ? "unanswered"
+        : selected.every(choice => answer.choiceIds.includes(choice)) ? "correct" : "incorrect";
+      outcomes.set(answer.partIds[0], outcome);
     } else {
       // Multiset comparison: repeated correct values need the same multiplicity.
       // A missing slot stays unanswered; each selected value consumes one match.
@@ -78,7 +98,7 @@ export function gradeAnswer(q: Question, entry: Pick<Entry, "selectedChoiceId" |
       }
     }
   }
-  const parts = q.answerParts.map(part => ({ partId: part.id, outcome: outcomes.get(part.id)! }));
+  const parts = displayedAnswerParts(q).map(part => ({ partId: part.id, outcome: outcomes.get(part.id)! }));
   const scored = parts.filter(p => p.outcome !== "unscored");
   const outcome: AnswerOutcome = !scored.length ? "unscored" : scored.some(p => p.outcome === "unanswered") ? "unanswered"
     : scored.some(p => p.outcome === "incorrect") ? "incorrect" : "correct";
@@ -95,7 +115,7 @@ export function partAnswerLabels(q: Question, part: AnswerPart, order: readonly 
   return ids.map(id => labels[choices.indexOf(id)] ?? String(choices.indexOf(id) + 1)).join("・") + (answer.kind === "unordered" ? "（順不同）" : "");
 }
 export function answerLabels(q: Question, order = q.choices.map(c => c.id)): string {
-  if (q.answerParts) return q.answerParts.map(p => `${p.label}：${partAnswerLabels(q, p, order)}`).join("、");
+  if (q.answerParts) return displayedAnswerParts(q).map(p => `${p.label}：${partAnswerLabels(q, p, order)}`).join("、");
   const index = order.indexOf(q.correctAnswer.choiceId!);
   return labels[index] ?? String(index + 1);
 }

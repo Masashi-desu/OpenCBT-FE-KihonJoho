@@ -1538,6 +1538,12 @@ select {
 .answer-choices:disabled label {
   cursor: default;
 }
+.answer-choice:has(> input[type="checkbox"][disabled]) {
+  cursor: default;
+}
+.answer-choice:has(> input[type="checkbox"][disabled]):not(.correct):hover {
+  border-color: var(--soft-border);
+}
 .exam-footer .review-toggle {
   border-color: transparent;
   background: transparent;
