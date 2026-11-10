@@ -1,0 +1,455 @@
+{
+  "booklet": "2011年度秋期 基本情報技術者試験 午前 問54〜80",
+  "checkedOn": "2026-11-11",
+  "sources": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_am_qs.pdf",
+      "sha256": "e1efc842d6bd0d6e9457da56a4df0080da068da2c5bc2f770bdd3c18505a2cec",
+      "byteLength": 1938968,
+      "pageCount": 36
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ojp-att/2011h23a_fe_am_ans.pdf",
+      "sha256": "1002803d6d26eca086711c0fb1dd9b04439016649d8d5de0d021a080750198ad",
+      "byteLength": 58544,
+      "pageCount": 1
+    }
+  },
+  "rightsHolds": [
+    {
+      "number": 56,
+      "reason": "ITIL v3 Service Operation 6.2.3.1〜3の構成、ローカル型の言語・文化・VIP、中央型の少数拠点と呼量、仮想型の遠隔統合の具体説明に選択肢が近接。PeopleCertの第三者製品ライセンス案内から当該版の配布・改変許諾を確認できないため保留。"
+    },
+    {
+      "number": 67,
+      "reason": "経済産業省平成16年10月8日版のⅠ1.1(3)に近い問いと、教育・訓練、経営戦略、保守手順、外部調達方針に関する管理項目の近接表現。旧版に適用される再配布・改変条件又は個別許諾を確認できないため保留。"
+    }
+  ],
+  "records": [
+    {
+      "number": 54,
+      "physicalPage": 23,
+      "answer": "ア",
+      "scope": "2011h23a-fe-am-54",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "ba328e352fe0f0d56a8d73356d383ac19cecf95c4ad7b773256ed911602a63cf",
+          "2a970b5436041b423f92a67aca0d7fd68a11e283d9110e728711c2238f33444f",
+          "90e3b46285271c0923fa7d1704af2a42383cb0723a8e925daa2b0e36152fd9fb",
+          "2df707b87ac90710cdba1e01eb4abc6527fa65d351efb0c3e73d6d15957d183e"
+        ]
+      },
+      "notes": "原冊子p.23。品質上の分析目的に合う図の名称を選ぶ。図そのものを表示する形式への変更はしない。"
+    },
+    {
+      "number": 55,
+      "physicalPage": 23,
+      "answer": "ウ",
+      "scope": "2011h23a-fe-am-55",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "5dc95037a51420723beaa6296df5c222b510acf8e51193c277c39ac59fa89dba",
+          "066d9a96e9e6ef73d7a607a01c3945dff8e472a52538fa4d88ff6b1803662307",
+          "c23092fd6c4f0fd7e24920b5f68842a85511190c36c86a9090002dbb83583c71",
+          "6aa269004c1df8ab98c50f51848109c87fae55a6fb9398a3af33e6b1b88b4419"
+        ]
+      },
+      "notes": "原冊子p.23。保守の承認、テストと本稼働の分離、完了の証跡を維持。保守作業のどの段階を監督するかを本文で変える。"
+    },
+    {
+      "number": 57,
+      "physicalPage": 24,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-57",
+      "materialBasis": "SLAの見出しと営業時間・可用性は同じ問の一部。契約書等の固有転載ではなく、独立した仮定。",
+      "checks": {
+        "method": "一月の提供時間を求め、選択肢の整数のうち可用性を満たす最大値を有理数で比較。",
+        "reviewedContentSha256": [
+          "5c656525369fb9adff9e270ef6fb2ea90c6e5196f2db5c857f5b1f1954abb176",
+          "2101fbc6dc062485f0c8dd896ee4cad5e9304e718fe1bd60c9d73fa55cb467c3",
+          "306145514dff2342a990b8a686c48a51f82e2d025af9c8ce6055639b88cff324",
+          "cc2cdb5dc4d54a63c915e1fa2acf79fc77e9eaf8f34516a14ecff617116529e4"
+        ]
+      },
+      "notes": "原冊子p.24。午前から午後までの営業時間、30日、99％台の可用性と1〜4時間の尺度順を保持。停止上限は1.5〜4.5時間。最大の整数選択肢として条件を評価する。"
+    },
+    {
+      "number": 58,
+      "physicalPage": 25,
+      "answer": "エ",
+      "scope": "2011h23a-fe-am-58",
+      "materialBasis": "監査基準の名称や規定文の転載なし。利用部門の設計レビューを他の三つの工程と比較する実務例。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "7b41122908bfc0b2114e05000e3c5ba5f0a87d4abc694e4fab6581e6bc2aa549",
+          "be21e294df888b2dafa8b0a1c2975c789c426f5f268786c7f67587e53ed542cc",
+          "8f67001be4a9374c7b41f877b9b98c8c573f9a91096795767cc7fa7ed04b1446",
+          "3b809f1c51e17c7e62736a9a6b7055b40a95aba324bd13dd64f1adcccdfaaf2d"
+        ]
+      },
+      "notes": "原冊子p.25。工程と防止したいリスクで監査の着眼点を変える。確認事項の四つの実務上の役割を維持。"
+    },
+    {
+      "number": 59,
+      "physicalPage": 25,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-59",
+      "materialBasis": "テスト方法と記録の一般的な実務例。外部の監査基準・規格本文の転載表示なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "ce43116ac94bf4de689bac0cf4e580252607c882a924ba07bf58d184ed5f8273",
+          "464a8a2c6969e02ee3db20d570e8325195241699bee3e25a8e18739c1d70b3f9",
+          "01e27a497fef1cac8d61f846d4886eeff7283bd3508a87982fe28a94ed93398a",
+          "e3b957dab8334802fe1571dcadb7954d6b4259f6b55b7f833032b84da041f43c"
+        ]
+      },
+      "notes": "原冊子p.25。不備の指摘を選ぶ否定方向を維持。原問の単純なサンプリングと、リスクに基づき網羅基準を定める設計を区別する。"
+    },
+    {
+      "number": 60,
+      "physicalPage": 25,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-60",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "81fe0fd50820e90b25a72cd917a450d7a7828756b266b01e69c46caef608454e",
+          "7a110c4b65ae9e3870a8905477b7fc6e4853416b059ab4a7c1a01a4b1abdf6d8",
+          "a010e6932c0333c431c55d1c5565fdfaf4d6fce6d7410f8a1e0169b175fd5f6b",
+          "909547230e2920c00f4ebb3c710bb5f3b117ff7cc746569a3ec4cbb196b7ee27"
+        ]
+      },
+      "notes": "原冊子p.25。発見統制を選ぶ向きを保つ。実績照合・異常ログ・在庫差異で、事後に異常を検出する判断を変える。"
+    },
+    {
+      "number": 61,
+      "physicalPage": 26,
+      "answer": "エ",
+      "scope": "2011h23a-fe-am-61",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "97089536ee688cffaeb8e2569da2ded9bedf3f71f1667b578cb4bd6d8bc838c8",
+          "a7d386ed2c6feeac08324baf685c4f6351af6071ac89dd077b9fe3f8b9918798",
+          "5a8b4ba3739026b15ea03a1e422b10397fb64ca448c1abd175a5bd37c099fec4",
+          "1311559994850492717d106993ed9c71a22b2dd7d7ea030790b1f2174b892abf"
+        ]
+      },
+      "notes": "原冊子p.26。同じ四つの説明と用語の対応を保ち、本文で対象の手法を替える。"
+    },
+    {
+      "number": 62,
+      "physicalPage": 26,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-62",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "c2224bd64fb414a38d10494755ed8c96e4be3cca60c9f2f060902b7a4bf6e9d2",
+          "3646879525f31eb20d60f673072954f3dd56c76a3eacfe821f176c98c7f7a212",
+          "b77cc84ce1720ac3a540b5053e998b46a27a96d47d0665f9909fb8ee6c342e00",
+          "b04b63767d3534067d186c8e7f58b6360bd9e1b0f730eea1fc65eba35ef1857c"
+        ]
+      },
+      "notes": "原冊子p.26。EAの業務・データ・適用処理・技術の四体系と具体的な成果物を照合。"
+    },
+    {
+      "number": 63,
+      "physicalPage": 26,
+      "answer": "ウ",
+      "scope": "2011h23a-fe-am-63",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "e84db32df08ad117398ce21384d40940110a5bbc03ecf107197cf003545ebc0c",
+          "76d68675b61d50360902d2f4afe875649cbf0c26a406a0ede9d37b3631943f10",
+          "632c5c80e14173ff31d640340f7462d1767e0dcd02ae90bfe53d07aea17dcf2a",
+          "59d0687b05ecd6fda32c2c7a8cf596718419ecd1b111ceec5bc9e0687a654aca"
+        ]
+      },
+      "notes": "原冊子p.26。図法名を選ぶ原形式を維持し、データの流れ、実体関係、状態変化、図法の体系を区別。"
+    },
+    {
+      "number": 64,
+      "physicalPage": 27,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-64",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "be3940ecc44fe62ee433ab30bbc99a5c65c88d68ca8f53557c049fcb45699a7a",
+          "fbb7cd3bafd2eebad99d568dea22f2039758bbae9300d4ad4ca42a49d149f404",
+          "d585252cd76f01ea35a62456316fb10a0c6f81b7aa5766157b652018fa7ea8a0",
+          "2f48988ad8a48d983a51dd968b1bace348bca0282e45f24513343f383cf02df6"
+        ]
+      },
+      "notes": "原冊子p.27。各用語に対応する使い方を本文で示し、仕組み・提供形態・管理・報告表現の違いを判定。"
+    },
+    {
+      "number": 65,
+      "physicalPage": 27,
+      "answer": "ア",
+      "scope": "2011h23a-fe-am-65",
+      "materialBasis": "IPAの2011資料と2013の差異説明で、要件定義が共通フレーム2007の国内拡張と確認。原問題の四択は業務手順の合意、稼働後の効果測定、事業環境分析、開発側テストを比較する短い行為記述。JIS本文の長文・列挙・規格図表は見当たらない。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "4b4b524bb2d8834ecf4a044b5f96159e5ff6c21986a8db887dd94e26d5e6281a",
+          "cb894d851a8e6715a9598db4e946ae79165b6cefd30983c21e228e440f98bceb",
+          "8d149c710635784127a077cdd3ac22cb54d9c4440a9d8038115289f386bee5ae",
+          "ed0477f5de63df27e1ef9347d8106167d6c19e1827aea853e054f670a882bfc4"
+        ]
+      },
+      "notes": "原冊子p.27。共通フレーム2007第2版のIPA独自拡張1.5.2.2を根拠とし、前後の業務運用、事業構想、開発側検証の短い実例を比較。第三者規格の本文は使用しない。"
+    },
+    {
+      "number": 66,
+      "physicalPage": 27,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-66",
+      "materialBasis": "投資効果を立案時に考慮することと、内製・他社踏襲・後工程の詳細化を比較する一般的な計画問題。規格名・図表・条項の転載表示なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "767616e55488b09ec9bdaa65fe98f9aa9f13e83ad5dffa830d235f80c17c6ce4",
+          "96375203cae92eb39e24ed1eaa3e0abf0da3986520d6dbf20008a7420945a9ef",
+          "548d9b86d0bd1ba5c8d53b9cf98f3399cb3caa78914a42580a9df02551bb5616",
+          "cb0edefbec4a92e4b98c48d37d802cfeb7d1968966200712cc08468a921adac8"
+        ]
+      },
+      "notes": "原冊子p.27。システム化計画の検討事項を選ぶ。投資判断、優先順位、調達方法を独立の場面で扱う。"
+    },
+    {
+      "number": 68,
+      "physicalPage": 28,
+      "answer": "ウ",
+      "scope": "2011h23a-fe-am-68",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "eff220c8e8acb60a7f8d2bec2b2853dc95b4d051b6e6ec939069b9f6670fa336",
+          "9e4bf0b5e5e2b692232c0d1bafe64c2a9885e4d16fa9017dc6c3db14e38d76ed",
+          "a54e7fadd113d8d728334d5140bc2c562578a2fb3cf5afb92520bed3c13089d3",
+          "e7cbef70895fbc2f4c9c979ac79b2dfaec5da2852a393e2d6f7b22ee8bbf3128"
+        ]
+      },
+      "notes": "原冊子p.28。先進事例との比較と、資源計画・業務再設計・独自能力への集中を同じ四択で区別。"
+    },
+    {
+      "number": 69,
+      "physicalPage": 28,
+      "answer": "ウ",
+      "scope": "2011h23a-fe-am-69",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "c6f3a9ef8f2d0df09007137092450f6f7a540b4c0e9b5fb1f30250b453506e05",
+          "d7fe0f8d088df3ee54619a7132dfc2eabf989025c70b4ef16db6dfebcd859d38",
+          "9e337d0b945c50e4cd1bbb03c12a536b202e1482eaab39423c2354348a0dc491",
+          "f23bb39eb47333c686f6d3187a5f32bb82443603f083e7078e9944a32d97ab8c"
+        ]
+      },
+      "notes": "原冊子p.28。マーケティングミックス、標的市場選択、PPM、製品ライフサイクルの説明の役割を維持。"
+    },
+    {
+      "number": 70,
+      "physicalPage": 29,
+      "answer": "エ",
+      "scope": "2011h23a-fe-am-70",
+      "materialBasis": "A〜C／P〜Sの架空の商品体系。既存顧客・新規顧客の人数を含む表を原紙と照合。第三者図表の転載表示なし。",
+      "checks": {
+        "method": "表示された3×4の表と旧・新規人数を整数の十分率で読み、四つの記述を独立計算。",
+        "reviewedContentSha256": [
+          "48d21311d9715b042afa38651c33cb312fcd6f5c5ea61511113d54fac44ad216",
+          "bc7f398fccb9f5d2e4439670a0e0c9bd154860d3b88ce688c92f130f327da6de",
+          "22e55922630bae974e24b097d78a73d139b2a1ba786427d9ec795b1afa0c1656",
+          "eadf4fa68f5ba3ae6d5c5a3c2858f2baae7843e9cd454e160347be8399565166"
+        ]
+      },
+      "notes": "原冊子p.29。3×4の一桁小数の移行割合と千人単位の人数、既存・新規の人数行を保持。各行の割合合計が1以下で、Bは1未満。人数・全員・5割・大小の四つの検討対象を維持。"
+    },
+    {
+      "number": 71,
+      "physicalPage": 29,
+      "answer": "ア",
+      "scope": "2011h23a-fe-am-71",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "bdabe5696c7a7c01d5b36870c83a652f3321cd797f6e55d3fddae0f4beaa8484",
+          "1ad1092417cd45ced85b4f733437da81d79c84b0809b0e1c783fa51f3456386e",
+          "63ae0419dd58468dd2c33cc0b4378a75071431663d3320ede1878b80dd228834",
+          "c832bdd06568896e732900f32711db9dc2b39ae57e050ef6cc348a536ffeaee7"
+        ]
+      },
+      "notes": "原冊子p.29。技術経営の四つの目的・活動を同じ説明選択で区別。対象が製品か手順かを維持。"
+    },
+    {
+      "number": 72,
+      "physicalPage": 30,
+      "answer": "エ",
+      "scope": "2011h23a-fe-am-72",
+      "materialBasis": "三つの架空製品の円・分・個の表。第三者図表の転載表示なし。",
+      "checks": {
+        "method": "表示された制約から整数の有界ナップサックで最大値を求め、四つの製品優先順の合計と照合。",
+        "reviewedContentSha256": [
+          "7d8757f51d08cd7d8b7c0cffd23750274e6c10d7f680f5c78d9c5206cca04a24",
+          "93e176351fc45c05e1d5ff48c3ea1636d140abc79b0615a5eb8e287544dd224f",
+          "dc825a77a10ff3dd3d043017f114333c9b7bfe68f0c90a9b6de279a56d66d137",
+          "96c395893ae6bd266aac23ace820bf9c2d6f161f56f29b46307c87ecc2dfd691"
+        ]
+      },
+      "notes": "原冊子p.30。分・時間・円・個の単位と並行不可を保持。1分当たりの利益が異なり、最適順では月間時間が端数なく埋まる。異なる製品優先順の四つの合計を同じ尺度で比較し、選択肢は原問と同じく最小15万円以上の間隔を取る。"
+    },
+    {
+      "number": 73,
+      "physicalPage": 30,
+      "answer": "ウ",
+      "scope": "2011h23a-fe-am-73",
+      "materialBasis": "4日間の生産、販売、在庫計画の教材表。第三者図表の転載表示なし。",
+      "checks": {
+        "method": "表示された日別表の在庫台帳で、日々の入出庫後の在庫が在庫計画と一致する生産数を計算。",
+        "reviewedContentSha256": [
+          "e7334985a609797fb195b4ae93b208864e160fc060f60249c06f431cecc06801",
+          "d0d357e9897a08c23549865f583995c04383b9cf0c46ab64fe3492fb9b106134",
+          "21aeae8e6d43ddb624b619cc888305ee3b43abc16e8a6ea23a5a0cb742526296",
+          "2ac08f82f564d762da821f7966a60ddeb553ba99d4ba2223075d6a61b65927b0"
+        ]
+      },
+      "notes": "原冊子p.30。4月1〜4日、繰越在庫の定義とa〜dの空欄位置を保持。4日間の生産計画値は重複せず、選択肢の最小間隔は原問の50個以上。"
+    },
+    {
+      "number": 74,
+      "physicalPage": 31,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-74",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "01907d147cd08c9171570d8bd0d596d5a25efb6319d18f8a7b17c86eeaa73413",
+          "adbbaf6b34fe5a5c52a2f75dcc48b4f3a0c1912cbdbaab56bc805853e32b5d9b",
+          "807cb548b4fdd14353d998481196922d18dc3da5d06cdf9fc7e330a85ace79ef",
+          "f567e5b84a76880497e89f4a9a75638e9be7598b2d164c43670641af84189a61"
+        ]
+      },
+      "notes": "原冊子p.31。システムの導入で直接改善される状況を選ぶ。原問の発注量を、手配時期、部品所要量、在庫引当の別の要因へ替える。"
+    },
+    {
+      "number": 75,
+      "physicalPage": 31,
+      "answer": "ア",
+      "scope": "2011h23a-fe-am-75",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "e41942ff6a3c9a960d12fc1fc85c4e7f703993b1c3206bf723dd63a01fc3b306",
+          "2f582c5db488958233c56bdaa61409e2c6d0a18cbfbf8e4f6c237fa13c22f8cf",
+          "94897903ce6f2969699ca3346fa426c3374c980f19e6b001b7b31cf8cfdc8b3d",
+          "212cb625bb7f2750fecd7afe365000297fe7657fb6044f2162ac55c604cb00d1"
+        ]
+      },
+      "notes": "原冊子p.31。役員と組織の説明を維持。変更の判断は権限の範囲で行う点を説明する。"
+    },
+    {
+      "number": 76,
+      "physicalPage": 31,
+      "answer": "ウ",
+      "scope": "2011h23a-fe-am-76",
+      "materialBasis": "指定の償却率と残存価額0円で計算する試験独自の条件。税務上の現在の申告方法は扱わない。",
+      "checks": {
+        "method": "購入日・評価日から年度数を読み、明示された償却率で整数円の控除を1年ずつ適用。",
+        "reviewedContentSha256": [
+          "1d35f9a8bbb184d6df5f51cbc943217b6554be82c1461bf0b9042e15ae80f8c6",
+          "b2ae6c3fc34047fecdb943188c91cb04ad24c8020121ac2be6a6a27d40f60abc",
+          "7a4f0a75e675666667bbcf7f78dd17900ec95df74144d33fb00def173c18eafb",
+          "4a74eb8177c59e98f1338ae3a4ddff79f007068f9c83463d45e104811f9dc9df"
+        ]
+      },
+      "notes": "原冊子p.31。平成21年4月1日に取得・残存価額0円の前提と、三桁小数の指定償却率を維持。1年〜4年分の各控除を尺度順に比較し、端数処理は追加しない。"
+    },
+    {
+      "number": 77,
+      "physicalPage": 32,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-77",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "表示された候補ごとに売上高に比例する変動費と固定費を差し引き、目標利益との一致を確認。",
+        "reviewedContentSha256": [
+          "dd31786259bc5d6be7a30b041affe14a050354633f33a899892caf6d300f88b2",
+          "12e7b30b7472344c1e2f578a8a1773d1e478690f415f156a0406b6daa4260260",
+          "ed6ecab88107e4720988322f84552739774110ee3652f1f4eb7dac1838f795cf",
+          "bfe156bd412f115d557acb6f251804976ca6a34dbab5d4e5eb99e690530127f2"
+        ]
+      },
+      "notes": "原冊子p.32。百万円の整数値と一定の変動費率・固定費を維持。変動費率は0.5、0.6、0.75で、正答・可変選択肢は整数。可変の誤答は限界利益率の無視、目標利益の追加利益への取り違え、固定費の重複計上。"
+    },
+    {
+      "number": 78,
+      "physicalPage": 32,
+      "answer": "エ",
+      "scope": "2011h23a-fe-am-78",
+      "materialBasis": "原冊子の設問と四択を目視照合。第三者の素材・外部図版・転載表記なし。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "5121d4e5690628031dfeb25de32360cadbe72d5949aa731aeb9648611561f9ec",
+          "1fee5c434962e379294946206cc83aa16436bff9cba8744a51ebaee8755f21ad",
+          "edbea7e49c828e83de3258deccf621c09f6d7df8571ea85b40039e659f7c401c",
+          "5ce2926d18236cf79ebff49f933f4a223126d900611f229335b72be4e335a986"
+        ]
+      },
+      "notes": "原冊子p.32。期間の増減と一時点の残高を区別し、四つの財務諸表の表示対象を変える。"
+    },
+    {
+      "number": 79,
+      "physicalPage": 32,
+      "answer": "エ",
+      "scope": "2011h23a-fe-am-79",
+      "materialBasis": "言語と規約、創作性を備えるプログラム・操作マニュアル・データベースの保護対象の比較。法令の条文は転載せず、IPAの短い四択を使用。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "51c4b23956885001a6eb966c42a20c8f5facdbe82d5828fca5272b3e4da27a54",
+          "9e36f0e08489f6c96168e2e0ccdac3c9613925e2d9cd5493fcbe975eae62f391",
+          "8bae3899ffd77fe8e045bd661a5ee85c723d4c47f870ed11a3a77d620b299567",
+          "99d6609dcb12df5f0fdab8aa84b03823c5a5c374d81dfcc51226931f30cae3ac"
+        ]
+      },
+      "notes": "原冊子p.32。出題時までに施行済みの著作権法10条1項9号・3項と12条の2による。各変種でも保護対象外を選ぶ否定方向を維持し、創作性を明示する。"
+    },
+    {
+      "number": 80,
+      "physicalPage": 33,
+      "answer": "イ",
+      "scope": "2011h23a-fe-am-80",
+      "materialBasis": "架空の派遣社員・派遣先に関するケース。2011年時点の厚生労働省通達・法令で意味を確認。条文・通達の逐語転載は見当たらない。",
+      "checks": {
+        "method": "独立査読表で出題対象と四候補の意味を照合し、正答の一意性を検査。",
+        "reviewedContentSha256": [
+          "7b99697847afa954d2aa0cd67132ef06e76c012c68a457c5fb2265d0c5509c8e",
+          "4f604d65c08ea238a4ed4d82d6af97be80d137018707adce6b40aaa76379894b",
+          "cc15b2c942d59272db2c0c19b814124cd3f5c516414d797475af33d28455bc21",
+          "7e97e49c8da1c1e3aafb4feb6362c5e4a254ed1fd5366ac33e78496cbd02ad38"
+        ]
+      },
+      "notes": "原冊子p.33。平成21年厚労省通達、当時の派遣法2条・44条と労基法36条・39条、製造物責任法2条・3条を参照。派遣先の具体的な作業指示と、雇用・協定・製造者の区別を保つ。"
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "schema": "stage3-morning-authoring-review-v1",
+  "task": "S3-021",
+  "scope": "2011-autumn-am",
+  "range": [
+    1,
+    26
+  ],
+  "checkedOn": "2026-11-11",
+  "questions": [
+    {
+      "number": 1,
+      "source": "2011h23a-fe-am-1",
+      "printedPage": 3,
+      "officialAnswer": "イ",
+      "form": "下位桁からスタックに格納する論理積とシフトの組を選ぶ",
+      "visiblePremisesAndVariation": "2進数、下位からの順序、代入とpushと論理シフトの順、16進の添字定義。語長と出力基数を連動して変更。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "マスクの下位／上位と，論理シフトの左／右を組み合わせた四択。下位の桁から格納する向きを維持。",
+      "independentCheck": "候補のマスクを16桁の2進文字列として実行し、出力基数の剰余列を各候補と照合。",
+      "precision": "16桁のマスク、語長15〜16ビット、4手順の組合せ。桁の欠けと符号拡張を防ぐ。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 2,
+      "source": "2011h23a-fe-am-2",
+      "printedPage": 3,
+      "officialAnswer": "ウ",
+      "form": "与えられた負数を表す8ビット固定小数点の列を選ぶ",
+      "visiblePremisesAndVariation": "小数点はビット4と3の間。負数の表し方は2の補数。負の10進数を変える。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "8ビットの候補。正数の桁列，負数の1の補数，正しい2の補数，固定位置の1桁違いによる半分の絶対値を比較。",
+      "independentCheck": "表示位置と8桁を読み、各桁の符号付き重みを加算して全択の値を厳密比較。",
+      "precision": "小数は1/8の整数倍、丸めなし。8ビット、4択の桁数を統一。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 3,
+      "source": "2011h23a-fe-am-3",
+      "printedPage": 4,
+      "officialAnswer": "ウ",
+      "form": "未知数の個数と演算速度の変化から処理秒数を選ぶ",
+      "visiblePremisesAndVariation": "時間は未知数の個数の3乗に比例。元数・時間・速度比を変更。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "未知数の個数の比の1乗・2乗・3乗・4乗を速度差で調整した昇順。",
+      "independentCheck": "4候補の秒数に速度比と元数の3乗を掛けて、基準時間と新元数の3乗の積と照合。",
+      "precision": "計算は整数。5倍または10倍、1〜4乗の誤答の役割と昇順、3桁区切りを維持。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 4,
+      "source": "2011h23a-fe-am-4",
+      "printedPage": 4,
+      "officialAnswer": "ウ",
+      "form": "表示された文法の規則から生成できる式を選ぶ",
+      "visiblePremisesAndVariation": "4変数、囲み必須の演算と囲みなしの演算、3つの展開規則。演算子と変数名を変更。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "加算の括弧規則を守るか，乗算の両側をそれぞれ展開できるかを式の全体で判定。",
+      "independentCheck": "全候補を部分文字列に分けて表示された規則の導出可能性を再帰で探索。",
+      "precision": "3演算子・4変数、全角の演算子と規則の改行を保持。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 5,
+      "source": "2011h23a-fe-am-5",
+      "printedPage": 5,
+      "officialAnswer": "イ",
+      "form": "図の初期スタックから指定順に出力するfとgの操作列を選ぶ",
+      "visiblePremisesAndVariation": "fはスタック1から2に移し、gはスタック2から出力。二つ目は空。初期値の順と出力目標を変更。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "fとg各4回の実行順を保持し，取り出した全4データの順序で判定する。",
+      "independentCheck": "図の最上部を配列の先頭として読み、4候補をキュー先頭の取出しと先頭への挿入で逐次実行。",
+      "precision": "4要素、各択f/gを4回ずつ。図で上下の位置を明示。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 6,
+      "source": "2011h23a-fe-am-6",
+      "printedPage": 5,
+      "officialAnswer": "エ",
+      "form": "決められた衝突処理を施した最後の整数の格納場所を選ぶ",
+      "visiblePremisesAndVariation": "配列A[0]〜A[9]、0初期化、剰余、k・k＋1・k＋4で先に空いた所へ格納。五つの正整数を変更。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "配列の添字の昇順。候補が空いているかは先に格納した値まで追う。",
+      "independentCheck": "各値の候補番地を10進表示の下1桁から求め、10区画に逐次格納。最後の要素を各択と照合。",
+      "precision": "2桁の正整数5個。最後の値が三つのどの候補へ入るかと剰余折返しをカバー。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 7,
+      "source": "2011h23a-fe-am-7",
+      "printedPage": 6,
+      "officialAnswer": "ア",
+      "form": "単語表の後ろから先頭へ移す処理の流れ図で空欄aの代入を選ぶ",
+      "visiblePremisesAndVariation": "0始まり。末尾k個を前方の一時領域へ先にコピーし、i＝n−1から0へ降順。派生でn＞kと一時領域を本文に明示。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "後ろへ順にずらす正しい添字と，左右の添字・写す方向を取り違えた式を比較。",
+      "independentCheck": "実図の退避代入を先に実行し、空欄に全択を入れ、複数の配列長で末尾を先頭にした参照列と比較。",
+      "precision": "図のループ注記、4択の添字式、コピー方向を保持。k＝1〜4。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 8,
+      "source": "2011h23a-fe-am-8",
+      "printedPage": 6,
+      "officialAnswer": "エ",
+      "form": "XMLまたは関連仕様について適切な説明を選ぶ",
+      "visiblePremisesAndVariation": "XML、XHTML 1.0、XML文書の編集と外部スタイル。文書構造と表示、テキスト編集、タグの自由度を区別。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "由来，編集条件，表示と構造，独自タグを比較。",
+      "independentCheck": "W3Cの仕様・説明を照合し、派生4問それぞれの知識の分類と4候補の真偽を固定したfixtureで検査。",
+      "precision": "正しい説明を1つ選ぶ。規格番号・版を正しく表記。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 製品ロゴ・外部ソース・規格の逐語引用を含まない。",
+      "verificationReferences": [
+        "https://www.w3.org/TR/xml/",
+        "https://www.w3.org/TR/xhtml1/",
+        "https://www.w3.org/Style/styling-XML.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 9,
+      "source": "2011h23a-fe-am-9",
+      "printedPage": 7,
+      "officialAnswer": "ア",
+      "form": "図のメモリアクセスに該当するアドレス指定方式を選ぶ",
+      "visiblePremisesAndVariation": "命令のアドレス部、主記憶、実効アドレス、データへの矢印。間接・指標・相対・直接を図で変更。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "実効アドレスを主記憶から得る，指標値を足す，プログラムカウンタの値を足す，命令中のアドレスそのものを使う方式を比較。",
+      "independentCheck": "実図からアドレス・ポインタまたはレジスタを読み、各参照方式の定義と番地を独立に判定。",
+      "precision": "番地20/25、40/43、5/45、30。指標とPCは名称を図に明示。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 10,
+      "source": "2011h23a-fe-am-10",
+      "printedPage": 7,
+      "officialAnswer": "エ",
+      "form": "指定されたCPUレジスタの役割を選ぶ",
+      "visiblePremisesAndVariation": "PC、データ、フラグ、命令レジスタを切替。次番地と命令自体を区別。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "演算データ，状態フラグ，命令そのもの，次の命令アドレスの保持を区別。",
+      "independentCheck": "四つの保持内容と参照目的の対応表を固定し、全候補の分類と正答の一意性を検査。",
+      "precision": "CPUの一般的なモデル。PCの次番地と命令語の保持先を明示。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 11,
+      "source": "2011h23a-fe-am-11",
+      "printedPage": 8,
+      "officialAnswer": "イ",
+      "form": "A〜Dの実効アクセス時間を短い順に並べる",
+      "visiblePremisesAndVariation": "A/Bはキャッシュなし、C/Dはあり。二段見出しの時間とヒット率を変える。派生はヒット時キャッシュ時間、ミス時主記憶時間の採用を本文に明記。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "キャッシュなしの単純時間と，キャッシュありのヒット／ミスを重み付けした時間を比較。",
+      "independentCheck": "表示表から100回分のアクセスを個別に加算。原条件ではミス時にキャッシュ探索時間を足しても順位A/D/B/Cが一致することを別検算。",
+      "precision": "整数ナノ秒・整数％。全条件で平均は同順位なし。四つの順序択を固定。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 12,
+      "source": "2011h23a-fe-am-12",
+      "printedPage": 8,
+      "officialAnswer": "イ",
+      "form": "指定されたROMを組込みシステムで使う利点を選ぶ",
+      "visiblePremisesAndVariation": "マスクROM、紫外線消去EPROM、ワンタイムPROM、EEPROM。出荷後・電気的書込み・紫外線を区別。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "紫外線消去，出荷後の書換え防止，個体情報書込み，主記憶補助を区別。",
+      "independentCheck": "各方式の書込み・消去の可否と時点を固定した対応表で四択の真偽を確認。",
+      "precision": "EPROMは紫外線消去形、EEPROMは実装したまま更新できる構成に限定。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 13,
+      "source": "2011h23a-fe-am-13",
+      "printedPage": 9,
+      "officialAnswer": "イ",
+      "form": "指定された方式のタッチパネルについて適切な説明を選ぶ",
+      "visiblePremisesAndVariation": "光学の遮断、静電容量と電荷、抵抗膜と分圧、行列状スイッチの方式を切替。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "光学式，静電容量，抵抗膜の分圧，電極スイッチ行列を比較。",
+      "independentCheck": "位置検出に用いる信号と構造を固定し、全候補の方式分類と正答一意性を確認。",
+      "precision": "方式ごとの検出原理を区別。光学は縦横の赤外線ビーム方式と明示。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [
+        "https://elosupport.elotouch.com/hc/en-us/articles/31649144520599-Touch-Sensitivity-on-Elo-Products-Driver-and-FW-Docs"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 14,
+      "source": "2011h23a-fe-am-14",
+      "printedPage": 9,
+      "officialAnswer": "イ",
+      "form": "指定条件のディスクヘッドの総移動シリンダ数を選ぶ",
+      "visiblePremisesAndVariation": "現在位置と方向、七つの要求、一方向へ番号順、要求がなくなったら反転、処理結果に影響なし、新規要求なし。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "シリンダ移動の総数の昇順。開始位置と反転位置，終点を含む走査距離を比較。",
+      "independentCheck": "個々のシリンダを通過する逐次走査で要求を取り除き、方向転換・総移動数を照合。",
+      "precision": "シリンダの整数を加算。原問80/120/160/220の昇順を固定。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 15,
+      "source": "2011h23a-fe-am-15",
+      "printedPage": 10,
+      "officialAnswer": "エ",
+      "form": "三種のシステム構成を稼働率の高い順に並べる",
+      "visiblePremisesAndVariation": "同一コンピュータ。スタンバイ方式を切替。派生で故障発生間隔、代替機切替・修理時間、デュアル継続の条件を明示。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "構成の相対的な稼働率を降順で比較。同一のコンピュータ、切替え中の停止、継続処理と冗長なしを区別。",
+      "independentCheck": "全候補が指定3方式の並べ替えかを確認し、各故障周期の停止時間の短い順から独立に正答を確定。",
+      "precision": "正答順の役割を維持し、条件の変更によって表示される構成名を変える。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 16,
+      "source": "2011h23a-fe-am-16",
+      "printedPage": 10,
+      "officialAnswer": "ウ",
+      "form": "シンクライアントの構成・運用の適切な説明を選ぶ",
+      "visiblePremisesAndVariation": "端末とサーバの役割、業務処理・保存・管理、アプリ更新、端末紛失時を切替。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "位置情報・USB・サーバ中心の処理と資源管理・周辺装置対応を比較。",
+      "independentCheck": "各派生で保存先、実行側、通信関係を固定し、条件ごとの4候補の主張を一対一で照合。",
+      "precision": "保存しない条件で漏えいのリスク低減を述べ、無条件の安全は述べない。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 17,
+      "source": "2011h23a-fe-am-17",
+      "printedPage": 11,
+      "officialAnswer": "ウ",
+      "form": "指定した信頼性設計の目的に適した例を選ぶ",
+      "visiblePremisesAndVariation": "障害時も機能継続、故障の予防、誤終了からの復元、入力誤りの検出を比較。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "誤終了への自動保存，故障回避，障害時の機能継続，誤入力の検出を比較。",
+      "independentCheck": "各対策が防止する事象と作動時期を固定したfixtureで全4例を照合。",
+      "precision": "原の選択例の主題と、設計目的から例を選ぶ方向を保持。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 18,
+      "source": "2011h23a-fe-am-18",
+      "printedPage": 11,
+      "officialAnswer": "エ",
+      "form": "運用や保守の変更で起こるMTBF・MTTRの変化について適切な説明を選ぶ",
+      "visiblePremisesAndVariation": "故障頻度・修復時間・ログ活用・予防・遠隔復旧の効果。ほかの条件は書かれた場合にのみ固定。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "故障間隔と修復時間を分け，ログ・遠隔保守・機器種類・予防保守の効果を比較。",
+      "independentCheck": "故障間隔と修復時間を分けて固定対応表を作り、全択の指標・増減・無関係を照合。",
+      "precision": "間隔と修復の混同や、条件にない指標変化を正答にしない。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 19,
+      "source": "2011h23a-fe-am-19",
+      "printedPage": 11,
+      "officialAnswer": "ウ",
+      "form": "迂回路を追加した通信網の稼働率を選ぶ",
+      "visiblePremisesAndVariation": "直接1辺、迂回2辺の直列、3回線の同一稼働率。都市と率を変更し、派生では独立性を明示。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "3本直列，迂回だけ，直接と直列の迂回が並列，3本が全並列，の四つの扱いを比較。",
+      "independentCheck": "図から3辺を取り出して8種類の稼働・停止を列挙し、各状態で接続性を探索して確率を合計。",
+      "precision": "各率は1桁小数、全候補は小数3桁の昇順。 丸めによる同値なし。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 20,
+      "source": "2011h23a-fe-am-20",
+      "printedPage": 12,
+      "officialAnswer": "ア",
+      "form": "状態遷移図の指定矢印を起こすイベントを選ぶ",
+      "visiblePremisesAndVariation": "実行、実行可能、待ち、入口、出口。遷移元と先を本文で切替。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "実行の中断，生成，入出力完了，入出力要求を各遷移の起点と終点で区別。",
+      "independentCheck": "表示図の6辺と、各候補の起点・終点の対応を独立に検査。",
+      "precision": "イベント4択を維持。本文と図の状態名、入口の方向が一致。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 21,
+      "source": "2011h23a-fe-am-21",
+      "printedPage": 12,
+      "officialAnswer": "ア",
+      "form": "記述されたプログラムまたは実行単位の名称を選ぶ",
+      "visiblePremisesAndVariation": "アプレット、サーブレット、スクリプト、スレッドの実行側・処理の役割を比較。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "配布先で実行する小プログラム，サーバ上で処理する部品，記述形式，実行単位を比較。",
+      "independentCheck": "クライアント実行・サーバコンテナ・解釈処理・プロセス内実行単位の意味を全択で照合。",
+      "precision": "旧来のJavaアプレットは対応するクライアント環境での説明と明示。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 製品ロゴ・外部ソース・規格の逐語引用を含まない。",
+      "verificationReferences": [
+        "https://docs.oracle.com/javaee/6/api/javax/servlet/Servlet.html",
+        "https://docs.oracle.com/javase/tutorial/deployment/applet/index.html"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 22,
+      "source": "2011h23a-fe-am-22",
+      "printedPage": 13,
+      "officialAnswer": "ウ",
+      "form": "指定されたコンパイル処理の説明を選ぶ",
+      "visiblePremisesAndVariation": "最適化、中間コード、クロスコンパイル、動的トレースを比べる。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "中間コード，異なるアーキテクチャ，実行効率，実行情報の収集を区別。",
+      "independentCheck": "目的・実行先・コードの役割を独立固定し、全説明の分類と一意性を照合。",
+      "precision": "クロスコンパイルの実行先と、トレースの実行時を区別。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 製品ロゴ・外部ソース・規格の逐語引用を含まない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 23,
+      "source": "2011h23a-fe-am-23",
+      "printedPage": 13,
+      "officialAnswer": "ア",
+      "form": "指定されたテスト支援機能の説明を選ぶ",
+      "visiblePremisesAndVariation": "静的解析、ドライバ・スタブ、実行した経路の網羅度、通したい経路への入力生成を比較。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "実行前の誤り検出，実行環境の準備，実行結果からの計測，実行用データ準備を区別。",
+      "independentCheck": "実行の要否と入出力を固定した参照対応表で4候補を分類。",
+      "precision": "実行前の解析・実行後の計測・実行前の入力生成の役割が別。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 24,
+      "source": "2011h23a-fe-am-24",
+      "printedPage": 13,
+      "officialAnswer": "エ",
+      "form": "指定された識別・通信技術の活用事例を選ぶ",
+      "visiblePremisesAndVariation": "RFID、印刷コードの光学読取り、Bluetoothによる音声、赤外線による機器間伝送を切替。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "印刷コード，短距離無線音声，赤外線データ通信，無線タグ識別を比較。",
+      "independentCheck": "媒体・識別対象・目的を固定し、各択の活用事例を4方式のどれに対応するかで比較。",
+      "precision": "RFIDと短距離無線音声を区別。社名や団体図表の転載なし。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 製品ロゴ・外部ソース・規格の逐語引用を含まない。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 25,
+      "source": "2011h23a-fe-am-25",
+      "printedPage": 14,
+      "officialAnswer": "エ",
+      "form": "指定された半導体メモリに関する適切な説明を選ぶ",
+      "visiblePremisesAndVariation": "フラッシュ、SRAM、紫外線EPROM、DRAMの消去・保持・用途を比較。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "SRAMの高速性，紫外線消去EPROM，DRAMのリフレッシュ，フラッシュのブロック消去を比較。",
+      "independentCheck": "アクセス・保持・消去方式を固定し、4選択肢の記憶方式を一意に分類。",
+      "precision": "フラッシュの電気的消去とブロック単位、DRAMの周期的再書込みを保持。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。",
+      "verificationReferences": [
+        "https://www.micron.com/sales-support/sales/faqs"
+      ],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    },
+    {
+      "number": 26,
+      "source": "2011h23a-fe-am-26",
+      "printedPage": 14,
+      "officialAnswer": "イ",
+      "form": "3積項の論理式と同じ出力の論理ゲートを図から選ぶ",
+      "visiblePremisesAndVariation": "A/B入力、X出力、論理積・論理和・上線の意味、p.2のAND/NAND/OR/NOR。積項の組を変える。",
+      "order": "原形式の選択肢の役割と並びを維持し、本文で指定される対象・条件の変化で正答を変える。",
+      "choiceRoles": "入力A・Bと出力Xの同じ配置で，論理積・論理和とそれぞれの出力否定を比較。",
+      "independentCheck": "表示された論理式を4つの入力組で計算し、SVGのゲート形状の種類と出力反転の有無から別に作った真理値表と比較。",
+      "precision": "3項各2因子、0と1の4入力組、4回路を順序固定。共通記号p.2を同時提示。",
+      "materialDisposition": "公式の本文・注記・全選択肢を画像と照合。引用・転載表示・第三者の原表や図版なし。 表・図・流れ図は問題用の作図。第三者出典や外部製品図版の表示なし。 IPA冊子p.2の共通論理記号を使用。",
+      "verificationReferences": [],
+      "generatorVersion": "3.7.0",
+      "finiteInputs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "reference": [
+        0
+      ]
+    }
+  ]
+}

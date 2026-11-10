@@ -469,3 +469,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 公式13大問・79解答欄。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問10のb・c・dは順不同で、3つの解答欄として採点する。印刷頁とPDFの物理頁は一致する。 [公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000038er-att/2012h24h_fe_pm_qs.pdf) [公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000038er-att/2012h24h_fe_pm_ans.pdf) [採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p900000038er-att/2012h24h_fe_pm_cmnt.pdf)
 
 問8と問13は共通の擬似言語p.3〜4を参照する。問11のJava APIは原資料p.71〜75に出典を付け、学習に必要な操作を独立に説明する。問12はCASL II資料p.76〜81を参照し、p.78は命令と注記までの抜粋を使う。数字の符号値は独立記述する。問13は表計算の機能・用語p.82〜87を参照し、関数表の注1・注2はp.86にある。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [Java SE 7 API](https://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html) [Unicodeの文字対応アーカイブ](https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT)
+
+### 第3段階 S3-021 2011年度秋期・旧午前
+
+公式は全80問必須で制限時間150分。掲載可能な78問を年度別オリジナルとランダムミックスに収録し、時間付き練習の問数は収録数に合わせる。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。共通の論理回路表記はp.2、問題はp.3〜33。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2011h23.html) [公表問題の利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問56はITIL v3のサービスデスク分類、問67は経済産業省の平成16年版システム管理基準に近い表現を含む。利用条件の確認が済むまで原問番号を台帳に残す。問80の解説では、出題時の派遣先の指揮命令と派遣元の年次有給休暇の役割を参照する。 [PeopleCertのライセンス案内](https://www.peoplecert.org/Organizations/Services/third-party-product-licensing-service) [平成16年版システム管理基準](https://www.saaj.or.jp/kijun/system_kanri.pdf) [当時の派遣労働者の労働条件に関する厚生労働省通知](https://www.mhlw.go.jp/web/t_doc?dataId=00tb5424&dataType=1&pageNo=1)
