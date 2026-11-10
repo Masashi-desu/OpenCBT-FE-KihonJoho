@@ -1,0 +1,150 @@
+{
+  "task": "S3-018",
+  "collection": "2012h24a-fe-pm",
+  "scope": "2012-autumn-pm",
+  "verifiedOn": "2026-11-11",
+  "questionPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_qs.pdf",
+    "sha256": "ce136f28cb25f32450809dce9cd2381786b04b2e650cc49e9a9963f0780eafe9",
+    "physicalPageCount": 92
+  },
+  "answerPaper": {
+    "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_ans.pdf",
+    "sha256": "c56ddef54d22183ac6d0e195d2c9b458348efb3735341d6f1bb347171ba65e79",
+    "answerPage": 1
+  },
+  "materialPolicy": "IPAの2012年度掲載ページで当該冊子と解答を確認し、IPA FAQの教育目的での公表問題利用条件を適用。本文・出題用の独自図表・解答をページ単位で確認し、外部のAPI原付録と規格符号表はそれぞれ範囲を限定する。独自説明・作図は改変として表示する。",
+  "materialPolicyURL": "https://www.ipa.go.jp/shiken/faq.html",
+  "programLayout": "画像に基づいてプログラムを組み直し、設問番号、空欄の位置、行番号、複数行宣言の折返し、制御構造とコメントの対応を確認。表計算マクロは元の入れ子、繰返し、分岐の制御線を等幅の行として保持。",
+  "series": [
+    {
+      "number": 9,
+      "physicalPages": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "slots": "abcdef",
+      "official": "エエイキエイ",
+      "sourceEvidence": "解答例1頁の罫線内を画像で読み、PDFKitの抽出テキストと照合。全6欄は単一選択。fは二つの文字値を一組として選ぶ。",
+      "sourceMaterial": "誌面44–49はIPAのくじの例示、Cの関数・規定の事実、プログラム、解答群であり、外部著作物の出典又は図版の表示は見つからなかった。原冊子がstrlenの戻り型をunsigned intと表記している箇所は原画像と代替説明で保持し、実Cの検査はリストの標準ヘッダ宣言を利用。",
+      "family": "NULLで終わる配列の走査、等級別の末尾照合、複数等級、前後賞の借りと繰上り、全0／全9循環、元のコード断片と指示の並びを保持する。図1の番号表、図2のポインタ接続、変更表の途中からの継続を保持。",
+      "variation": "くじの桁数を6・5・7・8桁から選ぶ。数字列の先頭0、当選番号の桁数と個数の違い、1・6等の重複当選、通常と境界の繰上り／借りの例を同一入力で変更する。関数の成立条件が同じなので解答の意味と順番は固定。",
+      "oracle": "実際の変更表を原Cリストへ適用し、実C11で選択肢を一つずつ入れ替えてコンパイル・実行する。文字列末尾比較と剰余を用いる別方式で集計する。固定長走査と開始添字の誤答には、長い等級表と前後賞数の非対称な入力で反例を与える。",
+      "technicalReference": {
+        "name": "ISO C11 committee draft WG14 N1570 §7.24.6.3",
+        "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+        "use": "strlenの標準C宣言と戻り値の説明を照合し、通常解説で冊子と標準の違いを明記する。規格本文・画像は同梱しない。"
+      },
+      "distinctAnswerSignatures": 1,
+      "answerVariation": "fixed",
+      "fixedAnswerReason": "問題の数字列、桁数、当選番号、前後賞の例は入力に応じて変化する。NULL終端、右端からの桁数分の比較、同じ十進の借りと繰上りを実装する式は、いずれの設定でも同じなので正答を固定する。"
+    },
+    {
+      "number": 10,
+      "physicalPages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "slots": "abcdefg",
+      "official": "ウイカウエアウ",
+      "sourceMaterial": "本文・レコード様式・料金表・試験用のCOBOL断片・選択肢は当該IPA冊子のページである。外部出典、企業の実データ又は外部図版は見つからなかった。",
+      "family": "4会員区分、時間閾値、月合計分の時間切上げ、0件でも請求、索引版と整列版の二つのプログラム、元のレコード桁数と個人情報グループ、変更表を保持。",
+      "variation": "基本料金に含む時間は10・8・12・9時間。四つの会員区分の料金、固定長の料金文字列、分換算した閾値、処置表と解説を連動させる。生成版の数値でも超過単価の大小関係を維持し、コード選択の意味は変えない。",
+      "oracle": "元ファイルから会員ごとの直接集計と、整列後の順次マージを別実装し、利用なし・同一会員の複数記録・下限・ちょうど・1分超過・60分超過・末尾会員を照合。全選択肢を時間単価並び、手続役割、作業域再使用、RELEASE、加算、会員一致と超過の真偽から判定する。ネイティブCOBOL処理系は使用していない。",
+      "distinctAnswerSignatures": 4,
+      "answerVariation": "variable"
+    },
+    {
+      "number": 11,
+      "physicalPages": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "slots": "abcdef2",
+      "official": "エアウカカアキ",
+      "sourceMaterial": "p77–78のAPI原画像・原文は配布に含めない。本文・解答群・実行結果の表示例はIPA冊子に由来する。必要な操作をJava SE7の公式仕様から独自説明し、両方の出題形式に同じ題名の資料を付ける。実動作検査はJDK21上でJava 8互換を用いる。",
+      "editorialTitle": "Java APIの参照（独自編集）",
+      "referencePages": [
+        77,
+        78
+      ],
+      "references": [
+        "https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html",
+        "https://docs.oracle.com/javase/7/docs/api/java/util/Date.html"
+      ],
+      "family": "TimerAction、Timer、TimerTest、Worker、volatile、実行開始・終了・取消し、スレッド名、例外とキャンセル割込みを保持。二つの実行出力図とオーバロードを保持。設問2はg1・g2を一組として選ぶ。",
+      "variation": "4通りで長短のタイマの生成順、1～3秒の短い遅延、3～6秒の長い遅延、観測時刻を変更する。短いタイマが必ず先に終了する時間差、同じ秒の開始観測、生成順でタイマに与える名前の変化を両図に反映。",
+      "oracle": "期限前・同時・後で全aの条件を評価し、bでは割込み後に自分の通知へ進む経路を判定。c・d・eは全解答候補をjavacで検査する。全条件で終了・キャンセルを実行し、生成順から求めたスレッド名と照合。fの直接通知が相手を終了させない反例も実際に実行。OSのスケジューラが開始順を固定するとは仮定しない。",
+      "distinctAnswerSignatures": 2,
+      "answerVariation": "variable"
+    },
+    {
+      "number": 12,
+      "physicalPages": [
+        64,
+        65,
+        66,
+        67
+      ],
+      "slots": "abc23de",
+      "official": "イカエウアオエ",
+      "sourceMaterial": "p79–84のCOMET II・CASL II付属資料のうちp81は、命令と注記が終わる上部だけを参照する。下部1.3節のJIS X 0201符号表と関連記述は除外する。本文は数値の加算・乗算・制御であり、文字と符号値を必要としない。共通原画像の最終切出しは統合側の素材証跡に記録する。",
+      "family": "係数が全て1のn次多項式、16bit符号なしの入出力、nの範囲、桁あふれなし、GR1〜GR7の復元、3つの命令リストと行番号、項別法・再帰法のCALL計数を保持。",
+      "variation": "両方のCALL計数設問へ同じ次数4・3・5・2を適用。元の昇順の6択は順序を保ち、項の個数、次数の差、最大次数の反復、乗算総数の取り違えを候補として使う。再帰の解答群は1～6を固定する。",
+      "oracle": "実際に表示したCASLの命令列を、分岐フラグとレジスタ・スタックを持つテスト専用の限定解釈器で追跡。数学的な各べきの和、0・1・境界値、外部からのレジスタ保存、CALLとRSUBの訪問数を照合する。汎用CASL処理系ではない。",
+      "distinctAnswerSignatures": 4,
+      "answerVariation": "variable"
+    },
+    {
+      "number": 13,
+      "physicalPages": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "slots": "abcdefgh",
+      "official": "オキアカカアオウ",
+      "sourceMaterial": "当該冊子のIPA作成の学校配置例・70メッシュ・表計算式・マクロである。共通疑似言語p3–4と冊子の表計算機能p85–90を参照する。原問画像の省略された行を独自の値で補わない。",
+      "family": "メッシュ境界と座標軸、二つのワークシートのセル参照、厳密な転校判定、定員・設置可能・既設校との重複、可行な場所の最大最小の選択、原マクロの行・制御線を保持。",
+      "variation": "4通りでIDの基数と各校の位置・定員を変え、生成3条件は70件の分布と現通学先を定め、2表の見えるセル、対象児童数、充足率と制約表示を一緒に更新する。原表示の充足率0.628と表示精度3桁を保持。判定には丸め前の値を用いる。生成3条件で正の最低充足率をもつ可行候補があることを確認。",
+      "oracle": "全解答群を参照の横縦複写、最寄りと現通学先の違い、等距離、空値、全真理値、更新の方向で照合。生成3条件の全70メッシュを座標×1000の整数の距離二乗と分数の交差積で独立計算し、可行候補数5・4・3、最適位置(9,0)・(9,7)・(9,7)を照合した。原問の省略された条件を復元したとは扱わない。",
+      "distinctAnswerSignatures": 4,
+      "answerVariation": "variable"
+    }
+  ],
+  "heldQuestions": [],
+  "outsideDistribution": [
+    "p77–78のJava API原付録",
+    "p81下部1.3節のJIS文字の符号表と関連記述"
+  ],
+  "verification": {
+    "test": "tests/legacy-2012-autumn-pm-09-13.test.ts",
+    "conditions": 20,
+    "officialAnswerFields": 35,
+    "figureProfiles": 14,
+    "staticFigureStates": 56,
+    "nativeC": "C11 / AddressSanitizer / UndefinedBehaviorSanitizer",
+    "nativeJava": "JDK 21 / --release 8",
+    "renderedBrowser": "通常アプリに統合後に親担当で確認"
+  }
+}

@@ -1,0 +1,85 @@
+export const clubCases = [
+  { hours: 10, base: [5000, 5000, 4000, 3000], extra: [500, 400, 400, 300] },
+  { hours: 8, base: [6000, 5600, 4300, 3500], extra: [600, 450, 450, 350] },
+  { hours: 12, base: [6500, 6000, 4700, 4000], extra: [650, 500, 500, 400] },
+  { hours: 9, base: [5400, 5100, 3900, 3200], extra: [550, 450, 450, 300] },
+] as const;
+
+export const clubRecordLayouts = {
+  'member-record': [
+    { label: '会員番号', width: 6 }, { label: '会員種別', width: 1 },
+    { label: '氏名', width: 10, group: '個人情報' }, { label: '住所', width: 20, group: '個人情報' },
+    { label: '電話番号', width: 11, group: '個人情報' }, { label: '入会日', width: 8 },
+  ],
+  'usage-record': [{ label: '会員番号', width: 6 }, { label: '利用日', width: 8 },
+    { label: '開始時刻', width: 4 }, { label: '終了時刻', width: 4 }, { label: '利用時間（分）', width: 4 }],
+  'billing-record': [{ label: '会員番号', width: 6 }, { label: '利用料金', width: 6 }],
+  'working-record': [{ label: '会員番号', width: 6 }, { label: '合計時間（分）', width: 6 }],
+} as const;
+
+export const firstClubChanges = [
+  ['行番号3を変更', 'SD WORK-F.'],
+  ['行番号31と32の間に追加', [
+    '77 WORK-FLAG      PIC X(1) VALUE SPACE.',
+    '   88 WORK-EOF       VALUE "E".',
+    '77 TMP-NO         PIC 9(6) VALUE ZERO.',
+    '77 TMP-MIN        PIC 9(6) VALUE ZERO.',
+  ].join('\n')],
+  ['行番号39から81を変更', [
+    'PROCEDURE DIVISION.',
+    'MAIN-PROC.',
+    '    OPEN INPUT MEM-F TIME-F',
+    '         OUTPUT BILL-F.',
+    '    SORT WORK-F ASCENDING KEY W-NO',
+    '       INPUT  PROCEDURE IS MKTIME-PROC',
+    '       OUTPUT PROCEDURE IS MKBILL-PROC.',
+    '    CLOSE MEM-F TIME-F BILL-F.',
+    '    STOP RUN.',
+  ].join('\n')],
+];
+
+export function sortedClubProgram(minutes: number) {
+  return [
+    'MKTIME-PROC.',
+    '    PERFORM UNTIL TIME-EOF',
+    '       READ TIME-F',
+    '          AT END     SET TIME-EOF TO TRUE',
+    '          NOT AT END PERFORM MKWORK-PROC',
+    '       END-READ',
+    '    END-PERFORM.',
+    'MKWORK-PROC.',
+    '    MOVE T-NO TO W-NO.',
+    '    MOVE T-MIN TO W-MIN.',
+    '    [e].',
+    'MKBILL-PROC.',
+    '    PERFORM UNTIL WORK-EOF',
+    '       RETURN WORK-F',
+    '          AT END     SET WORK-EOF TO TRUE',
+    '                     PERFORM WRBILL-PROC',
+    '          NOT AT END IF TMP-NO = W-NO OR ZERO THEN',
+    '                        [f]',
+    '                     ELSE',
+    '                        PERFORM WRBILL-PROC',
+    '                        MOVE W-MIN TO TMP-MIN',
+    '                     END-IF',
+    '                     MOVE W-NO TO TMP-NO',
+    '       END-RETURN',
+    '    END-PERFORM.',
+    'WRBILL-PROC.',
+    '    PERFORM TEST AFTER',
+    '       UNTIL (M-NO = TMP-NO AND NOT WORK-EOF) OR MEM-EOF',
+    '       READ MEM-F',
+    '          AT END',
+    '             SET MEM-EOF TO TRUE',
+    '          NOT AT END',
+    '             MOVE M-NO TO B-NO',
+    '             MOVE BASE-PRICE(M-CODE) TO B-CHG',
+    '             IF [g] THEN',
+    '                COMPUTE EXT-H = (TMP-MIN - ' + minutes + ' + 59) / 60',
+    '                [d]',
+    '             END-IF',
+    '             WRITE B-REC',
+    '       END-READ',
+    '    END-PERFORM.',
+  ].join('\n');
+}

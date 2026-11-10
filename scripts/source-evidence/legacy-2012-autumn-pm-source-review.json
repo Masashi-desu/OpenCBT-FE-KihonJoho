@@ -1,0 +1,973 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "status": "verified_source_and_rights",
+  "taskId": "S3-018",
+  "collectionId": "2012h24a-fe-pm",
+  "checkedOn": "2026-11-11",
+  "printedPageOffset": 0,
+  "physicalPages": 92,
+  "selection": {
+    "coverPage": 1,
+    "required": [
+      8
+    ],
+    "groups": [
+      {
+        "first": 1,
+        "last": 7,
+        "choose": 5
+      },
+      {
+        "first": 9,
+        "last": 13,
+        "choose": 1
+      }
+    ],
+    "durationSeconds": 9000,
+    "possibleCombinations": 105
+  },
+  "commonPages": [
+    3,
+    4,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_qs.pdf",
+      "sha256": "ce136f28cb25f32450809dce9cd2381786b04b2e650cc49e9a9963f0780eafe9",
+      "byteLength": 13855452
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_ans.pdf",
+      "sha256": "c56ddef54d22183ac6d0e195d2c9b458348efb3735341d6f1bb347171ba65e79",
+      "byteLength": 159533
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html",
+      "sha256": "20c1272c8dd9ae69551c7ab0d0ba0b37adff9a9a6b019875092635fa6475eced",
+      "byteLength": 123022
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "commentary.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_cmnt.pdf",
+      "sha256": "148d9a49391cab8cf519f9fe17a02f36915a1f300b07d215ba75fd339ea28382",
+      "byteLength": 188808
+    },
+    "reference/ipa-syllabus-1.5.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/youkou_ver1_5.pdf",
+      "sha256": "bdf9026224a82f2d967853943e296320fe380e78979c9f6c24ee97eb783d939b",
+      "byteLength": 827888
+    },
+    "reference/java-Thread.html": {
+      "url": "https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html",
+      "sha256": "1af7a04afa999dd441cceb65e8a64ef552bd2af14162d822b621fbabd3d14522",
+      "byteLength": 114062
+    },
+    "reference/java-Date.html": {
+      "url": "https://docs.oracle.com/javase/7/docs/api/java/util/Date.html",
+      "sha256": "94fe071952e427d67c37143ddb95daf440869a37504f408ecd1c173dd5ff78c9",
+      "byteLength": 72323
+    },
+    "reference/rfc2045.txt": {
+      "url": "https://www.rfc-editor.org/rfc/rfc2045.txt",
+      "sha256": "9bb251635dd37fda97dcce6c08dea019432117a0f1e389051d2ecbf7b76350b0",
+      "byteLength": 72932
+    },
+    "reference/rfc2046.txt": {
+      "url": "https://www.rfc-editor.org/rfc/rfc2046.txt",
+      "sha256": "7ac4096b9263e11a704f06892638258ac1ddc0394dd75ffdc171e7b5ba0123e0",
+      "byteLength": 105854
+    },
+    "reference/wg14-n1570.pdf": {
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+      "sha256": "208969fec021e4f4ce87a1873765298c73e7bbb5209b1c5868967c7adfc8492e",
+      "byteLength": 1692004
+    }
+  },
+  "rightsTerms": "試験の過去問題の使用方法（申請方法、使用料等）と留意点",
+  "rightsScope": "教育利用に当たり年度・期・試験区分・時間区分・原問番号・改変を表示する。IPA作問部分を確認し、Java API原頁とJIS文字の符号表及び関連説明を配布範囲から除外する。MIMEの技術事実とJava APIの動作は外部仕様で別途確認する。",
+  "sourceAcceptanceSHA256": "5aa8b8cd30ff02014fa116597e3128b53c1ba770ad9d3d9cb0bea804afe9c37e",
+  "materialEvidenceSHA256": "762cd6b6e235eb56fbefc53cd13e3eec95d3bc5d19c09cffc3f64df6ace1e63d",
+  "answerEvidenceSHA256": "5a18845baf27bc326f9a2df9bc406d66b258e591c2cef837a1377a089c51a986",
+  "assetSHA256ByPage": {
+    "3": "7a682f3d7d8f2d89a087a467c515ca6a91ee725789ceab8aafc9c2c2bae4ec09",
+    "4": "b5d35b9a0a9b71f3ff29c72205ed3ebecab686185367b1e762ea4f28c2347226",
+    "5": "3f719cf079eec729393c2ff3e45aa32b13bb8e654d809e98d0eb020d3a040aae",
+    "6": "b07dacd893587dd4435410855f8436519cd53875eaf48bae8fb4d94dcc3e1677",
+    "7": "cdc954a80be37c931b09949c03ff998926721ae234e8de049e49489369253fe1",
+    "8": "06e5ced21a80caa9dbd0566bb2658b9e272e9ae64e4d1a9e1d21d81567219b27",
+    "9": "3ab57eff67667793cf6f680518c589bf5f4d8c6d0c4690372c23ad802609b7ae",
+    "10": "ffe8858fae6ce6af6db09f3f45d4456958c43d17df6b2d439450867fd8c23b28",
+    "11": "3e97877791af3a0ca73e6d70b46fe6f6a1cf01bd1a473288d29161bc9d2b2c48",
+    "12": "aa7b6e9cafae3fd4586b2b5401e1a539918ced5228893de3306fb3a9d84ff4c5",
+    "13": "99ff837fb22ba4eb5963ad9af1c99ffbeb3db2c5c9edbc777bfbd2ae3f8866ab",
+    "14": "5db64249ed5c6d03f4c80d5a5fb024db2390c69557590128dac7e7e72abe1e0f",
+    "15": "61a32fe8cdd34fc1200d2c83fe5a5ae992c983fd31eaca8d031677be3088406d",
+    "16": "717f87cfe0d96fcf7e1cf5bb07fb963cb3da3193ab4cd8cf1cea5f500e308f1c",
+    "17": "372a535a8693730f3d273325ae8fbde1a9c71f701c9fba0023500a5a6ef504aa",
+    "18": "6070cb1be797d98477dc503159e9c68190910822f19d8e5dbe3ab657514a52e2",
+    "19": "05ce73e6be6a4349d73b938ac791ec182dc3da69c208c9d8e0bf1007bd690739",
+    "20": "acc11c83f08c2274889015549c596116dfc0e8b93037c89297181b19fb5a49d2",
+    "21": "d6ce0d00c6417d1d13736aa80f858b9c8c0f54e55770f25d4e9d6824854d56a7",
+    "22": "945e10dfabda229ac9d81a33e5a16a40531dfcc401adb218b2b515ee4a14a70f",
+    "23": "c09f8c66c35292cad8d25d4bb6a56a08fcca30b2b3c6b5988476203f165b7092",
+    "24": "4adc574e3ccf17fe37efa98c912293312a5d2bd010114dd55a5fbed08e2528ac",
+    "25": "606e5f8d276782fa0be58ba7b87bf22a94501c1ddd67598e225f5cd44b432947",
+    "26": "aebfdfb9b1a3f4ccde51bca63972d974de5a1ce8a62579ed4cfa3b3a03179f49",
+    "27": "be365e80da3b6bdeed7eda587f3270e8294828db9012301a96f5b66bf281ca96",
+    "28": "99cbcfbfbf281beb1c03210f7481c20cbecc859cbd0ebe9a7f51f465d67cef46",
+    "29": "a35abb2215ec978b5fbc459f8713103cb3d95a1cf56f87e1db3d5955cad4b8f1",
+    "30": "2a4fa01529fa9e7409bfb1aae1b2c2bf85b063b7e8340e1a30f503d62806f236",
+    "31": "3429aa0c423133df5bd8cd27f3f2f200f7be4a7b24a417f7b38a5f3ab7d33dfe",
+    "32": "f4e372fe63b68eca852aa84074bed35d106ac92937ff30e64c00b0c393eb6bf6",
+    "33": "c4801ebcc70765f99acc9199cded007052afce6cc071e8eb8f06b334124071dd",
+    "34": "2d706c5e6818107119fcf511263f1e5e57e4cf94c881030c2e39ccb4613e521e",
+    "35": "974a48def0f80671c0d72ecfaf2fd09c19f796d39fef3d7802a76c6d84c2f077",
+    "36": "d45a294c6341ffea7bea04d4bff760acc9d2b1af68ee1ad86bc205fb96856cfe",
+    "37": "418d2fe8967ebe2c1d368752acbbfa36903034e044987c64ccca94e7c0a4ca1b",
+    "38": "30f70ccba024a9e58981d777b26875e4856cede5da3d724a63aad1e95f6a1e94",
+    "39": "20895ef256c006ead3afc8bb2c515544f799d2a5fe66115e52fecdf86ad5451e",
+    "40": "1da1e6ee852afd05cd6455b68a917939e38d839404bdfe678336bcdea40d65a7",
+    "41": "f3a00ad7ccf84799f44cec18daddc57b10ba0f3daa9b9ff1f647d1aa247fd8d7",
+    "42": "84266d70a9032f03ee803e8a97d65cbfce4501b275da75d2e0173b85219e5919",
+    "43": "dcadcbd6d63f726b9f3e095843e221720dfc3e91384dd13a15ee536e88625aed",
+    "44": "9117ea961eff47f35db90766d91261afe5188cf75f672ac2deb26f3e2c05f71f",
+    "45": "0fdb12c5f0eb9532cc82b15688096cb1be2a058959e934a54e7126d05f685783",
+    "46": "5033058f9afba956ac89474c745c2981836790feb45f3603f6e023d6f2adf295",
+    "47": "a905f65a7a5cfb2423acc5ac7a74177d0d859ab4688ff6a9b586b472c69602b5",
+    "48": "ae77ee8f1482d7dc04e120d4d95ae47d1823d2a8a7144248c5e640aa205571bb",
+    "49": "194c8915ef4e8b290fe4222a369f3f79a73af37d8342607b9a8f1eac48e46528",
+    "50": "5f83ff508f2a4f525f807b048b7f6eecc2815b2eb472fb8e4f9a8e9aeb5953e1",
+    "51": "e90d63ed62b4da4db72dfff6f6a1c0b29450dde6b5e9e4b043fd7c1880a3d63a",
+    "52": "2d88329d347148e6bb587e97736baba8c5c99d3a5a078ebc69b0844abdd6c8a1",
+    "53": "437a5606de371d91f4f42301cfffb2bdeef44907e1ef8e7b607120d3038b1e4b",
+    "54": "0eb270381ed49094cc2d7bce0a52e4280d5ce93d0f55cbd8478fb35b4ded5909",
+    "55": "cbdb4f13e7f58347e11481b1365a2685a70920ded9f4bfaa4ff2e878dd416cfa",
+    "56": "9deca45aef7277833a3ac8c1f6a21c513cc1e8257bbd6163d5805408657a365f",
+    "57": "04a0925cffaab1503c86a281cfffc788386a155e590bb6ee10db3d4707a345fd",
+    "58": "0118238a641d6ccf42461bf0353d5477ac9aff9a065887084a6c388bfa708f4f",
+    "59": "a1e876cbebd0a896e75b1566f8ff5f5eed51eb694692fca1566ea79e033b3c3b",
+    "60": "b9554ed414ab34545e8c42499de516a4d64eae870e99b2f8b5bba1ec20b18de7",
+    "61": "34ab77f553f8a606bea79ff9e9102e810c8b36991629e90ea483a3a43a2a8cd0",
+    "62": "55ae0f1f41445fb2e2e743069bff855d5e1e027b84c5ef1f7f0235d297ab849a",
+    "63": "4eb3ba1a0107e8f9df55449471f498bac1e7c2df5baed0eaece66af52ce2940c",
+    "64": "dc13936409d312b8050d0d800526337df44e3659d57915cdb94733228f76208d",
+    "65": "1ebfe7fd8b622154305bc96e0328f9f4e54be3a1cea492be836a6327c5d9003d",
+    "66": "7a71b9f40398a9247c5ce8b1d49b43a8d574fcfb45cab3e8996fb8f7405ce4bb",
+    "67": "e1965bf2ec6be7d0c9178205ffb84b78b6f40a59fdd71d44ae6e1e4227bd2300",
+    "68": "6627f2cd75d1c4c558216bb09e80cd1dbd0d94694f73989eb461dbb6fbebeb56",
+    "69": "0efaf37e76306fdf25f433d96a79d79531bf9f8bb7f5ddfd2cce33ba55245d2f",
+    "70": "12173e344e7cb1626d2b081139ba07a910629240f3449535c4f6178a511ceb32",
+    "71": "989bbe12292727759802fe6d2e7ee19711236ab3cd63886c4cfc55f7ca52b055",
+    "72": "5bebf6b9439ff785c167e546f6347b033a261f245ef077f83675e5788abdbc6b",
+    "73": "c84a0881f34fba9c5b4aba7c5adf3d309ced89e0e1121f665c6348e7bc27e377",
+    "74": "e1a5683e8946362f50a8fe30c5acf16cfb1374f94ba95467038f29889a6bc151",
+    "75": "d27d02e4b7b8c604209fc926393720b98b450acb957608e55ede46e4f68513a5",
+    "76": "a9f4ca0b78e14303d7c50369072e8d241e6feb723e02eea10c0519f17948bd66",
+    "79": "e7b8765280d64eedd98fbf0412c6ae9c767bc4ebd75b4019bbc40a831cb93daa",
+    "80": "556a88b5b5b64ee2a8d9aa27b5cdbb3551451466ea5b72f6bd16601e30f8e6ab",
+    "81": "09af2df1f7eddc3e309a40cfdc69d6b8c640ae6ab4050e5da240b8d0e688e0aa",
+    "82": "dee31d071df439fc6fd2afcbbc87e17a49e90474c4b03b9bb5509b7ea9a2999c",
+    "83": "7d6f5f896ec68878c595d216e39f282717e15a352de2803769318013c1cc2590",
+    "84": "d9e81d882df1a2561fe7f41d988c4547b0cf90eeaa1e6ff55dfd4e9aa9da21a3",
+    "85": "1d2b6ded8f33de33b9fd30bdc25553199e4242b0003fb2811d8786947eeaa06d",
+    "86": "9667232108e4214d37e20c7220883b155f8511f021b5d3601ee60062a3ca4b8d",
+    "87": "9f8098c85902f62b0e0f51b267e294f213700d1900d911158a549853b9b901f9",
+    "88": "f5ea8058c78ccb06ee44a0c2e12a31641a610cd67abb49b77fa9060c2d740c58",
+    "89": "9441e858558a498ef56f93ad9465b519ce0cebe4369324261a134f599ce5d9db",
+    "90": "6fd13c8096a7791f9e15b70616f6c371644ff0f67267d93c03619fa49beb28c9"
+  },
+  "caslExcerpt": {
+    "page": 81,
+    "box": [
+      0,
+      0,
+      1432,
+      1138
+    ],
+    "height": 1138,
+    "lastRequiredInkY": 1109,
+    "excludedSectionFirstInkY": 1156,
+    "retained": "PUSH、POP、CALL、RET、SVC、NOPの表とレジスタ・FRの注記",
+    "excluded": "1.3のJIS X 0201文字の符号表と関連説明。問12の多項式計算では不要。"
+  },
+  "excludedFullPages": [
+    1,
+    2,
+    77,
+    78,
+    91,
+    92
+  ],
+  "officialAnswerRows": 84,
+  "selectionSlots": 86,
+  "multipleSelection": [
+    {
+      "question": 3,
+      "field": "2",
+      "pick": 3,
+      "bankSize": 9
+    }
+  ],
+  "unorderedGroups": [
+    {
+      "question": 2,
+      "fields": [
+        "1a",
+        "1b"
+      ]
+    },
+    {
+      "question": 2,
+      "fields": [
+        "3e",
+        "3f"
+      ]
+    }
+  ],
+  "noCorrectAnswer": [],
+  "held": [],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        5,
+        6,
+        7
+      ],
+      "topic": "プロセスの排他制御",
+      "area": "technology",
+      "officialFields": 4,
+      "selectionSlots": 4,
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2b",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "ウ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "pages": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "topic": "購買データベースの統合とSQL",
+      "area": "technology",
+      "officialFields": 8,
+      "selectionSlots": 8,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "3e",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "3f",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "3g",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "4h",
+          "key": [
+            "イ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "pages": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "topic": "電子メールのMIME形式",
+      "area": "technology",
+      "officialFields": 3,
+      "selectionSlots": 5,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "オ",
+            "カ",
+            "ケ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "pages": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "topic": "情報セキュリティ事故への対応",
+      "area": "security",
+      "officialFields": 6,
+      "selectionSlots": 6,
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "4a",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "4b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "4c",
+          "key": [
+            "ア"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "pages": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "topic": "通信講座の受講管理",
+      "area": "technology",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1e",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2g",
+          "key": [
+            "エ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "pages": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "topic": "データ管理と可搬記憶媒体の棚卸し",
+      "area": "management",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "キ"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1e",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "エ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "pages": [
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "topic": "工場の在庫管理",
+      "area": "strategy",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "4d",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "4e",
+          "key": [
+            "イ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "pages": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "topic": "駅間の最短距離",
+      "area": "algorithm",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "g",
+          "key": [
+            "ウ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "pages": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "topic": "Cのくじ番号照合",
+      "area": "algorithm",
+      "officialFields": 6,
+      "selectionSlots": 6,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "キ"
+          ]
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "イ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "pages": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "topic": "COBOLの利用料金集計と整列",
+      "area": "algorithm",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2g",
+          "key": [
+            "ウ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "pages": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "topic": "Javaのスレッドとタイマ",
+      "area": "algorithm",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "1d",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "1e",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "1f",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "キ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "pages": [
+        64,
+        65,
+        66,
+        67
+      ],
+      "topic": "CASL IIの多項式計算",
+      "area": "algorithm",
+      "officialFields": 7,
+      "selectionSlots": 7,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "1c",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "4d",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "4e",
+          "key": [
+            "エ"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "pages": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "topic": "表計算での小学校の最適配置",
+      "area": "algorithm",
+      "officialFields": 8,
+      "selectionSlots": 8,
+      "fields": [
+        {
+          "locator": "1a",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "1b",
+          "key": [
+            "キ"
+          ]
+        },
+        {
+          "locator": "2c",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "2d",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "2e",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "2f",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "3g",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "3h",
+          "key": [
+            "ウ"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -449,3 +449,11 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 公式80問は全問必須で制限時間150分。掲載できる77問を年度別オリジナルとランダムミックスに収録し、時間付き練習の問数は収録数に合わせる。共通の論理回路表記はp.2、問題はp.3–35。[IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2012h24.html)・[公表問題の利用条件](https://www.ipa.go.jp/shiken/faq.html)。
 
 問56はITIL v3の日本語記述、問61は経済産業省の平成16年版システム管理基準、問66は共通フレーム2007第2版の記述に関する利用条件を確認中。原問番号を保留台帳に残す。問59は平成23年12月1日改訂の営業秘密管理指針を参照した監査設問で、指針の事例や本文を配布データへ同梱しない。[当時版の公表元を示す経済産業省報告書](https://www.meti.go.jp/policy/economy/chizai/chiteki/pdf/honpen.pdf)・[当時版の確認資料](https://www.it-shikaku.jp/kougi/doc/eigyouhimitsukanri.pdf)。
+
+### 第3段階 S3-018 2012年度秋期・旧午後
+
+公式13大問・84解答欄。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問2のa・bとe・fは各組の順不同を認める。問3の設問2は9候補から3つ選び、1欄として採点する。物理頁と印刷頁の番号は一致する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_ans.pdf)・[採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002h5m-att/2012h24a_fe_pm_cmnt.pdf)。
+
+問9の冊子は `strlen` の戻り型を `unsigned int` と表記する。標準Cの宣言は `size_t` で、この設問で扱う長さの比較結果は一致する。[WG14 N1570 §7.24.6.3](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf#page=390)。
+
+問8・13は共通の擬似言語p.3–4を参照する。問11のJava API原頁p.77–78へ出典リンクを設け、スレッドの操作と時刻の表示は仕様の事実を独自に整理する。問12はCASL II資料のp.81から命令表と注記を抜粋し、JIS文字表の節の手前までを掲載する。問13は表計算の機能・用語p.85–90を参照し、関数表の注1・注2はp.89にある。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[OracleのThread仕様](https://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html)・[OracleのDate仕様](https://docs.oracle.com/javase/7/docs/api/java/util/Date.html)。

@@ -1,4 +1,5 @@
 import type { AfternoonBookletExtension } from './afternoon-booklet-extension-contract';
+import { legacy2012AutumnAfternoonDefinitions } from './legacy-2012-autumn-afternoon';
 import { legacy2013SpringAfternoonDefinitions } from './legacy-2013-spring-afternoon';
 import { legacy2013AutumnAfternoonDefinitions } from './legacy-2013-autumn-afternoon';
 import { legacy2014SpringAfternoonDefinitions } from './legacy-2014-spring-afternoon';
@@ -19,4 +20,5 @@ export const bookletExtensions: readonly AfternoonBookletExtension[] = [
   { scope: '2014-spring-pm', definitions: legacy2014SpringAfternoonDefinitions },
   { scope: '2013-autumn-pm', definitions: legacy2013AutumnAfternoonDefinitions },
   { scope: '2013-spring-pm', definitions: legacy2013SpringAfternoonDefinitions },
+  { scope: '2012-autumn-pm', definitions: legacy2012AutumnAfternoonDefinitions },
 ];

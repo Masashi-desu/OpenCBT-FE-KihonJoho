@@ -1,4 +1,5 @@
 import type { BookletFigureRendererExtension } from './booklet-figure-renderer-contract';
+import { legacy2012AutumnPmFigureRenderers } from './Legacy2012AutumnPmFigures';
 import { autumn2012AmFigureRenderers } from './Legacy2012AutumnAmFigures';
 import { spring2013AmFigureRenderers } from './Legacy2013SpringAmFigures';
 import { legacy2013SpringPmFigureRenderers } from './Legacy2013SpringPmFigures';
@@ -32,4 +33,5 @@ export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] =
   { scope: '2013-spring-am', renderers: spring2013AmFigureRenderers },
   { scope: '2013-spring-pm', renderers: legacy2013SpringPmFigureRenderers },
   { scope: '2012-autumn-am', renderers: autumn2012AmFigureRenderers },
+  { scope: '2012-autumn-pm', renderers: legacy2012AutumnPmFigureRenderers },
 ];

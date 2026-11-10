@@ -1,7 +1,7 @@
 {
   "schemaVersion": "3.0.0",
   "id": "catalog-fe-public",
-  "revision": 85,
+  "revision": 86,
   "scope": "distribution",
   "withdrawals": [
     {
@@ -175,6 +175,11 @@
         "path": "sources/pack-2a73287892a6c17a4fd272a859b731c5cacd8dd175211a536091b21835b1b9a4.json",
         "sha256": "2a73287892a6c17a4fd272a859b731c5cacd8dd175211a536091b21835b1b9a4",
         "recordCount": 4
+      },
+      {
+        "path": "sources/pack-cc0392f8d0c86bf14f0bb4382755b82dd8670c24207f2122c35a40cb09432361.json",
+        "sha256": "cc0392f8d0c86bf14f0bb4382755b82dd8670c24207f2122c35a40cb09432361",
+        "recordCount": 30
       }
     ],
     "rights": [
@@ -262,6 +267,11 @@
         "path": "rights/pack-c6e8a60f2f821ee13636f6299fbae759332d778e9ae4cb48ca14893a732d05b9.json",
         "sha256": "c6e8a60f2f821ee13636f6299fbae759332d778e9ae4cb48ca14893a732d05b9",
         "recordCount": 1
+      },
+      {
+        "path": "rights/pack-9e352c5f8b0feeb5ce970032e1f75aac3e4f68dd3b3574e0f748f7666266c896.json",
+        "sha256": "9e352c5f8b0feeb5ce970032e1f75aac3e4f68dd3b3574e0f748f7666266c896",
+        "recordCount": 14
       }
     ],
     "assets": [
@@ -514,6 +524,16 @@
         "path": "assets/pack-cc1488918206aa728f600d1dc81585ddeddd60d9b95368a308f96252036eebd6.json",
         "sha256": "cc1488918206aa728f600d1dc81585ddeddd60d9b95368a308f96252036eebd6",
         "recordCount": 14
+      },
+      {
+        "path": "assets/pack-6e712274a4c633fa070557a584e611d4e949ef39aae2ca272add3f5561876b6f.json",
+        "sha256": "6e712274a4c633fa070557a584e611d4e949ef39aae2ca272add3f5561876b6f",
+        "recordCount": 64
+      },
+      {
+        "path": "assets/pack-b4507776d2abd6fbb6317e508821e02bfabe5a4f31c1a7cfbbafd3517b014b86.json",
+        "sha256": "b4507776d2abd6fbb6317e508821e02bfabe5a4f31c1a7cfbbafd3517b014b86",
+        "recordCount": 22
       }
     ],
     "questions": [
@@ -796,12 +816,17 @@
         "path": "questions/pack-ee4ce48db1275360112c23c852582b0e7d9fee813a83c1d2528514ddec07f248.json",
         "sha256": "ee4ce48db1275360112c23c852582b0e7d9fee813a83c1d2528514ddec07f248",
         "recordCount": 26
+      },
+      {
+        "path": "questions/pack-baf1e65e4da8df71e5d84a8036c338d1fb527404491467763b147d63cb720813.json",
+        "sha256": "baf1e65e4da8df71e5d84a8036c338d1fb527404491467763b147d63cb720813",
+        "recordCount": 26
       }
     ],
     "sets": [
       {
-        "path": "sets/pack-c98baec3f9a4111ee1add305aa6ba619fa266cb8e894e0a3d1a4214171b1e94d.json",
-        "sha256": "c98baec3f9a4111ee1add305aa6ba619fa266cb8e894e0a3d1a4214171b1e94d",
+        "path": "sets/pack-3e3866496e84a14a8f3045991fea88fa2b9cf4521bdc86945a3bd9e353eae7ca.json",
+        "sha256": "3e3866496e84a14a8f3045991fea88fa2b9cf4521bdc86945a3bd9e353eae7ca",
         "recordCount": 37
       },
       {
@@ -868,6 +893,11 @@
         "path": "sets/pack-203ae2b00eec7ed4514b8d087a7f8add3efa6185e46298405487092570ce8d64.json",
         "sha256": "203ae2b00eec7ed4514b8d087a7f8add3efa6185e46298405487092570ce8d64",
         "recordCount": 1
+      },
+      {
+        "path": "sets/pack-31c54e9b547b8bb9c8f9c855bcbdd89e37b1e55aa291cda0f8e5b30a4380b2d3.json",
+        "sha256": "31c54e9b547b8bb9c8f9c855bcbdd89e37b1e55aa291cda0f8e5b30a4380b2d3",
+        "recordCount": 2
       }
     ],
     "exams": [
@@ -945,6 +975,11 @@
         "path": "exams/pack-4e161e8271a95e8f9cc198c3954304b945db513ec7b885d2c3f3c4ca71fcfb55.json",
         "sha256": "4e161e8271a95e8f9cc198c3954304b945db513ec7b885d2c3f3c4ca71fcfb55",
         "recordCount": 2
+      },
+      {
+        "path": "exams/pack-0292bc5650517150674af39138bf122c208f748162da018f22d568978fa15b89.json",
+        "sha256": "0292bc5650517150674af39138bf122c208f748162da018f22d568978fa15b89",
+        "recordCount": 4
       }
     ],
     "templates": [
@@ -1121,6 +1156,11 @@
       {
         "path": "templates/pack-219748da7d743dc7e19764e8aa72f7c67ab75c22b1c10f7a87abd4fba8b996a7.json",
         "sha256": "219748da7d743dc7e19764e8aa72f7c67ab75c22b1c10f7a87abd4fba8b996a7",
+        "recordCount": 13
+      },
+      {
+        "path": "templates/pack-523e8bdb1e4a603ef1894d19b9409d5d7ff8b91b8ef22514c88205beb63fad6a.json",
+        "sha256": "523e8bdb1e4a603ef1894d19b9409d5d7ff8b91b8ef22514c88205beb63fad6a",
         "recordCount": 13
       }
     ]
