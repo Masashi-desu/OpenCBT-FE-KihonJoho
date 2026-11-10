@@ -16,7 +16,7 @@ test("material pages preserve every distributed question's complete reading orde
     ["2018h30a-fe-am", "source-ipa-2018h30a-fe-am-common-p2"],
     ["2019r01a-fe-am", "source-ipa-2019r01a-fe-am-common-p2"],
   ]);
-  const onePageNumberedBooklets = ["2013h25h-fe-am"];
+  const onePageNumberedBooklets = ["2012h24a-fe-am", "2013h25h-fe-am"];
   const twoPageBooklets = ["2013h25a-fe-am", "2014h26h-fe-am", "2014h26a-fe-am", "2015h27h-fe-am", "2015h27a-fe-am", "2016h28h-fe-am", "2016h28a-fe-am"];
   const numberedPages = new Map<string, readonly number[]>([
     ...onePageNumberedBooklets.map(book => [`source-ipa-${book}-qs`, [2]] as const),
