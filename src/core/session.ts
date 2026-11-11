@@ -19,6 +19,21 @@ import { gradeAnswer, validateAnswerDefinition, validateEntryAnswers } from "./a
 export const RETENTION_MS = 180 * 24 * 60 * 60 * 1000;
 export const expires = (at: number) =>
   new Date(at + RETENTION_MS).toISOString();
+
+function* issuanceSeeds(recoverFiniteDomain: boolean): Generator<string> {
+  let seed = "";
+  for (let attempt = 0; attempt < 128; attempt++) {
+    seed = randomSeed();
+    yield seed;
+  }
+  if (!recoverFiniteDomain) return;
+  // A skewed finite domain can miss every admissible answer in random draws.
+  // Sweep a bounded range of reproducible seeds, starting at a random offset.
+  const size = 512;
+  const offset = parseInt(seed.slice(-3), 16) % size;
+  for (let step = 0; step < size; step++)
+    yield ((offset + step) % size).toString(16).padStart(32, "0");
+}
 async function prepareQuestions(
   bundle: Bundle,
   set: Run["set"],
@@ -112,14 +127,19 @@ async function prepareQuestions(
         let seed = "",
           parameters: { values: number[] } | undefined,
           q: typeof base | undefined;
-        for (let attempt = 0; attempt < 128; attempt++) {
+        const domainSize = t.parameterDomain.fields?.reduce(
+          (size, field) => size * (field.maximum - field.minimum + 1), 1,
+        );
+        const rejectedInputs = new Set<string>();
+        for (const candidateSeed of issuanceSeeds(reusable && domainSize !== undefined && domainSize <= 64)) {
           q = undefined;
-          seed = randomSeed();
+          seed = candidateSeed;
           parameters = await parametersForSeed(seed, t);
           const signature = `${key}:${JSON.stringify(parameters.values)}`;
           // Reference inputs and answers are valid candidates too. Only actual
           // practice history can exclude them, never their role as the baseline.
-          if (usedParameters.has(signature)) continue;
+          if (usedParameters.has(signature) || rejectedInputs.has(signature)) continue;
+          rejectedInputs.add(signature);
           try {
             q = bindQuestion(base, t, parameters.values, instanceId, now);
           } catch (e) {

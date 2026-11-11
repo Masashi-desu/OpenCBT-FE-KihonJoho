@@ -3,6 +3,7 @@ import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "../fixtures";
 import { publishedSourceScope } from "../helpers/published-source-scope";
+import { answerSignature, parametersForSeed } from "../../src/core/generation";
 import { generationCoverage } from "../../src/core/generation-coverage";
 import { nextQuestionRef, selectQuestions } from "../../src/core/selection";
 import { refKey, refOf, type Selection } from "../../src/core/types";
@@ -209,11 +210,51 @@ test("resumed endless runs reject their own preceding seed even after a newer se
     }
     return random(array);
   });
-  await assert.rejects(
-    appendRunQuestion(previous, undefined, 300000, newer.instances),
-    { code: "GENERATION_CAPACITY" },
-  );
+  const resumed = await appendRunQuestion(previous, undefined, 300000, newer.instances);
+  assert.notDeepEqual(resumed.instances[1].parameters, previous.instances[0].parameters);
+  assert.notEqual(answerSignature(resumed.issued[1]), answerSignature(previous.issued[0]));
   assert.deepEqual(previous, saved);
+  await validateRun(resumed);
+});
+
+test("a skewed historical bookmark can recover a distinct answer after every random draw repeats", async (t) => {
+  const bundle = fixture();
+  const template = bundle.templates.find(item => item.id === "template-source-2017h29h-fe-am-23");
+  assert(template);
+  const inputs = new Set<string>();
+  let referenceSeed: string | undefined;
+  for (let value = 0; value < 512; value++) {
+    const seed = value.toString(16).padStart(32, "0");
+    const input = JSON.stringify((await parametersForSeed(seed, template)).values);
+    inputs.add(input);
+    if (input === "[8,2,3]") referenceSeed ??= seed;
+  }
+  assert.equal(inputs.size, 36);
+  assert(referenceSeed);
+  const referenceBytes = Uint8Array.from(referenceSeed.match(/../g)!, byte => parseInt(byte, 16));
+  const random = crypto.getRandomValues.bind(crypto);
+  let draws = 0;
+  t.mock.method(crypto, "getRandomValues", (array: Uint8Array) => {
+    if (array instanceof Uint8Array && array.length === 16) {
+      draws++;
+      array.set(referenceBytes);
+      return array;
+    }
+    return random(array);
+  });
+  const initial = startRun(await prepareRun(bundle, {
+    subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values",
+    bookmarkQuestionRef: { questionId: "question-ipa-2017h29h-fe-am-23", revision: 1 },
+  }, {}, 100000), 101000);
+  assert.equal(answerSignature(initial.issued[0]), "3");
+  const before = draws;
+  const next = await appendRunQuestion(initial, initial.session.entries[0].questionRef, 102000);
+  assert.equal(draws - before, 128);
+  assert.equal(answerSignature(next.issued[1]), "4");
+  assert.notEqual(next.instances[1].seed, referenceSeed);
+  assert.deepEqual(await parametersForSeed(next.instances[1].seed, template), next.instances[1].parameters);
+  assert.deepEqual(next.issued[0], initial.issued[0]);
+  await validateRun(next);
 });
 
 // Match executable App setup without changing raw shared fixture imports.
