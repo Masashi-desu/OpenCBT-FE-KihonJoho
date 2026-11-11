@@ -70,6 +70,9 @@ jobs:
       - name: Check isolated browser
         if: startsWith(matrix.part, 'browser-')
         run: |
+          # Checkout trusts the mounted repository in its temporary Git configuration.
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
           node -e 'const { accessSync, constants } = require("node:fs"); accessSync(require("playwright").chromium.executablePath(), constants.X_OK)'
       - name: Run planned tests
         run: node scripts/ci/run-part.mjs output/ci/plan.json ${{ matrix.part }} output/ci/results/${{ matrix.part }}

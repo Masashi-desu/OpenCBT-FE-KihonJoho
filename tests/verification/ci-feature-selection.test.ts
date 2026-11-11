@@ -174,6 +174,8 @@ test('Pages uses the pinned Playwright image only for browser parts and checks i
   assert(check > workflow.indexOf('- run: npm ci'));
   assert(check < run && run < workflow.indexOf('node scripts/ci/run-part.mjs'));
   const browserCheck = workflow.slice(check, run);
+  assert.match(browserCheck, /git config --global --add safe\.directory "\$GITHUB_WORKSPACE"/);
+  assert.match(browserCheck, /test "\$\(git rev-parse HEAD\)" = "\$GITHUB_SHA"/);
   assert.match(browserCheck, /if: startsWith\(matrix\.part, 'browser-'\)/);
   assert.match(browserCheck, /accessSync\(require\("playwright"\)\.chromium\.executablePath\(\), constants\.X_OK\)/);
   assert.doesNotMatch(workflow, /playwright install|apt-get/);
