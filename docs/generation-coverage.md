@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問2098件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1636問、旧午後273大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問2176件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1714問、旧午後273大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -2354,6 +2354,89 @@
 | [旧午前問79 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f3yi-att/2009h21a_fe_am_qs.pdf#page=32) | generator-source-2009h21a-fe-am-79@3.7.0 | 他人の認証情報によるアクセス。問いの対象・判断条件：0〜3（0） | 文章／4択 |
 | [旧午前問80 p.32](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f3yi-att/2009h21a_fe_am_qs.pdf#page=32) | generator-source-2009h21a-fe-am-80@3.7.0 | 請負契約と派遣契約の指揮命令。問いの対象・判断条件：0〜3（0） | 文章・図／4択 |
 
+### 2009年度 春期・午前
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午前問1 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=3) | generator-source-2009h21h-fe-am-1@3.7.0 | 左シフトと加算。左シフトのビット数：0〜3（0） | 図・文章／4択 |
+| [旧午前問2 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=3) | generator-source-2009h21h-fe-am-2@3.7.0 | 基数変換法のハッシュ。ハッシュに変換するキー値：0〜3（0） | 図・文章／4択 |
+| [旧午前問3 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=3) | generator-source-2009h21h-fe-am-3@3.7.0 | 論理式とド・モルガンの法則。内側と外側の論理演算：0〜3（0） | 図・文章／4択 |
+| [旧午前問4 p.3](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=3) | generator-source-2009h21h-fe-am-4@3.7.0 | 文字列の符号化。符号化の入力と目的：0〜3（0） | 図・文章／4択 |
+| [旧午前問5 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=4) | generator-source-2009h21h-fe-am-5@3.7.0 | データ構造の用途。一時記憶・探索・接続の用途：0〜3（0） | 図・文章／4択 |
+| [旧午前問6 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=4) | generator-source-2009h21h-fe-am-6@3.7.0 | 配列と連結リスト。連結の向きと挿入位置：0〜3（0） | 図・文章／4択 |
+| [旧午前問7 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=4) | generator-source-2009h21h-fe-am-7@3.7.0 | 2分探索の比較回数。配列の整列順と要素数：0〜3（0） | 図・文章・数式／4択 |
+| [旧午前問8 p.4](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=4) | generator-source-2009h21h-fe-am-8@3.7.0 | 再帰関数の評価。再帰関数の呼出し引数：0〜3（0） | 図・文章・コード／4択 |
+| [旧午前問9 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=5) | generator-source-2009h21h-fe-am-9@3.7.0 | 命令実行時間とMIPS。平均命令実行時間（ナノ秒）：0〜3（0） | 図・文章／4択 |
+| [旧午前問10 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=5) | generator-source-2009h21h-fe-am-10@3.7.0 | シングルチップマイコン。組込み機器の入出力用途：0〜3（0） | 図・文章／4択 |
+| [旧午前問11 p.5](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=5) | generator-source-2009h21h-fe-am-11@3.7.0 | プロセッサの処理方式。問いの対象：0〜3（0） | 図・文章／4択 |
+| [旧午前問12 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=6) | generator-source-2009h21h-fe-am-12@3.7.0 | キャッシュメモリの書込み。キャッシュの書込みと観測時点：0〜3（0） | 図・文章／4択 |
+| [旧午前問13 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=6) | generator-source-2009h21h-fe-am-13@3.7.0 | RAID構成の区別。比較するRAIDレベル：0〜3（0） | 図・文章／4択 |
+| [旧午前問14 p.6](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=6) | generator-source-2009h21h-fe-am-14@3.7.0 | 表示装置の原理。問いの対象：0〜3（0） | 図・文章／4択 |
+| [旧午前問15 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=7) | generator-source-2009h21h-fe-am-15@3.7.0 | フォールトトレラント。問いの対象：0〜3（0） | 図・文章／4択 |
+| [旧午前問16 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=7) | generator-source-2009h21h-fe-am-16@3.7.0 | バックアップ回線の稼働率。既存回線の稼働率と目標稼働率：0〜3（0） | 図・文章／4択 |
+| [旧午前問17 p.7](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=7) | generator-source-2009h21h-fe-am-17@3.7.0 | RASと運用指標。RASの評価対象と運転サイクル：0〜3（0） | 図・文章・数式／4択 |
+| [旧午前問18 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=8) | generator-source-2009h21h-fe-am-18@3.7.0 | ターンアラウンドタイム。CPU・入出力・その他の時間：0〜3（0） | 図・文章・数式／4択 |
+| [旧午前問19 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=8) | generator-source-2009h21h-fe-am-19@3.7.0 | ハードリアルタイム。締切りを判定するシステムの用途：0〜3（0） | 図・文章／4択 |
+| [旧午前問20 p.8](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=8) | generator-source-2009h21h-fe-am-20@3.7.0 | キャッシュの置換方式。問いの対象：0〜3（0） | 図・文章／4択 |
+| [旧午前問21 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=9) | generator-source-2009h21h-fe-am-21@3.7.0 | 相対パス名と絶対パス名。カレントディレクトリと相対指定：0〜3（0） | 図・文章／4択 |
+| [旧午前問22 p.9](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=9) | generator-source-2009h21h-fe-am-22@3.7.0 | コンパイラ・リンカ・ローダ。翻訳・結合・ロードの流れと追加の入力：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問23 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=10) | generator-source-2009h21h-fe-am-23@3.7.0 | オープンソースの定義。改変物の用途と提供先：0〜3（0） | 図・文章／4択 |
+| [旧午前問24 p.10](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=10) | generator-source-2009h21h-fe-am-24@3.7.0 | 論理回路の等価性。上段の入力極性と下段の接続：0〜3（0） | 図・文章／4択 |
+| [旧午前問25 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=11) | generator-source-2009h21h-fe-am-25@3.7.0 | 半加算器の論理素子。上段・下段の出力の割当てと反転：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問26 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=11) | generator-source-2009h21h-fe-am-26@3.7.0 | GUIの選択部品。問いの対象：0〜3（0） | 図・文章／4択 |
+| [旧午前問27 p.11](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=11) | generator-source-2009h21h-fe-am-27@3.7.0 | Webコンテンツのユーザビリティ。Webの設計・評価の観点：0〜3（0） | 図・文章／4択 |
+| [旧午前問28 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=12) | generator-source-2009h21h-fe-am-28@3.7.0 | ヒューマンインタフェースの一貫性。操作を設計する目的：0〜3（0） | 図・文章／4択 |
+| [旧午前問29 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=12) | generator-source-2009h21h-fe-am-29@3.7.0 | 月次受注実績とファイルの項目。過去の受注額の粒度・担当者の履歴・集計期間：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問30 p.12](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=12) | generator-source-2009h21h-fe-am-30@3.7.0 | 静止画データの圧縮符号化。符号化・ファイル形式が扱うデータ：0〜3（0） | 図・文章／4択 |
+| [旧午前問31 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=13) | generator-source-2009h21h-fe-am-31@3.7.0 | データベースサーバとの通信負荷。クライアントサーバの処理上の課題：0〜3（0） | 図・文章／4択 |
+| [旧午前問32 p.13](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=13) | generator-source-2009h21h-fe-am-32@3.7.0 | 繰返し項目と第3正規形。実体間の繰返しと属性を決定するキー：0〜3（0） | 図・文章／4択 |
+| [旧午前問33 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=14) | generator-source-2009h21h-fe-am-33@3.7.0 | SQLによるビュー表の定義。ビューの元となる二表と算出列：0〜3（0） | 図・文章・コード・表／4択 |
+| [旧午前問34 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=14) | generator-source-2009h21h-fe-am-34@3.7.0 | 関係データベースの操作。関係データベースで求める操作：0〜3（0） | 図・文章／4択 |
+| [旧午前問35 p.14](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=14) | generator-source-2009h21h-fe-am-35@3.7.0 | チェックポイントとトランザクションログによる復旧。障害とトランザクションの確定時点：0〜3（0） | 図・文章／4択 |
+| [旧午前問36 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=15) | generator-source-2009h21h-fe-am-36@3.7.0 | 回線利用率を含む伝送時間。伝送路の速度・データ量・回線利用率：0〜3（0） | 図・文章／4択 |
+| [旧午前問37 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=15) | generator-source-2009h21h-fe-am-37@3.7.0 | LANを相互接続する装置。装置が中継する単位と接続形態：0〜3（0） | 図・文章／4択 |
+| [旧午前問38 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=15) | generator-source-2009h21h-fe-am-38@3.7.0 | IPアドレスのアドレスクラス。クラス方式で分類するIPv4アドレス：0〜3（0） | 図・文章／4択 |
+| [旧午前問39 p.15](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=15) | generator-source-2009h21h-fe-am-39@3.7.0 | メール送信・受信・転送のプロトコル。クライアントによるメールの受信・保存方法：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問40 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=16) | generator-source-2009h21h-fe-am-40@3.7.0 | 公開鍵暗号で通信内容を秘匿する鍵。メッセージの送信者・受信者と受信側の鍵：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問41 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=16) | generator-source-2009h21h-fe-am-41@3.7.0 | リスク移転。リスクへの対処方針：0〜3（0） | 図・文章／4択 |
+| [旧午前問42 p.16](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=16) | generator-source-2009h21h-fe-am-42@3.7.0 | Webビーコン。Webの追跡機構・攻撃・脆弱性：0〜3（0） | 図・文章／4択 |
+| [旧午前問43 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=17) | generator-source-2009h21h-fe-am-43@3.7.0 | 生体認証システム導入時の注意。本人の拒否と他人の許可をどこまで抑えるか：0〜3（0） | 図・文章／4択 |
+| [旧午前問44 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=17) | generator-source-2009h21h-fe-am-44@3.7.0 | システム開発工程の作業。システム開発工程で確定する内容：0〜3（0） | 図・文章／4択 |
+| [旧午前問45 p.17](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=17) | generator-source-2009h21h-fe-am-45@3.7.0 | ウォータフォールモデル。システム開発モデル：0〜3（0） | 図・文章／4択 |
+| [旧午前問46 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=18) | generator-source-2009h21h-fe-am-46@3.7.0 | E-R図の説明。記述するモデル図：0〜3（0） | 図・文章／4択 |
+| [旧午前問47 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=18) | generator-source-2009h21h-fe-am-47@3.7.0 | オブジェクト指向の基本概念。オブジェクト指向で使う基本概念の組合せ：0〜3（0） | 図・文章／4択 |
+| [旧午前問48 p.18](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=18) | generator-source-2009h21h-fe-am-48@3.7.0 | バグ管理図によるテスト進捗と品質の判断。バグ管理図で読み取る経過：0〜3（0） | 図・文章／4択 |
+| [旧午前問49 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=19) | generator-source-2009h21h-fe-am-49@3.7.0 | 稼働中のデータベースから設計を取り出す手法。既存実装と設計のどちらを起点にするか：0〜3（0） | 図・文章／4択 |
+| [旧午前問50 p.19](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=19) | generator-source-2009h21h-fe-am-50@3.7.0 | 組込みシステムの開発環境の維持管理。保守で再現が必要な開発環境の条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問51 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=20) | generator-source-2009h21h-fe-am-51@3.7.0 | クリティカルパスと最早開始日。工程の各矢線の日数と先行する経路：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問52 p.20](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=20) | generator-source-2009h21h-fe-am-52@3.7.0 | 開発規模から開発工数の見積り。工数に換算する規模の尺度：0〜3（0） | 図・文章／4択 |
+| [旧午前問53 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=21) | generator-source-2009h21h-fe-am-53@3.7.0 | 開発計画表と残作業の割合。開発計画の工数・着手日・コーディングの実績：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問54 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=21) | generator-source-2009h21h-fe-am-54@3.7.0 | 市場構成比とグラフ。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問55 p.21](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=21) | generator-source-2009h21h-fe-am-55@3.7.0 | 新旧システムの一斉移行。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問56 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=22) | generator-source-2009h21h-fe-am-56@3.7.0 | 稼働率を測定する時期。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問57 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=22) | generator-source-2009h21h-fe-am-57@3.7.0 | OSのバージョンアップの判断。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問58 p.22](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=22) | generator-source-2009h21h-fe-am-58@3.7.0 | システム監査人の役割。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問59 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=23) | generator-source-2009h21h-fe-am-59@3.7.0 | システム管理基準の説明。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問60 p.23](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=23) | generator-source-2009h21h-fe-am-60@3.7.0 | IT統制における発見統制。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問61 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=24) | generator-source-2009h21h-fe-am-61@3.7.0 | エンタープライズアーキテクチャの説明。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問62 p.24](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=24) | generator-source-2009h21h-fe-am-62@3.7.0 | 全体計画立案時の業務モデル。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問63 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=25) | generator-source-2009h21h-fe-am-63@3.7.0 | 業務改善の六つのステップ。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問64 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=25) | generator-source-2009h21h-fe-am-64@3.7.0 | 4段階評価のスコアリングモデル。問いの対象・判断条件：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問65 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=26) | generator-source-2009h21h-fe-am-65@3.7.0 | 共通フレーム2007におけるシステム化計画。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問67 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=26) | generator-source-2009h21h-fe-am-67@3.7.0 | 一括請負契約と対価の支払。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問69 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=27) | generator-source-2009h21h-fe-am-69@3.7.0 | ニッチ戦略と競争上の地位。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問70 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=27) | generator-source-2009h21h-fe-am-70@3.7.0 | プロダクトライフサイクルの成長期。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問71 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=28) | generator-source-2009h21h-fe-am-71@3.7.0 | TLO法に基づく技術移転事業者の役割。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問72 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=28) | generator-source-2009h21h-fe-am-72@3.7.0 | ディジタルディバイドの説明。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問73 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=28) | generator-source-2009h21h-fe-am-73@3.7.0 | デビットカードの決済方式。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問74 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=29) | generator-source-2009h21h-fe-am-74@3.7.0 | 組込みシステムの用途。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問75 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=29) | generator-source-2009h21h-fe-am-75@3.7.0 | M&Aと事業運営の利点。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問76 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=30) | generator-source-2009h21h-fe-am-76@3.7.0 | ABC分析の重点管理商品。問いの対象・判断条件：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問77 p.30](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=30) | generator-source-2009h21h-fe-am-77@3.7.0 | 先入先出法の払出単価。問いの対象・判断条件：0〜3（0） | 図・文章・表／4択 |
+| [旧午前問78 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=31) | generator-source-2009h21h-fe-am-78@3.7.0 | 著作権法の保護対象。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問79 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=31) | generator-source-2009h21h-fe-am-79@3.7.0 | 特許権と関連する知的財産権。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+| [旧午前問80 p.31](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf#page=31) | generator-source-2009h21h-fe-am-80@3.7.0 | コンピュータ不正アクセス対策基準。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
+
 ## 登録図の入力契約
 
 renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は査読済みの登録tuple又はprofile別モデルの制約に限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／desc又は明示したアクセシブル名に保持する。
@@ -3217,6 +3300,19 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2009-autumn-pm-13-assignment-sheet | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-autumn-pm-13-assignment-sheet」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2009-autumn-pm-13-rank-digits | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-autumn-pm-13-rank-digits」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2009-autumn-pm-13-rank-function | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-autumn-pm-13-rank-function」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-3-logic-expression | 0：0〜19 | 問題集が所有する有限入力20組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-3-logic-expression」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-22-translation | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-22-translation」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-24-gate-legend | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-24-gate-legend」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-24-gate-target | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-24-gate-target」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-24-gate-choice | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-24-gate-choice」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-25-half-adder | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-25-half-adder」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-32-a | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-32-a」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-32-i | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-32-i」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-32-u | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-32-u」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-32-e | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-32-e」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-39-mail | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-39-mail」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-51-arrow | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-51-arrow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2009-spring-am-63-improvement-steps | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2009-spring-am-63-improvement-steps」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -16397,6 +16493,188 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | 書式｜説明 順位(照合値,照合範囲,順序)｜順序に0又は1を指定したとき，照合範囲をそれぞれ昇順又は降順に整列し，照合値の順位を返す。照合範囲の中に同じ値が複数個ある場合は同順位とし，次の順位は同順位の個数を加えた値となる。 |
 | `[2]` | 書式｜説明 順位(照合値,照合範囲,順序)｜順序に0又は1を指定したとき，照合範囲をそれぞれ昇順又は降順に整列し，照合値の順位を返す。照合範囲の中に同じ値が複数個ある場合は同順位とし，次の順位は同順位の個数を加えた値となる。 |
 | `[3]` | 書式｜説明 順位(照合値,照合範囲,順序)｜順序に0又は1を指定したとき，照合範囲をそれぞれ昇順又は降順に整列し，照合値の順位を返す。照合範囲の中に同じ値が複数個ある場合は同順位とし，次の順位は同順位の個数を加えた値となる。 |
+
+</details>
+
+### legacy-2009-spring-am-3-logic-expression
+
+<details><summary>許可する20組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | NOT((NOT(A)＋B)・(A＋NOT(C))) |
+| `[1]` | A・NOT(B)＋NOT(A)・C |
+| `[2]` | NOT(A)・B＋A・NOT(C) |
+| `[3]` | A・NOT(B)・NOT(A)・C |
+| `[4]` | (NOT(A)＋B)・(A＋NOT(C)) |
+| `[5]` | NOT(A＋NOT(B)＋NOT(A)・C) |
+| `[6]` | NOT(A)・B・(A＋NOT(C)) |
+| `[7]` | A・NOT(B)・(NOT(A)＋C) |
+| `[8]` | NOT(A)・B＋A＋NOT(C) |
+| `[9]` | A＋NOT(B)＋NOT(A)・C |
+| `[10]` | NOT(NOT(A)・B＋A・NOT(C)) |
+| `[11]` | (A＋NOT(B))・(NOT(A)＋C) |
+| `[12]` | (NOT(A)＋B)・(A＋NOT(C)) |
+| `[13]` | A＋NOT(B)＋NOT(A)＋C |
+| `[14]` | NOT(A)・B＋A・NOT(C) |
+| `[15]` | NOT(NOT(A)・B・(A＋NOT(C))) |
+| `[16]` | A＋NOT(B)＋NOT(A)・C |
+| `[17]` | NOT(A)＋B＋A・NOT(C) |
+| `[18]` | (A＋NOT(B))・NOT(A)・C |
+| `[19]` | NOT(A)・B・(A＋NOT(C)) |
+
+</details>
+
+### legacy-2009-spring-am-22-translation
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 原始プログラム→コンパイラ→a→リンカ→c→ローダ。bも上からリンカに入力。 |
+| `[1]` | 原始プログラム→コンパイラ→b→リンカ→a→ローダ。cも上からリンカに入力。補助ライブラリもリンカに入力。 |
+| `[2]` | 原始プログラム→コンパイラ→c→リンカ→b→ローダ。aも上からリンカに入力。別に翻訳した目的プログラムもリンカに入力。 |
+| `[3]` | 原始プログラム→コンパイラ→c→リンカ→a→ローダ。bも上からリンカに入力。起動用ライブラリもリンカに入力。 |
+
+</details>
+
+### legacy-2009-spring-am-24-gate-legend
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | D形は論理積（AND）。入力側が曲線の形は論理和（OR）。出力に白丸が付いた三角形は否定（NOT）。 |
+
+</details>
+
+### legacy-2009-spring-am-24-gate-target
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | AとBをANDに入れる。BをNOTに入れる。二つのゲートの出力をORに入れてXを得る。X＝(A・B)＋NOT(B) |
+| `[1]` | Aを否定した信号とBをANDに入れる。BをNOTに入れる。二つのゲートの出力をORに入れてXを得る。X＝(NOT(A)・B)＋NOT(B) |
+| `[2]` | AとBをANDに入れる。Aの信号を直接分岐し，ANDの出力とともにをORに入れてXを得る。X＝(A・B)＋A |
+| `[3]` | AとBをANDに入れる。AをNOTに入れる。二つのゲートの出力をORに入れてXを得る。X＝(A・B)＋NOT(A) |
+
+</details>
+
+### legacy-2009-spring-am-24-gate-choice
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 回路の出力はX＝NOT(A・B)。 |
+| `[1]` | 回路の出力はX＝A＋NOT(B)。 |
+| `[2]` | 回路の出力はX＝A＋(A・B)。 |
+| `[3]` | 回路の出力はX＝NOT(A・NOT(B))。 |
+
+</details>
+
+### legacy-2009-spring-am-25-half-adder
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | xとyを上の素子Aと下の素子Bに入力する。Aの出力はz，Bの出力はcとなる。zは和の1けた目，cはけた上げ。 |
+| `[1]` | xとyを上の素子Aと下の素子Bに入力する。Aの出力はc，Bの出力はzとなる。zは和の1けた目，cはけた上げ。 |
+| `[2]` | xとyを上の素子Aと下の素子Bに入力する。Aの出力を反転した信号はz，Bの出力はcとなる。zは和の1けた目，cはけた上げ。 |
+| `[3]` | xとyを上の素子Aと下の素子Bに入力する。Aの出力はz，Bの出力を反転した信号はcとなる。zは和の1けた目，cはけた上げ。 |
+
+</details>
+
+### legacy-2009-spring-am-32-a
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 従業員番号（主キー），従業員氏名｜技能コード（主キー），技能名，技能経験年数 |
+| `[1]` | 機器番号（主キー），機器名｜利用部署コード（主キー），利用部署名，導入年度 |
+| `[2]` | 講師番号（主キー），講師氏名｜講座コード（主キー），講座名，標準時間 |
+| `[3]` | 仕入先コード（主キー），仕入先名｜商品コード（主キー），商品名，契約単価 |
+
+</details>
+
+### legacy-2009-spring-am-32-i
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 従業員番号（主キー），従業員氏名，技能コード（主キー），技能経験年数｜技能コード（主キー），技能名 |
+| `[1]` | 機器番号（主キー），機器名，利用部署コード（主キー），導入年度｜利用部署コード（主キー），利用部署名 |
+| `[2]` | 講師番号（主キー），講師氏名，講座コード（主キー），標準時間｜講座コード（主キー），講座名 |
+| `[3]` | 仕入先コード（主キー），仕入先名，商品コード（主キー），契約単価｜商品コード（主キー），商品名 |
+
+</details>
+
+### legacy-2009-spring-am-32-u
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 従業員番号（主キー），技能コード（主キー），技能経験年数｜従業員番号（主キー），従業員氏名｜技能コード（主キー），技能名 |
+| `[1]` | 機器番号（主キー），利用部署コード（主キー），導入年度｜機器番号（主キー），機器名｜利用部署コード（主キー），利用部署名 |
+| `[2]` | 講師番号（主キー），講座コード（主キー），標準時間｜講師番号（主キー），講師氏名｜講座コード（主キー），講座名 |
+| `[3]` | 仕入先コード（主キー），商品コード（主キー），契約単価｜仕入先コード（主キー），仕入先名｜商品コード（主キー），商品名 |
+
+</details>
+
+### legacy-2009-spring-am-32-e
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 従業員番号（主キー），技能コード（主キー）｜従業員番号（主キー），従業員氏名，技能経験年数｜技能コード（主キー），技能名 |
+| `[1]` | 機器番号（主キー），利用部署コード（主キー）｜機器番号（主キー），機器名，導入年度｜利用部署コード（主キー），利用部署名 |
+| `[2]` | 講師番号（主キー），講座コード（主キー）｜講師番号（主キー），講師氏名｜講座コード（主キー），講座名，標準時間 |
+| `[3]` | 仕入先コード（主キー），商品コード（主キー）｜仕入先コード（主キー），仕入先名，契約単価｜商品コード（主キー），商品名 |
+
+</details>
+
+### legacy-2009-spring-am-39-mail
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左上にメールサーバ、右上にメールサーバ、左下にメールクライアント。①メール送信はメールクライアント→左のサーバ。②メール受信は左のサーバ→メールクライアント。③メール転送は両サーバ間の双方向の矢印。 |
+| `[1]` | 左上に社内メールサーバ、右上にメールサーバ、左下にメールクライアント。①メール送信はメールクライアント→左のサーバ。②メール受信は左のサーバ→メールクライアント。③メール転送は両サーバ間の双方向の矢印。 |
+| `[2]` | 左上にメールサーバ、右上にメールサーバ、左下に外出先のメールクライアント。①メール送信は外出先のメールクライアント→左のサーバ。②メール受信は左のサーバ→外出先のメールクライアント。③メール転送は両サーバ間の双方向の矢印。 |
+| `[3]` | 左上にメールサーバ、右上にメールサーバ、左下に保管用メールクライアント。①メール送信は保管用メールクライアント→左のサーバ。②メール受信は左のサーバ→保管用メールクライアント。③メール転送は両サーバ間の双方向の矢印。 |
+
+</details>
+
+### legacy-2009-spring-am-51-arrow
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | Aの作業開始時を0日とする。矢線と作業所要日数はA→B 3日，A→C 1日，A→F 2日，B→E 4日，C→D 6日，D→E 1日，D→H 1日，F→G 3日，G→H 2日，E→I 5日，H→I 4日。 |
+| `[1]` | Aの作業開始時を0日とする。矢線と作業所要日数はA→B 4日，A→C 2日，A→F 2日，B→E 5日，C→D 4日，D→E 1日，D→H 1日，F→G 3日，G→H 3日，E→I 5日，H→I 3日。 |
+| `[2]` | Aの作業開始時を0日とする。矢線と作業所要日数はA→B 2日，A→C 2日，A→F 3日，B→E 3日，C→D 3日，D→E 2日，D→H 1日，F→G 3日，G→H 3日，E→I 6日，H→I 2日。 |
+| `[3]` | Aの作業開始時を0日とする。矢線と作業所要日数はA→B 3日，A→C 2日，A→F 2日，B→E 6日，C→D 4日，D→E 1日，D→H 2日，F→G 2日，G→H 1日，E→I 5日，H→I 3日。 |
+
+</details>
+
+### legacy-2009-spring-am-63-improvement-steps
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | ステップ1：改善目的の確認 → ステップ2：A → ステップ3：B → ステップ4：C → ステップ5：D → ステップ6：実施と効果の確認 |
+| `[1]` | ステップ1：改善目的の確認 → ステップ2：A → ステップ3：B → ステップ4：C → ステップ5：D → ステップ6：実施と効果の確認 |
+| `[2]` | ステップ1：改善目的の確認 → ステップ2：A → ステップ3：B → ステップ4：C → ステップ5：D → ステップ6：実施と効果の確認 |
+| `[3]` | ステップ1：改善目的の確認 → ステップ2：A → ステップ3：B → ステップ4：C → ステップ5：D → ステップ6：実施と効果の確認 |
 
 </details>
 

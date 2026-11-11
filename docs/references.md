@@ -533,3 +533,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 - 2009年10月18日実施。全13大問・81解答欄。問1〜7から5大問を選び、問8は必須、問9〜13から1大問を選ぶ。制限時間は150分。問2のc・d、問5のf・g、問12のe・f、問13のg・hは各2欄の正答が順不同。 [IPAの問題冊子・解答例・採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html)
 - 問8のp.36はIPAが訂正した紙面を掲載する。原問題のc・dは当時の公式採点どおり全員正解とし、基準・生成問題では訂正後のプログラムに対応する正答を採点する。 [IPAの2009年10月22日付訂正通知](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f3yi-att/topic_20091022.pdf)
 - 疑似言語p.3〜4、E-R図の表記p.5、CASL II p.66〜71、表計算p.72〜74を掲載する。p.68はFRの注記までを抜粋する。JIS X 0201に基づく文字の符号表と規格説明は配布範囲外。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)
+
+### 第3段階 S3-031 2009年度春期・旧午前
+
+2009年4月19日実施。公式は全80問必須で制限時間150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。p.2の共通表記には論理回路記号9種と白丸による反転の注記がある。年度別とミックスに78問を収録する。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html) [試験実施日](https://www.ipa.go.jp/shiken/goukaku/happyobi.html) [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問66は共通フレーム2007とISO/IEC 12207・JIS X 0160系の目的文、問68はRobert C. Campのベンチマーキングの定義に近い表現を含む。再配布・改変条件を確認するまで両問を保留する。問59・80は経済産業省の公開基準と同省の利用規約、問67は四つの契約類型を一次資料で照合した。 [IPAの共通フレーム資料](https://www.ipa.go.jp/archive/digital/iot-en-ci/process/ent02-a.html) [Campらのベンチマーキング解説](https://hbr.org/1987/01/how-to-measure-yourself-against-the-best) [経済産業省の利用規約](https://www.meti.go.jp/main/rules.html) [Federal Acquisition Regulation Part 16](https://www.acquisition.gov/far/part-16)

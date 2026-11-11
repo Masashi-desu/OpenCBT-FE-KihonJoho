@@ -1,0 +1,277 @@
+{
+  "taskId": "S3-031",
+  "scope": "2009-spring-am",
+  "collectionId": "2009h21h-fe-am",
+  "checkedOn": "2026-11-12",
+  "examDate": "2009-04-19",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [
+    2
+  ],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    67,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 66,
+      "sourceId": "source-ipa-2009h21h-fe-am-qs",
+      "checkedOn": "2026-11-12",
+      "reason": "共通フレーム2007の企画とISO/IEC 12207（JIS X 0160）系の品質保証・問題解決・文書化の目的文に近い表現を比較する。規格・書籍の文言の公開Git同梱、ブラウザ再配布・改変の条件を確認できず、保留。",
+      "references": [
+        "https://www.ipa.go.jp/archive/digital/iot-en-ci/process/ent02-a.html",
+        "https://www.ipa.go.jp/archive/files/000004771.pdf",
+        "https://www.jisc.go.jp/qa/a2-1.html"
+      ]
+    },
+    {
+      "number": 68,
+      "sourceId": "source-ipa-2009h21h-fe-am-qs",
+      "checkedOn": "2026-11-12",
+      "reason": "ウの比較対象と評価する三項目の構成がRobert C. Camp（1989年p.10）のベンチマーキング定義に対応する。日本語表現の出典と原定義の再配布・改変条件が確認できず、保留。",
+      "references": [
+        "https://hbr.org/1987/01/how-to-measure-yourself-against-the-best",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3359088/"
+      ]
+    }
+  ],
+  "sourcePreflightSHA256": "10ef01ee2718eead60460a3f004e375780666998c7eafd9379c7fb74b0f956e1",
+  "cropCandidatesSHA256": "b38800b78d5af429e2d7d43d693b5ba87294826e694748a095dbc7d9f6822b3f",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_qs.pdf",
+      "sha256": "d7f9a710ab1d970cb75c30411eec903f529b619bd2aeda964eb01b2b69d0ff7d",
+      "byteLength": 1219073
+    },
+    "answers.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000009bhl-att/2009h21h_fe_am_ans.pdf",
+      "sha256": "d7ccf424f11472b8247bea350a84e83eef4007aa59eb00d1d7de51364f4b2a87",
+      "byteLength": 39526
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html",
+      "sha256": "3685378fe3deec63719de24e185ef1f88a61e7b9c5f52f4cf4506d1a0bb11dcb",
+      "byteLength": 130367
+    },
+    "exam-date.html": {
+      "url": "https://www.ipa.go.jp/shiken/goukaku/happyobi.html",
+      "sha256": "60f95bf54858ce29d4e77130a6d6c6f8c622233a230832b8ccef985c036c2895",
+      "byteLength": 150398
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo/",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "pdl-v1.0.html": {
+      "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+      "sha256": "59d42d8992069d198ce95f824f9be71821a62b8a9f53ee96b20fdbec873876f5",
+      "byteLength": 59078
+    }
+  },
+  "materialFindings": [
+    "全80問の原問番号と正答をIPA冊子及び公式解答例で照合した。",
+    "配布対象は確認済みの78問と論理回路記号・注記の共通表記p.2。",
+    "問59・80の経済産業省資料は別の出典と利用条件を記録する。",
+    "問66・68の紙面、本文、基準、生成器は保留。"
+  ],
+  "referencesByQuestion": {
+    "23": [
+      "osi-osd"
+    ],
+    "59": [
+      "meti-management",
+      "meti-virus",
+      "meti-unauthorized-access",
+      "meti-software",
+      "meti-policy",
+      "meti-pdl"
+    ],
+    "65": [
+      "ipa-common-framework"
+    ],
+    "67": [
+      "far-contract-types",
+      "pmi-contract-types"
+    ],
+    "80": [
+      "meti-unauthorized-access",
+      "meti-policy",
+      "meti-pdl"
+    ]
+  },
+  "references": [
+    {
+      "id": "osi-osd",
+      "publisher": "Open Source Initiative",
+      "title": "The Open Source Definition",
+      "url": "https://opensource.org/osd",
+      "section": "Free Redistribution, Derived Works, No Discrimination, Distribution of License",
+      "scope": "問23の業種、再配布、改変、追加ライセンスの区別を照合する。",
+      "limits": "条項本文やロゴは同梱せず、条件の事実関係を参照する。"
+    },
+    {
+      "id": "meti-management",
+      "publisher": "経済産業省",
+      "title": "システム管理基準 追補版（財務報告に係るIT統制ガイダンス）",
+      "url": "https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf",
+      "section": "平成16年基準の位置付けとIT統制",
+      "scope": "問59の情報システム投資・リスク低減とシステム管理基準の関係。",
+      "limits": "平成16年基準との対応を確認。現行監査への適用は範囲外。"
+    },
+    {
+      "id": "meti-virus",
+      "publisher": "経済産業省",
+      "title": "コンピュータウイルス対策基準",
+      "url": "https://www.meti.go.jp/policy/netsecurity/CvirusCMG.htm",
+      "section": "平成7年通商産業省告示第429号と改定の前文・対策事項",
+      "scope": "問59の予防・発見・駆除・復旧に対応する対象を照合する。",
+      "limits": "当時の基準の対象と選択肢の対応。"
+    },
+    {
+      "id": "meti-unauthorized-access",
+      "publisher": "経済産業省",
+      "title": "コンピュータ不正アクセス対策基準",
+      "url": "https://www.meti.go.jp/policy/netsecurity/UAaccessCMG.htm",
+      "section": "平成8年通商産業省告示第362号と改定の方針・管理・教育",
+      "scope": "問59の予防・発見・再発防止、問80の方針の文書化・研修とアクセス権の管理を照合する。",
+      "limits": "当時の基準を参照する。現在のセキュリティ対策を網羅しない。"
+    },
+    {
+      "id": "meti-software",
+      "publisher": "経済産業省",
+      "title": "ソフトウェア管理ガイドライン",
+      "url": "https://www.meti.go.jp/policy/netsecurity/downloadfiles/softkanri-guide.htm",
+      "section": "平成7年11月15日公表、1 主旨",
+      "scope": "問59のソフトウェアの違法複製防止を目的とする公開資料。",
+      "limits": "設問の範囲で利用し、法令・個別契約に関する判断は扱わない。"
+    },
+    {
+      "id": "meti-policy",
+      "publisher": "経済産業省",
+      "title": "経済産業省ウェブサイトの利用規約",
+      "url": "https://www.meti.go.jp/main/rules.html",
+      "section": "コンテンツの利用とPDL1.0に関する重要事項",
+      "scope": "経済産業省が公表した資料の出典・編集の表示と第三者条件。",
+      "limits": "個別の利用条件と第三者の権利を優先する。"
+    },
+    {
+      "id": "meti-pdl",
+      "publisher": "デジタル庁",
+      "title": "公共データ利用規約（第1.0版）",
+      "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+      "section": "1.1 出典の記載と編集、1.2 第三者の権利",
+      "scope": "出典・改変表示を条件とする複製、公衆送信、翻案。",
+      "limits": "公表主体の個別条件と第三者権利に従う。"
+    },
+    {
+      "id": "ipa-common-framework",
+      "publisher": "独立行政法人情報処理推進機構（IPA）",
+      "title": "共通フレーム2007 第2版の説明資料",
+      "url": "https://www.ipa.go.jp/archive/files/000004771.pdf",
+      "section": "企画プロセスと要件定義プロセス",
+      "scope": "問65のシステム化計画と事業目的の対応を照合する。",
+      "limits": "規格や書籍の目的節、表、図は同梱しない。"
+    },
+    {
+      "id": "far-contract-types",
+      "publisher": "Acquisition.gov",
+      "title": "Federal Acquisition Regulation, Part 16",
+      "url": "https://www.acquisition.gov/far/part-16",
+      "section": "16.202、16.306、16.405、16.601",
+      "scope": "問67の四類型に対する価格・実費・手数料・労務の支払構造を照合する。",
+      "limits": "概念の独立照合用。日本の個別契約への法令適用を示すものではない。"
+    },
+    {
+      "id": "pmi-contract-types",
+      "publisher": "Project Management Institute",
+      "title": "Contracts from the vendor and the buyer point of views",
+      "url": "https://www.pmi.org/learning/library/project-contracts-vendor-buyer-views-7254",
+      "section": "四つのプロジェクト契約の説明",
+      "scope": "2007年の論文で当時の契約類型を照合する。",
+      "limits": "論文の図表・本文は同梱せず、支払構造だけを参照する。"
+    }
+  ]
+}

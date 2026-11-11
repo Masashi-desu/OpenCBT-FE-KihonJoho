@@ -42,6 +42,9 @@ test("every registered series remains reachable in the complete endless publicat
       step = refs.length - 1;
       assert.deepEqual(nextQuestionRef(run), refs[targetIndex]);
       assert.equal(step, 0);
+      // The assertions use our step counter. Retaining every mock call until
+      // the whole pool finishes would keep a quadratic number of call records.
+      mock.mock.resetCalls();
     }
     mock.mock.restore();
     assert.deepEqual(run.set.questionRefs, refs);
