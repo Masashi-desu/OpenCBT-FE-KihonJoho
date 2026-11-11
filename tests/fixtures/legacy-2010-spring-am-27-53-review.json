@@ -1,0 +1,1143 @@
+{
+  "task": "S3-027",
+  "scope": "2010-spring-am",
+  "group": "27-53",
+  "checkedOn": "2026-11-11",
+  "source": {
+    "questionSHA256": "83f75d4b57cbc9f6c898a402852800e7b49bb86f38586b06dd15ab9220482833",
+    "answerSHA256": "2f0f20b2e67f711f0b395b531db7780b81c95ff5d74db5d19c3249f25a05d571",
+    "rootBookletPreflightSHA256": "21ac944ff0c69d2cccd08c4d209f6b2d42b24bd25811717e80db7a40e3324dac"
+  },
+  "rights": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+    "policy": "https://www.ipa.go.jp/shiken/faq.html",
+    "sitePolicy": "https://www.ipa.go.jp/siteinfo.html",
+    "scope": "IPA公表過去問の教育利用として、原問のGit同梱・ブラウザ表示と公式解答の利用を確認。年度・期・試験区分・午前・原問番号・頁を表示。基準と生成版は出典・改変を表示し、独自作図・解説の権利を区別する。",
+    "thirdParty": "問35はADSLの技術、問38はIP範囲の数値、問47・49はUMLの一般名称、問52は品質特性の用語として査読。規格本文・第三者図版は使用しない。"
+  },
+  "heldNumbers": [],
+  "verification": {
+    "conditions": 106,
+    "evaluatedOptions": 424,
+    "tests": 29,
+    "strictTypeScript": "pass",
+    "publicBlockSchema": "pass",
+    "figures": 11,
+    "figureStates": 42,
+    "viewportThemeChecks": 168
+  },
+  "questions": [
+    {
+      "number": 27,
+      "sourceId": "2010h22h-fe-am-27",
+      "title": "アウトラインフォントの利用場面",
+      "physicalPage": 13,
+      "printedPage": 13,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "一般的なアウトライン／ビットマップの用途。外部フォントの字形や図版を含まない。OpenType文書は技術事実の参照のみ。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=13",
+        "https://learn.microsoft.com/en-gb/typography/opentype/spec/ttch01"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 アウトライン／ビットマップを比較し，字形データと表示条件に依存する利用場面を選ぶ。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "任意の倍率で文字を拡大して表示する。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "1種類の低解像度の画面で12ピクセルの文字だけを表示し，1画素ずつ字形を調整する。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 1,
+          "answer": "紙の小見出しから大型ポスターまで，輪郭の形を保ったまま任意の倍率で同じ文字を使う。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "回転や拡大を行い，高解像度の印刷データに文字を合成する。"
+        }
+      ]
+    },
+    {
+      "number": 28,
+      "sourceId": "2010h22h-fe-am-28",
+      "title": "画像処理技術",
+      "physicalPage": 13,
+      "printedPage": 13,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=13"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 説明から技法名を選び，4技法を処理対象によって区別する。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "テクスチャマッピング"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "アンチエイリアシング"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "ブレンディング"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "レイトレーシング"
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "sourceId": "2010h22h-fe-am-29",
+      "title": "データベースのデータモデル",
+      "physicalPage": 13,
+      "printedPage": 13,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=13"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原選択肢の表，木，網，転置索引を別の対象として問う。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "データを表として表現する。表間は相互の表中の列の値を用いて関連付けられる。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "属性単位に，属性値とその値をもつレコード格納位置を組にして表現する。索引として利用される。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "レコード間の関係を，ポインタを用いたデータ構造で表現する。木構造の表現に制限される。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "レコード間の関係を，リンクを用いたデータ構造で表現する。木構造や網構造も表現できる。"
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "sourceId": "2010h22h-fe-am-30",
+      "title": "発注伝票の第3正規形",
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "設問用の発注伝票・二表の候補と主キーを表す下線。外部の帳票や事業者データの出所表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=14"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 二表の組を選ぶ形式，属性順，複合主キーの下線を保持。片方のキーから決まる属性と複合キーから決まる属性を区別する。",
+      "format": "分解前の表と4候補の2行を保持。各列の下線が示す主キーと複合キーの列順を原問と照合。",
+      "method": "複合キー両列が繰り返し現れる元表から候補の各射影を生成し，主キーの一意性，関数従属性，候補を結合して元表が復元するかを全択で照合。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 2,
+          "answer": "発注（注文番号，商品番号，注文数量）。主キーの下線：注文番号，商品番号。\n商品（商品番号，商品名）。主キーの下線：商品番号。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 2,
+          "answer": "教材利用明細（講座番号，教材番号，必要部数）。主キーの下線：講座番号，教材番号。\n講座（講座番号，講座名）。主キーの下線：講座番号。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "貸出明細（貸出番号，資料番号，貸出冊数）。主キーの下線：貸出番号，資料番号。\n資料（資料番号，資料名）。主キーの下線：資料番号。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "検査明細（検査番号，部品番号，検査数）。主キーの下線：検査番号，部品番号。\n検査（検査番号，検査場所）。主キーの下線：検査番号。"
+        }
+      ]
+    },
+    {
+      "number": 31,
+      "sourceId": "2010h22h-fe-am-31",
+      "title": "NOT INと相関副問合せ",
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "設問用の商品表・在庫表とSQL例。SQL規格本文や他者の実データを転載した表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=14",
+        "https://www.sqlite.org/lang_expr.html#the_in_and_not_in_operators",
+        "https://www.postgresql.org/docs/current/functions-subquery.html#FUNCTIONS-SUBQUERY-NOTIN"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 主キーの下線，SQLの継続行，外側表と相関の有無を維持。原画像のSQLは原文のまま，基準・生成ではNULLを含まない前提を本文に明示する。",
+      "format": "商品表・在庫表の主キー表示，基準SQLと4択の継続行。原問題の前提と基準で可視化した前提を区別。",
+      "method": "SQLiteで基準・全候補を同じデータに実行。照合先の空集合，重複，同じ集合，部分一致を含む。原問のNULL反例ではNOT INが行を返さずNOT EXISTSが返すことを確認。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "SELECT 商品番号 FROM 商品\n    WHERE NOT EXISTS (SELECT 商品番号 FROM 在庫\n                      WHERE 商品.商品番号 = 在庫.商品番号)"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 2,
+          "answer": "SELECT 車両番号 FROM 車両\n    WHERE EXISTS (SELECT 車両番号 FROM 点検\n                  WHERE 車両.車両番号 = 点検.車両番号)"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 3,
+          "answer": "SELECT 書籍番号 FROM 書籍\n    WHERE NOT EXISTS (SELECT 書籍番号 FROM 予約\n                      WHERE 書籍.書籍番号 = 予約.書籍番号)"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "SELECT 設備番号 FROM 設備\n    WHERE EXISTS (SELECT 設備番号 FROM 修繕\n                  WHERE 設備.設備番号 = 修繕.設備番号)"
+        }
+      ]
+    },
+    {
+      "number": 32,
+      "sourceId": "2010h22h-fe-am-32",
+      "title": "DBMSの排他制御",
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=15"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 同時更新，認可，秘匿，障害後復旧の目的を区別。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 2,
+          "answer": "排他制御"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "アクセス権限"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 1,
+          "answer": "機密保護"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "リカバリ制御"
+        }
+      ]
+    },
+    {
+      "number": 33,
+      "sourceId": "2010h22h-fe-am-33",
+      "title": "データウェアハウスの用途",
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=15"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 分析用蓄積，企業横断管理，メタデータ，項目対応の役割を切り替える。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "データウェアハウス"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "データアドミニストレーション"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "データディクショナリ"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "データマッピング"
+        }
+      ]
+    },
+    {
+      "number": 34,
+      "sourceId": "2010h22h-fe-am-34",
+      "title": "回線と処理時間から応答時間を計算",
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "設問用の回線速度・効率・電文長・処理時間の条件表。外部実測資料や他者の表の転載表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=15"
+      ],
+      "choiceOrderReview": "秒数の昇順",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原表の単位と上下方向，回線効率，送受信を合わせた処理時間と距離遅延の除外，選択肢の昇順を保持。",
+      "format": "5行の条件表，上り・下り，MビットとMバイトの区別，送信受信の合計，距離遅延の除外，小数1桁と昇順。",
+      "method": "条件表から上下のデータ長と2種類の処理時間を読み，8倍の単位換算と速度・効率を用いた整数分数の等式で全選択肢を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "5.8"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 2,
+          "answer": "6.7"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "6.0"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "8.4"
+        }
+      ]
+    },
+    {
+      "number": 35,
+      "sourceId": "2010h22h-fe-am-35",
+      "title": "ADSLの宅内接続機器",
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "設問用の宅内4機器と電話回線の簡略図。ITU-T G.992.1を事実照合に参照。同資料の局側機器、インタフェース記号を含む参照モデル図を再掲していない。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=16",
+        "https://www.itu.int/rec/T-REC-G.992.1-199907-I"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 利用者宅内の枠と装置A，端末2系統と外部回線，4装置名を保ち，回線方式と装置の役割を変更する。",
+      "format": "宅内枠，2系統，装置A，宅外の配線を保ち，本文の方式と図中のラベルを連動。",
+      "method": "各図の配線と本文の役割を読み，分波，ISDN端末の接続，アナログ発呼とルーティング，Ethernetの集線の独立対応で全択を確認。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 0,
+          "answer": "スプリッタ"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "ターミナルアダプタ"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "ダイヤルアップルータ"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "ハブ"
+        }
+      ]
+    },
+    {
+      "number": 36,
+      "sourceId": "2010h22h-fe-am-36",
+      "title": "ルータのNAT機能",
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=16",
+        "https://www.rfc-editor.org/rfc/rfc3022"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 NATのアドレス変換，キャッシュ，パターン検知，通過制御の役割を切り替える。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "プライベートIPアドレスとグローバルIPアドレスを相互に変換する機能である。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "取得済みのWeb応答を保存し，同じ資源への後続の要求に，保存した応答を再利用する。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 1,
+          "answer": "通信中のIPパケットから，既知の攻撃に対応する特定のビットパターンを検出する。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "宛先IPアドレスが通過条件に一致したパケットだけを通す。"
+        }
+      ]
+    },
+    {
+      "number": 37,
+      "sourceId": "2010h22h-fe-am-37",
+      "title": "TCP/IPの時刻同期プロトコル",
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=16",
+        "https://www.rfc-editor.org/rfc/rfc1305",
+        "https://www.rfc-editor.org/rfc/rfc3550"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 FTP，NNTP，NTP，RTPの目的を同じプロトコル名の選択肢で比較。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 2,
+          "answer": "NTP"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "FTP"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 1,
+          "answer": "NNTP"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "RTP"
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "sourceId": "2010h22h-fe-am-38",
+      "title": "クラス別のプライベートIPv4アドレス",
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "私用IPv4の割当て範囲という技術上の数値を出題したもの。RFC本文・表の再掲は確認できなかった。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=17",
+        "https://www.rfc-editor.org/rfc/rfc1918"
+      ],
+      "choiceOrderReview": "IP範囲の先頭値の昇順",
+      "version": "3.7.0",
+      "conditionCount": 3,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 クラスフルな原形式と範囲の昇順を保ち，問うクラスを変更する。RFC 1918の予約3ブロック。",
+      "format": "原問のクラスフル表現とIPv4範囲の昇順を保持。RFC 1918の指定は3種類で有限。",
+      "method": "RFC 1918の開始値とプレフィックスから32ビット区間を構成し，4候補の先頭・末尾を検査。128/8は候補に残すがRFC 1918に含めない。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "192.168.0.0 ～ 192.168.255.255"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "10.0.0.0 ～ 10.255.255.255"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "172.16.0.0 ～ 172.31.255.255"
+        }
+      ]
+    },
+    {
+      "number": 39,
+      "sourceId": "2010h22h-fe-am-39",
+      "title": "Webサーバと外部プログラムをつなぐ仕組み",
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=17",
+        "https://www.rfc-editor.org/rfc/rfc3875"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 外部プログラムの呼出し，文書構造，コンテンツ種別，資源の場所の区別。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 0,
+          "answer": "CGI"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "HTML"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "MIME"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "URL"
+        }
+      ]
+    },
+    {
+      "number": 40,
+      "sourceId": "2010h22h-fe-am-40",
+      "title": "ディジタル署名で確認できること",
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=17",
+        "https://csrc.nist.gov/pubs/fips/186-5/final"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 署名，暗号化，メッセージ識別の確認範囲を切り替える。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 2,
+          "answer": "メッセージが，改ざんされていないこと"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "転送経路の第三者が本文の平文を読めないようにできる。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "メッセージ識別子を使い，すでに処理した同一メッセージの再受信を識別できる。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 0,
+          "answer": "署名者が署名した対象の内容が変わっていないことを，対応する公開鍵で確認できる。"
+        }
+      ]
+    },
+    {
+      "number": 41,
+      "sourceId": "2010h22h-fe-am-41",
+      "title": "パスワードの候補総数",
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "設問用の記号M・n及び組合せの数学式。第三者の図や本文の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=17"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 文字種類M・文字数nのまま4式の表現を保つ。再使用及び同一性の条件を本文に明示して計数を切り替える。",
+      "format": "M・nの式を選ぶ原形式，指数と3種の分数，順序と再使用の条件。既存KaTeXと代替テキストで確認。",
+      "method": "複数のMとnで全桁の文字列を列挙し，重複を排除する場合と順序を同一視する場合の集合を別方式で求め，4式を比較。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 0,
+          "answer": "Mⁿ"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "M!／(M−n)!"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "M!／(n! (M−n)!)"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "(M＋n−1)!／(n! (M−1)!)"
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "sourceId": "2010h22h-fe-am-42",
+      "title": "公開鍵暗号方式の特徴",
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=18"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 方式の説明を選ぶ形式を保ち，共通鍵・公開鍵・ハイブリッドの対象を切り替える。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "RSAや楕円曲線暗号などの暗号方式がある。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "AESによる暗号化と復号に同じ秘密の鍵を使う。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "本文を共通鍵で暗号化し，共通鍵を公開鍵方式で暗号化して配送する。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 1,
+          "answer": "RSAを利用し，受信者の公開鍵で暗号化したデータを受信者の秘密鍵で復号する。"
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "sourceId": "2010h22h-fe-am-43",
+      "title": "8進数で設定する独立なファイル権限",
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "試験のための架空OSと3ビットの試行結果。POSIXのビット割当てを前提としていない。規格本文・製品の図表を使用しない。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=18"
+      ],
+      "choiceOrderReview": "設定する8進値の昇順",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 0～7の独立3ビット，試行0・中間・7，読取り・書込み・実行と4選択肢の数値順を保つ。POSIXの割当は前提としない。",
+      "format": "原問の0～7の8進数，三つの試行，3種の権限，選択肢の昇順を保持。",
+      "method": "各権限へのビットの全6割当てを試行結果で絞り，残る2割当てで常に成り立つ候補を選ぶ。POSIXの慣例は使わない。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "4を設定すると，実行だけができる。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "2を設定すると，実行だけができる。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 3,
+          "answer": "6を設定すると，読取りと書込みができる。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "5を設定すると，書込みと実行ができる。"
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "sourceId": "2010h22h-fe-am-44",
+      "title": "WAFを利用する目的",
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=18",
+        "https://www.ipa.go.jp/security/vuln/websecurity/sitecheck.html"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 WAF，マルウェア駆除，開発時テスト，パッチ適用を区別。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 0,
+          "answer": "Webサーバ及びアプリケーションに起因する脆弱性への攻撃を遮断する。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "Webサーバ内でワームの侵入を検知し，ワームの自動駆除を行う。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "Webサーバのコンテンツ開発の結合テスト時にアプリケーションの脆弱性や不整合を検知する。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "Webサーバのセキュリティホールを発見し，OSのセキュリティパッチを適用する。"
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "sourceId": "2010h22h-fe-am-45",
+      "title": "DFDの図形が表す要素",
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPA設問用のDFD記号と接続例。個別の出版物や規格図版の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=19"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原資料の記号と矢印経路を保ち，本文で対象記号を変える。四角を問う条件では外部実体を選択肢に含める。",
+      "format": "四角，三つの円，平行線，五つの矢印のDFDを保持し，尋ねる記号を変える。",
+      "method": "図の全経路と対象記号を照合。プロセス，データストア，データフロー，外部実体を意味と対応。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "プロセス"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "データストア"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "データフロー"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 0,
+          "answer": "外部実体"
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "sourceId": "2010h22h-fe-am-46",
+      "title": "発注と納品のE-R図の解釈",
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPA設問用のE-R表記法と発注・納品モデル。外部の規格図版・事業者のデータモデルの転載表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=20"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 3,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原資料の二つの表記法と6実体8関係を保持し，仕入先・発注・明細の接続端の多重度を変更する。",
+      "format": "表記法の2例と6実体8関係。関係の端に付く多重度と上下左右の接続を保持。",
+      "method": "実際の図の8辺の代替テキストを解析し，発注・商品・仕入先・明細の両端の多重度を方向別に判定。選択肢ア・ウ・エが別の条件で正答。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 2,
+          "answer": "一つの発注で複数の仕入先に発注することはない。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "同一の商品は一つの仕入先から仕入れている。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 3,
+          "answer": "一つの発注で複数の商品を発注することはない。"
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "sourceId": "2010h22h-fe-am-47",
+      "title": "オブジェクト指向のクラス間の関係",
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "オブジェクト指向・UMLの用語と一般的な例示。OMGの規格本文・図版の再録表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=20",
+        "https://www.omg.org/spec/UML/2.5.1/PDF"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 クラス間の関係について説明を選ぶ形式を保ち，関係の種類を切り替える。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "サブクラスではスーパクラスの操作を再定義することができる。"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "三つ以上のクラスが参加する多項関連を定義できる。"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 3,
+          "answer": "全体を構成する部品との関係を表す。"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 1,
+          "answer": "上位クラスの性質を受け継ぐ下位クラスの関係を表す。"
+        }
+      ]
+    },
+    {
+      "number": 48,
+      "sourceId": "2010h22h-fe-am-48",
+      "title": "状態遷移図が適するシステム",
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=21"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 状態・イベントが必要なシステムと，集計・記録・料金計算中心のシステムを比較。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "設置したセンサの情報から，温室内の環境を最適に保つ温室制御システム"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "センサとタイマによって開閉を制御する自動ドア"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "投入額や選択操作に応じて購入・取消しに移る券売機"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 1,
+          "answer": "停止・移動・開扉を切り替えるエレベータの制御システム"
+        }
+      ]
+    },
+    {
+      "number": 49,
+      "sourceId": "2010h22h-fe-am-49",
+      "title": "プログラムと設計の変換",
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "UMLの名称を用いて変換の方向を尋ねる。OMG文書の本文・図版を含まない。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=21",
+        "https://www.omg.org/spec/UML"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 モデルと実装の向き，既存資産の再構築，探索処理を区別。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "リバースエンジニアリング"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "フォワードエンジニアリング"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "リエンジニアリング"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 0,
+          "answer": "バックトラッキング"
+        }
+      ]
+    },
+    {
+      "number": 50,
+      "sourceId": "2010h22h-fe-am-50",
+      "title": "プロトタイプの必要作成回数",
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問文と四択。第三者出典・規格本文・外部素材の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=21"
+      ],
+      "choiceOrderReview": "回数の昇順",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 その時点の未確定仕様に毎回同じ割合が適用される。1～4回の原選択肢を昇順で固定し，ちょうど目標に達する条件も含める。",
+      "format": "開始時点の未確定部分に対する確定目標と，毎回その時点で未確定の部分に掛ける割合，回数1～4。",
+      "method": "各回の残りの割合をBigIntの比で比較し，初めて閾値に達する回数を全択評価。目標とちょうど等しい境界を含む。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 3,
+          "answer": "4"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "1"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 1,
+          "answer": "2"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 2,
+          "answer": "3"
+        }
+      ]
+    },
+    {
+      "number": 51,
+      "sourceId": "2010h22h-fe-am-51",
+      "title": "作業Eの短縮とプロジェクトの最短日数",
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "イ",
+      "officialArea": "management",
+      "materialReview": "IPA設問用の9作業と所要日数、凡例。外部案件の工程表や第三者図版の引用表示なし。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=22"
+      ],
+      "choiceOrderReview": "短縮日数の昇順",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 9作業と分岐・合流，Eの日数短縮前後，作業名と日数の凡例，短縮日数0～3の昇順を保持。",
+      "format": "9作業の向きと接続，合流，短縮対象E，作業名と所要日数の凡例，短縮0～3日。",
+      "method": "図に示した全3経路を独立列挙し，短縮前後の最長経路差を全選択肢と比較。公式例は20日から19日。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 1,
+          "answer": "1"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 0,
+          "answer": "0（短縮できない）"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "2"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "3"
+        }
+      ]
+    },
+    {
+      "number": 52,
+      "sourceId": "2010h22h-fe-am-52",
+      "title": "ソフトウェア品質特性",
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "ア",
+      "officialArea": "management",
+      "materialReview": "ソフトウェア品質特性の4名称と短い適用場面。規格名・条項・引用表示なし。ISO/IEC 9126-1の公式概要を歴史的背景の確認に参照し、規格本文・表は収録しない。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=22",
+        "https://www.iso.org/standard/22749.html"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 2010年の紙面の4名称を保ち，異なる利用場面を提示。現行品質モデルの再分類や規格本文の引用は行わない。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 0,
+          "answer": "移植性（Portability）"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "使用性（Usability）"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "相互運用性（Interoperability）"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "変更性（Changeability）"
+        }
+      ]
+    },
+    {
+      "number": 53,
+      "sourceId": "2010h22h-fe-am-53",
+      "title": "Wake on LANを利用する場面",
+      "physicalPage": 23,
+      "printedPage": 23,
+      "officialAnswer": "ア",
+      "officialArea": "management",
+      "materialReview": "Wake on LANの一般名称と試験用の利用場面。製品名、第三者資料の図表及び実データを含まない。",
+      "materialSources": [
+        "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf#page=23",
+        "https://learn.microsoft.com/en-au/mem/configmgr/core/clients/deploy/plan/plan-wake-up-clients"
+      ],
+      "choiceOrderReview": "紙面のア・イ・ウ・エと選択欄の順を一致させる。",
+      "version": "3.7.0",
+      "conditionCount": 4,
+      "reviewNotes": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 LAN起動と，動作異常・ネットワーク負荷・攻撃の監視を区別。",
+      "format": "原問と同じ問いの方向と4選択肢を保持。対象・状況を本文に表示。",
+      "method": "固定した独立の四択の意味対応を本文の条件ごとに照合し，正答の一意性を検査。",
+      "evaluated": [
+        {
+          "condition": 0,
+          "correctIndex": 0,
+          "answer": "遠隔地にあるPCのソフトウェア保守"
+        },
+        {
+          "condition": 1,
+          "correctIndex": 1,
+          "answer": "システム誤動作の検知"
+        },
+        {
+          "condition": 2,
+          "correctIndex": 2,
+          "answer": "トラフィック状況の管理"
+        },
+        {
+          "condition": 3,
+          "correctIndex": 3,
+          "answer": "不正アクセスの監視"
+        }
+      ]
+    }
+  ]
+}

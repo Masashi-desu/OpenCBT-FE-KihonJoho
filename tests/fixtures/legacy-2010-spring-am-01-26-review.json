@@ -1,0 +1,277 @@
+{
+  "scope": "S3-027 問1〜26",
+  "collectionId": "2010h22h-fe-am",
+  "sourcePreflightSha256": "21ac944ff0c69d2cccd08c4d209f6b2d42b24bd25811717e80db7a40e3324dac",
+  "rightsBasis": "IPA試験FAQの教育目的，年度・期・試験区分・時間区分・問番号の出典表示，改変明記を確認。独自解説と公式素材の条件を区別。",
+  "heldNumbers": [],
+  "commonReferenceNumbers": [
+    23,
+    26
+  ],
+  "terminologySources": [
+    "https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/applet_dev_guide.html",
+    "https://docs.oracle.com/cd/E19798-01/821-1841/bnafd/index.html"
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "officialAnswer": "ア",
+      "printedPage": 3,
+      "physicalPage": 3,
+      "independentReview": "各16進数字を256倍の整数へ展開し，全式の2のべき乗6項の256倍と比較。",
+      "qualityReview": "原2A.4Cは2⁵＋2³＋2¹＋2⁻²＋2⁻⁵＋2⁻⁶。4条件で整数部と小数部を各2けた，べき乗は整数側3項・小数側3項。両側の桁位置のずれを誤答にし，丸めなし。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 2,
+      "officialAnswer": "ウ",
+      "printedPage": 3,
+      "physicalPage": 3,
+      "independentReview": "全候補の行からAND・ORを復元し，X・Yの4行の観測値と照合。",
+      "qualityReview": "00，01，10，11の順，XとのANDとOR，表4択を保持。原問は1101。真理値の表は解答前に表示する。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 3,
+      "officialAnswer": "ウ",
+      "printedPage": 4,
+      "physicalPage": 4,
+      "independentReview": "表示された逆ポーランド表記をスタックで処理し，全符号付き整数候補を照合。",
+      "qualityReview": "A〜Eは各1けた，演算子4個で除算は割り切れる値。原問は(1＋3)×(5－4÷2)＝12。減算の逆順，乗算を忘れる，括弧を誤る候補。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 4,
+      "officialAnswer": "ア",
+      "printedPage": 4,
+      "physicalPage": 4,
+      "independentReview": "出力の観測・外乱の実測・予測・事前設定を査読した四分類と照合。",
+      "qualityReview": "フィードバックの出力補正を，外乱を先に把握する補正と区別。派生は判別に必要な観測条件を本文に明記。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 5,
+      "officialAnswer": "ウ",
+      "printedPage": 4,
+      "physicalPage": 4,
+      "independentReview": "次・前ポインタの表示表からリンクを復元。挿入後の全6既存セルを差分比較。",
+      "qualityReview": "行順とリンク順を区別し，0は端を表す。原問はAの次aとKの前f。新しい社員Gのx,yを比較から除く原問の範囲。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 6,
+      "officialAnswer": "イ",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "衝突最小化と独立試行の件数分布を査読した分類で全択照合。",
+      "qualityReview": "原問は同じ個数の位置を比較し，確率の二乗和が一様で最小。派生は厳密な二項分布，連続の正規近似，希少事象のポアソン近似。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 7,
+      "officialAnswer": "イ",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "Oracleの旧Java配備資料とJava EE資料で実行場所・VM・コンテナの要否を照合。",
+      "qualityReview": "原問は独立実行のJavaアプリケーション。派生のアプレットは2010年当時の対応するブラウザを明記。規格文や資料図は転載しない。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。本文中の固有名詞は試験設問の用語。外部マニュアルの図・本文は転載しない。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 8,
+      "officialAnswer": "ウ",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "処理中の再呼出し，自己呼出し，終了後再使用，配置変更の四機能を照合。",
+      "qualityReview": "同一性質を別の言葉で重複選択肢にしない。原問は再入可能。再帰・再使用・再配置は別の観測条件に結び付ける。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 9,
+      "officialAnswer": "イ",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "命令群ごとに実クロック数を整数で加え，小数1桁の全候補を整数式で判定。",
+      "qualityReview": "3種の演算，％，GHz→ミリ秒。原問は280万サイクル，1GHzで2.8ミリ秒。選択肢は小数1桁の昇順を維持。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 10,
+      "officialAnswer": "イ",
+      "printedPage": 6,
+      "physicalPage": 6,
+      "independentReview": "100回のアクセスをヒットとミスへ振り分け，二つのCPUの総時間を各候補で比較。",
+      "qualityReview": "原図のCPU内256kと主記憶256M，ナノ秒の表，アクセス時間以外の条件が同じ，CPU処理以外の影響なし。原問は0.90。4条件は元の候補精度0.01。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 11,
+      "officialAnswer": "ウ",
+      "printedPage": 6,
+      "physicalPage": 6,
+      "independentReview": "命令配置，データ配置，広く均等に参照する場合を査読した四分類で照合。",
+      "qualityReview": "原問の命令キャッシュは頻繁に実行する処理をまとめる。派生は参照する対象を命令とデータの別々の条件に結び付ける。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 12,
+      "officialAnswer": "ウ",
+      "printedPage": 6,
+      "physicalPage": 6,
+      "independentReview": "半回転を表す分数により，全整数候補の正確な丸め距離を比較。",
+      "qualityReview": "位置決め時間＋平均回転待ちのみ。原は5＋30000/4200＝約12ms。各候補を整数昇順とし，半回転と転送時間を区別。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 13,
+      "officialAnswer": "エ",
+      "printedPage": 7,
+      "physicalPage": 7,
+      "independentReview": "電子ビーム，液晶の光変調，気体放電，有機材料の自発光を区別。",
+      "qualityReview": "元は有機EL。CRTとプラズマも自発光し得るため，原問の発光ダイオード条件を維持。派生も機構を限定。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 14,
+      "officialAnswer": "ア",
+      "printedPage": 7,
+      "physicalPage": 7,
+      "independentReview": "各選択図の役割とネットワーク／直接接続を読み取り，本文の条件に対して全図を判定。",
+      "qualityReview": "原の3層はクライアント，AP，DBを各別役割で実装する。元の四図のバスと中継を保持。派生は2ネットワーク又は専用直結を明記し，単に三役があるだけでは一意にならない場面を防ぐ。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 15,
+      "officialAnswer": "ウ",
+      "printedPage": 7,
+      "physicalPage": 7,
+      "independentReview": "CPU・入出力・待ち時間の実値から完了時刻を作り，全関係式を三つの例で比較。",
+      "qualityReview": "他のオーバヘッドなし。原問の答えは待ち時間＝ターンアラウンド－CPU－入出力。派生では求める時間を変え，符号の一意性を照合。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 16,
+      "officialAnswer": "エ",
+      "printedPage": 8,
+      "physicalPage": 8,
+      "independentReview": "四つの構成の全稼働状態を列挙し，個別装置の稼働確率を組み合わせて順位を決定。",
+      "qualityReview": "並列は少なくとも一方。原r=0.9の順はイ0.99，エ0.9801，ウ0.9639，ア0.81。派生は稼働率と順位を変え，原と同じ4種の構成図。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 17,
+      "officialAnswer": "イ",
+      "printedPage": 8,
+      "physicalPage": 8,
+      "independentReview": "全候補について提示台数の秒当たり能力と，1台減らしたときに不足することを判定。",
+      "qualityReview": "CPUは十分短く装置に均等アクセス。原は20件/秒×4回×40ms＝3200ms分なので最低4台。整数昇順の候補。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 18,
+      "officialAnswer": "イ",
+      "printedPage": 8,
+      "physicalPage": 8,
+      "independentReview": "締切に間に合う制御と，保護・平均スループット・並行動作を区別。",
+      "qualityReview": "用途を四場面で変える。原選択肢のリアルタイムOSを採用する理由は各場面で定義上同じため，正答を固定。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "fixed"
+    },
+    {
+      "number": 19,
+      "officialAnswer": "ア",
+      "printedPage": 9,
+      "physicalPage": 9,
+      "independentReview": "出力データの一時保管，プロセスの退避，レコードの集約，固定長ページを四分類。",
+      "qualityReview": "原問は低速出力と補助記憶のスプーリング。派生は対象と単位を明示し，ブロッキングの意味を転送単位の文脈に限定。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 20,
+      "officialAnswer": "ウ",
+      "printedPage": 9,
+      "physicalPage": 9,
+      "independentReview": "主記憶にあるページと追い出されるページの参照条件を確認し，全記述を判定。",
+      "qualityReview": "原問は主記憶不足でフォールトが多発する。派生は増設後の保持，追出しの反復，小さな作業集合を別々に問う。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 21,
+      "officialAnswer": "ウ",
+      "printedPage": 9,
+      "physicalPage": 9,
+      "independentReview": "利用者領域，プロセスの作業ディレクトリ，ルート，構成されたデスクトップを照合。",
+      "qualityReview": "原問の一般利用者の保存階層はホーム。派生は相対・絶対の起点とデスクトップ格納先の条件を明記。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。本文中の固有名詞は試験設問の用語。外部マニュアルの図・本文は転載しない。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 22,
+      "officialAnswer": "エ",
+      "printedPage": 10,
+      "physicalPage": 10,
+      "independentReview": "実際の3アドレス命令を独立実行し，＊／＋－の原優先順位で解析した全候補と照合。",
+      "qualityReview": "op(a,b,c)の第3オペランドは格納先。5行の中間w1〜w4とxを保持。優先順位は設問の＊＞／＞＋＞－を使い，言語既定値に委ねない。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 23,
+      "officialAnswer": "ウ",
+      "printedPage": 11,
+      "physicalPage": 11,
+      "independentReview": "16進数を8ビットへ展開し，P0〜P7の各ビットをLEDの点灯・消灯に照合。",
+      "qualityReview": "P0最下位，P7最上位，1で点灯。8本の抵抗と接地，凡例と点灯形状4択，冊子p.2の回路記号を保持。原6Dはa,c,d,f,g点灯。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。冊子p.2の共通記号はIPAの試験紙面と照合。共通資料の出典・原画像の登録はルート担当。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 24,
+      "officialAnswer": "ウ",
+      "printedPage": 11,
+      "physicalPage": 11,
+      "independentReview": "電気的な書込み・消去，紫外線消去，周期リフレッシュ，一回書込みの四分類。",
+      "qualityReview": "フラッシュは一括又はブロック単位で電気的に消去。派生は原の説明候補に対応するデバイス名を本文で選ぶ。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 25,
+      "officialAnswer": "エ",
+      "printedPage": 12,
+      "physicalPage": 12,
+      "independentReview": "二安定状態，論理積，加算，電荷の四機能を名称に対応させて照合。",
+      "qualityReview": "原問はSRAMの記憶セルを構成するフリップフロップ。派生は組合せ回路の二機能とDRAMの蓄電を区別。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 26,
+      "officialAnswer": "ウ",
+      "printedPage": 12,
+      "physicalPage": 12,
+      "independentReview": "各回路の分岐・NOT2個・各段を全入力00,01,10,11で独立評価。",
+      "qualityReview": "原ア0000，イ1111，ウ1001，エ0110。4条件で一致，不一致，両方0，両方1を判定し，四図と冊子p.2の論理記号を保持。",
+      "materialReview": "公式紙面で転載表示，第三者の図版・写真・原表の有無を確認し，該当なし。図表・数式・命令列は出題用の素材。派生の図表は自己描画し，改変表示を付ける。冊子p.2の共通記号はIPAの試験紙面と照合。共通資料の出典・原画像の登録はルート担当。",
+      "answerVariation": "variable"
+    }
+  ]
+}

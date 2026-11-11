@@ -506,3 +506,11 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 - 問6は出題当時の経済産業分野の個人情報保護ガイドラインと設問の前提に基づく。p.26〜29の設例と表を照合した。[消費者庁の平成21年度施行状況](https://www.ppc.go.jp/files/pdf/personal_sekou_21caa.pdf#page=5)・[著作権法第13条](https://laws.e-gov.go.jp/law/345AC0000000048#Mp-At_13)
 - 共通疑似言語p.3〜4、CASL II p.75〜80、表計算p.81〜83を確認した。p.77は命令・注記までの上部抜粋。JIS X 0201の文字コード表は配布範囲外とする。[日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)
 - 問11のJava API付録p.72〜74は配布範囲外。必要な動作を原典で照合し、補足を独自に記述した。[LinkedList](https://docs.oracle.com/javase/6/docs/api/java/util/LinkedList.html)・[Map](https://docs.oracle.com/javase/6/docs/api/java/util/Map.html)・[HashMap](https://docs.oracle.com/javase/6/docs/api/java/util/HashMap.html)・[Object](https://docs.oracle.com/javase/6/docs/api/java/lang/Object.html)
+
+### 第3段階 S3-027 2010年度春期・旧午前
+
+2010年4月18日実施。公式は全80問必須で制限時間150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。共通の論理回路と回路記号はp.2、問題はp.3〜35。年度別オリジナルとランダムミックスに78問を収録する。 [IPA 問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf) [解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_ans.pdf) [試験実施日](https://www.ipa.go.jp/shiken/goukaku/happyobi.html) [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問31は紙面と公式解答を収録する。解説では在庫側の商品番号がNULLの場合の反例を示し、基準問題・生成問題には照合先の列がNULLを含まない条件を明記する。
+
+問62はHammerとChampyによるBPRの定義に近い表現、問80はJIS Q 27001:2006の手順表現を含む。公開Gitへの同梱・ブラウザ配布の条件を確認できるまで、問番号と理由を台帳に残す。 [BPR原著書誌](https://www.ncbi.nlm.nih.gov/nlmcatalog/100941034) [定義を参照したWileyの公開抜粋](https://catalogimages.wiley.com/images/db/pdf/9781786304421.excerpt.pdf#page=11) [日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)

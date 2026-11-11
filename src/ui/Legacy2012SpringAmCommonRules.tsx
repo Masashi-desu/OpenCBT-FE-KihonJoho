@@ -8,9 +8,11 @@ const circuitPaths = {
   ground: 'M55 4V21M32 21H76M41 21L33 39M54 21L46 39M67 21L59 39',
 } as const;
 
-export function Legacy2012SpringAmCommonRules({ values, caption }: { values: readonly number[]; caption: string }) {
+export function Legacy2012SpringAmCommonRules({
+  values, caption, collection = '2012h24h-fe-am',
+}: { values: readonly number[]; caption: string; collection?: '2010h22h-fe-am' | '2012h24h-fe-am' }) {
   if (values.length !== 1 || values[0] !== 0) throw Error('AM_COMMON_PROFILE');
-  return <section className="legacy2017-autumn-am-common" data-common-reference="2012h24h-fe-am-p2">
+  return <section className="legacy2017-autumn-am-common" data-common-reference={`${collection}-p2`}>
     <h3>{legacy2017AutumnAmCommonHeading}</h3>
     <p>{legacy2017AutumnAmCommonPremise}</p>
     <h4>Ⅰ．論理回路</h4>

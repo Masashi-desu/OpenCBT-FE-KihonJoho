@@ -9,6 +9,7 @@ import { spring2015MorningBooklet } from './legacy-2015-spring-am';
 import { autumn2014MorningBooklet } from './legacy-2014-autumn-am';
 import { special2011MorningBooklet } from './legacy-2011-special-am';
 import { autumn2010MorningBooklet } from './legacy-2010-autumn-am';
+import { spring2010MorningBooklet } from './legacy-2010-spring-am';
 
 // Append-only declarations. A registration does not grant catalog admission.
 export const morningBookletExtensions: readonly MorningBookletExtension[] = [
@@ -22,4 +23,5 @@ export const morningBookletExtensions: readonly MorningBookletExtension[] = [
   { scope: '2011-autumn-am', booklet: autumn2011MorningBooklet },
   { scope: '2011-special-am', booklet: special2011MorningBooklet },
   { scope: '2010-autumn-am', booklet: autumn2010MorningBooklet },
+  { scope: '2010-spring-am', booklet: spring2010MorningBooklet },
 ];

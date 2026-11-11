@@ -1,0 +1,126 @@
+{
+  "collectionId": "2010h22h-fe-am",
+  "task": "S3-027",
+  "checkedOn": "2026-11-11",
+  "examDate": "2010-04-18",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 3
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 22
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 27
+    }
+  ],
+  "commonPages": [
+    2
+  ],
+  "held": [
+    {
+      "number": 62,
+      "reason": "Hammer・Champyの書籍 Reengineering the Corporation（1993）の定義に近い日本語表現が設問の中心。根本的な再考と抜本的な再設計、四指標の列挙、改善の程度の並びが原典と対応する。著者側の出典と再配布・改変の許諾を確認できず、保留。"
+    },
+    {
+      "number": 80,
+      "reason": "JIS Q 27001:2006 4.2.1 e)・g)・j) の複数の手順に由来する表現が設問の中心。JISCの閲覧条件と著作権FAQを確認したが、この範囲の公開配布・改変の許諾は確認できず、保留。"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_qs.pdf",
+      "sha256": "83f75d4b57cbc9f6c898a402852800e7b49bb86f38586b06dd15ab9220482833",
+      "byteLength": 1807118
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_am_ans.pdf",
+      "sha256": "2f0f20b2e67f711f0b395b531db7780b81c95ff5d74db5d19c3249f25a05d571",
+      "byteLength": 36981
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+      "sha256": "0a369d7f84c2771cf368170ad9633d3fba681c71bd94ec69e7a9a8c95944cff9",
+      "byteLength": 124943
+    },
+    "exam-date.html": {
+      "url": "https://www.ipa.go.jp/shiken/goukaku/happyobi.html",
+      "sha256": "60f95bf54858ce29d4e77130a6d6c6f8c622233a230832b8ccef985c036c2895",
+      "byteLength": 150398
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "冊子p.2はIPAの共通表記で、九つの論理素子と抵抗・接地の図記号、入力部又は出力部の反転の注記を保持する。",
+    "公式冊子p.3〜35の80問とp.2の共通表記を確認。IPAの教育利用条件に沿って出典・原問番号・改変を表示する。",
+    "共通p.2の論理素子9種、抵抗と接地、入力部・出力部の小円の注記を実紙面と照合する。",
+    "問31は在庫の商品番号をNULL禁止としたときに公式の等価性が成立する。原冊子の画像と公式解答を維持し、解説に反例、改変問題に前提を示す。",
+    "問62のBPRの定義に関する文と問80の規格手順については個別の保留理由を台帳に記録する。",
+    "問78・79は試験当時の職務著作と労働者派遣契約の当事者を一次資料で照合する。"
+  ],
+  "independentFactSources": [
+    {
+      "questionNumbers": [
+        62
+      ],
+      "title": "Hammer and Champy, Reengineering the Corporation 書誌",
+      "url": "https://www.ncbi.nlm.nih.gov/nlmcatalog/100941034",
+      "role": "出典となり得る著作の著者・版・出版社を確認。"
+    },
+    {
+      "questionNumbers": [
+        62
+      ],
+      "title": "Wiley Process Industries 1 書籍抜粋",
+      "url": "https://catalogimages.wiley.com/images/db/pdf/9781786304421.excerpt.pdf#page=11",
+      "role": "Hammer and Champyの定義を引用しており、問62との表現対応を照合。"
+    },
+    {
+      "questionNumbers": [
+        80
+      ],
+      "title": "日本産業標準調査会の規格利用案内",
+      "url": "https://www.jisc.go.jp/qa/a2-1.html",
+      "role": "JISの引用・転載条件を確認。規格の見出しに対応する表現を含む素材は個別に審査する。"
+    },
+    {
+      "questionNumbers": [
+        78
+      ],
+      "title": "著作権法（WIPO Lex収蔵）",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/8881",
+      "role": "出題当時のプログラムの職務著作、契約の前提を照合。"
+    },
+    {
+      "questionNumbers": [
+        79
+      ],
+      "title": "厚生労働省 派遣事業の案内",
+      "url": "https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/anzen/dl/091130-1e.pdf",
+      "role": "派遣元と派遣先の間の契約と、雇用・指揮命令の当事者を照合。"
+    }
+  ],
+  "sourcePreflightSHA256": "c8832e7392a75d68a8d3c901c804fdb60e91771137174bb0b327b094cdeafc76",
+  "cropCandidatesSHA256": "e24dcca9fefa648b20c30c0a1f61908df83328e8c667ebc83d6f70815e1df6d5",
+  "verifiedEligibleCount": 78
+}
