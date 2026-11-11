@@ -40,7 +40,8 @@ jobs:
           if-no-files-found: error
   tests:
     needs: plan
-    runs-on: ubuntu-latest
+    # Keep Chromium dependency installation on the stable image during the 26.04 rollout.
+    runs-on: ${{ startsWith(matrix.part, 'browser-') && 'ubuntu-24.04' || 'ubuntu-latest' }}
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
@@ -64,7 +65,16 @@ jobs:
       - run: npm run pretest
       - name: Install isolated browser
         if: startsWith(matrix.part, 'browser-')
-        run: npx playwright install --with-deps chromium
+        run: |
+          for attempt in 1 2 3; do
+            if npx playwright install --with-deps chromium; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep 15
+            fi
+          done
+          exit 1
       - name: Run planned tests
         run: node scripts/ci/run-part.mjs output/ci/plan.json ${{ matrix.part }} output/ci/results/${{ matrix.part }}
       - uses: actions/upload-artifact@v4

@@ -1767,6 +1767,8 @@ mainへのpush前に、最新のリモートmainと公開候補の確定コミ�
 
 `tests` には責務別のディレクトリを使う。問題集の内容・独立検算は `tests/content`、通常の出題・ブックマーク・保存の問題集別検査は `tests/booklets`、ブラウザ検査は `tests/browser` に置く。共通の出題・生成・表示・保存、詳細解説、配布、検証基盤はそれぞれ `tests/practice`、`tests/generation`、`tests/ui`、`tests/storage`、`tests/details`、`tests/distribution`、`tests/verification` に置く。検査の所有範囲と件数は公開テスト台帳に記録する。
 
+公開CIのブラウザジョブは、Ubuntu 26.04への移行中に発生したパッケージ取得失敗を避けるため、Playwrightの対応環境である `ubuntu-24.04` を指定する。ChromiumとOS依存の取得は最大3回試し、取得に失敗した場合はジョブを失敗とする。[GitHub Actionsの移行案内](https://github.com/actions/runner-images/issues/14748)
+
 科目Bの専用表示モジュールの変更は、出典と試験区分を確認する共通ホストに差分がなく、変更前後とも専用モジュールの読み込み先・呼び出し元が同一で、読み込み時に処理を実行しないと確認できる場合に、現行科目Bの問題集と共通検査を選ぶ。共通ホストや共通CSSの変更、未確認の依存がある場合は通常の判定で検証範囲を決める。
 
 `npm run check:changed -- --base=<40桁commit>`は比較元を明示して、事前検査、変更判定、必要な全テスト、実結果の集約、本体・文書ビルドを実行する。`npm run test:booklet -- 2016-autumn-pm`は共通と指定問題集のテストを実行する開発用入口であり、単独でリリース可とは判定しない。`npm run test`は再帰的な全テストファイル、`npm run check`と`check:full`は全テストと本体・文書ビルドを実行する入口として維持する。

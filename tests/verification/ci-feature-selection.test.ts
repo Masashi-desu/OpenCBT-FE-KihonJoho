@@ -164,10 +164,16 @@ test('audited search and menu presentation select only the relevant browser part
 
 test('Pages installs the pinned Chromium runtime for each browser part before executing its witnessed tests', () => {
   const workflow = fs.readFileSync('.github/workflows/pages.yml', 'utf8');
-  const install = workflow.indexOf('npx playwright install --with-deps chromium');
+  const install = workflow.indexOf('- name: Install isolated browser');
+  const run = workflow.indexOf('- name: Run planned tests');
   assert(install > workflow.indexOf('- run: npm ci'));
-  assert.match(workflow.slice(install - 130, install), /if: startsWith\(matrix\.part, 'browser-'\)/);
-  assert(install < workflow.indexOf('node scripts/ci/run-part.mjs'));
+  assert(install < run && run < workflow.indexOf('node scripts/ci/run-part.mjs'));
+  assert.match(workflow, /runs-on: \$\{\{ startsWith\(matrix\.part, 'browser-'\) && 'ubuntu-24\.04' \|\| 'ubuntu-latest' \}\}/);
+  const browserInstall = workflow.slice(install, run);
+  assert.match(browserInstall, /if: startsWith\(matrix\.part, 'browser-'\)/);
+  assert.match(browserInstall, /for attempt in 1 2 3; do/);
+  assert.match(browserInstall, /npx playwright install --with-deps chromium/);
+  assert.match(browserInstall, /done\s+exit 1\s*$/);
   assert.match(workflow, /needs: \[build, aggregate\]/);
 });
 
