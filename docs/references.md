@@ -527,3 +527,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 2009年10月18日実施。公式は全80問必須で制限時間150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。問題はp.3〜32で、p.2は白紙。年度別オリジナルとランダムミックスに78問を収録する。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html) [試験実施日](https://www.ipa.go.jp/shiken/goukaku/happyobi.html) [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html)
 
 問56のITIL v2のService Supportの定義表と、問61のエンタープライズアーキテクチャの概念図は、再配布・改変の条件を確認できるまで保留する。問66は経済産業省のシステム管理基準における開発計画と照合し、出典と公共データ利用規約を表示する。問71は出題時の政府調達協定を参照する。 [問61の図の参照元](https://www.rieti.go.jp/users/it/column/files/EA1.pdf#page=8) [システム管理基準追補版](https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf) [経済産業省の利用規約](https://www.meti.go.jp/main/rules.html) [WTO政府調達協定1994年版第VI条](https://www.wto.org/english/docs_e/legal_e/gpr-94_01_e.htm)
+
+### 第3段階 S3-030 2009年度秋期・旧午後
+
+- 2009年10月18日実施。全13大問・81解答欄。問1〜7から5大問を選び、問8は必須、問9〜13から1大問を選ぶ。制限時間は150分。問2のc・d、問5のf・g、問12のe・f、問13のg・hは各2欄の正答が順不同。 [IPAの問題冊子・解答例・採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html)
+- 問8のp.36はIPAが訂正した紙面を掲載する。原問題のc・dは当時の公式採点どおり全員正解とし、基準・生成問題では訂正後のプログラムに対応する正答を採点する。 [IPAの2009年10月22日付訂正通知](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f3yi-att/topic_20091022.pdf)
+- 疑似言語p.3〜4、E-R図の表記p.5、CASL II p.66〜71、表計算p.72〜74を掲載する。p.68はFRの注記までを抜粋する。JIS X 0201に基づく文字の符号表と規格説明は配布範囲外。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)
