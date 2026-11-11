@@ -213,6 +213,34 @@ export function appendOnlyExtensionScopes(beforeText, afterText, file) {
         return null;
     return after.slice(before.length).map(e => e.scope);
 }
+export const AFTERNOON_SELECTION_COUNTS_FILE = 'tests/helpers/generation-paths/issuance.ts';
+export function afternoonSelectionCountAppendScopes(beforeText, afterText) {
+    const declaration = /^const preMandatorySecurity = new Set\((\[[^\r\n]*\])\);$/m;
+    const lookup = 'export function expectedAfternoonSelectionCount(scope: string) {\n  return preMandatorySecurity.has(scope) ? 105 : 75;\n}';
+    const enumerate = '  const scope = collection.id.replace(/^set-annual-/, "");\n  const beforeMandatorySecurity = preMandatorySecurity.has(scope);';
+    const parse = text => {
+        if (typeof text !== 'string' || !text.includes(lookup) || !text.includes(enumerate) ||
+            [...text.matchAll(/\bpreMandatorySecurity\b/g)].length !== 3)
+            return null;
+        const match = declaration.exec(text);
+        if (!match)
+            return null;
+        try {
+            const scopes = JSON.parse(match[1]);
+            if (!Array.isArray(scopes) || scopes.some(scope => scopeFamily(scope) !== 'pm') || new Set(scopes).size !== scopes.length)
+                return null;
+            return { scopes, unchangedSource: text.replace(declaration, 'const preMandatorySecurity = new Set([]);') };
+        }
+        catch {
+            return null;
+        }
+    };
+    const before = parse(beforeText), after = parse(afterText);
+    if (!before || !after || before.unchangedSource !== after.unchangedSource || after.scopes.length <= before.scopes.length ||
+        stable(after.scopes.slice(0, before.scopes.length)) !== stable(before.scopes))
+        return null;
+    return after.scopes.slice(before.scopes.length);
+}
 export function sourceInventoryAppendScopes(beforeText, afterText) {
     let before, after;
     try {
@@ -297,8 +325,12 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
         // Documentation never authorizes executable or dependency changes.
         if (/^(?:README\.md|AGENTS\.md|NOTICE\.md)$|^docs\/.*\.md$|^\.agents\/skills\/.*\.md$/.test(file))
             continue;
-        if ((Object.hasOwn(EXTENSION_DECLARATIONS, file) || file === 'scripts/source-inventory-extensions.json') && extensionScopes[file]?.length && extensionScopes[file].every(s => afterOwnership.scopes.includes(s))) {
-            add(selected, extensionScopes[file]);
+        const addedScopes = extensionScopes[file];
+        const newAfternoonScopes = file === AFTERNOON_SELECTION_COUNTS_FILE &&
+            addedScopes?.every(scope => !beforeOwnership.scopes.includes(scope));
+        if ((Object.hasOwn(EXTENSION_DECLARATIONS, file) || file === 'scripts/source-inventory-extensions.json' || newAfternoonScopes) &&
+            addedScopes?.length && addedScopes.every(scope => afterOwnership.scopes.includes(scope))) {
+            add(selected, addedScopes);
             continue;
         }
         if (testEntries[file]) {

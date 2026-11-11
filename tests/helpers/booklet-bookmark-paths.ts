@@ -1,6 +1,6 @@
 /** Per-booklet paths retain the complete real Bundle; only the source-row
  * traversal is partitioned. Common invalid-state and cross-subject contracts
- * remain in tests/bookmarks.test.ts. No fixture or production pool is reduced. */
+ * remain in tests/practice/bookmarks.test.ts. No fixture or production pool is reduced. */
 import test from "node:test";
 import assert from "node:assert/strict";
 import { fixture } from "../fixtures";

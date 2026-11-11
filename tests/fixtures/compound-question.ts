@@ -1,6 +1,6 @@
 import type { Attribution, Question, Run, Selection } from "../../src/core/types";
 import { refOf } from "../../src/core/types";
-import { fixture } from "../fixtures";
+import { fixture } from "./index";
 import { prepareRun } from "../../src/core/session";
 import { contentHash } from "../../src/core/hash";
 

@@ -78,7 +78,7 @@ export function classifyFeatureChanges(args) {
             check(changed.includes(file) || equal(omit(old ?? {}, ['features', 'runtime']), omit(next, ['features', 'runtime'])));
             if (old) {
                 if (!old.features && next.features.some(f => f === 'dev-schema' || f.endsWith('-ui'))) {
-                    const watcher = file === 'tests/dev-schema-validators.test.ts' && equal(next.features, ['dev-schema']) &&
+                    const watcher = file === 'tests/verification/dev-schema-validators.test.ts' && equal(next.features, ['dev-schema']) &&
                         !changed.includes(file);
                     const menu = MENU_SELECTION_TESTS.includes(file) && equal(next.features, ['menu-ui']) && next.runtime === undefined;
                     check((watcher || menu) && next.count === old.count);

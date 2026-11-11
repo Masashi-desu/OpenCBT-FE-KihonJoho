@@ -33,7 +33,7 @@
     "predata:validate": "npm run schema:compile",
     "doc:generation": "tsx scripts/generation-reference.ts",
     "pretest:ui": "npm run pretest",
-    "test:ui": "tsx --test tests/menu-selection.test.ts tests/mix-profile.test.ts tests/legacy-afternoon-selection.test.ts tests/source-collections.test.ts tests/stage1-partial-release-integration.test.ts tests/ci-verification.test.ts",
+    "test:ui": "tsx --test tests/practice/menu-selection.test.ts tests/practice/mix-profile.test.ts tests/content/2017-spring-pm/legacy-afternoon-selection.test.ts tests/practice/source-collections.test.ts tests/content/shared/stage1-partial-release-integration.test.ts tests/verification/ci-verification.test.ts",
     "check:ui": "npm run test:ui && npm run build && npm run doc:build",
     "check:full": "npm run check",
     "ci:plan": "node scripts/ci/plan.mjs output/ci/plan.json",

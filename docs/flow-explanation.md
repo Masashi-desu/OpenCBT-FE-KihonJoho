@@ -42,6 +42,6 @@ a・bは1〜9,007,199,254,740,991の整数。空入力、小数、0以下、指�
 
 ## 検証と再現
 
-tests/flow-simulator.test.tsで指定3経路、全36比較条件とa・b各1〜6、標準条件のa・b各1〜24と独立した剰余法GCD、文字式のBigInt再代入、循環・実行上限・精度停止・入力境界・巻戻し・全選択肢・パッケージhash・保存互換を確認する。有限のテストを全整数入力の保証や第三者査読と扱わない。
+tests/details/flow-simulator.test.tsで指定3経路、全36比較条件とa・b各1〜6、標準条件のa・b各1〜24と独立した剰余法GCD、文字式のBigInt再代入、循環・実行上限・精度停止・入力境界・巻戻し・全選択肢・パッケージhash・保存互換を確認する。有限のテストを全整数入力の保証や第三者査読と扱わない。
 
 scripts/update-flow-manifest.mjsで正本由来のテーマ・スクロールバーと7資源のhashを更新する。scripts/verify-flow-browser.tsで隔離したヘッドレスPlaywright CLI用の検証コードを生成する。実行条件と結果は[検証記録](/verification)へ残す。

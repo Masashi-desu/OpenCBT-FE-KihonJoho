@@ -2,34 +2,34 @@
   "version": 2,
   "purpose": "Exact executed test-file counts and reviewed booklet ownership; empty scopes are shared tests.",
   "files": {
-    "tests/afternoon-booklet-extensions.test.ts": {
+    "tests/generation/afternoon-booklet-extensions.test.ts": {
       "count": 5,
       "scopes": []
     },
-    "tests/answer-semantics-partition.test.ts": {
+    "tests/verification/answer-semantics-partition.test.ts": {
       "scopes": [],
       "count": 2,
       "features": [
         "verification"
       ]
     },
-    "tests/answer-semantics.test.ts": {
+    "tests/generation/answer-semantics.test.ts": {
       "count": 1,
       "scopes": []
     },
-    "tests/april-generators.test.ts": {
+    "tests/content/2022-april-b/april-generators.test.ts": {
       "count": 7,
       "scopes": [
         "2022-april-b"
       ]
     },
-    "tests/april-import.test.ts": {
+    "tests/content/2022-april-b/april-import.test.ts": {
       "count": 2,
       "scopes": [
         "2022-april-b"
       ]
     },
-    "tests/arrow-simulator.test.ts": {
+    "tests/details/arrow-simulator.test.ts": {
       "count": 10,
       "scopes": [
         "2024-a",
@@ -46,15 +46,15 @@
         ]
       }
     },
-    "tests/asset-signature.test.ts": {
+    "tests/distribution/asset-signature.test.ts": {
       "count": 2,
       "scopes": []
     },
-    "tests/attribution-line.test.ts": {
+    "tests/distribution/attribution-line.test.ts": {
       "count": 1,
       "scopes": []
     },
-    "tests/binary-simulator.test.ts": {
+    "tests/details/binary-simulator.test.ts": {
       "count": 6,
       "scopes": [
         "2022-december-a"
@@ -70,19 +70,19 @@
         ]
       }
     },
-    "tests/booklet-figure-extensions.test.ts": {
+    "tests/generation/booklet-figure-extensions.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/booklet-figure-reference.test.ts": {
+    "tests/generation/booklet-figure-reference.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/booklet-figure-schema.test.ts": {
+    "tests/generation/booklet-figure-schema.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/booklet-import-review.test.ts": {
+    "tests/verification/booklet-import-review.test.ts": {
       "count": 4,
       "scopes": []
     },
@@ -10402,38 +10402,38 @@
         "2026-b: 1 larger domains, 64 seeded inputs, 320 initial draws on applicable issuance paths, 64 draws with prior history."
       ]
     },
-    "tests/bookmark-accuracy.test.ts": {
+    "tests/practice/bookmark-accuracy.test.ts": {
       "count": 6,
       "scopes": []
     },
-    "tests/bookmark-endless.test.ts": {
+    "tests/practice/bookmark-endless.test.ts": {
       "count": 6,
       "scopes": []
     },
-    "tests/bookmark-filter.test.ts": {
+    "tests/practice/bookmark-filter.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/bookmark-storage.test.ts": {
+    "tests/storage/bookmark-storage.test.ts": {
       "count": 1,
       "scopes": [],
       "features": [
         "storage"
       ]
     },
-    "tests/bookmarks.test.ts": {
+    "tests/practice/bookmarks.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/brand-fonts.test.ts": {
+    "tests/ui/brand-fonts.test.ts": {
       "count": 2,
       "scopes": []
     },
-    "tests/brand-icons.test.ts": {
+    "tests/ui/brand-icons.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/cache-simulator.test.ts": {
+    "tests/details/cache-simulator.test.ts": {
       "count": 6,
       "scopes": [
         "2024-a"
@@ -10448,55 +10448,55 @@
         ]
       }
     },
-    "tests/calculation-difficulty.test.ts": {
+    "tests/generation/calculation-difficulty.test.ts": {
       "count": 2,
       "scopes": []
     },
-    "tests/catalog-pack-order.test.ts": {
+    "tests/distribution/catalog-pack-order.test.ts": {
       "count": 2,
       "scopes": []
     },
-    "tests/catalog-packs.test.ts": {
+    "tests/distribution/catalog-packs.test.ts": {
       "count": 6,
       "scopes": []
     },
-    "tests/ci-detail-selection.test.ts": {
+    "tests/verification/ci-detail-selection.test.ts": {
       "count": 11,
       "scopes": [],
       "features": [
         "verification"
       ]
     },
-    "tests/ci-feature-selection.test.ts": {
+    "tests/verification/ci-feature-selection.test.ts": {
       "count": 12,
       "scopes": [],
       "features": [
         "verification"
       ]
     },
-    "tests/ci-scopes.test.ts": {
-      "count": 19,
-      "scopes": [],
-      "features": [
-        "verification"
-      ]
-    },
-    "tests/ci-verification.test.ts": {
+    "tests/verification/ci-scopes.test.ts": {
       "count": 20,
       "scopes": [],
       "features": [
         "verification"
       ]
     },
-    "tests/compound-answers.test.ts": {
+    "tests/verification/ci-verification.test.ts": {
+      "count": 20,
+      "scopes": [],
+      "features": [
+        "verification"
+      ]
+    },
+    "tests/generation/compound-answers.test.ts": {
       "count": 9,
       "scopes": []
     },
-    "tests/content-text.test.ts": {
+    "tests/ui/content-text.test.ts": {
       "count": 19,
       "scopes": []
     },
-    "tests/dac-simulator.test.ts": {
+    "tests/details/dac-simulator.test.ts": {
       "count": 6,
       "scopes": [
         "2017-spring-am"
@@ -10512,45 +10512,45 @@
         ]
       }
     },
-    "tests/december-a-generators.test.ts": {
+    "tests/content/2022-december-a/december-a-generators.test.ts": {
       "count": 68,
       "scopes": [
         "2022-december-a"
       ]
     },
-    "tests/december-a-import.test.ts": {
+    "tests/content/2022-december-a/december-a-import.test.ts": {
       "count": 1,
       "scopes": [
         "2022-december-a"
       ]
     },
-    "tests/december-a-rendering.test.ts": {
+    "tests/content/2022-december-a/december-a-rendering.test.ts": {
       "count": 4,
       "scopes": [
         "2022-december-a"
       ]
     },
-    "tests/december-a-study-terms.test.ts": {
+    "tests/content/2022-december-a/december-a-study-terms.test.ts": {
       "count": 2,
       "scopes": [
         "2022-december-a"
       ]
     },
-    "tests/december-generators.test.ts": {
+    "tests/content/2022-shared/december-generators.test.ts": {
       "count": 24,
       "scopes": [
         "2022-december-a",
         "2022-december-b"
       ]
     },
-    "tests/december-import.test.ts": {
+    "tests/content/2022-shared/december-import.test.ts": {
       "count": 2,
       "scopes": [
         "2022-december-a",
         "2022-december-b"
       ]
     },
-    "tests/detail-layout.test.ts": {
+    "tests/details/detail-layout.test.ts": {
       "count": 1,
       "scopes": [],
       "detail": {
@@ -10558,7 +10558,7 @@
         "supportFiles": []
       }
     },
-    "tests/detail-runtime-assets.test.ts": {
+    "tests/details/detail-runtime-assets.test.ts": {
       "count": 1,
       "scopes": [],
       "detail": {
@@ -10566,7 +10566,7 @@
         "supportFiles": []
       }
     },
-    "tests/detailed-explanation.test.ts": {
+    "tests/details/detailed-explanation.test.ts": {
       "count": 16,
       "scopes": [],
       "detail": {
@@ -10574,18 +10574,18 @@
         "supportFiles": []
       }
     },
-    "tests/dev-schema-validators.test.ts": {
+    "tests/verification/dev-schema-validators.test.ts": {
       "count": 1,
       "scopes": [],
       "features": [
         "dev-schema"
       ]
     },
-    "tests/diagram.test.ts": {
+    "tests/ui/diagram.test.ts": {
       "count": 5,
       "scopes": []
     },
-    "tests/effort-simulator.test.ts": {
+    "tests/details/effort-simulator.test.ts": {
       "count": 5,
       "scopes": [
         "2019-spring-am"
@@ -10601,19 +10601,19 @@
         ]
       }
     },
-    "tests/endless-practice.test.ts": {
+    "tests/practice/endless-practice.test.ts": {
       "count": 7,
       "scopes": []
     },
-    "tests/endless-validation-index.test.ts": {
+    "tests/practice/endless-validation-index.test.ts": {
       "count": 6,
       "scopes": []
     },
-    "tests/engine.test.ts": {
+    "tests/generation/engine.test.ts": {
       "count": 13,
       "scopes": []
     },
-    "tests/error-ui-browser.test.ts": {
+    "tests/browser/error-ui-browser.test.ts": {
       "count": 1,
       "scopes": [],
       "features": [
@@ -10621,7 +10621,7 @@
       ],
       "runtime": "chromium"
     },
-    "tests/flow-simulator.test.ts": {
+    "tests/details/flow-simulator.test.ts": {
       "count": 13,
       "scopes": [
         "2023-a"
@@ -10636,38 +10636,38 @@
         ]
       }
     },
-    "tests/full-coverage.test.ts": {
+    "tests/generation/full-coverage.test.ts": {
       "count": 10,
       "scopes": []
     },
-    "tests/generated-choice-order-policy.test.ts": {
+    "tests/generation/generated-choice-order-policy.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/generated-stem-policy.test.ts": {
+    "tests/generation/generated-stem-policy.test.ts": {
       "count": 1,
       "scopes": []
     },
-    "tests/generation-constraints.test.ts": {
+    "tests/generation/generation-constraints.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/generation-coverage-index.test.ts": {
+    "tests/generation/generation-coverage-index.test.ts": {
       "count": 6,
       "scopes": []
     },
-    "tests/generation-path-partition.test.ts": {
+    "tests/verification/generation-path-partition.test.ts": {
       "count": 6,
       "scopes": [],
       "features": [
         "verification"
       ]
     },
-    "tests/generation.test.ts": {
+    "tests/generation/generation.test.ts": {
       "count": 18,
       "scopes": []
     },
-    "tests/huffman-simulator.test.ts": {
+    "tests/details/huffman-simulator.test.ts": {
       "count": 4,
       "scopes": [
         "2018-autumn-am"
@@ -10683,11 +10683,11 @@
         ]
       }
     },
-    "tests/knowledge-quality.test.ts": {
+    "tests/generation/knowledge-quality.test.ts": {
       "count": 5,
       "scopes": []
     },
-    "tests/led-simulator.test.ts": {
+    "tests/details/led-simulator.test.ts": {
       "count": 5,
       "scopes": [
         "2016-autumn-am"
@@ -10703,517 +10703,517 @@
         ]
       }
     },
-    "tests/legacy-2010-autumn-am-01-26.test.ts": {
+    "tests/content/2010-autumn-am/legacy-2010-autumn-am-01-26.test.ts": {
       "count": 28,
       "scopes": [
         "2010-autumn-am"
       ]
     },
-    "tests/legacy-2010-autumn-am-27-53.test.ts": {
+    "tests/content/2010-autumn-am/legacy-2010-autumn-am-27-53.test.ts": {
       "count": 28,
       "scopes": [
         "2010-autumn-am"
       ]
     },
-    "tests/legacy-2010-autumn-am-54-80.test.ts": {
+    "tests/content/2010-autumn-am/legacy-2010-autumn-am-54-80.test.ts": {
       "count": 29,
       "scopes": [
         "2010-autumn-am"
       ]
     },
-    "tests/legacy-2010-autumn-am-integration.test.ts": {
+    "tests/content/2010-autumn-am/legacy-2010-autumn-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2010-autumn-am"
       ]
     },
-    "tests/legacy-2010-autumn-pm-01-04.test.ts": {
+    "tests/content/2010-autumn-pm/legacy-2010-autumn-pm-01-04.test.ts": {
       "count": 6,
       "scopes": [
         "2010-autumn-pm"
       ]
     },
-    "tests/legacy-2010-autumn-pm-05-08.test.ts": {
+    "tests/content/2010-autumn-pm/legacy-2010-autumn-pm-05-08.test.ts": {
       "count": 9,
       "scopes": [
         "2010-autumn-pm"
       ]
     },
-    "tests/legacy-2010-autumn-pm-09-13.test.ts": {
+    "tests/content/2010-autumn-pm/legacy-2010-autumn-pm-09-13.test.ts": {
       "count": 27,
       "scopes": [
         "2010-autumn-pm"
       ]
     },
-    "tests/legacy-2010-autumn-pm-integration.test.ts": {
+    "tests/content/2010-autumn-pm/legacy-2010-autumn-pm-integration.test.ts": {
       "count": 7,
       "scopes": [
         "2010-autumn-pm"
       ]
     },
-    "tests/legacy-2011-autumn-am-01-26.test.ts": {
+    "tests/content/2011-autumn-am/legacy-2011-autumn-am-01-26.test.ts": {
       "count": 17,
       "scopes": [
         "2011-autumn-am"
       ]
     },
-    "tests/legacy-2011-autumn-am-27-53.test.ts": {
+    "tests/content/2011-autumn-am/legacy-2011-autumn-am-27-53.test.ts": {
       "count": 30,
       "scopes": [
         "2011-autumn-am"
       ]
     },
-    "tests/legacy-2011-autumn-am-54-80.test.ts": {
+    "tests/content/2011-autumn-am/legacy-2011-autumn-am-54-80.test.ts": {
       "count": 26,
       "scopes": [
         "2011-autumn-am"
       ]
     },
-    "tests/legacy-2011-autumn-am-integration.test.ts": {
+    "tests/content/2011-autumn-am/legacy-2011-autumn-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2011-autumn-am"
       ]
     },
-    "tests/legacy-2011-autumn-pm-01-04.test.ts": {
+    "tests/content/2011-autumn-pm/legacy-2011-autumn-pm-01-04.test.ts": {
       "count": 6,
       "scopes": [
         "2011-autumn-pm"
       ]
     },
-    "tests/legacy-2011-autumn-pm-05-08.test.ts": {
+    "tests/content/2011-autumn-pm/legacy-2011-autumn-pm-05-08.test.ts": {
       "count": 7,
       "scopes": [
         "2011-autumn-pm"
       ]
     },
-    "tests/legacy-2011-autumn-pm-09-13.test.ts": {
+    "tests/content/2011-autumn-pm/legacy-2011-autumn-pm-09-13.test.ts": {
       "count": 6,
       "scopes": [
         "2011-autumn-pm"
       ]
     },
-    "tests/legacy-2011-autumn-pm-integration.test.ts": {
+    "tests/content/2011-autumn-pm/legacy-2011-autumn-pm-integration.test.ts": {
       "count": 7,
       "scopes": [
         "2011-autumn-pm"
       ]
     },
-    "tests/legacy-2011-special-am-01-26.test.ts": {
+    "tests/content/2011-special-am/legacy-2011-special-am-01-26.test.ts": {
       "count": 28,
       "scopes": [
         "2011-special-am"
       ]
     },
-    "tests/legacy-2011-special-am-27-53.test.ts": {
+    "tests/content/2011-special-am/legacy-2011-special-am-27-53.test.ts": {
       "count": 29,
       "scopes": [
         "2011-special-am"
       ]
     },
-    "tests/legacy-2011-special-am-54-80.test.ts": {
+    "tests/content/2011-special-am/legacy-2011-special-am-54-80.test.ts": {
       "count": 110,
       "scopes": [
         "2011-special-am"
       ]
     },
-    "tests/legacy-2011-special-am-integration.test.ts": {
+    "tests/content/2011-special-am/legacy-2011-special-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2011-special-am"
       ]
     },
-    "tests/legacy-2011-special-pm-01-04.test.ts": {
+    "tests/content/2011-special-pm/legacy-2011-special-pm-01-04.test.ts": {
       "count": 7,
       "scopes": [
         "2011-special-pm"
       ]
     },
-    "tests/legacy-2011-special-pm-05-08.test.ts": {
+    "tests/content/2011-special-pm/legacy-2011-special-pm-05-08.test.ts": {
       "count": 6,
       "scopes": [
         "2011-special-pm"
       ]
     },
-    "tests/legacy-2011-special-pm-09-13.test.ts": {
+    "tests/content/2011-special-pm/legacy-2011-special-pm-09-13.test.ts": {
       "count": 22,
       "scopes": [
         "2011-special-pm"
       ]
     },
-    "tests/legacy-2011-special-pm-integration.test.ts": {
+    "tests/content/2011-special-pm/legacy-2011-special-pm-integration.test.ts": {
       "count": 7,
       "scopes": [
         "2011-special-pm"
       ]
     },
-    "tests/legacy-2012-autumn-am-01-26.test.ts": {
+    "tests/content/2012-autumn-am/legacy-2012-autumn-am-01-26.test.ts": {
       "count": 9,
       "scopes": [
         "2012-autumn-am"
       ]
     },
-    "tests/legacy-2012-autumn-am-27-53.test.ts": {
+    "tests/content/2012-autumn-am/legacy-2012-autumn-am-27-53.test.ts": {
       "count": 29,
       "scopes": [
         "2012-autumn-am"
       ]
     },
-    "tests/legacy-2012-autumn-am-54-80.test.ts": {
+    "tests/content/2012-autumn-am/legacy-2012-autumn-am-54-80.test.ts": {
       "count": 25,
       "scopes": [
         "2012-autumn-am"
       ]
     },
-    "tests/legacy-2012-autumn-am-integration.test.ts": {
+    "tests/content/2012-autumn-am/legacy-2012-autumn-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2012-autumn-am"
       ]
     },
-    "tests/legacy-2012-autumn-pm-01-04.test.ts": {
+    "tests/content/2012-autumn-pm/legacy-2012-autumn-pm-01-04.test.ts": {
       "count": 7,
       "scopes": [
         "2012-autumn-pm"
       ]
     },
-    "tests/legacy-2012-autumn-pm-05-08.test.ts": {
+    "tests/content/2012-autumn-pm/legacy-2012-autumn-pm-05-08.test.ts": {
       "count": 6,
       "scopes": [
         "2012-autumn-pm"
       ]
     },
-    "tests/legacy-2012-autumn-pm-09-13.test.ts": {
+    "tests/content/2012-autumn-pm/legacy-2012-autumn-pm-09-13.test.ts": {
       "count": 7,
       "scopes": [
         "2012-autumn-pm"
       ]
     },
-    "tests/legacy-2012-autumn-pm-integration.test.ts": {
+    "tests/content/2012-autumn-pm/legacy-2012-autumn-pm-integration.test.ts": {
       "count": 7,
       "scopes": [
         "2012-autumn-pm"
       ]
     },
-    "tests/legacy-2012-spring-am-01-26.test.ts": {
+    "tests/content/2012-spring-am/legacy-2012-spring-am-01-26.test.ts": {
       "count": 15,
       "scopes": [
         "2012-spring-am"
       ]
     },
-    "tests/legacy-2012-spring-am-27-53.test.ts": {
+    "tests/content/2012-spring-am/legacy-2012-spring-am-27-53.test.ts": {
       "count": 29,
       "scopes": [
         "2012-spring-am"
       ]
     },
-    "tests/legacy-2012-spring-am-54-80.test.ts": {
+    "tests/content/2012-spring-am/legacy-2012-spring-am-54-80.test.ts": {
       "count": 28,
       "scopes": [
         "2012-spring-am"
       ]
     },
-    "tests/legacy-2012-spring-am-integration.test.ts": {
+    "tests/content/2012-spring-am/legacy-2012-spring-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2012-spring-am"
       ]
     },
-    "tests/legacy-2012-spring-pm-01-04.test.ts": {
+    "tests/content/2012-spring-pm/legacy-2012-spring-pm-01-04.test.ts": {
       "count": 6,
       "scopes": [
         "2012-spring-pm"
       ]
     },
-    "tests/legacy-2012-spring-pm-05-08.test.ts": {
+    "tests/content/2012-spring-pm/legacy-2012-spring-pm-05-08.test.ts": {
       "count": 7,
       "scopes": [
         "2012-spring-pm"
       ]
     },
-    "tests/legacy-2012-spring-pm-09-13.test.ts": {
+    "tests/content/2012-spring-pm/legacy-2012-spring-pm-09-13.test.ts": {
       "count": 6,
       "scopes": [
         "2012-spring-pm"
       ]
     },
-    "tests/legacy-2012-spring-pm-integration.test.ts": {
+    "tests/content/2012-spring-pm/legacy-2012-spring-pm-integration.test.ts": {
       "count": 7,
       "scopes": [
         "2012-spring-pm"
       ]
     },
-    "tests/legacy-2013-autumn-am-01-26.test.ts": {
+    "tests/content/2013-autumn-am/legacy-2013-autumn-am-01-26.test.ts": {
       "count": 9,
       "scopes": [
         "2013-autumn-am"
       ]
     },
-    "tests/legacy-2013-autumn-am-27-53.test.ts": {
+    "tests/content/2013-autumn-am/legacy-2013-autumn-am-27-53.test.ts": {
       "count": 29,
       "scopes": [
         "2013-autumn-am"
       ]
     },
-    "tests/legacy-2013-autumn-am-54-80.test.ts": {
+    "tests/content/2013-autumn-am/legacy-2013-autumn-am-54-80.test.ts": {
       "count": 12,
       "scopes": [
         "2013-autumn-am"
       ]
     },
-    "tests/legacy-2013-autumn-am-integration.test.ts": {
+    "tests/content/2013-autumn-am/legacy-2013-autumn-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2013-autumn-am"
       ]
     },
-    "tests/legacy-2013-autumn-pm-01-04.test.ts": {
+    "tests/content/2013-autumn-pm/legacy-2013-autumn-pm-01-04.test.ts": {
       "count": 8,
       "scopes": [
         "2013-autumn-pm"
       ]
     },
-    "tests/legacy-2013-autumn-pm-05-08.test.ts": {
+    "tests/content/2013-autumn-pm/legacy-2013-autumn-pm-05-08.test.ts": {
       "count": 8,
       "scopes": [
         "2013-autumn-pm"
       ]
     },
-    "tests/legacy-2013-autumn-pm-09-13.test.ts": {
+    "tests/content/2013-autumn-pm/legacy-2013-autumn-pm-09-13.test.ts": {
       "count": 8,
       "scopes": [
         "2013-autumn-pm"
       ]
     },
-    "tests/legacy-2013-autumn-pm-integration.test.ts": {
+    "tests/content/2013-autumn-pm/legacy-2013-autumn-pm-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2013-autumn-pm"
       ]
     },
-    "tests/legacy-2013-spring-am-01-26.test.ts": {
+    "tests/content/2013-spring-am/legacy-2013-spring-am-01-26.test.ts": {
       "count": 11,
       "scopes": [
         "2013-spring-am"
       ]
     },
-    "tests/legacy-2013-spring-am-27-53.test.ts": {
+    "tests/content/2013-spring-am/legacy-2013-spring-am-27-53.test.ts": {
       "count": 29,
       "scopes": [
         "2013-spring-am"
       ]
     },
-    "tests/legacy-2013-spring-am-54-80.test.ts": {
+    "tests/content/2013-spring-am/legacy-2013-spring-am-54-80.test.ts": {
       "count": 26,
       "scopes": [
         "2013-spring-am"
       ]
     },
-    "tests/legacy-2013-spring-am-integration.test.ts": {
+    "tests/content/2013-spring-am/legacy-2013-spring-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2013-spring-am"
       ]
     },
-    "tests/legacy-2013-spring-pm-01-04.test.ts": {
+    "tests/content/2013-spring-pm/legacy-2013-spring-pm-01-04.test.ts": {
       "count": 6,
       "scopes": [
         "2013-spring-pm"
       ]
     },
-    "tests/legacy-2013-spring-pm-05-08.test.ts": {
+    "tests/content/2013-spring-pm/legacy-2013-spring-pm-05-08.test.ts": {
       "count": 6,
       "scopes": [
         "2013-spring-pm"
       ]
     },
-    "tests/legacy-2013-spring-pm-09-13.test.ts": {
+    "tests/content/2013-spring-pm/legacy-2013-spring-pm-09-13.test.ts": {
       "count": 7,
       "scopes": [
         "2013-spring-pm"
       ]
     },
-    "tests/legacy-2013-spring-pm-checklist.test.ts": {
+    "tests/content/2013-spring-pm/legacy-2013-spring-pm-checklist.test.ts": {
       "count": 2,
       "scopes": [
         "2013-spring-pm"
       ]
     },
-    "tests/legacy-2013-spring-pm-integration.test.ts": {
+    "tests/content/2013-spring-pm/legacy-2013-spring-pm-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2013-spring-pm"
       ]
     },
-    "tests/legacy-2014-autumn-am-01-26.test.ts": {
+    "tests/content/2014-autumn-am/legacy-2014-autumn-am-01-26.test.ts": {
       "count": 13,
       "scopes": [
         "2014-autumn-am"
       ]
     },
-    "tests/legacy-2014-autumn-am-27-53.test.ts": {
+    "tests/content/2014-autumn-am/legacy-2014-autumn-am-27-53.test.ts": {
       "count": 7,
       "scopes": [
         "2014-autumn-am"
       ]
     },
-    "tests/legacy-2014-autumn-am-54-80.test.ts": {
+    "tests/content/2014-autumn-am/legacy-2014-autumn-am-54-80.test.ts": {
       "count": 10,
       "scopes": [
         "2014-autumn-am"
       ]
     },
-    "tests/legacy-2014-autumn-am-integration.test.ts": {
+    "tests/content/2014-autumn-am/legacy-2014-autumn-am-integration.test.ts": {
       "count": 5,
       "scopes": [
         "2014-autumn-am"
       ]
     },
-    "tests/legacy-2014-autumn-pm-01-04.test.ts": {
+    "tests/content/2014-autumn-pm/legacy-2014-autumn-pm-01-04.test.ts": {
       "count": 5,
       "scopes": [
         "2014-autumn-pm"
       ]
     },
-    "tests/legacy-2014-autumn-pm-05-08.test.ts": {
+    "tests/content/2014-autumn-pm/legacy-2014-autumn-pm-05-08.test.ts": {
       "count": 6,
       "scopes": [
         "2014-autumn-pm"
       ]
     },
-    "tests/legacy-2014-autumn-pm-09-13.test.ts": {
+    "tests/content/2014-autumn-pm/legacy-2014-autumn-pm-09-13.test.ts": {
       "count": 8,
       "scopes": [
         "2014-autumn-pm"
       ]
     },
-    "tests/legacy-2014-autumn-pm-integration.test.ts": {
+    "tests/content/2014-autumn-pm/legacy-2014-autumn-pm-integration.test.ts": {
       "count": 5,
       "scopes": [
         "2014-autumn-pm"
       ]
     },
-    "tests/legacy-2014-spring-am-01-26.test.ts": {
+    "tests/content/2014-spring-am/legacy-2014-spring-am-01-26.test.ts": {
       "count": 14,
       "scopes": [
         "2014-spring-am"
       ]
     },
-    "tests/legacy-2014-spring-am-27-53.test.ts": {
+    "tests/content/2014-spring-am/legacy-2014-spring-am-27-53.test.ts": {
       "count": 6,
       "scopes": [
         "2014-spring-am"
       ]
     },
-    "tests/legacy-2014-spring-am-54-80.test.ts": {
+    "tests/content/2014-spring-am/legacy-2014-spring-am-54-80.test.ts": {
       "count": 14,
       "scopes": [
         "2014-spring-am"
       ]
     },
-    "tests/legacy-2014-spring-am-integration.test.ts": {
+    "tests/content/2014-spring-am/legacy-2014-spring-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2014-spring-am"
       ]
     },
-    "tests/legacy-2014-spring-pm-01-04.test.ts": {
+    "tests/content/2014-spring-pm/legacy-2014-spring-pm-01-04.test.ts": {
       "count": 6,
       "scopes": [
         "2014-spring-pm"
       ]
     },
-    "tests/legacy-2014-spring-pm-05-08.test.ts": {
+    "tests/content/2014-spring-pm/legacy-2014-spring-pm-05-08.test.ts": {
       "count": 5,
       "scopes": [
         "2014-spring-pm"
       ]
     },
-    "tests/legacy-2014-spring-pm-09-13.test.ts": {
+    "tests/content/2014-spring-pm/legacy-2014-spring-pm-09-13.test.ts": {
       "count": 8,
       "scopes": [
         "2014-spring-pm"
       ]
     },
-    "tests/legacy-2014-spring-pm-integration.test.ts": {
+    "tests/content/2014-spring-pm/legacy-2014-spring-pm-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2014-spring-pm"
       ]
     },
-    "tests/legacy-2015-autumn-am-01-26.test.ts": {
+    "tests/content/2015-autumn-am/legacy-2015-autumn-am-01-26.test.ts": {
       "count": 28,
       "scopes": [
         "2015-autumn-am"
       ]
     },
-    "tests/legacy-2015-autumn-am-27-53.test.ts": {
+    "tests/content/2015-autumn-am/legacy-2015-autumn-am-27-53.test.ts": {
       "count": 28,
       "scopes": [
         "2015-autumn-am"
       ]
     },
-    "tests/legacy-2015-autumn-am-54-80.test.ts": {
+    "tests/content/2015-autumn-am/legacy-2015-autumn-am-54-80.test.ts": {
       "count": 5,
       "scopes": [
         "2015-autumn-am"
       ]
     },
-    "tests/legacy-2015-autumn-am-integration.test.ts": {
+    "tests/content/2015-autumn-am/legacy-2015-autumn-am-integration.test.ts": {
       "count": 5,
       "scopes": [
         "2015-autumn-am"
       ]
     },
-    "tests/legacy-2015-autumn-pm-01-04.test.ts": {
+    "tests/content/2015-autumn-pm/legacy-2015-autumn-pm-01-04.test.ts": {
       "count": 6,
       "scopes": [
         "2015-autumn-pm"
       ]
     },
-    "tests/legacy-2015-autumn-pm-05-08.test.ts": {
+    "tests/content/2015-autumn-pm/legacy-2015-autumn-pm-05-08.test.ts": {
       "count": 5,
       "scopes": [
         "2015-autumn-pm"
       ]
     },
-    "tests/legacy-2015-autumn-pm-09-13.test.ts": {
+    "tests/content/2015-autumn-pm/legacy-2015-autumn-pm-09-13.test.ts": {
       "count": 7,
       "scopes": [
         "2015-autumn-pm"
       ]
     },
-    "tests/legacy-2015-autumn-pm-integration.test.ts": {
+    "tests/content/2015-autumn-pm/legacy-2015-autumn-pm-integration.test.ts": {
       "count": 5,
       "scopes": [
         "2015-autumn-pm"
       ]
     },
-    "tests/legacy-2015-spring-am-01-26.test.ts": {
+    "tests/content/2015-spring-am/legacy-2015-spring-am-01-26.test.ts": {
       "count": 12,
       "scopes": [
         "2015-spring-am"
       ]
     },
-    "tests/legacy-2015-spring-am-27-53.test.ts": {
+    "tests/content/2015-spring-am/legacy-2015-spring-am-27-53.test.ts": {
       "count": 15,
       "scopes": [
         "2015-spring-am"
       ]
     },
-    "tests/legacy-2015-spring-am-54-80.test.ts": {
+    "tests/content/2015-spring-am/legacy-2015-spring-am-54-80.test.ts": {
       "count": 6,
       "scopes": [
         "2015-spring-am"
       ]
     },
-    "tests/legacy-2015-spring-am-integration.test.ts": {
+    "tests/content/2015-spring-am/legacy-2015-spring-am-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2015-spring-am"
       ]
     },
-    "tests/legacy-2015-spring-pm-01-04.test.ts": {
+    "tests/content/2015-spring-pm/legacy-2015-spring-pm-01-04.test.ts": {
       "count": 5,
       "scopes": [
         "2015-spring-pm"
@@ -11226,7 +11226,7 @@
         "問4は直接照会・補完・公開優先の遷移、事故と対策3択を検算する"
       ]
     },
-    "tests/legacy-2015-spring-pm-05-08.test.ts": {
+    "tests/content/2015-spring-pm/legacy-2015-spring-pm-05-08.test.ts": {
       "count": 5,
       "scopes": [
         "2015-spring-pm"
@@ -11239,7 +11239,7 @@
         "問8の表示された配列・順位・分割・カウンタと誤変更を独立追跡する"
       ]
     },
-    "tests/legacy-2015-spring-pm-09-13.test.ts": {
+    "tests/content/2015-spring-pm/legacy-2015-spring-pm-09-13.test.ts": {
       "count": 7,
       "scopes": [
         "2015-spring-pm"
@@ -11254,7 +11254,7 @@
         "2015春 午後問9〜13の8図が可視セル・空欄・列見出しを描画する"
       ]
     },
-    "tests/legacy-2015-spring-pm-integration.test.ts": {
+    "tests/content/2015-spring-pm/legacy-2015-spring-pm-integration.test.ts": {
       "count": 5,
       "scopes": [
         "2015-spring-pm"
@@ -11267,1461 +11267,1461 @@
         "2015 spring PM generated base renders all prompts and answer fields before revealing answers"
       ]
     },
-    "tests/legacy-2016-autumn-am-01-40.test.ts": {
+    "tests/content/2016-autumn-am/legacy-2016-autumn-am-01-40.test.ts": {
       "count": 27,
       "scopes": [
         "2016-autumn-am"
       ]
     },
-    "tests/legacy-2016-autumn-am-41-80.test.ts": {
+    "tests/content/2016-autumn-am/legacy-2016-autumn-am-41-80.test.ts": {
       "count": 9,
       "scopes": [
         "2016-autumn-am"
       ]
     },
-    "tests/legacy-2016-autumn-am-common.test.ts": {
+    "tests/content/2016-autumn-am/legacy-2016-autumn-am-common.test.ts": {
       "count": 5,
       "scopes": [
         "2016-autumn-am"
       ]
     },
-    "tests/legacy-2016-autumn-pm-01-04.test.ts": {
+    "tests/content/2016-autumn-pm/legacy-2016-autumn-pm-01-04.test.ts": {
       "count": 8,
       "scopes": [
         "2016-autumn-pm"
       ]
     },
-    "tests/legacy-2016-autumn-pm-05-08.test.ts": {
+    "tests/content/2016-autumn-pm/legacy-2016-autumn-pm-05-08.test.ts": {
       "count": 9,
       "scopes": [
         "2016-autumn-pm"
       ]
     },
-    "tests/legacy-2016-autumn-pm-09-13.test.ts": {
+    "tests/content/2016-autumn-pm/legacy-2016-autumn-pm-09-13.test.ts": {
       "count": 13,
       "scopes": [
         "2016-autumn-pm"
       ]
     },
-    "tests/legacy-2016-autumn-pm-integration.test.ts": {
+    "tests/content/2016-autumn-pm/legacy-2016-autumn-pm-integration.test.ts": {
       "count": 9,
       "scopes": [
         "2016-autumn-pm"
       ]
     },
-    "tests/legacy-2016-spring-am-09-32.test.ts": {
+    "tests/content/2016-spring-am/legacy-2016-spring-am-09-32.test.ts": {
       "count": 7,
       "scopes": [
         "2016-spring-am"
       ]
     },
-    "tests/legacy-2016-spring-am-33-56.test.ts": {
+    "tests/content/2016-spring-am/legacy-2016-spring-am-33-56.test.ts": {
       "count": 10,
       "scopes": [
         "2016-spring-am"
       ]
     },
-    "tests/legacy-2016-spring-am-57-80.test.ts": {
+    "tests/content/2016-spring-am/legacy-2016-spring-am-57-80.test.ts": {
       "count": 5,
       "scopes": [
         "2016-spring-am"
       ]
     },
-    "tests/legacy-2016-spring-fundamentals.test.ts": {
+    "tests/content/2016-spring-am/legacy-2016-spring-fundamentals.test.ts": {
       "count": 6,
       "scopes": [
         "2016-spring-am"
       ]
     },
-    "tests/legacy-2016-spring-pm-01-04.test.ts": {
+    "tests/content/2016-spring-pm/legacy-2016-spring-pm-01-04.test.ts": {
       "count": 7,
       "scopes": [
         "2016-spring-pm"
       ]
     },
-    "tests/legacy-2016-spring-pm-05-08.test.ts": {
+    "tests/content/2016-spring-pm/legacy-2016-spring-pm-05-08.test.ts": {
       "count": 7,
       "scopes": [
         "2016-spring-pm"
       ]
     },
-    "tests/legacy-2016-spring-pm-09-13.test.ts": {
+    "tests/content/2016-spring-pm/legacy-2016-spring-pm-09-13.test.ts": {
       "count": 10,
       "scopes": [
         "2016-spring-pm"
       ]
     },
-    "tests/legacy-2016-spring-pm-integration.test.ts": {
+    "tests/content/2016-spring-pm/legacy-2016-spring-pm-integration.test.ts": {
       "count": 6,
       "scopes": [
         "2016-spring-pm"
       ]
     },
-    "tests/legacy-2017-autumn-admission.test.ts": {
+    "tests/content/2017-shared/legacy-2017-autumn-admission.test.ts": {
       "count": 4,
       "scopes": [
         "2017-autumn-am",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-afternoon-booklet.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-afternoon-booklet.test.ts": {
       "count": 4,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-booklet-release.test.ts": {
+    "tests/content/2017-shared/legacy-2017-autumn-booklet-release.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-am",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-integration.test.ts": {
+    "tests/content/2017-shared/legacy-2017-autumn-integration.test.ts": {
       "count": 4,
       "scopes": [
         "2017-autumn-am",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-native-text.test.ts": {
+    "tests/content/2017-shared/legacy-2017-autumn-native-text.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-am",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm1-display.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm1-display.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm1.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm1.test.ts": {
       "count": 4,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm10-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm10-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm10.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm10.test.ts": {
       "count": 7,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm11-alpha-display.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm11-alpha-display.test.ts": {
       "count": 1,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm11-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm11-records.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm11-study-terms.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm11-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm11.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm11.test.ts": {
       "count": 7,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm12-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm12-records.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm12-study-terms.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm12-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm12.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm12.test.ts": {
       "count": 7,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm13-display.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm13-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm13-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm13-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm13-rendered-macro.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm13-rendered-macro.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm13-study-terms.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm13-study-terms.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm13.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm13.test.ts": {
       "count": 4,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm2-display.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm2-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm2.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm2.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm3-display.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm3-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm3.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm3.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm4-display.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm4-display.test.ts": {
       "count": 4,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm4.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm4.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm5-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm5-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm5.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm5.test.ts": {
       "count": 6,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm6-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm6-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm6.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm6.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm7-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm7-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm7.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm7.test.ts": {
       "count": 3,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm8-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm8-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm8.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm8.test.ts": {
       "count": 5,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm9-11-native-blanks.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm9-11-native-blanks.test.ts": {
       "count": 1,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm9-records.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm9-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-autumn-pm9.test.ts": {
+    "tests/content/2017-autumn-pm/legacy-2017-autumn-pm9.test.ts": {
       "count": 9,
       "scopes": [
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm-fixed-order.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm-fixed-order.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm1-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm1-display.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm1-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm1-records.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm1-underline.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm1-underline.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm1.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm1.test.ts": {
       "count": 6,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm10-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm10-records.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm10-study-terms.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm10-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm10.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm10.test.ts": {
       "count": 5,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm11-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm11-records.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm11-study-terms.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm11-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm11.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm11.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm12-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm12-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm12.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm12.test.ts": {
       "count": 9,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm13-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm13-records.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm13.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm13.test.ts": {
       "count": 11,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm2-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm2-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm2-figures.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm2-figures.test.ts": {
       "count": 7,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm2-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm2-records.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm2.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm2.test.ts": {
       "count": 7,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm3-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm3-display.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm3-figures.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm3-figures.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm3-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm3-records.test.ts": {
       "count": 5,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm3-source-shape.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm3-source-shape.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm3-study-terms.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm3-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm3.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm3.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm4-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm4-display.test.ts": {
       "count": 5,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm4-figures.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm4-figures.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm4-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm4-records.test.ts": {
       "count": 6,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm4-source-shape.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm4-source-shape.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm4-study-terms.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm4-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm4.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm4.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm5-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm5-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm5-figures.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm5-figures.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm5-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm5-records.test.ts": {
       "count": 5,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm5-source-shape.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm5-source-shape.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm5-study-terms.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm5-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm5.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm5.test.ts": {
       "count": 3,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm6-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm6-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm6-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm6-records.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm6-sampler.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm6-sampler.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm6-source-shape.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm6-source-shape.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm6-study-terms.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm6-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm6.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm6.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm7-display.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm7-display.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm7-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm7-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm7.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm7.test.ts": {
       "count": 5,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm8-figures.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm8-figures.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm8-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm8-records.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm8-source.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm8-source.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm8.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm8.test.ts": {
       "count": 5,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm9-records.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm9-records.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-pm9.test.ts": {
+    "tests/content/2017-shared/legacy-2017-pm9.test.ts": {
       "count": 8,
       "scopes": [
         "2017-spring-pm",
         "2017-autumn-pm"
       ]
     },
-    "tests/legacy-2017-spring-pm-booklet.test.ts": {
+    "tests/content/2017-spring-pm/legacy-2017-spring-pm-booklet.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm"
       ]
     },
-    "tests/legacy-2018-autumn-afternoon-study-terms.test.ts": {
+    "tests/content/2018-autumn-pm/legacy-2018-autumn-afternoon-study-terms.test.ts": {
       "count": 7,
       "scopes": [
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-booklet-facts.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-booklet-facts.test.ts": {
       "count": 3,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-complete-integration.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-complete-integration.test.ts": {
       "count": 3,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-existing-adapters.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-existing-adapters.test.ts": {
       "count": 4,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-fixed-materials.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-fixed-materials.test.ts": {
       "count": 5,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-language-source-units.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-language-source-units.test.ts": {
       "count": 6,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-language.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-language.test.ts": {
       "count": 13,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-material-receipt.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-material-receipt.test.ts": {
       "count": 3,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-normal-flow.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-normal-flow.test.ts": {
       "count": 8,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-owner-capacity.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-owner-capacity.test.ts": {
       "count": 1,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-owner-source-units.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-owner-source-units.test.ts": {
       "count": 1,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-owner-study-terms.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-owner-study-terms.test.ts": {
       "count": 2,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-pm13.test.ts": {
+    "tests/content/2018-autumn-pm/legacy-2018-autumn-pm13.test.ts": {
       "count": 7,
       "scopes": [
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-pm2.test.ts": {
+    "tests/content/2018-autumn-pm/legacy-2018-autumn-pm2.test.ts": {
       "count": 3,
       "scopes": [
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-pm3.test.ts": {
+    "tests/content/2018-autumn-pm/legacy-2018-autumn-pm3.test.ts": {
       "count": 4,
       "scopes": [
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-pm4.test.ts": {
+    "tests/content/2018-autumn-pm/legacy-2018-autumn-pm4.test.ts": {
       "count": 4,
       "scopes": [
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-pm5-7.test.ts": {
+    "tests/content/2018-autumn-pm/legacy-2018-autumn-pm5-7.test.ts": {
       "count": 15,
       "scopes": [
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-reviewed-source-layout.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-reviewed-source-layout.test.ts": {
       "count": 3,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-autumn-unordered-source-guard.test.ts": {
+    "tests/content/2018-shared/legacy-2018-autumn-unordered-source-guard.test.ts": {
       "count": 2,
       "scopes": [
         "2018-autumn-am",
         "2018-autumn-pm"
       ]
     },
-    "tests/legacy-2018-spring-afternoon-booklet.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-afternoon-booklet.test.ts": {
       "count": 4,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-binding.test.ts": {
+    "tests/content/2018-shared/legacy-2018-spring-binding.test.ts": {
       "count": 2,
       "scopes": [
         "2018-spring-am",
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-common.test.ts": {
+    "tests/content/2018-shared/legacy-2018-spring-common.test.ts": {
       "count": 3,
       "scopes": [
         "2018-spring-am",
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-language-notices.test.ts": {
+    "tests/content/2018-shared/legacy-2018-spring-language-notices.test.ts": {
       "count": 3,
       "scopes": [
         "2018-spring-am",
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm1-4-13-study-terms.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm1-4-13-study-terms.test.ts": {
       "count": 3,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm1-4.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm1-4.test.ts": {
       "count": 7,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm11.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm11.test.ts": {
       "count": 5,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm12-history.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm12-history.test.ts": {
       "count": 2,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm12-unicode.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm12-unicode.test.ts": {
       "count": 2,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm12.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm12.test.ts": {
       "count": 8,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm13.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm13.test.ts": {
       "count": 6,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm5-8-study-terms.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm5-8-study-terms.test.ts": {
       "count": 2,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm5-8.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm5-8.test.ts": {
       "count": 8,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm9-10.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm9-10.test.ts": {
       "count": 4,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm9-12-figures.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm9-12-figures.test.ts": {
       "count": 4,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm9-12-records.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm9-12-records.test.ts": {
       "count": 4,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-pm9-12-study-terms.test.ts": {
+    "tests/content/2018-spring-pm/legacy-2018-spring-pm9-12-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2018-spring-release.test.ts": {
+    "tests/content/2018-shared/legacy-2018-spring-release.test.ts": {
       "count": 3,
       "scopes": [
         "2018-spring-am",
         "2018-spring-pm"
       ]
     },
-    "tests/legacy-2019-autumn-answer-display.test.ts": {
+    "tests/content/2019-shared/legacy-2019-autumn-answer-display.test.ts": {
       "count": 2,
       "scopes": [
         "2019-autumn-am",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-coverage.test.ts": {
+    "tests/content/2019-shared/legacy-2019-autumn-coverage.test.ts": {
       "count": 1,
       "scopes": [
         "2019-autumn-am",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-learning-area.test.ts": {
+    "tests/content/2019-shared/legacy-2019-autumn-learning-area.test.ts": {
       "count": 3,
       "scopes": [
         "2019-autumn-am",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-normal-flow.test.ts": {
+    "tests/content/2019-shared/legacy-2019-autumn-normal-flow.test.ts": {
       "count": 12,
       "scopes": [
         "2019-autumn-am",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm1.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm1.test.ts": {
       "count": 2,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm10.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm10.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm11-native.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm11-native.test.ts": {
       "count": 3,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm11-structure.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm11-structure.test.ts": {
       "count": 1,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm12-body.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm12-body.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm12-exhaustive.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm12-exhaustive.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm12-memory.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm12-memory.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm13-source-bank.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm13-source-bank.test.ts": {
       "count": 2,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm13.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm13.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm2.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm2.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm3.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm3.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm4.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm4.test.ts": {
       "count": 2,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm5-7-9.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm5-7-9.test.ts": {
       "count": 8,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm5-flow.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm5-flow.test.ts": {
       "count": 2,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-autumn-pm8.test.ts": {
+    "tests/content/2019-autumn-pm/legacy-2019-autumn-pm8.test.ts": {
       "count": 4,
       "scopes": [
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-auth-contracts.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-auth-contracts.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-auth-figures.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-auth-figures.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-auth-staging.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-auth-staging.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-auth-study-terms.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-auth-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-auth.test.ts": {
-      "count": 4,
-      "scopes": [
-        "2019-spring-pm",
-        "2019-autumn-pm"
-      ]
-    },
-    "tests/legacy-2019-pm-change-contracts.test.ts": {
-      "count": 1,
-      "scopes": [
-        "2019-spring-pm",
-        "2019-autumn-pm"
-      ]
-    },
-    "tests/legacy-2019-pm-change-figures.test.ts": {
-      "count": 1,
-      "scopes": [
-        "2019-spring-pm",
-        "2019-autumn-pm"
-      ]
-    },
-    "tests/legacy-2019-pm-change-staging.test.ts": {
-      "count": 2,
-      "scopes": [
-        "2019-spring-pm",
-        "2019-autumn-pm"
-      ]
-    },
-    "tests/legacy-2019-pm-change-study-terms.test.ts": {
-      "count": 1,
-      "scopes": [
-        "2019-spring-pm",
-        "2019-autumn-pm"
-      ]
-    },
-    "tests/legacy-2019-pm-change.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-auth.test.ts": {
       "count": 4,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-database.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-change-contracts.test.ts": {
+      "count": 1,
+      "scopes": [
+        "2019-spring-pm",
+        "2019-autumn-pm"
+      ]
+    },
+    "tests/content/2019-shared/legacy-2019-pm-change-figures.test.ts": {
+      "count": 1,
+      "scopes": [
+        "2019-spring-pm",
+        "2019-autumn-pm"
+      ]
+    },
+    "tests/content/2019-shared/legacy-2019-pm-change-staging.test.ts": {
+      "count": 2,
+      "scopes": [
+        "2019-spring-pm",
+        "2019-autumn-pm"
+      ]
+    },
+    "tests/content/2019-shared/legacy-2019-pm-change-study-terms.test.ts": {
+      "count": 1,
+      "scopes": [
+        "2019-spring-pm",
+        "2019-autumn-pm"
+      ]
+    },
+    "tests/content/2019-shared/legacy-2019-pm-change.test.ts": {
+      "count": 4,
+      "scopes": [
+        "2019-spring-pm",
+        "2019-autumn-pm"
+      ]
+    },
+    "tests/content/2019-shared/legacy-2019-pm-database.test.ts": {
       "count": 5,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-inspection-contracts.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-inspection-contracts.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-inspection-figures.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-inspection-figures.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-inspection-staging.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-inspection-staging.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-inspection-study-terms.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-inspection-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-inspection.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-inspection.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-integration-contracts.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-integration-contracts.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-integration-figures.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-integration-figures.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-integration-staging.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-integration-staging.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-integration-study-terms.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-integration-study-terms.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-integration.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-integration.test.ts": {
       "count": 4,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-load-balance.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-load-balance.test.ts": {
       "count": 6,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-memory.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-memory.test.ts": {
       "count": 5,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-ranking-contracts.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-ranking-contracts.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-ranking-figures.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-ranking-figures.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-ranking-staging.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-ranking-staging.test.ts": {
       "count": 5,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-ranking-study-terms.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-ranking-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm-ranking.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm-ranking.test.ts": {
       "count": 4,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-body.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-body.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-choice-names.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-choice-names.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-contracts.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-contracts.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-figures.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-figures.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-model.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-model.test.ts": {
       "count": 4,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-staging.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-staging.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-pm8-study-terms.test.ts": {
+    "tests/content/2019-shared/legacy-2019-pm8-study-terms.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-pm",
         "2019-autumn-pm"
       ]
     },
-    "tests/legacy-2019-spring-booklet.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-booklet.test.ts": {
       "count": 7,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-content-routing.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-content-routing.test.ts": {
       "count": 5,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-existing-adapters.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-existing-adapters.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-existing-independent.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-existing-independent.test.ts": {
       "count": 10,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-figure-meaning.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-figure-meaning.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-final-four-source-form.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-final-four-source-form.test.ts": {
       "count": 8,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-fixed-materials.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-fixed-materials.test.ts": {
       "count": 4,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-local-diagnostic.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-local-diagnostic.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-managed-figure-integration.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-managed-figure-integration.test.ts": {
       "count": 1,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-normal-flow.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-normal-flow.test.ts": {
       "count": 8,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-pm11.test.ts": {
+    "tests/content/2019-spring-pm/legacy-2019-spring-pm11.test.ts": {
       "count": 8,
       "scopes": [
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-pm12.test.ts": {
+    "tests/content/2019-spring-pm/legacy-2019-spring-pm12.test.ts": {
       "count": 8,
       "scopes": [
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-pm13.test.ts": {
+    "tests/content/2019-spring-pm/legacy-2019-spring-pm13.test.ts": {
       "count": 9,
       "scopes": [
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-pm9-reference.test.ts": {
+    "tests/content/2019-spring-pm/legacy-2019-spring-pm9-reference.test.ts": {
       "count": 2,
       "scopes": [
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-pm9.test.ts": {
+    "tests/content/2019-spring-pm/legacy-2019-spring-pm9.test.ts": {
       "count": 6,
       "scopes": [
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-primary-source-form.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-primary-source-form.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-readiness-admission.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-readiness-admission.test.ts": {
       "count": 6,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-router.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-router.test.ts": {
       "count": 3,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-source-closure.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-source-closure.test.ts": {
       "count": 8,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-source-form.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-source-form.test.ts": {
       "count": 6,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-2019-spring-study-terms.test.ts": {
+    "tests/content/2019-shared/legacy-2019-spring-study-terms.test.ts": {
       "count": 4,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/legacy-afternoon-code.test.ts": {
+    "tests/content/2017-spring-pm/legacy-afternoon-code.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm"
       ]
     },
-    "tests/legacy-afternoon-material-boundary.test.ts": {
+    "tests/content/2017-spring-pm/legacy-afternoon-material-boundary.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-pm"
       ]
     },
-    "tests/legacy-afternoon-runtime.test.ts": {
+    "tests/content/2017-spring-pm/legacy-afternoon-runtime.test.ts": {
       "count": 13,
       "scopes": [
         "2017-spring-pm"
       ]
     },
-    "tests/legacy-afternoon-selection.test.ts": {
+    "tests/content/2017-spring-pm/legacy-afternoon-selection.test.ts": {
       "count": 4,
       "scopes": [
         "2017-spring-pm"
@@ -12730,20 +12730,20 @@
         "menu-ui"
       ]
     },
-    "tests/legacy-material-binding.test.ts": {
+    "tests/content/2017-spring-pm/legacy-material-binding.test.ts": {
       "count": 6,
       "scopes": [
         "2017-spring-pm"
       ]
     },
-    "tests/legacy-morning-providers.test.ts": {
+    "tests/content/shared/legacy-morning-providers.test.ts": {
       "count": 2,
       "scopes": [
         "2017-spring-am",
         "2024-a"
       ]
     },
-    "tests/locking-simulator.test.ts": {
+    "tests/details/locking-simulator.test.ts": {
       "count": 6,
       "scopes": [
         "2019-autumn-am"
@@ -12759,22 +12759,22 @@
         ]
       }
     },
-    "tests/managed-legacy-media.test.ts": {
+    "tests/distribution/managed-legacy-media.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/material-viewer.test.ts": {
+    "tests/ui/material-viewer.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/menu-selection.test.ts": {
+    "tests/practice/menu-selection.test.ts": {
       "count": 12,
       "scopes": [],
       "features": [
         "menu-ui"
       ]
     },
-    "tests/menu-ui-browser.test.ts": {
+    "tests/browser/menu-ui-browser.test.ts": {
       "count": 2,
       "scopes": [],
       "features": [
@@ -12782,18 +12782,18 @@
       ],
       "runtime": "chromium"
     },
-    "tests/mix-profile.test.ts": {
+    "tests/practice/mix-profile.test.ts": {
       "count": 12,
       "scopes": [],
       "features": [
         "menu-ui"
       ]
     },
-    "tests/open-ended-sessions.test.ts": {
+    "tests/practice/open-ended-sessions.test.ts": {
       "count": 5,
       "scopes": []
     },
-    "tests/pcm-simulator.test.ts": {
+    "tests/details/pcm-simulator.test.ts": {
       "count": 5,
       "scopes": [
         "2016-spring-am"
@@ -12809,29 +12809,29 @@
         ]
       }
     },
-    "tests/pre-2023-discovery-gate.test.ts": {
+    "tests/distribution/pre-2023-discovery-gate.test.ts": {
       "count": 10,
       "scopes": []
     },
-    "tests/pre-2023-readiness.test.ts": {
+    "tests/distribution/pre-2023-readiness.test.ts": {
       "count": 9,
       "scopes": []
     },
-    "tests/pre-2023-sample-semantics.test.ts": {
+    "tests/content/2022-april-b/pre-2023-sample-semantics.test.ts": {
       "count": 7,
       "scopes": [
         "2022-april-b"
       ]
     },
-    "tests/pre-2023-stage1-readiness.test.ts": {
+    "tests/distribution/pre-2023-stage1-readiness.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/publication.test.ts": {
+    "tests/distribution/publication.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/question-updates.test.ts": {
+    "tests/distribution/question-updates.test.ts": {
       "count": 7,
       "scopes": [],
       "detail": {
@@ -12839,7 +12839,7 @@
         "supportFiles": []
       }
     },
-    "tests/radix-simulator.test.ts": {
+    "tests/details/radix-simulator.test.ts": {
       "count": 6,
       "scopes": [
         "2023-a"
@@ -12854,11 +12854,11 @@
         ]
       }
     },
-    "tests/random-bindings.test.ts": {
+    "tests/generation/random-bindings.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/recovery-browser.test.ts": {
+    "tests/browser/recovery-browser.test.ts": {
       "count": 8,
       "scopes": [],
       "features": [
@@ -12866,7 +12866,7 @@
       ],
       "runtime": "chromium"
     },
-    "tests/search-ui-browser.test.ts": {
+    "tests/browser/search-ui-browser.test.ts": {
       "count": 1,
       "scopes": [],
       "features": [
@@ -12874,7 +12874,7 @@
       ],
       "runtime": "chromium"
     },
-    "tests/search.test.ts": {
+    "tests/practice/search.test.ts": {
       "count": 8,
       "scopes": [],
       "detail": {
@@ -12882,11 +12882,11 @@
         "supportFiles": []
       }
     },
-    "tests/site-assets.test.ts": {
+    "tests/ui/site-assets.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/sort-simulator.test.ts": {
+    "tests/details/sort-simulator.test.ts": {
       "count": 5,
       "scopes": [
         "2026-a"
@@ -12902,7 +12902,7 @@
         ]
       }
     },
-    "tests/sort-ui.test.ts": {
+    "tests/details/sort-ui.test.ts": {
       "count": 7,
       "scopes": [
         "2026-a"
@@ -12914,47 +12914,47 @@
         "supportFiles": []
       }
     },
-    "tests/source-collections.test.ts": {
+    "tests/practice/source-collections.test.ts": {
       "count": 12,
       "scopes": []
     },
-    "tests/source-evidence.test.ts": {
+    "tests/distribution/source-evidence.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/source-inventory-extensions.test.ts": {
+    "tests/verification/source-inventory-extensions.test.ts": {
       "count": 4,
       "scopes": [],
       "features": [
         "verification"
       ]
     },
-    "tests/source-prerequisites.test.ts": {
+    "tests/distribution/source-prerequisites.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/source-question-boundaries.test.ts": {
+    "tests/generation/source-question-boundaries.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/source-question-form.test.ts": {
+    "tests/generation/source-question-form.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/stage-2017-spring-afternoon.test.ts": {
+    "tests/content/2017-spring-pm/stage-2017-spring-afternoon.test.ts": {
       "count": 9,
       "scopes": [
         "2017-spring-pm"
       ]
     },
-    "tests/stage-2019-spring-candidate-helper.test.ts": {
+    "tests/content/2019-shared/stage-2019-spring-candidate-helper.test.ts": {
       "count": 6,
       "scopes": [
         "2019-spring-am",
         "2019-spring-pm"
       ]
     },
-    "tests/stage1-am-meaning.test.ts": {
+    "tests/content/shared/stage1-am-meaning.test.ts": {
       "count": 1,
       "scopes": [
         "2017-autumn-am",
@@ -12965,7 +12965,7 @@
         "2019-spring-am"
       ]
     },
-    "tests/stage1-am-partial-readiness.test.ts": {
+    "tests/content/shared/stage1-am-partial-readiness.test.ts": {
       "count": 2,
       "scopes": [
         "2017-autumn-am",
@@ -12976,7 +12976,7 @@
         "2019-spring-am"
       ]
     },
-    "tests/stage1-partial-release-integration.test.ts": {
+    "tests/content/shared/stage1-partial-release-integration.test.ts": {
       "count": 10,
       "scopes": [
         "2017-autumn-am",
@@ -12987,7 +12987,7 @@
         "2019-spring-am"
       ]
     },
-    "tests/stage1-partial-release-record-files.test.ts": {
+    "tests/content/shared/stage1-partial-release-record-files.test.ts": {
       "count": 6,
       "scopes": [
         "2017-autumn-am",
@@ -12998,25 +12998,25 @@
         "2019-spring-am"
       ]
     },
-    "tests/stage3-2016-autumn-am-integration.test.ts": {
+    "tests/content/2016-autumn-am/stage3-2016-autumn-am-integration.test.ts": {
       "count": 7,
       "scopes": [
         "2016-autumn-am"
       ]
     },
-    "tests/stage3-2016-spring-am-integration.test.ts": {
+    "tests/content/2016-spring-am/stage3-2016-spring-am-integration.test.ts": {
       "count": 8,
       "scopes": [
         "2016-spring-am"
       ]
     },
-    "tests/stage3-collection-transport.test.ts": {
+    "tests/content/2016-spring-am/stage3-collection-transport.test.ts": {
       "count": 3,
       "scopes": [
         "2016-spring-am"
       ]
     },
-    "tests/storage-browser.test.ts": {
+    "tests/browser/storage-browser.test.ts": {
       "count": 4,
       "scopes": [],
       "features": [
@@ -13024,40 +13024,40 @@
       ],
       "runtime": "chromium"
     },
-    "tests/storage-schema.test.ts": {
+    "tests/storage/storage-schema.test.ts": {
       "count": 3,
       "scopes": [],
       "features": [
         "storage"
       ]
     },
-    "tests/storage-snapshot.test.ts": {
+    "tests/storage/storage-snapshot.test.ts": {
       "count": 3,
       "scopes": [],
       "features": [
         "storage"
       ]
     },
-    "tests/study-classification.test.ts": {
+    "tests/practice/study-classification.test.ts": {
       "count": 4,
       "scopes": []
     },
-    "tests/study-clock.test.ts": {
+    "tests/practice/study-clock.test.ts": {
       "count": 3,
       "scopes": []
     },
-    "tests/study-terms.test.ts": {
+    "tests/practice/study-terms.test.ts": {
       "count": 9,
       "scopes": []
     },
-    "tests/temporary-storage.test.ts": {
+    "tests/storage/temporary-storage.test.ts": {
       "count": 4,
       "scopes": [],
       "features": [
         "storage"
       ]
     },
-    "tests/transaction-simulator.test.ts": {
+    "tests/details/transaction-simulator.test.ts": {
       "count": 6,
       "scopes": [
         "2019-autumn-am"
@@ -13073,7 +13073,7 @@
         ]
       }
     },
-    "tests/ui-colors.test.ts": {
+    "tests/ui/ui-colors.test.ts": {
       "count": 7,
       "scopes": []
     }

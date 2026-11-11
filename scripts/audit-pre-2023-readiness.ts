@@ -124,47 +124,47 @@ export const pre2023Reviews: ImportReview[] = aprilBReview.questions.map<ImportR
   collectionId: aprilBReview.collectionId, questionNumber: q.number,
   paperSha256: aprilBReview.questionPaper.sha256,
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
-  testFiles: ["tests/pre-2023-sample-semantics.test.ts", "tests/april-generators.test.ts", "tests/source-prerequisites.test.ts", "tests/publication.test.ts", "scripts/verify-sample-browser.ts"],
+  testFiles: ["tests/content/2022-april-b/pre-2023-sample-semantics.test.ts", "tests/content/2022-april-b/april-generators.test.ts", "tests/distribution/source-prerequisites.test.ts", "tests/distribution/publication.test.ts", "scripts/verify-sample-browser.ts"],
 })).concat(decemberBReview.questions.map<ImportReview>(q => ({
   collectionId: decemberBReview.collectionId, questionNumber: q.number,
   paperSha256: decemberBReview.questionPaper.sha256,
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
-  testFiles: ["tests/december-generators.test.ts", "tests/december-import.test.ts", "tests/source-prerequisites.test.ts", "tests/publication.test.ts", "scripts/verify-december-browser.ts"],
+  testFiles: ["tests/content/2022-shared/december-generators.test.ts", "tests/content/2022-shared/december-import.test.ts", "tests/distribution/source-prerequisites.test.ts", "tests/distribution/publication.test.ts", "scripts/verify-december-browser.ts"],
 }))).concat(decemberAReview.questions.map<ImportReview>(q=>({
   collectionId:decemberAReview.collectionId,questionNumber:q.number,paperSha256:decemberAReview.questionPaper.sha256,
   checks:{transcription:"pass",rights:"pass",originalSemantics:"pass",generatorSemantics:"pass",rendering:"pass"},
-  testFiles:["tests/december-a-generators.test.ts","tests/december-a-import.test.ts","tests/december-a-rendering.test.ts","tests/december-a-study-terms.test.ts","tests/source-prerequisites.test.ts","scripts/verify-december-a-browser.ts"],
+  testFiles:["tests/content/2022-december-a/december-a-generators.test.ts","tests/content/2022-december-a/december-a-import.test.ts","tests/content/2022-december-a/december-a-rendering.test.ts","tests/content/2022-december-a/december-a-study-terms.test.ts","tests/distribution/source-prerequisites.test.ts","scripts/verify-december-a-browser.ts"],
 }))).concat(spring2017PMReview.majorNumbers.map<ImportReview>(number => ({
   collectionId: spring2017PMReview.collectionId, questionNumber: number,
   paperSha256: spring2017PMReview.questionPaperSHA256,
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
-  testFiles: [`tests/legacy-2017-pm${number}.test.ts`, `tests/legacy-2017-pm${number}-records.test.ts`,
-    "tests/legacy-2017-spring-pm-booklet.test.ts", "tests/legacy-afternoon-runtime.test.ts"],
+  testFiles: [`tests/content/2017-shared/legacy-2017-pm${number}.test.ts`, `tests/content/2017-shared/legacy-2017-pm${number}-records.test.ts`,
+    "tests/content/2017-spring-pm/legacy-2017-spring-pm-booklet.test.ts", "tests/content/2017-spring-pm/legacy-afternoon-runtime.test.ts"],
 }))).concat(autumn2017PMReview.majorNumbers.map<ImportReview>(number => ({
   collectionId: autumn2017PMReview.collectionId, questionNumber: number,
   paperSha256: autumn2017PMReview.questionPaperSHA256,
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
-  testFiles: [`tests/legacy-2017-autumn-pm${number}.test.ts`,
-    number <= 4 ? `tests/legacy-2017-autumn-pm${number}-display.test.ts` : `tests/legacy-2017-autumn-pm${number}-records.test.ts`,
-    "tests/legacy-2017-autumn-integration.test.ts", "tests/legacy-2017-autumn-booklet-release.test.ts"],
+  testFiles: [`tests/content/2017-autumn-pm/legacy-2017-autumn-pm${number}.test.ts`,
+    number <= 4 ? `tests/content/2017-autumn-pm/legacy-2017-autumn-pm${number}-display.test.ts` : `tests/content/2017-autumn-pm/legacy-2017-autumn-pm${number}-records.test.ts`,
+    "tests/content/2017-shared/legacy-2017-autumn-integration.test.ts", "tests/content/2017-shared/legacy-2017-autumn-booklet-release.test.ts"],
 }))).concat(spring2018PMReview.majorNumbers.map<ImportReview>(number => ({
   collectionId: spring2018PMReview.collectionId, questionNumber: number,
   paperSha256: spring2018PMReview.questionPaperSHA256,
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
-  testFiles: [number <= 4 ? "tests/legacy-2018-spring-pm1-4.test.ts" :
-    number <= 8 ? "tests/legacy-2018-spring-pm5-8.test.ts" :
-    number <= 10 ? "tests/legacy-2018-spring-pm9-10.test.ts" : `tests/legacy-2018-spring-pm${number}.test.ts`,
-    "tests/legacy-2018-spring-afternoon-booklet.test.ts", "tests/legacy-2018-spring-common.test.ts",
-    "tests/legacy-2018-spring-binding.test.ts"],
+  testFiles: [number <= 4 ? "tests/content/2018-spring-pm/legacy-2018-spring-pm1-4.test.ts" :
+    number <= 8 ? "tests/content/2018-spring-pm/legacy-2018-spring-pm5-8.test.ts" :
+    number <= 10 ? "tests/content/2018-spring-pm/legacy-2018-spring-pm9-10.test.ts" : `tests/content/2018-spring-pm/legacy-2018-spring-pm${number}.test.ts`,
+    "tests/content/2018-spring-pm/legacy-2018-spring-afternoon-booklet.test.ts", "tests/content/2018-shared/legacy-2018-spring-common.test.ts",
+    "tests/content/2018-shared/legacy-2018-spring-binding.test.ts"],
 }))).concat(autumn2018PMReview.majorNumbers.map<ImportReview>(number => ({
   collectionId: autumn2018PMReview.collectionId, questionNumber: number,
   paperSha256: autumn2018PMReview.questionPaperSHA256,
   checks: { transcription: "pass", rights: "pass", originalSemantics: "pass", generatorSemantics: "pass", rendering: "pass" },
-  testFiles: [number === 1 || number === 8 ? "tests/legacy-2018-autumn-existing-adapters.test.ts" :
-    number >= 9 && number <= 12 ? "tests/legacy-2018-autumn-language.test.ts" :
-    number >= 5 && number <= 7 ? "tests/legacy-2018-autumn-pm5-7.test.ts" : `tests/legacy-2018-autumn-pm${number}.test.ts`,
-    "tests/legacy-2018-autumn-booklet-facts.test.ts", "tests/legacy-2018-autumn-complete-integration.test.ts",
-    "tests/legacy-2018-autumn-normal-flow.test.ts", "tests/legacy-2018-autumn-fixed-materials.test.ts"],
+  testFiles: [number === 1 || number === 8 ? "tests/content/2018-shared/legacy-2018-autumn-existing-adapters.test.ts" :
+    number >= 9 && number <= 12 ? "tests/content/2018-shared/legacy-2018-autumn-language.test.ts" :
+    number >= 5 && number <= 7 ? "tests/content/2018-autumn-pm/legacy-2018-autumn-pm5-7.test.ts" : `tests/content/2018-autumn-pm/legacy-2018-autumn-pm${number}.test.ts`,
+    "tests/content/2018-shared/legacy-2018-autumn-booklet-facts.test.ts", "tests/content/2018-shared/legacy-2018-autumn-complete-integration.test.ts",
+    "tests/content/2018-shared/legacy-2018-autumn-normal-flow.test.ts", "tests/content/2018-shared/legacy-2018-autumn-fixed-materials.test.ts"],
 }))).concat(spring2019BookletImportReviews(), autumn2019BookletImportReviews(), morningPartialImportReviews(), stage3ImportReviews());
 
 export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, reviews = pre2023Reviews, discovery: unknown = discoveryLedger) {

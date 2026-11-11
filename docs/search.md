@@ -58,7 +58,7 @@ queryのq、subject、year、type、pageにキーワード・絞り込み・ペ�
 
 ## 検証
 
-tests/search.test.tsで、年度別セットに登録した公開問題との一対一、元データ不変、参照資料・選択肢・通常解説・用語の検索、正規化・AND・条件の積集合、詳細の重複除去・完全性・欠落・権利・中止、旧manifestと検索メタデータの検査、URLと閲覧contextを確認する。
+tests/practice/search.test.tsで、年度別セットに登録した公開問題との一対一、元データ不変、参照資料・選択肢・通常解説・用語の検索、正規化・AND・条件の積集合、詳細の重複除去・完全性・欠落・権利・中止、旧manifestと検索メタデータの検査、URLと閲覧contextを確認する。
 
 node scripts/verify-search-browser.mjsで、隔離したPlaywright CLI用のoutput/playwright/search/verify.jsを生成する。実パッケージによる検索・絞り込み・ページ送り・問題／詳細／戻る・再読み込み、ライト／ダーク、1252／390／320px、キーボード、任意詳細の404、保存領域の件数不変を確認する。操作結果とビルドの記録は[検証記録](/verification)に記す。
 

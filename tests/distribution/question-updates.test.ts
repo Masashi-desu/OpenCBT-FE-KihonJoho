@@ -1,0 +1,188 @@
+import test, { before } from "node:test";
+import assert from "node:assert/strict";
+import { fixture, installFixtureGenerators } from "../fixtures";
+import {assertPublishedSourceScope, publishedSourceScope} from '../helpers/published-source-scope';
+import { generationCoverage } from "../../src/core/generation-coverage";
+import { makeBookmark, refreshBookmark, bookmarkTemplate } from "../../src/core/bookmarks";
+import { latestLearningSelection, outdatedQuestionIndexes, QUESTION_UPDATE_NOTICE } from "../../src/core/question-updates";
+import { prepareRun, startRun, updateAnswer, finishRun, validateRun } from "../../src/core/session";
+import { validateTemplateContract } from "../../src/core/generation";
+import { refOf, type Selection, type Question, type Template } from "../../src/core/types";
+import { validateBundle } from "../../src/core/validation";
+
+before(installFixtureGenerators);
+
+// An initial admitted morning base can retain its current explanation in its
+// first answer change, followed only by non-answer layout/credit edits. This
+// is not a historical body: revised or stale explanations must still fail.
+function assertChangeRecordCurrentness(original: Question, base: Question, template: Template): number {
+  let retainedCurrentDetails = 0;
+  for (const [index, change] of base.origin.changes.slice(0, -1).entries()) {
+    if (change.answerDetails === undefined) continue;
+    const source = /^question-ipa-((2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am)-(\d+)$/.exec(original.id);
+    assert(source, "past question text must not remain in change records outside initial morning bases");
+    const year = Number(source[2].slice(0, 4)), period = /(?:h29h|h30h|h31h)$/.test(source[2]) ? "春期" : "秋期";
+    assert(original.origin.sourceRefs.some(ref => ref.sourceId.startsWith(`source-ipa-${source[1]}-`) &&
+      ref.locator.year === year && ref.locator.period === period && ref.locator.timeSlot === "午前" && ref.locator.questionNumber === source[3]));
+    assert.equal(original.revision, 1);
+    assert.equal(base.revision, 1);
+    assert.equal(template.revision, 1);
+    assert.equal(base.id, original.id.replace("question-ipa-", "question-template-source-"));
+    assert.equal(template.id, original.id.replace("question-ipa-", "template-source-"));
+    assert.deepEqual(base.origin.derivedFrom, [refOf(original)]);
+    assert.deepEqual(template.baseQuestionRef, refOf(base));
+    assert.equal(change.kind, "wording");
+    assert.equal(change.affectsAnswer, true);
+    assert.equal(base.explanation.blocks.length, 1);
+    assert.equal(base.explanation.blocks[0].type, "paragraph");
+    assert.equal(change.answerDetails, base.explanation.blocks[0].text, "retained initial details must equal the current explanation");
+    for (const later of base.origin.changes.slice(index + 1)) {
+      assert.equal(later.affectsAnswer, false, "a later answer change makes the earlier explanation historical");
+      assert(["wording", "layout"].includes(later.kind));
+      assert.equal(later.answerDetails, undefined);
+    }
+    retainedCurrentDetails++;
+  }
+  assert(retainedCurrentDetails <= 1);
+  return retainedCurrentDetails;
+}
+
+// Obsolete revisions are represented by metadata only. No old problem wording
+// or historical question bodies are retained in the repository.
+test("compatibility checks every issued source and ignores unissued catalog changes", () => {
+  const latest = fixture();
+  const saved = { session: { entries: latest.questions.map(q => ({ questionRef: refOf(q) })) } };
+  assert.deepEqual(outdatedQuestionIndexes(saved, latest), []);
+  const changed = structuredClone(latest);
+  changed.questions[0].revision++;
+  assert.deepEqual(outdatedQuestionIndexes(saved, changed), [0]);
+  changed.questions[1].lifecycle = "withdrawn";
+  assert.deepEqual(outdatedQuestionIndexes(saved, changed), [0, 1]);
+  changed.questions.splice(2, 1);
+  assert.deepEqual(outdatedQuestionIndexes(saved, changed), [0, 1, 2]);
+  const one = { session: { entries: [saved.session.entries[10]] } };
+  assert.deepEqual(outdatedQuestionIndexes(one, changed), []);
+  changed.catalog.revision++;
+  assert.deepEqual(outdatedQuestionIndexes(one, changed), []);
+});
+
+test("endless learning also replaces an obsolete future source pool", () => {
+  const latest = fixture(), refs = latest.questions.slice(0, 2).map(refOf);
+  const saved = { session: { entries: [{ questionRef: refs[0] }] }, set: { questionRefs: refs }, selection: { mode: "endless" as const } };
+  assert.deepEqual(outdatedQuestionIndexes(saved, latest), []);
+  const changed = structuredClone(latest);
+  changed.questions.find(q => q.id === refs[1].questionId)!.revision++;
+  assert.deepEqual(outdatedQuestionIndexes(saved, changed), [0]);
+  assert.deepEqual(outdatedQuestionIndexes({ ...saved, selection: { mode: "study" } }, changed), []);
+});
+
+test("saved snapshots need only issued generators, while distribution and hashes remain strict", async () => {
+  const saved = fixture(), template = saved.templates[0];
+  template.generatorRef.version = "1.9.9";
+  await assert.rejects(validateBundle(saved), { code: "GENERATOR_REF" });
+  await assert.rejects(validateBundle(saved, new Set([`${template.id}@${template.revision}`])), { code: "GENERATOR_REF" });
+  await validateBundle(saved, new Set());
+  template.originalContentSha256 = "0".repeat(64);
+  await assert.rejects(validateBundle(saved, new Set()), { code: "TEMPLATE_ORIGINAL_HASH" });
+});
+
+test("all old bookmark revisions resolve the current source and current generator without a migration allowlist", () => {
+  const latest = fixture(), rows = generationCoverage(latest).rows;
+  assertPublishedSourceScope(latest);
+  assert.equal(rows.length, publishedSourceScope.originalCount, "every current and newly admitted source participates");
+  let retainedCurrentDetails = 0;
+  for (const row of rows) {
+    const current = makeBookmark(latest, refOf(row.original), 0);
+    const template = row.linked[0], base = latest.questions.find(q => q.id === template.baseQuestionRef.questionId)!;
+    validateTemplateContract(template);
+    retainedCurrentDetails += assertChangeRecordCurrentness(row.original, base, template);
+    if (template.generatorRef.version === "3.7.0") {
+      const retired = structuredClone(template);
+      retired.generatorRef.version = ["template-source-2023-b-1", "template-source-2023-b-3"].includes(template.id)
+        ? "3.4.0" : "3.6.0";
+      assert.throws(() => validateTemplateContract(retired), { code: "GENERATOR_REF" });
+    }
+    if (["2.3.0", "2.4.0", "3.4.0", "3.5.0", "3.6.0"].includes(template.generatorRef.version)) {
+      const retired = structuredClone(template);
+      retired.generatorRef.version = template.generatorRef.version === "3.6.0" ? "3.4.0" : template.generatorRef.version === "3.5.0" ? ["2024-a-10", "2026-a-11"].includes(row.original.id.replace("question-ipa-", "")) ? "3.4.0" : "3.2.0" : template.generatorRef.version === "2.4.0" ? "2.3.0" : template.generatorRef.version === "2.3.0" ? "2.1.0" : ["2025-b-4", "2025-b-5"].includes(row.original.id.replace("question-ipa-", "")) ? "3.3.0" : "3.2.0";
+      assert.throws(() => validateTemplateContract(retired), { code: "GENERATOR_REF" });
+    }
+    for (const questionRef of [refOf(row.original), row.linked[0].baseQuestionRef]) {
+      for (let revision = 1; revision <= questionRef.revision; revision++) {
+        const ref = { ...questionRef, revision };
+        assert.deepEqual(makeBookmark(latest, ref, 0), current);
+        assert.deepEqual(refreshBookmark(latest, { ...current, questionRef: ref }), current);
+        assert.equal(bookmarkTemplate(latest, ref).template.revision, row.linked[0].revision);
+      }
+      for (const revision of [0, -1, questionRef.revision + 1])
+        assert.throws(() => makeBookmark(latest, { ...questionRef, revision }), { code: "BOOKMARK_REF" });
+    }
+  }
+  assert.equal(retainedCurrentDetails, 160, "the ordered-choice and stem revisions retire superseded explanation copies");
+});
+
+test("retained first-edition morning explanations reject stale text, later answer changes and revised bodies", () => {
+  const latest = fixture(), rows = generationCoverage(latest).rows;
+  const row = rows.find(row => row.original.id === "question-ipa-2017h29a-fe-am-1")!;
+  const template = row.linked[0], base = latest.questions.find(question => question.id === template.baseQuestionRef.questionId)!;
+  assert.equal(assertChangeRecordCurrentness(row.original, base, template), 1);
+  const stale = structuredClone(base);
+  stale.origin.changes.find(change => change.answerDetails)!.answerDetails += " stale";
+  assert.throws(() => assertChangeRecordCurrentness(row.original, stale, template));
+  const revised = structuredClone(base); revised.revision++;
+  assert.throws(() => assertChangeRecordCurrentness(row.original, revised, { ...template, baseQuestionRef: refOf(revised) }));
+  const laterAnswer = structuredClone(base); laterAnswer.origin.changes.at(-1)!.affectsAnswer = true;
+  assert.throws(() => assertChangeRecordCurrentness(row.original, laterAnswer, template));
+  const previous = rows.find(row => row.original.id === "question-ipa-2023-a-1")!;
+  const previousBase = structuredClone(latest.questions.find(question => question.id === previous.linked[0].baseQuestionRef.questionId)!);
+  previousBase.origin.changes.unshift({ ...base.origin.changes.find(change => change.answerDetails)!, answerDetails: "obsolete" });
+  assert.throws(() => assertChangeRecordCurrentness(previous.original, previousBase, previous.linked[0]), /outside initial morning bases/);
+});
+
+test("latest learning resolves explicit single and grouped source pools and avoids starting a timed exam", () => {
+  const latest = fixture(), rows = generationCoverage(latest).rows.slice(0, 3);
+  for (const kind of ["bookmark", "mix"] as const) {
+    const refs = rows.map(row => ({
+      ...(kind === "bookmark" ? refOf(row.original) : row.linked[0].baseQuestionRef), revision: 1,
+    }));
+    const selection: Selection = { subject: "A", kind, mode: "practice", bindingMode: "generated_values", questionRefs: refs };
+    const before = structuredClone(selection), updated = latestLearningSelection({ selection }, latest);
+    assert.equal(updated.mode, "study");
+    assert.deepEqual(updated.questionRefs, rows.map(row => kind === "bookmark" ? refOf(row.original) : row.linked[0].baseQuestionRef));
+    assert.deepEqual(selection, before);
+  }
+  const ref = { ...refOf(rows[0].original), revision: 1 };
+  const selection: Selection = { subject: "A", kind: "bookmark", mode: "endless", bindingMode: "generated_values", bookmarkQuestionRef: ref };
+  const updated = latestLearningSelection({ selection }, latest);
+  assert.equal(updated.mode, "endless");
+  assert.deepEqual(updated.bookmarkQuestionRef, refOf(rows[0].original));
+  assert.throws(() => latestLearningSelection({ selection: { ...selection, bookmarkQuestionRef: { questionId: "question-missing", revision: 1 } } }, latest));
+});
+
+test("replacement learning has independent questions, answers, elapsed time and results", async () => {
+  const latest = fixture(), row = generationCoverage(latest).rows.find(row => row.original.id === "question-ipa-2023-a-1")!;
+  const selection: Selection = { subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: refOf(row.original) };
+  let previous = startRun(await prepareRun(latest, selection, {}, 100000), 100001);
+  previous = updateAnswer(previous, previous.issued[0].correctAnswer.choiceId, 100002);
+  previous = finishRun(previous, "completed", 100003);
+  // Simulate an obsolete reference; content is always the current wording.
+  previous.session.entries[0].questionRef.revision--;
+  assert.deepEqual(outdatedQuestionIndexes(previous, latest), [0]);
+  const before = structuredClone(previous);
+  const replacement = await prepareRun(latest, latestLearningSelection(previous, latest), {}, 200000);
+  replacement.replacementFor = previous.session.id;
+  await validateRun(replacement);
+  assert.notEqual(replacement.session.id, previous.session.id);
+  assert.notEqual(replacement.instances[0].id, previous.instances[0].id);
+  assert.equal(replacement.result, undefined);
+  assert.equal(replacement.session.activeElapsedSeconds, 0);
+  assert.equal(replacement.session.entries[0].selectedChoiceId, undefined);
+  assert.equal(replacement.session.entries[0].revealed, false);
+  assert.equal(replacement.session.entries[0].reviewFlag, false);
+  assert.deepEqual(outdatedQuestionIndexes(replacement, latest), []);
+  const [from, to] = replacement.instances[0].parameters.values;
+  assert(replacement.issued[0].prompt.blocks.some(b => b.type === "paragraph" && b.text.startsWith(`${from}進小数`) && b.text.endsWith(`を${to}進小数に変換したものはどれか。`)));
+  assert.deepEqual(previous, before);
+  assert.match(QUESTION_UPDATE_NOTICE, /互換性がありません/);
+  assert.match(QUESTION_UPDATE_NOTICE, /回答・結果は引き継ぎません/);
+});

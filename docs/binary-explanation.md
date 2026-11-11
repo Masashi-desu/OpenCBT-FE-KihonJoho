@@ -26,4 +26,4 @@ j＝13は独自の動作確認例であり、公式問題の固定入力では�
 
 IPA公式の[問題冊子p.4](https://www.ipa.go.jp/shiken/syllabus/henkou/2022/ssf7ph000000h5tb-att/fe_kamoku_a_set_sample_qs.pdf)、[解答例p.1](https://www.ipa.go.jp/shiken/syllabus/henkou/2022/ssf7ph000000h5tb-att/fe_kamoku_a_set_sample_ans.pdf)、[2022年12月26日公表ページ](https://www.ipa.go.jp/shiken/syllabus/henkou/2022/20221226.html)及び既存の利用条件の根拠を2026-11-04に再確認する。公式正答はエ。配布済み問題画像を目視し、全4行・図・注記を照合する。既存のIPA教育目的利用の用途別評価を適用し、原資料に基づく改変ありの図・独自解説・コードを区別する。新規ライブラリは追加しない。出典・権利・参考資料は共通フッターへ常時展開し、単独表示でも表示する。
 
-`scripts/update-binary-manifest.mjs`でテーマ・スクロールバーを正本から生成し、全7資源のhashを更新する。`tests/binary-simulator.test.ts`で全桁数・許容入力・全4選択肢の全状態を、別実装の処理追跡と位取り計算で検算する。入力境界、余りの保存前後、0埋め、全入力での正答の一意性、保存条件と選択肢順、パッケージ、保存済み解答・ブックマークも確認する。実ブラウザの再現手順と実結果は[検証記録](/verification)へ残す。検証は同一AIによる実装・独立計算であり第三者査読ではない。
+`scripts/update-binary-manifest.mjs`でテーマ・スクロールバーを正本から生成し、全7資源のhashを更新する。`tests/details/binary-simulator.test.ts`で全桁数・許容入力・全4選択肢の全状態を、別実装の処理追跡と位取り計算で検算する。入力境界、余りの保存前後、0埋め、全入力での正答の一意性、保存条件と選択肢順、パッケージ、保存済み解答・ブックマークも確認する。実ブラウザの再現手順と実結果は[検証記録](/verification)へ残す。検証は同一AIによる実装・独立計算であり第三者査読ではない。

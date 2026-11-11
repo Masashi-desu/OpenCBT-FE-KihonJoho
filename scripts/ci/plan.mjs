@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports } from './scopes.mjs';
+import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes } from './scopes.mjs';
 import { validScope } from './booklet-scope.mjs';
 import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
@@ -206,6 +206,9 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
     const extensionScopes = Object.fromEntries(Object.keys(EXTENSION_DECLARATIONS).filter(p => changed.includes(p)).map(p => [p, appendOnlyExtensionScopes(readAt(base.commit, p)?.toString(), readAt(null, p)?.toString(), p)]));
     if (changed.includes('scripts/source-inventory-extensions.json'))
         extensionScopes['scripts/source-inventory-extensions.json'] = sourceInventoryAppendScopes(readAt(base.commit, 'scripts/source-inventory-extensions.json')?.toString(), readAt(null, 'scripts/source-inventory-extensions.json')?.toString());
+    if (changed.includes(AFTERNOON_SELECTION_COUNTS_FILE))
+        extensionScopes[AFTERNOON_SELECTION_COUNTS_FILE] = afternoonSelectionCountAppendScopes(
+            readAt(base.commit, AFTERNOON_SELECTION_COUNTS_FILE)?.toString(), readAt(null, AFTERNOON_SELECTION_COUNTS_FILE)?.toString());
     const manifests = changed.filter(p => p === manifestPath || p === privatePath), initialChanged = changed.filter(p => !manifests.includes(p));
     const scopedDisplays = base.trusted && !forceFull ? Object.entries(SCOPED_DISPLAYS)
         .filter(([file, owner]) => changed.includes(file) && !changed.includes(owner.host) &&

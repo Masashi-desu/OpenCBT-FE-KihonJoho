@@ -20,8 +20,8 @@
 
 原問題・基準問題・テンプレートは改訂2とし、詳細参照、派生参照、基準hash、関連セット参照、配布hashを更新する。変更記録の重複answerDetailsは除去する。本文・通常解説・選択肢・正答・生成器版・入力域・採点・保存形式は保持する。非互換履歴とブックマークは既存の現行版参照規則に従い、旧回答を再採点しない。
 
-保存済み問題の実画面検証で、既存のacquireRunLockがWeb LocksのifAvailableとsignalを併用し、実ブラウザでNotSupportedErrorになる不具合を再現した。待機列に入らないifAvailableだけを渡し、タイムアウト・解除後の遅いcallbackはローカルの取消し状態でロックを保持しないようにした。公開API・排他方針・保存形式は維持する。tests/storage-browser.test.tsで実際のロック取得・競合・解放・再取得・即時解除を検査し、機能別の保存検査も対象に加える。
+保存済み問題の実画面検証で、既存のacquireRunLockがWeb LocksのifAvailableとsignalを併用し、実ブラウザでNotSupportedErrorになる不具合を再現した。待機列に入らないifAvailableだけを渡し、タイムアウト・解除後の遅いcallbackはローカルの取消し状態でロックを保持しないようにした。公開API・排他方針・保存形式は維持する。tests/browser/storage-browser.test.tsで実際のロック取得・競合・解放・再取得・即時解除を検査し、機能別の保存検査も対象に加える。
 
 ## 検証
 
-tests/transaction-simulator.test.tsで独立した固定の遷移関係から全25状態対、全三経路の全ステップ・全五矢印、原全4択、全4生成条件の実際の表と正答一意性、保存条件不変、未対応入力、版互換、パッケージhash・共通資源を検証する。scripts/verify-transaction-browser.tsで隔離したヘッドレスPlaywright用の再現コードを生成し、全経路・全段階・全状態・全選択肢の表示、前後移動、選択解除とフォーカス復帰、両テーマ・PC／狭幅・文字拡大、図と操作位置、単一スクロール、高さ追従、通常解説・検索・保存済み生成条件からの導線と復帰を確認する。実結果と未検査範囲は[検証記録](/verification)に残す。
+tests/details/transaction-simulator.test.tsで独立した固定の遷移関係から全25状態対、全三経路の全ステップ・全五矢印、原全4択、全4生成条件の実際の表と正答一意性、保存条件不変、未対応入力、版互換、パッケージhash・共通資源を検証する。scripts/verify-transaction-browser.tsで隔離したヘッドレスPlaywright用の再現コードを生成し、全経路・全段階・全状態・全選択肢の表示、前後移動、選択解除とフォーカス復帰、両テーマ・PC／狭幅・文字拡大、図と操作位置、単一スクロール、高さ追従、通常解説・検索・保存済み生成条件からの導線と復帰を確認する。実結果と未検査範囲は[検証記録](/verification)に残す。

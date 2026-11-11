@@ -6,7 +6,7 @@ export const ERROR_DETAIL = 'src/ui/ErrorDetails.tsx';
 export const MENU_CARD = 'src/ui/MenuOptionCard.tsx';
 export const MENU_SELECTION = 'src/core/menu-selection.ts';
 export const MENU_SELECTION_TESTS = [
-    'tests/menu-selection.test.ts', 'tests/mix-profile.test.ts', 'tests/legacy-afternoon-selection.test.ts',
+    'tests/practice/menu-selection.test.ts', 'tests/practice/mix-profile.test.ts', 'tests/content/2017-spring-pm/legacy-afternoon-selection.test.ts',
 ];
 export const SEARCH_MATERIALS = 'src/ui/SearchQuestionMaterials.tsx';
 const searchPage = 'src/ui/SearchPage.tsx';
