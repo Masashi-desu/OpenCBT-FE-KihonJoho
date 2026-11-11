@@ -276,13 +276,16 @@ test('問11のJavaを実コンパイルし、スレッド名とキャンセル�
     for (const name of 'cde') compareAll(body, name, option =>
       compile({ ...selected, [name]: option }).status === 0);
     assert.equal(compile(selected).status, 0);
-    const run = () => execFileSync('java', ['-Duser.timezone=Asia/Tokyo', '-Duser.language=en', '-cp', directory, 'TimerTest'],
+    // A fixed UTC+09:00 zone gives Date.toString the same suffix with each JDK locale provider.
+    const run = () => execFileSync('java', ['-Duser.timezone=GMT+09:00', '-Duser.language=en', '-cp', directory, 'TimerTest'],
       { encoding: 'utf8', timeout: 9000 }).trim().split('\n');
     const result = run();
     assert.equal(result.length, 4);
     assert.deepEqual(result.slice(0, 2).map(row => row.split(':')[0]).sort(), ['long timer', 'short timer']);
     assert(result[2].startsWith(alarm + ': onAlarm') && result[3].startsWith(cancel + ': onCancel'));
-    assert(result.every(row => / at \w{3} \w{3} \d\d \d\d:\d\d:\d\d JST \d{4}$/.test(row)));
+    for (const row of result) {
+      assert.match(row, / at \w{3} \w{3} \d\d \d\d:\d\d:\d\d GMT\+09:00 \d{4}$/);
+    }
     assert(body.explanation.includes(alarm) && body.explanation.includes(cancel));
     compareAll(body, 'f', option => {
       if (option.startsWith('onCancel')) return false; // Direct call runs on the caller and leaves the long worker alive.
