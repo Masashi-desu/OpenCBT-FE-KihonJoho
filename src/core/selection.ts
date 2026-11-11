@@ -61,17 +61,26 @@ export function selectEndlessQuestions(
   const refs = [...new Map(questionRefs.map((ref) => [refKey(ref), ref])).values()];
   if (!refs.length)
     throw new DataError("SHORTAGE", "周回する問題がありません");
+  const keys = new Set(refs.map(refKey));
+  const bases = new Map<string, Question>();
+  for (const question of b.questions) {
+    const key = refKey(refOf(question));
+    if (keys.has(key) && !bases.has(key)) bases.set(key, question);
+  }
+  const templates = new Map<string, Bundle["templates"][number] | null>();
+  for (const template of b.templates) {
+    const key = refKey(template.baseQuestionRef);
+    if (keys.has(key) && template.lifecycle === "active" && template.distribution === "included")
+      templates.set(key, templates.has(key) ? null : template);
+  }
+  const withdrawn = new Set(b.catalog.withdrawals.map(({ questionRef }) => refKey(questionRef)));
   const candidates = refs.map((ref) => {
-    const base = b.questions.find((q) => refKey(refOf(q)) === refKey(ref)),
-      templates = b.templates.filter((t) =>
-        refKey(t.baseQuestionRef) === refKey(ref) &&
-        t.lifecycle === "active" && t.distribution === "included",
-      );
-    if (!base || base.lifecycle !== "active" || base.distribution !== "included" ||
-      b.catalog.withdrawals.some((w) => refKey(w.questionRef) === refKey(ref)) ||
-      templates.length !== 1)
+    const key = refKey(ref);
+    const base = bases.get(key);
+    const template = templates.get(key);
+    if (!base || base.lifecycle !== "active" || base.distribution !== "included" || withdrawn.has(key) || !template)
       throw new DataError("BINDING_REF", "周回する問題の生成定義を利用できません");
-    return { base, template: templates[0] };
+    return { base, template };
   });
   const subject = candidates.every(({ base }) => base.subject === candidates[0].base.subject)
     ? candidates[0].base.subject
@@ -130,12 +139,18 @@ export function selectQuestions(
       throw new DataError("SELECTION", "無限周回は生成問題を使います");
     if (s.kind === "bookmark" && !s.questionRefs?.length)
       throw new DataError("BOOKMARK_REF", "練習するブックマークを選んでください。");
-    const refs = s.kind === "bookmark"
+    let refs = s.kind === "bookmark"
       ? bookmarkTemplates(b, s.questionRefs!).map(({ base }) => refOf(base))
-      : s.questionRefs ?? b.templates.filter((t) =>
-        t.lifecycle === "active" && t.distribution === "included" &&
-        b.questions.some((q) => q.subject === s.subject && isCurrentSubjectMixQuestion(q) && refKey(refOf(q)) === refKey(t.baseQuestionRef)),
-      ).map((t) => t.baseQuestionRef);
+      : s.questionRefs;
+    if (!refs) {
+      const subjectRefs = new Set(b.questions
+        .filter(question => question.subject === s.subject && isCurrentSubjectMixQuestion(question))
+        .map(question => refKey(refOf(question))));
+      refs = b.templates
+        .filter(template => template.lifecycle === "active" && template.distribution === "included" &&
+          subjectRefs.has(refKey(template.baseQuestionRef)))
+        .map(template => template.baseQuestionRef);
+    }
     const prepared = selectEndlessQuestions(b, refs,
       s.kind === "bookmark" ? "ブックマーク練習・無限周回" : "無限周回・生成問題", order);
     if (s.subject !== prepared.exam.subject)
