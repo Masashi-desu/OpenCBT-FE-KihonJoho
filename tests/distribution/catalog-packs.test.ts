@@ -7,7 +7,7 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { fixture } from "../fixtures";
 import { encodeRecordPacks, compactDistribution, readDistributionBundle } from "../../scripts/distribution-files";
-import { catalogFileRecords, RECORD_FILE_MAX_BYTES, PACK_MAX_RECORDS } from "../../src/core/catalog-files";
+import { catalogFileRecords, CATALOG_MAX_BYTES, RECORD_FILE_MAX_BYTES, PACK_MAX_RECORDS } from "../../src/core/catalog-files";
 import { readCatalog } from "../../src/core/catalog-reader";
 import { contentHash } from "../../src/core/hash";
 import { validateBundle } from "../../src/core/validation";
@@ -35,6 +35,8 @@ test("generation preparation reads packed inputs, revises only the requested ser
     assert(before.catalog.files.sources.every(f => f.recordCount));
     execFileSync(path.resolve("node_modules/.bin/tsx"), [path.resolve("scripts/prepare-generation-data.ts"), "--refresh-sources=sample-2022-apr-b-1"], { cwd: temporary, stdio: "pipe" });
     const after = readDistributionBundle(root);
+    assert(fs.statSync(path.join(root, "catalog.json")).size <= CATALOG_MAX_BYTES);
+    assert.equal(after.catalog.revision, before.catalog.revision + 1);
     assert.deepEqual(after.questions.map(q => q.id), before.questions.map(q => q.id));
     assert.deepEqual(after.templates.map(t => t.id), before.templates.map(t => t.id));
     for (const files of Object.values(after.catalog.files)) assert(files.every(file => file.recordCount !== undefined));

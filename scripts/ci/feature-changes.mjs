@@ -17,6 +17,7 @@ const verificationFiles = [
     'scripts/ci/callback-locations.mjs', 'scripts/ci/check-changed.mjs', 'scripts/ci/detail-changes.mjs', 'scripts/ci/feature-changes.mjs',
     'scripts/ci/plan.mjs', 'scripts/ci/policy.json', 'scripts/ci/reporter.mjs', 'scripts/ci/results.mjs', 'scripts/ci/run-part.mjs',
     'scripts/ci/runtime-dependencies.mjs', 'scripts/ci/scopes.mjs', 'scripts/ci/startup-changes.mjs', 'scripts/ci/test.mjs', 'scripts/ci/ui-changes.mjs', '.github/workflows/pages.yml',
+    'scripts/stage3-morning-records.ts', 'scripts/prepare-generation-data.ts',
 ];
 const equal = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 const omit = (v, keys) => Object.fromEntries(Object.entries(v).filter(([k]) => !keys.includes(k)));

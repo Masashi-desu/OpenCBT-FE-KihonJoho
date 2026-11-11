@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes } from './scopes.mjs';
+import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from './scopes.mjs';
 import { validScope } from './booklet-scope.mjs';
 import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
@@ -209,6 +209,10 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
     if (changed.includes(AFTERNOON_SELECTION_COUNTS_FILE))
         extensionScopes[AFTERNOON_SELECTION_COUNTS_FILE] = afternoonSelectionCountAppendScopes(
             readAt(base.commit, AFTERNOON_SELECTION_COUNTS_FILE)?.toString(), readAt(null, AFTERNOON_SELECTION_COUNTS_FILE)?.toString());
+    const matrixScopes = changed.includes(ANSWER_CHOICE_MATRIX_HOST) &&
+        answerChoiceMatrixAppendScopes(readAt(base.commit, ANSWER_CHOICE_MATRIX_HOST)?.toString(), readAt(null, ANSWER_CHOICE_MATRIX_HOST)?.toString());
+    const isNewMatrixGate = matrixScopes && matrixScopes.every(scope => !before.scopes.includes(scope) && after.scopes.includes(scope));
+    if (isNewMatrixGate) extensionScopes[ANSWER_CHOICE_MATRIX_HOST] = matrixScopes;
     const manifests = changed.filter(p => p === manifestPath || p === privatePath), initialChanged = changed.filter(p => !manifests.includes(p));
     const scopedDisplays = base.trusted && !forceFull ? Object.entries(SCOPED_DISPLAYS)
         .filter(([file, owner]) => changed.includes(file) && !changed.includes(owner.host) &&
@@ -234,7 +238,7 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         }
     if (selected.profile !== 'full') {
         const carriers = ['src/core/generators/effective-public.ts', 'src/core/generators/legacy-afternoon-definitions.ts', 'src/core/generators/legacy-morning-managed.ts', ...Object.keys(EXTENSION_DECLARATIONS)];
-        const sourceChanges = changed.filter(p => !Object.hasOwn(EXTENSION_DECLARATIONS, p) && !(selected.profile === 'features' && [...STORAGE_RUNTIME, 'package.json', 'package-lock.json'].includes(p)));
+        const sourceChanges = changed.filter(p => !Object.hasOwn(EXTENSION_DECLARATIONS, p) && !(p === ANSWER_CHOICE_MATRIX_HOST && isNewMatrixGate) && !(selected.profile === 'features' && [...STORAGE_RUNTIME, 'package.json', 'package-lock.json'].includes(p)));
         const oldImports = base.trusted ? runtimeImports(baseline, base.commit) : { graph: {}, unresolved: [] }, newImports = runtimeImports(actual, null), oldGraph = oldImports.graph, newGraph = newImports.graph, graph = {};
         for (const file of new Set([...Object.keys(oldGraph), ...Object.keys(newGraph)]))
             graph[file] = [...new Set([...(oldGraph[file] ?? []), ...(newGraph[file] ?? [])])];

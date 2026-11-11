@@ -42,6 +42,7 @@ export function spring2016SourceRef(n?: number,page?: number,answer=false):Sourc
 export async function makeStage3MorningRecords(input: {
   facts: readonly Stage3MorningFact[]; definitions: readonly GenerationDefinition[];
   commonAssets: readonly Asset[]; sources: Source[]; rights: Rights[];
+  reviewedCommonPages?: readonly number[];
   checkedOn: string; supplementaryRights?: Readonly<Record<number, string[]>>;
   collectionId?: string;
 }): Promise<Stage3MorningRecords> {
@@ -53,7 +54,14 @@ export async function makeStage3MorningRecords(input: {
   const numbers=input.facts.map(f=>f.number);
   assert(numbers.length>0 && new Set(numbers).size===numbers.length);
   assert.deepEqual(numbers,[...numbers].sort((a,b)=>a-b));
-  assert(input.commonAssets.length===1 || input.commonAssets.length===2);
+  const commonPages = input.commonAssets.map((_, index) => index + 2);
+  assert(commonPages.length <= 2, 'at most two common notation pages');
+  if (input.reviewedCommonPages !== undefined) {
+    assert.deepEqual(commonPages, input.reviewedCommonPages, 'common notation pages match the reviewed source');
+  } else {
+    assert(commonPages.length > 0, 'a source review must confirm that common notation is absent');
+  }
+  const layoutSummary = commonPages.length ? '原画像・原問番号・全選択肢・注記と共通表記を保持' : '原画像・原問番号・全選択肢・注記を保持';
   const commonRefs=input.commonAssets.map((asset,index)=>{
     const expected=ref(undefined,index+2);
     assert.deepEqual(asset.attribution.sourceRefs,[expected],'reviewed common page and source must match');
@@ -84,7 +92,7 @@ export async function makeStage3MorningRecords(input: {
     const original:Question={schemaVersion:'3.0.0',id:'question-ipa-'+fact.source,revision:1,lifecycle:'active',subject:'A',
       learning:{area:fact.area??(fact.number<=50?'technology':fact.number<=61?'management':'strategy'),tags:[`legacy-${year}`],topics:[definition.title],keywords:[definition.title]},
       origin:{kind:'official_reprint',sourceRefs:[ref(fact.number,fact.page),...structuredClone(commonRefs)],derivedFrom:[],isModified:false,modificationBasis:'official_source',
-        changes:[{at:input.checkedOn+'T00:00:00Z',actorId:'codex',kind:'layout',summary:'原画像・原問番号・全選択肢・注記と共通表記を保持',details:`原PDF p${fact.page}。画像切出し座標${fact.crop.cropBox.join(',')}。構造化した完全な代替説明を保持。`,affectsAnswer:false}]},
+        changes:[{at:input.checkedOn+'T00:00:00Z',actorId:'codex',kind:'layout',summary:layoutSummary,details:`原PDF p${fact.page}。画像切出し座標${fact.crop.cropBox.join(',')}。構造化した完全な代替説明を保持。`,affectsAnswer:false}]},
       contributors:[{actorId:'ipa',role:'author'},{actorId:'codex',role:'editor'},{actorId:'codex',role:'verifier'}],
       prompt:{attribution,blocks:[{type:'image',assetId:asset.id,caption:'問'+fact.number}]},
       contexts:input.commonAssets.map((a,i)=>({id:`context-${collection}-common-${i+2}`,title:`問題文中で共通に使用される表記ルール（p.${i+2}）`,presentation:'text_figure',

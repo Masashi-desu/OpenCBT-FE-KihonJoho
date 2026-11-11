@@ -213,6 +213,37 @@ export function appendOnlyExtensionScopes(beforeText, afterText, file) {
         return null;
     return after.slice(before.length).map(e => e.scope);
 }
+// The single-row choice matrix is a reviewed renderer with a source-only gate.
+export const ANSWER_CHOICE_MATRIX_HOST = 'src/ui/AnswerChoices.tsx';
+export function answerChoiceMatrixAppendScopes(beforeText, afterText) {
+    const dispatch = "  if (q.origin.kind!=='official_reprint' && q.origin.sourceRefs.some(r=>\n";
+    const anchor = "r.locator.timeSlot==='午前' && r.locator.questionNumber==='18')";
+    const mount = '))\n    return <Legacy2018AmChoiceMatrix';
+    const gate = / \|\|\n    \(r\.sourceId==='source-ipa-(20\d{2})h(\d{2})([ha])-fe-am-qs' && r\.locator\.year===\1 && r\.locator\.period==='(春期|秋期)' &&\n      r\.locator\.timeSlot==='午前' && \[((?:'(?:[1-9]|[1-7]\d|80)', )*'(?:[1-9]|[1-7]\d|80)')\]\.includes\(r\.locator\.questionNumber \?\? ''\)\)/g;
+    const parse = text => {
+        if (typeof text !== 'string' || text.split(dispatch).length !== 2 || text.split(anchor).length !== 2 || text.split(mount).length !== 2)
+            return null;
+        const start = text.indexOf(anchor) + anchor.length, end = text.indexOf(mount);
+        if (text.indexOf(dispatch) >= start || start > end) return null;
+        const rows = text.slice(start, end), matches = [...rows.matchAll(gate)], scopes = [];
+        if (matches.map(match => match[0]).join('') !== rows) return null;
+        for (const [, year, era, term, period, numbers] of matches) {
+            if (Number(year) < 2004 || Number(year) - 1988 !== Number(era) ||
+                period !== (term === 'h' ? '春期' : '秋期')) return null;
+            const questionNumbers = [...numbers.matchAll(/'([0-9]+)'/g)].map(match => Number(match[1]));
+            if (questionNumbers.some((number, index) => index && number <= questionNumbers[index - 1])) return null;
+            const scope = year + '-' + (term === 'h' ? 'spring' : 'autumn') + '-am';
+            if (scopes.includes(scope)) return null;
+            scopes.push(scope);
+        }
+        return { unchanged: text.slice(0, start) + text.slice(end), clauses: matches.map(match => match[0]), scopes };
+    };
+    const before = parse(beforeText), after = parse(afterText);
+    if (!before || !after || before.unchanged !== after.unchanged || after.clauses.length <= before.clauses.length ||
+        !before.clauses.every((clause, index) => after.clauses[index] === clause)) return null;
+    return after.scopes.slice(before.scopes.length);
+}
+
 export const AFTERNOON_SELECTION_COUNTS_FILE = 'tests/helpers/generation-paths/issuance.ts';
 export function afternoonSelectionCountAppendScopes(beforeText, afterText) {
     const declaration = /^const preMandatorySecurity = new Set\((\[[^\r\n]*\])\);$/m;
@@ -326,9 +357,9 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
         if (/^(?:README\.md|AGENTS\.md|NOTICE\.md)$|^docs\/.*\.md$|^\.agents\/skills\/.*\.md$/.test(file))
             continue;
         const addedScopes = extensionScopes[file];
-        const newAfternoonScopes = file === AFTERNOON_SELECTION_COUNTS_FILE &&
+        const newBookletGate = [AFTERNOON_SELECTION_COUNTS_FILE, ANSWER_CHOICE_MATRIX_HOST].includes(file) &&
             addedScopes?.every(scope => !beforeOwnership.scopes.includes(scope));
-        if ((Object.hasOwn(EXTENSION_DECLARATIONS, file) || file === 'scripts/source-inventory-extensions.json' || newAfternoonScopes) &&
+        if ((Object.hasOwn(EXTENSION_DECLARATIONS, file) || file === 'scripts/source-inventory-extensions.json' || newBookletGate) &&
             addedScopes?.length && addedScopes.every(scope => afterOwnership.scopes.includes(scope))) {
             add(selected, addedScopes);
             continue;

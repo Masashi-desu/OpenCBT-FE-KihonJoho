@@ -10,33 +10,23 @@ import { isLegacyMorningSource } from "../src/core/generators/legacy-morning-for
 import { ensureStage3MorningGenerators, isStage3MorningSource } from '../src/core/generators/stage3-morning-install';
 import { legacyAfternoonDefinition } from "../src/core/generators/legacy-afternoon-definitions";
 import { validateSourceFormat } from "../src/core/generation-formats";
-import { readDistributionBundle, compactDistribution } from "./distribution-files";
+import { encodeRecordPacks, readDistributionBundle } from "./distribution-files";
+import { CATALOG_MAX_BYTES } from "../src/core/catalog-files";
 import { contentHash } from "../src/core/hash";
 import {
   refOf,
   type Question,
   type Template,
-  type Catalog,
-  type SetRecord,
 } from "../src/core/types";
 
 const root = path.resolve("public/data");
-const read = (p: string) =>
-  JSON.parse(fs.readFileSync(path.join(root, p), "utf8"));
-const write = (p: string, v: unknown) => {
-  fs.mkdirSync(path.dirname(path.join(root, p)), { recursive: true });
-  fs.writeFileSync(path.join(root, p), JSON.stringify(v, null, 2) + "\n");
-};
-const catalog: Catalog = read("catalog.json");
-const oldFiles = structuredClone(catalog.files);
 const inputBundle = readDistributionBundle(root);
+const catalog = structuredClone(inputBundle.catalog);
 const questions = inputBundle.questions;
 const originals = questions.filter((q) => q.origin.kind === "official_reprint");
 const generated: {
   question: Question;
   template: Template;
-  questionPath: string;
-  templatePath: string;
 }[] = [];
 const refreshSources = new Set(
   (
@@ -76,13 +66,9 @@ for (const c of [...generationContracts, ...additionalContracts]) {
       (additional && process.argv.includes("--refresh-additional"))
     )
   ) {
-    const questionPath = `questions/template-${c.id}.json`,
-      templatePath = `templates/${c.id}.json`;
     generated.push({
       question: existingQuestion,
       template: inputBundle.templates.find(t => t.id === `template-${c.id}`)!,
-      questionPath,
-      templatePath,
     });
     continue;
   }
@@ -167,8 +153,6 @@ for (const c of [...generationContracts, ...additionalContracts]) {
   generated.push({
     question: q,
     template: t,
-    questionPath: `questions/template-${c.id}.json`,
-    templatePath: `templates/${c.id}.json`,
   });
 }
 // Booklet-managed bases have source-owned appendices, per-material rights and
@@ -192,46 +176,27 @@ for (const template of inputBundle.templates.filter(t => !handledTemplates.has(t
   validateTemplateContract(template);
   if (template.originalContentSha256 !== await contentHash(question)) throw Error(`BASE_CONTENT ${template.id}`);
   validateSourceFormat(question, template);
-  generated.push({ question, template,
-    questionPath: `questions/${question.id.replace(/^question-/, "")}.json`,
-    templatePath: `templates/${template.id.replace(/^template-/, "")}.json` });
+  generated.push({ question, template });
 }
 if (!changed) {
   console.log("Managed generation data is unchanged; revisions preserved.");
   process.exit(0);
 }
-for (const q of originals) write(`questions/${q.id.replace(/^question-/, "")}.json`, q);
-for (const g of generated) {
-  write(g.questionPath, g.question);
-  write(g.templatePath, g.template);
-}
-const records = (files: { path: string; recordCount?: number }[]) =>
-  files.map((f) => ({
-    ...f,
-    sha256: createHash("sha256")
-      .update(fs.readFileSync(path.join(root, f.path)))
-      .digest("hex"),
-  }));
-// Retain catalog record order when replacing selected records. Newly
-// registered records append once; compaction must not reorder saved metadata.
-function inPriorOrder<T extends { id: string; path: string }>(prior: readonly { id: string }[], next: readonly T[]) {
-  const byId = new Map(next.map(row => [row.id, row]));
-  if (byId.size !== next.length) throw Error("DUPLICATE_RECORD");
+// Retain the existing record order when replacing selected series.
+function inPriorOrder<T extends { id: string }>(prior: readonly T[], next: readonly T[]): T[] {
+  const remaining = new Map(next.map(record => [record.id, record]));
+  if (remaining.size !== next.length) throw Error("DUPLICATE_RECORD");
   const ordered: T[] = [];
-  for (const row of prior) {
-    const replacement = byId.get(row.id);
-    if (replacement) { ordered.push(replacement); byId.delete(row.id); }
+  for (const previous of prior) {
+    const replacement = remaining.get(previous.id);
+    if (replacement) {
+      ordered.push(replacement);
+      remaining.delete(previous.id);
+    }
   }
-  ordered.push(...byId.values());
-  return ordered.map(({ path }) => ({ path }));
+  ordered.push(...remaining.values());
+  return ordered;
 }
-catalog.files.questions = records(inPriorOrder(inputBundle.questions, [
-  ...originals.map(q => ({ id: q.id, path: `questions/${q.id.replace(/^question-/, "")}.json` })),
-  ...generated.map(g => ({ id: g.question.id, path: g.questionPath })),
-]));
-catalog.files.templates = records(inPriorOrder(inputBundle.templates,
-  generated.map(g => ({ id: g.template.id, path: g.templatePath })),
-));
 for (const subject of ["A", "B"] as const) {
   if (!refreshedSubjects.has(subject)) continue;
   const p = `sets/mix-${subject.toLowerCase()}.json`,
@@ -244,28 +209,29 @@ for (const subject of ["A", "B"] as const) {
     questionRef: refOf(g.question),
     templateRef: { id: g.template.id, revision: g.template.revision },
   }));
-  write(p, s);
   for (const mode of ["study", "practice"]) {
-    const epath = `exams/mix-${subject.toLowerCase()}-${mode}.json`,
-      e = inputBundle.exams.find(e => e.id === `exam-mix-${subject.toLowerCase()}-${mode}`)!;
+    const e = inputBundle.exams.find(e => e.id === `exam-mix-${subject.toLowerCase()}-${mode}`)!;
     e.revision = s.revision;
     e.title = s.title;
     e.duplicatePolicy = "instance_unique";
     e.choiceOrder = "shuffle";
-    write(epath, e);
   }
   s.examConfigRefs = s.examConfigRefs.map((r) => ({
     ...r,
     revision: s.revision,
   }));
-  write(p, s);
 }
-catalog.files.sets = records(inputBundle.sets.filter(s => !s.id.includes("independent")).map(s => {
-  const p = `sets/${s.id.replace(/^set-/, "")}.json`; write(p, s); return { path: p };
-}));
-catalog.files.exams = records(inputBundle.exams.filter(e => !e.id.includes("independent")).map(e => {
-  const p = `exams/${e.id.replace(/^exam-/, "")}.json`; write(p, e); return { path: p };
-}));
+const updates = {
+  questions: inPriorOrder(inputBundle.questions, [...originals, ...generated.map(row => row.question)]),
+  templates: inPriorOrder(inputBundle.templates, generated.map(row => row.template)),
+  sets: inputBundle.sets.filter(set => !set.id.includes("independent")),
+  exams: inputBundle.exams.filter(exam => !exam.id.includes("independent")),
+};
+const packs = Object.entries(updates).flatMap(([kind, rows]) => {
+  const packed = encodeRecordPacks(kind, rows);
+  catalog.files[kind] = packed.map(pack => pack.entry);
+  return packed;
+});
 catalog.revision += 1;
 catalog.generationCoverage = "complete";
 // Replacement references must resolve after managed questions are revised.
@@ -276,16 +242,29 @@ for (const withdrawal of catalog.withdrawals) {
   );
   if (replacement) withdrawal.replacement = refOf(replacement.question);
 }
-for (const kind of Object.keys(catalog.files))
-  catalog.files[kind] = records(catalog.files[kind]);
-write("catalog.json", catalog);
-const keep = new Set(
-  Object.values(catalog.files).flatMap((files) => files.map((f) => f.path)),
-);
-for (const files of Object.values(oldFiles))
-  for (const f of files)
-    if (!keep.has(f.path)) fs.rmSync(path.join(root, f.path));
-compactDistribution(root);
+// Publish only the packed index. A one-file-per-record intermediate index
+// exceeds the catalogue byte limit once enough historical problems are present.
+const catalogPath = path.join(root, "catalog.json");
+const catalogBytes = Buffer.from(JSON.stringify(catalog, null, 2) + "\n");
+if (catalogBytes.length > CATALOG_MAX_BYTES) throw Error("SIZE catalog.json");
+const digest = (bytes: Uint8Array) => createHash("sha256").update(bytes).digest("hex");
+if (digest(fs.readFileSync(catalogPath)) !== inputBundle.catalogHash) throw Error("CATALOG_CHANGED");
+const keep = new Set(Object.values(catalog.files).flatMap(files => files.map(file => file.path)));
+const replaced = Object.values(inputBundle.catalog.files).flat().filter(file => !keep.has(file.path));
+for (const file of replaced)
+  if (digest(fs.readFileSync(path.join(root, file.path))) !== file.sha256) throw Error(`FILE_CHANGED ${file.path}`);
+for (const { entry, bytes } of packs) {
+  const file = path.join(root, entry.path);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  if (fs.existsSync(file)) {
+    if (digest(fs.readFileSync(file)) !== entry.sha256) throw Error(`PACK_COLLISION ${entry.path}`);
+  } else fs.writeFileSync(file, bytes, { flag: "wx" });
+}
+const pendingCatalog = path.join(root, `.catalog-${process.pid}.json`);
+fs.writeFileSync(pendingCatalog, catalogBytes, { flag: "wx" });
+fs.renameSync(pendingCatalog, catalogPath);
+for (const file of replaced)
+  if (digest(fs.readFileSync(path.join(root, file.path))) === file.sha256) fs.unlinkSync(path.join(root, file.path));
 console.log(
   `${originals.length} official originals, ${generated.length} image-based parameter templates; standalone independent sets removed.`,
 );

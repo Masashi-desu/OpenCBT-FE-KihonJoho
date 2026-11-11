@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { scopeFamily, scopeForQuestion } from '../../scripts/ci/booklet-scope.mjs';
-import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes } from '../../scripts/ci/scopes.mjs';
+import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from '../../scripts/ci/scopes.mjs';
 import { runtimeDependencyGraph } from '../../scripts/ci/runtime-dependencies.mjs';
 import { makeParts } from '../../scripts/ci/plan.mjs';
 const scopes = ['2016-autumn-am', '2016-autumn-pm', '2016-spring-am', '2016-spring-pm', '2017-spring-pm', '2024-a'];
@@ -164,6 +164,36 @@ test('append-only afternoon selection-count fixtures narrow to newly distributed
     const scopeProof = { extensionScopes: { [file]: added } };
     const narrowed = classify([file], own(), own(distribution), scopeProof);
     assert.deepEqual([narrowed.profile, narrowed.scopes], ['booklets', ['2010-spring-pm']]);
+    assert.equal(classify([file], own(), own(), scopeProof).profile, 'full');
+    assert.equal(classify([file], own(distribution), own(distribution), scopeProof).profile, 'full');
+});
+test('an append-only choice matrix gate belongs to its newly added booklet', () => {
+    const file = ANSWER_CHOICE_MATRIX_HOST;
+    const before = [
+        "  if (q.origin.kind!=='official_reprint' && q.origin.sourceRefs.some(r=>",
+        "    (r.sourceId==='source-ipa-2016h28h-fe-am-qs' && r.locator.questionNumber==='35') ||",
+        "    (r.sourceId==='source-ipa-2016h28a-fe-am-qs' && r.locator.year===2016 && r.locator.period==='秋期' &&",
+        "      r.locator.timeSlot==='午前' && r.locator.questionNumber==='18')))",
+        "    return <Legacy2018AmChoiceMatrix question={q}/>;",
+    ].join('\n');
+    const boundary = "r.locator.questionNumber==='18')";
+    const clause = " ||\n    (r.sourceId==='source-ipa-2009h21a-fe-am-qs' && r.locator.year===2009 && r.locator.period==='秋期' &&\n" +
+        "      r.locator.timeSlot==='午前' && ['25', '36'].includes(r.locator.questionNumber ?? ''))";
+    const after = before.replace(boundary, boundary + clause);
+    const selected = answerChoiceMatrixAppendScopes(before, after);
+    assert.deepEqual(selected, ['2009-autumn-am']);
+    for (const invalid of [
+        before, after + 'runHook();', after.replace("kind!=='official_reprint'", "kind==='official_reprint'"),
+        after.replace('2009h21a', '2009h22a'), after.replace('year===2009', 'year===2010'),
+        after.replace("period==='秋期' &&\n      r.locator.timeSlot==='午前' && ['25'", "period==='春期' &&\n      r.locator.timeSlot==='午前' && ['25'"),
+        after.replace("['25', '36']", "['36', '25']"), after.replace("['25', '36']", "['25', '25']"),
+        after.replace(boundary + clause, boundary + clause + clause),
+    ]) assert.equal(answerChoiceMatrixAppendScopes(before, invalid), null, invalid);
+    const distribution = fixture();
+    distribution.records.questions.push(question('new', 2009, '秋期', '午前'));
+    const scopeProof = { extensionScopes: { [file]: selected } };
+    const narrowed = classify([file], own(), own(distribution), scopeProof);
+    assert.deepEqual([narrowed.profile, narrowed.scopes], ['booklets', ['2009-autumn-am']]);
     assert.equal(classify([file], own(), own(), scopeProof).profile, 'full');
     assert.equal(classify([file], own(distribution), own(distribution), scopeProof).profile, 'full');
 });
