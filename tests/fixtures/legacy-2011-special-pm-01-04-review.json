@@ -1,0 +1,210 @@
+{
+  "scope": "2011-special-pm",
+  "collectionId": "2011h23tokubetsu-fe-pm",
+  "sourcePreflightSha256": "00c54a3d50cdc7c3ad4d3394c5ed5cc55a5e08b9199cd82069471f0a25d74640",
+  "heldNumbers": [],
+  "questions": [
+    {
+      "number": 1,
+      "physicalPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "printedPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "officialFields": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "ア"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "c",
+          "section": 1,
+          "officialKey": "オ"
+        },
+        {
+          "locator": "2",
+          "section": 2,
+          "officialKey": "エ"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "機械語命令と実効アドレス",
+      "materialReview": "公式紙面を目視照合。問に外部引用・転載表示、第三者図表・写真・規格原文はなし。教材用の本文・解答は原資料を出典表示し、再作図・派生は改変を明記。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "16ビット文字列としてフィールドを切り分け、七つのメモリ語を独立に解釈。全5命令選択肢をレジスタ・二段メモリ読取りで個別判定。",
+      "notes": "1語・2語、指標値0、未使用領域、D/I、2語目の斜線、r₁/r₂、700番地からの実行、設問2の否定方向を確認。原条件のレジスタ状態は100、400、500。設問2のア〜オの値は100、100、100、101、100。",
+      "commentary": "公式講評p.1が挙げるアドレス指定と主記憶・レジスタの追跡を確認。"
+    },
+    {
+      "number": 2,
+      "physicalPages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "printedPages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "officialFields": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "オ"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "c",
+          "section": 2,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "d",
+          "section": 2,
+          "officialKey": "オ"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "CPUの割当て方式",
+      "materialReview": "公式紙面を目視照合。問に外部引用・転載表示、第三者図表・写真・規格原文はなし。教材用の本文・解答は原資料を出典表示し、再作図・派生は改変を明記。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "1ミリ秒単位の実行キューで、到着順とラウンドロビンの終了−到着、優先度順の完了順・終了時の優先度を全択で照合。",
+      "notes": "初期空、CPU一つ、オーバヘッドなし、時間枠以外の中断なし、優先度1〜10、厳密に低くなった時だけ中断、追加到着なしを確認。時間は小数1桁。原条件は242.5、182.5、B/A/C、5。",
+      "commentary": "公式講評p.1が挙げる到着から実行開始までの待ちもターンアラウンドに含める。"
+    },
+    {
+      "number": 3,
+      "physicalPages": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "printedPages": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "officialFields": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "2",
+          "section": 2,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "c",
+          "section": 3,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "d",
+          "section": 3,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "4",
+          "section": 4,
+          "officialKey": "イ"
+        }
+      ],
+      "unorderedGroups": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "title": "トランザクション管理と排他制御",
+      "materialReview": "公式紙面を目視照合。問に外部引用・転載表示、第三者図表・写真・規格原文はなし。教材用の本文・解答は原資料を出典表示し、再作図・派生は改変を明記。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "入出荷各3段階の全順列を列挙。a/bの25通りを全条件で実採点し、正方向と逆方向のみ正解。共有・占有の両立、最短ロック、資源獲得順と待ちの全到達状態を検算。",
+      "notes": "T1・T2の読込み、計算、書込み、T3〜T6の実行時系列、T7の①〜⑧・α〜ε、白と赤のロック境界、T8〜T11の取得順が不明という条件を照合。派生のタイムラインはロック解除なしを明記。",
+      "commentary": "公式講評p.1の説明と照合。原問のウは全てが青を参照するが、青一つだけでは循環待ちを作れない。"
+    },
+    {
+      "number": 4,
+      "physicalPages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "printedPages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "officialFields": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "section": null,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "b",
+          "section": null,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "c",
+          "section": null,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "d",
+          "section": null,
+          "officialKey": "カ"
+        },
+        {
+          "locator": "e",
+          "section": null,
+          "officialKey": "ア"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "ルータの経路制御テーブルの更新",
+      "materialReview": "公式紙面を目視照合。問に外部引用・転載表示、第三者図表・写真・規格原文はなし。教材用の本文・解答は原資料を出典表示し、再作図・派生は改変を明記。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "1秒ずつ各ルータを起動し、隣接への定期送信・短い経路への置換を追跡。a/bの到達時刻、cの全行の経路・ホップと距離、d/eの宛先集合を検算。",
+      "notes": "A〜Dと全6インタフェース、/24とマスク、直接経路、配信対象と距離、初期・受信・加算・比較・反映を確認。原条件は35秒と30秒。30秒にルータ2はDも既知。20秒のルータ3はC/D、40秒では全て。",
+      "commentary": "公式講評p.1の指摘に合わせ、別ネットワークへのブロードキャストの転送と、起動していない宛先の受信を禁止する。"
+    }
+  ]
+}

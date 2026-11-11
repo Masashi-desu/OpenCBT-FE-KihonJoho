@@ -1,0 +1,8 @@
+.legacy-2011-special-pm-bitmap {
+  /* visual-color: CASL IIの原問題は白を0、黒を1と定義する。テーマで反転させない。 */
+  --visual-2011-special-bitmap-zero: #fff;
+  /* visual-color: CASL IIの原問題の値1を表す塗り。 */
+  --visual-2011-special-bitmap-one: #000;
+  /* visual-color: 原問題で部分回転の範囲を指示する枠。白と黒の双方の上で識別する。 */
+  --visual-2011-special-bitmap-boundary: #8e8e8e;
+}

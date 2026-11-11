@@ -221,7 +221,8 @@ async function acceptanceChecks(passed: string[]) {
 
   await seedV3([first, second]);
   const progress: number[][] = [];
-  await storage.maintainStorage(first.bundle, (completed, total) => progress.push([completed, total]));
+  // Startup checks the current withdrawal notices while restoring historical rows.
+  await storage.maintainStorage(original.bundle, (completed, total) => progress.push([completed, total]));
   check(JSON.stringify(progress) === JSON.stringify([[0, 2], [1, 2], [2, 2]]), "finite migration progress is accurate");
   check(fingerprint(await storage.loadRun(second.session.id)) === savedFingerprint[1], "progress migration preserves original");
   passed.push("finite migration reports exact initial/per-record/final progress without altering history");

@@ -19,14 +19,14 @@ function definition(number = 1): AfternoonBookletDefinition {
 test('historical booklet identities agree with source-locator CI scopes, including the2011 special and2019 era boundary', () => {
   for (const [scope, id, year, period] of [
     ['2016-autumn-pm', '2016h28a-fe-pm', 2016, '秋期'],
-    ['2011-special-pm', '2011h23t-fe-pm', 2011, '特別'],
+    ['2011-special-pm', '2011h23tokubetsu-fe-pm', 2011, '特別'],
     ['2019-spring-pm', '2019h31h-fe-pm', 2019, '春期'],
     ['2019-autumn-pm', '2019r01a-fe-pm', 2019, '秋期'],
   ] as const) {
     assert.equal(collectionForAfternoonScope(scope), id);
     assert.equal(scopeForQuestion({ subject: 'B', origin: { sourceRefs: [{ locator: { year, period, timeSlot: '午後', questionNumber: '1' } }] } }), scope);
   }
-  for (const scope of ['2016-autumn-am', '2022-april-b', '2023-autumn-pm', '../2016-autumn-pm', '2016-autumn-pm-extra'])
+  for (const scope of ['2016-autumn-am', '2022-april-b', '2023-autumn-pm', '2010-special-pm', '2012-special-pm', '../2016-autumn-pm', '2016-autumn-pm-extra'])
     assert.throws(() => collectionForAfternoonScope(scope), { code: 'GENERATOR_REF' });
 });
 

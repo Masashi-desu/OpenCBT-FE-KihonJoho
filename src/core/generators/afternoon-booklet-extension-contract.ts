@@ -17,9 +17,9 @@ export function collectionForAfternoonScope(scope: string): string {
   const match = /^(20\d{2})-(spring|autumn|special)-pm$/.exec(scope);
   if (!match) throw new DataError('GENERATOR_REF', '旧午後の問題集識別子が不正です');
   const year = Number(match[1]);
-  if (year < 2001 || year > 2019)
+  if (year < 2001 || year > 2019 || (match[2] === 'special' && year !== 2011))
     throw new DataError('GENERATOR_REF', '旧午後の年度が範囲外です');
-  const term = ({ spring: 'h', autumn: 'a', special: 't' } as Record<string, string>)[match[2]];
+  const term = ({ spring: 'h', autumn: 'a', special: 'tokubetsu' } as Record<string, string>)[match[2]];
   const era = year === 2019 && match[2] !== 'spring' ? 'r01' : 'h' + String(year - 1988).padStart(2, '0');
   return `${year}${era}${term}-fe-pm`;
 }
