@@ -521,3 +521,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 - 問7の競争要因の図はIPAの飲料事業の事例図を使用する。原典の図は表現を照合する際に参照した。 [HBRの五つの競争要因の図](https://hbr.org/data-visuals/1979/03/the-five-forces-that-shape-industry-competition)
 - 共通疑似言語p.3〜4、CASL II p.80〜85、表計算p.86〜88を参照する。p.82は命令と注記の範囲を掲載する。JIS X 0201に基づく文字の符号表は配布範囲外とする。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)
 - 問12では紙面と公式正答を掲載する。正の非零加数の指数部が0のとき、公式bのJPL命令が分岐しない反例を解説する。基準・生成問題は非零入力の指数部を1以上とする条件を本文に示す。
+
+### 第3段階 S3-029 2009年度秋期・旧午前
+
+2009年10月18日実施。公式は全80問必須で制限時間150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。問題はp.3〜32で、p.2は白紙。年度別オリジナルとランダムミックスに78問を収録する。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html) [試験実施日](https://www.ipa.go.jp/shiken/goukaku/happyobi.html) [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問56のITIL v2のService Supportの定義表と、問61のエンタープライズアーキテクチャの概念図は、再配布・改変の条件を確認できるまで保留する。問66は経済産業省のシステム管理基準における開発計画と照合し、出典と公共データ利用規約を表示する。問71は出題時の政府調達協定を参照する。 [問61の図の参照元](https://www.rieti.go.jp/users/it/column/files/EA1.pdf#page=8) [システム管理基準追補版](https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf) [経済産業省の利用規約](https://www.meti.go.jp/main/rules.html) [WTO政府調達協定1994年版第VI条](https://www.wto.org/english/docs_e/legal_e/gpr-94_01_e.htm)

@@ -17,7 +17,9 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
   if (q.origin.kind!=='official_reprint' && q.origin.sourceRefs.some(r=>
     (r.sourceId==='source-ipa-2016h28h-fe-am-qs' && r.locator.questionNumber==='35') ||
     (r.sourceId==='source-ipa-2016h28a-fe-am-qs' && r.locator.year===2016 && r.locator.period==='秋期' &&
-      r.locator.timeSlot==='午前' && r.locator.questionNumber==='18')))
+      r.locator.timeSlot==='午前' && r.locator.questionNumber==='18') ||
+    (r.sourceId==='source-ipa-2009h21a-fe-am-qs' && r.locator.year===2009 && r.locator.period==='秋期' &&
+      r.locator.timeSlot==='午前' && ['25', '36'].includes(r.locator.questionNumber ?? ''))))
     return <Legacy2018AmChoiceMatrix question={q} entry={entry} bundle={bundle} assetUrls={assetUrls} disabled={disabled}
       revealed={revealed} showResponse={showResponse} onAnswer={onAnswer} onPartAnswer={onPartAnswer}/>;
   if (isSpring2016DivisionQuestion(q)) return <Legacy2016SpringFundamentalsAnswerChoices

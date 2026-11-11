@@ -1,0 +1,127 @@
+{
+  "collectionId": "2009h21a-fe-am",
+  "task": "S3-029",
+  "checkedOn": "2026-11-12",
+  "examDate": "2009-10-18",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "officialAreas": [
+    {
+      "area": "technology",
+      "first": 1,
+      "last": 50,
+      "page": 3
+    },
+    {
+      "area": "management",
+      "first": 51,
+      "last": 60,
+      "page": 22
+    },
+    {
+      "area": "strategy",
+      "first": 61,
+      "last": 80,
+      "page": 26
+    }
+  ],
+  "commonPages": [],
+  "held": [
+    {
+      "number": 56,
+      "reason": "ITIL v2のService Supportの5プロセスと1機能の説明表について、第三者資料に由来する具体的表現の公開Gitへの同梱・ブラウザ表示・改変の条件を確認できず、保留。"
+    },
+    {
+      "number": 61,
+      "reason": "経済産業省の2004年資料のEA概念図を参照している。RIETIで同一原図を確認したが、今回の公開Gitへの同梱・ブラウザ表示・改変を認める権利者の利用条件を確認できず、保留。"
+    }
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f3yi-att/2009h21a_fe_am_qs.pdf",
+      "sha256": "6d38f436d911e7c0bdd10c885194606c07c6a6d635835d97e8f6fef1964f3ed4",
+      "byteLength": 1334107
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000f3yi-att/2009h21a_fe_am_ans.pdf",
+      "sha256": "58ac625e23bc6b5eeae1f3b870a22beccb2633ea56b10c7ec9587f3c421924d5",
+      "byteLength": 39500
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2009h21.html",
+      "sha256": "3685378fe3deec63719de24e185ef1f88a61e7b9c5f52f4cf4506d1a0bb11dcb",
+      "byteLength": 130367
+    },
+    "exam-date.html": {
+      "url": "https://www.ipa.go.jp/shiken/goukaku/happyobi.html",
+      "sha256": "60f95bf54858ce29d4e77130a6d6c6f8c622233a230832b8ccef985c036c2895",
+      "byteLength": 150398
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "公式冊子p.3〜32の全80問を原問番号・選択肢・頁・分野と公式解答で照合し、白紙のp.2は共通資料として扱わない。",
+    "IPAの過去問題利用条件に基づき、掲載範囲の原画像、原問番号、出典、改変の表示を維持する。問56・61の原画像・全文・生成器・図は掲載範囲外とする。",
+    "問21・29・38・41・45等はライセンスや規格等の名称と、IPAの設問・一般的な技術的事実を扱う。",
+    "問62はBPRの一般概念を尋ねるIPAの説明で、原著の特徴的な四指標の定義表現を同梱しない。問65・67は共通フレーム2007の分類と短い活動・品質特性を照合し、規格書・ガイダンスの原表や定義文を付属しない。",
+    "問66は経済産業省の公表基準と関連付けて出典と利用規約を表示する。問71は出題時の1994年政府調達協定の国際規格優先の考え方、問68・77〜80は出題当時の設問の前提を照合し、原典の条文全文を同梱しない。"
+  ],
+  "metiQuestion66": {
+    "number": 66,
+    "status": "source_material_confirmed",
+    "checkedOn": "2026-11-12",
+    "officialAppendix": {
+      "url": "https://www.meti.go.jp/policy/netsecurity/docs/secgov/2007_ZaimuHoukokuNiKakaruITTouseiGuidance.pdf",
+      "locator": "付録2-1 印刷p.7 Ⅱ.1(3) 開発計画",
+      "verifiedFrom": "official indexed PDF text",
+      "limits": "再確認用URL。直接取得が403のため、本文バイト列の照合値は記録しない。"
+    },
+    "publisherTerms": {
+      "url": "https://www.meti.go.jp/main/rules.html",
+      "locator": "PDL1.0に関する重要事項 1・2",
+      "verifiedFrom": "official indexed site text",
+      "limits": "出典と改変の明示、個別制約と第三者権利の確認を適用。"
+    },
+    "pdl": {
+      "url": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+      "path": "source/reference/pdl-v1.0.html",
+      "locator": "1・1.1・1.2",
+      "sha256": "59d42d8992069d198ce95f824f9be71821a62b8a9f53ee96b20fdbec873876f5",
+      "byteLength": 59078
+    },
+    "boundary": "原問が参照する4項目と開発計画の対応に限定する。経済産業省の表・基準の原文や第三者による解説は配布せず、設問と原画像の出典はIPAと表示する。"
+  },
+  "heldMaterialReferences": {
+    "56": [
+      "https://www.axelos.com/certifications/itil-service-management"
+    ],
+    "61": [
+      "https://www.rieti.go.jp/users/it/column/files/EA1.pdf#page=8",
+      "https://www.ipa.go.jp/archive/files/000004627.pdf",
+      "https://www.rieti.go.jp/jp/press/contact_rieti.html"
+    ]
+  },
+  "validationReferences": {
+    "65": [
+      "https://www.ipa.go.jp/archive/files/000004771.pdf",
+      "https://www.ipa.go.jp/archive/publish/qv6pgp0000000zef-att/000005141.pdf"
+    ],
+    "67": [
+      "https://www.ipa.go.jp/archive/digital/iot-en-ci/jyouryuu/hikinou/ps6vr700000077he-att/000004623.pdf"
+    ],
+    "71": [
+      "https://www.wto.org/english/docs_e/legal_e/gpr-94_01_e.htm"
+    ]
+  },
+  "sourcePreflightSHA256": "99d03a9c5623bdf0ffbdd0e753de6e41fb0a17781c76c7ee8735d27c0e5ad64a",
+  "cropCandidatesSHA256": "69144a87cc9a380691346ef03857309417ae55ad7e2d617e28d22d84cb5f4c60"
+}
