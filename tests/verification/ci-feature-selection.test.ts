@@ -162,18 +162,21 @@ test('audited search and menu presentation select only the relevant browser part
   assert.equal(uiConsumerBoundary(SEARCH_MATERIALS, before, { ...after, [SEARCH_MATERIALS]: ['src/core/answers.ts'] }), false);
 });
 
-test('Pages installs the pinned Chromium runtime for each browser part before executing its witnessed tests', () => {
+test('Pages uses the pinned Playwright image only for browser parts and checks it before testing', () => {
   const workflow = fs.readFileSync('.github/workflows/pages.yml', 'utf8');
-  const install = workflow.indexOf('- name: Install isolated browser');
+  const { devDependencies } = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  const browserImage = workflow.match(/image: \$\{\{ startsWith\(matrix\.part, 'browser-'\) && 'mcr\.microsoft\.com\/playwright:v([^']+)-noble@sha256:[a-f0-9]{64}' \|\| '' \}\}/);
+  assert.equal(browserImage?.[1], devDependencies.playwright);
+  assert.match(workflow, /options: --ipc=host/);
+
+  const check = workflow.indexOf('- name: Check isolated browser');
   const run = workflow.indexOf('- name: Run planned tests');
-  assert(install > workflow.indexOf('- run: npm ci'));
-  assert(install < run && run < workflow.indexOf('node scripts/ci/run-part.mjs'));
-  assert.match(workflow, /runs-on: \$\{\{ startsWith\(matrix\.part, 'browser-'\) && 'ubuntu-24\.04' \|\| 'ubuntu-latest' \}\}/);
-  const browserInstall = workflow.slice(install, run);
-  assert.match(browserInstall, /if: startsWith\(matrix\.part, 'browser-'\)/);
-  assert.match(browserInstall, /for attempt in 1 2 3; do/);
-  assert.match(browserInstall, /npx playwright install --with-deps chromium/);
-  assert.match(browserInstall, /done\s+exit 1\s*$/);
+  assert(check > workflow.indexOf('- run: npm ci'));
+  assert(check < run && run < workflow.indexOf('node scripts/ci/run-part.mjs'));
+  const browserCheck = workflow.slice(check, run);
+  assert.match(browserCheck, /if: startsWith\(matrix\.part, 'browser-'\)/);
+  assert.match(browserCheck, /accessSync\(require\("playwright"\)\.chromium\.executablePath\(\), constants\.X_OK\)/);
+  assert.doesNotMatch(workflow, /playwright install|apt-get/);
   assert.match(workflow, /needs: \[build, aggregate\]/);
 });
 

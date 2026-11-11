@@ -1767,7 +1767,7 @@ mainへのpush前に、最新のリモートmainと公開候補の確定コミ�
 
 `tests` には責務別のディレクトリを使う。問題集の内容・独立検算は `tests/content`、通常の出題・ブックマーク・保存の問題集別検査は `tests/booklets`、ブラウザ検査は `tests/browser` に置く。共通の出題・生成・表示・保存、詳細解説、配布、検証基盤はそれぞれ `tests/practice`、`tests/generation`、`tests/ui`、`tests/storage`、`tests/details`、`tests/distribution`、`tests/verification` に置く。検査の所有範囲と件数は公開テスト台帳に記録する。
 
-公開CIのブラウザジョブは、Ubuntu 26.04への移行中に発生したパッケージ取得失敗を避けるため、Playwrightの対応環境である `ubuntu-24.04` を指定する。ChromiumとOS依存の取得は最大3回試し、取得に失敗した場合はジョブを失敗とする。[GitHub Actionsの移行案内](https://github.com/actions/runner-images/issues/14748)
+公開CIのブラウザジョブは、Playwright本体と同じ版の公式イメージをダイジェストで固定して使う。ChromiumとOS依存はイメージに同梱されるため、ジョブ内でOSパッケージを取得せず、実行ファイルを確認してからブラウザ検査を実行する。他のジョブは通常のランナーを使う。ブラウザ検査も同じ実行計画・結果の照合に含める。[Playwrightの公式イメージ](https://playwright.dev/docs/docker)
 
 科目Bの専用表示モジュールの変更は、出典と試験区分を確認する共通ホストに差分がなく、変更前後とも専用モジュールの読み込み先・呼び出し元が同一で、読み込み時に処理を実行しないと確認できる場合に、現行科目Bの問題集と共通検査を選ぶ。共通ホストや共通CSSの変更、未確認の依存がある場合は通常の判定で検証範囲を決める。
 

@@ -40,8 +40,11 @@ jobs:
           if-no-files-found: error
   tests:
     needs: plan
-    # Keep Chromium dependency installation on the stable image during the 26.04 rollout.
-    runs-on: ${{ startsWith(matrix.part, 'browser-') && 'ubuntu-24.04' || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
+    # Browser parts use the matching Playwright image with system libraries already installed.
+    container:
+      image: ${{ startsWith(matrix.part, 'browser-') && 'mcr.microsoft.com/playwright:v1.64.1-noble@sha256:2f05f8a734509a7b3f26a912639488ee08f58a7b292d14d62271bcff9038768f' || '' }}
+      options: --ipc=host
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
@@ -54,6 +57,7 @@ jobs:
           node-version: '24'
           cache: npm
       - uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6
+        if: ${{ !startsWith(matrix.part, 'browser-') }}
         with:
           distribution: temurin
           java-version: '21'
@@ -63,18 +67,10 @@ jobs:
           name: verification-plan-${{ github.run_attempt }}
           path: output/ci
       - run: npm run pretest
-      - name: Install isolated browser
+      - name: Check isolated browser
         if: startsWith(matrix.part, 'browser-')
         run: |
-          for attempt in 1 2 3; do
-            if npx playwright install --with-deps chromium; then
-              exit 0
-            fi
-            if [ "$attempt" -lt 3 ]; then
-              sleep 15
-            fi
-          done
-          exit 1
+          node -e 'const { accessSync, constants } = require("node:fs"); accessSync(require("playwright").chromium.executablePath(), constants.X_OK)'
       - name: Run planned tests
         run: node scripts/ci/run-part.mjs output/ci/plan.json ${{ matrix.part }} output/ci/results/${{ matrix.part }}
       - uses: actions/upload-artifact@v4
