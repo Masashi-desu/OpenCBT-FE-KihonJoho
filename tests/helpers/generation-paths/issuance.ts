@@ -39,7 +39,7 @@ export function isAfternoon(original: Question) {
   return original.subject === "B" && slots.size === 1 && slots.has("午後");
 }
 
-const preMandatorySecurity = new Set(["2011-special-pm", "2011-autumn-pm", "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm"]);
+const preMandatorySecurity = new Set(["2010-autumn-pm", "2011-special-pm", "2011-autumn-pm", "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm"]);
 
 export function expectedAfternoonSelectionCount(scope: string) {
   return preMandatorySecurity.has(scope) ? 105 : 75;

@@ -1,0 +1,897 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "status": "verified_source_and_rights",
+  "taskId": "S3-026",
+  "collectionId": "2010h22a-fe-pm",
+  "checkedOn": "2026-11-11",
+  "examDate": "2010-10-17",
+  "printedPageOffset": 0,
+  "physicalPages": 84,
+  "selection": {
+    "coverPage": 1,
+    "durationSeconds": 9000,
+    "selectCount": 7,
+    "required": [
+      8
+    ],
+    "groups": [
+      {
+        "first": 1,
+        "last": 7,
+        "choose": 5
+      },
+      {
+        "first": 9,
+        "last": 13,
+        "choose": 1
+      }
+    ],
+    "possibleCombinations": 105
+  },
+  "commonPages": [
+    3,
+    4,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83
+  ],
+  "sourceInputs": {
+    "question.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004d6f-att/2010h22a_fe_pm_qs.pdf",
+      "sha256": "4a6eabbaee02e95ea8882d0052ec196c2105ad16b3e16a34146b681a2ad3983e",
+      "byteLength": 8727675,
+      "pageCount": 84
+    },
+    "answer.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004d6f-att/2010h22a_fe_pm_ans.pdf",
+      "sha256": "9a9d26ae9ae5071c967966323f62c7e1a2b8a966370e0a5d7587a260f30e522e",
+      "byteLength": 77249,
+      "pageCount": 4
+    },
+    "commentary.pdf": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004d6f-att/2010h22a_fe_pm_cmnt.pdf",
+      "sha256": "18e1784cb31604e6e188b3657a228c5795c93bb9a020420cc1b79505e5dc82a3",
+      "byteLength": 98498,
+      "pageCount": 3
+    },
+    "listing.html": {
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+      "sha256": "0a369d7f84c2771cf368170ad9633d3fba681c71bd94ec69e7a9a8c95944cff9",
+      "byteLength": 124943
+    },
+    "exam-date.html": {
+      "url": "https://www.ipa.go.jp/shiken/goukaku/happyobi.html",
+      "sha256": "60f95bf54858ce29d4e77130a6d6c6f8c622233a230832b8ccef985c036c2895",
+      "byteLength": 150398
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "reference/java6-LinkedList.html": {
+      "url": "https://docs.oracle.com/javase/6/docs/api/java/util/LinkedList.html",
+      "sha256": "208b99e299c0e5841064be0746fafcd8e101c0cf5d6ce567017cff64dbaa216a",
+      "byteLength": 93789
+    },
+    "reference/java6-Map.html": {
+      "url": "https://docs.oracle.com/javase/6/docs/api/java/util/Map.html",
+      "sha256": "28add4bb3b02ece5566781a64e0e73f2d9d5f95a6b8dfcca202eb56f3085b2a3",
+      "byteLength": 43443
+    },
+    "reference/java6-HashMap.html": {
+      "url": "https://docs.oracle.com/javase/6/docs/api/java/util/HashMap.html",
+      "sha256": "ca683b88bbadd507d817a106f26036e00d388510028c979d06a5143907262483",
+      "byteLength": 51204
+    },
+    "reference/java6-Object.html": {
+      "url": "https://docs.oracle.com/javase/6/docs/api/java/lang/Object.html",
+      "sha256": "2c51e3b6c4970c61ced84fa85038bb059664a1cb49588a08b0c035529c1f277b",
+      "byteLength": 42934
+    },
+    "reference/ppc-2009-report.pdf": {
+      "url": "https://www.ppc.go.jp/files/pdf/personal_sekou_21caa.pdf",
+      "sha256": "eab50b56a315957774fb740c747e48ff43eadc7b4f1c0f0291793d6456c24f0a",
+      "byteLength": 603678
+    },
+    "reference/copyright-law.xml": {
+      "url": "https://laws.e-gov.go.jp/api/1/lawdata/345AC0000000048",
+      "sha256": "175e7c3bda1de44a747713629b9ef613258ef2fca202438e70ad611b4a014169",
+      "byteLength": 945280
+    }
+  },
+  "rightsTerms": "試験の過去問題の使用方法（申請方法、使用料等）と留意点",
+  "rightsScope": "教育利用に当たり試験区分・年度・期・時間区分・原問番号・改変を表示する。IPA作問部分とCASL IIの必要な命令表・注記を確認し、JIS X 0201の文字の符号表と関連説明は配布範囲外とする。問11のJava APIの動作はOracleの仕様を事実の照合に用い、原文・ページ画像は配布範囲外とする。問6は当時の政府告示を参照するIPA作成の設例であり、出題当時の前提と著作権法13条2号を確認した。",
+  "sourceAcceptanceSHA256": "b9aea570ab0aa8980fcfa9568d20a805e4fe4cbe8d16411eebfaf50c80a5691e",
+  "materialEvidenceSHA256": "7f16fab7db9311db129c464d19420dc9e76fcc541235c00b1ac0d2fd74750872",
+  "answerEvidenceSHA256": "717c3bffde63506858e189591044615b1dcf4a5fa943575160557a761cf21ec3",
+  "assetSHA256ByPage": {
+    "3": "ad811fc68a73ac7129a5a7618ec73a2f3f451d0c2324a9a8ef9bf8dc36f2d8eb",
+    "4": "e620ee918969ec8de9d7d33e33de123b6bdbf741f030b11953009c17d03518d9",
+    "5": "cf5580e64714243af0bef4e5dbc451ec8c7153ca1f2979ed53370f34564d97ff",
+    "6": "9e349dce603beb4a27a3aa60fcd553fe7f414f0a3ab46116b7b6dcfa157b6b76",
+    "7": "b94f0ea620df5d52bacd7a40b0012b3bc747eecf614a62438e859526d02bee52",
+    "8": "2588e94774af4465f683689fe5be4aab932ce144ebe4ce7deb5f9a8d44245d80",
+    "9": "84fb2cc499707f63d8983f48784bd2c3e4d8d07028cd7b457d6cb2ef7f54ea25",
+    "10": "e78b9987beba3fc0cc2610ddb68fb9f34b596ab0e20761cdb7d5d4f752db5a24",
+    "11": "df21b88d38a4da4de8a0e12c31cdded3ba38fe538ea063988db5103522d7a437",
+    "12": "e8fec289d334c079e0487bf71c195e0230f88a12326aaf540b3b5dd568f8cbf6",
+    "13": "47a7bd591b4f49ceb4b4c797fbc4af1013234915a6ffc27405da8a6b3c968755",
+    "14": "54b69c27508534d4370c635a3c0390458ede1e053d810627c9a46ea80af0a401",
+    "15": "8b6abfc6b13d292e10c566ba6c133d1d8d6f79c476bb234ee2e0b3a77c66f1a3",
+    "16": "7ee2bafa1ece1676e60ba5efc2f9e00a2e7764c981295f03b2639453874ee8d9",
+    "17": "92e01ea7225bb0858eb5834394aff24863b48f19fb21cbb58f99c76af7f3e01e",
+    "18": "2c9cb9a64847ffe88d2abb1107263015b8065ae5eee3e1c6bb03fbd493e28a59",
+    "19": "a8b0fe9dc78190faf48cc87b06fb7bd045986020e62f23ca421a1ff11721e310",
+    "20": "e0e1bc34496872c3b1a01d5d15a2d7e9e0e0e98eb0e70981dd9ac653b56078ff",
+    "21": "90bb24d6d084a39a859bccab1df6e4f1e2db3491a99b7c1f84a2be26616cc37b",
+    "22": "4c015f28fa9eaa16bd34d4dabfd28a20d72cec07aa73818993ce3749b8bb4174",
+    "23": "719ee8aa1c802e24f908afe290e65973930f3d6e6445a8a4d7a375e402ca20aa",
+    "24": "1583df45fd7e5c1d517dd1465ad7cbd3ad79afd0e1e98bf113439478486c74d8",
+    "25": "64cc0f0f8fd88da209aea70481dbddfa19efa5ad592d3db76aecf296ea5b8846",
+    "26": "a70b51a179e1c4e838c65076060434c60bccdcadee30c6cd14083206f3650c05",
+    "27": "fda49cdad3dccd04093daedc99838d0a6398e3c7299804d3e825d3f4482d7a4b",
+    "28": "f86cfafc30201f864960de8544f0bf3f679e57f3e44566e316ab681d83d96cf9",
+    "29": "378fd5dbbc1bcea0bebfb3be71ffce492bd1ae19a90b7634d77fe5f77b630713",
+    "30": "c1a2dffb2584e2088b9c13cf551fd248099d6a0d3f3195ae9554dd423fd005bb",
+    "31": "d3fc25d3969ea44e9b3ae16180c6aed6823900c621cc320b9f441ddda2aa626b",
+    "32": "38db8891f58d6e6d4705db5a581fb763e940d2813aec151bfe18edc49df3c461",
+    "34": "b3743fdd71baa51d155d1f36825f7a0cf56f0336eb8d9209f1754452eaebe950",
+    "35": "18bb1c84bb4c9de98805995be0b4f4d2aea204bd41db2f3730f81fbeb1b27a46",
+    "36": "4a93da0bb6b6696c8dbe06b4d65da658e3d3ab145c7deffd2698a79e2f660dda",
+    "37": "ca6f76b6496bf242819bbf8905d13ff124ec618569fa92a091c910eb5a8f34bc",
+    "38": "01075f21634f9c6c821d75530d0f0a6119038728ac3a5e1a0bd01dfa5f52554a",
+    "39": "1adf2648d7840abe38510f5ed19cef7d948dcc714564a8c8b2bdc6466d283456",
+    "40": "c407f72bf9b37912684a32e0422883618c79d2bfd9e6d9286db47e86ca5b2462",
+    "41": "dd3dc63fc698e78400a662cfc512cd88e7a41a31fc030f85b4cd5950896e5188",
+    "42": "0b0321df8cf4a308616b1389011d9eea2f00053d5aca99b902c7f06885223123",
+    "43": "a85612432292943df78a8bd3ea55ff31fffc90f4f4ab3e496b8925de69b3ede0",
+    "44": "98363200ae3e526c6eef3b98fc966ff526de559dd7ac8eb1a2c0e706540d3038",
+    "45": "efa6b5795586932f154d226ec6c9867fcd8c39fbeed80e2fa536db25a53af329",
+    "46": "3360ba4cd17cdee539e39ca1ec8db998022eae42b9e7e7818e64eb9eaeb13e90",
+    "47": "bdf0e646547a2d1f35ed06f8b4d2b143ed88b5d7ac52821e44ce6d492af213fd",
+    "48": "3344bd545151f00f4c4db30cc57200ea3aee80b9dfae7fcb830e9804173400ed",
+    "49": "7ba3e662b73a6795fcdec8a8c657dc3b109daace6fdf21189d6e1f4d5110f260",
+    "50": "61bf5c306a2e743a9c79fecf163f99ef2540c7c15c25d95da206712af8bdd04f",
+    "51": "bcebddf23d72906a9109d847374916de6ba04f17b35eaaf2576c5b68ebf478ac",
+    "52": "90f370a9e8a319a9a1377121a9b4b58e909ef7fd1acdcd6050e6a3b960c1a78e",
+    "53": "9ccc41454883efbe01e33f81153e2a14064da52339cc9b0b219d3fcd211f18de",
+    "54": "66ac4590ede4598a4e6cb1c2667a9fe28eb1f6b1004389870f4d9f456d84486a",
+    "55": "3ccba3e55ac28ee5cb4390a8dffdc86a8e6ef710f6964ec5c48d30ac2863acc2",
+    "56": "2b46e6ecade7dd7d23fb72040662cc7d70d9974b046abe1f43953fb87d3ab2be",
+    "57": "d0853637a02c16561cedf5e77f6fd7149d0964a7587d692f113d8e152b9791ba",
+    "58": "9b52ae5620880f9378291bc19f67b9c23b96d197ccf901a8943fbb495749e7f6",
+    "59": "a621a6c9d5811a907236723d62e74fdee4d23a227d9378d1c29b2bd30e5bd97c",
+    "60": "9012e64f8f1b7b643d86c9d6046b3c1e92c3e7eccecd9706e6068f209818b570",
+    "61": "46ae02db0eef00b716bf4ebdbaf0ee878990011f490e09cec30be596252be657",
+    "62": "22830b52c88db4e31235e3ccd1315ef121925ca9759703e178d431971dff4a78",
+    "63": "f8b976b9e9e8f75a5c81ce1f84d3c30b27ddf39cf81a4b4674585e0cb3a06262",
+    "64": "83bb6a2eeeff13a664695e7dfa19b5326fdf60fec5cd1235d58739fb5aa9ea2d",
+    "65": "c006340f00706a91734896e592dc2efc182c0786a14dfc5feff19533589c0133",
+    "66": "47ab3ff24ee42552188d6c0fcfa9cbf5f6ac468180d734cf67a50fd88fda552f",
+    "67": "0e7b0e8284ba01b6a950bc8ae3f9d3cc73e0cb2431abdcbf9e99c524e9c27186",
+    "68": "42840d07111a6cd7a83fbda2803a01137370644f44a26b98c9d7d1b3ec9edafa",
+    "69": "f903b35cbbcb35e0f4f5b086e4904fabc0368645901a245b5eb31538d2e2f486",
+    "70": "06474a0e994775006ebf434ce57b91d43c40694563e1be5d2f0162f90a50db49",
+    "71": "eb2fa98dfac3eb1ec3c170490212f72da5de03c6067bbd20aa3ae4b2f5e840c8",
+    "75": "6abe91ce828b73833cdcced9a3bc321e3ed8149e7114a915e9bd5f21ceaef6ca",
+    "76": "8c332a028a18b1e0ce9bbc66f903c0a86d83221d7d053b09a07de142887013aa",
+    "77": "353b77f2d46ae7769f2a2d3d6348e52471cc6afdaef5566b3f521ea29e5c21e9",
+    "78": "be46a5713f9320d8ef10e2af47351b7af8454a4842da8418204fd11f3bc66791",
+    "79": "b981601331e996e8898a0320bb400bf78e9dbefd83ea3e5cc624769cd7ca680a",
+    "80": "c46f7be560e8d71c4189e11b2564dea67313f886af834046d05d4584d77f6ae7",
+    "81": "cc046aa4a04d2a6f365872cae41da92187e1baec7e3b7d572dd11e415a13064d",
+    "82": "3d81f3cdeb1ba3d015beb1eb723d4ceccc9f2fa2323d4b770c650a6b191811e9",
+    "83": "d306ec4dd585006dac128874fb606d835c8472acbf1d6740e026da7c6bd5db9e"
+  },
+  "caslExcerpt": {
+    "page": 77,
+    "box": [
+      0,
+      0,
+      1049,
+      865
+    ],
+    "height": 865,
+    "sha256": "353b77f2d46ae7769f2a2d3d6348e52471cc6afdaef5566b3f521ea29e5c21e9",
+    "kept": "スタック操作、コールとリターン、その他、命令表とFRの注記まで。",
+    "removed": "1.3 文字の符号表、JIS X 0201に依存する説明と表。",
+    "dependency": "問12は16ビット整数のビット反転・語交換・マスク処理。シフトと論理演算に文字コード表を使わない。"
+  },
+  "excludedFullPages": [
+    1,
+    2,
+    33,
+    72,
+    73,
+    74,
+    84
+  ],
+  "officialAnswerRows": 81,
+  "selectionSlots": 81,
+  "unorderedGroups": [],
+  "noCorrectAnswer": [],
+  "held": [],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ウ"
+          ]
+        }
+      ],
+      "officialFields": 5,
+      "selectionSlots": 5
+    },
+    {
+      "number": 2,
+      "pages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "4",
+          "key": [
+            "ア"
+          ]
+        }
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 3,
+      "pages": [
+        13,
+        14,
+        15
+      ],
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ]
+        }
+      ],
+      "officialFields": 5,
+      "selectionSlots": 5
+    },
+    {
+      "number": 4,
+      "pages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "イ"
+          ]
+        }
+      ],
+      "officialFields": 4,
+      "selectionSlots": 4
+    },
+    {
+      "number": 5,
+      "pages": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "fields": [
+        {
+          "locator": "1",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "3",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "4",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "5",
+          "key": [
+            "ウ"
+          ]
+        }
+      ],
+      "officialFields": 5,
+      "selectionSlots": 5
+    },
+    {
+      "number": 6,
+      "pages": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "イ"
+          ]
+        }
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 7,
+      "pages": [
+        30,
+        31,
+        32
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "g",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "h",
+          "key": [
+            "イ"
+          ]
+        }
+      ],
+      "officialFields": 8,
+      "selectionSlots": 8
+    },
+    {
+      "number": 8,
+      "pages": [
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "g",
+          "key": [
+            "ア"
+          ]
+        }
+      ],
+      "officialFields": 7,
+      "selectionSlots": 7
+    },
+    {
+      "number": 9,
+      "pages": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "イ"
+          ]
+        }
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 10,
+      "pages": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "キ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "g",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "h",
+          "key": [
+            "ケ"
+          ]
+        }
+      ],
+      "officialFields": 8,
+      "selectionSlots": 8
+    },
+    {
+      "number": 11,
+      "pages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "2",
+          "key": [
+            "ウ"
+          ]
+        }
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 12,
+      "pages": [
+        59,
+        60,
+        61,
+        62
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "ア"
+          ]
+        }
+      ],
+      "officialFields": 6,
+      "selectionSlots": 6
+    },
+    {
+      "number": 13,
+      "pages": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "b",
+          "key": [
+            "カ"
+          ]
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "d",
+          "key": [
+            "エ"
+          ]
+        },
+        {
+          "locator": "e",
+          "key": [
+            "イ"
+          ]
+        },
+        {
+          "locator": "f",
+          "key": [
+            "オ"
+          ]
+        },
+        {
+          "locator": "g",
+          "key": [
+            "ウ"
+          ]
+        },
+        {
+          "locator": "h",
+          "key": [
+            "ケ"
+          ]
+        },
+        {
+          "locator": "i",
+          "key": [
+            "エ"
+          ]
+        }
+      ],
+      "officialFields": 9,
+      "selectionSlots": 9
+    }
+  ]
+}

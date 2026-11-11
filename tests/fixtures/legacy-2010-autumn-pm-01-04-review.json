@@ -1,0 +1,220 @@
+{
+  "scope": "2010-autumn-pm",
+  "collectionId": "2010h22a-fe-pm",
+  "sourcePreflightSha256": "717c3bffde63506858e189591044615b1dcf4a5fa943575160557a761cf21ec3",
+  "heldNumbers": [],
+  "questions": [
+    {
+      "number": 1,
+      "physicalPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "printedPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "officialArea": "ハードウェア",
+      "officialFields": 5,
+      "fields": [
+        {
+          "locator": "1",
+          "section": 1,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "a",
+          "section": 2,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "b",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "c",
+          "section": 3,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "d",
+          "section": 3,
+          "officialKey": "ウ"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "温度モニタ",
+      "materialReview": "公式p5〜20を目視照合。担当4問の本文・図・表・全解答群に外部の転載表示・ロゴ・写真・規格原文を認めない。IPAの出題用配線図・データモデル・CRC模式図・認証模式図を出典表示し自己描画する。設問とは別の独自解説と改変は本プロジェクト作成として区別。",
+      "holdReason": null,
+      "independent": "原資料で目視固定した十数字の点灯集合から全形状候補を復号。出力形状から上位・下位の数字を独立に復元し，BCDと符号なし2進の全候補を検算。I/O表から状態用番号を読み取り，全入出力命令を評価。",
+      "notes": "0〜99℃，16ビット，タイマ，符号なし，十分短い処理時間，点灯1/消灯0，ビット0/8の小数点消灯，全16結線と上位/下位，変換開始1・変換中0・完了非0，GRと手続DISPLAY，BCD4+4+4+4と形状8+8を原本p5〜8で確認。",
+      "commentary": "講評p1のI/O方向と16進形状FEFCが80の表示であるという指摘を踏まえて全候補を独立に判定。",
+      "variability": "原条件を含む4条件。出力・変換状態・変換データの三ポートを別々に置換。表示の一けたと二けたの形状，BCD/バイナリ値，タイマ間隔を一緒に変更。結線・語長は固定。",
+      "precision": "原と同じ2桁形状と4桁16進の表示。整数のみ，追加の丸めなし。各誤答は別の点灯集合や上位下位の取り違え，別の温度を表す。最小単位±1を全系列共通の誤答とする設計を用いない。"
+    },
+    {
+      "number": 2,
+      "physicalPages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "printedPages": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "officialArea": "データベース",
+      "officialFields": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "ア"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "オ"
+        },
+        {
+          "locator": "c",
+          "section": 1,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "2",
+          "section": 2,
+          "officialKey": "オ"
+        },
+        {
+          "locator": "3",
+          "section": 3,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "4",
+          "section": 4,
+          "officialKey": "ア"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "コールセンターの対応記録管理",
+      "materialReview": "公式p5〜20を目視照合。担当4問の本文・図・表・全解答群に外部の転載表示・ロゴ・写真・規格原文を認めない。IPAの出題用配線図・データモデル・CRC模式図・認証模式図を出典表示し自己描画する。設問とは別の独自解説と改変は本プロジェクト作成として区別。",
+      "holdReason": null,
+      "independent": "正規化を原資料と講評で固定した従属性分類により全候補判定。SQLiteに反例を含む質問集合を格納し全6検索候補を実行。種別2個・受付4件・類似5件の独立データで全4集計候補を実行。全4DDL候補を別々のDBに適用し，列型・NOT NULL・既存全行の既定値を確認。",
+      "notes": "非正規形の折返し連結・受付番号下線と類似受付番号の繰返し，正規形の五表・全欄・類似表の複合主キー，重複更新/事前登録/関係喪失，SELECT/FROM/WHERE/ORDER BY・LIKEの%と_・SQL継続字下げ，既存表へのCHAR列追加をp9〜12で確認。",
+      "commentary": "講評p1の第2/第3正規化の逆転と類似受付番号のGROUP BYを重点確認。副問3のイは種別表の結合がなく，種別2件の反例で二重計数を検出。",
+      "variability": "検索語/種別/モデル番号と列幅を変更し，%で包含検索する条件と_でちょうど前後1文字を検索する条件を明示。集計は過去の類似受付番号別と現在の受付番号別を，本文・SELECT・正答に同時反映。",
+      "precision": "原と同じSQL・正規化段階の説明選択。表の列名や主キー構造は固定し，文字列の意味と集計対象を変更。実DBの寛容なGROUP BYで誤答が偶然一致しない反例を使用。"
+    },
+    {
+      "number": 3,
+      "physicalPages": [
+        13,
+        14,
+        15
+      ],
+      "printedPages": [
+        13,
+        14,
+        15
+      ],
+      "officialArea": "ネットワーク",
+      "officialFields": 5,
+      "fields": [
+        {
+          "locator": "1",
+          "section": 1,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "2",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "a",
+          "section": 3,
+          "officialKey": "ア"
+        },
+        {
+          "locator": "b",
+          "section": 3,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "c",
+          "section": 3,
+          "officialKey": "ア"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "CRC（巡回冗長検査）",
+      "materialReview": "公式p5〜20を目視照合。担当4問の本文・図・表・全解答群に外部の転載表示・ロゴ・写真・規格原文を認めない。IPAの出題用配線図・データモデル・CRC模式図・認証模式図を出典表示し自己描画する。設問とは別の独自解説と改変は本プロジェクト作成として区別。",
+      "holdReason": null,
+      "independent": "生成器のビット除算を使わず，GF(2)多項式の倍数を係数の全組合せから列挙。表示された各ビット列に全2ビット候補を付けたものの所属から一意性を判定。各条件で全256入力の付加符号一意性，受信列と非零の検出不能誤りも検算。パケットは受信数×非検出率=100×成功数の整数式で全択検査。",
+      "notes": "再送を含む受信総数の分母，再送必達，マスクの両端1，n個0の付加，左端1のp，XOR対象p〜p+n，終了条件，例図とd1〜d3，式①〜③，受信済み符号に0を再付加しないことをp13〜15で確認。",
+      "commentary": "講評p1の120ではなく125という再送分母を検算。原00100110のCRCは01，受信1001001101の余りは01で誤りあり。",
+      "variability": "成功数/再送検出率，マスク101/111，8ビット入力・三段XORの図例・10ビット受信列を変更。誤り検出ありと，余り0では誤りの有無を判断できない条件の両方を含む。",
+      "precision": "符号は原と同じ2ビット，入力8ビット，受信10ビット，三段の図例。パケットは整数解のみ。判定と証明式の媒体・条件を保持。"
+    },
+    {
+      "number": 4,
+      "physicalPages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "printedPages": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "officialArea": "情報セキュリティ",
+      "officialFields": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "section": null,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "b",
+          "section": null,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "c",
+          "section": null,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "d",
+          "section": null,
+          "officialKey": "イ"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "認証システム",
+      "materialReview": "公式p5〜20を目視照合。担当4問の本文・図・表・全解答群に外部の転載表示・ロゴ・写真・規格原文を認めない。IPAの出題用配線図・データモデル・CRC模式図・認証模式図を出典表示し自己描画する。設問とは別の独自解説と改変は本プロジェクト作成として区別。",
+      "holdReason": null,
+      "independent": "表示される各暗号化データと空欄を読み，誰がどの段階で鍵を知るかを独立の知識集合で追跡。利用者鍵→CTセッション鍵→Tが開くチケット→CSセッション鍵→Sが開くチケット→認証子を全候補で確認。",
+      "notes": "利用者の操作要求と横取り/偽造の二問題，仕様省略の断り，共通鍵，認証サイト三構成，鍵登録先と一時保持，クライアント群とAP群，通信Rおよび①〜⑤の方向，enc定義，二つのチケットとセッション鍵/ID/認証子，復号不能なCの転送をp16〜20で確認。",
+      "commentary": "講評p1のbがCS鍵でなくCT鍵であること，dがAP自身の鍵でなくCSセッション鍵であることを検算。",
+      "variability": "利用サービスを変え，T用/S用チケットの鍵の問う位置を交換。利用者鍵で包まれたCTセッション鍵の受渡しとCS認証子のどちらをdで問うかを変更し，固定欄も同期更新。元の暗号化鍵選択と四欄構造を保つ。",
+      "precision": "数値計算なし。両者の既知鍵と平文IDの役割を保持。解答位置だけのシャッフルに終わらず，dは異なるメッセージの鍵の選択を扱う。"
+    }
+  ]
+}
