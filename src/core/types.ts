@@ -78,7 +78,7 @@ export type DetailedExplanationRef = {
 };
 export type AnswerPart = { id: string; label: string; choiceIds: string[] };
 export type PartAnswer =
-  | { kind: "choice"; partId: string; choiceId: string }
+  | { kind: "choice"; partId: string; choiceId: string; officialCreditReason?: string }
   | { kind: "unordered"; partIds: string[]; choiceIds: string[]; presentation?: "checklist" }
   | { kind: "no_correct_answer"; partId: string; reason: string };
 export type AnswerOutcome = "correct" | "incorrect" | "unanswered" | "unscored";

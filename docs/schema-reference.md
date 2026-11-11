@@ -815,7 +815,8 @@
 | `correctAnswer.parts[]` | 解答欄の正答の種類別定義。 | 配列要素 | 要素：kindに対応する種類の条件を満たす。 | oneOf（種類別） | 子構造・種類別定義に従う |
 | `correctAnswer.parts[]{choice}.kind` | 一つの欄の単一正答。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | const="choice" |
 | `correctAnswer.parts[]{choice}.partId` | 正答が対応する解答欄ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
-| `correctAnswer.parts[]{choice}.choiceId` | その解答欄の正答選択肢ID。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{choice}.choiceId` | その解答欄の正答選択肢ID。公式の全員正解が適用される場合も解答例の選択肢IDを記録する。 | 必須 | 必須：欠落を拒否する。 | string / common.schema.json#/$defs/id | pattern="^[a-z][a-z0-9-]{2,79}$" |
+| `correctAnswer.parts[]{choice}.officialCreditReason` | 原問題の個別欄を全員正解とする公式採点の理由。回答の有無や選択にかかわらず正解として集計する。 | 任意 | 任意：公式原問題かつ採点根拠を出典に明記する場合のみ。 | string | minLength=1 / maxLength=500 |
 | `correctAnswer.parts[]{unordered}.kind` | 順序を問わない複数欄の正答。重複の個数も一致させる。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | string | const="unordered" |
 | `correctAnswer.parts[]{unordered}.presentation` | 一つの解答群から重複なしで複数選択し、一欄として採点する。選択数はpartIdsの要素数。 | 任意 | 任意：省略時は順不同の個別欄として表示・採点する。 | string | const="checklist" |
 | `correctAnswer.parts[]{unordered}.partIds` | 同じ解答群を使う順不同の解答欄ID。 | 必須 | 必須：親項目がある場合は欠落を拒否する。 | array | minItems=2 / maxItems=200 / uniqueItems=true |

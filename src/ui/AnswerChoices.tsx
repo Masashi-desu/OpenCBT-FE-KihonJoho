@@ -32,7 +32,8 @@ export function AnswerChoices({ question: q, entry, bundle, assetUrls, disabled,
     const checklist = key && key.kind === "unordered" && key.presentation === "checklist" ? key : undefined;
     const selectedIds = checklist ? checklist.partIds.map(id => selectedPartChoice(entry, id)).filter(id => id !== undefined)
       : [part ? selectedPartChoice(entry, part.id) : entry.selectedChoiceId].filter(id => id !== undefined);
-    const correctIds = !key ? [q.correctAnswer.choiceId] : key.kind === "choice" ? [key.choiceId] : key.kind === "unordered" ? key.choiceIds : [];
+    const correctIds = !key ? [q.correctAnswer.choiceId] : key.kind === "choice" && key.officialCreditReason === undefined
+      ? [key.choiceId] : key.kind === "unordered" ? key.choiceIds : [];
     const choose = (id: string | undefined) => part ? onPartAnswer?.(part.id, id) : onAnswer?.(id);
     const toggleChecklist = (id: string, partIds: readonly string[]) => {
       const selectedSlot = partIds.find(slot => selectedPartChoice(entry, slot) === id);

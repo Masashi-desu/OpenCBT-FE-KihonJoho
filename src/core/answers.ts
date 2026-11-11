@@ -40,7 +40,13 @@ export function validateAnswerDefinition(q: Question) {
       const part = parts.get(id);
       if (!part || covered.has(id)) fail("正答の解答欄参照が不正又は重複しています");
       covered.add(id);
-      if (answer.kind === "choice" && !part.choiceIds.includes(answer.choiceId)) fail("解答欄の正答が選択肢にありません");
+      if (answer.kind === "choice") {
+        if (!part.choiceIds.includes(answer.choiceId)) fail("解答欄の正答が選択肢にありません");
+        if (answer.officialCreditReason !== undefined && (
+          q.origin.kind !== "official_reprint" || q.correctAnswer.attribution.origin !== "official" ||
+          !q.correctAnswer.attribution.sourceRefs.length || !answer.officialCreditReason.trim()
+        )) fail("全員正解とする公式採点の根拠がありません");
+      }
       if (answer.kind === "unordered") {
         if (answer.choiceIds.some(choice => !part.choiceIds.includes(choice))) fail("順不同の正答が選択肢にありません");
         const first = parts.get(answer.partIds[0])!;
@@ -81,7 +87,8 @@ export function gradeAnswer(q: Question, entry: Pick<Entry, "selectedChoiceId" |
     if (answer.kind === "no_correct_answer") outcomes.set(answer.partId, "unscored");
     else if (answer.kind === "choice") {
       const selected = selectedPartChoice(entry, answer.partId);
-      outcomes.set(answer.partId, !selected ? "unanswered" : selected === answer.choiceId ? "correct" : "incorrect");
+      const credited = answer.officialCreditReason !== undefined;
+      outcomes.set(answer.partId, credited ? "correct" : !selected ? "unanswered" : selected === answer.choiceId ? "correct" : "incorrect");
     } else if (answer.presentation === "checklist") {
       const selected = answer.partIds.map(partId => selectedPartChoice(entry, partId)).filter(id => id !== undefined);
       const outcome = selected.length < answer.partIds.length ? "unanswered"
@@ -110,6 +117,7 @@ export function hasCompleteAnswer(q: Question, entry: Pick<Entry, "selectedChoic
 export function partAnswerLabels(q: Question, part: AnswerPart, order: readonly string[]) {
   const answer = q.correctAnswer.parts!.find(a => a.kind === "unordered" ? a.partIds.includes(part.id) : a.partId === part.id)!;
   if (answer.kind === "no_correct_answer") return `正解なし（採点対象外）：${answer.reason}`;
+  if (answer.kind === "choice" && answer.officialCreditReason !== undefined) return `全員正解（${answer.officialCreditReason}）`;
   const choices = order.filter(id => part.choiceIds.includes(id));
   const ids = answer.kind === "unordered" ? answer.choiceIds : [answer.choiceId];
   return ids.map(id => labels[choices.indexOf(id)] ?? String(choices.indexOf(id) + 1)).join("・") + (answer.kind === "unordered" ? "（順不同）" : "");
@@ -121,6 +129,6 @@ export function answerLabels(q: Question, order = q.choices.map(c => c.id)): str
 }
 export function compoundAnswerSignature(q: Question): string {
   const text = (id: string) => JSON.stringify(q.choices.find(c => c.id === id)!.content.blocks);
-  return JSON.stringify(q.correctAnswer.parts!.map(a => a.kind === "choice" ? [a.partId, text(a.choiceId)]
+  return JSON.stringify(q.correctAnswer.parts!.map(a => a.kind === "choice" ? [a.partId, a.officialCreditReason === undefined ? text(a.choiceId) : "official_credit"]
     : a.kind === "unordered" ? [a.partIds, a.choiceIds.map(text).sort()] : [a.partId, "no_correct_answer"]));
 }

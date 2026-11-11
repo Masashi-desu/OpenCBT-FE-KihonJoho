@@ -155,3 +155,61 @@ test("unordered expected answers retain multiplicity, and generated bodies canno
   const single = fixture().questions[0];
   assert.throws(() => bindBodyAnswers(structuredClone(single), body, single.correctAnswer.attribution), { code: "SOURCE_FORMAT" });
 });
+
+function creditOfficialExample(q: Question) {
+  const source = fixture().questions.find(row => row.origin.kind === "official_reprint" &&
+    row.correctAnswer.attribution.origin === "official" && row.correctAnswer.attribution.sourceRefs.length);
+  assert(source);
+  q.origin = structuredClone(source.origin);
+  q.correctAnswer.attribution = structuredClone(source.correctAnswer.attribution);
+  const part = q.correctAnswer.parts![0];
+  assert.equal(part.kind, "choice");
+  part.officialCreditReason = "公式訂正で当該欄を全員正解とする扱いの検証用";
+  return part;
+}
+
+test("official credit applies to blank and every valid answer and survives result restoration", async () => {
+  const ready = await compoundRun(), q = ready.issued[0];
+  creditOfficialExample(q);
+  const entry = ready.session.entries[0];
+  entry.issuedContent.originKind = "official_reprint";
+  entry.issuedContent.contentSha256 = await contentHash(q);
+  schema("question", q);
+  validateAnswerDefinition(q);
+  const originalPart = q.answerParts![0];
+  for (const selected of [undefined, ...originalPart.choiceIds]) {
+    const choices = { "part-b": "choice-three", "part-c": "choice-one",
+      ...(selected ? { [originalPart.id]: selected } : {}) };
+    const graded = gradeAnswer(q, { selectedPartChoices: choices });
+    assert.equal(graded.outcome, "correct");
+    assert.deepEqual(graded.parts?.map(part => part.outcome), ["correct", "correct", "correct", "unscored"]);
+    assert(hasCompleteAnswer(q, { selectedPartChoices: choices }));
+  }
+  let run = startRun(ready, 100000);
+  run = updatePartAnswer(run, "part-b", "choice-three", 100200);
+  run = updatePartAnswer(run, "part-c", "choice-one", 100300);
+  const finished = finishRun(run, "completed", 100400);
+  const saved = JSON.parse(JSON.stringify(finished)) as typeof finished;
+  await validateRun(saved);
+  assert.equal(saved.session.entries[0].selectedPartChoices?.["part-a"], undefined);
+  assert.deepEqual(saved.result?.partSummary, { total: 4, correct: 3, incorrect: 0, unanswered: 0, unscored: 1, learningAccuracyPercent: 100 });
+});
+
+test("official credit requires a source and shows the policy when revealed without marking an individual option", () => {
+  const q = compoundQuestion(), part = creditOfficialExample(q);
+  const render = (revealed: boolean) => renderToStaticMarkup(createElement(AnswerChoices, {
+    question: q, bundle: fixture(), assetUrls: {}, entry: { choiceOrder: q.choices.map(choice => choice.id) },
+    disabled: false, revealed, showResponse: true,
+  }));
+  assert(!render(false).includes("全員正解"));
+  const revealed = render(true);
+  const field = revealed.match(/<fieldset[^>]*>[\s\S]*?<\/fieldset>/)?.[0];
+  assert(field?.includes("全員正解"));
+  assert(field && !field.includes("answer-choice correct"));
+  assert.match(answerLabels(q), /全員正解/);
+  const own = compoundQuestion();
+  own.correctAnswer.parts![0] = structuredClone(part);
+  assert.throws(() => validateAnswerDefinition(own), { code: "ANSWER_PARTS" });
+  part.officialCreditReason = "   ";
+  assert.throws(() => validateAnswerDefinition(q), { code: "ANSWER_PARTS" });
+});

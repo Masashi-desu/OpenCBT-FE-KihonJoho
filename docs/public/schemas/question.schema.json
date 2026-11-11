@@ -436,8 +436,15 @@
                   },
                   "choiceId": {
                     "$ref": "https://opencbt-fe-kihonjoho.example/schemas/3.0.0/common.schema.json#/$defs/id",
-                    "description": "その解答欄の正答選択肢ID。",
+                    "description": "その解答欄の正答選択肢ID。公式の全員正解が適用される場合も解答例の選択肢IDを記録する。",
                     "$comment": "必須：欠落を拒否する。"
+                  },
+                  "officialCreditReason": {
+                    "type": "string",
+                    "description": "原問題の個別欄を全員正解とする公式採点の理由。回答の有無や選択にかかわらず正解として集計する。",
+                    "$comment": "任意：公式原問題かつ採点根拠を出典に明記する場合のみ。",
+                    "minLength": 1,
+                    "maxLength": 500
                   }
                 },
                 "required": [
