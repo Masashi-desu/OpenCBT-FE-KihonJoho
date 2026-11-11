@@ -1,4 +1,5 @@
 import type { BookletFigureExtension } from './booklet-figure-extension-contract';
+import { legacy2010SpringPmFigures } from './generators/legacy-2010-spring-pm-figures';
 import { legacy2010AutumnPmFigures } from './generators/legacy-2010-autumn-pm-figures';
 import { legacy2011SpecialPmFigures } from './generators/legacy-2011-special-pm-figures';
 import { legacy2011AutumnPmFigures } from './generators/legacy-2011-autumn-pm-figures';
@@ -52,4 +53,5 @@ export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
   { scope: '2010-autumn-am', figures: autumn2010AmFigures },
   { scope: '2010-autumn-pm', figures: legacy2010AutumnPmFigures },
   { scope: '2010-spring-am', figures: spring2010AmFigures },
+  { scope: '2010-spring-pm', figures: legacy2010SpringPmFigures },
 ];

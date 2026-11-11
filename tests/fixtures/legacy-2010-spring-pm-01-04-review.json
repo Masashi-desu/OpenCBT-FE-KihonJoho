@@ -1,0 +1,240 @@
+{
+  "scope": "2010-spring-pm",
+  "collectionId": "2010h22h-fe-pm",
+  "sourcePreflightSha256": "954984154dd6956f802b41750218d801629b710cd48a17c23a6804430df1b20c",
+  "heldNumbers": [],
+  "questions": [
+    {
+      "number": 1,
+      "physicalPages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "printedPages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "officialArea": "ハードウェア",
+      "officialFields": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "カ"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "エ"
+        },
+        {
+          "locator": "c",
+          "section": 1,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "d",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "e",
+          "section": 2,
+          "officialKey": "ク"
+        },
+        {
+          "locator": "f",
+          "section": 2,
+          "officialKey": "ウ"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "キャッシュメモリ",
+      "fixedReferencePages": [
+        3,
+        4
+      ],
+      "materialReview": "公式紙面と全選択肢を目視照合。第三者の転載表示・写真・ロゴ・原表の出典表示は該当なし。キャッシュ構成・構文木・DB模式図・待ち行列表は出題用の素材。公式出典と改変表示を付け、派生の図表は自己描画。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "表1の各LOAD/ADD/STOREの実効アドレスをi=99/98で再構成し、独立したブロックの順リストからFIFO/LRUをシミュレート。空き番号・全参照・表示セル・全選択肢を照合。原FIFOの二周の汚れブロック書戻し順41→44→41を確認。",
+      "notes": "原p5〜11。ブロック100語・4配列・添字0〜99、データキャッシュ、3バッファ、未使用は三欄0、順位・フラグ、R1/R2/R3、STORE/ADDR/JNM、二つの観測点と両ループを確認。表2の非表示セルとd/e/fの統合セル、原の10択のブロック／フラグ順を保持。p.11の代替説明に列見出しとア〜コの各ブロック番号・フラグを明記。",
+      "commentary": "講評p1の「ブロックは合うがフラグが逆」の指摘を全候補で検算。元のa/b/cは45/43/42、d/e/fは(41,1)/(44,1)/(42,0)。",
+      "variability": "1ブロックに各配列が収まる番地を選び、LOADと二つのADDで読む順序、最初のSTORE先を変える。配列の領域・擬似言語・命令表・全図と解説が同一入力に従い、実際のヒット／ミスやフラグも変わる。",
+      "precision": "整数番地・順位・フラグのみ。原と同じ9命令、3バッファ、二周の観測。原の擬似言語規則は公式p.3–4を固定資料にする。"
+    },
+    {
+      "number": 2,
+      "physicalPages": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "printedPages": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "officialArea": "ソフトウェア",
+      "officialFields": 4,
+      "fields": [
+        {
+          "locator": "1",
+          "section": 1,
+          "officialKey": "オ"
+        },
+        {
+          "locator": "2",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "3",
+          "section": 3,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "4",
+          "section": 4,
+          "officialKey": "ウ"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "コンパイラの構文解析とスタック",
+      "fixedReferencePages": [],
+      "materialReview": "公式紙面と全選択肢を目視照合。第三者の転載表示・写真・ロゴ・原表の出典表示は該当なし。キャッシュ構成・構文木・DB模式図・待ち行列表は出題用の素材。公式出典と改変表示を付け、派生の図表は自己描画。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "独立した演算子スタックによる後置変換と、代替説明の構文木を帰り掛けに読み取った列を比較。4条件の全構文木と全後置候補を判定。スタック命令は記号式を積んで検算し、二つのオペランドがない候補を失敗と判定。",
+      "notes": "原p12〜16。2分木の深さ優先・帰り掛け、括弧優先と左結合、項のop2が式のop1に先行する構文規則4行、a〜e、push/add/mul、5/5/4/4択、探索順・二つのスタック例を保持。",
+      "commentary": "講評p1の構文規則による演算優先度を照合。原はオ・イ・ウ・ウ。設問4の原アはadd時にスタック内の値が一つしかない。",
+      "variability": "本文の括弧と演算の構成を変える。葉の数、2項演算子、演算の型と回数、木や操作列の出力形式を保つ。第四条件のスタックアは括弧が違う有効な操作列へ更新し、条件から選ぶ。",
+      "precision": "数値の丸めや計算を加えず、元と同じ要素数で木構造とトークン順を比較。"
+    },
+    {
+      "number": 3,
+      "physicalPages": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "printedPages": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "officialArea": "データベース",
+      "officialFields": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "c",
+          "section": 1,
+          "officialKey": "カ"
+        },
+        {
+          "locator": "2",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "3",
+          "section": 3,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "4",
+          "section": 4,
+          "officialKey": "ア"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "学校の成績データベース",
+      "fixedReferencePages": [],
+      "materialReview": "公式紙面と全選択肢を目視照合。第三者の転載表示・写真・ロゴ・原表の出典表示は該当なし。キャッシュ構成・構文木・DB模式図・待ち行列表は出題用の素材。公式出典と改変表示を付け、派生の図表は自己描画。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "出題文に記載した学期数・各期の試験数・科目数で案A/Bのレコード数を検算。2年の履歴と成績、教員、複数試験、既在籍を含む同名2名を投入したSQLiteで全12SQL候補を実行し、独立なデータ集計・並べ替え結果と比較。",
+      "notes": "原p17〜21。生徒・履歴・教員の3表と担任注記、案A/Bの主キーの下線と5科目、試験名列、案A採用、4表／3表のSQL、年度制約、集計単位、同名の生徒と結果順を保持。ANYは非NULL比較のためSQLite上でINに等価変換。",
+      "commentary": "講評p1の既に結合された表を不要な副問合せで選ぶ誤りを確認。元の記録は案A6件／案B30件。設問2・3は成績年度の条件が必要。設問4は同名全員を結合で選ぶ。",
+      "variability": "学期数・各期の試験数と全試験名、合計／平均の年度・学年と試験、対象氏名を同期して変更。集計条件、1件の対象、元のSQL媒体と欄数を保持。",
+      "precision": "同じ5科目で試験日程に応じた整数行数。例示氏名は教材の架空データ。SQLiteの多行スカラ副問合せが先頭値を取る場合にも誤答と判定できる反例を使用。"
+    },
+    {
+      "number": 4,
+      "physicalPages": [
+        22,
+        23,
+        24
+      ],
+      "printedPages": [
+        22,
+        23,
+        24
+      ],
+      "officialArea": "ネットワーク",
+      "officialFields": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "section": 1,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "b",
+          "section": 1,
+          "officialKey": "ウ"
+        },
+        {
+          "locator": "c",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "d",
+          "section": 2,
+          "officialKey": "イ"
+        },
+        {
+          "locator": "e",
+          "section": 2,
+          "officialKey": "ア"
+        }
+      ],
+      "unorderedGroups": [],
+      "title": "動画ストリーミングサーバの設置計画",
+      "fixedReferencePages": [],
+      "materialReview": "公式紙面と全選択肢を目視照合。第三者の転載表示・写真・ロゴ・原表の出典表示は該当なし。キャッシュ構成・構文木・DB模式図・待ち行列表は出題用の素材。公式出典と改変表示を付け、派生の図表は自己描画。独自解説は本プロジェクト作成。",
+      "holdReason": null,
+      "independent": "ビット・バイト換算、到着数と時間の積、表2の77セルを直接計算のErlang Cで検算。4条件で表の最小行とP値を読み、解析的にも最小台数の厳密な閾値を一致させる。待ち確率選択肢は全候補から解析値への距離を比較。",
+      "notes": "原p22〜24。動画速度・1分当たり要求・指数分布・再生と送信が同時間・格納本数・許容確率、十進接頭辞、ランダム到着・順次処理・十分な回線・遅延なし、表2の全軸と網掛けを保持。",
+      "commentary": "講評p1の平均4分の計上を確認。原問は15GB、30Mbps、延べ再生時間、最小72、n=86で約0.1％。全セルのうちn=72/P=30％だけは原表65.1に対して解析値65.03837となり、原表を保持し、出題の判定には使用しない。",
+      "variability": "動画速度・長さ・要求率・保存本数と、許容確率・観測する能力を変更。59.5エルランの派生はP≦4％の最小75を使う。n=71/P=10％は「およそ」の欄だけで用い、解析値10.03019％で10％が一意。",
+      "precision": "原表1桁小数を保持。GBとMbpsの候補は各1桁小数以内、台数は整数。最小台数が表の丸めと独立解法の違いでずれる組合せを含めない。"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+/** 紙面・公式解答・採点講評を照合して固定した事項。生成器から作成しない。 */
+export const review={
+  originals:{
+    5:{keys:'アカアアウオ',pages:[25,26,27,28,29,30],sizes:[10,10,3,6,3,5]},
+    6:{keys:'イエアウイウイイ',pages:[31,32,33,34,35,36,37],sizes:[5,5,5,5,3,5,3,5]},
+    7:{keys:'イイクウアエエ',pages:[38,39,40,41,42],sizes:[4,10,8,8,8,8,4]},
+    8:{keys:'ウウアウエ',pages:[43,44,45,46,47],sizes:[4,4,8,6,4]},
+  },
+  delivery:{
+    dateOperands:['受付日','配達可能日','配達予定日'],
+    matchingKeys:['業者コード','配達予定日'],
+    addressFile:'受付ファイル',
+    joinedBy:'受付番号',
+    totals:'レコード件数',
+    completionKey:'予約番号',
+  },
+  quality:{
+    causes:[
+      /類似しているモジュール/,/要求仕様を完全に理解していなかった/,/既存メンバを上回る経験/,
+      /設計の難度が高い/,/緊急の割込み業務/,
+    ],
+    designVariance:[false,true,false,true,false],
+    reuse:[true,false,false,false,false],
+    productivity:[false,false,true,false,false],
+    curve:[
+      /終盤に急増.*予測値に達する/,/終盤は増加が見られない.*予測値より下/,/一定の傾き.*予測値に達する/,
+    ],
+  },
+  business:{
+    strengths:[false,true,false,false],
+    rankLabels:['HHH','LLL','HHL','HLL','LHH','LHH','LHL','LLH'],
+    bank:[
+      /栄養補助食品などの競合製品が多く/,/脅威となる競合製品はほとんどなく/,
+      /供給業者の少ない固有の包装資材が多く/,/供給業者の少ない固有の包装資材がなく/,
+      /消費者の健康意識レベルが高く/,/消費者の健康意識レベルが低く/,
+      /特殊な設備が必要であり/,/特殊な設備が不要であり/,
+    ],
+    transfer:[false,false,false,true],
+  },
+} as const;

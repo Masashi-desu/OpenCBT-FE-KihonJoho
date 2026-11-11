@@ -1,0 +1,233 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-028",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": true,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "held": [],
+  "questionPaperSHA256": "b1afdd443e43b458e456f2309c954640397af911bceeaa78d4cd17cc8a5e228d",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-028-2010-spring-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "0fb6789220ed23214a923d17f2392cd40f5a4928d727bead57b5068f3ea52659",
+      "byteLength": 1339
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-028-2010-spring-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "39b7f24a9a16f558752c6549f17991fdf9f4ddd3f5f7a59e9dce02a9ebe45979",
+      "byteLength": 2490
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-028/local.json",
+      "sha256": "4be9a7e686ec6a26da444247cca851d96a37c1a9b486e68f1c57393a3c770c0b",
+      "byteLength": 22578
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-01-04.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-01-04.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-01-04.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-01-04.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-05-08.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 6,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-05-08.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-05-08.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-05-08.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-09-13.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 10,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-09-13.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-09-13.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-09-13.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/legacy-2010-spring-pm-09-13.test.ts",
+        "tests/legacy-2010-spring-pm-integration.test.ts"
+      ]
+    }
+  ]
+}

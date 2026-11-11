@@ -514,3 +514,10 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 問31は紙面と公式解答を収録する。解説では在庫側の商品番号がNULLの場合の反例を示し、基準問題・生成問題には照合先の列がNULLを含まない条件を明記する。
 
 問62はHammerとChampyによるBPRの定義に近い表現、問80はJIS Q 27001:2006の手順表現を含む。公開Gitへの同梱・ブラウザ配布の条件を確認できるまで、問番号と理由を台帳に残す。 [BPR原著書誌](https://www.ncbi.nlm.nih.gov/nlmcatalog/100941034) [定義を参照したWileyの公開抜粋](https://catalogimages.wiley.com/images/db/pdf/9781786304421.excerpt.pdf#page=11) [日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)
+
+### 第3段階 S3-028 2010年度春期・旧午後
+
+- 2010年4月18日実施。公式13大問・81解答欄。問1〜7から5大問、問8必須、問9〜13から1大問を選ぶ。制限時間は150分。問6のa・bは別の解答欄で、正答は順不同。 [IPA 問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_pm_qs.pdf) [解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_pm_ans.pdf) [採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000004n2z-att/2010h22h_fe_pm_cmnt.pdf)
+- 問7の競争要因の図はIPAの飲料事業の事例図を使用する。原典の図は表現を照合する際に参照した。 [HBRの五つの競争要因の図](https://hbr.org/data-visuals/1979/03/the-five-forces-that-shape-industry-competition)
+- 共通疑似言語p.3〜4、CASL II p.80〜85、表計算p.86〜88を参照する。p.82は命令と注記の範囲を掲載する。JIS X 0201に基づく文字の符号表は配布範囲外とする。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [日本産業標準調査会の規格利用案内](https://www.jisc.go.jp/qa/a2-1.html)
+- 問12では紙面と公式正答を掲載する。正の非零加数の指数部が0のとき、公式bのJPL命令が分岐しない反例を解説する。基準・生成問題は非零入力の指数部を1以上とする条件を本文に示す。
