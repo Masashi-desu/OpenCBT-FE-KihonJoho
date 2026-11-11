@@ -5,9 +5,9 @@ import { loadCatalog, loadAsset } from "../src/core/catalog";
 import { prepareRun, startRun, updateAnswer, finishRun, validateRun, appendRunQuestion } from "../src/core/session";
 import { selectQuestions } from "../src/core/selection";
 import { makeBookmark } from "../src/core/bookmarks";
-import { refOf } from "../src/core/types";
-import { sortedJson } from "../src/core/hash";
-import type { Run } from "../src/core/types";
+import { refKey, refOf } from "../src/core/types";
+import { sha256, sortedJson } from "../src/core/hash";
+import type { Attribution, Bundle, Run } from "../src/core/types";
 import { prepareSnapshot } from "../src/core/storage-snapshot";
 
 const DB = "opencbt-fe-kihonjoho-v2";
@@ -25,27 +25,81 @@ async function raw<T>(names: string[], action: (tx: IDBTransaction) => Promise<T
 }
 const reset = () => req(indexedDB.deleteDatabase(DB));
 let generated: Run, original: Run;
-export async function initialize() {
-  const bundle = await loadCatalog();
+const originalCollectionId = "set-sample-2022-dec-a";
+
+async function prepareRuns(bundle: Bundle) {
   const question = bundle.questions.find(q => q.id === "question-ipa-sample-2022-dec-a-1")!;
   const readyGenerated = startRun(await prepareRun(bundle, {
     subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values", bookmarkQuestionRef: refOf(question),
   }, {}));
-  generated = finishRun(updateAnswer(readyGenerated, readyGenerated.issued[0].choices[0].id), "completed");
-  // Use the complete public collection and all its referenced image assets.
-  // Its explicit collection ID must agree with the saved issuance references.
+  // Use the complete source collection and all its referenced image assets.
   const selection = { subject: "A", kind: "annual", mode: "study", year: 2022,
-    sourceCollectionId: "set-sample-2022-dec-a", size: "public", bindingMode: "original_data" } as const;
+    sourceCollectionId: originalCollectionId, size: "public", bindingMode: "original_data" } as const;
   const selected = selectQuestions(bundle, selection);
   const assetIds = [...new Set(selected.questions.flatMap(q => q.assetRefs))];
   const assets = Object.fromEntries(await Promise.all(assetIds.map(async id => {
     const asset = bundle.assets.find(a => a.id === id)!; return [id, await loadAsset(asset)];
   })));
-  original = finishRun(updateAnswer(startRun(await prepareRun(bundle, selection, assets, Date.now(), undefined, selected)), question.choices[0].id), "completed");
+  const readyOriginal = startRun(await prepareRun(bundle, selection, assets, Date.now(), undefined, selected));
+  return {
+    generated: finishRun(updateAnswer(readyGenerated, readyGenerated.issued[0].choices[0].id), "completed"),
+    original: finishRun(updateAnswer(readyOriginal, question.choices[0].id), "completed"),
+  };
+}
+
+export async function initialize() {
+  const bundle = await loadCatalog();
+  ({ generated, original } = await prepareRuns(bundle));
   await validateRun(generated); await validateRun(original);
   return { questions: bundle.questions.length, templates: bundle.templates.length,
     bundleBytes: new TextEncoder().encode(JSON.stringify(bundle)).length,
-    originalAssets: Object.values(assets).map(b => ({ size: b.size, type: b.type })) };
+    originalAssets: Object.values(original.assets).map(b => ({ size: b.size, type: b.type })) };
+}
+
+async function migrationFixture(bundle: Bundle): Promise<Bundle> {
+  // Version 3 duplicated an inline catalog for every session. The last v3
+  // release had 206 question records and about 2.7 MB of catalog data. Use a
+  // complete, current 60-question collection to exercise the historical shape
+  // without multiplying each newly published booklet into the v3 fixture.
+  const annual = bundle.sets.find(set => set.id === originalCollectionId)!;
+  const originalRefs = new Set(annual.questionRefs.map(refKey));
+  const questions = bundle.questions.filter(q => originalRefs.has(refKey(refOf(q))) ||
+    q.origin.derivedFrom.some(ref => originalRefs.has(refKey(ref))));
+  const refs = new Set(questions.map(q => refKey(refOf(q))));
+  const mix = bundle.sets.find(set => set.id === "set-mix-a")!;
+  const sets = [annual, { ...mix, questionRefs: mix.questionRefs.filter(ref => refs.has(refKey(ref))),
+    generationBindings: mix.generationBindings.filter(binding => refs.has(refKey(binding.questionRef))) }];
+  const examRefs = new Set(sets.flatMap(set => set.examConfigRefs.map(ref => `${ref.id}@${ref.revision}`)));
+  const exams = bundle.exams.filter(exam => examRefs.has(`${exam.id}@${exam.revision}`));
+  const templates = bundle.templates.filter(template => refs.has(refKey(template.baseQuestionRef)));
+  const assetIds = new Set(questions.flatMap(q => q.assetRefs));
+  const assets = bundle.assets.filter(asset => assetIds.has(asset.id));
+  const sourceIds = new Set(questions.flatMap(q => q.origin.sourceRefs.map(ref => ref.sourceId)));
+  const attributions: Attribution[] = [...assets, ...templates].map(record => record.attribution);
+  for (const q of questions) {
+    attributions.push(q.correctAnswer.attribution);
+    for (const content of [q.prompt, q.explanation, ...q.choices.map(c => c.content), ...q.contexts.map(c => c.content)]) {
+      attributions.push(content.attribution);
+      for (const block of content.blocks) if (block.type === "diagram") attributions.push(block.attribution);
+    }
+  }
+  for (const attribution of attributions) for (const ref of attribution.sourceRefs) sourceIds.add(ref.sourceId);
+  const rightsIds = new Set(attributions.flatMap(attribution => attribution.rightsRefs));
+  const rightsById = new Map(bundle.rights.map(right => [right.id, right]));
+  for (const id of rightsIds) {
+    const right = rightsById.get(id)!;
+    for (const ref of right.thirdParty.rightsRefs) rightsIds.add(ref);
+    for (const ref of right.evidence) sourceIds.add(ref.sourceId);
+  }
+  const rights = bundle.rights.filter(right => rightsIds.has(right.id));
+  const sources = bundle.sources.filter(source => sourceIds.has(source.id));
+  const records = { sources, rights, assets, questions, sets, exams, templates };
+  const files = Object.fromEntries(await Promise.all(Object.entries(records).map(async ([kind, rows]) => [kind,
+    await Promise.all(rows.map(async record => ({ path: `${kind}/${record.id}.json`, sha256: await sha256(JSON.stringify(record)) }))),
+  ])));
+  const catalog = { ...bundle.catalog, id: "catalog-fe-storage-fixture", revision: 1, files,
+    withdrawals: bundle.catalog.withdrawals.filter(notice => !notice.replacement || refs.has(refKey(notice.replacement))) };
+  return { catalog, catalogHash: await sha256(JSON.stringify(catalog)), ...records };
 }
 function copy(source: Run, number: number): Run {
   const run = structuredClone(source), id = `session-storage-${number}`;
@@ -140,9 +194,10 @@ async function rejects(action: () => Promise<unknown>, code?: string) {
   check(failure && (!code || failure.code === code), `expected rejection ${code ?? ""}: ${failure}`);
 }
 const fingerprint = (run: Run) => JSON.stringify(sortedJson({ ...run, instances: [...run.instances].sort((a,b) => a.entryIndex-b.entryIndex), assets: Object.keys(run.assets).sort() }));
-export async function acceptance() {
-  const passed: string[] = [];
-  const first = copy(generated, 1), second = copy(original, 2);
+async function acceptanceChecks(passed: string[]) {
+  const fixture = await migrationFixture(original.bundle);
+  const legacy = await prepareRuns(fixture);
+  const first = copy(legacy.generated, 1), second = copy(legacy.original, 2);
   // Several question assets refer to the same physical source page. Verify
   // actual content/MIME deduplication rather than assuming unique asset IDs.
   const uniqueAssets = async (run: Run) => new Set(await Promise.all(Object.values(run.assets).map(async blob =>
@@ -171,7 +226,7 @@ export async function acceptance() {
   check(fingerprint(await storage.loadRun(second.session.id)) === savedFingerprint[1], "progress migration preserves original");
   passed.push("finite migration reports exact initial/per-record/final progress without altering history");
 
-  await seedV3((function* () { for (let i = 30; i < 39; i++) yield copy(generated, i); })());
+  await seedV3((function* () { for (let i = 30; i < 39; i++) yield copy(legacy.generated, i); })());
   const withoutNotices = structuredClone(first.bundle); withoutNotices.catalog.withdrawals = [];
   const bounded: number[][] = [];
   await storage.maintainStorage(withoutNotices, (completed, total) => bounded.push([completed, total]));
@@ -304,7 +359,20 @@ export async function acceptance() {
   await rejects(() => storage.saveRun(failed), "WITHDRAWN");
   check((await storage.listBookmarks()).length === 1, "unrelated bookmark remains after withdrawal");
   passed.push("unissued original and derived withdrawal purge with persisted policy prevents stale save resurrection");
-  return { passed, counts: await counts() };
+  return { passed, counts: await counts(), migrationFixture: {
+    originals: legacy.original.issued.length,
+    questionRecords: fixture.questions.length,
+    catalogBytes: new TextEncoder().encode(JSON.stringify(fixture)).length,
+  } };
+}
+
+export async function acceptance() {
+  const passed: string[] = [];
+  try {
+    return await acceptanceChecks(passed);
+  } catch (error) {
+    throw new Error(`Native storage acceptance failed after ${passed.length} of 14 checks. Last completed: ${passed.at(-1) ?? "none"}. ${String(error)}`, { cause: error });
+  }
 }
 export async function scale(count: number, legacy = false, withAssets = false) {
   const template = withAssets ? original : generated;

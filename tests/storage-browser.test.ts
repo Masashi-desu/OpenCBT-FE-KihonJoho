@@ -45,9 +45,12 @@ after(async () => {
   }
 });
 
-test("native IndexedDB preserves v3 history and validates rollback, concurrent writes, expiry, blobs and withdrawal policy", async () => {
+test("native IndexedDB preserves v3 history and validates rollback, concurrent writes, expiry, blobs and withdrawal policy", async context => {
   const result = await page.evaluate(() => (window as any).nativeStorageHarness.acceptance());
   assert.equal(result.passed.length, 14);
+  assert.equal(result.migrationFixture.originals, 60);
+  assert.equal(result.migrationFixture.questionRecords, 120);
+  context.diagnostic(`v3 inline catalog fixture: ${result.migrationFixture.catalogBytes} bytes`);
   assert(result.passed.some((s: string) => s.includes("rollback") || s.includes("rolls back")));
   assert.equal(result.counts.bookmarks, 1);
 });
