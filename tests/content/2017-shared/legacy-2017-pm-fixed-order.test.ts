@@ -6,8 +6,8 @@ import{fixture}from'../../fixtures/legacy-afternoon-main-preservation';
 async function localBooklet(){
  const b=fixture(),questions:Question[]=[];
  for(let n=1;n<=8;n++){
-  const m=await import('../scripts/import-legacy-2017-pm'+n+'.ts');let result;
-  if(n===6)result=await m.pm6Records();else if(n===7)result=await m.pm7Records();else{const metadata=await import('./fixtures/legacy-2017-pm'+n+(n===8?'-pages':'-original-metadata')+'.json'),rendered=metadata.default,collection=n===8?(await import('../../../scripts/source-evidence/ipa-pre-2023.json')).default.collections.find((c:{id:string})=>c.id==='2017h29h-fe-pm'):rendered.collection;result=await m['legacy2017Pm'+n+'Records']({collection,rendered});}
+  const m=await import('../../../scripts/import-legacy-2017-pm'+n+'.ts');let result;
+  if(n===6)result=await m.pm6Records();else if(n===7)result=await m.pm7Records();else{const metadata=await import('../../fixtures/legacy-2017-pm'+n+(n===8?'-pages':'-original-metadata')+'.json'),rendered=metadata.default,collection=n===8?(await import('../../../scripts/source-evidence/ipa-pre-2023.json')).default.collections.find((c:{id:string})=>c.id==='2017h29h-fe-pm'):rendered.collection;result=await m['legacy2017Pm'+n+'Records']({collection,rendered});}
   const records=(result.bundle??result.records)as Pick<Bundle,'sources'|'rights'|'assets'|'questions'|'templates'>;questions.push(...records.questions);for(const k of['sources','rights','assets','questions','templates']as const)b[k].push(...records[k]as never[]);
   assert(records.questions.every(q=>q.choiceShuffleAllowed===false),'Q'+n+' original/base source-order policy');assert.equal(records.templates[0].originalContentSha256,await contentHash(records.questions[1]));
  }

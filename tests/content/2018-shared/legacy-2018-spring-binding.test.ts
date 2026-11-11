@@ -11,7 +11,7 @@ import { gradeAnswer } from "../../../src/core/answers";
 
 async function prepared(number: number): Promise<Spring2018PreparedBundle> {
   const input = JSON.parse(readFileSync(`tests/fixtures/legacy-2018-spring-pm${number}-original-metadata.json`,"utf8"));
-  const module = await import(`../../../scripts/import-legacy-2018-spring-pm/${number}.ts`);
+  const module = await import(`../../../scripts/import-legacy-2018-spring-pm${number}.ts`);
   return (await module[`legacy2018SpringPm${number}Records`](input)).bundle;
 }
 function correctSelections(q: Question) {
