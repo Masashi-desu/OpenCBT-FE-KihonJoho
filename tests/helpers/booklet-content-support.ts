@@ -110,6 +110,13 @@ function assertDiagramMarkup(block: DiagramBlock, html: string, nativeAM: boolea
   assert(!html.includes("diagram-alt"));
   const scene = block.scene;
   const profile = scene.kind === "source_figure" ? scene.profile : "";
+  if (profile === "legacy-2010-autumn-am-29-ledger") {
+    assert(html.includes('role="group" aria-label="' + escapeHTML(block.caption) + '"'));
+    assert(html.includes('aria-description="' + escapeHTML(block.alt) + '"'));
+    assert.equal([...html.matchAll(/class="diagram-scroll"/g)].length, 1);
+    assert.match(html, /<u>[^<]+番号<\/u>/);
+    return;
+  }
   if (scene.kind === "source_figure" && profile === "legacy-2015-autumn-am-27-relation") {
     assert(html.includes('role="img" aria-label="' + escapeHTML(block.alt) + '"'));
     assert.equal([...html.matchAll(/class="diagram-scroll"/g)].length, 1);

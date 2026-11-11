@@ -1,0 +1,277 @@
+{
+  "scope": "S3-025 問1〜26",
+  "collectionId": "2010h22a-fe-am",
+  "sourcePreflightSha256": "91543b9aab81ae4c717280f8888d5c4d94b254fe20a4fe4a4382054ce807c9ff",
+  "rightsBasis": "IPA試験FAQの教育目的、年度・期・試験区分・時間区分・問番号の出典表示、改変明記を確認。独自解説と公式素材の条件を区別。",
+  "heldNumbers": [],
+  "commonReferenceNumbers": [
+    24,
+    25
+  ],
+  "terminologySources": [
+    "https://docs.oracle.com/javase/7/docs/technotes/guides/beans/index.html",
+    "https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/applet_dev_guide.html"
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "officialAnswer": "イ",
+      "printedPage": 3,
+      "physicalPage": 3,
+      "independentReview": "けたの重みを展開して候補の分数と交差積で比較",
+      "qualityReview": "整数と小数が各2けた、分母は16／64／256。原条件は14940/256＝3735/64。分数表示と有効数字を保持。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 2,
+      "officialAnswer": "ア",
+      "printedPage": 3,
+      "physicalPage": 3,
+      "independentReview": "減算時の有効けた、範囲超過、丸め、指数差の四分類",
+      "qualityReview": "原問は近い二数の減算。加算時に下位が落ちる情報落ちと区別する。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 3,
+      "officialAnswer": "エ",
+      "printedPage": 3,
+      "physicalPage": 3,
+      "independentReview": "100×100通りの二日分の遷移を展開",
+      "qualityReview": "％表記、例示された晴れの行、単純マルコフ過程、2日後と全3経路。原問の三経路は12、15、6％で計33％。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 4,
+      "officialAnswer": "ア",
+      "printedPage": 4,
+      "physicalPage": 4,
+      "independentReview": "検査情報の生成と受信判定を四方式へ分類",
+      "qualityReview": "原問の生成多項式による剰余はCRC。派生の文字内パリティ、文字をまたぐ同一位置のパリティ、単一誤り訂正を区別。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 5,
+      "officialAnswer": "ウ",
+      "printedPage": 4,
+      "physicalPage": 4,
+      "independentReview": "全合法push/pop系列から出力列14通りを列挙",
+      "qualityReview": "到着順を保持し、同時に一つのスタックだけ。原問はC、B、D、Aの一択。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 6,
+      "officialAnswer": "ウ",
+      "printedPage": 4,
+      "physicalPage": 4,
+      "independentReview": "親番号から木を再構築して葉を深さ優先で数える",
+      "qualityReview": "1始まり、0が根、8節点の親を保持。原問の葉は2、4、6、7、8の5個。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 7,
+      "officialAnswer": "イ",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "5けたの整数の各桁を抽出して総和から13を繰り返し減算",
+      "qualityReview": "0〜12の位置、配列の空欄と省略行、modの定義。原問の和は15、余り2。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 8,
+      "officialAnswer": "ア",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "部品仕様、独立言語、アプリケーション、当時の埋込みの機能を分類",
+      "qualityReview": "Javaアプレットの派生は当時のブラウザ対応を前提にする。OracleのJavaBeansと旧Appletガイドを確認。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 9,
+      "officialAnswer": "エ",
+      "printedPage": 5,
+      "physicalPage": 5,
+      "independentReview": "命令数×平均実行時間が1秒になる候補を比較",
+      "qualityReview": "ナノ秒と毎秒百万命令の単位を維持。20ナノ秒なら50 MIPS。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 10,
+      "officialAnswer": "ウ",
+      "printedPage": 6,
+      "physicalPage": 6,
+      "independentReview": "パイプライン段階、静的／動的発行、マイクロ命令を分類",
+      "qualityReview": "同時実行だけで方式名を判定せず、命令の処理段階と割当ての時期を見る。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 11,
+      "officialAnswer": "イ",
+      "printedPage": 6,
+      "physicalPage": 6,
+      "independentReview": "実行中の命令に由来する例外、電源、入出力完了、メモリ検査を分類",
+      "qualityReview": "原問の内部割込みはゼロ除算。試験の分類に従い、機種固有の割込み名を追加しない。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 12,
+      "officialAnswer": "ア",
+      "printedPage": 6,
+      "physicalPage": 6,
+      "independentReview": "書込みポリシー、ハードウェアキャッシュミス、ページフォールト、速度差を分類",
+      "qualityReview": "原問はライトスルーとライトバック。派生では処理範囲を限定し、書込み・読出しミス・ページ取得・配置理由を分ける。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 13,
+      "officialAnswer": "ア",
+      "printedPage": 7,
+      "physicalPage": 7,
+      "independentReview": "機器間の経路と集線位置を分類",
+      "qualityReview": "IEEE 1394、RS-232C、USBは本文に規格名だけ。数珠つなぎ、PC直結、USBハブ、LANハブを判定。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。IEEE 1394／RS-232Cは規格名のみで、規格本文や外部図版の転載なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 14,
+      "officialAnswer": "ア",
+      "printedPage": 7,
+      "physicalPage": 7,
+      "independentReview": "シーク・平均半回転・データ転送を整数マイクロ秒で比較",
+      "qualityReview": "コントローラはシークに含む。原問は10＋5＋0.1＝15.1ミリ秒。回転／分とMバイト／秒を保持。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 15,
+      "officialAnswer": "エ",
+      "printedPage": 8,
+      "physicalPage": 8,
+      "independentReview": "四図のPC、ファイルシステムの所在、LANと専用線を照合",
+      "qualityReview": "原問はストレージ側にファイルシステムを配置しLAN経由。PC各3台、だ円と二重線、各図の接続先を保持。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 16,
+      "officialAnswer": "イ",
+      "printedPage": 8,
+      "physicalPage": 8,
+      "independentReview": "災害前の待機・更新・場所／設備／媒体と共同利用を分類",
+      "qualityReview": "原問のホットサイトは常時更新。派生のウォームとコールドは予備設備を搬入する時点で区別する。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 17,
+      "officialAnswer": "イ",
+      "printedPage": 9,
+      "physicalPage": 9,
+      "independentReview": "図の記号を解釈し実時間例で平均・稼働割合を独立計算",
+      "qualityReview": "各故障・回復の矢印、平均の和記号、信頼性・可用性の列。原問はTとT/(T＋S)。保守性はMTTRを指す。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 18,
+      "officialAnswer": "エ",
+      "printedPage": 9,
+      "physicalPage": 9,
+      "independentReview": "単位時間当たり処理量を改善する原因を4択で分類",
+      "qualityReview": "原問はスプーリング。派生は手作業による遊休、入出力ボトルネック、多重実行を区別する。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 19,
+      "officialAnswer": "エ",
+      "printedPage": 10,
+      "physicalPage": 10,
+      "independentReview": "4台の16稼働状態の確率を加算し最も近い候補を比較",
+      "qualityReview": "左A/C・右B/Dの並列組を直列に接続。原問は0.9504から最も近い0.95。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 20,
+      "officialAnswer": "イ",
+      "printedPage": 10,
+      "physicalPage": 10,
+      "independentReview": "1ミリ秒ずつ二つのタスクのCPUと排他Rの占有を追う",
+      "qualityReview": "CPU2台、同時開始、R排他、開始時にすべて空き。原問はAのRが10〜60、BのRが60〜110、遅い完了が140。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 21,
+      "officialAnswer": "ア",
+      "printedPage": 11,
+      "physicalPage": 11,
+      "independentReview": "ページ移動、退避、断片化、解放漏れを区別",
+      "qualityReview": "実記憶不足でページイン・アウトが過多になり，処理能力が急減する現象を維持。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 22,
+      "officialAnswer": "ア",
+      "printedPage": 11,
+      "physicalPage": 11,
+      "independentReview": "最適化、デバッグ情報、構造整理、増分生成の目的を分類",
+      "qualityReview": "実行時間と目的プログラム生成時間の違いを維持。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 23,
+      "officialAnswer": "イ",
+      "printedPage": 11,
+      "physicalPage": 11,
+      "independentReview": "ソース解析・プロファイリング・仕様照合・実行カバレッジを分類",
+      "qualityReview": "原問は未使用の代入。実測値や動的なカバレッジを静的検査で測るとしない。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 24,
+      "officialAnswer": "ウ",
+      "printedPage": 12,
+      "physicalPage": 12,
+      "independentReview": "回路と各式の4入力を独立した真理値表で比較",
+      "qualityReview": "原問は中段OR、上下AND、最終OR。選択肢アの否定線はA・B全体。イとエは同じ誤答1001で正答のウ0110は一意。p.2共通図記号。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。冊子p.2はIPAの共通図記号。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 25,
+      "officialAnswer": "エ",
+      "printedPage": 12,
+      "physicalPage": 12,
+      "independentReview": "全入力でAのみ・Bのみ切り替えた結果と同位置条件を検算",
+      "qualityReview": "原問はAND、NAND、NOR、XORの中で片方だけの操作で毎回反転するXOR。派生は信号反転と同位置条件を加え、原機能を満たすXORと論理一致の2通りに限定。p.2共通図記号。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。図表・数式は試験問題用。派生の図表は再作図し、改変を表示する。冊子p.2はIPAの共通図記号。",
+      "answerVariation": "variable"
+    },
+    {
+      "number": 26,
+      "officialAnswer": "エ",
+      "printedPage": 12,
+      "physicalPage": 12,
+      "independentReview": "消去・再書込み・保持の機構を知識四択で分類",
+      "qualityReview": "原問は電気的消去後の書込み。派生のマスクROM、紫外線消去EPROM、DRAMを区別。",
+      "materialReview": "公式紙面で引用・転載表示、第三者の図版・写真・原表の有無を確認し、該当なし。",
+      "answerVariation": "variable"
+    }
+  ]
+}

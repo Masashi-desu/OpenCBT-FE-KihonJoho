@@ -1,0 +1,823 @@
+{
+  "status": "independent_content_review_passed",
+  "task": "S3-025",
+  "scope": "2010-autumn-am",
+  "collectionId": "2010h22a-fe-am",
+  "questionSHA256": "c5deb749e43835b2d751dc16e6da56eb7eab165b00112f6d51be0aaded4a4cab",
+  "answerSHA256": "6c16b98bf0222d48f3fa15ca33be698752bb82b416e3ca6de4b7401ac8cabfd2",
+  "sourcePolicies": {
+    "listing": "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+    "policy": "https://www.ipa.go.jp/shiken/faq.html",
+    "sitePolicy": "https://www.ipa.go.jp/siteinfo.html",
+    "scope": "IPA公式過去問の教育利用として、掲載可能な原文と公式解答のGit同梱・ブラウザ表示を判断。年度・期・試験・午前・問番号・頁を表示。生成版は出典と改変を明記し、IPA依存部分と独自解説の権利を分ける。",
+    "thirdParty": "日本規格協会の規格等の著作権案内を確認。JISC FAQは取得時にHTTP 502であり、問27のJIS本文の再配布条件は確認できない。"
+  },
+  "checkedOn": "2026-11-11",
+  "expectedQuestions": 27,
+  "releaseCandidates": 26,
+  "heldNumbers": [
+    27
+  ],
+  "held": [
+    {
+      "number": 27,
+      "reason": "JIS Z 8521の規格本文から使用性の定義を引用しており、規格本文の公開Git同梱・ブラウザ再配布を認める個別条件を確認できていない。"
+    }
+  ],
+  "independentTests": "tests/legacy-2010-autumn-am-27-53.test.ts",
+  "finiteConditions": 91,
+  "evaluatedOptions": 364,
+  "figures": {
+    "profiles": 10,
+    "reviewedStates": 31,
+    "viewportThemeChecks": 124,
+    "drawing": "950px・320pxのライト／ダークで図、表、SQLと横スクロールを検査。接続図と工程図を紙面に照らして目視確認。"
+  },
+  "questions": [
+    {
+      "number": 28,
+      "physicalPage": 13,
+      "printedPage": 13,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "3次元CGで行う処理",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 四つの処理の役割を同じ説明選択で区別し，本文で問う処理を変える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://registry.khronos.org/OpenGL/specs/gl/glspec46.core.pdf"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 29,
+      "physicalPage": 13,
+      "printedPage": 13,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問用受注台帳・属性名と主キー表示。第三者資料や実データの転載表示なし。",
+      "format": "台帳の二行の組と下線，分解先の表，個別取引で決める条件を保持。",
+      "precision": "一意の取引主キーと外部キーを区別。注文・貸出・発注で取引単位の条件を合わせる。",
+      "parameter": {
+        "name": "第3正規形に分解する台帳の対象",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 台帳の括弧・主キーの下線と二段の行を保ち，二表の役割と注文単位の条件を対応させる。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "台帳に書かれた属性の集合を両表の独立した関数従属性で分解し，四候補の共通部分を判定。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 30,
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "関係表に対する操作",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 行・列・表の組合せ・行削除の操作を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.postgresql.org/docs/current/queries.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 31,
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問用商品表とSQL文。第三者のSQL仕様文・図版や実データの転載表示なし。",
+      "format": "三行のCREATE文，5件4列の商品表，UPDATEの4択。",
+      "precision": "文字キーの一意性・非NULL，既存キー衝突・複数行での新キー衝突・非キー列の更新を区別。",
+      "parameter": {
+        "name": "商品番号・商品名・単価の組",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 CREATE文の継続行，4列5行の表，既存キー衝突・複数行衝突・NULL・非キー更新の4つの役割を維持する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "SQLiteのWITHOUT ROWID表でSQLの主キー非NULL条件を反映し，すべてのUPDATEと失敗時の原子性を確認。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.sqlite.org/withoutrowid.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 32,
+      "physicalPage": 14,
+      "printedPage": 14,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "論理ダンプと物理バックアップを選択肢に並べるときは本文で分ける。両方を広く復旧用データとする曖昧な案は使わない。",
+      "parameter": {
+        "name": "データベース保守の目的",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 アクセス局所性，論理書出し，媒体障害への備え，取引中止を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.postgresql.org/docs/current/maintenance.html",
+          "https://www.postgresql.org/docs/current/backup.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 33,
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問用注文表・顧客表・操作対象行。第三者資料・実データ・規格文の転載表示なし。",
+      "format": "注文・顧客の並置表と，操作中の対象行を二つの枠で表示する四択。",
+      "precision": "原資料の列順と各表の行番号・顧客コード。参照側と被参照側の行の操作を区別。",
+      "parameter": {
+        "name": "顧客番号と注文行の参照関係",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 注文表と顧客表の列の順序を保ち，4つの操作の対象行を同じ枠形式で表示する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "実際の表と各選択肢の行を読み，SQLiteで外部キーを有効にして各操作と整合性を独立検算。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.sqlite.org/foreignkeys.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 34,
+      "physicalPage": 15,
+      "printedPage": 15,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "OSI参照モデルの名称と機能の独自例示。ITU規格文・図版の引用表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "物理層の派生選択肢はビットの送受信と信号を明示し，異なる層の記述と重ならないようにする。",
+      "parameter": {
+        "name": "OSI基本参照モデルの層",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 ネットワーク層，応用層，物理層，データリンク層の動作を切り替える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.itu.int/rec/T-REC-X.200-199407-I/en"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 35,
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "中継時に参照する情報",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 信号・フレーム・パケット・アプリケーションの違いを切り替える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.ieee802.org/1/",
+          "https://www.rfc-editor.org/rfc/rfc1812.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 36,
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "アドレスの参照方向",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 ルータの宛先決定，L2の転送と学習，送信元アドレスによるフィルタを区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.rfc-editor.org/rfc/rfc1812.html",
+          "https://www.rfc-editor.org/rfc/rfc2827.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 37,
+      "physicalPage": 16,
+      "printedPage": 16,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問用ルータ・端末接続図。私用IPアドレス例であり、製品写真・第三者図表の転載表示なし。",
+      "format": "二つのLANセグメント，ルータの二ポート，4端末，マスクと四つの端末組合せ。",
+      "precision": "最後の1オクテットの範囲，ネットワーク・ブロードキャストの除外。マスク・アドレスと図の左右が一致。",
+      "parameter": {
+        "name": "共通のサブネットマスクと各端末のIPアドレス",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 同じ二つのLANと四端末を保持し，共通マスクと全アドレスを連動させる。端末組合せの4選択肢を固定する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "論理積を使う生成器と独立に，マスクからアドレス区間の幅を求めて，各端末が自分の区間に属するか照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.rfc-editor.org/rfc/rfc1878.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 38,
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問用宅内LAN・FTTH接続図。製品写真・事業者ロゴ・第三者図表の転載表示なし。",
+      "format": "複数PC・ハブ・装置A・ONU・宅外へのFTTHの接続図と四つの機能。",
+      "precision": "グローバルIPアドレスの共用，LAN設定配布，PPP接続，許可規則を別条件として区別。",
+      "parameter": {
+        "name": "宅内装置に必要な機能",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 同じ宅内LAN・装置A・ONU・光回線の図を保持し，本文で必要な機能を切り替える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立のプロトコル・機能対応から本文の目的と四候補を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.rfc-editor.org/rfc/rfc3022.html",
+          "https://www.rfc-editor.org/rfc/rfc2131.html",
+          "https://www.rfc-editor.org/rfc/rfc2516.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 39,
+      "physicalPage": 17,
+      "printedPage": 17,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの設問用の鍵種別の組合せ表。規格本文・第三者図表の転載表示なし。",
+      "format": "鍵を二列の組合せで示す4択。作成・検証又は暗号化・復号の列順。",
+      "precision": "鍵の公開性，鍵ペアの保持者と，共有する共通鍵の用途を区別。",
+      "parameter": {
+        "name": "署名・暗号化・MACで用いる鍵",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 鍵の種別を二列の組合せで問う形式を保ち，目的と二つの操作を切り替える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "目的と操作ごとの鍵の種別を規格から独立に固定し，二列の全候補を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.rfc-editor.org/rfc/rfc8017.html",
+          "https://www.rfc-editor.org/rfc/rfc2104.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 40,
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "試験の身体特徴と行動特徴の区別を保持。派生で署名・キー入力・歩行の時間特性や静脈・顔・指紋の形態を区別する。",
+      "parameter": {
+        "name": "認証に用いる身体・行動の特徴",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 身体的特徴3件対行動1件と，行動特徴3件対身体1件を切り替える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://pages.nist.gov/800-63-4/sp800-63b.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 41,
+      "physicalPage": 18,
+      "printedPage": 18,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "電子メールの三つの送受信手順と四つのセキュリティ効果。",
+      "precision": "暗号化，送達，送信者の認証，本文の改ざん検出の成立要件。原問は記載された暗号化だけを評価する。",
+      "parameter": {
+        "name": "電子メールで行う三つの送受信手順",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 本文の手順を可変にする。暗号化，識別子付き受領通知，独立した台帳を使うハッシュ照合を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "四つの効果について必要な鍵・通知・本文との照合を独立に定義し，各手順が満たすか照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.rfc-editor.org/rfc/rfc5652.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 42,
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "事業継続計画で行う活動",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 分析，実地検証，教育，環境変化による見直しの違いを扱う。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.bousai.go.jp/kyoiku/kigyou/keizoku/"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 43,
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "リスクへの対応方法",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 負担移転・発生確率低減・リスク回避を判断する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://csrc.nist.gov/pubs/sp/800/39/final"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 44,
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "ウ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "ネットワークの制御・調査・不正経路",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 同じ四語から，不正経路，証拠保全と解析，厳密な送信元経路指定を選ぶ。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.rfc-editor.org/rfc/rfc791.html",
+          "https://csrc.nist.gov/pubs/sp/800/86/final"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 45,
+      "physicalPage": 19,
+      "printedPage": 19,
+      "officialAnswer": "エ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "DFDの記法は複数あるため，派生の設問に原問の円・平行線を使う記法を明示する。",
+      "parameter": {
+        "name": "DFDで表す構成要素と記号",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 原問と同じ表記法を使い，データフロー，データストア，処理の名前を問う。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 46,
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "オブジェクト指向の設計操作",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 クラス化，集約，汎化の適用対象を切り替え，四つの名称を維持する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.omg.org/spec/UML/2.5.1/"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 47,
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "生成元となる具象クラスと実例を問う。継承上の型を同時に持つこととは区別する。",
+      "parameter": {
+        "name": "クラスとインスタンスの対応",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 具象クラスの定義と個々の状態，生成数を別の状況で判断する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://docs.oracle.com/javase/tutorial/java/concepts/"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 48,
+      "physicalPage": 20,
+      "printedPage": 20,
+      "officialAnswer": "イ",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "ホワイトボックスの派生は実行可能な経路の網羅と単独判定の分岐網羅を区別し，どちらも当てはまる一般的な説明は避ける。",
+      "parameter": {
+        "name": "テストケースの設計基準",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 仕様による抽出，入口から出口の経路網羅，単独判定の分岐網羅を区別する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://istqb.org/certifications/certified-tester-foundation-level"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 49,
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "IPAの試験用の本文・四択。第三者出典・規格文・転載素材の表示なし。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "用語・役割の区別。数値計算なし。",
+      "parameter": {
+        "name": "Webで用いる技術",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 非同期の画面更新，スタイルの指定，更新情報の配信を切り替える。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://xhr.spec.whatwg.org/",
+          "https://www.w3.org/TR/css/",
+          "https://www.rssboard.org/rss-specification"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 50,
+      "physicalPage": 21,
+      "printedPage": 21,
+      "officialAnswer": "ア",
+      "officialArea": "technology",
+      "materialReview": "架空の特許ライセンスを問うIPA設問。法令・特許庁資料は事実照合に参照し、その本文を転載しない。",
+      "format": "原問題の問い方と四候補の役割を保持。",
+      "precision": "原問の業としての実施と実施権を当時の法令・特許庁資料で確認。派生では国内有効特許と許諾範囲を明記し，特許法本文は含めない。",
+      "parameter": {
+        "name": "特許の対象と実施権",
+        "minimum": 0,
+        "maximum": 2
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 派生では国内で有効な特許，予定する業としての製造・販売，許諾範囲を条件として明示する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "独立の固定資料で本文条件・四選択肢の意味・正答一意性を照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html",
+          "https://www.jpo.go.jp/support/ipr/kenrishingai.html",
+          "https://www.wipo.int/wipolex/en/legislation/details/6858"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 51,
+      "physicalPage": 22,
+      "printedPage": 22,
+      "officialAnswer": "エ",
+      "officialArea": "management",
+      "materialReview": "IPAの設問用の階層化の例。図は作業名・一般的なプロセス名からなり、第三者図版・規格文の出所表示なし。",
+      "format": "三段の親子階層，省略記号と点線を保持。",
+      "precision": "CPM・PERTは先行後続の関係や時間，EVMは計画・実績，WBSは作業の階層化を要する。階層図という原形式を保つと正答名は固定。",
+      "parameter": {
+        "name": "階層化するプロジェクトと作業項目",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 段階的に分解する作業図を保ち，具体的な作業の範囲と親子を変える。CPMやPERTは所要日数・順序のネットワーク，EVMは進捗指標が必要であり，同じ階層図から選ぶ形式にする場合はWBSが固定される。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "fixed",
+      "validation": {
+        "independent": "実際の図から読み取れる親子の構造と，各手法に必要な入力の査読結果を全候補で照合。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 52,
+      "physicalPage": 23,
+      "printedPage": 23,
+      "officialAnswer": "イ",
+      "officialArea": "management",
+      "materialReview": "IPAの設問用アローダイアグラム・凡例。第三者資料の転載表示なし。",
+      "format": "7結合点，実作業8本，破線ダミー2本，凡例と昇順の5日刻みの四択。",
+      "precision": "ダミー3→4及び4→5は0日。各実作業は整数日，合流は全先行作業の終了を待つ。",
+      "parameter": {
+        "name": "各実作業の整数日数",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 結合点1～7・実作業8本とダミー3→4・4→5を維持する。5日刻みの4候補は昇順のまま，最長経路が変わる。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "図の矢印と日数を読み，実装の最早時刻表とは別にDFSで6本の経路を列挙し最長を求める。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    },
+    {
+      "number": 53,
+      "physicalPage": 23,
+      "printedPage": 23,
+      "officialAnswer": "イ",
+      "officialArea": "management",
+      "materialReview": "IPAの設問用プログラム本数・工数の表。第三者資料・実データの転載表示なし。",
+      "format": "3種類の本数と人日，締切日数，設計・テストの倍率，昇順の4択。",
+      "precision": "倍率は追加作業に掛かる。合計工数はコーディングも加算し，人数は切上げる。",
+      "parameter": {
+        "name": "開発日数・追加工数倍率・種類別の本数と工数",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "reference": [
+        0
+      ],
+      "generatorVersion": "3.7.0",
+      "binding": "原問題の問い方・正誤条件・解答対象・選択肢の役割と文章／表／図／空欄の形式を維持して抽象化し、対象・条件・値を対応する位置へバインドする。本文、図、選択肢、正答、独自解説を同じ入力から確定する。固定問題画像を生成問題へ流用しない。 3種類の本数・整数の人日，コーディング以外の倍率，必要最少人数の切上げと昇順の選択肢を維持する。",
+      "choiceShuffleAllowed": false,
+      "answerVariation": "variable",
+      "validation": {
+        "independent": "1本分の工数を本数分だけ反復加算し，各人数とその直前の処理能力が工数を満たすか検査。",
+        "referenceFacts": [
+          "https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html"
+        ],
+        "coverage": "基準と有限全入力，入力外，四択と正答一意性，公開Block Schema。"
+      }
+    }
+  ]
+}

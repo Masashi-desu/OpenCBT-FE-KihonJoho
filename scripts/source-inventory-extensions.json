@@ -203,6 +203,17 @@
     {
       "collectionId": "2011h23tokubetsu-fe-pm",
       "excluded": []
+    },
+    {
+      "collectionId": "2010h22a-fe-am",
+      "excluded": [
+        {
+          "number": 27,
+          "sourceId": "source-ipa-2010h22a-fe-am-qs",
+          "checkedOn": "2026-11-11",
+          "reason": "JIS Z 8521の規格本文から使用性の定義を引用しており、規格本文の公開Git同梱・ブラウザ再配布を認める個別条件を確認できていない。"
+        }
+      ]
     }
   ]
 }

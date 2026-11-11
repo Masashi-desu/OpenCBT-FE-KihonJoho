@@ -493,3 +493,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 公式13大問・82解答欄。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問3のa・bは順不同で、紙面どおり二つの解答欄を使う。印刷頁とPDFの物理頁は一致する。 [公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_pm_qs.pdf) [公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_pm_ans.pdf) [採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000003ya2-att/2011h23tokubetsu_fe_pm_cmnt.pdf)
 
 問8の共通擬似言語はp.3〜4、問12のCASL II資料はp.70〜75、問13の表計算資料はp.76〜78にある。p.72は命令表と注記までを収録する。問12はビットの位置を扱うため、同頁下部のJIS X 0201の文字の符号表を使わない。問11は原冊子の独自コードとメソッドの動作を照合した。 [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html) [Java SE 6 CharSequence](https://docs.oracle.com/javase/6/docs/api/java/lang/CharSequence.html) [Java SE 6 Appendable](https://docs.oracle.com/javase/6/docs/api/java/lang/Appendable.html)
+
+### 第3段階 S3-025 2010年度秋期・旧午前
+
+2010年10月17日実施。公式は全80問必須で制限時間150分。問1〜50はテクノロジ、問51〜60はマネジメント、問61〜80はストラテジ。共通の論理回路表記はp.2、問題はp.3〜34。掲載条件を確認できた79問を年度別オリジナルとランダムミックスに収録する。 [IPAの公式問題・解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/2010h22.html) [試験実施日](https://www.ipa.go.jp/shiken/goukaku/happyobi.html) [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html)
+
+問27はJIS Z 8521の定義を引用している。規格文の公開Gitへの同梱とブラウザ再配布の条件が確認できるまで、原問番号を台帳に残す。問62は平成16年版システム管理基準の短い段階名を照合した。問79・80は出題当時の契約・著作権・派遣の関係を確認し、設問の前提に沿って説明する。 [JISCの著作権FAQ](https://www.jisc.go.jp/qa/a2-1.html) [平成16年版システム管理基準](https://www.saaj.or.jp/kijun/system_kanri.pdf) [出題当時の派遣に関する厚生労働省資料](https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/anzen/dl/091130-1e.pdf)
