@@ -41,7 +41,7 @@ export function isAfternoon(original: Question) {
   return original.subject === "B" && slots.size === 1 && slots.has("午後");
 }
 
-const preMandatorySecurity = new Set(["2010-autumn-pm", "2011-special-pm", "2011-autumn-pm", "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm", "2010-spring-pm", "2009-autumn-pm"]);
+const preMandatorySecurity = new Set(["2010-autumn-pm", "2011-special-pm", "2011-autumn-pm", "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm", "2010-spring-pm", "2009-autumn-pm", "2009-spring-pm"]);
 
 const afternoonAdmissions = new Map(declarations.collections
   .filter(collection => collection.collectionId.endsWith("-pm"))

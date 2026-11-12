@@ -14,6 +14,7 @@ import { legacy2015AutumnAfternoonDefinitions } from './legacy-2015-autumn-after
 import { legacy2015SpringAfternoonDefinitions } from './legacy-2015-spring-afternoon';
 import { legacy2014AutumnAfternoonDefinitions } from './legacy-2014-autumn-afternoon';
 import { legacy2009AutumnAfternoonDefinitions } from './legacy-2009-autumn-afternoon';
+import { legacy2009SpringAfternoonDefinitions } from './legacy-2009-spring-afternoon';
 
 // Append-only, source-owned declarations. Shared binding and validation live in
 // the contract; this file cannot supply executable hooks or replace old entries.
@@ -33,4 +34,5 @@ export const bookletExtensions: readonly AfternoonBookletExtension[] = [
   { scope: '2010-autumn-pm', definitions: legacy2010AutumnAfternoonDefinitions },
   { scope: '2010-spring-pm', definitions: legacy2010SpringAfternoonDefinitions },
   { scope: '2009-autumn-pm', definitions: legacy2009AutumnAfternoonDefinitions },
+  { scope: '2009-spring-pm', definitions: legacy2009SpringAfternoonDefinitions },
 ];

@@ -1,0 +1,14 @@
+.legacy-2009-spring-pm-05-08-pixels {
+  /* visual-color: Value 1 is the black pixel in the exercise image. */
+  --visual-paint-black: #151515;
+  /* visual-color: Value 2 is the gray pixel in the exercise image. */
+  --visual-paint-gray: #a0a0a0;
+  /* visual-color: Value 3 is the white pixel in the exercise image and the contrasting number on a black pixel. */
+  --visual-paint-white: #fff;
+}
+.legacy-2009-spring-pm-05-08-pixels [data-pixel="1"] { fill: var(--visual-paint-black); }
+.legacy-2009-spring-pm-05-08-pixels [data-pixel="2"] { fill: var(--visual-paint-gray); }
+.legacy-2009-spring-pm-05-08-pixels [data-pixel="3"] { fill: var(--visual-paint-white); }
+.legacy-2009-spring-pm-05-08-pixels [data-pixel],
+.legacy-2009-spring-pm-05-08-pixels [data-start] { stroke: var(--visual-paint-black); }
+.legacy-2009-spring-pm-05-08-pixels [data-paint-step] { fill: var(--visual-paint-white); }

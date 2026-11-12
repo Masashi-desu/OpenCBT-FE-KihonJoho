@@ -27,6 +27,7 @@ import { autumn2010AmFigureRenderers } from './Legacy2010AutumnAmFigures';
 import { spring2010AmFigureRenderers } from './Legacy2010SpringAmFigures';
 import { autumn2009AmFigureRenderers } from './Legacy2009AutumnAmFigures';
 import { legacy2009AutumnPmFigureRenderers } from './Legacy2009AutumnPmFigures';
+import { legacy2009SpringPmFigureRenderers } from './Legacy2009SpringPmFigures';
 
 // Statically imported application components only; problem data supplies no code.
 
@@ -62,4 +63,5 @@ export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] =
   { scope: '2009-autumn-am', renderers: autumn2009AmFigureRenderers },
   { scope: '2009-autumn-pm', renderers: legacy2009AutumnPmFigureRenderers },
   { scope: '2009-spring-am', renderers: spring2009AmFigureRenderers },
+  { scope: '2009-spring-pm', renderers: legacy2009SpringPmFigureRenderers },
 ];
