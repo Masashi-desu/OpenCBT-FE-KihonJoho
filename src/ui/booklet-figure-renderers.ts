@@ -34,6 +34,7 @@ import { legacy2009SpringPmFigureRenderers } from './Legacy2009SpringPmFigures';
 import { spring2009AmFigureRenderers } from './Legacy2009SpringAmFigures';
 
 import { autumn2008AmFigureRenderers } from './Legacy2008AutumnAmFigures';
+import { spring2008AmFigureRenderers } from './Legacy2008SpringAmFigures';
 
 import { legacy2008AutumnPmFigureRenderers } from './Legacy2008AutumnPmFigures';
 
@@ -70,4 +71,5 @@ export const bookletFigureRenderers: readonly BookletFigureRendererExtension[] =
   { scope: '2009-spring-pm', renderers: legacy2009SpringPmFigureRenderers },
   { scope: '2008-autumn-am', renderers: autumn2008AmFigureRenderers },
   { scope: '2008-autumn-pm', renderers: legacy2008AutumnPmFigureRenderers },
+  { scope: '2008-spring-am', renderers: spring2008AmFigureRenderers },
 ];

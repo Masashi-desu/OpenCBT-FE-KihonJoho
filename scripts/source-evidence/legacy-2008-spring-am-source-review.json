@@ -1,0 +1,230 @@
+{
+  "taskId": "S3-035",
+  "scope": "2008-spring-am",
+  "collectionId": "2008h20h-fe-am",
+  "checkedOn": "2026-11-12",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    68,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 67,
+      "sourceId": "source-ipa-2008h20h-fe-am-qs",
+      "checkedOn": "2026-11-12",
+      "reason": "S/MIMEの版指定がない。公式解答はイだが、出題前のRFC 3851（S/MIME 3.1）箇条3.5に圧縮だけのメッセージ形式があり、アも成立する。正答一意性の根拠が確認できるまで保留。"
+    },
+    {
+      "number": 69,
+      "sourceId": "source-ipa-2008h20h-fe-am-qs",
+      "checkedOn": "2026-11-12",
+      "reason": "JIS Q 27001:2006の箇条4.2.1にあるISMS確立の手順・用語を取り出して順序を問う。規格文言の同梱・表示・改変条件を確認できるまで保留。"
+    },
+    {
+      "number": 70,
+      "sourceId": "source-ipa-2008h20h-fe-am-qs",
+      "checkedOn": "2026-11-12",
+      "reason": "電気規格調査会の目的と事業の説明に近い選択肢イと、JEITAの定款第3条の目的に近い選択肢エを含む。外部団体の表現の同梱・表示・改変条件を確認できるまで保留。"
+    }
+  ],
+  "sourcePreflightSHA256": "e439f6e419117f812a9161e0000e062c0bc57254ed8863868cfa6c76acd140af",
+  "cropCandidatesSHA256": "77f436e0e8ebbf546165b8adad218e24574ada29334e9b33c570cebc7c72e764",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_am_qs.pdf",
+      "sha256": "f8e01366ea331214bbb13deeaa942ffc07a4e0100f29639eb85c40dac7bcc6eb",
+      "byteLength": 1422583
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_am_ans.pdf",
+      "sha256": "290380f966b2509cd7ffb5a94f2c292d4cb39169387edc2ec5f894366b423579",
+      "byteLength": 39523
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20.html",
+      "sha256": "bdda017284d006732d11c0587f053dd60ac27ff88f73e93020c1d36191c5849c",
+      "byteLength": 41480
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "原冊子p.1の全80問必須・150分と公式解答例を照合。p.2、35は白紙。",
+    "原問題の配布画像は採用77問ごとに切り出す。問69・70があるp.29を配布から外し、p.28は問66・68だけを切り出す。問67は正答一意性の保留である。",
+    "SGMLやMPEGなどの規格名・用途は照合資料をリンクし、規格本文は同梱しない。",
+    "問79は出題当時の著作権法第15条第2項と国税庁の公的説明を参照する。問80は一般的な契約類型を独自に説明する。"
+  ],
+  "holdReferences": {
+    "69": [
+      "https://www.jisc.go.jp/qa/a2-1.html",
+      "https://www.ipa.go.jp/archive/files/000011527.pdf"
+    ],
+    "70": [
+      "https://www.iee.jp/jec/about/",
+      "https://www.iee.jp/pub/copyright/qanda/",
+      "https://www.jeita.or.jp/japanese/assets/pdf/overview/statute.pdf"
+    ],
+    "67": [
+      "https://datatracker.ietf.org/doc/html/rfc3851#section-3.5",
+      "https://datatracker.ietf.org/doc/html/rfc2633"
+    ]
+  },
+  "references": [
+    {
+      "id": "iso-sgml",
+      "title": "ISO 8879:1986（SGMLの書誌）",
+      "publisher": "International Organization for Standardization",
+      "url": "https://www.iso.org/standard/16387.html",
+      "type": "independent_note",
+      "section": "規格名称と発行情報",
+      "scope": "SGMLの正式名称と規格番号。",
+      "limits": "規格本文や付表は参照リンク先の利用条件に従う。"
+    },
+    {
+      "id": "mpeg4",
+      "title": "MPEG-4の標準の概要",
+      "publisher": "MPEG",
+      "url": "https://www.mpeg.org/standards/MPEG-4/",
+      "type": "independent_note",
+      "section": "ISO/IEC 14496の概要",
+      "scope": "固定・移動系のマルチメディア用途。",
+      "limits": "規格本文・図・ロゴは収録していない。"
+    },
+    {
+      "id": "copyright-act-2006",
+      "title": "日本の著作権法（平成18年法律第121号までの版）",
+      "publisher": "日本国（WIPO Lex掲載）",
+      "url": "https://www.wipo.int/wipolex/en/text/187324",
+      "type": "law",
+      "section": "Article 15(2)",
+      "scope": "作成時に別段の定めがない場合の法人等によるプログラムの職務著作。",
+      "limits": "問79の出題時の条件を検証する。"
+    },
+    {
+      "id": "nta-dispatched-work",
+      "title": "ロイヤリティ課税を巡る諸問題",
+      "publisher": "国税庁 税務大学校",
+      "url": "https://www.nta.go.jp/about/organization/ntc/kenkyu/ronsou/27/206/ronsou.pdf",
+      "type": "independent_note",
+      "section": "p.423 8 労働者派遣契約 (1)",
+      "scope": "派遣先の指揮命令下で作成したプログラムと法人著作。",
+      "limits": "著作権法第15条の適用関係の参照先。本文・図は収録していない。"
+    },
+    {
+      "id": "volume-licensing",
+      "title": "Licensing Options for Industries",
+      "publisher": "Microsoft",
+      "url": "https://www.microsoft.com/en-us/licensing/licensing-programs/licensing-for-industries",
+      "type": "independent_note",
+      "section": "Licensing for nonprofits",
+      "scope": "一つの契約枠でソフトウェアの複数ライセンスを取得する仕組みの例。",
+      "limits": "実際の許諾数や契約条件は製品・契約ごとに確認する。"
+    }
+  ],
+  "referencesByQuestion": {
+    "39": [
+      "iso-sgml"
+    ],
+    "55": [
+      "mpeg4"
+    ],
+    "79": [
+      "copyright-act-2006",
+      "nta-dispatched-work"
+    ],
+    "80": [
+      "volume-licensing"
+    ]
+  }
+}

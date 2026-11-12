@@ -296,6 +296,29 @@
     {
       "collectionId": "2008h20a-fe-pm",
       "excluded": []
+    },
+    {
+      "collectionId": "2008h20h-fe-am",
+      "excluded": [
+        {
+          "number": 67,
+          "sourceId": "source-ipa-2008h20h-fe-am-qs",
+          "checkedOn": "2026-11-12",
+          "reason": "S/MIMEの版指定がない。公式解答はイだが、出題前のRFC 3851（S/MIME 3.1）箇条3.5に圧縮だけのメッセージ形式があり、アも成立する。正答一意性の根拠が確認できるまで保留。"
+        },
+        {
+          "number": 69,
+          "sourceId": "source-ipa-2008h20h-fe-am-qs",
+          "checkedOn": "2026-11-12",
+          "reason": "JIS Q 27001:2006の箇条4.2.1にあるISMS確立の手順・用語を取り出して順序を問う。規格文言の同梱・表示・改変条件を確認できるまで保留。"
+        },
+        {
+          "number": 70,
+          "sourceId": "source-ipa-2008h20h-fe-am-qs",
+          "checkedOn": "2026-11-12",
+          "reason": "電気規格調査会の目的と事業の説明に近い選択肢イと、JEITAの定款第3条の目的に近い選択肢エを含む。外部団体の表現の同梱・表示・改変条件を確認できるまで保留。"
+        }
+      ]
     }
   ]
 }
