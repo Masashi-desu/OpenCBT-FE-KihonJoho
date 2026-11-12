@@ -16,7 +16,7 @@ const verificationFiles = [
     // The publication oracle is test-only. A mixed data or runtime change must
     // still pass the independent ownership checks below.
     'tests/helpers/generation-paths/issuance.ts', 'tests/helpers/generation-paths/exhaustive.ts',
-    'scripts/audit-pre-2023-readiness.ts',
+    'scripts/audit-pre-2023-readiness.ts', 'scripts/booklet-import-review.ts',
     'scripts/ci/aggregate.mjs', 'scripts/ci/base-evidence.mjs', 'scripts/ci/booklet-manifest.mjs', 'scripts/ci/booklet-scope.mjs',
     'scripts/ci/callback-locations.mjs', 'scripts/ci/check-changed.mjs', 'scripts/ci/detail-changes.mjs', 'scripts/ci/feature-changes.mjs',
     'scripts/ci/plan.mjs', 'scripts/ci/policy.json', 'scripts/ci/reporter.mjs', 'scripts/ci/results.mjs', 'scripts/ci/run-part.mjs',
@@ -104,6 +104,15 @@ export function classifyFeatureChanges(args) {
             }
             if (storageSupport.includes(file)) { check(readAfter(file)); features.add('storage'); continue; }
             if (verificationFiles.includes(file)) { check(readAfter(file)); features.add('verification'); continue; }
+            if (file === 'scripts/validate-data.ts') {
+                // Its validation logic remains unchanged when only the inventory log label changes.
+                const logLabel = /(\$\{inventory\.excluded\}) documented [a-z ]+(?=`)/;
+                const before = readBefore(file)?.toString(), after = readAfter(file)?.toString();
+                if (before && after && logLabel.test(before) && logLabel.test(after) &&
+                    before.replace(logLabel, '$1') === after.replace(logLabel, '$1')) {
+                    features.add('verification'); continue;
+                }
+            }
             if (file === 'package.json' || file === 'package-lock.json') {
                 packagesUnchangedExceptBrowser(readBefore(file), readAfter(file), file.endsWith('lock.json'));
                 features.add('verification'); features.add('storage'); continue;

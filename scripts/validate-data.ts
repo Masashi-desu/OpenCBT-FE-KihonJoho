@@ -18,7 +18,7 @@ const detailedPackages = await validateDetailPackages(bundle);
 console.log(`Optional detailed explanations: ${detailedPackages} validated package references`);
 const inventory = validateSourceInventory(bundle);
 console.log(
-  `Source inventory ${inventory.included}/${inventory.declared}: ${inventory.excluded} documented rights exclusion`,
+  `Source inventory ${inventory.included}/${inventory.declared}: ${inventory.excluded} documented publication holds`,
 );
 const coverage = generationCoverage(bundle);
 for (const q of bundle.questions)

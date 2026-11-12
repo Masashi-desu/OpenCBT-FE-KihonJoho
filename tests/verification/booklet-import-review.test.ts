@@ -8,3 +8,22 @@ test('booklet review paths preserve declared year,term andAM/PM identity without
 test('complete13-majors or a reviewed subset keeps the declared obligations and explicit holds',()=>{const full=reviewedBookletImports(collection,review());assert.equal(full.length,13);assert(full.every(r=>Object.keys(r.checks).length===5));const subset=review();subset.wholeScopeReady=false;subset.includedNumbers.pop();subset.questions.pop();subset.held=[{number:13,status:'material_conditions_unconfirmed',bodyPublished:false,reason:'explicit unconfirmed third party material condition'}];const rows=reviewedBookletImports({...collection,excluded:[{number:13}]},subset);assert.equal(rows.length,12);assert(rows.every(r=>Object.keys(r.checks).length===5));assert(!rows.some(r=>r.questionNumber===13));assert(reviewedBookletImports(collection,subset).every(r=>!Object.keys(r.checks).length));});
 test('missing app/source/independent evidence,wrong cardinality,duplicate source or unsafe test paths cannot grant readiness',()=>{for(const mutate of[(r:BookletReleaseReview)=>{r.normalApp.status='pending';},(r:BookletReleaseReview)=>{r.rootSourceReview.evidence=null;},(r:BookletReleaseReview)=>{r.independent.evidence={path:'x',sha256:'fake'};},(r:BookletReleaseReview)=>{r.questions[1].number=1;},(r:BookletReleaseReview)=>{r.expectedTotal=12;},(r:BookletReleaseReview)=>{r.wholeScopeReady=false;},(r:BookletReleaseReview)=>{r.questions[0].testFiles=['tests/../escape.test.ts'];},(r:BookletReleaseReview)=>{r.releaseUnitReady=false;},(r:BookletReleaseReview)=>{r.status='pending';},(r:BookletReleaseReview)=>{r.questionPaperSHA256='unverified';}]){const r=review();mutate(r);assert(reviewedBookletImports(collection,r).every(row=>Object.keys(row.checks).length===0));}});
 test('failed per-question semantic checks are not promoted by a successful booklet header',()=>{const r=review();r.questions[4].checks.generatorSemantics='pending';const rows=reviewedBookletImports(collection,r);assert.equal(rows[4].checks.generatorSemantics,undefined);assert.equal(Object.keys(rows[4].checks).length,4);assert(rows.filter((_,i)=>i!==4).every(r=>Object.keys(r.checks).length===5));});
+
+test('an original with two defensible answers remains a content hold and cannot become a published source', () => {
+  const subset = review();
+  subset.wholeScopeReady = false;
+  subset.includedNumbers.pop();
+  subset.questions.pop();
+  subset.held = [{ number: 13, status: 'original_answer_ambiguous', bodyPublished: false,
+    reason: 'Two choices satisfy the wording under the specification in effect on the exam date.' }];
+  const declaration = { ...collection, excluded: [{ number: 13 }] };
+  const admitted = reviewedBookletImports(declaration, subset);
+  assert.equal(admitted.length, 12);
+  assert(admitted.every(row => row.questionNumber !== 13 && Object.keys(row.checks).length === 5));
+
+  subset.held[0].bodyPublished = true;
+  assert(reviewedBookletImports(declaration, subset).every(row => !Object.keys(row.checks).length));
+  subset.held[0].bodyPublished = false;
+  subset.held[0].status = 'unverified';
+  assert(reviewedBookletImports(declaration, subset).every(row => !Object.keys(row.checks).length));
+});
