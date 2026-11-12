@@ -10737,7 +10737,7 @@
       ],
       "names": [
         "2026-a: GPU and every reference/rotated binding can be issued on all four random practice paths",
-        "2026-a: next-question draws revisit GPU and all bindings while retaining prior answers and rejecting adjacent repeats"
+        "2026-a: next-question draws revisit GPU and recover from repeated random draws without changing prior answers"
       ],
       "coverage": {
         "sourceIds": [
@@ -10749,7 +10749,7 @@
           "initialRuns": 48,
           "appendRoutes": 3,
           "questionsPerAppendRun": 24,
-          "adjacentRepeatFailureCasesPerRoute": 2
+          "adjacentRepeatRecoveryCasesPerRoute": 2
         }
       }
     },

@@ -5,7 +5,7 @@ import facts from "../fixtures/knowledge-pairs.json";
 import {refOf, type Selection, type Template} from "../../src/core/types";
 import {bookmarkGroupSelection, makeBookmark} from "../../src/core/bookmarks";
 import {generationCoverage} from "../../src/core/generation-coverage";
-import {answerSignature, checkParameters, contractFor} from "../../src/core/generation";
+import {answerSignature, checkParameters, contractFor, parametersForSeed} from "../../src/core/generation";
 import {selectQuestions} from "../../src/core/selection";
 import {appendRunQuestion, finishRun, prepareRun, startRun, updateAnswer, validateRun} from "../../src/core/session";
 import {seedControl, seedsFor, isAfternoon, finiteSeedBudget} from "./generation-paths/issuance";
@@ -62,7 +62,7 @@ export const bookletSamplerRegressionInventory = {
     "count": 2,
     "caseNames": [
       "2026-a: GPU and every reference/rotated binding can be issued on all four random practice paths",
-      "2026-a: next-question draws revisit GPU and all bindings while retaining prior answers and rejecting adjacent repeats"
+      "2026-a: next-question draws revisit GPU and recover from repeated random draws without changing prior answers"
     ],
     "sourceIds": [
       "2026-a-3"
@@ -73,7 +73,7 @@ export const bookletSamplerRegressionInventory = {
       "initialRuns": 48,
       "appendRoutes": 3,
       "questionsPerAppendRun": 24,
-      "adjacentRepeatFailureCasesPerRoute": 2
+      "adjacentRepeatRecoveryCasesPerRoute": 2
     }
   },
   "2019-autumn-pm": {
@@ -223,7 +223,7 @@ export function registerBookletSamplerRegressionTests(scope: string): void {
     }
   assert.deepEqual(bundle, original);
 });
-    test("2026-a: next-question draws revisit GPU and all bindings while retaining prior answers and rejecting adjacent repeats", async (ctx) => {
+    test("2026-a: next-question draws revisit GPU and recover from repeated random draws without changing prior answers", async (ctx) => {
   const { bundle, template, routes } = gpuSelections(),
     seeds = await seedsFor(template, gpuValues), control = seedControl(ctx);
   for (const { selection, prepared } of routes.slice(0, 3)) {
@@ -242,13 +242,24 @@ export function registerBookletSamplerRegressionTests(scope: string): void {
     }
     assert.deepEqual(run.issued[0], saved.issued[0]);
     assert.deepEqual(run.session.entries[0], saved.session.entries[0]);
-    const beforeFailure = structuredClone(run);
-    // Repeating the exact input, or rotating only the preceding target's
-    // choices, still fails within the finite retry limit.
+    const beforeRecovery = structuredClone(run);
+    const preceding = run.instances.at(-1)!;
+    // Force either the same input or the same correct answer for every random draw.
     for (const values of [[3, 2], [3, 0]]) {
       control.seed = seeds.get(JSON.stringify(values))!;
-      await assert.rejects(appendRunQuestion(run, undefined, 150000), { code: "GENERATION_CAPACITY" });
-      assert.deepEqual(run, beforeFailure);
+      control.draws = 0;
+      const recovered = await appendRunQuestion(run, undefined, 150000);
+      assert.equal(control.draws, 128);
+      assert.equal(recovered.instances.length, beforeRecovery.instances.length + 1);
+      const instance = recovered.instances.at(-1)!;
+      assert.notDeepEqual(instance.parameters, preceding.parameters);
+      assert.notEqual(answerSignature(instance.question), answerSignature(preceding.question));
+      assert.deepEqual(await parametersForSeed(instance.seed, template), instance.parameters);
+      verifyGpu(instance.question, instance.parameters.values[0]);
+      assert.deepEqual(recovered.issued.slice(0, -1), beforeRecovery.issued);
+      assert.deepEqual(recovered.session.entries.slice(0, -1), beforeRecovery.session.entries);
+      assert.deepEqual(run, beforeRecovery);
+      await validateRun(recovered);
     }
     const completed = finishRun(run, "completed", 160000);
     assert.equal(completed.result!.total, 24);
