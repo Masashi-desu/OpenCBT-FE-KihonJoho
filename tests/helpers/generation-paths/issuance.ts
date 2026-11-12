@@ -48,16 +48,21 @@ const afternoonAdmissions = new Map(declarations.collections
   .map(collection => [inventoryCollectionIdentity(collection.collectionId).scope, collection.excluded.map(row => row.number)]));
 
 export function afternoonPaperSelection(scope: string, excluded: readonly number[] = afternoonAdmissions.get(scope) ?? []) {
+  // The 2008 autumn cover separates the first and second language sections.
+  const twoLanguageSections = scope === "2008-autumn-pm";
   const beforeMandatorySecurity = preMandatorySecurity.has(scope);
   const numbers = Array.from({ length: 13 }, (_, index) => index + 1).filter(number => !excluded.includes(number));
-  const required = beforeMandatorySecurity ? [8] : [1, 8];
-  const general = numbers.filter(number => number <= 7 && !required.includes(number));
-  const languages = numbers.filter(number => number >= 9);
-  const choose = beforeMandatorySecurity ? 5 : 4;
+  const required = twoLanguageSections ? [1, 2, 3, 4, 5] : beforeMandatorySecurity ? [8] : [1, 8];
+  const general = twoLanguageSections
+    ? numbers.filter(number => number >= 6 && number <= 9)
+    : numbers.filter(number => number <= 7 && !required.includes(number));
+  const languages = numbers.filter(number => number >= (twoLanguageSections ? 10 : 9));
+  const choose = twoLanguageSections ? 1 : beforeMandatorySecurity ? 5 : 4;
   assert(required.every(number => numbers.includes(number)) && general.length >= choose && languages.length > 0,
     `${scope}: admitted questions cannot follow the original seven-question selection policy`);
   const omitted = general.length - choose;
-  const generalCount = omitted === 2 ? general.length * (general.length - 1) / 2 : omitted === 1 ? general.length : 1;
+  const generalCount = choose === 1 || omitted === 1 ? general.length
+    : omitted === 2 ? general.length * (general.length - 1) / 2 : 1;
   return { numbers, required, general, choose, languages, count: generalCount * languages.length };
 }
 

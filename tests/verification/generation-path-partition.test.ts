@@ -137,11 +137,28 @@ test("afternoon paper selection preserves released rules and uses the original n
   for (const collection of oldAfternoon) {
     const scope = collection.id.replace(/^set-annual-/, "");
     const all = legalAfternoonSelections(collection, bundle.questions);
-    const expected = collection.questionRefs.length === 13 ? (beforeSecurity.has(scope) ? 105 : 75) : expectedAfternoonSelectionCount(scope);
+    const fullCount = scope === "2008-autumn-pm" ? 16 : beforeSecurity.has(scope) ? 105 : 75;
+    const expected = collection.questionRefs.length === 13 ? fullCount : expectedAfternoonSelectionCount(scope);
     assert.equal(all.length, expected, scope);
     assert(all.every(selection => selection.length === 7), scope);
     assert.equal(new Set(all.map(selection => JSON.stringify(selection))).size, expected, scope);
   }
+
+  const early = afternoonPaperSelection("2008-autumn-pm", []);
+  assert.deepEqual(early, {
+    numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    required: [1, 2, 3, 4, 5],
+    general: [6, 7, 8, 9],
+    choose: 1,
+    languages: [10, 11, 12, 13],
+    count: 16,
+  });
+  const earlyPartial = afternoonPaperSelection("2008-autumn-pm", [9, 13]);
+  assert.deepEqual(earlyPartial.general, [6, 7, 8]);
+  assert.deepEqual(earlyPartial.languages, [10, 11, 12]);
+  assert.equal(earlyPartial.count, 9);
+  assert.throws(() => afternoonPaperSelection("2008-autumn-pm", [3]), /cannot follow/);
+  assert.throws(() => afternoonPaperSelection("2008-autumn-pm", [6, 7, 8, 9]), /cannot follow/);
 
   const partial = afternoonPaperSelection("2009-autumn-pm", [2]);
   assert.deepEqual(partial.numbers, [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
