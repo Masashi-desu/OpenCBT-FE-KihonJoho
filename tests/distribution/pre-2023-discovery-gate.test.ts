@@ -86,7 +86,38 @@ test('metadata amendment preserves every prior discovery fact and proof byte aft
  assert.equal(d.fullPDFCountOrKeysInspected,0);assert.equal(d.ownerDiscovery.fullPDFHashClaimed,false);assert.equal(d.questionUnitsConfirmed,null);assert(d.openWork.some(x=>x.includes('2003')));
 });
 
-test('actual sources-readiness CLI reports knownminimum67/3062 with930pending units and separate historical listing evidence and exits1',()=>{
- const json=spawnSync(process.execPath,['--import','tsx','scripts/audit-pre-2023-readiness.ts','--json'],{encoding:'utf8',maxBuffer:16*1024*1024});assert.equal(json.status,1,json.stderr);const report=JSON.parse(json.stdout);assert.equal(report.status,'not_ready');assert.equal(report.summary.collections,67);assert.equal(report.summary.requestedUnits,3062);assert.equal(report.scopeDiscovery.listedCollections,20);assert.equal(report.scopeDiscovery.unknownBoundaryUnits,null);assert.equal(report.scopeDiscovery.pendingCollections.length,20);
- const text=spawnSync(process.execPath,['--import','tsx','scripts/audit-pre-2023-readiness.ts'],{encoding:'utf8',maxBuffer:16*1024*1024});assert.equal(text.status,1,text.stderr);assert.match(text.stdout,/currently enumerated scope: 67 collections \/ 3062/);assert.match(text.stdout,/Accepted source inventory: 20 collections \/ 930 units; pending materials: 930; unknown boundary units: unknown/);
+test('sources-readiness CLI preserves the archived inventory and reports remaining material and boundary work', () => {
+  const archivedExtensions = new Map(extensions.collections
+    .filter(collection => minimum.includes(collection.collectionId))
+    .map(collection => [collection.collectionId, collection]));
+  const pendingCollections = minimum.filter(id => {
+    const collection = archivedExtensions.get(id);
+    return !collection || collection.excluded.length > 0;
+  });
+  const admittedUnits = [...archivedExtensions.values()].reduce((total, collection) =>
+    total + inventoryCollectionIdentity(collection.collectionId).count - collection.excluded.length, 0);
+  const pendingMaterials = 930 - admittedUnits;
+
+  const runAudit = (...args: string[]) => spawnSync(process.execPath,
+    ['--import', 'tsx', 'scripts/audit-pre-2023-readiness.ts', ...args],
+    { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+  const json = runAudit('--json');
+  assert.equal(json.status, 1, json.stderr);
+  const report = JSON.parse(json.stdout);
+  assert.equal(report.status, 'not_ready');
+  assert.equal(report.summary.collections, 67);
+  assert.equal(report.summary.requestedUnits, 3062);
+  assert.equal(report.scopeDiscovery.listedCollections, 20);
+  assert.equal(report.scopeDiscovery.acceptedInventoryUnits, 930);
+  assert.equal(report.scopeDiscovery.pendingMaterialUnits, pendingMaterials);
+  assert.equal(report.scopeDiscovery.unknownBoundaryUnits, null);
+  assert.deepEqual([...report.scopeDiscovery.pendingCollections].sort(), pendingCollections);
+  assert.deepEqual(report.scopeDiscovery.pendingBoundaries, ['fe-before-2004', 'predecessor-systems']);
+  assert.deepEqual([...report.scopeDiscovery.historicalListingEvidence.pendingCollections].sort(), minimum);
+
+  const text = runAudit();
+  assert.equal(text.status, 1, text.stderr);
+  assert(text.stdout.includes('currently enumerated scope: 67 collections / 3062'));
+  assert(text.stdout.includes(
+    `Accepted source inventory: 20 collections / 930 units; pending materials: ${pendingMaterials}; unknown boundary units: unknown`));
 });
