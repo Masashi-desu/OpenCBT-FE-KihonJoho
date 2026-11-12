@@ -1,0 +1,189 @@
+{
+  "taskId": "S3-033",
+  "scope": "2008-autumn-am",
+  "collectionId": "2008h20a-fe-am",
+  "checkedOn": "2026-11-12",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [
+    2
+  ],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [],
+  "sourcePreflightSHA256": "857b57a5bed3cdf9ff6655b52bcde538011888906c3dfd3aa7047ad11fb166d5",
+  "cropCandidatesSHA256": "ef5139d47e793f044a6ae235b034c9fba2f89a8be5076e85c4f7dbee2bd3abe3",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_2/2008h20a_fe_am_qs.pdf",
+      "sha256": "03d14e5bf1b451681797e7bdd154e61c35a0693a90dc3e91d3b1b99ede59f355",
+      "byteLength": 1233176
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_2/2008h20a_fe_am_ans.pdf",
+      "sha256": "981f750dfdc93d317f1fb6bda86ec329030b77e0838ca2a493859d9c2f0dab7c",
+      "byteLength": 39501
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/web/20200713151058/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20.html",
+      "sha256": "2548d2c3cb91d9599db2ea4d8f80b5e6039edb4ba0f732cd00c5773b77b61818",
+      "byteLength": 41412
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "IPA公式冊子の全80問の紙面、図表、全選択肢と共通表記p.2を査読した。",
+    "用語、製品名、法令、手法の名称は設問での参照。第三者の写真・ロゴ・著作物の転載は確認されない。",
+    "問74はPDPC等の一般的な手法を問うIPAの記述。日科技連資料は意味の照合に用い、外部資料の文章・図表を同梱しない。",
+    "問79・80は出題当時の法令と公的説明を照合し、独自解説で参照する。",
+    "WARP画面を含まない原冊子の範囲を使用し、IPAを出典とし、取得経路と改変を表示する。"
+  ],
+  "references": [
+    {
+      "id": "juse-pdpc",
+      "type": "independent_note",
+      "title": "TQM基礎用語",
+      "publisher": "日本科学技術連盟",
+      "url": "https://www.juse.or.jp/faq_knowledge/glossary.html",
+      "section": "PDPC法、アローダイヤグラム法、親和図法、系統図法",
+      "scope": "問74の4手法の目的・構成を照合。PDPC法は進行中に起こり得る分岐を事前に検討する。",
+      "limits": "用語と手法の確認に用いた。外部資料の文章・図表の配布は行わない。"
+    },
+    {
+      "id": "patent-act-2008",
+      "type": "law",
+      "title": "特許法（平成20年4月18日改正までの版、WIPO Lex JP101）",
+      "publisher": "日本国（WIPO Lex収載）",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/6858",
+      "section": "第二章・先願、第39条第1項・第2項",
+      "scope": "問79は異なる日の競合を最先の出願に結び付け、同日出願の協議と区別する。",
+      "limits": "2008年度の出題時点の法令の学習用解説。"
+    },
+    {
+      "id": "dispatch-overview-2008",
+      "type": "policy",
+      "title": "労働者派遣制度の現状等に関する資料（2008年2月）",
+      "publisher": "厚生労働省",
+      "url": "https://www.mhlw.go.jp/shingi/2008/02/dl/s0214-8d.pdf",
+      "section": "p.2 労働者派遣とは、p.12 派遣受入期間、p.16 紹介予定派遣",
+      "scope": "問80の派遣元との雇用、派遣先の指揮命令、受入期間及び紹介予定派遣を当時の資料で確認。",
+      "limits": "平成20年度の設問を解説する範囲。"
+    },
+    {
+      "id": "dispatch-selection-2008",
+      "type": "policy",
+      "title": "需給調整機能の強化に関する資料（2008年6月）",
+      "publisher": "厚生労働省",
+      "url": "https://www.mhlw.go.jp/shingi/2008/06/dl/s0627-9d.pdf",
+      "section": "p.1–2 事前面接（特定目的行為）、労働者派遣法第26条第7項",
+      "scope": "問80で派遣元が配置を決めることと、派遣先による個人の特定に関する当時の規定を照合。",
+      "limits": "当時の努力義務と紹介予定派遣の例外を区別する。"
+    }
+  ],
+  "referencesByQuestion": {
+    "74": [
+      "juse-pdpc"
+    ],
+    "79": [
+      "patent-act-2008"
+    ],
+    "80": [
+      "dispatch-overview-2008",
+      "dispatch-selection-2008"
+    ]
+  }
+}

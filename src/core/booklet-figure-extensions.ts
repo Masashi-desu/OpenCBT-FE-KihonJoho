@@ -33,6 +33,8 @@ import { legacy2009SpringPmFigures } from './generators/legacy-2009-spring-pm-fi
 
 import { spring2009AmFigures } from './generators/legacy-2009-spring-am-figures';
 
+import { autumn2008AmFigures } from './generators/legacy-2008-autumn-am-figures';
+
 export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
   { scope: '2016-autumn-pm', figures: legacy2016AutumnPmFigures },
   { scope: '2016-spring-pm', figures: legacy2016SpringPmFigures },
@@ -64,4 +66,5 @@ export const bookletFigureExtensions: readonly BookletFigureExtension[] = [
   { scope: '2009-autumn-pm', figures: legacy2009AutumnPmFigures },
   { scope: '2009-spring-am', figures: spring2009AmFigures },
   { scope: '2009-spring-pm', figures: legacy2009SpringPmFigures },
+  { scope: '2008-autumn-am', figures: autumn2008AmFigures },
 ];
