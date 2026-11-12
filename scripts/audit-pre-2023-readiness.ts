@@ -180,16 +180,20 @@ export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, 
   const admittedIDs = new Set(admission.collections.map(c => c.id));
   const allEvidence = [...evidence.collections, ...admission.collections];
   if (new Set(allEvidence.map(c=>c.id)).size !== pre2023Scope.length || pre2023Scope.some(s=>!allEvidence.some(c=>c.id===s.collectionId))) throw Error('IMPORT_ADMISSION_SCOPE: joined known scope');
-  const scopeDiscovery = {status:'pending_materials_and_boundaries',ready:false as const,
-    listedCollections:historicalListingEvidence.listedCollections,listedQuestionAndAnswerLinks:historicalListingEvidence.listedQuestionAndAnswerLinks,
-    acceptedInventoryCollections:20,acceptedInventoryUnits:930,incorporatedPendingUnits:930,pendingMaterialUnits:930,
-    pendingCollections:admission.collections.map(c=>c.id),pendingBoundaries:[...historicalListingEvidence.pendingBoundaries],unknownBoundaryUnits:null,
-    historicalListingEvidence,note:'67問題集・3062単位は既知列挙の最小。930単位は素材・解答欄対応・内容・生成・表示・実登録が保留。境界の問数は未知。'};
+  const acceptedArchiveReviews = new Map<string, ImportReview>(stage3ImportReviews()
+    .filter(review => admittedIDs.has(review.collectionId))
+    .map(review => [`${review.collectionId}:${review.questionNumber}`, review] as const));
   const reviewMap = new Map<string, ImportReview>();
   for (const r of reviews) {
     const key = `${r.collectionId}:${r.questionNumber}`;
-    if (admittedIDs.has(r.collectionId)) throw Error(`IMPORT_REVIEW: ${key}: M1 does not admit new20 content passes`);
-    const c = evidence.collections.find(c => c.id === r.collectionId);
+    if (admittedIDs.has(r.collectionId)) {
+      const accepted = acceptedArchiveReviews.get(key);
+      if (!accepted || accepted.paperSha256 !== r.paperSha256 ||
+        JSON.stringify(accepted.testFiles) !== JSON.stringify(r.testFiles) ||
+        Object.entries(r.checks).some(([kind, value]) => accepted.checks[kind as ReviewKind] !== value))
+        throw Error(`IMPORT_REVIEW: ${key}: archived source requires a matching registered booklet review`);
+    }
+    const c = allEvidence.find(c => c.id === r.collectionId);
     if (!c?.questionNumbers.includes(r.questionNumber) || r.paperSha256 !== c.questionPaper.sha256 || reviewMap.has(key) ||
       (Object.keys(r.checks).length > 0 && r.testFiles.length === 0))
       throw Error(`IMPORT_REVIEW: ${key}`);
@@ -233,10 +237,18 @@ export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, 
       }
       const review = reviewMap.get(`${c.id}:${number}`);
       for (const kind of requiredReviews) if (review?.checks[kind] !== "pass") pending.push(kind);
-      if (admittedIDs.has(c.id)) pending.push(...pre2009HardPending);
       // A legacy major question must keep its individual answer slots. The
       // shared model supports unordered groups and unscored official slots.
       if (scope.compound && question && !question.answerParts) pending.push("compound_answer_model");
+      if (admittedIDs.has(c.id)) {
+        const [material, answer, transcription, generation, rendering, runtime] = pre2009HardPending;
+        if (review?.checks.rights !== "pass") pending.push(material);
+        if (review?.checks.originalSemantics !== "pass") pending.push(answer);
+        if (review?.checks.transcription !== "pass") pending.push(transcription);
+        if (review?.checks.generatorSemantics !== "pass") pending.push(generation);
+        if (review?.checks.rendering !== "pass") pending.push(rendering);
+        if (pending.length) pending.push(runtime);
+      }
       return { number, questionId: question?.id, originalSemanticsReviewed: review?.checks.originalSemantics === "pass", pending };
     });
     return { id: c.id, count: questions.length, compound: scope.compound,
@@ -244,6 +256,20 @@ export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, 
       questions, ready: questions.filter(q => q.pending.length === 0).length };
   });
   const rows = collections.flatMap(c => c.questions);
+  const archiveCollections = collections.filter(collection => admittedIDs.has(collection.id));
+  const archiveRows = archiveCollections.flatMap(collection => collection.questions);
+  const scopeDiscovery = {
+    status: 'pending_materials_and_boundaries', ready: false as const,
+    listedCollections: historicalListingEvidence.listedCollections,
+    listedQuestionAndAnswerLinks: historicalListingEvidence.listedQuestionAndAnswerLinks,
+    acceptedInventoryCollections: archiveCollections.length, acceptedInventoryUnits: archiveRows.length,
+    incorporatedPendingUnits: archiveRows.filter(row => row.pending.length > 0).length,
+    pendingMaterialUnits: archiveRows.filter(row => row.pending.includes('rights')).length,
+    pendingCollections: archiveCollections.filter(collection => collection.ready < collection.count).map(collection => collection.id),
+    pendingBoundaries: [...historicalListingEvidence.pendingBoundaries], unknownBoundaryUnits: null,
+    historicalListingEvidence,
+    note: '67問題集・3062単位は既知列挙の最小。保存資料の掲載審査と未取得範囲の問数を別々に追跡する。',
+  };
   const missingByCheck = Object.fromEntries([...new Set(rows.flatMap(r => r.pending))].sort().map(check => [check, rows.filter(r => r.pending.includes(check)).length]));
   const limits = ["questions", "templates"].map(kind => {
     const existing = kind === "questions" ? bundle.questions.length : bundle.templates.length;

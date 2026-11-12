@@ -47,6 +47,59 @@ test('current inventory retains S205 and all480 AM source positions, while2025B6
 test('S205 ledger keeps13individual78field77group rows and binds any eventual pass to root source/App records',()=>{assert.equal(ledger.collectionId,'2019h31h-fe-pm');if(ledger.reviewAdmission.status==='pending'){assert.equal(ledger.candidateContentSHA256,null);assert.equal(ledger.normalApp.status,'pending');assert.equal(ledger.normalApp.evidence,null);assert.equal(ledger.rootSourceReview.evidence,null);}else{assert.match(ledger.candidateContentSHA256??'',/^[0-9a-f]{64}$/);assert.equal(ledger.status,'reviewed_source_and_normal_app');assert.equal(ledger.normalApp.status,'pass');assert.equal(ledger.rootSourceReview.status,'pass');assert.equal(ledger.normalApp.candidateContentSHA256,ledger.candidateContentSHA256);assert.equal(ledger.rootSourceReview.candidateContentSHA256,ledger.candidateContentSHA256);}assert.equal(ledger.distributionAdmission,false);assert.deepEqual(ledger.answerFieldCounts,[5,5,6,5,5,8,7,6,7,6,6,6,6]);assert.equal(ledger.questions.reduce((n,q)=>n+q.operationFields,0),78);assert.equal(ledger.questions.reduce((n,q)=>n+q.answerGroups,0),77);assert.deepEqual(ledger.questions.filter(q=>q.unorderedGroups.length).map(q=>[q.number,q.unorderedGroups]),[[7,[['c','d']]]]);assert.equal(ledger.questions.reduce((n,q)=>n+q.noCorrectAnswerFields,0),0);for(const q of ledger.questions){assert(q.originalId.endsWith('-'+q.number));assert(q.baseId.endsWith('-'+q.number));assert(q.generatorId.endsWith('-'+q.number));assert(q.testFiles.length);if(ledger.reviewAdmission.status==='pending')assert(kinds.every(k=>q.checks[k]==='pending'));else assert(kinds.every(k=>q.checks[k]==='pass'));}});
 test('all four accepted older booklets retain their138reviews while the extra13 S205 rows expose no pass checks',()=>{const added=pre2023Reviews.filter(r=>r.collectionId==='2019h31h-fe-pm'),older=pre2023Reviews.filter(r=>olderCollections.has(r.collectionId));assert.equal(added.length,13);assert.deepEqual(added,spring2019BookletImportReviews());const candidate=structuredClone(ledger);candidate.status='pending_final_root_review_candidate_and_normal_app';candidate.reviewAdmission.status='pending';assert(spring2019BookletImportReviews(candidate).every(r=>Object.keys(r.checks).length===0));assert.equal(older.length,138);assert(older.every(r=>kinds.every(k=>r.checks[k]==='pass')));for(const id of['2017h29h-fe-pm','2017h29a-fe-pm','2018h30h-fe-pm','2018h30a-fe-pm'])assert.equal(older.filter(r=>r.collectionId===id).length,13);});
 test('candidate metadata alone cannot clear normal App/source review; every missing/stale binding holds all13checks pending',()=>{const metadataOnly=structuredClone(ledger)as unknown as NonNullable<Parameters<typeof spring2019BookletImportReviews>[0]>;metadataOnly.status='reviewed_source_and_normal_app';metadataOnly.reviewAdmission.status='reviewed';metadataOnly.candidateContentSHA256='a'.repeat(64);metadataOnly.rootSourceReview={status:'pass',candidateContentSHA256:'a'.repeat(64),evidence:{path:'metadata-predicate-only/not-an-actual-source-review.json',sha256:'b'.repeat(64)}};metadataOnly.normalApp={status:'pass',candidateContentSHA256:'a'.repeat(64),evidence:{path:'metadata-predicate-only/not-an-actual-App-run.json',sha256:'c'.repeat(64)}};for(const kind of kinds){metadataOnly.checks[kind]='pass';for(const q of metadataOnly.questions)q.checks[kind]='pass';}assert(spring2019BookletImportReviews(metadataOnly).every(r=>kinds.every(k=>r.checks[k]==='pass')));const mutations:((x:NonNullable<typeof metadataOnly>)=>void)[]=[x=>{x.status='pending';},x=>{x.reviewAdmission.status='pending';},x=>{x.candidateContentSHA256=null;},x=>{x.candidateContentSHA256='excluded186-is-not-a-root-candidate';},x=>{x.rootSourceReview.status='pending';},x=>{x.normalApp.status='pending';},x=>{x.rootSourceReview.candidateContentSHA256='d'.repeat(64);},x=>{x.normalApp.candidateContentSHA256='d'.repeat(64);},x=>{x.normalApp.evidence=null;},x=>{x.rootSourceReview.evidence=null;},...kinds.map(k=>(x:NonNullable<typeof metadataOnly>)=>{x.checks[k]='pending';})];for(const mutate of mutations){const bad=structuredClone(metadataOnly);mutate(bad);assert(spring2019BookletImportReviews(bad).every(r=>Object.keys(r.checks).length===0));}for(const k of kinds){const missing=structuredClone(metadataOnly);delete missing.questions[12].checks[k];const rows=spring2019BookletImportReviews(missing);assert.equal(rows[12].checks[k],undefined);assert(rows.slice(0,12).every(r=>kinds.every(k=>r.checks[k]==='pass')));}});
-test('S205 pending ledger cannot turn the67/3062 known minimum, unknown boundaries or930 pre2009 material units green',()=>{const candidate=structuredClone(ledger);candidate.status='pending_final_root_review_candidate_and_normal_app';candidate.reviewAdmission.status='pending';const pendingReviews=[...pre2023Reviews.filter(r=>r.collectionId!=='2019h31h-fe-pm'),...spring2019BookletImportReviews(candidate)];const report=auditPre2023Readiness(withoutSpringBooklet(),evidence(),pendingReviews);assert.equal(report.status,'not_ready');assert.deepEqual(report.summary,expectedReadinessSummary(pendingReviews,'2019h31h-fe-pm'));assert.equal(pre2023Scope.length,67);assert.equal(pre2023Scope.reduce((n,s)=>n+s.count,0),3062);assert.equal(report.scopeDiscovery.unknownBoundaryUnits,null);assert.equal(report.scopeDiscovery.pendingMaterialUnits,930);assert.equal(pre2009InventoryScope.length,20);for(const c of report.collections.filter(c=>pre2009InventoryScope.some(s=>s.collectionId===c.id))){assert.equal(c.ready,0);for(const q of c.questions)for(const check of pre2009HardPending)assert(q.pending.includes(check));}const row=report.collections.find(c=>c.id==='2019h31h-fe-pm')!;assert.equal(row.questions.length,13);assert.equal(row.ready,0);for(const q of row.questions){assert(q.pending.includes('missing_original'));for(const kind of kinds)assert(q.pending.includes(kind));}});
+function assertArchivedObligations(report: ReturnType<typeof auditPre2023Readiness>, reviews: typeof pre2023Reviews) {
+  assert.equal(pre2009InventoryScope.length, 20);
+  const scoped = new Set(pre2009InventoryScope.map(collection => collection.collectionId));
+  const archivedReviews = reviews.filter(review => scoped.has(review.collectionId));
+  assert.equal(report.scopeDiscovery.acceptedInventoryUnits, 930);
+  assert.equal(report.scopeDiscovery.pendingMaterialUnits, 930 - archivedReviews.filter(review => review.checks.rights === 'pass').length);
+  for (const collection of report.collections.filter(collection => scoped.has(collection.id))) {
+    const approved = archivedReviews.filter(review => review.collectionId === collection.id &&
+      kinds.every(kind => review.checks[kind] === 'pass'));
+    assert.equal(collection.ready, approved.length);
+    for (const question of collection.questions) {
+      if (approved.some(review => review.questionNumber === question.number)) {
+        assert.deepEqual(question.pending, []);
+      } else if (!archivedReviews.some(review => review.collectionId === collection.id && review.questionNumber === question.number)) {
+        assert(pre2009HardPending.every(check => question.pending.includes(check)));
+      }
+    }
+  }
+}
 
-test('actual S205 readiness remains gated by the eventual root ledger; the known67/3062 minimum never becomes globally ready',()=>{const report=auditPre2023Readiness(fixture(),evidence()),row=report.collections.find(c=>c.id==='2019h31h-fe-pm')!;assert.equal(report.status,'not_ready');assert.equal(report.summary.collections,67);assert.equal(report.summary.requestedUnits,3062);const recorded=spring2019BookletImportReviews().every(r=>kinds.every(k=>r.checks[k]==='pass'));if(recorded){assert.equal(row.ready,13);assert.deepEqual(report.summary,expectedReadinessSummary(pre2023Reviews));}else{assert.equal(row.ready,0);const expected=expectedReadinessSummary(pre2023Reviews);assert.equal(report.summary.originalSemanticsReviewed,expected.originalSemanticsReviewed);assert.equal(report.summary.ready,expected.ready);assert.equal(report.summary.missingOriginals,expected.missingOriginals);for(const q of row.questions)for(const kind of kinds)assert(q.pending.includes(kind));}assert.equal(report.scopeDiscovery.unknownBoundaryUnits,null);assert.equal(report.scopeDiscovery.pendingMaterialUnits,930);});
+test('S205 pending ledger preserves the known scope, archived source obligations and unknown boundaries', () => {
+  const candidate = structuredClone(ledger);
+  candidate.status = 'pending_final_root_review_candidate_and_normal_app';
+  candidate.reviewAdmission.status = 'pending';
+  const pendingReviews = [
+    ...pre2023Reviews.filter(review => review.collectionId !== '2019h31h-fe-pm'),
+    ...spring2019BookletImportReviews(candidate),
+  ];
+  const report = auditPre2023Readiness(withoutSpringBooklet(), evidence(), pendingReviews);
+  assert.equal(report.status, 'not_ready');
+  assert.deepEqual(report.summary, expectedReadinessSummary(pendingReviews, '2019h31h-fe-pm'));
+  assert.equal(pre2023Scope.length, 67);
+  assert.equal(pre2023Scope.reduce((sum, collection) => sum + collection.count, 0), 3062);
+  assert.equal(report.scopeDiscovery.unknownBoundaryUnits, null);
+  assertArchivedObligations(report, pendingReviews);
+  const collection = report.collections.find(item => item.id === '2019h31h-fe-pm')!;
+  assert.equal(collection.questions.length, 13);
+  assert.equal(collection.ready, 0);
+  for (const question of collection.questions)
+    assert(['missing_original', ...kinds].every(check => question.pending.includes(check)));
+});
+
+test('actual S205 readiness remains gated by the eventual root ledger; the known67/3062 minimum never becomes globally ready', () => {
+  const report = auditPre2023Readiness(fixture(), evidence());
+  const collection = report.collections.find(item => item.id === '2019h31h-fe-pm')!;
+  assert.equal(report.status, 'not_ready');
+  assert.equal(report.summary.collections, 67);
+  assert.equal(report.summary.requestedUnits, 3062);
+  assert.deepEqual(report.summary, expectedReadinessSummary(pre2023Reviews));
+  const recorded = spring2019BookletImportReviews().every(review => kinds.every(kind => review.checks[kind] === 'pass'));
+  assert.equal(collection.ready, recorded ? 13 : 0);
+  if (!recorded) for (const question of collection.questions)
+    assert(kinds.every(kind => question.pending.includes(kind)));
+  assert.equal(report.scopeDiscovery.unknownBoundaryUnits, null);
+  assertArchivedObligations(report, pre2023Reviews);
+});

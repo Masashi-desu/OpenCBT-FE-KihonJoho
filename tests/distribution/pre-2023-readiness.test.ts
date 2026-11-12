@@ -5,6 +5,7 @@ import { fixture } from "../fixtures";
 import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope } from "../../scripts/audit-pre-2023-readiness";
 import extensions from "../../scripts/source-inventory-extensions.json";
 import { inventoryCollectionIdentity, type InventoryExtensions } from "../../scripts/source-inventory-extension-contract";
+import { readPre2009InventoryAdmission } from "../../scripts/pre-2023-inventory-admission";
 
 const evidence = () => JSON.parse(fs.readFileSync("scripts/source-evidence/ipa-pre-2023.json", "utf8"));
 // Explicit historical controls, independent of later admissions.
@@ -129,6 +130,7 @@ test("the current catalog retains every independently declared booklet admission
   const report = auditPre2023Readiness(fixture(), evidence());
   assert.equal(report.status, "not_ready");
   let ready = 783;
+  let archivedReady = 0;
   for (const { collectionId, excluded } of (extensions as InventoryExtensions).collections) {
     const count = inventoryCollectionIdentity(collectionId).count;
     const row = report.collections.find(c => c.id === collectionId)!;
@@ -136,13 +138,42 @@ test("the current catalog retains every independently declared booklet admission
     assert.equal(row.ready, count - excluded.length);
     assert.deepEqual(row.questions.filter(q => !q.questionId).map(q => q.number), excluded.map(q => q.number));
     ready += count - excluded.length;
+    if (Number(collectionId.slice(0, 4)) <= 2008) archivedReady += count - excluded.length;
   }
   assert.deepEqual(report.summary, { collections: 67, requestedUnits: 3062, missingOriginals: 3062 - ready, originalSemanticsReviewed: ready, ready });
   for (const id of ["2017h29h-fe-pm", "2017h29a-fe-pm", "2018h30h-fe-pm", "2018h30a-fe-pm", "2019h31h-fe-pm", "2019r01a-fe-pm"])
     assert.equal(report.collections.find(c => c.id === id)!.ready, 13);
   assert.equal(report.scopeDiscovery.status, "pending_materials_and_boundaries");
-  assert.equal(report.scopeDiscovery.incorporatedPendingUnits, 930);
+  assert.equal(report.scopeDiscovery.acceptedInventoryUnits, 930);
+  assert.equal(report.scopeDiscovery.incorporatedPendingUnits, 930 - archivedReady);
+  assert.equal(report.scopeDiscovery.pendingMaterialUnits, 930 - archivedReady);
   assert.equal(report.scopeDiscovery.unknownBoundaryUnits, null);
+});
+
+test("archived papers require the registered booklet review in addition to the original source hash", () => {
+  const admitted = readPre2009InventoryAdmission();
+  const archived = new Set(admitted.collections.map(collection => collection.id));
+  const registered = pre2023Reviews.find(review => archived.has(review.collectionId));
+  const paper = admitted.collections[0];
+  const candidate = registered ?? {
+    collectionId: paper.id, questionNumber: 1, paperSha256: paper.questionPaper.sha256,
+    checks: { rights: "pass" as const }, testFiles: [],
+  };
+  const otherReviews = pre2023Reviews.filter(review => review !== registered);
+  assert.throws(() => auditPre2023Readiness(fixture(), evidence(), [
+    ...otherReviews, { ...candidate, testFiles: ["tests/distribution/unregistered-archive-review.test.ts"] },
+  ]), /IMPORT_REVIEW: .*archived source requires a matching registered booklet review/);
+  if (registered) {
+    const checks = { ...registered.checks };
+    delete checks.rights;
+    const report = auditPre2023Readiness(fixture(), evidence(), [...otherReviews, { ...registered, checks }]);
+    const row = report.collections.find(collection => collection.id === registered.collectionId)!
+      .questions.find(question => question.number === registered.questionNumber)!;
+    assert(row.questionId);
+    assert(row.pending.includes("source_material_review_pending"));
+    assert(!row.pending.includes("source_answer_mapping_pending"));
+    assert.equal(report.scopeDiscovery.ready, false);
+  }
 });
 
 test("each missing scoped review keeps all13 autumn2019 majors pending without hiding their registered originals", () => {
