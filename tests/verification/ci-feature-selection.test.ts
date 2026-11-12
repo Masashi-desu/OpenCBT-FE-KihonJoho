@@ -85,9 +85,15 @@ test('functional plans require native IndexedDB tests and explicit full plans re
 });
 
 test('verification-only changes run verification tests and preserve full-inventory validation', () => {
-  const f = fixture(); f.files = { 'scripts/ci/scopes.mjs': '// implementation change' };
+  const f = fixture(); f.files = {
+    'scripts/ci/scopes.mjs': '// implementation change',
+    'tests/helpers/generation-paths/issuance.ts': '// test oracle change',
+    'tests/helpers/generation-paths/exhaustive.ts': '// test route change',
+  };
   const selected = classify(f)!; assert.deepEqual(selected.features, ['verification']);
   assert.deepEqual(Object.values(makeParts(Object.keys(entries), entries, [], false, selected)).flatMap(p => p.files), [verify]);
+  f.after.records.questions[0].correctAnswer.choiceId = 'two';
+  assert.equal(classify(f), null);
 });
 
 test('startup-only features select their own regressions and reject shared compiler, app or CSS changes', () => {

@@ -247,11 +247,11 @@ export function answerChoiceMatrixAppendScopes(beforeText, afterText) {
 export const AFTERNOON_SELECTION_COUNTS_FILE = 'tests/helpers/generation-paths/issuance.ts';
 export function afternoonSelectionCountAppendScopes(beforeText, afterText) {
     const declaration = /^const preMandatorySecurity = new Set\((\[[^\r\n]*\])\);$/m;
-    const lookup = 'export function expectedAfternoonSelectionCount(scope: string) {\n  return preMandatorySecurity.has(scope) ? 105 : 75;\n}';
-    const enumerate = '  const scope = collection.id.replace(/^set-annual-/, "");\n  const beforeMandatorySecurity = preMandatorySecurity.has(scope);';
+    const lookup = 'export function expectedAfternoonSelectionCount(scope: string) {\n  return afternoonPaperSelection(scope).count;\n}';
+    const select = '  const beforeMandatorySecurity = preMandatorySecurity.has(scope);';
     const parse = text => {
-        if (typeof text !== 'string' || !text.includes(lookup) || !text.includes(enumerate) ||
-            [...text.matchAll(/\bpreMandatorySecurity\b/g)].length !== 3)
+        if (typeof text !== 'string' || !text.includes(lookup) || !text.includes(select) ||
+            [...text.matchAll(/\bpreMandatorySecurity\b/g)].length !== 2)
             return null;
         const match = declaration.exec(text);
         if (!match)

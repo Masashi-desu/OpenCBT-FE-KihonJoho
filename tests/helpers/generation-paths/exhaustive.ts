@@ -32,7 +32,7 @@ async function checkPublicationPools(ctx: TestContext, bundle: Bundle, rows: Row
       assert(collectionRows.every(row => isAfternoon(row.original)));
       collectionRows.forEach(row => expectedVisited.add(refKey(row.linked[0].baseQuestionRef)));
       const cases = [{ mode: "study" as const, refs: collection.questionRefs },
-        ...legalAfternoonSelections(collection).map(refs => ({ mode: "practice" as const, refs }))];
+        ...legalAfternoonSelections(collection, collectionRows.map(row => row.original)).map(refs => ({ mode: "practice" as const, refs }))];
       for (const item of cases) {
         const ownedSelection = new Set(item.refs.map(refKey));
         const selectedRows = collection.questionRefs.filter(ref => ownedSelection.has(refKey(ref)))
@@ -45,7 +45,7 @@ async function checkPublicationPools(ctx: TestContext, bundle: Bundle, rows: Row
         assert.deepEqual(prepared.questions.map(refOf), expectedBases);
         assert.deepEqual(prepared.set.questionRefs, expectedBases);
         assert.equal(prepared.exam.questionOrder, "set");
-        assert.equal(prepared.exam.questionCount, item.mode === "practice" ? 7 : 13);
+        assert.equal(prepared.exam.questionCount, item.mode === "practice" ? 7 : collection.questionRefs.length);
         assert.equal(prepared.exam.timeLimitSeconds, item.mode === "practice" ? 9000 : undefined);
         const quota: Record<string, number> = {};
         selectedRows.forEach(row => { quota[row.original.learning.area] = (quota[row.original.learning.area] ?? 0) + 1; });
@@ -59,7 +59,7 @@ async function checkPublicationPools(ctx: TestContext, bundle: Bundle, rows: Row
         assert.equal(annual.exam.timeLimitSeconds, prepared.exam.timeLimitSeconds);
         expectedBases.forEach(ref => visited.add(refKey(ref)));
       }
-      ctx.diagnostic(`${collection.id}: all13 study and all${cases.length - 1} legal seven-major paper-order mixes retained.`);
+      ctx.diagnostic(`${collection.id}: all${collection.questionRefs.length} study and all${cases.length - 1} legal seven-major paper-order mixes retained.`);
       continue;
     }
     const poolRows = legacy ? collectionRows : currentRows;

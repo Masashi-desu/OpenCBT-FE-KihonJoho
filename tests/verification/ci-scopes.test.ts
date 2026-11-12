@@ -151,7 +151,7 @@ test('append-only afternoon selection-count fixtures narrow to newly distributed
     for (const invalid of [
         after.replace('2010-spring-pm', '2010-spring-am'),
         after.replace('2010-spring-pm', '2011-special-pm'),
-        after.replace('105 : 75', '106 : 75'),
+        after.replace('afternoonPaperSelection(scope).count', '106'),
         after.replace('collection.id.replace', 'collection.title.replace'),
         after.replace('"2011-special-pm", "2010-spring-pm"', '"2010-spring-pm", "2011-special-pm"'),
         after + 'use(preMandatorySecurity);',

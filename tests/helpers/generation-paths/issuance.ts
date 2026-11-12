@@ -4,6 +4,8 @@ import { refOf, refKey, type Selection, type Template, type Bundle, type Questio
 import { bookmarkGroupSelection, makeBookmark } from "../../../src/core/bookmarks";
 import { parametersForSeed, contractFor } from "../../../src/core/generation";
 import { selectQuestions } from "../../../src/core/selection";
+import declarations from "../../../scripts/source-inventory-extensions.json";
+import { inventoryCollectionIdentity } from "../../../scripts/source-inventory-extension-contract";
 
 // Control only the parameter seed. IDs, question draws and choice shuffles use
 // their normal randomness, so the tests exercise the public issuance paths.
@@ -41,29 +43,58 @@ export function isAfternoon(original: Question) {
 
 const preMandatorySecurity = new Set(["2010-autumn-pm", "2011-special-pm", "2011-autumn-pm", "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm", "2010-spring-pm", "2009-autumn-pm"]);
 
-export function expectedAfternoonSelectionCount(scope: string) {
-  return preMandatorySecurity.has(scope) ? 105 : 75;
+const afternoonAdmissions = new Map(declarations.collections
+  .filter(collection => collection.collectionId.endsWith("-pm"))
+  .map(collection => [inventoryCollectionIdentity(collection.collectionId).scope, collection.excluded.map(row => row.number)]));
+
+export function afternoonPaperSelection(scope: string, excluded: readonly number[] = afternoonAdmissions.get(scope) ?? []) {
+  const beforeMandatorySecurity = preMandatorySecurity.has(scope);
+  const numbers = Array.from({ length: 13 }, (_, index) => index + 1).filter(number => !excluded.includes(number));
+  const required = beforeMandatorySecurity ? [8] : [1, 8];
+  const general = numbers.filter(number => number <= 7 && !required.includes(number));
+  const languages = numbers.filter(number => number >= 9);
+  const choose = beforeMandatorySecurity ? 5 : 4;
+  assert(required.every(number => numbers.includes(number)) && general.length >= choose && languages.length > 0,
+    `${scope}: admitted questions cannot follow the original seven-question selection policy`);
+  const omitted = general.length - choose;
+  const generalCount = omitted === 2 ? general.length * (general.length - 1) / 2 : omitted === 1 ? general.length : 1;
+  return { numbers, required, general, choose, languages, count: generalCount * languages.length };
 }
 
-export function legalAfternoonSelections(collection: Bundle["sets"][number]) {
-  // Enumerate the two omissions and the language independently of the
-  // production rule. The listed booklet covers leave question 1 optional.
-  const refs = collection.questionRefs, policy = collection.questionSelection;
+export function expectedAfternoonSelectionCount(scope: string) {
+  return afternoonPaperSelection(scope).count;
+}
+
+export function legalAfternoonSelections(collection: Bundle["sets"][number], originals: readonly Question[]) {
+  // Source inventory and official question numbers determine the expected policy.
   const scope = collection.id.replace(/^set-annual-/, "");
-  const beforeMandatorySecurity = preMandatorySecurity.has(scope);
-  const firstRequired = beforeMandatorySecurity ? [] : [refs[0]];
-  const general = refs.slice(beforeMandatorySecurity ? 0 : 1, 7);
-  const languages = refs.slice(8);
-  assert.equal(refs.length, 13);
+  const expected = afternoonPaperSelection(scope), policy = collection.questionSelection;
+  const byRef = new Map(originals.map(question => [refKey(refOf(question)), question]));
+  const numbers = collection.questionRefs.map(ref => {
+    const question = byRef.get(refKey(ref));
+    assert(question && isAfternoon(question), `${collection.id}: unknown original ${refKey(ref)}`);
+    const sourceNumbers = new Set(question.origin.sourceRefs.flatMap(({ locator }) =>
+      locator.timeSlot === "午後" && locator.questionNumber !== undefined ? [Number(locator.questionNumber)] : []));
+    assert.equal(sourceNumbers.size, 1, `${question.id}: ambiguous original question number`);
+    return [...sourceNumbers][0];
+  });
+  assert.deepEqual(numbers, expected.numbers, `${collection.id}: published admissions must match the reviewed inventory`);
+  const refs = new Map(numbers.map((number, index) => [number, collection.questionRefs[index]]));
+  const questionRefs = (selected: readonly number[]) => selected.map(number => refs.get(number)!);
   assert(policy);
-  assert.deepEqual(policy.requiredQuestionRefs, [...firstRequired, refs[7]]);
-  assert.deepEqual(policy.optionalGroups.map(group => ({ refs: group.questionRefs, choose: group.choose })),
-    [{ refs: general, choose: beforeMandatorySecurity ? 5 : 4 }, { refs: languages, choose: 1 }]);
+  assert.deepEqual(policy.requiredQuestionRefs, questionRefs(expected.required));
+  assert.deepEqual(policy.optionalGroups.map(group => ({ refs: group.questionRefs, choose: group.choose })), [
+    { refs: questionRefs(expected.general), choose: expected.choose },
+    { refs: questionRefs(expected.languages), choose: 1 },
+  ]);
   const selections = [];
-  for (let first = 0; first < general.length; first++) for (let second = first + 1; second < general.length; second++)
-    for (const language of languages)
-      selections.push([...firstRequired, ...general.filter((_, i) => i !== first && i !== second), refs[7], language]);
-  assert.equal(selections.length, expectedAfternoonSelectionCount(scope));
+  for (let mask = 0; mask < (1 << expected.general.length); mask++) {
+    const included = expected.general.filter((_, index) => (mask & (1 << index)) !== 0);
+    if (included.length !== expected.choose) continue;
+    for (const language of expected.languages)
+      selections.push(questionRefs([...expected.required, ...included, language].sort((a, b) => a - b)));
+  }
+  assert.equal(selections.length, expected.count);
   return selections;
 }
 

@@ -8,7 +8,8 @@ import { contractFor } from "../../src/core/generation";
 import { scopeForQuestion } from "../../scripts/ci/booklet-scope.mjs";
 import { generationPathInventory, generationPathWorkInventory, partitionBookletRows, bookletKinds } from "../helpers/generation-paths/scope";
 import { bookletContentContractInventory } from "../helpers/booklet-content-contracts";
-import { finiteSeedBudget, isAfternoon } from "../helpers/generation-paths/issuance";
+import { sourceCollections } from "../../src/core/source-collections";
+import { afternoonPaperSelection, expectedAfternoonSelectionCount, legalAfternoonSelections, finiteSeedBudget, isAfternoon } from "../helpers/generation-paths/issuance";
 
 before(installFixtureGenerators);
 
@@ -124,4 +125,31 @@ test("per-source content-contract wrappers partition the former installed-regist
     assert.deepEqual(entries[file].scopes, [row.scope], file);
   }
   assert.deepEqual(Object.keys(entries).filter(file => /^tests\/booklets\/[^/]+\/content-contract\.test\.ts$/.test(file)).sort(), expected.sort());
+});
+
+test("afternoon paper selection preserves released rules and uses the original numbers when material is held", () => {
+  const bundle = fixture(), beforeSecurity = new Set([
+    "2009-autumn-pm", "2010-spring-pm", "2010-autumn-pm", "2011-special-pm", "2011-autumn-pm",
+    "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm",
+  ]);
+  const oldAfternoon = sourceCollections(bundle, "B").filter(collection => collection.id.endsWith("-pm"));
+  assert(oldAfternoon.length > 0);
+  for (const collection of oldAfternoon) {
+    const scope = collection.id.replace(/^set-annual-/, "");
+    const all = legalAfternoonSelections(collection, bundle.questions);
+    const expected = collection.questionRefs.length === 13 ? (beforeSecurity.has(scope) ? 105 : 75) : expectedAfternoonSelectionCount(scope);
+    assert.equal(all.length, expected, scope);
+    assert(all.every(selection => selection.length === 7), scope);
+    assert.equal(new Set(all.map(selection => JSON.stringify(selection))).size, expected, scope);
+  }
+
+  const partial = afternoonPaperSelection("2009-autumn-pm", [2]);
+  assert.deepEqual(partial.numbers, [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
+  assert.deepEqual(partial.required, [8]);
+  assert.deepEqual(partial.general, [1, 3, 4, 5, 6, 7]);
+  assert.deepEqual(partial.languages, [9, 10, 11, 12, 13]);
+  assert.equal(partial.choose, 5);
+  assert.equal(partial.count, 30);
+  assert.equal(afternoonPaperSelection("2016-autumn-pm", [9]).count, 60);
+  assert.throws(() => afternoonPaperSelection("2016-autumn-pm", [8]), /cannot follow/);
 });

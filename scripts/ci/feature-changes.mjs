@@ -13,6 +13,9 @@ export const FEATURE_IDS = ['verification', 'dev-schema', ...Object.keys(BROWSER
 export const STORAGE_RUNTIME = ['src/core/storage.ts', 'src/core/storage-schema.ts', 'src/core/storage-snapshot.ts', 'src/core/bookmark-storage.ts'];
 const storageSupport = ['scripts/storage-browser-harness.ts', 'scripts/verify-storage-browser.mjs'];
 const verificationFiles = [
+    // The publication oracle is test-only. A mixed data or runtime change must
+    // still pass the independent ownership checks below.
+    'tests/helpers/generation-paths/issuance.ts', 'tests/helpers/generation-paths/exhaustive.ts',
     'scripts/ci/aggregate.mjs', 'scripts/ci/base-evidence.mjs', 'scripts/ci/booklet-manifest.mjs', 'scripts/ci/booklet-scope.mjs',
     'scripts/ci/callback-locations.mjs', 'scripts/ci/check-changed.mjs', 'scripts/ci/detail-changes.mjs', 'scripts/ci/feature-changes.mjs',
     'scripts/ci/plan.mjs', 'scripts/ci/policy.json', 'scripts/ci/reporter.mjs', 'scripts/ci/results.mjs', 'scripts/ci/run-part.mjs',
