@@ -242,12 +242,17 @@ test("a skewed historical bookmark can recover a distinct answer after every ran
     }
     return random(array);
   });
-  const initial = startRun(await prepareRun(bundle, {
+  const bookmark: Selection = {
     subject: "A", kind: "bookmark", mode: "study", bindingMode: "generated_values",
     bookmarkQuestionRef: { questionId: "question-ipa-2017h29h-fe-am-23", revision: 1 },
-  }, {}, 100000), 101000);
+  };
+  const initial = startRun(await prepareRun(bundle, bookmark, {}, 100000), 101000);
   assert.equal(answerSignature(initial.issued[0]), "3");
-  const before = draws;
+  let before = draws;
+  await assert.rejects(prepareRun(bundle, bookmark, {}, 102000, undefined, undefined, initial.instances),
+    { code: "GENERATION_CAPACITY" });
+  assert.equal(draws - before, 128);
+  before = draws;
   const next = await appendRunQuestion(initial, initial.session.entries[0].questionRef, 102000);
   assert.equal(draws - before, 128);
   assert.equal(answerSignature(next.issued[1]), "4");

@@ -130,16 +130,15 @@ async function prepareQuestions(
         const domainSize = t.parameterDomain.fields?.reduce(
           (size, field) => size * (field.maximum - field.minimum + 1), 1,
         );
-        const rejectedInputs = new Set<string>();
-        for (const candidateSeed of issuanceSeeds(reusable && domainSize !== undefined && domainSize <= 64)) {
+        const recoverFiniteDomain = offset > 0 && reusable && domainSize !== undefined && domainSize <= 64;
+        for (const candidateSeed of issuanceSeeds(recoverFiniteDomain)) {
           q = undefined;
           seed = candidateSeed;
           parameters = await parametersForSeed(seed, t);
           const signature = `${key}:${JSON.stringify(parameters.values)}`;
           // Reference inputs and answers are valid candidates too. Only actual
           // practice history can exclude them, never their role as the baseline.
-          if (usedParameters.has(signature) || rejectedInputs.has(signature)) continue;
-          rejectedInputs.add(signature);
+          if (usedParameters.has(signature)) continue;
           try {
             q = bindQuestion(base, t, parameters.values, instanceId, now);
           } catch (e) {
