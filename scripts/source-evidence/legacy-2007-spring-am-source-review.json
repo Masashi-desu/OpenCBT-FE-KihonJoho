@@ -1,0 +1,264 @@
+{
+  "taskId": "S3-039",
+  "scope": "2007-spring-am",
+  "collectionId": "2007h19h-fe-am",
+  "checkedOn": "2026-11-15",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 11,
+      "status": "material_conditions_unconfirmed",
+      "reason": "p.6のASCII規格表の掲載・改変条件を確認できていない。"
+    },
+    {
+      "number": 33,
+      "status": "original_answer_ambiguous",
+      "reason": "p.15はA/C、B/D各組の各装置の周辺確率のみを指定する。各装置独立は0.9504（エ）、各組の二台を同時に稼働・停止させ両組を独立にすると0.72（ア）となり、どちらも同じ周辺確率を満たす。"
+    }
+  ],
+  "sourcePreflightSHA256": "9305f2bf9b2dbc985c3129a847c5cddd419ade275f464b9c67486b1b45d263bd",
+  "cropCandidatesSHA256": "26901f6273ebdc6b08fd2b9d63b225d7cb77018b9c887cfcad8f3d152e28f8cd",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_am_qs.pdf",
+      "sha256": "f14efa5540d2a4e1eed1a4d2a44fcd6949a6fec3fbc00cb1dc3fef7744ce5663",
+      "byteLength": 968735
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_am_ans.pdf",
+      "sha256": "14c09eb7e584de8d79505658597d2dbf91498c20dc715d442cd94a84f29261bf",
+      "byteLength": 51098
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19.html",
+      "sha256": "d0ff39d94be12223b350aada946589b6080cfc5f773d87602084205fdf072386",
+      "byteLength": 81534
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "配布対象の問題ごとに題材・図表と原解説を確認した。第三者の規格名称などは用語として照合し、規格の図表・本文を転載しない。",
+    "問8の標準正規分布表の数値は積分で独立検証し、改変問題の分布図は数値から作図する。問11のASCII規格表は保留する。"
+  ],
+  "holdReferences": [
+    {
+      "number": 11,
+      "url": "https://www.rfc-editor.org/rfc/rfc20.html",
+      "scope": "ASCIIの表とUSAS X3.4からの転載を明示する説明"
+    },
+    {
+      "number": 11,
+      "url": "https://www.unicode.org/L2/L2006/06388-review-incits4.pdf",
+      "scope": "ANSI X3.4-1986原規格の保存版"
+    },
+    {
+      "number": 33,
+      "path": "source/question-33-availability-counterexample.json",
+      "scope": "同じ周辺確率を持つ二つの確率モデルと各正答"
+    }
+  ],
+  "references": [
+    {
+      "id": "rfc1034-dns",
+      "title": "RFC 1034 Domain names",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc1034.html",
+      "type": "independent_note",
+      "section": "2.4, 3.6",
+      "scope": "名前空間、型付きレコード、IPアドレスとの対応。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "ifpug-function-points",
+      "title": "Function Point Analysis",
+      "publisher": "IFPUG",
+      "url": "https://ifpug.org/ifpug-standards/fpa",
+      "type": "independent_note",
+      "section": "Function Point Analysis",
+      "scope": "利用者が識別できる機能の規模計測。画面から機能を識別し、単純な画面枚数の測定と区別する。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "iso-13239-hdlc",
+      "title": "ISO/IEC 13239:2002",
+      "publisher": "ISO/IEC",
+      "url": "https://www.iso.org/standard/37010.html",
+      "type": "independent_note",
+      "section": "Abstract",
+      "scope": "データリンク層のビット指向HDLC手順。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "rfc826-arp",
+      "title": "RFC 826 Address Resolution Protocol",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc826.html",
+      "type": "independent_note",
+      "section": "Abstract",
+      "scope": "ローカルネットワークにおけるアドレス変換の目的。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "rfc2045-mime",
+      "title": "RFC 2045 MIME Part One",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc2045.html",
+      "type": "independent_note",
+      "section": "Abstract, sections 4 and 5",
+      "scope": "テキスト以外の本文や媒体型とメッセージヘッダの拡張。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "postgresql-create-view",
+      "title": "PostgreSQL CREATE VIEW",
+      "publisher": "PostgreSQL Global Development Group",
+      "url": "https://www.postgresql.org/docs/18/sql-createview.html",
+      "type": "independent_note",
+      "section": "Updatable Views",
+      "scope": "通常の自動更新可能なビューの条件と集約やWHEREの扱い。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "unicode-ucs2",
+      "title": "UTF-8, UTF-16, UTF-32 & BOM",
+      "publisher": "Unicode Consortium",
+      "url": "https://unicode.org/faq/utf_bom.html",
+      "type": "independent_note",
+      "section": "UCS-2 and UTF-16",
+      "scope": "UCS-2の表現可能範囲とUTF-16の補助平面。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    },
+    {
+      "id": "wipo-japan-copyright-2006",
+      "title": "出題時期の日本の著作権法",
+      "publisher": "WIPO Lex",
+      "url": "https://www.wipo.int/wipolex/en/text/187324",
+      "type": "independent_note",
+      "section": "第10条第3項・第12条の2",
+      "scope": "プログラム言語・規約・解法と、創作性を持つデータベースの保護範囲。",
+      "limits": "内容照合の参照先。外部の図版・規格原文は掲載しない。"
+    }
+  ],
+  "referencesByQuestion": {
+    "35": [
+      "rfc1034-dns"
+    ],
+    "46": [
+      "ifpug-function-points"
+    ],
+    "51": [
+      "iso-13239-hdlc"
+    ],
+    "52": [
+      "rfc826-arp"
+    ],
+    "54": [
+      "rfc2045-mime"
+    ],
+    "60": [
+      "postgresql-create-view"
+    ],
+    "69": [
+      "unicode-ucs2"
+    ],
+    "80": [
+      "wipo-japan-copyright-2006"
+    ]
+  }
+}
