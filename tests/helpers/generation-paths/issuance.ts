@@ -44,7 +44,7 @@ export function isAfternoon(original: Question) {
 const preMandatorySecurity = new Set(["2010-autumn-pm", "2011-special-pm", "2011-autumn-pm", "2012-spring-pm", "2012-autumn-pm", "2013-spring-pm", "2013-autumn-pm", "2010-spring-pm", "2009-autumn-pm", "2009-spring-pm"]);
 
 // Covers with five required questions and two separate language groups.
-const twoLanguageSectionPapers = new Set(["2008-autumn-pm"]);
+const twoLanguageSectionPapers = new Set(["2008-autumn-pm", "2008-spring-pm"]);
 
 const afternoonAdmissions = new Map(declarations.collections
   .filter(collection => collection.collectionId.endsWith("-pm"))

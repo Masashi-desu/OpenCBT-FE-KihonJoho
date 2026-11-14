@@ -1,0 +1,1059 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-036",
+  "collectionId": "2008h20h-fe-pm",
+  "checkedOn": "2026-11-15",
+  "status": "verified_source_and_rights",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf",
+      "sha256": "53ba34d2dc4365725bef8a73ba2d8e05ce353eafecf09506efd36c106f5be550",
+      "byteLength": 2978781
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_ans.pdf",
+      "sha256": "917aaaab3ac6b1ed51234e8c102cde08da64bcb86a21ecacc64004e2abd84c4f",
+      "byteLength": 89820
+    },
+    "commentary.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_cmnt.pdf",
+      "sha256": "aa9f1966d8c65ee39a270d3f4cb541c9167a3f83ad5f7ac565b085751a531585",
+      "byteLength": 103939
+    },
+    "archive-list-frame.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713151058/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20.html",
+      "sha256": "bdda017284d006732d11c0587f053dd60ac27ff88f73e93020c1d36191c5849c",
+      "byteLength": 41480
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    }
+  },
+  "sourceAcceptanceSHA256": "ebf4c08cf23db33bb3412e9148779b9e92e682ca7750228385b88f262ee4d0ba",
+  "materialEvidenceSHA256": "a641db309f2b09a8c90b5718d7059cc30ba4632a3a7a9538e51453163ce01fc8",
+  "originalQuestionCount": 13,
+  "officialScoredFields": 66,
+  "officialSelectionMarks": 66,
+  "selection": {
+    "coverPage": 1,
+    "continuedInstructionsPage": 64,
+    "durationSeconds": 9000,
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "groups": [
+      {
+        "first": 6,
+        "last": 9,
+        "choose": 1
+      },
+      {
+        "first": 10,
+        "last": 13,
+        "choose": 1
+      }
+    ]
+  },
+  "commonPages": [
+    2,
+    3,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60
+  ],
+  "caslExcerpt": {
+    "page": 57,
+    "box": [
+      0,
+      0,
+      1145,
+      930
+    ],
+    "retains": "スタック操作、コール・リターン、その他の命令、FRの設定を含む注記",
+    "omits": "1.3 文字の符号表の節全体",
+    "requiredBy": [
+      9,
+      13
+    ]
+  },
+  "appendixRightsNotes": "擬似言語p.2–3とCASL II p.55–60のIPA作成部分を個別照合した。p.57のJIS X 0201文字表と規格説明は配布範囲外。Javaの独立した付属資料はない。",
+  "referencePagesByQuestion": {
+    "2": [
+      2,
+      3
+    ],
+    "4": [
+      2,
+      3
+    ],
+    "9": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60
+    ],
+    "13": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60
+    ]
+  },
+  "rightsTerms": "その他／試験の過去問題の使用方法・留意点",
+  "rightsScope": "WARPはIPA公式資料の保存先。教育用の配布・表示・改変にIPAの過去問題利用条件を適用し、出典と改変を表示する。第三者の規格原文・規格表は対象から除く。",
+  "independentReferenceChecks": [
+    {
+      "scope": "本文の配布及び改変",
+      "url": "https://www.ipa.go.jp/shiken/faq.html"
+    },
+    {
+      "scope": "WARP保存資料の原権利者と二次利用",
+      "url": "https://warp.ndl.go.jp/info/help#section5-4"
+    },
+    {
+      "scope": "JISの引用・転載の条件",
+      "url": "https://www.jisc.go.jp/qa/a2-1.html"
+    },
+    {
+      "scope": "問6のC言語の入出力関数とEOF",
+      "url": "https://www.open-std.org/jtc1/sc22/WG14/www/docs/n1624.pdf"
+    },
+    {
+      "scope": "問11のPICTURE 9は一文字につき一桁",
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.5.0?topic=clause-symbols-used-in-picture"
+    },
+    {
+      "scope": "問11のPERFORM VARYINGでの初期化・増分と前判定",
+      "url": "https://www.ibm.com/docs/en/cobol-aix/5.1.0?topic=statement-perform-varying-phrase"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        4,
+        5
+      ],
+      "commentaryPage": 2,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "materialDecision": {
+        "number": 1,
+        "status": "allowed",
+        "notes": "原冊子p.4–5の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 2,
+      "pages": [
+        6,
+        7,
+        8
+      ],
+      "commentaryPage": 2,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "materialDecision": {
+        "number": 2,
+        "status": "allowed",
+        "notes": "原冊子p.6–8の本文・図表・注記を照合し、第三者素材を確認しなかった。 参照頁 2, 3 は権利を確認したIPAの記法・命令の範囲を使用する。"
+      }
+    },
+    {
+      "number": 3,
+      "pages": [
+        9,
+        10,
+        11
+      ],
+      "commentaryPage": 2,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "materialDecision": {
+        "number": 3,
+        "status": "allowed",
+        "notes": "原冊子p.9–11の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 4,
+      "pages": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "commentaryPage": 2,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "materialDecision": {
+        "number": 4,
+        "status": "allowed",
+        "notes": "原冊子p.12–15の本文・図表・注記を照合し、第三者素材を確認しなかった。 参照頁 2, 3 は権利を確認したIPAの記法・命令の範囲を使用する。"
+      }
+    },
+    {
+      "number": 5,
+      "pages": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "commentaryPage": 2,
+      "fields": [
+        {
+          "locator": "設問1",
+          "subquestion": 1,
+          "part": null,
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "a",
+          "subquestion": 2,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 2,
+          "part": "b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 3,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 3,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "subquestion": 4,
+          "part": "e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "subquestion": 4,
+          "part": "f",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "g",
+          "subquestion": 4,
+          "part": "g",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 8,
+      "selectionMarks": 8,
+      "materialDecision": {
+        "number": 5,
+        "status": "allowed",
+        "notes": "原冊子p.16–21の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 6,
+      "pages": [
+        22,
+        23,
+        24
+      ],
+      "commentaryPage": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "materialDecision": {
+        "number": 6,
+        "status": "original_answer_ambiguous",
+        "notes": "原冊子p.22–24のプログラムはfgetcの戻り値をcharへ格納して負のEOFと比較する。charの符号は処理系依存で原冊子に指定がなく、unsigned charでは終端を検出できない。公式解答例・採点講評にもこの前提の指定がないため、原条件で正答を保証できる根拠が得られるまで保留。"
+      }
+    },
+    {
+      "number": 7,
+      "pages": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "commentaryPage": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "materialDecision": {
+        "number": 7,
+        "status": "allowed",
+        "notes": "原冊子p.25–28の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 8,
+      "pages": [
+        29,
+        30,
+        31
+      ],
+      "commentaryPage": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "materialDecision": {
+        "number": 8,
+        "status": "allowed",
+        "notes": "原冊子p.29–31の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 9,
+      "pages": [
+        32,
+        33,
+        34
+      ],
+      "commentaryPage": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "materialDecision": {
+        "number": 9,
+        "status": "allowed",
+        "notes": "原冊子p.32–34の本文・図表・注記を照合し、第三者素材を確認しなかった。 参照頁 55, 56, 57, 58, 59, 60 は権利を確認したIPAの記法・命令の範囲を使用する。 p.57のJIS文字の符号表の節は掲載せず、解答に必要な命令と注記は保持する。"
+      }
+    },
+    {
+      "number": 10,
+      "pages": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "commentaryPage": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "subquestion": null,
+          "part": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "subquestion": null,
+          "part": "f",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "materialDecision": {
+        "number": 10,
+        "status": "allowed",
+        "notes": "原冊子p.35–38の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 11,
+      "pages": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "commentaryPage": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "subquestion": 2,
+          "part": "f",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "materialDecision": {
+        "number": 11,
+        "status": "original_answer_ambiguous",
+        "notes": "原冊子p.39–42では999議席が許容されるが、SEAT-CNTはPIC 9(03)であり、公式の空欄b（ウ）のSEAT-CNT > NUM-SEATSが成立しない。独立再現では2政党・999議席で999件の代わりに1,998件を読み込むため、原条件で正答を保証できる根拠が得られるまで保留。"
+      }
+    },
+    {
+      "number": 12,
+      "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "commentaryPage": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "subquestion": 2,
+          "part": "f",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "g",
+          "subquestion": 2,
+          "part": "g",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "h",
+          "subquestion": 2,
+          "part": "h",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 8,
+      "selectionMarks": 8,
+      "materialDecision": {
+        "number": 12,
+        "status": "allowed",
+        "notes": "原冊子p.45–49の本文・図表・注記を照合し、第三者素材を確認しなかった。"
+      }
+    },
+    {
+      "number": 13,
+      "pages": [
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "commentaryPage": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "subquestion": null,
+          "part": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "subquestion": null,
+          "part": "f",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "materialDecision": {
+        "number": 13,
+        "status": "allowed",
+        "notes": "原冊子p.50–54の本文・図表・注記を照合し、第三者素材を確認しなかった。 参照頁 55, 56, 57, 58, 59, 60 は権利を確認したIPAの記法・命令の範囲を使用する。 p.57のJIS文字の符号表の節は掲載せず、解答に必要な命令と注記は保持する。"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "notes": "原冊子p.22–24のプログラムはfgetcの戻り値をcharへ格納して負のEOFと比較する。charの符号は処理系依存で原冊子に指定がなく、unsigned charでは終端を検出できない。公式解答例・採点講評にもこの前提の指定がないため、原条件で正答を保証できる根拠が得られるまで保留。"
+    },
+    {
+      "number": 11,
+      "status": "original_answer_ambiguous",
+      "notes": "原冊子p.39–42では999議席が許容されるが、SEAT-CNTはPIC 9(03)であり、公式の空欄b（ウ）のSEAT-CNT > NUM-SEATSが成立しない。独立再現では2政党・999議席で999件の代わりに1,998件を読み込むため、原条件で正答を保証できる根拠が得られるまで保留。"
+    }
+  ],
+  "assetSHA256ByPage": {
+    "2": "587b467f2efdacff236a7af4562ac7e5f3b4af7f690cb658afeccb2aafb5c2b8",
+    "3": "3a35b913b2dc2fb9bb748e5077d05461fa07b5cdba589f4d5572ab5a88435c0e",
+    "4": "929a75a8cb60d154a36c3673ed84d7765cb3e842c490ff8d0994efd91a5e6042",
+    "5": "b19cd142907882d253af5b7f95059bfb548f2f7e91e683c1db6758678c79fda3",
+    "6": "8b6c4389c8ee350f37f6269fe4b085f762581032b9314285b8808454b0330916",
+    "7": "14b485072e1c5f21618c6a638facb1ce7bf524647d8b9ae9934100525f9716fa",
+    "8": "fd05857893eca148e6cbe641418d21407515e6f4c601f40e5fdeaca6605c9e35",
+    "9": "45dad1558d9a9f19c6a576937b16ffc4356a4e9aead6b3c1ac5671505dc0c4a3",
+    "10": "48dc0922e4002e8c1cf7b751275bad0b403355b1992c5c54e9ca598fce9eeb5a",
+    "11": "f8c0d6e5e41e0eeecdee742d177ff69c4a621d114f37384fe6e3be513a9912a6",
+    "12": "40b10167e06a9db9f6e66ffdd7617f9754fdf701b367ef7f9f421c119dd43bb9",
+    "13": "97219c671740dcce8cd4332e3decd631d00aff06199cd31d0988c27ad9fd6f54",
+    "14": "bd6b1053d47e5c735261a378f22a4523d12d15e8fe511e99183268b705ab74ce",
+    "15": "af4c0cb2828f6935709bbdef27540a868254352f5a845e24e13aa6f471f9f187",
+    "16": "3782fe304179ff60dde91860606586b92783131b38751a20e609f041ac255a27",
+    "17": "d34b3f1b20ebbe0b6d05ad295eee05e0e904f719608e90ecf58f5c9d0a66666d",
+    "18": "347f76147c1be1a1303cfe1ede9c46b158df41ebaf8c0a8a8b2476a966c8801a",
+    "19": "c386508c42566c22636fc800237b732e065ce8b71feabc2dd5994cd74efed0a9",
+    "20": "50c73afb5f3f5afcdf6ecf47a077574a33e405b7466bd6b285f7caf4eddfbe3b",
+    "21": "cf018574b8df278b95cab1f88b048387ab2d1bfe132e5785141988757c7300e5",
+    "25": "17e514a2475452060616b12c3fbae21196a15adfea15f3ed51d6858e4ac61e21",
+    "26": "97cf81ef2a199898386eb91db71e3ce6020b0e3cf1296d2694ba6ca9cd11dcc9",
+    "27": "047600cd0c5579bb4ffc17676d00e4b0587df171fb467cacd4c024f161ff7cde",
+    "28": "0930ae44171c9baa149115437db184eeb99fd3fc0be4b92ff2f5d269e82a2e0c",
+    "29": "d87786663fc3e7e7a1eb2be2ce3b124279c4d75901210c5ce4f6935b9ec2813e",
+    "30": "7a178b19f338e1009439be43d4cb18ca28d33d4e61dd356bcc9a6c5e1610a9dd",
+    "31": "4d0849da7f539c8689e31039fea016c6156c2855b28dc38767ef153819e39888",
+    "32": "79d9f47c6a742c197faa45c7ebee35032e16a2387eabf99f35435bf0de25ca19",
+    "33": "162dfa24e54c1be438bc561bc72759a979cf48e39e9147a7efcdde2363b8131a",
+    "34": "51f85fb3b45ea9edac0c2de66c9274e5f86b27f810413d7c1912604c0ed955d6",
+    "35": "4186cb09c03850e856ce68214cf4d485863fa90e62e553216a900fc9db5c0a70",
+    "36": "2cf587af4c8fda15b5f49a48494799af911f949420e858f15b5f76fa1a1b2bfc",
+    "37": "27e93ecff7749d2bda02f4814d29650e72787e9382d67eb42dfbc17dc5f9b329",
+    "38": "bb7985f5c14a590cd7efd768a4a802a442a093b413bb28b8dacbfb166d5d8bfb",
+    "45": "19a19627d30c973d75a8be22432f63953308947c0faa294f50547291634bde3b",
+    "46": "dcbe1143f2f106a0bd50dc5aecf1661ef7d5a3db646b0a63b67d0bff5f68ef59",
+    "47": "fb9b7ff9556b554eaccd42000beef6c0e9e5a2e9c97d250e19642f01cd81c1b8",
+    "48": "6bc7867cd8d386546d499bcb737fb2fb3815b9d752e73b95e0426e317493d968",
+    "49": "99cf826f3a2e9b265d391ff8151e7028e3d0c73632930d2bb9cf489e5250dba2",
+    "50": "ed2c5e564678777230a89684bb8b1e78ea95783f5c088742eaad895fcdda7523",
+    "51": "2bc6879b0485ba5ec36b5167222a4563196d051392fed0f808ee7f6cba1585cb",
+    "52": "2a6c5540a73f2799d87e19a2fb25278e93dba5164d476323627b3e0f2a6a340f",
+    "53": "7845895b17bba8e94c412b15b03e6fc0a46a5f38fe38db6beea6f24636e7366d",
+    "54": "f3244b8dffa9d0b10939201af65d75f4899846ccc23dccd56b183cf3b7d9b262",
+    "55": "07b1f260584431b8a559949a3808feb913b6f20111b4c67eaf74d30903904083",
+    "56": "893ea8e2d9f4861cf549c0e58caca694f99e98302c9c07eb8f594a5a741ae712",
+    "57": "29cdbd23ff25a8f1828dd0dd40aab024dcf04f32ddff298db9312fef2d7940a0",
+    "58": "f2c410f02a88edebb1e9ce67ae9b031f3a04e6fd9db2dc0933b4af43235f86b8",
+    "59": "53ef015a2ebd2d00d689889ea233cd04d0e8d56620b609099dc40308476c5c63",
+    "60": "7265e3713f22d6fd057373874573df41ac35af17bf0b405ae9b6f8545736c894"
+  }
+}

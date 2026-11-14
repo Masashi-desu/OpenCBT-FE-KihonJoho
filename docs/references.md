@@ -288,7 +288,7 @@ R20の収録103問について、既存PDFの抽出本文・公式正答と、�
 未完了：本文・選択肢・図表・注記の全件照合、第三者素材の個別確認、実資料を用いた旧午後の複数解答・順不同の保存と採点の検証、全対象の生成器・独立検算・独自解説・配布登録。旧冊子は画像主体であり、空の文字抽出結果を第三者素材なしの根拠にしない。2008年度以前は今回の公式一覧に掲載がなく、公式原資料への到達を未確認。第三者保存版を公式原本として補わず、追加対象の完了条件を現在の収録件数で狭めない。
 
 
-既知の追加範囲は2004〜2019年度と2022年サンプルの最小67問題集・3,062問／大問です。通常アプリには2,255問／大問を登録し、残り807問／大問の対応を続けます。WARPの保存資料で取得した2004〜2008年度の930問／大問のうち、2008年度春期の午前77問と秋期の午前80問・午後13大問を個別査読を経て登録し、残り760問／大問は確認を続けます。2001〜2003年度の取得境界は引き続き調査対象です。`sources:readiness`の全体未完了判定を保持します。
+既知の追加範囲は2004〜2019年度と2022年サンプルの最小67問題集・3,062問／大問です。通常アプリには2,266問／大問を登録し、残り796問／大問の対応を続けます。WARPの保存資料で取得した2004〜2008年度の930問／大問のうち、2008年度春期の午前77問・午後11大問と秋期の午前80問・午後13大問を個別査読を経て登録し、残り749問／大問は確認を続けます。2001〜2003年度の取得境界は引き続き調査対象です。`sources:readiness`の全体未完了判定を保持します。
 
 ### 2017年度春期・旧午後の追加（2026-10-26）
 
@@ -565,3 +565,11 @@ WARPに保存されたIPAの公式冊子と解答例を使用する。原問題�
 WARPに保存されたIPA公式の問題冊子と解答例を照合した。公式では80問必須・150分。p.2とp.35は白紙で、問題はp.3〜34にある。収録する77問では原問番号と選択肢順を保持する。 [公式問題冊子](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_am_qs.pdf) [公式解答例](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_am_ans.pdf) [IPAの過去問題利用条件](https://www.ipa.go.jp/shiken/faq.html)
 
 問69はJIS Q 27001:2006の手順に対応する用語、問70は電気規格調査会の目的と事業及びJEITAの定款第3条に近い選択肢があり、利用条件が確認できるまで保留する。両問の掲載頁p.29は配布画像に含めない。問67は版指定のないS/MIMEの機能を問う。出題前のRFC 3851で圧縮だけの形式も定義されており、正答の一意性を確認できるまで保留する。p.28は問66・68だけを切り出す。 [RFC 3851 §3.5](https://datatracker.ietf.org/doc/html/rfc3851#section-3.5)問79の解説は出題当時の著作権法第15条第2項と派遣契約の公的解説を参照する。 [JISの規格利用案内](https://www.jisc.go.jp/qa/a2-1.html) [電気規格調査会の目的と担当分野](https://www.iee.jp/jec/about/) [JEITAの定款](https://www.jeita.or.jp/japanese/assets/pdf/overview/statute.pdf) [出題時期の著作権法](https://www.wipo.int/wipolex/en/text/187324) [税務大学校の研究論文](https://www.nta.go.jp/about/organization/ntc/kenkyu/ronsou/27/206/ronsou.pdf)
+
+
+### 第3段階 S3-036 2008年度春期・旧午後
+
+- 国立国会図書館WARPの保存版で、IPAの[問題冊子](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf)、[解答例](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_ans.pdf)、[採点講評](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_cmnt.pdf)を確認した。公式は13大問・66解答欄、制限時間150分。問1〜5は必須で、問6〜9と問10〜13から各1問を選ぶ。
+- 問6は、`fgetc`の戻り値を格納する`char`の符号が指定されず、符号なしの環境ではEOFを検出できないため保留する。関連する処理系依存は[WG14の公開文書 N1624](https://www.open-std.org/jtc1/sc22/WG14/www/docs/n1624.pdf)を参照した。
+- 問11は、原冊子の範囲に含まれる999議席の場合、3桁の`SEAT-CNT`が公式条件の「議席数より大きい」を満たさないため保留する。2政党・999議席では、999件の代わりに1,998件が読み込まれることをGnuCOBOLで再現した。[IBMのPICTURE規則](https://www.ibm.com/docs/en/cobol-zos/6.5.0?topic=clause-symbols-used-in-picture)と[PERFORM VARYING仕様](https://www.ibm.com/docs/en/cobol-aix/5.1.0?topic=statement-perform-varying-phrase)を参照した。
+- 公開対象は11大問・56解答欄。CASL II付属資料p.57は解答に必要な命令とFRの注記までを抜粋し、JIS X 0201文字の符号表の節は配布対象から除いた。出典と抜粋の改変表示は当該資料に付す。

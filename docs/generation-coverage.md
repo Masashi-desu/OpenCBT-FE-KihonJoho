@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問2358件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1871問、旧午後298大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問2369件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前1871問、旧午後309大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -2557,6 +2557,22 @@
 | [旧午前問79 p.35](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_2/2008h20a_fe_am_qs.pdf#page=35) | generator-source-2008h20a-fe-am-79@3.7.0 | 特許出願の先願主義。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
 | [旧午前問80 p.35](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_2/2008h20a_fe_am_qs.pdf#page=35) | generator-source-2008h20a-fe-am-80@3.7.0 | 労働者派遣法の指揮命令関係。問いの対象・判断条件：0〜3（0） | 図・文章／4択 |
 
+### 2008年度 春期・午後
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午後問1 p.4](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=4) | generator-source-2008h20h-fe-pm-1@3.2.0 | 平均ディスクアクセス時間とキャッシュ。回転数・転送量・位置決め時間・ヒット率：0〜3（0） | 文章・表／13択・4解答欄 |
+| [旧午後問2 p.6](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=6) | generator-source-2008h20h-fe-pm-2@3.2.0 | 部分文字列の出現回数と非重複検索。配列の開始添字・検索される文字列・パターン：0〜3（0） | 画像・文章・表・コード・図／12択・3解答欄 |
+| [旧午後問3 p.9](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=9) | generator-source-2008h20h-fe-pm-3@3.2.0 | 差分・増分バックアップと復旧時間。更新領域・バックアップ速度・テープ交換時間：0〜3（0） | 文章・図／16択・5解答欄 |
+| [旧午後問4 p.12](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=12) | generator-source-2008h20h-fe-pm-4@3.2.0 | 単方向リストの自己組織化探索。配列の開始添字・初期リスト・探索文字列：0〜3（0） | 画像・文章・コード・図・表／18択・5解答欄 |
+| [旧午後問5 p.16](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=16) | generator-source-2008h20h-fe-pm-5@3.2.0 | 販売集計のファイル・順位・構成比率。集計種別・ランキング指標・追加集計項目と条件：0〜3（0） | 文章・図／23択・8解答欄 |
+| [旧午後問7 p.25](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=25) | generator-source-2008h20h-fe-pm-7@3.7.0 | COBOL：複数選択式アンケートのイベント別集計。選択上限・イベント構成・有効票の加算点：0〜3（0） | 文章・図・コード／14択・4解答欄 |
+| [旧午後問8 p.29](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=29) | generator-source-2008h20h-fe-pm-8@3.7.0 | Java：電気ポットの状態遷移と例外処理。加熱を許す最少水量・呼出し時の水量・警告：0〜3（0） | 文章・図・コード／20択・4解答欄 |
+| [旧午後問9 p.32](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=32) | generator-source-2008h20h-fe-pm-9@3.7.0 | CASL II：文字列から単語を切り出し管理テーブルに格納する。終了文字・表要素の予約語数・文字列と開始アドレス：0〜3（0） | 画像・文章・図・コード／18択・3解答欄 |
+| [旧午後問10 p.35](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=35) | generator-source-2008h20h-fe-pm-10@3.7.0 | C：整数・有限小数・循環小数から既約分数へ変換。位取りの基数と循環節：0〜3（0） | 文章・図・コード・表／27択・6解答欄 |
+| [旧午後問12 p.45](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=45) | generator-source-2008h20h-fe-pm-12@3.7.0 | Java：インタフェースによるプロパティ・タグ形式の出力。キーと値の配列順・タグ形式・テスト対象：0〜3（0） | 文章・図・コード／23択・8解答欄 |
+| [旧午後問13 p.50](https://warp.ndl.go.jp/20200719/20200713151058/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2008h20_1/2008h20h_fe_pm_qs.pdf#page=50) | generator-source-2008h20h-fe-pm-13@3.7.0 | CASL II：数字列から最大・最小・平均を集計して出力。入出力の基数とシフト量・入力ファイル：0〜3（0） | 画像・文章・図・コード／28択・6解答欄 |
+
 ### 2008年度 春期・午前
 
 | 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
@@ -3612,6 +3628,30 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2008-spring-am-76-quality-chart-b | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-am-76-quality-chart-b」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2008-spring-am-76-quality-chart-c | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-am-76-quality-chart-c」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2008-spring-am-76-quality-chart-d | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-am-76-quality-chart-d」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-2-match | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-2-match」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-3-backup | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-3-backup」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-4-list | 0：0〜11 | 問題集が所有する有限入力12組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-4-list」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-5-sale-record | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-5-sale-record」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-5-product-record | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-5-product-record」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-5-sale-report | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-5-sale-report」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-5-interim-records | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-5-interim-records」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-5-sale-flow | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-5-sale-flow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-5-sale-extension | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-5-sale-extension」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-7-record | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-7-record」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-7-output | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-7-output」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-7-changes | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-7-changes」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-8-state | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-8-state」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-8-result | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-8-result」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-9-execution | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-9-execution」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-10-fraction-digits | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-10-fraction-digits」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-12-test1-output | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-12-test1-output」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-12-entry-format | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-12-entry-format」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-12-test2-output | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-12-test2-output」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-12-properties-comment | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-12-properties-comment」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-12-tag-comment | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-12-tag-comment」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-12-code-insertion | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-12-code-insertion」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-13-input-file | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-13-input-file」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2008-spring-pm-13-sample-output | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2008-spring-pm-13-sample-output」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -18258,6 +18298,314 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | 棒と折れ線は中央付近が高く，右端に向けて下がる。 要因の順：T，Q，P，R，S。各棒の件数：6，22，30，13，9。折れ線の相対的な高さ：0，20，73.3，100，43.3，30，0。 |
 | `[2]` | 棒と折れ線は中央付近が高く，右端に向けて下がる。 要因の順：T，Q，P，R，S。各棒の件数：4，23，26，19，8。折れ線の相対的な高さ：0，15.4，88.5，100，73.1，30.8，0。 |
 | `[3]` | 棒は左から非増加，折れ線は0から右上がり。 要因の順：P，Q，R，S，T。各棒の件数：34，19，16，7，4。折れ線の相対的な高さ：0，42.5，66.3，86.3，95，100。 |
+
+</details>
+
+### legacy-2008-spring-pm-2-match
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | SourceText：g｜g｜x｜g｜x｜g｜g｜g｜g｜g｜g｜x｜g｜g｜x｜x。先頭6文字の上に丸数字①〜⑥を付す。Pattern：g｜x｜g。一致部分の下線は2〜4文字目（下線），4〜6文字目（二重下線），11〜13文字目（下線）。 |
+| `[1]` | SourceText：z｜t｜a｜t｜a｜t｜t｜q｜t｜a｜t｜z｜z｜t｜t｜a。先頭6文字の上に丸数字①〜⑥を付す。Pattern：t｜a｜t。一致部分の下線は2〜4文字目（下線），4〜6文字目（二重下線），9〜11文字目（下線）。 |
+| `[2]` | SourceText：b｜h｜a｜h｜a｜h｜h｜l｜b｜h｜a｜h｜h｜h｜a｜a。先頭6文字の上に丸数字①〜⑥を付す。Pattern：h｜a｜h。一致部分の下線は2〜4文字目（下線），4〜6文字目（二重下線），10〜12文字目（下線）。 |
+| `[3]` | SourceText：w｜a｜x｜a｜x｜a｜b｜a｜x｜a｜x｜a｜x｜b｜b。先頭6文字の上に丸数字①〜⑥を付す。Pattern：a｜x｜a。一致部分の下線は2〜4文字目（下線），4〜6文字目（二重下線），8〜10文字目（下線），10〜12文字目（二重下線）。 |
+
+</details>
+
+### legacy-2008-spring-pm-3-backup
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 全体18Gバイト。上から土曜日，金曜日，木曜日，水曜日，火曜日，月曜日のファイル群と共通ファイル（0.6Gバイト）。曜日ごとにファイル群の一部を網掛けし，共通ファイル全体も網掛けする。注　網掛けの部分は，更新領域（0.6Gバイト）を表す。 |
+| `[1]` | 全体27Gバイト。上から土曜日，金曜日，木曜日，水曜日，火曜日，月曜日のファイル群と共通ファイル（0.9Gバイト）。曜日ごとにファイル群の一部を網掛けし，共通ファイル全体も網掛けする。注　網掛けの部分は，更新領域（0.9Gバイト）を表す。 |
+| `[2]` | 全体36Gバイト。上から土曜日，金曜日，木曜日，水曜日，火曜日，月曜日のファイル群と共通ファイル（1.2Gバイト）。曜日ごとにファイル群の一部を網掛けし，共通ファイル全体も網掛けする。注　網掛けの部分は，更新領域（1.2Gバイト）を表す。 |
+| `[3]` | 全体42Gバイト。上から土曜日，金曜日，木曜日，水曜日，火曜日，月曜日のファイル群と共通ファイル（1.8Gバイト）。曜日ごとにファイル群の一部を網掛けし，共通ファイル全体も網掛けする。注　網掛けの部分は，更新領域（1.8Gバイト）を表す。 |
+
+</details>
+
+### legacy-2008-spring-pm-4-list
+
+<details><summary>許可する12組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | Listsize：5。First：0。List の各枠を添字：Next，Valueの順で示す。0：1，cpu。1：2，ram。2：3，dos。3：4，vpn。4：-1，dvd。Firstから添字0へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[1]` | First：2。List の各枠を添字：Next，Valueの順で示す。0：1，cpu。1：3，ram。2：0，dos。3：4，vpn。4：-1，dvd。Firstから添字2へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[2]` | First：0。List の各枠を添字：Next，Valueの順で示す。0：1，usb。1：2，cgi。2：3，cpu。3：4，dos。4：-1，fat。Firstから添字0へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[3]` | Listsize：5。First：0。List の各枠を添字：Next，Valueの順で示す。0：1，lan。1：2，hub。2：3，nic。3：4，dns。4：-1，wan。Firstから添字0へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[4]` | First：3。List の各枠を添字：Next，Valueの順で示す。0：1，lan。1：2，hub。2：4，nic。3：0，dns。4：-1，wan。Firstから添字3へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[5]` | First：0。List の各枠を添字：Next，Valueの順で示す。0：1，bus。1：2，ram。2：3，rom。3：4，ssd。4：-1，tape。Firstから添字0へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[6]` | Listsize：5。First：1。List の各枠を添字：Next，Valueの順で示す。1：2，bmp。2：3，gif。3：4，png。4：5，svg。5：-1，ico。Firstから添字1へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[7]` | First：3。List の各枠を添字：Next，Valueの順で示す。1：2，bmp。2：4，gif。3：1，png。4：5，svg。5：-1，ico。Firstから添字3へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[8]` | First：1。List の各枠を添字：Next，Valueの順で示す。1：2，csv。2：3，tsv。3：4，xml。4：5，txt。5：-1，log。Firstから添字1へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[9]` | Listsize：5。First：1。List の各枠を添字：Next，Valueの順で示す。1：2，ssh。2：3，tls。3：4，ftp。4：5，ntp。5：-1，tcp。Firstから添字1へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[10]` | First：5。List の各枠を添字：Next，Valueの順で示す。1：2，ssh。2：3，tls。3：4，ftp。4：-1，ntp。5：1，tcp。Firstから添字5へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+| `[11]` | First：1。List の各枠を添字：Next，Valueの順で示す。1：2，cat。2：3，dog。3：4，owl。4：5，fox。5：-1，cow。Firstから添字1へ矢印。各Nextが指す添字へ矢印を結び，−1は末尾。 |
+
+</details>
+
+### legacy-2008-spring-pm-5-sale-record
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左から販売番号，商品コード，店舗コード，販売日時，販売数，販売金額。下線のキー項目は販売番号，商品コード。 |
+| `[1]` | 左から販売番号，商品コード，販売経路コード，販売日時，販売数，販売金額。下線のキー項目は販売番号，商品コード。 |
+| `[2]` | 左から販売番号，商品コード，売場コード，販売日時，販売数，販売金額。下線のキー項目は販売番号，商品コード。 |
+| `[3]` | 左から販売番号，商品コード，店舗コード，販売日時，販売数，販売金額。下線のキー項目は販売番号，商品コード。 |
+
+</details>
+
+### legacy-2008-spring-pm-5-product-record
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左から商品コード，商品名，商品カテゴリ名，メーカコード。下線のキー項目は商品コード。 |
+
+</details>
+
+### legacy-2008-spring-pm-5-sale-report
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 作成日：2008-04-15。販売構成一覧。集計期間：2008-01-21〜2008-01-31。集計種別：商品カテゴリ。列は左から順位，商品カテゴリ名，販売金額，販売数，構成比率。1，子供衣料品，159,457千円，33,333個，33.3％。2，生鮮食料品，122,343千円，443,210個，25.5％。3，乳児衣料品，96,879千円，22,222個，20.2％。以降省略。 |
+| `[1]` | 作成日：2008-05-20。販売構成一覧。集計期間：2008-03-01〜2008-03-31。集計種別：メーカ。列は左から順位，メーカコード，販売金額，販売数，構成比率。1，M01，150,000千円，60,000個，30.0％。2，M06，125,000千円，40,000個，25.0％。3，M08，100,000千円，30,000個，20.0％。以降省略。 |
+| `[2]` | 作成日：2008-06-10。販売構成一覧。集計期間：2008-04-01〜2008-04-30。集計種別：商品カテゴリ。列は左から順位，商品カテゴリ名，販売金額，販売数，構成比率。1，飲料，72,000千円，90,000個，24.0％。2，菓子，60,000千円，75,000個，20.0％。3，日用品，66,000千円，55,000個，22.0％。以降省略。 |
+| `[3]` | 作成日：2008-07-05。販売構成一覧。集計期間：2008-05-01〜2008-05-31。集計種別：メーカ。列は左から順位，メーカコード，販売金額，販売数，構成比率。1，M02，96,000千円，52,000個，32.0％。2，M01，72,000千円，56,000個，24.0％。3，M04，60,000千円，50,000個，20.0％。以降省略。 |
+
+</details>
+
+### legacy-2008-spring-pm-5-interim-records
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 中間ファイルA。左から商品カテゴリ名，メーカコード，販売数，販売金額。中間ファイルB。左から集計項目，販売数，販売金額。 |
+
+</details>
+
+### legacy-2008-spring-pm-5-sale-flow
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 開始→利用者指定値の読込み→利用者指定値→集計期間のレコードの抽出→抽出した販売データ→整列1→商品ファイルとの突合せ→中間ファイルA→集計項目の選択→中間ファイルB→整列2→集計→中間ファイルC→整列3→順位の付与→中間ファイルE→構成比率の算出→販売構成一覧の作成→終了。販売ファイルは期間のレコード抽出に，商品ファイルは突合せに入力。利用者指定値から集計項目の選択と一覧作成に入力。整列1は商品コード昇順，整列2は［a］昇順，整列3は［b］降順。集計から中間ファイルDを出力し，構成比率の算出で参照。αは抽出した販売データから中間ファイルBの出力まで。 |
+
+</details>
+
+### legacy-2008-spring-pm-5-sale-extension
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 抽出した販売データと利用者指定値から［d］を判定。Yesでは［c］へ進む。Noでは整列1→商品ファイルとの突合せ→中間ファイルA→集計項目の選択。商品ファイルを突合せ，利用者指定値を集計項目の選択で参照。両枝は中間ファイルBの手前で合流する。 |
+
+</details>
+
+### legacy-2008-spring-pm-7-record
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 従業員番号：6けた｜イベント：工場見学（FACTORY）1けた｜健康チェック（HEALTH）1けた｜ミニSL（MINI-SL）1けた｜動物コーナー（ANIMAL）1けた｜PK合戦（PK）1けた |
+| `[1]` | 従業員番号：6けた｜イベント：設備見学（PLANT）1けた｜実験（SCIENCE）1けた｜模型運転（MODEL）1けた｜動物コーナー（ANIMAL）1けた｜球技（SPORT）1けた |
+| `[2]` | 従業員番号：6けた｜イベント：展示（EXHIBIT）1けた｜写真撮影（PHOTO）1けた｜模型運転（MODEL）1けた｜手芸（CRAFT）1けた｜球技（SPORT）1けた |
+| `[3]` | 従業員番号：6けた｜イベント：工場見学（FACTORY）1けた｜講演（TALK）1けた｜工作（CRAFT）1けた｜動物コーナー（ANIMAL）1けた｜球技（SPORT）1けた |
+
+</details>
+
+### legacy-2008-spring-pm-7-output
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | FACTORY : 0265 HEALTH  : 0141 MINI-SL : 0238 ANIMAL  : 0059 PK      : 0097 |
+| `[1]` | PLANT   : 0302 SCIENCE : 0248 MODEL   : 0194 ANIMAL  : 0126 SPORT   : 0216 |
+| `[2]` | EXHIBIT : 0345 PHOTO   : 0201 MODEL   : 0252 CRAFT   : 0300 SPORT   : 0153 |
+| `[3]` | FACTORY : 0376 TALK    : 0288 CRAFT   : 0524 ANIMAL  : 0152 SPORT   : 0480 |
+
+</details>
+
+### legacy-2008-spring-pm-7-changes
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 処置｜変更内容 行番号19と20の間に追加｜77  INV-CNT     PIC 9(4) VALUE ZERO. 行番号40と41の間に追加｜ELSE         ［c］ ［d］に追加｜DISPLAY "INVALID DATA : " INV-CNT. |
+| `[1]` | 処置｜変更内容 行番号19と20の間に追加｜77  INV-CNT     PIC 9(4) VALUE ZERO. 行番号40と41の間に追加｜ELSE         ［c］ ［d］に追加｜DISPLAY "INVALID DATA : " INV-CNT. |
+| `[2]` | 処置｜変更内容 行番号19と20の間に追加｜77  INV-CNT     PIC 9(4) VALUE ZERO. 行番号40と41の間に追加｜ELSE         ［c］ ［d］に追加｜DISPLAY "INVALID DATA : " INV-CNT. |
+| `[3]` | 処置｜変更内容 行番号19と20の間に追加｜77  INV-CNT     PIC 9(4) VALUE ZERO. 行番号40と41の間に追加｜ELSE         ［c］ ［d］に追加｜DISPLAY "INVALID DATA : " INV-CNT. |
+
+</details>
+
+### legacy-2008-spring-pm-8-state
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 電源接続→休止。休止→休止：沸騰ボタン押下（水がない場合）。休止→加熱中：沸騰ボタン押下（水がある場合）。加熱中→休止：沸点に到達。 |
+| `[1]` | 電源接続→休止。休止→休止：沸騰ボタン押下（水量が3未満）。休止→加熱中：沸騰ボタン押下（水量が3以上）。加熱中→休止：沸点に到達。 |
+| `[2]` | 電源接続→休止。休止→休止：沸騰ボタン押下（水量が5未満）。休止→加熱中：沸騰ボタン押下（水量が5以上）。加熱中→休止：沸点に到達。 |
+| `[3]` | 電源接続→休止。休止→休止：沸騰ボタン押下（水量が8未満）。休止→加熱中：沸騰ボタン押下（水量が8以上）。加熱中→休止：沸点に到達。 |
+
+</details>
+
+### legacy-2008-spring-pm-8-result
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | Idle -&gt; Heating Heating -&gt; Idle No Water! |
+| `[1]` | Idle -&gt; Heating Heating -&gt; Idle Add Water! |
+| `[2]` | Idle -&gt; Heating Heating -&gt; Idle Water Too Low! |
+| `[3]` | Idle -&gt; Heating Heating -&gt; Idle Refill Pot! |
+
+</details>
+
+### legacy-2008-spring-pm-9-execution
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | （文字列） (GR1)→△ △ T H I S △ 1 2 3 4 △ △ A N 9 9 9 9 . （単語管理テーブル） (GR2)→102｜4｜1｜107｜4｜0｜113｜6｜1｜-1 -1は終了マーク。 注　文字列の先頭アドレスを100番地とし，数字は10進表記である。 △は空白文字を示す。 |
+| `[1]` | （文字列） (GR1)→△ C 1 2 △ △ 7 0 9 △ L A B ! （単語管理テーブル） (GR2)→121｜3｜1｜空欄｜126｜3｜0｜空欄｜130｜3｜1｜空欄｜-1 -1は終了マーク。 注　文字列の先頭アドレスを120番地とし，数字は10進表記である。 △は空白文字を示す。 |
+| `[2]` | （文字列） (GR1)→8 8 △ △ a 7 △ △ △ Z X △ 1 : （単語管理テーブル） (GR2)→140｜2｜0｜空欄｜空欄｜144｜2｜1｜空欄｜空欄｜149｜2｜1｜空欄｜空欄｜152｜1｜0｜空欄｜空欄｜-1 -1は終了マーク。 注　文字列の先頭アドレスを140番地とし，数字は10進表記である。 △は空白文字を示す。 |
+| `[3]` | （文字列） (GR1)→△ △ C O D E △ 9 △ △ 0 a 0 ; （単語管理テーブル） (GR2)→170｜4｜1｜空欄｜空欄｜空欄｜175｜1｜0｜空欄｜空欄｜空欄｜178｜3｜1｜空欄｜空欄｜空欄｜-1 -1は終了マーク。 注　文字列の先頭アドレスを168番地とし，数字は10進表記である。 △は空白文字を示す。 |
+
+</details>
+
+### legacy-2008-spring-pm-10-fraction-digits
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 10進数の小数。小数点の後の2は循環節を除く小数部，142857が循環節で，同じ142857を繰り返す。 |
+| `[1]` | 8進数の小数。小数点の後の1は循環節を除く小数部，25が循環節で，同じ25を繰り返す。 |
+| `[2]` | 6進数の小数。小数点の後の4は循環節を除く小数部，13が循環節で，同じ13を繰り返す。 |
+| `[3]` | 9進数の小数。小数点の後の3は循環節を除く小数部，18が循環節で，同じ18を繰り返す。 |
+
+</details>
+
+### legacy-2008-spring-pm-12-test1-output
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | color=red font=serif |
+| `[1]` | tone=cool size=12 |
+| `[2]` | line=solid gap=4 |
+| `[3]` | name=map zoom=2 |
+
+</details>
+
+### legacy-2008-spring-pm-12-entry-format
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | &lt;entry key="キー"&gt;値&lt;/entry&gt; |
+| `[1]` | &lt;item key="キー"&gt;値&lt;/item&gt; |
+| `[2]` | &lt;setting key="キー"&gt;値&lt;/setting&gt; |
+| `[3]` | &lt;option key="キー"&gt;値&lt;/option&gt; |
+
+</details>
+
+### legacy-2008-spring-pm-12-test2-output
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | width=200 height=120 color=blue --------------- &lt;data&gt; &lt;entry key="width"&gt;200&lt;/entry&gt; &lt;entry key="height"&gt;120&lt;/entry&gt; &lt;entry key="color"&gt;blue&lt;/entry&gt; &lt;/data&gt; |
+| `[1]` | rate=60 size=18 tone=warm --------------- &lt;style&gt; &lt;item key="rate"&gt;60&lt;/item&gt; &lt;item key="size"&gt;18&lt;/item&gt; &lt;item key="tone"&gt;warm&lt;/item&gt; &lt;/style&gt; |
+| `[2]` | margin=5 padding=8 line=dashed --------------- &lt;layout&gt; &lt;setting key="margin"&gt;5&lt;/setting&gt; &lt;setting key="padding"&gt;8&lt;/setting&gt; &lt;setting key="line"&gt;dashed&lt;/setting&gt; &lt;/layout&gt; |
+| `[3]` | layer=road zoom=3 level=city --------------- &lt;map&gt; &lt;option key="layer"&gt;road&lt;/option&gt; &lt;option key="zoom"&gt;3&lt;/option&gt; &lt;option key="level"&gt;city&lt;/option&gt; &lt;/map&gt; |
+
+</details>
+
+### legacy-2008-spring-pm-12-properties-comment
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | # This is a comment. |
+| `[1]` | # Visual settings. |
+| `[2]` | # Layout settings. |
+| `[3]` | # Map settings. |
+
+</details>
+
+### legacy-2008-spring-pm-12-tag-comment
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | &lt;!-- This is a comment. --&gt; |
+| `[1]` | &lt;!-- Visual settings. --&gt; |
+| `[2]` | &lt;!-- Layout settings. --&gt; |
+| `[3]` | &lt;!-- Map settings. --&gt; |
+
+</details>
+
+### legacy-2008-spring-pm-12-code-insertion
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | ［e］ public void writeComment(String comment) &#123;     System.out.println("# " + comment); &#125; ［f］ public void writeComment(String comment) &#123;     System.out.println("&lt;!-- " + comment + " --&gt;"); &#125; ［g］ public void writeComment(String comment); ［h］ public void writeComment(String comment) &#123; &#125; |
+| `[1]` | ［e］ public void writeComment(String comment) &#123;     System.out.println("# " + comment); &#125; ［f］ public void writeComment(String comment) &#123;     System.out.println("&lt;!-- " + comment + " --&gt;"); &#125; ［g］ public void writeComment(String comment); ［h］ public void writeComment(String comment) &#123; &#125; |
+| `[2]` | ［e］ public void writeComment(String comment) &#123;     System.out.println("# " + comment); &#125; ［f］ public void writeComment(String comment) &#123;     System.out.println("&lt;!-- " + comment + " --&gt;"); &#125; ［g］ public void writeComment(String comment); ［h］ public void writeComment(String comment) &#123; &#125; |
+| `[3]` | ［e］ public void writeComment(String comment) &#123;     System.out.println("# " + comment); &#125; ［f］ public void writeComment(String comment) &#123;     System.out.println("&lt;!-- " + comment + " --&gt;"); &#125; ［g］ public void writeComment(String comment); ［h］ public void writeComment(String comment) &#123; &#125; |
+
+</details>
+
+### legacy-2008-spring-pm-13-input-file
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | レコード1：8，5 レコード2：7 レコード3：1，0，0 レコード4：6，3 レコード5：4，0 |
+| `[1]` | レコード1：1，5，2 レコード2：0 レコード3：1，0，1 レコード4：1，2，4 レコード5：5，5 |
+| `[2]` | レコード1：1，2，3 レコード2：1，2 レコード3：3，3，3 レコード4：2，0，1 レコード5：1，1，2 |
+| `[3]` | レコード1：1，2，2 レコード2：5 レコード3：1，0 レコード4：1，1，1 レコード5：1，4，4 |
+
+</details>
+
+### legacy-2008-spring-pm-13-sample-output
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 最大値：1，0，0 最小値：空白，空白，7 平均値：空白，5，9。全行とも右詰め。 |
+| `[1]` | 最大値：1，5，2 最小値：空白，空白，0 平均値：1，0，2。全行とも右詰め。 |
+| `[2]` | 最大値：3，3，3 最小値：空白，1，2 平均値：1，3，2。全行とも右詰め。 |
+| `[3]` | 最大値：1，4，4 最小値：空白，空白，5 平均値：空白，6，5。全行とも右詰め。 |
 
 </details>
 
