@@ -1,0 +1,227 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-038",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "held": [
+    {
+      "number": 1,
+      "status": "material_conditions_unconfirmed",
+      "reason": "原冊子p.5の単精度浮動小数点形式の図はIEEE 754（IEC 60559）を明示し、規格図と対応する。図版の出典・改変・再配布条件を確認できるまで保留。",
+      "bodyPublished": false
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "reason": "原冊子p.24のvoid invert(int, char[][]); は2次元配列の内側の要素型が不完全で、公式空欄すべてを解答してもC規格に従った翻訳ができない。原条件で正答が成立する根拠を確認できるまで保留。",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "495cf78f1c77060db717cc5b54e0a16a0b3b7a0695817cc4525362e2a301d794",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-038-2007-autumn-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "4ee80e6e0d47564f637dfab1dd678206c3b06f7b67e4e2d52ea7cce52347caf3",
+      "byteLength": 3647
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-038-2007-autumn-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "760c683deec919b5e7c5b4c966f1e39778285664ed44c07e5e1b613b81abc150",
+      "byteLength": 3505
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-038/local.json",
+      "sha256": "8c5b8c1f664e6850ddf2359a5932b4bb3c3c9102c22779a9b61ce6f21fb94c1e",
+      "byteLength": 2876
+    }
+  },
+  "questions": [
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-01-05.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-01-05.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-01-05.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-01-05.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-06-09.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-06-09.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-06-09.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 10,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-10-13.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-10-13.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-10-13.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-10-13.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}

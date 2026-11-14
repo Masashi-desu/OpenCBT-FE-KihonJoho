@@ -21,6 +21,8 @@ import { legacy2008SpringAfternoonDefinitions } from './legacy-2008-spring-after
 
 // Append-only, source-owned declarations. Shared binding and validation live in
 // the contract; this file cannot supply executable hooks or replace old entries.
+import { legacy2007AutumnAfternoonDefinitions } from './legacy-2007-autumn-afternoon';
+
 export const bookletExtensions: readonly AfternoonBookletExtension[] = [
   { scope: '2016-autumn-pm', definitions: legacy2016AutumnAfternoonDefinitions },
   { scope: '2016-spring-pm', definitions: legacy2016SpringAfternoonDefinitions },
@@ -40,4 +42,5 @@ export const bookletExtensions: readonly AfternoonBookletExtension[] = [
   { scope: '2009-spring-pm', definitions: legacy2009SpringAfternoonDefinitions },
   { scope: '2008-autumn-pm', definitions: legacy2008AutumnAfternoonDefinitions },
   { scope: '2008-spring-pm', definitions: legacy2008SpringAfternoonDefinitions },
+  { scope: '2007-autumn-pm', definitions: legacy2007AutumnAfternoonDefinitions },
 ];

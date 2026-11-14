@@ -1,0 +1,1049 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-038",
+  "collectionId": "2007h19a-fe-pm",
+  "checkedOn": "2026-11-15",
+  "status": "verified_source_and_rights",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_2/2007h19a_fe_pm_qs.pdf",
+      "sha256": "495cf78f1c77060db717cc5b54e0a16a0b3b7a0695817cc4525362e2a301d794",
+      "byteLength": 2312343
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_2/2007h19a_fe_pm_ans.pdf",
+      "sha256": "c562e724e1b89e0ccb0ddde2576b8c9ac7c47feec3af89cc32c9082bd9b7aab2",
+      "byteLength": 95310
+    },
+    "commentary.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_2/2007h19a_fe_pm_cmnt.pdf",
+      "sha256": "11f281dd1312f5d9e2f02a80e1b3c5b2d4d213629cb7d6a1b1ca8d15bf7d50da",
+      "byteLength": 102190
+    },
+    "archive-list-frame.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19.html",
+      "sha256": "d0ff39d94be12223b350aada946589b6080cfc5f773d87602084205fdf072386",
+      "byteLength": 81534
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    }
+  },
+  "sourceAcceptanceSHA256": "4ee80e6e0d47564f637dfab1dd678206c3b06f7b67e4e2d52ea7cce52347caf3",
+  "materialEvidenceSHA256": "5c12418fb2baebd0cd1d3a147a77eb34ec06e11fa86d34f1fe2b17ef2951a0aa",
+  "originalQuestionCount": 13,
+  "officialScoredFields": 64,
+  "officialSelectionMarks": 65,
+  "selection": {
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "groups": [
+      {
+        "first": 6,
+        "last": 9,
+        "choose": 1
+      },
+      {
+        "first": 10,
+        "last": 13,
+        "choose": 1
+      }
+    ],
+    "coverPage": 1,
+    "durationSeconds": 9000
+  },
+  "commonPages": [
+    2,
+    3,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "gradingCommentaryPages": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 3,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 4
+  },
+  "caslExcerpt": {
+    "page": 58,
+    "box": [
+      0,
+      0,
+      1323,
+      1056
+    ],
+    "retains": "スタック命令・CALL/RET・その他・FRの注記",
+    "omits": "下部の1.3節 JIS X 0201文字符号",
+    "requiredBy": [
+      9,
+      13
+    ]
+  },
+  "appendixRightsNotes": "p.2–3の擬似言語記法とp.56–61のIPA作成の命令・仕様説明を個別に確認した。p.58下部のJIS文字の符号表を除く。p.53–55は付属Java資料の確認に使用し、必要なAPIの機能を独立記述する。",
+  "referencePagesByQuestion": {
+    "4": [
+      2,
+      3
+    ],
+    "9": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "13": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ]
+  },
+  "rightsTerms": "その他／試験の過去問題の使用方法・留意点",
+  "rightsScope": "WARPはIPA公式資料の保存先。教育用の配布・表示・改変にIPAの過去問題利用条件を適用し、出典と改変を表示する。第三者の規格原文・規格表は対象から除く。",
+  "independentReferenceChecks": [
+    {
+      "scope": "過去問題の利用条件",
+      "url": "https://www.ipa.go.jp/shiken/faq.html"
+    },
+    {
+      "scope": "WARPの利用条件",
+      "url": "https://warp.ndl.go.jp/info/help#section5-4"
+    },
+    {
+      "scope": "JISの転載条件",
+      "url": "https://www.jisc.go.jp/qa/a2-1.html"
+    },
+    {
+      "scope": "IEEE標準資料の転載条件と問1",
+      "url": "https://standards.ieee.org/faqs/copyrights/requesting-permission-for-use-of-material/"
+    },
+    {
+      "scope": "IECの転載条件と問1",
+      "url": "https://webstore.iec.ch/en/copyright"
+    },
+    {
+      "scope": "問8と問12のJava API",
+      "url": "https://docs.oracle.com/javase/8/docs/api/"
+    },
+    {
+      "scope": "問6の配列型に必要な要素の完全型",
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        5,
+        6
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 1,
+        "status": "material_conditions_unconfirmed",
+        "notes": "原冊子p.5の単精度浮動小数点形式の図はIEEE 754（IEC 60559）を明示し、規格図と対応する。図版の出典・改変・再配布条件を確認できるまで保留。"
+      }
+    },
+    {
+      "number": 2,
+      "pages": [
+        7,
+        8,
+        9
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1",
+          "subquestion": 1,
+          "part": null,
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 a",
+          "subquestion": 2,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "subquestion": 2,
+          "part": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3",
+          "subquestion": 3,
+          "part": null,
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 2,
+        "status": "allowed",
+        "notes": "原冊子p.7–9の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 3,
+      "pages": [
+        10,
+        11
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 3,
+        "status": "allowed",
+        "notes": "原冊子p.10–11の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 4,
+      "pages": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "subquestion": 2,
+          "part": "f",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 4,
+        "status": "allowed",
+        "notes": "原冊子p.12–15の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 5,
+      "pages": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1",
+          "subquestion": 1,
+          "part": null,
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 a",
+          "subquestion": 2,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 b",
+          "subquestion": 3,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 c",
+          "subquestion": 3,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 d",
+          "subquestion": 3,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 5,
+        "status": "allowed",
+        "notes": "原冊子p.16–21の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 6,
+      "pages": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 6,
+        "status": "original_answer_ambiguous",
+        "notes": "原冊子p.24のvoid invert(int, char[][]); は2次元配列の内側の要素型が不完全で、公式空欄すべてを解答してもC規格に従った翻訳ができない。原条件で正答が成立する根拠を確認できるまで保留。"
+      }
+    },
+    {
+      "number": 7,
+      "pages": [
+        26,
+        27,
+        28
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 7,
+        "status": "allowed",
+        "notes": "原冊子p.26–28の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 8,
+      "pages": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 8,
+        "status": "allowed",
+        "notes": "原冊子p.29–32の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。 付属Java APIの原画像・原文は対象外とし、必要な動作を独自記述する。"
+      }
+    },
+    {
+      "number": 9,
+      "pages": [
+        33,
+        34,
+        35
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 9,
+        "status": "allowed",
+        "notes": "原冊子p.33–35の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。 CASL IIの命令と注記を使用し、JISの文字符号表は除外する。"
+      }
+    },
+    {
+      "number": 10,
+      "pages": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "subquestion": 2,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "subquestion": 2,
+          "part": "f",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 10,
+        "status": "allowed",
+        "notes": "原冊子p.36–39の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 11,
+      "pages": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 7,
+      "selectionMarks": 7,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 e",
+          "subquestion": 1,
+          "part": "e",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f・g",
+          "subquestion": 2,
+          "part": "fg",
+          "marks": [
+            "f",
+            "g"
+          ],
+          "key": [
+            "イ",
+            "ウ"
+          ],
+          "scoring": "unordered_two_fields"
+        }
+      ],
+      "materialDecision": {
+        "number": 11,
+        "status": "allowed",
+        "notes": "原冊子p.40–44の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。"
+      }
+    },
+    {
+      "number": 12,
+      "pages": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 5,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ウ",
+            "キ"
+          ],
+          "scoring": "unordered_one_field"
+        }
+      ],
+      "materialDecision": {
+        "number": 12,
+        "status": "allowed",
+        "notes": "原冊子p.45–49の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。 付属Java APIの原画像・原文は対象外とし、必要な動作を独自記述する。"
+      }
+    },
+    {
+      "number": 13,
+      "pages": [
+        50,
+        51,
+        52
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 8,
+      "selectionMarks": 8,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "subquestion": 2,
+          "part": "f",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 g",
+          "subquestion": 3,
+          "part": "g",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 h",
+          "subquestion": 3,
+          "part": "h",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 13,
+        "status": "allowed",
+        "notes": "原冊子p.50–52の本文・図表・注記を照合し、第三者素材の転載表示を確認しなかった。 CASL IIの命令と注記を使用し、JISの文字符号表は除外する。"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 1,
+      "status": "material_conditions_unconfirmed",
+      "notes": "原冊子p.5の単精度浮動小数点形式の図はIEEE 754（IEC 60559）を明示し、規格図と対応する。図版の出典・改変・再配布条件を確認できるまで保留。"
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "notes": "原冊子p.24のvoid invert(int, char[][]); は2次元配列の内側の要素型が不完全で、公式空欄すべてを解答してもC規格に従った翻訳ができない。原条件で正答が成立する根拠を確認できるまで保留。"
+    }
+  ],
+  "assetSHA256ByPage": {
+    "2": "a4bda15b2a20e906ec12dbe479abf9562e252d4a34c33cd84424ae66216f4636",
+    "3": "3c9687caf580490722e8c67ce9dfb0954d72e4a1b57a21580c12309430159371",
+    "7": "481472c4c74f3c8b23324a3e588384711d20470d091ce54361ea7a56ad6feae0",
+    "8": "67479f236c4c91ff1451ab4cf4d15c57ca515848fe3517fcd0df8bca0cd10e57",
+    "9": "72396afeb8324bb47d38299d64f2ac6d5a886663611e9aaec96b026882ea5798",
+    "10": "e00f655827f6bf571cd57c45cbbe783b04542e40ecd07a1aa3f5977d0a1e23ac",
+    "11": "4d21d93f300a074fe3278a7acc915c0a52d318935f450f711b24485a3b465f92",
+    "12": "9989f777a43a3a0898983f5d17addbf82cba1880598069f61f3e30ae28d8ad23",
+    "13": "60fc7acfecb0f3fefc37b4be8da0a4e789b315c9ea870f12f6436dffb8a5a346",
+    "14": "c927e9a71e6a29f6ab081359ef8f7f26579332b8a2fe7502deb752cd3bcf29c8",
+    "15": "eb293d0dba5c2ca13f31c7565ced7c51380bf04be792e11d6d76e75c1815bf56",
+    "16": "896cd32a91cd2c26e1b537757c7f419bbd4e08e7e2a20b0c050e2374be1d676f",
+    "17": "4e5d5da5315f5bab0e54ffe5f638c8aa1d3f603132f99affe3164c3f2bf0b615",
+    "18": "2c088c6f8ec0b9ce832dccad0291fe78bfdfd2eeb75126ed0387dbeee71fac9f",
+    "19": "622ff602448931615dfdfe6d673d49606c171c9c2b0efcc5cb4b0dd325eda285",
+    "20": "2866612a975deac1e95c11f12ed6d4c556848605c8e5b7595993021a8edf251c",
+    "21": "39fa550178e2ef7cd8e4caf62d0932ba3bd6a119a717c7b2261d13037d4cbe54",
+    "26": "086f1b2243df3d398fe949c7e99d6fb58b141932a6b6e69bddc187f48c8f83db",
+    "27": "edf71ac1cc6c4ca54bfbf811633ea88b91de51418a2c5e35990e68e41ed2ff2b",
+    "28": "62dc5139897ff8ff79d41987bbe0a4548db9bbfe2830e6676ecf53498fe11a2f",
+    "29": "f1988b8ba86122a292ed85a8b4c57d3ff9526e728d9b280a28e2b43f14e19933",
+    "30": "f39502416401851e804cefa69606d79c4c19aec2476d715a3da72fd46814f285",
+    "31": "42ae8c284687c9c195f6a5b163d3662fcf8eaa543a9c430c3a05fa98ef6beb77",
+    "32": "4ddbc82497111eb1255687f7a5093c4f8031a50f695ee78c03c6feb564e35fd4",
+    "33": "b746978d8ed26e6822a67a2c8833e7a8b584349a83d801aa3bd750d13a407c9d",
+    "34": "ff84cebf3cd426f0a8e77e733549658686a5cea601ccd5cd06d852d18973fdf6",
+    "35": "518ac8deebfc323fe18fa3e13b3498cc6a10077e4c77639e6c12e62d088734d8",
+    "36": "89d82c877f977f64a7e46f5632926e750ff804204a4f3f90903fcf9530534931",
+    "37": "99d1158946c3581038690ad8206ebb9ef47b4d140adbcc462bca9f7d2e6936c1",
+    "38": "4820e1e6c03a81a71f575e6e4b058d48c772d1bf8719caf2d672933820a0c8e5",
+    "39": "94f8d7770e06f254ffbc3884b01eb6dc2531d24106a3b8611e6dcdf2d2101143",
+    "40": "13a2c2fea38f2938d95ddc7d6459f62a39b00fe86085d9906491036a487d4ad9",
+    "41": "3b02ce775e5a6cc1fa2b4b80f0b6a9f17dd03a4e8e6f8cd6bc623dc7fc4a74e6",
+    "42": "2004861d9159f915d07c7801e84e3ca2b8775f19e0c722f2c6da81bb8253138f",
+    "43": "94ca9c56f0bcf28f39c92845efd841b2251188e9247659da40f3e23dafc9155b",
+    "44": "b50cf73e80ec5ea0cbaf7309fbdd2eb41061e500cb03f7f222fe581d32f9714c",
+    "45": "17ab53e00887e1b53da1cf8851601078a892dd0ac3934355c40dfca97d80dcea",
+    "46": "10379109c3683efef45336e90f726b3dfab9f9f975c057484764ed731c6157bb",
+    "47": "a9438ef5097354fbcdcf43ab111b595603569470354b48626a96ae30e845e31c",
+    "48": "2da7a95a301ae798d37a4490fadd0476f549a37cb4e4adfad04ca73b2143d363",
+    "49": "c86168f0f40ccc24c447d50807ed83b1ea07bf1f499afaad7cc5ee135fda35f9",
+    "50": "f89089449c9d9bf05ca3e39b0c17b2b6352b85536d9d7fb6d07a41772c201cb5",
+    "51": "8d99aea0d0b8c38af9af7e6243c4cbc5b9e2ca6ca3c338777cad96584e7d80fe",
+    "52": "e10852cbdcdf3c8dc9d9a3fa64892f3a80f37d71e16bcd2458d1d5f423376880",
+    "56": "5d06cc81532695f16265eaa115f60ae7676ac1baa1faa83eb56270a3a64ad54e",
+    "57": "272271491b1dae4e68b4cc881dba306bc51da2d7cd1e95d421b64899aabacd1a",
+    "58": "5a9ad898d9aa6186dd648aaa40916b7ea99dec172e903954fbc00c5a39f17c52",
+    "59": "3c89fdc8b36b6f98dd9c9365c977a8b6e87f4280c35120334254889bec7fa0fb",
+    "60": "434554981d56e2137018791d119461a901d33b0b7e2d3945a041bfce9e0b3de3",
+    "61": "15cb035c553891d54b50c9b726ce1e6ee34dfaecaff0f73ffad0c38220276c2f"
+  }
+}
