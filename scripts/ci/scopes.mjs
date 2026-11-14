@@ -246,31 +246,48 @@ export function answerChoiceMatrixAppendScopes(beforeText, afterText) {
 
 export const AFTERNOON_SELECTION_COUNTS_FILE = 'tests/helpers/generation-paths/issuance.ts';
 export function afternoonSelectionCountAppendScopes(beforeText, afterText) {
-    const declaration = /^const preMandatorySecurity = new Set\((\[[^\r\n]*\])\);$/m;
+    const groups = ['preMandatorySecurity', 'twoLanguageSectionPapers'];
     const lookup = 'export function expectedAfternoonSelectionCount(scope: string) {\n  return afternoonPaperSelection(scope).count;\n}';
-    const select = '  const beforeMandatorySecurity = preMandatorySecurity.has(scope);';
+    const selections = ['  const beforeMandatorySecurity = preMandatorySecurity.has(scope);',
+        '  const twoLanguageSections = twoLanguageSectionPapers.has(scope);'];
     const parse = text => {
-        if (typeof text !== 'string' || !text.includes(lookup) || !text.includes(select) ||
-            [...text.matchAll(/\bpreMandatorySecurity\b/g)].length !== 2)
+        if (typeof text !== 'string' || !text.includes(lookup) || selections.some(selection => !text.includes(selection)))
             return null;
-        const match = declaration.exec(text);
-        if (!match)
-            return null;
-        try {
-            const scopes = JSON.parse(match[1]);
-            if (!Array.isArray(scopes) || scopes.some(scope => scopeFamily(scope) !== 'pm') || new Set(scopes).size !== scopes.length)
+        const lists = [], seen = new Set();
+        let unchangedSource = text;
+        for (const name of groups) {
+            const declaration = new RegExp('^const ' + name + ' = new Set\\((\\[[^\\r\\n]*\\])\\);$', 'm');
+            const match = declaration.exec(text);
+            if (!match || [...text.matchAll(new RegExp('\\b' + name + '\\b', 'g'))].length !== 2)
                 return null;
-            return { scopes, unchangedSource: text.replace(declaration, 'const preMandatorySecurity = new Set([]);') };
+            try {
+                const scopes = JSON.parse(match[1]);
+                if (!Array.isArray(scopes))
+                    return null;
+                for (const scope of scopes) {
+                    if (scopeFamily(scope) !== 'pm' || seen.has(scope))
+                        return null;
+                    seen.add(scope);
+                }
+                lists.push(scopes);
+                unchangedSource = unchangedSource.replace(declaration, 'const ' + name + ' = new Set([]);');
+            } catch {
+                return null;
+            }
         }
-        catch {
-            return null;
-        }
+        return { lists, unchangedSource };
     };
     const before = parse(beforeText), after = parse(afterText);
-    if (!before || !after || before.unchangedSource !== after.unchangedSource || after.scopes.length <= before.scopes.length ||
-        stable(after.scopes.slice(0, before.scopes.length)) !== stable(before.scopes))
+    if (!before || !after || before.unchangedSource !== after.unchangedSource)
         return null;
-    return after.scopes.slice(before.scopes.length);
+    const added = [];
+    for (const [index, old] of before.lists.entries()) {
+        const current = after.lists[index];
+        if (current.length < old.length || stable(current.slice(0, old.length)) !== stable(old))
+            return null;
+        added.push(...current.slice(old.length));
+    }
+    return added.length ? added.sort() : null;
 }
 export function sourceInventoryAppendScopes(beforeText, afterText) {
     let before, after;

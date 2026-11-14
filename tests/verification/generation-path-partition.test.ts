@@ -137,7 +137,7 @@ test("afternoon paper selection preserves released rules and uses the original n
   for (const collection of oldAfternoon) {
     const scope = collection.id.replace(/^set-annual-/, "");
     const all = legalAfternoonSelections(collection, bundle.questions);
-    const fullCount = scope === "2008-autumn-pm" ? 16 : beforeSecurity.has(scope) ? 105 : 75;
+    const fullCount = ["2008-autumn-pm", "2008-spring-pm"].includes(scope) ? 16 : beforeSecurity.has(scope) ? 105 : 75;
     const expected = collection.questionRefs.length === 13 ? fullCount : expectedAfternoonSelectionCount(scope);
     assert.equal(all.length, expected, scope);
     assert(all.every(selection => selection.length === 7), scope);

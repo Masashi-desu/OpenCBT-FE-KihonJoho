@@ -167,6 +167,30 @@ test('append-only afternoon selection-count fixtures narrow to newly distributed
     assert.equal(classify([file], own(), own(), scopeProof).profile, 'full');
     assert.equal(classify([file], own(distribution), own(distribution), scopeProof).profile, 'full');
 });
+test('append-only admission of a two-language-section paper narrows only the new booklet', () => {
+    const file = AFTERNOON_SELECTION_COUNTS_FILE;
+    const source = readFileSync(new URL(`../../${file}`, import.meta.url), 'utf8');
+    const before = source.replace(/^const twoLanguageSectionPapers = new Set\([^\r\n]+\);$/m,
+        'const twoLanguageSectionPapers = new Set(["2008-autumn-pm"]);');
+    const after = before.replace('["2008-autumn-pm"]', '["2008-autumn-pm", "2008-spring-pm"]');
+    const added = afternoonSelectionCountAppendScopes(before, after);
+    assert.deepEqual(added, ['2008-spring-pm']);
+    for (const invalid of [
+        after.replace('2008-spring-pm', '2008-spring-am'),
+        after.replace('2008-spring-pm', '2009-autumn-pm'),
+        after.replace('["2008-autumn-pm", "2008-spring-pm"]', '["2008-spring-pm", "2008-autumn-pm"]'),
+        after.replace('twoLanguageSectionPapers.has(scope)', 'twoLanguageSectionPapers.size > 0'),
+        after.replace('number >= 6 && number <= 9', 'number >= 5 && number <= 9'),
+        after + 'use(twoLanguageSectionPapers);',
+    ]) assert.equal(afternoonSelectionCountAppendScopes(before, invalid), null, invalid);
+    assert.equal(afternoonSelectionCountAppendScopes(after, before), null);
+    const distribution = fixture();
+    distribution.records.questions.push(question('new', 2008, '春期'));
+    const scopeProof = { extensionScopes: { [file]: added } };
+    const narrowed = classify([file], own(), own(distribution), scopeProof);
+    assert.deepEqual([narrowed.profile, narrowed.scopes], ['booklets', ['2008-spring-pm']]);
+    assert.equal(classify([file], own(distribution), own(distribution), scopeProof).profile, 'full');
+});
 test('an append-only choice matrix gate belongs to its newly added booklet', () => {
     const file = ANSWER_CHOICE_MATRIX_HOST;
     const before = [
