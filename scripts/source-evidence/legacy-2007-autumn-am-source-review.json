@@ -1,0 +1,221 @@
+{
+  "taskId": "S3-037",
+  "scope": "2007-autumn-am",
+  "collectionId": "2007h19a-fe-am",
+  "checkedOn": "2026-11-15",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 49,
+      "status": "original_answer_ambiguous",
+      "reason": "原冊子p.22ではプログラムの本数と工数の比例関係が指定されていない。予定全工数と完成本数が同じでも、完了側の工数によって公式のウ（54%）とエ（59%）の両方が成立するため保留。",
+      "bodyPublished": false
+    }
+  ],
+  "sourcePreflightSHA256": "8c8717c256acdbe2513a49f84705f248a881ed240b09e266c423435de0369e9f",
+  "cropCandidatesSHA256": "a747e3ee5bc79cd9a4168605a67bf78ff34eab2fac25cb8c2f1c44b673d0f39c",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_2/2007h19a_fe_am_qs.pdf",
+      "sha256": "6dbc8cdb473d255894482c6b2761f23ca530fd9cd672a761b34a98a6ec923068",
+      "byteLength": 1017357
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_2/2007h19a_fe_am_ans.pdf",
+      "sha256": "b52d656c3ad4ea1748e6121ecceff26b6709b020f8ae1d12e6a257f864cb3dba",
+      "byteLength": 39499
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19.html",
+      "sha256": "d0ff39d94be12223b350aada946589b6080cfc5f773d87602084205fdf072386",
+      "byteLength": 81534
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "原冊子のp.3–34に問1〜80。図表に第三者の出典表記・製品ロゴは確認されていない。CMMI・UML・ISMS・QRコードの関連規格や製品の資料は、用語の検証用に参照する。資料本文・図版の同梱は予定しない。"
+  ],
+  "holdReferences": [
+    {
+      "number": 49,
+      "source": "source/question-49-progress-counterexample.json"
+    }
+  ],
+  "references": [
+    {
+      "id": "sei-cmmi-dev-1-2",
+      "title": "CMMI for Development Version 1.2",
+      "publisher": "Software Engineering Institute, Carnegie Mellon University",
+      "url": "https://insights.sei.cmu.edu/documents/767/2006_005_001_14771.pdf",
+      "type": "independent_note",
+      "section": "Part One, About Capability Maturity Models / Understanding Levels",
+      "scope": "開発のプロセス改善と成熟度・能力レベルのモデルを確認する。",
+      "limits": "モデル本文と図は転載しない。"
+    },
+    {
+      "id": "omg-uml-2",
+      "title": "Unified Modeling Language 2.0 Superstructure",
+      "publisher": "Object Management Group",
+      "url": "https://www.omg.org/spec/UML/2.0/About-UML",
+      "type": "independent_note",
+      "section": "Superstructure, Classes",
+      "scope": "クラスの属性・操作などの記法を確認する。",
+      "limits": "規範文言と図は転載しない。"
+    },
+    {
+      "id": "ipa-isms-pdca",
+      "title": "IPA ISMS実践資料（PDCAモデル）",
+      "publisher": "独立行政法人情報処理推進機構（IPA）",
+      "url": "https://www.ipa.go.jp/archive/files/000011529.pdf",
+      "type": "independent_note",
+      "section": "p.114 図付4.5",
+      "scope": "当時のISMSにおけるPlanとリスクアセスメントの関係を確認する。",
+      "limits": "別資料の図版とJIS原文は転載しない。"
+    },
+    {
+      "id": "denso-wave-qrcode",
+      "title": "QRコードの開発",
+      "publisher": "株式会社デンソーウェーブ",
+      "url": "https://www.denso-wave.com/ja/technology/vol1.html",
+      "type": "independent_note",
+      "section": "切り出しシンボル",
+      "scope": "標準QRコードの三つの位置検出シンボルと役割を確認する。",
+      "limits": "図版・製品ロゴ・規格文言は含めない。"
+    },
+    {
+      "id": "egov-dispatch-act",
+      "title": "労働者派遣法",
+      "publisher": "デジタル庁（e-Gov法令検索）",
+      "url": "https://laws.e-gov.go.jp/law/360AC0000000088",
+      "type": "law",
+      "section": "第2条・第26条",
+      "scope": "労働者派遣、雇用・指揮命令および派遣事業者間の派遣契約を照合する。",
+      "limits": "当時の用語と現在の条文の表記を区別する。"
+    },
+    {
+      "id": "mhlw-dispatch-relationships",
+      "title": "労働者派遣とは",
+      "publisher": "厚生労働省",
+      "url": "https://www.mhlw.go.jp/content/11650000/001428491.pdf",
+      "type": "policy",
+      "section": "参考1 労働者派遣とは",
+      "scope": "派遣元・派遣先・労働者の契約関係を照合する。",
+      "limits": "解説は関係の整理に用い、図版は転載しない。"
+    }
+  ],
+  "referencesByQuestion": {
+    "42": [
+      "sei-cmmi-dev-1-2"
+    ],
+    "45": [
+      "omg-uml-2"
+    ],
+    "69": [
+      "ipa-isms-pdca"
+    ],
+    "70": [
+      "denso-wave-qrcode"
+    ],
+    "80": [
+      "egov-dispatch-act",
+      "mhlw-dispatch-relationships"
+    ]
+  }
+}

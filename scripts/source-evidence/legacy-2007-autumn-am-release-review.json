@@ -1,0 +1,1309 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-037",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 80,
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 49,
+      "reason": "原冊子p.22ではプログラムの本数と工数の比例関係が指定されていない。予定全工数と完成本数が同じでも、完了側の工数によって公式のウ（54%）とエ（59%）の両方が成立するため保留。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "6dbc8cdb473d255894482c6b2761f23ca530fd9cd672a761b34a98a6ec923068",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-037-2007-autumn-am/PREFLIGHT-REVIEW.json",
+      "sha256": "8c8717c256acdbe2513a49f84705f248a881ed240b09e266c423435de0369e9f",
+      "byteLength": 7227
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-037-2007-autumn-am/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "a756cace5f28ca1022692c779bc523ef052955f5c00651dad6d9071f41337ef9",
+      "byteLength": 3010
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-037/local.json",
+      "sha256": "344347b3ac4c4d85a216c52ce434d0752ecf2e3bea9bafd8b632bf765dc57732",
+      "byteLength": 2273
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 6,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 10,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 14,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 15,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 16,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 17,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 18,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 19,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 20,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 21,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 22,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 23,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 24,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 25,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 26,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-01-26.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 27,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 28,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 29,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 30,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 31,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 32,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 33,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 34,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 35,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 36,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 37,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 38,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 39,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 40,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 41,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 42,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 43,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 44,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 45,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 46,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 47,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 48,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 50,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 51,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 52,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 53,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-27-53.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 54,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 55,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 56,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 57,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 58,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 59,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 60,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 61,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 62,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 63,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 64,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 65,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 66,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 67,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 68,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 69,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 70,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 71,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 72,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 73,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 74,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 75,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 76,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 77,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 78,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 79,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 80,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-54-80.test.ts",
+        "tests/content/2007-autumn-am/legacy-2007-autumn-am-integration.test.ts",
+        "tests/booklets/2007-autumn-am/content-contract.test.ts"
+      ]
+    }
+  ]
+}
