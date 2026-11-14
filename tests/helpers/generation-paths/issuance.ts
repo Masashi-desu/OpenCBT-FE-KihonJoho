@@ -54,14 +54,15 @@ export function afternoonPaperSelection(scope: string, excluded: readonly number
   const twoLanguageSections = twoLanguageSectionPapers.has(scope);
   const beforeMandatorySecurity = preMandatorySecurity.has(scope);
   const numbers = Array.from({ length: 13 }, (_, index) => index + 1).filter(number => !excluded.includes(number));
-  const required = twoLanguageSections ? [1, 2, 3, 4, 5] : beforeMandatorySecurity ? [8] : [1, 8];
+  const officialRequired = twoLanguageSections ? [1, 2, 3, 4, 5] : beforeMandatorySecurity ? [8] : [1, 8];
+  const required = officialRequired.filter(number => numbers.includes(number));
   const general = twoLanguageSections
     ? numbers.filter(number => number >= 6 && number <= 9)
-    : numbers.filter(number => number <= 7 && !required.includes(number));
+    : numbers.filter(number => number <= 7 && !officialRequired.includes(number));
   const languages = numbers.filter(number => number >= (twoLanguageSections ? 10 : 9));
   const choose = twoLanguageSections ? 1 : beforeMandatorySecurity ? 5 : 4;
-  assert(required.every(number => numbers.includes(number)) && general.length >= choose && languages.length > 0,
-    `${scope}: admitted questions cannot follow the original seven-question selection policy`);
+  assert(required.length > 0 && general.length >= choose && languages.length > 0,
+    `${scope}: admitted questions cannot follow the original selection groups`);
   const omitted = general.length - choose;
   const generalCount = choose === 1 || omitted === 1 ? general.length
     : omitted === 2 ? general.length * (general.length - 1) / 2 : 1;
@@ -123,7 +124,7 @@ export function routesFor(bundle: Bundle, original: Question, template: Template
   // Old afternoon is excluded from the current B pool. Its individual,
   // explicit bookmark group and explicit endless pool are real one-major
   // issuance routes. Booklet study/practice retain paper order and all selected
-  // majors, and are tested below without shrinking a legal seven-major run.
+  // majors, and are tested below without changing the selected source groups.
   const routes = isAfternoon(original)
     ? [individual, group, { ...endless, questionRefs: [refOf(base)] }]
     : [individual, group, endless, mix, { ...mix, mode: "practice" as const }];

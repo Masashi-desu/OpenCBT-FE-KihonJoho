@@ -137,10 +137,12 @@ test("afternoon paper selection preserves released rules and uses the original n
   for (const collection of oldAfternoon) {
     const scope = collection.id.replace(/^set-annual-/, "");
     const all = legalAfternoonSelections(collection, bundle.questions);
-    const fullCount = ["2008-autumn-pm", "2008-spring-pm"].includes(scope) ? 16 : beforeSecurity.has(scope) ? 105 : 75;
+    const fullCount = ["2008-autumn-pm", "2008-spring-pm", "2007-autumn-pm"].includes(scope) ? 16 : beforeSecurity.has(scope) ? 105 : 75;
     const expected = collection.questionRefs.length === 13 ? fullCount : expectedAfternoonSelectionCount(scope);
+    const paper = afternoonPaperSelection(scope);
+    const selectedCount = paper.required.length + paper.choose + 1;
     assert.equal(all.length, expected, scope);
-    assert(all.every(selection => selection.length === 7), scope);
+    assert(all.every(selection => selection.length === selectedCount), scope);
     assert.equal(new Set(all.map(selection => JSON.stringify(selection))).size, expected, scope);
   }
 
@@ -157,7 +159,11 @@ test("afternoon paper selection preserves released rules and uses the original n
   assert.deepEqual(earlyPartial.general, [6, 7, 8]);
   assert.deepEqual(earlyPartial.languages, [10, 11, 12]);
   assert.equal(earlyPartial.count, 9);
-  assert.throws(() => afternoonPaperSelection("2008-autumn-pm", [3]), /cannot follow/);
+  const heldRequired = afternoonPaperSelection("2008-autumn-pm", [3, 9]);
+  assert.deepEqual(heldRequired.required, [1, 2, 4, 5]);
+  assert.deepEqual(heldRequired.general, [6, 7, 8]);
+  assert.equal(heldRequired.count, 12);
+  assert.throws(() => afternoonPaperSelection("2008-autumn-pm", [1, 2, 3, 4, 5]), /cannot follow/);
   assert.throws(() => afternoonPaperSelection("2008-autumn-pm", [6, 7, 8, 9]), /cannot follow/);
 
   const partial = afternoonPaperSelection("2009-autumn-pm", [2]);
@@ -168,5 +174,6 @@ test("afternoon paper selection preserves released rules and uses the original n
   assert.equal(partial.choose, 5);
   assert.equal(partial.count, 30);
   assert.equal(afternoonPaperSelection("2016-autumn-pm", [9]).count, 60);
-  assert.throws(() => afternoonPaperSelection("2016-autumn-pm", [8]), /cannot follow/);
+  assert.deepEqual(afternoonPaperSelection("2016-autumn-pm", [8]).required, [1]);
+  assert.throws(() => afternoonPaperSelection("2016-autumn-pm", [1, 8]), /cannot follow/);
 });
