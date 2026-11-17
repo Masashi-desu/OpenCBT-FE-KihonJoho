@@ -1,0 +1,271 @@
+{
+  "taskId": "S3-043",
+  "scope": "2006-spring-am",
+  "collectionId": "2006h18h-fe-am",
+  "checkedOn": "2026-11-18",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 8,
+      "status": "material_conditions_unconfirmed",
+      "reason": "原問がJISコード表の一部であると明示する図を含む。掲載と改変の条件を確認できていない。"
+    },
+    {
+      "number": 32,
+      "status": "original_answer_ambiguous",
+      "reason": "並列構成の装置の同時停止条件が未指定。同一周辺確率でア、イ、ウがそれぞれ最大になる。"
+    },
+    {
+      "number": 52,
+      "status": "original_answer_ambiguous",
+      "reason": "データは37.5秒分、取得待ち時間は50秒。問が指定するデータ量に対応する秒数が選択肢にない。"
+    }
+  ],
+  "sourcePreflightSHA256": "56f18f04c4c1d6f5d013cdbc4de6ca9598d8c1ab8b27cd0f11d9c585faf8d67d",
+  "cropCandidatesSHA256": "1cec59588bd2c70eb89ce390a3b444ca3713a5e5f006acfbe17a2644ca3cac37",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_am_qs.pdf",
+      "sha256": "31cce7aa607889609734cd08b4c7602c8d75303a324520aa309caf17336fa4fb",
+      "byteLength": 1070762
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_am_ans.pdf",
+      "sha256": "f04a89fb8ac0b1ade6f125e4f26fc4bb500e3505ef872c9e67d74cefcc96b26f",
+      "byteLength": 51084
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18.html",
+      "sha256": "db1d92bf32fcc1b42d362aab9ee291dea72c2bb4939ef1052c9f3b74d8833a81",
+      "byteLength": 78330
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "対象80問の原冊子・解答例を照合し、採用した問題の題材と素材を個別に検討した。配布する改変図表は独自に描画する。",
+    "問8のJIS符号表は保留した。USB、UML、JAN、IP、DNS、OSI、QRコード、著作権法は内容照合の参照先として記録した。参照先の原文・図版は配布しない。"
+  ],
+  "holdReferences": [
+    {
+      "number": 8,
+      "path": "source/crop-proposals/q08.png",
+      "scope": "原冊子p.5にJISコード表として掲載された第三者規格表。"
+    },
+    {
+      "number": 32,
+      "path": "source/question-32-availability-counterexample.json",
+      "scope": "同じ周辺稼働率を満たす複数の停止モデル。"
+    },
+    {
+      "number": 52,
+      "path": "source/question-52-buffer-units.json",
+      "scope": "必要バッファ量、取得時間と再生時間を独立に算出。"
+    }
+  ],
+  "references": [
+    {
+      "id": "usb-if-usb2-rates",
+      "title": "USBの転送速度",
+      "publisher": "USB Implementers Forum",
+      "url": "https://www.usb.org/node/214",
+      "type": "independent_note",
+      "section": "Signals",
+      "scope": "USB 2.0の低速・フルスピード・ハイスピードの区別。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "omg-uml",
+      "title": "Unified Modeling Language Version 2.0",
+      "publisher": "Object Management Group",
+      "url": "https://www.omg.org/spec/UML/2.0/",
+      "type": "independent_note",
+      "section": "Class diagrams and aggregation",
+      "scope": "三角形・ひし形などの関連の意味。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "gs1-check-digit",
+      "title": "GS1 General Specifications",
+      "publisher": "GS1",
+      "url": "https://ref.gs1.org/standards/genspecs/21.0.1/",
+      "type": "independent_note",
+      "section": "7.9.1 Standard check digit calculations",
+      "scope": "交互の重み1・3と10の倍数への補数。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "rfc2460-ipv6",
+      "title": "RFC 2460 IPv6 Specification",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/info/rfc2460/",
+      "type": "independent_note",
+      "section": "3. IPv6 Header Format",
+      "scope": "出題当時のIPv6アドレスが128ビットであること。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "rfc1034-dns",
+      "title": "RFC 1034 Domain Names",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/info/rfc1034/",
+      "type": "independent_note",
+      "section": "Domain names concepts",
+      "scope": "名前の階層とDNSによる名前解決。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "itu-t-x200-osi",
+      "title": "OSI Basic Reference Model",
+      "publisher": "ITU",
+      "url": "https://www.itu.int/rec/T-REC-X.200-199407-I/en",
+      "type": "independent_note",
+      "section": "Recommendation X.200",
+      "scope": "OSI参照モデルの各層が担う処理の境界。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "denso-qr-features",
+      "title": "QRコードの位置検出",
+      "publisher": "DENSO WAVE",
+      "url": "https://www.qrcode.com/en/about/featurePage/featurePage5.html",
+      "type": "independent_note",
+      "section": "Position detection patterns",
+      "scope": "標準的なQRコードの三隅に置く位置検出パターン。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    },
+    {
+      "id": "e-gov-copyright",
+      "title": "著作権法",
+      "publisher": "e-Gov法令検索",
+      "url": "https://laws.e-gov.go.jp/law/345AC0000000048",
+      "type": "independent_note",
+      "section": "第10条、第15条、第17条、第59条",
+      "scope": "創作的な表現とアイデア、発生時の方式、著作者人格権の扱い。",
+      "limits": "内容照合の参照先。外部の図版・規格文書を配布しない。"
+    }
+  ],
+  "referencesByQuestion": {
+    "25": [
+      "usb-if-usb2-rates"
+    ],
+    "39": [
+      "omg-uml"
+    ],
+    "48": [
+      "gs1-check-digit"
+    ],
+    "51": [
+      "rfc2460-ipv6"
+    ],
+    "53": [
+      "rfc1034-dns"
+    ],
+    "54": [
+      "itu-t-x200-osi"
+    ],
+    "57": [
+      "itu-t-x200-osi"
+    ],
+    "70": [
+      "denso-qr-features"
+    ],
+    "80": [
+      "e-gov-copyright"
+    ]
+  }
+}
