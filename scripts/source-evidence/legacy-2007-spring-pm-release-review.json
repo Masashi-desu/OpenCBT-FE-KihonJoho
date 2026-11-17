@@ -1,0 +1,237 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-040",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13
+  ],
+  "held": [
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "reason": "原冊子p.35のprintf文の末尾の閉じ括弧とセミコロンを紙面で確認できない。問題の選択肢は該当箇所を補わない。別のIPA保存時点、別の転製版、公式解答・採点講評にも補足を確認できず、原資料のプログラムが成立する根拠が得られるまで保留する。",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "9f51d5c3ecb40bf753b9b048faa88c5e8d33e34de7d58efb66f6905d72baf3e4",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-040-2007-spring-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "d4b9c1302c518c59785ecadf71540beae19f06cf1820267a4ab4941a016137ac",
+      "byteLength": 3642
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-040-2007-spring-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "8e22c155354a90c69ba1d082a1e014e9dc1f45ec216b2ac83818f45d7e0711db",
+      "byteLength": 2986
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-040/local.json",
+      "sha256": "b1d687757fc0bb350f9807d346386cae53d4e21f4ba7464537a166d8e2620ac5",
+      "byteLength": 3103
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-01-05.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-01-05.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-01-05.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-01-05.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-01-05.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 6,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-06-09.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-06-09.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-06-09.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-06-09.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-10-13.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-10-13.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-10-13.test.ts",
+        "tests/content/2007-spring-pm/legacy-2007-spring-pm-integration.test.ts",
+        "tests/booklets/2007-spring-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}

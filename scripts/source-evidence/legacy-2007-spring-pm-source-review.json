@@ -1,0 +1,1028 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-040",
+  "collectionId": "2007h19h-fe-pm",
+  "checkedOn": "2026-11-15",
+  "status": "verified_source_and_rights",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_pm_qs.pdf",
+      "sha256": "9f51d5c3ecb40bf753b9b048faa88c5e8d33e34de7d58efb66f6905d72baf3e4",
+      "byteLength": 2251694
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_pm_ans.pdf",
+      "sha256": "1c5812411535c854aa1b8b772be288fbb15f92d7e602074200a2db31c9505209",
+      "byteLength": 91594
+    },
+    "commentary.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_pm_cmnt.pdf",
+      "sha256": "57935de248ca2417319bfa9614d0f67cb28ff889a19e5565e61ea20d12360d05",
+      "byteLength": 95614
+    },
+    "archive-list-frame.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19.html",
+      "sha256": "d0ff39d94be12223b350aada946589b6080cfc5f773d87602084205fdf072386",
+      "byteLength": 81534
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    }
+  },
+  "sourceAcceptanceSHA256": "d4b9c1302c518c59785ecadf71540beae19f06cf1820267a4ab4941a016137ac",
+  "materialEvidenceSHA256": "2e38c0622a7b1c3650c7dfd31c137c262368a551bb70dde4cbe39abbbbf7c9d4",
+  "originalQuestionCount": 13,
+  "officialScoredFields": 63,
+  "officialSelectionMarks": 65,
+  "selection": {
+    "coverPage": 1,
+    "durationSeconds": 9000,
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "groups": [
+      {
+        "first": 6,
+        "last": 9,
+        "choose": 1
+      },
+      {
+        "first": 10,
+        "last": 13,
+        "choose": 1
+      }
+    ]
+  },
+  "commonPages": [
+    2,
+    3,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60
+  ],
+  "gradingCommentaryPages": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 3,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 4
+  },
+  "caslExcerpt": {
+    "page": 57,
+    "box": [
+      0,
+      0,
+      1145,
+      932
+    ],
+    "retains": "スタック命令・CALL/RET・その他・FRの注記",
+    "omits": "1.3節 JIS X 0201文字符号",
+    "requiredBy": [
+      9,
+      13
+    ]
+  },
+  "appendixRightsNotes": "p.2–3の擬似言語記法とp.55–60のIPA作成のCASL II命令・仕様説明を照合した。p.57下部のJIS文字符号表の節は除く。p.52–54のJava参考資料は照合し、同ページを収録せず必要な機能を独自に説明する。",
+  "referencePagesByQuestion": {
+    "4": [
+      2,
+      3
+    ],
+    "9": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60
+    ],
+    "13": [
+      55,
+      56,
+      57,
+      58,
+      59,
+      60
+    ]
+  },
+  "rightsTerms": "その他／試験の過去問題の使用方法・留意点",
+  "rightsScope": "WARPはIPA公式資料の保存先。教育用の配布・表示・改変にIPAの過去問題利用条件を適用し、出典と改変を表示する。第三者の規格原文・規格表は対象から除く。",
+  "independentReferenceChecks": [
+    {
+      "scope": "過去問題の利用条件",
+      "url": "https://www.ipa.go.jp/shiken/faq.html"
+    },
+    {
+      "scope": "WARPの利用条件",
+      "url": "https://warp.ndl.go.jp/info/help#section5-4"
+    },
+    {
+      "scope": "JISの転載条件",
+      "url": "https://www.jisc.go.jp/qa/a2-1.html"
+    },
+    {
+      "scope": "問8のJava API",
+      "url": "https://docs.oracle.com/javase/8/docs/api/"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        5,
+        6,
+        7
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問 a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問 b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問 c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問 d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 1,
+        "status": "allowed",
+        "notes": "IPAの架空の16ビット命令体系とレジスタ例。外部の命令仕様・図表・帰属表示なし。"
+      }
+    },
+    {
+      "number": 2,
+      "pages": [
+        8,
+        9
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 2,
+        "status": "allowed",
+        "notes": "試験用の組織・社員名とレコード構造。外部資料の引用・帰属表示なし。"
+      }
+    },
+    {
+      "number": 3,
+      "pages": [
+        10,
+        11,
+        12
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 4,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1",
+          "subquestion": 1,
+          "part": null,
+          "key": [
+            "イ",
+            "オ"
+          ],
+          "scoring": "unordered_one_field"
+        },
+        {
+          "locator": "設問2 a",
+          "subquestion": 2,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "subquestion": 2,
+          "part": "b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 3,
+        "status": "allowed",
+        "notes": "試験用の作業一覧とアローダイアグラム。"
+      }
+    },
+    {
+      "number": 4,
+      "pages": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "commentaryPage": 2,
+      "answerSlots": 7,
+      "selectionMarks": 7,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "subquestion": 2,
+          "part": "f",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 g",
+          "subquestion": 3,
+          "part": "g",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 4,
+        "status": "allowed",
+        "notes": "IPAの試験用プログラム・配列・疑似言語。参照用のp2–3は共通資料。"
+      }
+    },
+    {
+      "number": 5,
+      "pages": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 7,
+      "selectionMarks": 7,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 e",
+          "subquestion": 3,
+          "part": "e",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 f",
+          "subquestion": 3,
+          "part": "f",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 g",
+          "subquestion": 3,
+          "part": "g",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 5,
+        "status": "allowed",
+        "notes": "IPAの架空の会員情報とファイル処理の流れ図。外部資料の引用・帰属表示なし。"
+      }
+    },
+    {
+      "number": 6,
+      "pages": [
+        22,
+        23,
+        24,
+        25
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 6,
+        "status": "allowed",
+        "notes": "原資料の本文、プログラム、図表、表示例に第三者資料の転載表記は見当たらない。"
+      }
+    },
+    {
+      "number": 7,
+      "pages": [
+        26,
+        27,
+        28
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 7,
+        "status": "allowed",
+        "notes": "原資料の本文、プログラム、図表、表示例に第三者資料の転載表記は見当たらない。"
+      }
+    },
+    {
+      "number": 8,
+      "pages": [
+        29,
+        30,
+        31
+      ],
+      "commentaryPage": 3,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問 a",
+          "subquestion": null,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問 b",
+          "subquestion": null,
+          "part": "b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問 c",
+          "subquestion": null,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問 d",
+          "subquestion": null,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 8,
+        "status": "allowed",
+        "notes": "原資料の本文、プログラム、図表、表示例に第三者資料の転載表記は見当たらない。 問題に対応するJavaのAPIの事実を独立編集し、p52〜54の原文と原画像は同梱しない。"
+      }
+    },
+    {
+      "number": 9,
+      "pages": [
+        32,
+        33
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3",
+          "subquestion": 3,
+          "part": null,
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 9,
+        "status": "allowed",
+        "notes": "原資料の本文、プログラム、図表、表示例に第三者資料の転載表記は見当たらない。 CASL II p57はJISの文字コード表を除いた範囲。問にはJISへの依存がない。"
+      }
+    },
+    {
+      "number": 10,
+      "pages": [
+        34,
+        35,
+        36,
+        37
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "subquestion": 2,
+          "part": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "subquestion": 2,
+          "part": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "subquestion": 2,
+          "part": "e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 10,
+        "status": "original_answer_ambiguous",
+        "notes": "原冊子p.35のprintf文の末尾の閉じ括弧とセミコロンを紙面で確認できない。問題の選択肢は該当箇所を補わない。別のIPA保存時点、別の転製版、公式解答・採点講評にも補足を確認できず、原資料のプログラムが成立する根拠が得られるまで保留する。"
+      }
+    },
+    {
+      "number": 11,
+      "pages": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 11,
+        "status": "allowed",
+        "notes": "IPAの原設問に組み込まれたCOBOL・架空の氏名・電話番号・順ファイル形式の図。原紙に第三者のコードや図の出典なし。図の仕様とラベルを再描画。IBMの仕様は査読参照のみ。"
+      }
+    },
+    {
+      "number": 12,
+      "pages": [
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 5,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ウ",
+            "オ"
+          ],
+          "scoring": "unordered_one_field"
+        }
+      ],
+      "materialDecision": {
+        "number": 12,
+        "status": "allowed",
+        "notes": "p.43〜47のIPA独自の設問・三目並べの盤・出力・列挙型説明。巻末Java資料は問8向けで，本問には必要なし。Oracle JLSの本文・API文面は収録しない。"
+      }
+    },
+    {
+      "number": 13,
+      "pages": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "commentaryPage": 4,
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "subquestion": 1,
+          "part": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "subquestion": 1,
+          "part": "b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "subquestion": 1,
+          "part": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "subquestion": 1,
+          "part": "d",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "subquestion": 2,
+          "part": null,
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 13,
+        "status": "allowed",
+        "notes": "p.48〜51のIPA設問・メモリ管理図・命令。必要なp.55〜60はIPAのCASL II資料。p.57のJIS X 0201文字符号部分は切り出し対象外、本問はビット操作のみで依存なし。"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "notes": "原冊子p.35のprintf文の末尾の閉じ括弧とセミコロンを紙面で確認できない。問題の選択肢は該当箇所を補わない。別のIPA保存時点、別の転製版、公式解答・採点講評にも補足を確認できず、原資料のプログラムが成立する根拠が得られるまで保留する。"
+    }
+  ],
+  "assetSHA256ByPage": {
+    "2": "10aaf2533e58e5e95994628153bd7a17437ed9c717d75fddefd1216bde14eeb0",
+    "3": "3a73af7c29b24ec2499af7c477697046177584a06d80c789523836dd97bd77aa",
+    "5": "ff49a8219b532e7e887d82b503656d5609d626b53d3b218f4f1741b82001caf2",
+    "6": "2e11e160a67d1e31c19ced055056593c0f7466f7e64e7091446a7f7b17820c9c",
+    "7": "0363927f9babe20c9f7b76dd59641469bfa0d7f1a0eaef97b4bb2c5e2e3f358c",
+    "8": "170ed43294b3f199d66828e99c14cd82faf8b7a98b6b61fea5d988923e71975d",
+    "9": "82c88d024f9cd13a51cc8fd070a0175709104ff0d43eb94e9899a9641aa5378d",
+    "10": "62a6d5c5a46c175156cecf665a3d9caa03025dcedc613b472c13141b4f369f1e",
+    "11": "9612d2b74911589d8956a2d4df85c50db37ee4936f9dc516889b6748144acdac",
+    "12": "3d21565fbffc8c5583e47b8bb60a37f44fdd6bc0c5705efba02b5b26010d8d82",
+    "13": "5aa5cc36d76b13262148cd5e801a4733f8018d797482e48f299764162c6ef03d",
+    "14": "20eb0b2e4d62d3999b9c560fcc2366ea4722d1034ec6af8ee6c563782af14fcd",
+    "15": "fc8224f0a838dc6f28101d412d9d072d77948f1cd51c25a60a3b7783c9077a5e",
+    "16": "8b460245b617029bdb01ab205a83c09863b467edcae538121f2a7f0a26ce54aa",
+    "17": "e56f48896d55a931f0a40dc10da6891abbf5d439742f7d3dafe8d31219ce0e1a",
+    "18": "354ed0eec25f910536a77be94153c08e6f787cb70a21e89bcddb9f7ec88166b1",
+    "19": "520531f41ed51ca474ee3c3cb695ce327f1ff6fad1903f8794c46458174be845",
+    "20": "c03885a48cfde836242655e8f257a1361e89191133b2fe4d25221d5bf969d09c",
+    "21": "8865b08f4253316ecccc9dffb99c820a16abc00af14bcc59798a1061858ae65b",
+    "22": "ca9b8de99475ac6193d9448c3d5acb0c49bb41ff20b136aaba0d03769eb85830",
+    "23": "91323f7bf28e79e4853991492875f3b9307be60cdc979963d76930399fa454ac",
+    "24": "baeae07c1dc9b0e3d81bb7c8feab6555897f72b193b544c533ab01b85c36a7bc",
+    "25": "2d61dcaf078f1199f27933f2f6c13d48832ef7e73de7fdfac67f31c5b6b53298",
+    "26": "06f94a9fdb0a8b99e0f765864c0a4df55c4fda6bf1974bb537620eb5d0424e9c",
+    "27": "9980faf722b2de0c80c5a0df0dd616c4fb10e8aade6b1e39a460d4af30f34815",
+    "28": "5163d0f74f96e2b31c5470f7a41909cd24db92b0d7264099f1a65a244d7554d2",
+    "29": "83ec3a5b0a08763a0fc073d6b2f388338d20b2c969ff116e38a77dcb12fa07b9",
+    "30": "820b57547975667abb41d7bf06fe6301b4049014ae3891c8e578544eaaa615ca",
+    "31": "385dea74778ab99403333fba345930c18ae6801ae20769266fbd9d9e10eb43fe",
+    "32": "9d1c3b1c980fd39465ad47aa82cfaca5aaff655dd27d9c88fb2647798d16cc5c",
+    "33": "214248bcd81aeb0105a8d55b1ad0ab30a0e33bb3dc68dfb1f7bbb4baa7a44b35",
+    "38": "9260f48c405952419662645649f2d5baa6375a366b352cc999a931f0a74a74f8",
+    "39": "fd1bb19cdaf2a2bfe736ee2514a30f65504ff305646d8a663cfaa20183f82e49",
+    "40": "3cfa7ed1ef9c0121574d3c088fb15a656b3a31c3b7b2960a1246c006a7fed7cb",
+    "41": "d34a5d14d183e255fed761749d69add6426e4fa2572e9685055d2a1f4dc266ff",
+    "42": "b2ff2eecdb60ef903047ed546ec3502d96aa53e57b38a790a265da97f056c767",
+    "43": "da2ffebfeb1a26b431efc776a294d0db7f323cbf9448e6ea77fd4fe7f84cb6a8",
+    "44": "bcce48d48e4cd932ea6127a6eb10eaae1a3c3a6caa52b916c9160e1d80aecb56",
+    "45": "8ec676371881e5784c21f013b673d474eb1e3d0ef6c8ac61385a59627ab2fb87",
+    "46": "369b869405d51925dd9cca0abf964b833d3f8751a775b53593292db40c81f20a",
+    "47": "b76e0cc245083f25623087037066bf960e807b7e87ec9d260a0fb4cbdd23f4d6",
+    "48": "015a72d7d390cb8e2cde75d6b4cae909e85dd73803c081a4240ff0a6967a1563",
+    "49": "b87024fc9ff648f3a70b6aaae83bc77e574838f03d9c0007f1df1278d1a431ab",
+    "50": "c2ec0d64747d7603e5f1d034b780792354e0626c59d9d99c97296b31d786928a",
+    "51": "389012fb084e80bbab7911738309308d1619d258633c62ac04b65758edf3e30a",
+    "55": "4cf66bbe5db1ea29dc4f1a1a4d9c23c6931070193d5456d79c6d78593b077e48",
+    "56": "14db80fa38fc3325935875b889f06d41c94ce2745e647eb47fd99b4d07aeb9c2",
+    "57": "8158500a2a7cf0fc648658316ca889e75a3d44923035d35478f72d92f26a9efd",
+    "58": "178922d3fdc4f574265c3ea70fc39838a5eea9d6a1d73975e08a6ced34b108a5",
+    "59": "f2dd51eed720ca9a8499c16d6e11c9ab01453d8a6d8b5db517d5f583ea8ec1fd",
+    "60": "b902c52daa215281b24aaad6255e1da44e97fc80bfb062e66b124b2e7866c6f6"
+  }
+}
