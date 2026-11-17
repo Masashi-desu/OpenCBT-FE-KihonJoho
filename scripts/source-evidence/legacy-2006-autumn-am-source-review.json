@@ -1,0 +1,284 @@
+{
+  "taskId": "S3-041",
+  "scope": "2006-autumn-am",
+  "collectionId": "2006h18a-fe-am",
+  "checkedOn": "2026-11-15",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 32,
+      "status": "original_answer_ambiguous",
+      "reason": "各装置の稼働率は0.9だが同時停止の関係が未指定。停止が互いに素なら最少2台、独立なら3台、停止が重なる構成では4台でも同じ周辺稼働率を満たせる。"
+    }
+  ],
+  "sourcePreflightSHA256": "1a9bb2de0c4feb446627f5860d15212b4dd4bdecf740dcf8e1e98c81bc6f0974",
+  "cropCandidatesSHA256": "7f3ece25fdc29930fc90727925559f5752081758c719e73375da69343b310782",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_am_qs.pdf",
+      "sha256": "85d9a8dabcc6c416518a4efca51c102a0904df26d6a906c6d200f43646248f04",
+      "byteLength": 974975
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_am_ans.pdf",
+      "sha256": "0ba5d697cec314b0001017353485347f7dea6bc1ac7df10e9416f08082dc0f59",
+      "byteLength": 39488
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18.html",
+      "sha256": "db1d92bf32fcc1b42d362aab9ee291dea72c2bb4939ef1052c9f3b74d8833a81",
+      "byteLength": 78330
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "受入対象の原資料、解答欄、図表の境界と個別の素材条件を照合した。原紙の独自図表はIPAの条件で確認し、改変図を独自に作図した。",
+    "問24のSATA、問31・51・52・67のRFC、問46の計測法、問68のガイドライン、問69のUMLは内容の照合に用いた。第三者の原資料ページや図版は転載しない。",
+    "問77の散布図は原紙の分布と傾向を照合し、生成図は点から独自に作図した。"
+  ],
+  "holdReferences": [
+    {
+      "number": 32,
+      "path": "source/question-32-availability-counterexample.json",
+      "scope": "各装置の周辺稼働率と目標を固定して、相関の違いで最少台数が変わる反例"
+    }
+  ],
+  "references": [
+    {
+      "id": "rfc1831-rpc",
+      "title": "RFC 1831 RPC",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc1831.html",
+      "type": "independent_note",
+      "section": "3. The RPC Model",
+      "scope": "クライアントがネットワーク経由で他のシステムの手続きを呼ぶモデル。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "ifpug-fpa",
+      "title": "Function Point Analysis",
+      "publisher": "IFPUG",
+      "url": "https://ifpug.org/ifpug-standards/fpa",
+      "type": "independent_note",
+      "section": "Function Point Analysis",
+      "scope": "計測の種類と原問題が与えた係数を区別する。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "rfc826-arp",
+      "title": "RFC 826 ARP",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc826.html",
+      "type": "independent_note",
+      "section": "Abstract",
+      "scope": "ローカルネットワークにおけるIPアドレスからハードウェアアドレスへの変換。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "rfc791-ipv4",
+      "title": "RFC 791 IPv4",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc791.html",
+      "type": "independent_note",
+      "section": "2.3",
+      "scope": "従来のIPv4アドレスクラス。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "rfc4632-cidr",
+      "title": "RFC 4632 CIDR",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc4632.html",
+      "type": "independent_note",
+      "section": "3.1",
+      "scope": "プレフィックスとネットワーク境界。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "rfc1878-subnet",
+      "title": "RFC 1878 Subnet",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc1878.html",
+      "type": "independent_note",
+      "section": "Table",
+      "scope": "IPv4のプレフィックスのホスト部。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "rfc2818-tls",
+      "title": "RFC 2818 TLS",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc2818.html",
+      "type": "independent_note",
+      "section": "3.1 Server Identity",
+      "scope": "当時のSSL/TLSでサーバ名を証明書に照合する。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "meti-softkanri",
+      "title": "ソフトウェア管理ガイドライン（平成7年公表）",
+      "publisher": "経済産業省",
+      "url": "https://www.meti.go.jp/policy/netsecurity/downloadfiles/softkanri-guide.htm",
+      "type": "independent_note",
+      "section": "1. 目的、2. 適用範囲",
+      "scope": "組織での違法複製防止と管理上の対象。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "omg-uml",
+      "title": "Unified Modeling Language Version 2.0",
+      "publisher": "Object Management Group",
+      "url": "https://www.omg.org/spec/UML/2.0/",
+      "type": "independent_note",
+      "section": "Introduction",
+      "scope": "オブジェクト指向のソフトウェア等を表現するモデリング言語。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "sata-io-port-multiplier",
+      "title": "Serial ATA Revision 2.5",
+      "publisher": "Serial ATA International Organization",
+      "url": "https://sata-io.org/system/files/specifications/SerialATA_Revision_2_5_Gold.pdf",
+      "type": "independent_note",
+      "section": "16.1 Port Multiplier",
+      "scope": "1つのホスト接続を複数の機器接続へ分岐する仕組みを確認した。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    },
+    {
+      "id": "ieee-8023ad-link-aggregation",
+      "title": "IEEE 802.3ad-2000",
+      "publisher": "IEEE",
+      "url": "https://standards.ieee.org/ieee/802.3ad/1088/",
+      "type": "independent_note",
+      "section": "IEEE 802.3adの概要",
+      "scope": "LANの複数リンクを束ねる仕組みと、SATAのポートマルチプライヤを区別した。",
+      "limits": "内容照合の参照先。外部の図版・規格原文を掲載しない。"
+    }
+  ],
+  "referencesByQuestion": {
+    "24": [
+      "sata-io-port-multiplier",
+      "ieee-8023ad-link-aggregation"
+    ],
+    "31": [
+      "rfc1831-rpc"
+    ],
+    "46": [
+      "ifpug-fpa"
+    ],
+    "51": [
+      "rfc826-arp"
+    ],
+    "52": [
+      "rfc791-ipv4",
+      "rfc4632-cidr",
+      "rfc1878-subnet"
+    ],
+    "67": [
+      "rfc2818-tls"
+    ],
+    "68": [
+      "meti-softkanri"
+    ],
+    "69": [
+      "omg-uml"
+    ]
+  }
+}
