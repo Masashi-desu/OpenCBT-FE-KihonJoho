@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問2628件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2107問、旧午後332大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問2639件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2107問、旧午後343大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -2855,6 +2855,22 @@
 | [旧午前問79 p.31](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_am_qs.pdf#page=31) | generator-source-2007h19h-fe-am-79@3.7.0 | 梱包越しに読み取れるICタグ（RFID）。問いの対象・判断条件：0〜3（0） | 文章／4択 |
 | [旧午前問80 p.31](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2007h19_1/2007h19h_fe_am_qs.pdf#page=31) | generator-source-2007h19h-fe-am-80@3.7.0 | プログラム著作物の保護範囲。問いの対象・判断条件：0〜3（0） | 文章／4択 |
 
+### 2006年度 秋期・午後
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午後問1 p.4](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=4) | generator-source-2006h18a-fe-pm-1@3.6.0 | ハードディスク装置の故障率と維持費。稼働台数、故障台数、MTTF、交換単価と装置別の年間費用：0〜3（0） | 文章・表／12択・4解答欄 |
+| [旧午後問2 p.6](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=6) | generator-source-2006h18a-fe-pm-2@3.6.0 | 販売データの正規化と購入履歴のSQL。販売金額の条件、商品の分類と例示するデータ：0〜3（0） | 文章・図・表・コード／17択・4解答欄 |
+| [旧午後問3 p.9](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=9) | generator-source-2006h18a-fe-pm-3@3.6.0 | ガウスの消去法の前進消去と後退代入。連立方程式の定数項・消去途中の値及び解：0〜3（0） | 画像・文章・数式・表・コード／9択・3解答欄 |
+| [旧午後問4 p.12](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=12) | generator-source-2006h18a-fe-pm-4@3.6.0 | タブ文字の展開と配列で指定するタブ位置。文字列を構成する文字、タブ位置、間隔及び図の実行例：0〜3（0） | 画像・文章・図・表・コード／14択・5解答欄 |
+| [旧午後問5 p.16](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=16) | generator-source-2006h18a-fe-pm-5@3.6.0 | 原料の必要量の分類・集計と切捨て誤差の補正。牧場を示すコードと、混合で切捨て分を補正する牧場：0〜3（0） | 文章・図・コード／20択・5解答欄 |
+| [旧午後問6 p.21](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=21) | generator-source-2006h18a-fe-pm-6@3.7.0 | C：数当てゲームの Hit と Blow。目標数と推測数のけた数：0〜3（0） | 文章・コード／21択・5解答欄 |
+| [旧午後問7 p.24](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=24) | generator-source-2006h18a-fe-pm-7@3.7.0 | COBOL：電話帳索引の追加・削除と重複番号。同じ氏名で登録される上限と実例の対応：0〜3（0） | 文章・表・コード／13択・5解答欄 |
+| [旧午後問9 p.31](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=31) | generator-source-2006h18a-fe-pm-9@3.7.0 | CASL II：上位ビット列の結合と分割。1語内のビット列長と残りの長さ：0〜3（0） | 画像・文章・図・コード／14択・5解答欄 |
+| [旧午後問11 p.38](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=38) | generator-source-2006h18a-fe-pm-11@3.7.0 | COBOL：部品展開と在庫割当て。所要個数・在庫・出荷数：0〜3（0） | 文章・図・コード／16択・5解答欄 |
+| [旧午後問12 p.43](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=43) | generator-source-2006h18a-fe-pm-12@3.7.0 | Java：図書の貸出し・返却と雑誌の最新号。貸出上限・図書・巻号：0〜3（0） | 文章・表・図・コード／23択・5解答欄 |
+| [旧午後問13 p.48](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_pm_qs.pdf#page=48) | generator-source-2006h18a-fe-pm-13@3.7.0 | CASL II：ビット列の置換と左循環シフト。ビット列とパターン長：0〜3（0） | 画像・文章・図・コード／17択・5解答欄 |
+
 ### 2006年度 秋期・午前
 
 | 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
@@ -4012,6 +4028,30 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2006-autumn-am-77-option-2 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-am-77-option-2」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2006-autumn-am-77-option-3 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-am-77-option-3」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2006-autumn-am-77-option-4 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-am-77-option-4」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-2-sales-format | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-2-sales-format」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-4-tab-run | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-4-tab-run」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-4-tab-stops | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-4-tab-stops」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-needed-file | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-needed-file」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-ratio-file | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-ratio-file」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-totals-file | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-totals-file」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-io | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-io」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-hierarchy | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-hierarchy」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-dispatch | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-dispatch」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-5-mix-flow | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-5-mix-flow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-9-word-format | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-9-word-format」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-9-keep-data | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-9-keep-data」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-9-replacements | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-9-replacements」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-components | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-components」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-component-records | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-component-records」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-record-format-1 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-record-format-1」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-record-format-2 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-record-format-2」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-record-format-3 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-record-format-3」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-record-format-4 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-record-format-4」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-11-adjustment | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-11-adjustment」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-12-output | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-12-output」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-12-changes | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-12-changes」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-13-replacement | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-13-replacement」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-autumn-pm-13-rotation | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-autumn-pm-13-rotation」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -19931,6 +19971,303 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | 横軸・縦軸とも5刻みの目盛。各点を中心から読み取った概略座標（横，縦）：(-11，-4)、(9，-2)、(1，11)、(6，9)、(-4，8)、(12，8)、(9，4)、(18，4)、(-7，4)、(1，2)、(-3，3)、(13，2)、(6，-1)、(18，-1)、(-3，-3)、(6，-5)、(13，-4)、(17，-5)、(0，-8)、(10，-7)、(-9，-8)、(13，-11)、(-7，-12)、(7，-12)、(-3，-15)、(1，-15)。 |
 | `[2]` | 横軸・縦軸とも5刻みの目盛。各点を中心から読み取った概略座標（横，縦）：(0，19)、(1，15)、(7，19)、(2，17)、(9，17)、(12，17)、(4，16)、(14，15)、(10，13)、(17，13)、(3，13)、(15，13)、(5，13)、(12，12)、(16，11)、(19，11)、(9，10)、(17，9)、(11，9)、(23，9)、(15，9)、(19，8)、(17，7)、(26，7)、(19，6)、(25，5)。 |
 | `[3]` | 横軸・縦軸とも5刻みの目盛。各点を中心から読み取った概略座標（横，縦）：(-16，-4)、(4，-2)、(-4，9)、(1，7)、(-9，7)、(7，7)、(4，3)、(13，3)、(-12，3)、(-4，1)、(-8，2)、(8，2)、(1，-1)、(13，-1)、(-8，-3)、(1，-5)、(8，-4)、(12，-4)、(-5，-7)、(5，-6)、(-14，-7)、(8，-10)、(-12，-10)、(2，-10)、(-8，-13)、(-4，-13)。 |
+
+</details>
+
+### legacy-2006-autumn-pm-2-sales-format
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 横一列に伝票番号、日付、氏名、電話番号、住所、販売額、商品名、個数。氏名、電話番号、住所を会員情報、販売額から先を販売情報とする。商品名と個数の組は、販売した商品の数だけ繰り返す。 |
+
+</details>
+
+### legacy-2006-autumn-pm-4-tab-run
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 文字位置は左端の1から右へ順番に数える。Src：a、b、TAB、c、d、e、TAB、f、g、h、i、TAB、j、EOS。Dst：a、b、△、△、c、d、e、△、f、g、h、i、△、△、△、△、j、EOS。▼で示すタブ位置は5、9、13、17。TABはタブ文字、△は間隔文字、EOSは終端。 |
+| `[1]` | 文字位置は左端の1から右へ順番に数える。Src：x、y、TAB、a、b、TAB、c、d、e、TAB、f、EOS。Dst：x、y、△、a、b、△、c、d、e、△、△、△、f、EOS。▼で示すタブ位置は4、7、10、13。TABはタブ文字、△は間隔文字、EOSは終端。 |
+| `[2]` | 文字位置は左端の1から右へ順番に数える。Src：m、n、o、TAB、p、q、r、s、TAB、t、u、v、TAB、w、EOS。Dst：m、n、o、△、△、p、q、r、s、△、t、u、v、△、△、w、EOS。▼で示すタブ位置は6、11、16。TABはタブ文字、△は間隔文字、EOSは終端。 |
+| `[3]` | 文字位置は左端の1から右へ順番に数える。Src：k、l、m、n、TAB、o、p、q、r、s、TAB、u、v、TAB、x、EOS。Dst：k、l、m、n、△、△、o、p、q、r、s、△、u、v、△、△、△、△、x、EOS。▼で示すタブ位置は7、13、19。TABはタブ文字、△は間隔文字、EOSは終端。 |
+
+</details>
+
+### legacy-2006-autumn-pm-4-tab-stops
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | TabSet[1]は5、TabSet[2]は9、TabSet[3]は13、TabSet[4]は17、中間を省略し、TabSet[m]は−1。 |
+| `[1]` | TabSet[1]は4、TabSet[2]は7、TabSet[3]は10、TabSet[4]は13、中間を省略し、TabSet[m]は−1。 |
+| `[2]` | TabSet[1]は6、TabSet[2]は11、TabSet[3]は16、中間を省略し、TabSet[m]は−1。 |
+| `[3]` | TabSet[1]は7、TabSet[2]は13、TabSet[3]は19、中間を省略し、TabSet[m]は−1。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-needed-file
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 製造日、製品コード、ロット番号、牛乳の必要量、牧場区分を左から順に並べる。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-ratio-file
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 製品コード、J牧場の割合、K牧場の割合、L牧場の割合を左から順に並べる。 |
+| `[1]` | 製品コード、P牧場の割合、Q牧場の割合、R牧場の割合を左から順に並べる。 |
+| `[2]` | 製品コード、S牧場の割合、T牧場の割合、U牧場の割合を左から順に並べる。 |
+| `[3]` | 製品コード、A牧場の割合、B牧場の割合、C牧場の割合を左から順に並べる。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-totals-file
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 製造日、J牧場の総必要量、K牧場の総必要量、L牧場の総必要量を左から順に並べる。 |
+| `[1]` | 製造日、P牧場の総必要量、Q牧場の総必要量、R牧場の総必要量を左から順に並べる。 |
+| `[2]` | 製造日、S牧場の総必要量、T牧場の総必要量、U牧場の総必要量を左から順に並べる。 |
+| `[3]` | 製造日、A牧場の総必要量、B牧場の総必要量、C牧場の総必要量を左から順に並べる。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-io
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 必要量ファイルと標準混合割合ファイルから必要量集計へ矢印が入る。必要量集計から集計ファイルとエラーファイルへ矢印が出る。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-hierarchy
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 頂点は必要量集計。第1階層は初期処理、主処理、終了処理で、主処理は繰返し。主処理の下の第2階層は前処理、集計処理、後処理で、集計処理は繰返し。集計処理の下の第3階層は初期化、必要量計算、集計。必要量計算の下の第4階層は条件分岐で混合、単一、エラー。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-dispatch
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左は主処理。開始から前処理に入り、必要量ファイルの終わり又は［a］まで集計処理を繰り返す。後処理を実行し、終了する。右は必要量計算。開始後に［b］を判定し、Yesなら混合、Noなら［c］を判定。［c］はYesなら単一、Noならエラー。いずれも必要量計算の終了へ進む。 |
+
+</details>
+
+### legacy-2006-autumn-pm-5-mix-flow
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 混合の開始→標準混合割合ファイルを読む→wj←牛乳の必要量×J牧場の割合÷100→wk←牛乳の必要量×K牧場の割合÷100→wl←［d］→混合の終了。 |
+| `[1]` | 混合の開始→標準混合割合ファイルを読む→wq←牛乳の必要量×Q牧場の割合÷100→wr←牛乳の必要量×R牧場の割合÷100→wp←［d］→混合の終了。 |
+| `[2]` | 混合の開始→標準混合割合ファイルを読む→ws←牛乳の必要量×S牧場の割合÷100→wu←牛乳の必要量×U牧場の割合÷100→wt←［d］→混合の終了。 |
+| `[3]` | 混合の開始→標準混合割合ファイルを読む→wa←牛乳の必要量×A牧場の割合÷100→wb←牛乳の必要量×B牧場の割合÷100→wc←［d］→混合の終了。 |
+
+</details>
+
+### legacy-2006-autumn-pm-9-word-format
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | COMBINE：C1 の左 m ビット（網掛け），C2 の左 n ビット（塗りつぶし）。GR0 の左から m ビット，n ビット，残りは0。 DIVIDE：GR0 の左から m ビット（網掛け）と n ビット（塗りつぶし）。D1 は左 m ビット，D2 は左 n ビット，残りはどちらも0。 |
+| `[1]` | COMBINE：C1 の左 m ビット（網掛け），C2 の左 n ビット（塗りつぶし）。GR0 の左から m ビット，n ビット，残りは0。 DIVIDE：GR0 の左から m ビット（網掛け）と n ビット（塗りつぶし）。D1 は左 m ビット，D2 は左 n ビット，残りはどちらも0。 図の幅の例では m＝3，n＝7。 |
+| `[2]` | COMBINE：C1 の左 m ビット（網掛け），C2 の左 n ビット（塗りつぶし）。GR0 の左から m ビット，n ビット，残りは0。 DIVIDE：GR0 の左から m ビット（網掛け）と n ビット（塗りつぶし）。D1 は左 m ビット，D2 は左 n ビット，残りはどちらも0。 図の幅の例では m＝4，n＝12。 |
+| `[3]` | COMBINE：C1 の左 m ビット（網掛け），C2 の左 n ビット（塗りつぶし）。GR0 の左から m ビット，n ビット，残りは0。 DIVIDE：GR0 の左から m ビット（網掛け）と n ビット（塗りつぶし）。D1 は左 m ビット，D2 は左 n ビット，残りはどちらも0。 図の幅の例では m＝1，n＝5。 |
+
+</details>
+
+### legacy-2006-autumn-pm-9-keep-data
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | GR0 の左から m ビット（網掛け），n ビット（塗りつぶし）。D1 の左 m ビットと D2 の左 n ビットに分割し，各語の残りは元のデータを保持する。 |
+| `[1]` | GR0 の左から m ビット（網掛け），n ビット（塗りつぶし）。D1 の左 m ビットと D2 の左 n ビットに分割し，各語の残りは元のデータを保持する。 図の幅の例では m＝3，n＝7。 |
+| `[2]` | GR0 の左から m ビット（網掛け），n ビット（塗りつぶし）。D1 の左 m ビットと D2 の左 n ビットに分割し，各語の残りは元のデータを保持する。 図の幅の例では m＝4，n＝12。 |
+| `[3]` | GR0 の左から m ビット（網掛け），n ビット（塗りつぶし）。D1 の左 m ビットと D2 の左 n ビットに分割し，各語の残りは元のデータを保持する。 図の幅の例では m＝1，n＝5。 |
+
+</details>
+
+### legacy-2006-autumn-pm-9-replacements
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 処置と変更内容 αを置換： LD    GR7,=#FFFF SRL   GR7,0,GR2 ［d］       ; 元のデータを取り出す。 OR    GR0,GR7 ST    GR0,0,GR1  βを置換： LD    GR7,=#FFFF SRL   GR7,0,GR4 AND   GR7,0,GR3 ［e］       ; データを結合する。 ST    GR5,0,GR3 |
+| `[1]` | 処置と変更内容 αを置換： LD    GR7,=#FFFF SRL   GR7,0,GR2 ［d］       ; 元のデータを取り出す。 OR    GR0,GR7 ST    GR0,0,GR1  βを置換： LD    GR7,=#FFFF SRL   GR7,0,GR4 AND   GR7,0,GR3 ［e］       ; データを結合する。 ST    GR5,0,GR3 |
+| `[2]` | 処置と変更内容 αを置換： LD    GR7,=#FFFF SRL   GR7,0,GR2 ［d］       ; 元のデータを取り出す。 OR    GR0,GR7 ST    GR0,0,GR1  βを置換： LD    GR7,=#FFFF SRL   GR7,0,GR4 AND   GR7,0,GR3 ［e］       ; データを結合する。 ST    GR5,0,GR3 |
+| `[3]` | 処置と変更内容 αを置換： LD    GR7,=#FFFF SRL   GR7,0,GR2 ［d］       ; 元のデータを取り出す。 OR    GR0,GR7 ST    GR0,0,GR1  βを置換： LD    GR7,=#FFFF SRL   GR7,0,GR4 AND   GR7,0,GR3 ［e］       ; データを結合する。 ST    GR5,0,GR3 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-components
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 製品S1：部品B1（2）、部品B2（2）、部品B3（1）。製品S2：部品B1（1）、部品B3（3）。 |
+| `[1]` | 製品S1：部品B1（1）、部品B2（3）、部品B3（2）。製品S2：部品B1（2）、部品B3（2）。 |
+| `[2]` | 製品S1：部品B1（3）、部品B2（1）、部品B3（2）。製品S2：部品B1（1）、部品B3（4）。 |
+| `[3]` | 製品S1：部品B1（2）、部品B2（1）、部品B3（3）。製品S2：部品B1（2）、部品B3（2）。 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-component-records
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 各行は製品コード・部品コード・所要個数。S1｜B1｜2、S1｜B2｜2、S1｜B3｜1、S2｜B1｜1、S2｜B3｜3。 |
+| `[1]` | 各行は製品コード・部品コード・所要個数。S1｜B1｜1、S1｜B2｜3、S1｜B3｜2、S2｜B1｜2、S2｜B3｜2。 |
+| `[2]` | 各行は製品コード・部品コード・所要個数。S1｜B1｜3、S1｜B2｜1、S1｜B3｜2、S2｜B1｜1、S2｜B3｜4。 |
+| `[3]` | 各行は製品コード・部品コード・所要個数。S1｜B1｜2、S1｜B2｜1、S1｜B3｜3、S2｜B1｜2、S2｜B3｜2。 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-record-format-1
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 製品出荷指示ファイル：出荷番号 5けた｜製品コード 8けた｜出荷数 10けた。 |
+| `[1]` | 製品出荷指示ファイル：出荷番号 5けた｜製品コード 8けた｜出荷数 10けた。 |
+| `[2]` | 製品出荷指示ファイル：出荷番号 5けた｜製品コード 8けた｜出荷数 10けた。 |
+| `[3]` | 製品出荷指示ファイル：出荷番号 5けた｜製品コード 8けた｜出荷数 10けた。 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-record-format-2
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 在庫ファイル：資材コード（製品コード又は部品コード） 8けた｜在庫数 10けた｜割当て済み数 10けた。 |
+| `[1]` | 在庫ファイル：資材コード（製品コード又は部品コード） 8けた｜在庫数 10けた｜割当て済み数 10けた。 |
+| `[2]` | 在庫ファイル：資材コード（製品コード又は部品コード） 8けた｜在庫数 10けた｜割当て済み数 10けた。 |
+| `[3]` | 在庫ファイル：資材コード（製品コード又は部品コード） 8けた｜在庫数 10けた｜割当て済み数 10けた。 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-record-format-3
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 部品展開ファイル：製品コード 8けた｜部品コード 8けた｜所要個数 5けた。製品コードと部品コードの組が部品展開キー。 |
+| `[1]` | 部品展開ファイル：製品コード 8けた｜部品コード 8けた｜所要個数 5けた。製品コードと部品コードの組が部品展開キー。 |
+| `[2]` | 部品展開ファイル：製品コード 8けた｜部品コード 8けた｜所要個数 5けた。製品コードと部品コードの組が部品展開キー。 |
+| `[3]` | 部品展開ファイル：製品コード 8けた｜部品コード 8けた｜所要個数 5けた。製品コードと部品コードの組が部品展開キー。 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-record-format-4
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 部品注文ファイル：出荷番号 5けた｜部品コード 8けた｜発注数 10けた。 |
+| `[1]` | 部品注文ファイル：出荷番号 5けた｜部品コード 8けた｜発注数 10けた。 |
+| `[2]` | 部品注文ファイル：出荷番号 5けた｜部品コード 8けた｜発注数 10けた。 |
+| `[3]` | 部品注文ファイル：出荷番号 5けた｜部品コード 8けた｜発注数 10けた。 |
+
+</details>
+
+### legacy-2006-autumn-pm-11-adjustment
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 処置｜変更内容 行番号12と13の間に挿入｜05  Z-YOYUU-SU     PIC 9(10). 行番号66を置換｜COMPUTE W-YUKO-ZSU = ［d］. |
+| `[1]` | 処置｜変更内容 行番号12と13の間に挿入｜05  Z-YOYUU-SU     PIC 9(10). 行番号66を置換｜COMPUTE W-YUKO-ZSU = ［d］. |
+| `[2]` | 処置｜変更内容 行番号12と13の間に挿入｜05  Z-YOYUU-SU     PIC 9(10). 行番号66を置換｜COMPUTE W-YUKO-ZSU = ［d］. |
+| `[3]` | 処置｜変更内容 行番号12と13の間に挿入｜05  Z-YOYUU-SU     PIC 9(10). 行番号66を置換｜COMPUTE W-YUKO-ZSU = ［d］. |
+
+</details>
+
+### legacy-2006-autumn-pm-12-output
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | Taro is checking out Magazine: JITEC News, No.3912 (M001) Taro is checking out Magazine: JITEC News, No.4001 (M002) Taro is checking out Book: Java Programming (P001) Taro is checking out Book: Ruby Programming (P003)     =&gt; failed: exceeding checkout limit Taro returned Magazine: JITEC News, No.3912 (M001) Hana is checking out Magazine: JITEC News, No.3912 (M001) Hana is checking out Book: Java Programming (P001)     =&gt; failed: unavailable |
+| `[1]` | Aki is checking out Magazine: Library Notes, No.272 (M001) Aki is checking out Magazine: Library Notes, No.301 (M002) Aki is checking out Book: C Algorithms (P001)     =&gt; failed: exceeding checkout limit Aki is checking out Book: Data Reports (P003)     =&gt; failed: exceeding checkout limit Aki returned Magazine: Library Notes, No.272 (M001) Ren is checking out Magazine: Library Notes, No.272 (M001) Ren is checking out Book: C Algorithms (P001) |
+| `[2]` | Yui is checking out Magazine: Monthly Study, No.18 (M001) Yui is checking out Magazine: Monthly Study, No.21 (M002)     =&gt; failed: exceeding checkout limit Yui is checking out Book: Coding in C (P001)     =&gt; failed: exceeding checkout limit Yui is checking out Book: Data Tables (P003)     =&gt; failed: exceeding checkout limit Yui returned Magazine: Monthly Study, No.18 (M001) Ken is checking out Magazine: Monthly Study, No.18 (M001) Ken is checking out Book: Coding in C (P001)     =&gt; failed: exceeding checkout limit |
+| `[3]` | Mai is checking out Magazine: Systems Monthly, No.59 (M001) Mai is checking out Magazine: Systems Monthly, No.67 (M002) Mai is checking out Book: Network Basics (P001) Mai is checking out Book: Office Tools (P003) Mai returned Magazine: Systems Monthly, No.59 (M001) Jun is checking out Magazine: Systems Monthly, No.59 (M001) Jun is checking out Book: Network Basics (P001)     =&gt; failed: unavailable |
+
+</details>
+
+### legacy-2006-autumn-pm-12-changes
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 処置｜追加内容 行番号50の直後に追加 Set&lt;Magazine&gt; latestMagazines = new HashSet&lt;Magazine&gt;();  行番号58の直後に追加 if (book instanceof Magazine)     updateLatestMagazineList((Magazine) book);  行番号62の直後に追加 if (book instanceof Magazine) &#123;     Magazine magazine = (Magazine) book;     if (latestMagazines.contains(magazine))         ［b］("latest issue"); &#125;  行番号78の直後に追加 void updateLatestMagazineList(Magazine magazine) &#123;     for (Magazine magazine2 : latestMagazines)         if (magazine2.name.equals(magazine.name)) &#123;             if (magazine.issueNo ［d］ magazine2.issueNo) &#123;                 return;             &#125; else &#123;                 latestMagazines.remove(magazine2);                 break;             &#125;         &#125;     ［e］; &#125; |
+| `[1]` | 処置｜追加内容 行番号50の直後に追加 Set&lt;Magazine&gt; latestMagazines = new HashSet&lt;Magazine&gt;();  行番号58の直後に追加 if (book instanceof Magazine)     updateLatestMagazineList((Magazine) book);  行番号62の直後に追加 if (book instanceof Magazine) &#123;     Magazine magazine = (Magazine) book;     if (latestMagazines.contains(magazine))         ［b］("latest issue"); &#125;  行番号78の直後に追加 void updateLatestMagazineList(Magazine magazine) &#123;     for (Magazine magazine2 : latestMagazines)         if (magazine2.name.equals(magazine.name)) &#123;             if (magazine.issueNo ［d］ magazine2.issueNo) &#123;                 return;             &#125; else &#123;                 latestMagazines.remove(magazine2);                 break;             &#125;         &#125;     ［e］; &#125; |
+| `[2]` | 処置｜追加内容 行番号50の直後に追加 Set&lt;Magazine&gt; latestMagazines = new HashSet&lt;Magazine&gt;();  行番号58の直後に追加 if (book instanceof Magazine)     updateLatestMagazineList((Magazine) book);  行番号62の直後に追加 if (book instanceof Magazine) &#123;     Magazine magazine = (Magazine) book;     if (latestMagazines.contains(magazine))         ［b］("latest issue"); &#125;  行番号78の直後に追加 void updateLatestMagazineList(Magazine magazine) &#123;     for (Magazine magazine2 : latestMagazines)         if (magazine2.name.equals(magazine.name)) &#123;             if (magazine.issueNo ［d］ magazine2.issueNo) &#123;                 return;             &#125; else &#123;                 latestMagazines.remove(magazine2);                 break;             &#125;         &#125;     ［e］; &#125; |
+| `[3]` | 処置｜追加内容 行番号50の直後に追加 Set&lt;Magazine&gt; latestMagazines = new HashSet&lt;Magazine&gt;();  行番号58の直後に追加 if (book instanceof Magazine)     updateLatestMagazineList((Magazine) book);  行番号62の直後に追加 if (book instanceof Magazine) &#123;     Magazine magazine = (Magazine) book;     if (latestMagazines.contains(magazine))         ［b］("latest issue"); &#125;  行番号78の直後に追加 void updateLatestMagazineList(Magazine magazine) &#123;     for (Magazine magazine2 : latestMagazines)         if (magazine2.name.equals(magazine.name)) &#123;             if (magazine.issueNo ［d］ magazine2.issueNo) &#123;                 return;             &#125; else &#123;                 latestMagazines.remove(magazine2);                 break;             &#125;         &#125;     ［e］; &#125; |
+
+</details>
+
+### legacy-2006-autumn-pm-13-replacement
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | ビット列A：1 0 1 1 0 0 1 1 1 0 0 1 0 0 0 1。ビット列B：0 1 1 1 0 0。ビット列C：1 1 0 0 1 0。n＝6。Aの左から6ビット目からの6ビットがBと一致するので，そこをCに置換する。置換後：1 0 1 1 0 1 1 0 0 1 0 1 0 0 0 1。 |
+| `[1]` | ビット列A：0 1 0 1 0 1 1 1 0 0 1 0 0 1 1 1。ビット列B：1 0 1 1 1 0。ビット列C：1 1 0 0 0 1。n＝6。Aの左から4ビット目からの6ビットがBと一致するので，そこをCに置換する。置換後：0 1 0 1 1 0 0 0 1 0 1 0 0 1 1 1。 |
+| `[2]` | ビット列A：1 0 1 1 1 1 0 1 0 0 1 0 0 0 1 0。ビット列B：1 1 0 1 0。ビット列C：0 0 1 1 0。n＝5。Aの左から5ビット目からの5ビットがBと一致するので，そこをCに置換する。置換後：1 0 1 1 0 0 1 1 0 0 1 0 0 0 1 0。 |
+| `[3]` | ビット列A：1 1 0 1 1 0 0 0 1 1 1 0 0 1 0 0。ビット列B：1 1 1 0 0。ビット列C：0 1 0 1 0。n＝5。Aの左から9ビット目からの5ビットがBと一致するので，そこをCに置換する。置換後：1 1 0 1 1 0 0 0 0 1 0 1 0 1 0 0。 |
+
+</details>
+
+### legacy-2006-autumn-pm-13-rotation
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左循環シフト前：1 0 1 1 0 0 1 1 1 0 0 1 0 0 0 1。m＝5。先頭5ビットは右端に戻し，残りは左にシフトする。シフト後：0 1 1 1 0 0 1 0 0 0 1 1 0 1 1 0。 |
+| `[1]` | 左循環シフト前：0 1 0 1 0 1 1 1 0 0 1 0 0 1 1 1。m＝3。先頭3ビットは右端に戻し，残りは左にシフトする。シフト後：1 0 1 1 1 0 0 1 0 0 1 1 1 0 1 0。 |
+| `[2]` | 左循環シフト前：1 0 1 1 1 1 0 1 0 0 1 0 0 0 1 0。m＝6。先頭6ビットは右端に戻し，残りは左にシフトする。シフト後：0 1 0 0 1 0 0 0 1 0 1 0 1 1 1 1。 |
+| `[3]` | 左循環シフト前：1 1 0 1 1 0 0 0 1 1 1 0 0 1 0 0。m＝7。先頭7ビットは右端に戻し，残りは左にシフトする。シフト後：0 1 1 1 0 0 1 0 0 1 1 0 1 1 0 0。 |
 
 </details>
 

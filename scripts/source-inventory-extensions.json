@@ -403,6 +403,23 @@
           "reason": "各装置の稼働率は0.9だが同時停止の関係が未指定。停止が互いに素なら最少2台、独立なら3台、停止が重なる構成では4台でも同じ周辺稼働率を満たせる。"
         }
       ]
+    },
+    {
+      "collectionId": "2006h18a-fe-pm",
+      "excluded": [
+        {
+          "number": 8,
+          "sourceId": "source-ipa-2006h18a-fe-pm-qs",
+          "checkedOn": "2026-11-18",
+          "reason": "原冊子p.28のputは異なるキーが既に同じ値に対応するときIllegalArgumentExceptionを投げる。p.29の固定条件 reverse.containsKey(value) は同じキーと値の登録を繰り返しても例外を投げる。put(\"A\",7) に続く put(\"A\",7) で再現した。空欄a〜dのいずれを変更しても、先行するこの固定条件だけでは同じキーと他キーは区別できない。JDK実行では putForce(null,7) がNullPointerExceptionを投げる前に既存の対応を削除することも確認。公式索引・解答例・採点講評とIPA公開情報を調べた範囲で訂正を確認できないため保留する。"
+        },
+        {
+          "number": 10,
+          "sourceId": "source-ipa-2006h18a-fe-pm-qs",
+          "checkedOn": "2026-11-18",
+          "reason": "IPA冊子と公式解答の該当頁を照合。掲載候補へ出力しない。"
+        }
+      ]
     }
   ]
 }
