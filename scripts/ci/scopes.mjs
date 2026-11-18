@@ -289,7 +289,7 @@ export function afternoonSelectionCountAppendScopes(beforeText, afterText) {
     }
     return added.length ? added.sort() : null;
 }
-export function sourceInventoryAppendScopes(beforeText, afterText) {
+export function sourceInventoryChangeScopes(beforeText, afterText, beforeOwnership, afterOwnership) {
     let before, after;
     try {
         before = JSON.parse(beforeText);
@@ -325,9 +325,54 @@ export function sourceInventoryAppendScopes(beforeText, afterText) {
         }
         return true;
     };
-    if (!valid(before) || !valid(after) || after.collections.length <= before.collections.length || stable(after.collections.slice(0, before.collections.length)) !== stable(before.collections))
+    if (!valid(before) || !valid(after) || after.collections.length < before.collections.length)
         return null;
-    return after.collections.slice(before.collections.length).map(row => collectionScope(collectionPattern.exec(row.collectionId)));
+    const scopes = new Set();
+    for (const [index, row] of before.collections.entries()) {
+        const current = after.collections[index];
+        if (row.collectionId !== current.collectionId)
+            return null;
+        if (stable(row) === stable(current))
+            continue;
+        const retained = new Set(current.excluded.map(stable));
+        if (current.excluded.length >= row.excluded.length || stable(row.excluded.filter(held => retained.has(stable(held)))) !== stable(current.excluded))
+            return null;
+        const scope = collectionScope(collectionPattern.exec(row.collectionId));
+        if (row.excluded.some(held => !retained.has(stable(held)) &&
+            !publishedHoldRemoval(row.collectionId, held, scope, beforeOwnership, afterOwnership)))
+            return null;
+        scopes.add(scope);
+    }
+    for (const row of after.collections.slice(before.collections.length))
+        scopes.add(collectionScope(collectionPattern.exec(row.collectionId)));
+    return scopes.size ? [...scopes].sort() : null;
+}
+/** Removing a hold narrows to its booklet only if the original and generator
+ * joined the distributed annual set and the corresponding generation pool. */
+function publishedHoldRemoval(collection, held, scope, before, after) {
+    if (!before || !after)
+        return false;
+    const suffix = collection + '-' + held.number;
+    const originalId = 'question-ipa-' + suffix, baseId = 'question-template-source-' + suffix;
+    const templateId = 'template-source-' + suffix;
+    if ([originalId, baseId, templateId].some(id => before.entries.has(id) || !after.owners.get(id)?.has(scope)))
+        return false;
+    const original = after.entries.get(originalId)?.record, base = after.entries.get(baseId)?.record;
+    const template = after.entries.get(templateId)?.record;
+    if (original?.distribution !== 'included' || base?.distribution !== 'included' || template?.distribution !== 'included' ||
+        original.origin?.kind !== 'official_reprint' || base.origin?.kind !== 'official_adaptation' ||
+        !original.origin.sourceRefs?.some(ref => ref.sourceId === held.sourceId && ref.locator.questionNumber === String(held.number)) ||
+        !base.origin.derivedFrom?.some(ref => ref.questionId === originalId && ref.revision === original.revision) ||
+        template.generatorRef?.id !== 'generator-source-' + suffix ||
+        template.baseQuestionRef?.questionId !== baseId || template.baseQuestionRef.revision !== base.revision)
+        return false;
+    const annual = after.entries.get('set-annual-' + collection)?.record;
+    const mix = after.entries.get(scope.endsWith('-am') ? 'set-mix-a' : 'set-mix-b')?.record;
+    return annual?.distribution === 'included' && mix?.distribution === 'included' &&
+        annual.questionRefs.some(ref => ref.questionId === originalId && ref.revision === original.revision) &&
+        mix.questionRefs.some(ref => ref.questionId === baseId && ref.revision === base.revision) &&
+        mix.generationBindings.some(binding => binding.questionRef.questionId === baseId && binding.questionRef.revision === base.revision &&
+            binding.templateRef.id === templateId && binding.templateRef.revision === template.revision);
 }
 /** Follow direct imports between owned modules. Generic runtime consumers are
  * full-scope unless they are an explicit, separately tested registry boundary. */

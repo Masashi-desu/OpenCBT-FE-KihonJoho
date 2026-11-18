@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { scopeFamily, scopeForQuestion } from '../../scripts/ci/booklet-scope.mjs';
-import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryAppendScopes, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from '../../scripts/ci/scopes.mjs';
+import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryChangeScopes, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from '../../scripts/ci/scopes.mjs';
 import { runtimeDependencyGraph } from '../../scripts/ci/runtime-dependencies.mjs';
 import { makeParts } from '../../scripts/ci/plan.mjs';
 const scopes = ['2016-autumn-am', '2016-autumn-pm', '2016-spring-am', '2016-spring-pm', '2017-spring-pm', '2024-a'];
@@ -304,17 +304,41 @@ test('unresolved aliases, computed dynamic imports, require arguments and malfor
 });
 test('source obligations accept only closed append-only collection declarations with retained held source numbers', () => {
     const empty = JSON.stringify({ version: 1, collections: [] }), row = { collectionId: '2016h28a-fe-pm', excluded: [{ number: 12, reason: 'Third-party material conditions pending', sourceId: 'source-ipa-2016h28a-fe-pm-qs', checkedOn: '2026-11-02' }] }, after = JSON.stringify({ version: 1, collections: [row] });
-    assert.deepEqual(sourceInventoryAppendScopes(empty, after), ['2016-autumn-pm']);
+    assert.deepEqual(sourceInventoryChangeScopes(empty, after), ['2016-autumn-pm']);
     const special = { collectionId: '2011h23tokubetsu-fe-am', excluded: [] };
     const specialOnly = JSON.stringify({ version: 1, collections: [special] });
-    assert.deepEqual(sourceInventoryAppendScopes(empty, specialOnly), ['2011-special-am']);
-    assert.deepEqual(sourceInventoryAppendScopes(specialOnly, JSON.stringify({ version: 1, collections: [special, row] })), ['2016-autumn-pm']);
-    assert.equal(sourceInventoryAppendScopes(empty, JSON.stringify({ version: 1, collections: [{ ...special, collectionId: '2012h24tokubetsu-fe-am' }] })), null);
-    assert.equal(sourceInventoryAppendScopes(specialOnly, JSON.stringify({ version: 1, collections: [special, { ...special, collectionId: '2011h23t-fe-am' }] })), null);
+    assert.deepEqual(sourceInventoryChangeScopes(empty, specialOnly), ['2011-special-am']);
+    assert.deepEqual(sourceInventoryChangeScopes(specialOnly, JSON.stringify({ version: 1, collections: [special, row] })), ['2016-autumn-pm']);
+    assert.equal(sourceInventoryChangeScopes(empty, JSON.stringify({ version: 1, collections: [{ ...special, collectionId: '2012h24tokubetsu-fe-am' }] })), null);
+    assert.equal(sourceInventoryChangeScopes(specialOnly, JSON.stringify({ version: 1, collections: [special, { ...special, collectionId: '2011h23t-fe-am' }] })), null);
     for (const bad of [{ ...row, collectionId: '2016h27a-fe-pm' }, { ...row, extra: 'hook' }, { ...row, excluded: [{ ...row.excluded[0], number: 14 }] }, { ...row, excluded: [{ ...row.excluded[0], sourceId: 'source-foreign' }] }, { ...row, excluded: [row.excluded[0], row.excluded[0]] }])
-        assert.equal(sourceInventoryAppendScopes(empty, JSON.stringify({ version: 1, collections: [bad] })), null);
-    assert.equal(sourceInventoryAppendScopes(after, empty), null);
-    assert.equal(sourceInventoryAppendScopes(after, JSON.stringify({ version: 1, collections: [{ ...row, excluded: [] }] })), null);
+        assert.equal(sourceInventoryChangeScopes(empty, JSON.stringify({ version: 1, collections: [bad] })), null);
+    assert.equal(sourceInventoryChangeScopes(after, empty), null);
+    assert.equal(sourceInventoryChangeScopes(after, JSON.stringify({ version: 1, collections: [{ ...row, excluded: [] }] })), null);
+});
+
+test('source inventory only narrows a hold removal backed by the released original and generated binding', () => {
+    const collectionId = '2014h26a-fe-am', scope = '2014-autumn-am';
+    const held = (number: number) => ({ number, reason: 'Third-party material conditions pending', sourceId: 'source-ipa-' + collectionId + '-qs', checkedOn: '2026-11-08' });
+    const inventory = (excluded: ReturnType<typeof held>[]) => JSON.stringify({ version: 1, collections: [{ collectionId, excluded }] });
+    const before = inventory([held(55), held(65), held(66)]), after = inventory([held(55), held(66)]);
+    const suffix = collectionId + '-65', originalId = 'question-ipa-' + suffix, baseId = 'question-template-source-' + suffix;
+    const ref = { questionId: originalId, revision: 1 }, baseRef = { questionId: baseId, revision: 1 };
+    const original = { id: originalId, revision: 1, subject: 'A', distribution: 'included', origin: { kind: 'official_reprint',
+        sourceRefs: [{ sourceId: held(65).sourceId, locator: { questionNumber: '65', year: 2014, period: '秋期', timeSlot: '午前' } }] } };
+    const base = { ...original, id: baseId, origin: { ...original.origin, kind: 'official_adaptation', derivedFrom: [ref] } };
+    const template = { id: 'template-source-' + suffix, revision: 1, distribution: 'included', baseQuestionRef: baseRef, generatorRef: { id: 'generator-source-' + suffix } };
+    const annual = { id: 'set-annual-' + collectionId, distribution: 'included', questionRefs: [ref] };
+    const mix = { id: 'set-mix-a', distribution: 'included', questionRefs: [baseRef], generationBindings: [{ questionRef: baseRef, templateRef: { id: template.id, revision: 1 } }] };
+    const catalog = { files: {} }, empty = distributionOwnership(catalog, {});
+    const release = (sets = [annual, mix]) => distributionOwnership(catalog, { questions: [original, base], templates: [template], sets });
+    assert.deepEqual(sourceInventoryChangeScopes(before, after, empty, release()), [scope]);
+    assert.equal(sourceInventoryChangeScopes(before, after, empty, release([annual])), null);
+    assert.equal(sourceInventoryChangeScopes(before, after, empty, release([mix])), null);
+    assert.equal(sourceInventoryChangeScopes(before, after, release(), release()), null);
+    assert.equal(sourceInventoryChangeScopes(before, inventory([held(55)]), empty, release()), null);
+    assert.equal(sourceInventoryChangeScopes(before, inventory([held(54), held(66)]), empty, release()), null);
+    assert.equal(sourceInventoryChangeScopes(before, inventory([{ ...held(55), reason: 'Unrelated reason changed' }, held(66)]), empty, release()), null);
 });
 
 test('only the known generated validator resolves virtually through its tracked compiler, Schema, Unicode and dependency inputs',()=>{
