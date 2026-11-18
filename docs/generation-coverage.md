@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問2727件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2184問、旧午後354大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問2803件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2260問、旧午後354大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -3053,6 +3053,87 @@
 | [旧午前問79 p.38](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_am_qs.pdf#page=38) | generator-source-2006h18h-fe-am-79@3.7.0 | MRPの導入効果。対象・判断条件：0〜3（0） | 文章／4択 |
 | [旧午前問80 p.38](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_am_qs.pdf#page=38) | generator-source-2006h18h-fe-am-80@3.7.0 | 著作権法と著作権表示。対象・判断条件：0〜3（0） | 文章／4択 |
 
+### 2005年度 秋期・午前
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午前問1 p.3](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=3) | generator-source-2005h17a-fe-am-1@3.7.0 | 十進小数の有限桁表現。変換先の基数と十進小数：0〜3（0） | 文章／4択 |
+| [旧午前問2 p.3](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=3) | generator-source-2005h17a-fe-am-2@3.7.0 | 基数変換法によるハッシュ表のアドレス。11進数とみなす五桁のキー：0〜3（0） | 文章／4択 |
+| [旧午前問3 p.3](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=3) | generator-source-2005h17a-fe-am-3@3.7.0 | 左シフトと元の値の加算。左シフトのビット数：0〜3（0） | 文章／4択 |
+| [旧午前問4 p.3](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=3) | generator-source-2005h17a-fe-am-4@3.7.0 | 負の整数の剰余。負の被除数と正の法：0〜3（0） | 文章・数式／4択 |
+| [旧午前問5 p.4](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=4) | generator-source-2005h17a-fe-am-5@3.7.0 | 補数を利用する演算回路。補数を取る数の基数：0〜3（0） | 文章／4択 |
+| [旧午前問6 p.4](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=4) | generator-source-2005h17a-fe-am-6@3.7.0 | 浮動小数点数の丸め誤差。説明する浮動小数点演算の現象：0〜3（0） | 文章／4択 |
+| [旧午前問7 p.4](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=4) | generator-source-2005h17a-fe-am-7@3.7.0 | 連立一次方程式の計算時間。連立方程式の元数、実測時間と演算速度：0〜3（0） | 文章／4択 |
+| [旧午前問8 p.5](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=5) | generator-source-2005h17a-fe-am-8@3.7.0 | XORを連続する装置の内部かぎ。装置への入力と変更後の出力・各内部かぎ：0〜3（0） | 文章・図／4択 |
+| [旧午前問9 p.5](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=5) | generator-source-2005h17a-fe-am-9@3.7.0 | NANDだけを使った論理式。NANDだけで表す二変数論理関数：0〜3（0） | 文章／4択 |
+| [旧午前問10 p.5](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=5) | generator-source-2005h17a-fe-am-10@3.7.0 | 正規表現が表す文字列。英字・数字の並びと繰返し回数：0〜3（0） | 文章／4択 |
+| [旧午前問12 p.6](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=6) | generator-source-2005h17a-fe-am-12@3.7.0 | 各層がそろった木の節点数と深さ。木の各節点がもつ子の数：0〜3（0） | 文章・図・数式／4択 |
+| [旧午前問13 p.7](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=7) | generator-source-2005h17a-fe-am-13@3.7.0 | 木・スタック・リスト・配列。木・スタック・リスト・配列の使用場面：0〜3（0） | 文章／4択 |
+| [旧午前問14 p.7](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=7) | generator-source-2005h17a-fe-am-14@3.7.0 | 二分探索の適用条件。比較する探索方法と対象データの順序：0〜3（0） | 文章／4択 |
+| [旧午前問15 p.7](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=7) | generator-source-2005h17a-fe-am-15@3.7.0 | 再帰的に定義された関数の値。再帰関数の二つの引数：0〜3（0） | 文章・数式／4択 |
+| [旧午前問16 p.8](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=8) | generator-source-2005h17a-fe-am-16@3.7.0 | 4ビットの個数を判定する論理回路。出力が1になるビット個数の条件：0〜3（0） | 文章・図／4択 |
+| [旧午前問18 p.8](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=8) | generator-source-2005h17a-fe-am-18@3.7.0 | インデックス修飾の実効アドレス。アドレス表の三つの値：0〜3（0） | 文章・表／4択 |
+| [旧午前問19 p.9](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=9) | generator-source-2005h17a-fe-am-19@3.7.0 | 命令出現率から求めるMIPS。CPUの周波数、各命令の所要クロックと出現率：0〜3（0） | 文章・表／4択 |
+| [旧午前問20 p.9](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=9) | generator-source-2005h17a-fe-am-20@3.7.0 | 外部割込みと内部割込み。割込みを区別する事象の発生元：0〜3（0） | 文章／4択 |
+| [旧午前問21 p.9](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=9) | generator-source-2005h17a-fe-am-21@3.7.0 | メモリの誤りを自動訂正する方式。誤りを調べる箇所と検査値の作り方：0〜3（0） | 文章／4択 |
+| [旧午前問22 p.10](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=10) | generator-source-2005h17a-fe-am-22@3.7.0 | 磁気ディスクの平均アクセス時間。磁気ディスクの回転数、位置決め時間、ブロックとトラックの容量：0〜3（0） | 文章／4択 |
+| [旧午前問23 p.10](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=10) | generator-source-2005h17a-fe-am-23@3.7.0 | セクタ単位のブロック記録に必要なシリンダ数。レコード数・長さ、ブロック件数とディスクの各階層容量：0〜3（0） | 文章・表／4択 |
+| [旧午前問24 p.10](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=10) | generator-source-2005h17a-fe-am-24@3.7.0 | 記憶媒体のデータ記録方法。データを記録する媒体の種類：0〜3（0） | 文章／4択 |
+| [旧午前問25 p.11](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=11) | generator-source-2005h17a-fe-am-25@3.7.0 | プリンタの性能指標。印刷する装置と評価するドット・文字・行の単位：0〜3（0） | 文章／4択 |
+| [旧午前問26 p.11](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=11) | generator-source-2005h17a-fe-am-26@3.7.0 | コンピュータのプログラム記憶方式。方式を選ぶときに用いる主記憶・アドレス・装置制御の操作：0〜3（0） | 文章／4択 |
+| [旧午前問27 p.11](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=11) | generator-source-2005h17a-fe-am-27@3.7.0 | ページ置換アルゴリズム。ページフォールト時の追出し基準：0〜3（0） | 文章／4択 |
+| [旧午前問28 p.12](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=12) | generator-source-2005h17a-fe-am-28@3.7.0 | CPUと入出力の優先スケジュール。タスクA〜EのCPU時間と入出力時間：0〜3（0） | 文章・表／4択 |
+| [旧午前問29 p.13](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=13) | generator-source-2005h17a-fe-am-29@3.7.0 | 共有変数の代入の実行順序。共有変数の初期値と求める更新結果：0〜3（0） | 文章・表／4択 |
+| [旧午前問30 p.14](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=14) | generator-source-2005h17a-fe-am-30@3.7.0 | OSの記憶管理機能。機能a〜cに割り付ける記憶管理の動作：0〜3（0） | 文章・表／4択 |
+| [旧午前問31 p.14](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=14) | generator-source-2005h17a-fe-am-31@3.7.0 | OSの構成方式。OSの構成と実行の仕組み：0〜3（0） | 文章／4択 |
+| [旧午前問32 p.15](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=15) | generator-source-2005h17a-fe-am-32@3.7.0 | クライアントサーバ方式。通信を伴うシステムの構成目的：0〜3（0） | 文章／4択 |
+| [旧午前問33 p.15](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=15) | generator-source-2005h17a-fe-am-33@3.7.0 | コンピュータシステムの性能評価。性能評価の目的と対象の稼働状況：0〜3（0） | 文章／4択 |
+| [旧午前問35 p.16](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=16) | generator-source-2005h17a-fe-am-35@3.7.0 | 稼働・修理の時間と平均指標。平均を求める稼働・修理の時間区間：0〜3（0） | 文章・図・表／4択 |
+| [旧午前問36 p.17](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=17) | generator-source-2005h17a-fe-am-36@3.7.0 | 異なる実行環境向けの言語処理。ソフトウェアを生成又は実行する仕組み：0〜3（0） | 文章／4択 |
+| [旧午前問37 p.17](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=17) | generator-source-2005h17a-fe-am-37@3.7.0 | デバッグツールの出力。デバッグ出力の目的と採取時点：0〜3（0） | 文章／4択 |
+| [旧午前問38 p.17](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=17) | generator-source-2005h17a-fe-am-38@3.7.0 | UMLの図と表す対象。UML図で表す相互作用と静的構造：0〜3（0） | 文章／4択 |
+| [旧午前問39 p.17](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=17) | generator-source-2005h17a-fe-am-39@3.7.0 | オブジェクト指向の基本概念。オブジェクト指向を使う設計場面：0〜3（0） | 文章／4択 |
+| [旧午前問40 p.18](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=18) | generator-source-2005h17a-fe-am-40@3.7.0 | データ中心設計。データと業務処理を中心とする設計の使い分け：0〜3（0） | 文章／4択 |
+| [旧午前問41 p.18](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=18) | generator-source-2005h17a-fe-am-41@3.7.0 | モジュール強度と結合度。モジュール設計で高める性質：0〜3（0） | 文章／4択 |
+| [旧午前問42 p.18](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=18) | generator-source-2005h17a-fe-am-42@3.7.0 | ブラックボックステスト。機能仕様と内部構造に基づくテストの違い：0〜3（0） | 文章／4択 |
+| [旧午前問44 p.19](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=19) | generator-source-2005h17a-fe-am-44@3.7.0 | クリティカルパスで把握できる作業。計画で確認する作業の性質：0〜3（0） | 文章／4択 |
+| [旧午前問45 p.19](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=19) | generator-source-2005h17a-fe-am-45@3.7.0 | WBSを使う目的。プロジェクト管理手法の目的：0〜3（0） | 文章／4択 |
+| [旧午前問46 p.20](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=20) | generator-source-2005h17a-fe-am-46@3.7.0 | システム開発の見積方法。開発規模・工数を見積もる技法：0〜3（0） | 文章／4択 |
+| [旧午前問47 p.20](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=20) | generator-source-2005h17a-fe-am-47@3.7.0 | システム障害の監視対象。監視対象の選定と監視方法：0〜3（0） | 文章／4択 |
+| [旧午前問48 p.21](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=21) | generator-source-2005h17a-fe-am-48@3.7.0 | 入力漏れの最初の確認。様式別入力の未入力とその他の検査：0〜3（0） | 文章／4択 |
+| [旧午前問49 p.21](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=21) | generator-source-2005h17a-fe-am-49@3.7.0 | ジョブスケジューリングの特徴。ジョブスケジューリングの効果と条件：0〜3（0） | 文章／4択 |
+| [旧午前問50 p.22](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=22) | generator-source-2005h17a-fe-am-50@3.7.0 | 月次フル・日次差分の媒体数。復元を保証する月数：0〜3（0） | 文章／4択 |
+| [旧午前問51 p.22](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=22) | generator-source-2005h17a-fe-am-51@3.7.0 | LAN上で使うプロトコル。通信プロトコルとネットワークの用途：0〜3（0） | 文章／4択 |
+| [旧午前問52 p.23](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=23) | generator-source-2005h17a-fe-am-52@3.7.0 | SMTPと関連するプロトコル・言語。HTTP、DTP、SMTP、SGMLの用途：0〜3（0） | 文章／4択 |
+| [旧午前問53 p.23](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=23) | generator-source-2005h17a-fe-am-53@3.7.0 | OSI基本参照モデルの層と役割。OSI基本参照モデルの層番号と役割：0〜3（0） | 文章／4択 |
+| [旧午前問54 p.23](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=23) | generator-source-2005h17a-fe-am-54@3.7.0 | 衝突検出とアクセス制御。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問55 p.24](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=24) | generator-source-2005h17a-fe-am-55@3.7.0 | Webサーバと外部プログラムの連携。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問56 p.24](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=24) | generator-source-2005h17a-fe-am-56@3.7.0 | Webアクセスのネットワーク機能。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問57 p.25](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=25) | generator-source-2005h17a-fe-am-57@3.7.0 | IPルータの経路選択。対象・判断条件：0〜3（0） | 文章・図／4択 |
+| [旧午前問58 p.25](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=25) | generator-source-2005h17a-fe-am-58@3.7.0 | データモデルと関係の表現。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問59 p.25](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=25) | generator-source-2005h17a-fe-am-59@3.7.0 | データベースが保持する構造。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問60 p.26](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=26) | generator-source-2005h17a-fe-am-60@3.7.0 | 関係演算の働き。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問61 p.26](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=26) | generator-source-2005h17a-fe-am-61@3.7.0 | ビューの行数が減る更新。対象・判断条件：0〜3（0） | 文章・表・コード／4択 |
+| [旧午前問62 p.27](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=27) | generator-source-2005h17a-fe-am-62@3.7.0 | 結合と条件によるSQLの結果。対象・判断条件：0〜3（0） | 文章・コード・表／4択 |
+| [旧午前問63 p.27](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=27) | generator-source-2005h17a-fe-am-63@3.7.0 | 分散データベースの更新と復旧。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問64 p.28](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=28) | generator-source-2005h17a-fe-am-64@3.7.0 | 電子メールの保護と効果。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問65 p.28](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=28) | generator-source-2005h17a-fe-am-65@3.7.0 | ウイルス発見時の初動。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問66 p.28](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=28) | generator-source-2005h17a-fe-am-66@3.7.0 | アカウント・パスワードの運用管理。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問67 p.29](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=29) | generator-source-2005h17a-fe-am-67@3.7.0 | LANアナライザで取り扱う測定データ。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問68 p.29](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=29) | generator-source-2005h17a-fe-am-68@3.7.0 | 管理ガイドラインの主体別要求事項。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問69 p.30](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=30) | generator-source-2005h17a-fe-am-69@3.7.0 | 品質マネジメントシステムの運用。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問70 p.30](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=30) | generator-source-2005h17a-fe-am-70@3.7.0 | ライフサイクルの共通フレームと規格。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問71 p.31](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=31) | generator-source-2005h17a-fe-am-71@3.7.0 | 業務と経営の改善手法。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問72 p.31](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=31) | generator-source-2005h17a-fe-am-72@3.7.0 | 財務指標の計算式と読み方。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問73 p.32](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=32) | generator-source-2005h17a-fe-am-73@3.7.0 | 材料の払出単価の評価方法。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問74 p.32](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=32) | generator-source-2005h17a-fe-am-74@3.7.0 | 分析手法と適用例。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問75 p.33](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=33) | generator-source-2005h17a-fe-am-75@3.7.0 | グラフによる比較と工程管理。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問76 p.33](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=33) | generator-source-2005h17a-fe-am-76@3.7.0 | 品質管理の図と用途。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問77 p.34](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=34) | generator-source-2005h17a-fe-am-77@3.7.0 | 散布図と相関の符号。対象・判断条件：0〜3（0） | 文章・図／4択 |
+| [旧午前問78 p.34](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=34) | generator-source-2005h17a-fe-am-78@3.7.0 | 定量・定期発注と二棚法。対象・判断条件：0〜3（0） | 文章／4択 |
+| [旧午前問79 p.35](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=35) | generator-source-2005h17a-fe-am-79@3.7.0 | 需要制約と工数から求める最大利益。対象・判断条件：0〜3（0） | 文章・表／4択 |
+| [旧午前問80 p.35](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2005h17_2/2005h17a_fe_am_qs.pdf#page=35) | generator-source-2005h17a-fe-am-80@3.7.0 | 日本の産業財産権の四つの区分。対象・判断条件：0〜3（0） | 文章／4択 |
+
 ## 登録図の入力契約
 
 renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け取る。登録済みの形状を固定React/SVGコードで描き、値の個数と位置ごとの整数域を検査する。既存図の入力域はsrc/core/source-figure-domains.json、管理図はsrc/core/managed-legacy-figures.ts、src/core/legacy-afternoon-figures.ts及びsrc/core/legacy-morning-figure-domains.jsonの固定契約を結合して生成する。旧午前・旧午後の位置別上下限は外接域であり、許可する入力は査読済みの登録tuple又はprofile別モデルの制約に限る。描画器の登録だけで問題集の素材条件・配布を承認したとは扱わない。未登録形状・不足・過剰・域外はFIGURE_PROFILEで拒否する。原図の凡例・円・線種・配列の網掛けを保持し、内部IDや接続説明表を通常画面へ追加しない。読み上げ用説明はSVGのtitle／desc又は明示したアクセシブル名に保持する。
@@ -4204,6 +4285,13 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2006-spring-pm-11-counted | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-11-counted」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2006-spring-pm-11-program-changes | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-11-program-changes」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2006-spring-pm-12-pair-removal | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-12-pair-removal」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-8-xor-chain | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-8-xor-chain」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-12-full-tree | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-12-full-tree」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-16-gate-legend | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-16-gate-legend」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-16-logic-choice | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-16-logic-choice」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-35-operation | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-35-operation」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-57-network | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-57-network」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2005-autumn-am-77-scatter | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2005-autumn-am-77-scatter」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -21110,6 +21198,94 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | 図の状態1。6 A 3 4 7／2 4 6 5 3／3 2。黒いペアは2段目左から1番目と3段目左から2番目。 図の状態2。6 A 3 4 7／4 6 5 3 3。黒いペアは1段目左から1番目と2段目左から2番目。ほかの候補は1段目左から3番目と2段目左から4番目、2段目左から4番目と2段目左から5番目。 図の状態3。A 3 4 7 4／5 3 3。黒いペアは1段目左から2番目と2段目左から2番目。ほかの候補は1段目左から2番目と2段目左から3番目、2段目左から2番目と2段目左から3番目。 図の状態4。A 4 7 4 5／3。 |
 | `[2]` | 図の状態1。5 3 5 7 2 4／A 2 A 4 5 7／7 A。黒いペアは2段目左から1番目と3段目左から2番目。ほかの候補は2段目左から3番目と3段目左から2番目。 図の状態2。5 3 5 7 2 4／2 A 4 5 7 7。黒いペアは1段目左から3番目と2段目左から4番目。ほかの候補は1段目左から4番目と2段目左から5番目、2段目左から5番目と2段目左から6番目。 図の状態3。5 3 7 2 4 2／A 4 7 7。黒いペアは1段目左から3番目と2段目左から3番目。ほかの候補は1段目左から3番目と2段目左から4番目、2段目左から3番目と2段目左から4番目。 図の状態4。5 3 2 4 2 A／4 7。 |
 | `[3]` | 図の状態1。6 4 6 A 2／7 2 3 4 6／3 6 5 3。黒いペアは2段目左から3番目と3段目左から4番目。 図の状態2。6 4 6 A 2／7 2 4 6 3／6 5。黒いペアは1段目左から2番目と2段目左から3番目。ほかの候補は1段目左から3番目と2段目左から4番目。 図の状態3。6 6 A 2 7／2 6 3 6 5。黒いペアは1段目左から1番目と1段目左から2番目。ほかの候補は1段目左から1番目と2段目左から2番目、1段目左から2番目と2段目左から2番目。 図の状態4。A 2 7 2 6／3 6 5。 |
+
+</details>
+
+### legacy-2005-autumn-am-8-xor-chain
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左から右への流れ。入力ビット列1101、ユニットA（内部かぎ0001）、B（0101）、C（1101）、出力ビット列0100。各ユニットは入力と内部かぎの排他的論理和を実行する。 |
+| `[1]` | 左から右への流れ。入力ビット列1001、ユニットA（内部かぎ0010）、B（0110）、C（0100）、出力ビット列1001。各ユニットは入力と内部かぎの排他的論理和を実行する。 |
+| `[2]` | 左から右への流れ。入力ビット列0011、ユニットA（内部かぎ1010）、B（0010）、C（0110）、出力ビット列1101。各ユニットは入力と内部かぎの排他的論理和を実行する。 |
+| `[3]` | 左から右への流れ。入力ビット列1111、ユニットA（内部かぎ0001）、B（0111）、C（1000）、出力ビット列0001。各ユニットは入力と内部かぎの排他的論理和を実行する。 |
+
+</details>
+
+### legacy-2005-autumn-am-12-full-tree
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 図の例は深さk＝2。深さ0に根が1個。根から子2個へ線が分かれ、その各々から葉2個へ線が分かれる。すべての葉は深さ2。 |
+| `[1]` | 図の例は深さk＝2。深さ0に根が1個。根から子3個へ線が分かれ、その各々から葉3個へ線が分かれる。すべての葉は深さ2。 |
+| `[2]` | 図の例は深さk＝2。深さ0に根が1個。根から子4個へ線が分かれ、その各々から葉4個へ線が分かれる。すべての葉は深さ2。 |
+| `[3]` | 図の例は深さk＝2。深さ0に根が1個。根から子5個へ線が分かれ、その各々から葉5個へ線が分かれる。すべての葉は深さ2。 |
+
+</details>
+
+### legacy-2005-autumn-am-16-gate-legend
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左からAND（論理積）、OR（論理和）、XOR（排他的論理和）、NOT（否定）の各回路記号。 |
+
+</details>
+
+### legacy-2005-autumn-am-16-logic-choice
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 上側と下側の2ビットずつを、それぞれXORに接続する。二つのXORの結果をANDへつなぐ。 |
+| `[1]` | 上側と下側の2ビットずつを、それぞれXORに接続する。二つのXORの結果をORへつなぎ、NOTで反転する。 |
+| `[2]` | 上側と下側の2ビットずつを、それぞれXORに接続する。二つのXORの結果をXORへつなぐ。 |
+| `[3]` | 上側と下側の2ビットずつを、それぞれXORに接続する。二つのXORの結果をXORへつなぎ、NOTで反転する。 |
+
+</details>
+
+### legacy-2005-autumn-am-35-operation
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 左から，稼働 t₁ の後で故障し，修理 r₁ を行う。次に稼働 t₂ の後で故障し，修理 r₂ を行う。さらに稼働 t₃ の後で故障し，修理 r₃ を行う。修理完了後は稼働 t₄ となり，時間軸が続く。 |
+| `[1]` | 左から，稼働 t₁ の後で故障し，修理 r₁ を行う。次に稼働 t₂ の後で故障し，修理 r₂ を行う。さらに稼働 t₃ の後で故障し，修理 r₃ を行う。修理完了後は稼働 t₄ となり，時間軸が続く。 |
+| `[2]` | 左から，稼働 t₁ の後で故障し，修理 r₁ を行う。次に稼働 t₂ の後で故障し，修理 r₂ を行う。さらに稼働 t₃ の後で故障し，修理 r₃ を行う。修理完了後は稼働 t₄ となり，時間軸が続く。 |
+| `[3]` | 左から，稼働 t₁ の後で故障し，修理 r₁ を行う。次に稼働 t₂ の後で故障し，修理 r₂ を行う。さらに稼働 t₃ の後で故障し，修理 r₃ を行う。修理完了後は稼働 t₄ となり，時間軸が続く。 |
+
+</details>
+
+### legacy-2005-autumn-am-57-network
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 端末aとルータaは同じLANに接続される。ルータaから専用線が2本延び，ルータbとルータcへそれぞれ接続する。各分岐先で同じ文字の端末とルータが同じLANに接続される。 |
+| `[1]` | 端末aとルータaは同じLANに接続される。ルータaから専用線が2本延び，ルータbとルータcへそれぞれ接続する。各分岐先で同じ文字の端末とルータが同じLANに接続される。 |
+| `[2]` | 端末bとルータbは同じLANに接続される。ルータbから専用線が2本延び，ルータaとルータcへそれぞれ接続する。各分岐先で同じ文字の端末とルータが同じLANに接続される。 |
+| `[3]` | 端末cとルータcは同じLANに接続される。ルータcから専用線が2本延び，ルータaとルータbへそれぞれ接続する。各分岐先で同じ文字の端末とルータが同じLANに接続される。 |
+
+</details>
+
+### legacy-2005-autumn-am-77-scatter
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 横軸が製造上の要因x，縦軸が品質特性yの散布図。原点を0とする。図の中での相対的な座標は（20，73），（23，66），（30，54），（30，60），（34，66），（41，62），（41，54），（46，40），（47，55），（52，62），（55，47），（59，55），（59，25），（62，40），（62，33），（66，23），（66，47），（66，54），（69，32），（73，32），（74，40），（76，26），（76，16），（81，41），（81，32），（83，18），（88，16）の27点。 |
+| `[1]` | 横軸が製造上の要因x，縦軸が品質特性yの散布図。原点を0とする。図の中での相対的な座標は（14，22），（16，30），（19，18），（21，36），（23，33），（25，26），（29，40），（32，31），（35，42），（38，48），（43，33），（45，48），（46，52），（48，46），（51，55），（53，50），（56，64），（58，51），（60，66），（63，57），（66，69），（69，66），（72，59），（75，73），（79，64），（83，81）の26点。 |
+| `[2]` | 横軸が製造上の要因x，縦軸が品質特性yの散布図。原点を0とする。図の中での相対的な座標は（14，71），（16，60），（19，75），（21，56），（23，67），（25，59），（29，76），（32，48），（35，66），（38，65），（43，49），（45，63），（46，43），（48，52），（51，42），（53，64），（56，39），（58，58），（60，53），（63，47），（66，52），（69，35），（72，54），（75，43），（79，32），（83，40）の26点。 |
+| `[3]` | 横軸が製造上の要因x，縦軸が品質特性yの散布図。原点を0とする。図の中での相対的な座標は（14，43），（16，36），（19，53），（21，41），（23，62），（25，39），（29，51），（32，50），（35，34），（38，56），（43，48），（45，61），（46，37），（48，58），（51，58），（53，39），（56，55），（58，59），（60，53），（63，61），（66，48），（69，69），（72，57），（75，64），（79，53），（83，77）の26点。 |
 
 </details>
 
