@@ -69,6 +69,7 @@
     62,
     63,
     64,
+    65,
     67,
     68,
     69,
@@ -88,12 +89,6 @@
     {
       "number": 55,
       "reason": "PMBOKガイド第4版のリスク対応戦略の分類と、選択肢の転載・改変の利用条件を確認中。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 65,
-      "reason": "非機能要件の作業に関する記述と共通フレームの素材条件を確認中。既収録の二つの問65に限定された査読・ライセンス範囲とは分ける。",
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false
     },
@@ -1076,6 +1071,19 @@
       ]
     },
     {
+      "number": 65,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2014-autumn-am/legacy-2014-autumn-am-integration.test.ts"
+      ]
+    },
+    {
       "number": 67,
       "checks": {
         "transcription": "pass",
@@ -1285,5 +1293,21 @@
         "tests/booklets/2014-autumn-am/content-contract.test.ts"
       ]
     }
-  ]
+  ],
+  "supplement": {
+    "checkedOn": "2026-11-18",
+    "numbers": [
+      65
+    ],
+    "sourceAndIndependent": {
+      "path": "scripts/source-evidence/legacy-2014-autumn-am-65-review.json",
+      "sha256": "5857b9f72058bcb1bddaec237e73fc359c3c329229da8bb35143a0859a461824",
+      "byteLength": 1893
+    },
+    "normalAppIntegration": {
+      "path": "output/source-review/priority1-2014-autumn-am-q65/integration.log",
+      "sha256": "f516dfa5d5a7ee6d323514faadd346e2a3cd0c5b64a9fd0072ffcaca81c9481b",
+      "byteLength": 899
+    }
+  }
 }

@@ -2,11 +2,12 @@ import type { GenerationDefinition } from './definition';
 import { legacy2014AutumnAm01To26Definitions } from './legacy-2014-autumn-am-01-26';
 import { legacy2014AutumnAm27To53Definitions } from './legacy-2014-autumn-am-27-53';
 import { legacy2014AutumnAm54To80Definitions } from './legacy-2014-autumn-am-54-80';
+import { legacy2014AutumnAm65Definition } from './legacy-2014-autumn-am-65';
 import { isAutumn2014CommonContext, autumn2014CommonContexts } from './legacy-2014-autumn-am-common';
 
 const definitions: readonly GenerationDefinition[] = [
-  ...legacy2014AutumnAm01To26Definitions, ...legacy2014AutumnAm27To53Definitions, ...legacy2014AutumnAm54To80Definitions,
-].map(definition => ({
+  ...legacy2014AutumnAm01To26Definitions, ...legacy2014AutumnAm27To53Definitions, ...legacy2014AutumnAm54To80Definitions, legacy2014AutumnAm65Definition,
+].sort((a, b) => Number(a.source.split('-').at(-1)) - Number(b.source.split('-').at(-1))).map(definition => ({
   ...definition,
   notes: definition.notes + ' 2014年度秋期の規格・標準と論理回路の共通表記p.2–3を解答前に参照できる。',
   build(values) {

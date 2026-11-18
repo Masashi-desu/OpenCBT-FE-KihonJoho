@@ -4,7 +4,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { fixture, installFixtureGenerators } from '../../fixtures';
 import official from '../../fixtures/legacy-2014-autumn-am-official-answers.json';
-import review from '../../../scripts/source-evidence/legacy-2014-autumn-am-source-review.json';
+import { bindAdditionalQuestion, validateAdditionalFormat } from '../../../src/core/generators';
 import { sourceExclusions, sourceScope } from '../../../scripts/source-inventory';
 import { bookmarkTemplate, makeBookmark } from '../../../src/core/bookmarks';
 import { contentHash } from '../../../src/core/hash';
@@ -21,7 +21,7 @@ import { SourceFigure } from '../../../src/ui/SourceFigure';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map(row => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, row.source)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -82,7 +82,7 @@ test('S3-009 uses its year and period, the admitted count and the official 150-m
   }
 });
 
-test('S3-009 keeps search, bookmark identity and original numbering across the three publication gaps', () => {
+test('S3-009 keeps search, bookmark identity and original numbering across the remaining publication gaps', () => {
   const bundle = fixture();
   const originals = searchableQuestions(bundle).filter(question => question.id.startsWith(`question-ipa-${collection}-`));
   assert.deepEqual(originals.map(question => question.id).sort(), published.map(row => originalId(row.number)).sort());
@@ -141,4 +141,56 @@ test('S3-009 places its own two common pages after the question, with the autumn
   assert(html.includes('data-common-reference="2014h26a-fe-am-p3"'));
   assert.equal([...html.matchAll(/data-common-gate=/g)].length, 9);
   assert(html.includes('論理状態の反転又は否定'));
+});
+
+test('問65の全候補の技術条件を独立に判定し、原画像と生成表示で利用条件を保持する', async () => {
+  const bundle = fixture();
+  const original = bundle.questions.find(item => item.id === originalId(65));
+  assert(original);
+  const { base, template } = bookmarkTemplate(bundle, refOf(original));
+  const guide = 'rights-ipa-cf2013-guidance-2014-autumn-am-65-cc-by-sa-21jp';
+  const guideSource = 'source-ipa-cf2013-guidance-q65-20261025';
+  const asset = bundle.assets.find(item => item.id === 'asset-ipa-2014h26a-fe-am-65');
+  const rights = bundle.rights.find(item => item.id === guide);
+  assert(asset && asset.alt.includes('作成する。') && asset.alt.startsWith('問65'));
+  assert(rights);
+  assert.equal(rights.licenseId, 'CC-BY-SA-2.1-JP');
+  assert.deepEqual(asset.attribution.sourceRefs.filter(ref => ref.sourceId === guideSource).map(ref => ref.locator.page), [12, 13]);
+  assert(asset.attribution.rightsRefs.includes(guide));
+  assert(!original.correctAnswer.attribution.rightsRefs.includes(guide));
+  assert(!original.explanation.attribution.rightsRefs.includes(guide));
+  assert.equal(original.correctAnswer.choiceId, 'choice-original-2');
+  assert.equal(displayQuestionNumber(original, 0), '65');
+  const search = findSearchDocuments(questionSearchDocuments(bundle), { ...emptySearch, query: '非機能要件の定義で行う作業', year: 2014 });
+  assert(search.some(result => result.question.id === original.id));
+
+  // ガイダンスの項1(3)は業務側の機能間受渡し・処理範囲・外部連携。
+  // 項1(4)技術要件(c)(d)は実装言語又は開発時の基準を定める側。
+  const roles = {
+    flow: /機能間の情報|機能へ引き渡す|間で引き渡す/,
+    scope: /実現する範囲|割当てを行うか|という分担|担当範囲/,
+    interface: /他システムとの情報|配送システムへ|会計システムへ|決済サービスに/,
+    technical: /プログラム言語に合わせた開発基準|ログの書式を開発標準|警告を開発標準|呼び出す方法を開発規約/,
+  };
+  const solutions = new Set<string>(), stems = new Set<string>();
+  for (const value of [0, 1, 2, 3]) {
+    const known = bindAdditionalQuestion(base, template, [value], `q65-review-${value}`, '2026-11-18T00:00:00Z');
+    validateAdditionalFormat(known, template);
+    const identified = known.choices.map(choice => {
+      const [block] = choice.content.blocks;
+      assert(block.type === 'paragraph');
+      const matched = Object.entries(roles).filter(([, expression]) => expression.test(block.text));
+      assert.equal(matched.length, 1, block.text);
+      assert(choice.content.attribution.rightsRefs.includes(guide));
+      return matched[0][0];
+    });
+    assert.deepEqual([...identified].sort(), Object.keys(roles).sort());
+    assert.equal(known.correctAnswer.choiceId, known.choices[identified.indexOf('technical')].id);
+    assert(known.correctAnswer.choiceId);
+    solutions.add(known.correctAnswer.choiceId);
+    stems.add(JSON.stringify(known.prompt.blocks));
+    assert.deepEqual(known.explanation.attribution.rightsRefs, ['rights-original']);
+  }
+  assert.equal(solutions.size, 4);
+  assert.equal(stems.size, 4);
 });
