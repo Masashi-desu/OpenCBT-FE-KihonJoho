@@ -33,7 +33,7 @@ import { refKey, refOf, type Selection, type Run } from '../../../src/core/types
 const bundle=readDistributionBundle();
 await validateBundle(bundle);
 const collection='2016h28h-fe-am',id='set-annual-'+collection;
-const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![46,56,60,63,66].includes(n));
+const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![46,56,66].includes(n));
 const annual=sourceCollections(bundle,'A').find(s=>s.id===id)!;
 assert(annual,'S3-001 must be admitted in the complete actual distribution; no reduced candidate fallback');
 const byRef=new Map(bundle.questions.map(q=>[refKey(refOf(q)),q]));
@@ -49,15 +49,15 @@ test('S3-001 release admission requires the recorded source, independent and rea
     assert.equal(gate.status,'pass');assert(gate.evidence && typeof gate.evidence==='object');
     const e=gate.evidence as {path?:unknown;sha256?:unknown};assert.equal(typeof e.path,'string');assert.match(String(e.sha256),/^[a-f0-9]{64}$/);
   }
-  assert.equal(review.questions.length,75);assert(review.questions.every(q=>Object.values(q.checks).every(c=>c==='pass')&&q.testFiles.length>0));
-  assert.equal(review.wholeScopeReady,false);assert.equal(review.held.length,5);
+  assert.equal(review.questions.length,77);assert(review.questions.every(q=>Object.values(q.checks).every(c=>c==='pass')&&q.testFiles.length>0));
+  assert.equal(review.wholeScopeReady,false);assert.equal(review.held.length,3);
 });
 
-test('S3-001 retains all80 obligations and publishes exactly75 source/base/generator pairs, with all five material holds absent',async()=>{
+test('S3-001 retains all80 obligations and publishes exactly77 source/base/generator pairs, with all three material holds absent',async()=>{
   assert.equal(review.expectedTotal,80);assert.deepEqual(review.includedNumbers,expected);
-  assert.deepEqual(review.held.map(h=>h.number),[46,56,60,63,66]);
+  assert.deepEqual(review.held.map(h=>h.number),[46,56,66]);
   assert(review.held.every(h=>h.reason.length>10 && !h.bodyPublished));assert.equal(review.wholeScopeReady,false);
-  assert.equal(expected.length,75);assert.deepEqual(annual.questionRefs.map(r=>sourceNumber(byRef.get(refKey(r))!)),expected);
+  assert.equal(expected.length,77);assert.deepEqual(annual.questionRefs.map(r=>sourceNumber(byRef.get(refKey(r))!)),expected);
   assert.deepEqual(stage3MorningDefinitions.map(d=>Number(d.source.split('-').at(-1))),expected);
   for(const n of expected){
     const original=originalsById.get(`question-ipa-${collection}-${n}`)!;
@@ -94,19 +94,19 @@ test('S3-001 morning remains selectable while its same-period afternoon follows 
   }
 });
 
-test('S3-001 uses75 admitted questions, official150 minutes and independently fixed49/9/17 area counts',()=>{
-  const p=mixProfile(bundle,select('mix'));assert.equal(p.publicCount,75);assert.equal(p.questionCount,75);assert.equal(p.fullCount,undefined);
-  assert.deepEqual(p.quota,{technology:49,management:9,strategy:17});assert.equal(p.timeLimitSeconds,9000);
+test('S3-001 uses77 admitted questions, official150 minutes and independently fixed49/10/18 area counts',()=>{
+  const p=mixProfile(bundle,select('mix'));assert.equal(p.publicCount,77);assert.equal(p.questionCount,77);assert.equal(p.fullCount,undefined);
+  assert.deepEqual(p.quota,{technology:49,management:10,strategy:18});assert.equal(p.timeLimitSeconds,9000);
   assert.throws(()=>mixProfile(bundle,{...select('mix'),size:'full'}),{code:'PROFILE_SCOPE'});
-  for(const kind of ['annual','mix'] as const){const selected=selectQuestions(bundle,select(kind),a=>a);assert.equal(selected.questions.length,75);assert.equal(selected.exam.questionCount,75);assert.equal(selected.exam.timeLimitSeconds,9000);assert.equal(selected.exam.practiceScope,'public_subset');}
+  for(const kind of ['annual','mix'] as const){const selected=selectQuestions(bundle,select(kind),a=>a);assert.equal(selected.questions.length,77);assert.equal(selected.exam.questionCount,77);assert.equal(selected.exam.timeLimitSeconds,9000);assert.equal(selected.exam.practiceScope,'public_subset');}
 });
 
-test('S3-001 search and bookmarks expose all75 originals, preserve source numbers after gaps and never expose held questions',()=>{
+test('S3-001 search and bookmarks expose all77 originals, preserve source numbers after gaps and never expose held questions',()=>{
   const own=new Set(expected.map(n=>'question-ipa-'+collection+'-'+n));
   assert.deepEqual(searchableQuestions(bundle).filter(q=>own.has(q.id)).map(q=>q.id).sort(),[...own].sort());
   const docs=questionSearchDocuments(bundle),found=findSearchDocuments(docs,{...emptySearch,year:2016,subject:'A',kind:'question'});
-  assert.equal(docs.filter(d=>own.has(d.question.id)).length,75);assert.equal(found.filter(d=>own.has(d.question.id)).length,75);
-  for(const n of [1,47,57,61,64,67,80]){
+  assert.equal(docs.filter(d=>own.has(d.question.id)).length,77);assert.equal(found.filter(d=>own.has(d.question.id)).length,77);
+  for(const n of [1,47,57,60,61,63,64,67,80]){
     const original=originalsById.get('question-ipa-'+collection+'-'+n)!;
     assert.match(sourceQuestionLabel(original),new RegExp('問'+n+'$'));assert.equal(displayQuestionNumber(original,0),String(n));
     const mark=makeBookmark(bundle,refOf(original),100000),{base}=bookmarkTemplate(bundle,refOf(original),coverage);
@@ -116,22 +116,22 @@ test('S3-001 search and bookmarks expose all75 originals, preserve source number
   for(const held of review.held)assert(!docs.some(d=>d.question.id==='question-ipa-'+collection+'-'+held.number));
 });
 
-test('S3-001 actual annual and generated sessions preserve answers through JSON restore,150-minute timing and75-question grading',async()=>{
+test('S3-001 actual annual and generated sessions preserve answers through JSON restore,150-minute timing and77-question grading',async()=>{
   for(const kind of ['annual','mix'] as const){
     const selection=select(kind),prepared=selectQuestions(bundle,selection,a=>a);
     let run=startRun(await prepareRun(bundle,selection,{},100000,undefined,prepared),101000);
-    assert.equal(run.issued.length,75);assert.equal(remaining(run,101000),9000);assert.equal(run.instances.length,kind==='mix'?75:0);
+    assert.equal(run.issued.length,77);assert.equal(remaining(run,101000),9000);assert.equal(run.instances.length,kind==='mix'?77:0);
     assert.deepEqual(run.issued.map(sourceNumber).sort((a,b)=>a-b),expected);
     run=updateAnswer(run,run.issued[0].correctAnswer.choiceId,102000);
     const saved=JSON.parse(JSON.stringify(run)) as Run;await validateRun(saved);
     assert.equal(saved.session.entries[0].selectedChoiceId,run.issued[0].correctAnswer.choiceId);assert.equal(remaining(saved,103000),8998);
     const finished=finishRun(saved,'completed',104000);await validateRun(finished);
-    assert.equal(finished.result!.total,75);assert.equal(finished.result!.correct,1);assert.equal(finished.result!.unanswered,74);
+    assert.equal(finished.result!.total,77);assert.equal(finished.result!.correct,1);assert.equal(finished.result!.unanswered,76);
     const wrong=structuredClone(finished);wrong.exam.questionCount=80;await assert.rejects(validateRun(wrong),{code:'SESSION_CONFIG'});
   }
 });
 
-test('S3-001 can start a75-question mix after the two original Q1 conditions were consumed in one saved bookmark practice',async ctx=>{
+test('S3-001 can start a77-question mix after the two original Q1 conditions were consumed in one saved bookmark practice',async ctx=>{
   const original=bundle.questions.find(q=>q.id==='question-ipa-'+collection+'-1')!;
   const {base,template}=bookmarkTemplate(bundle,refOf(original),coverage),seeds=new Map<number,string>();
   for(let i=0;i<4096&&seeds.size<3;i++){
@@ -151,11 +151,11 @@ test('S3-001 can start a75-question mix after the two original Q1 conditions wer
   const saved=JSON.parse(JSON.stringify(finishRun(run,'completed',103000))) as Run;await validateRun(saved);
   seed=seeds.get(2)!;
   const mixed=await prepareRun(bundle,select('mix','study'),{},104000,undefined,undefined,saved.instances);
-  await validateRun(mixed);assert.equal(mixed.issued.length,75);
+  await validateRun(mixed);assert.equal(mixed.issued.length,77);
   assert.deepEqual(mixed.instances.find(i=>i.templateRef.id===template.id)!.parameters.values,[2]);
 });
 
-test('S3-001 every688 finite binding renders through ordinary Content/AnswerChoices, with shared matrices and strict correlated diagrams',async()=>{
+test('S3-001 all 696 finite bindings renders through ordinary Content/AnswerChoices, with shared matrices and strict correlated diagrams',async()=>{
   let total=0;
   for(const definition of stage3MorningDefinitions){
     const n=Number(definition.source.split('-').at(-1)),base=bundle.questions.find(q=>q.id==='question-template-source-'+definition.source)!,template=bundle.templates.find(t=>t.id==='template-source-'+definition.source)!;
@@ -173,7 +173,7 @@ test('S3-001 every688 finite binding renders through ordinary Content/AnswerChoi
       total++;
     }
   }
-  assert.equal(total,688);
+  assert.equal(total,696);
   assert.throws(()=>validateSourceFigure({kind:'source_figure',profile:'legacy-2016-spring-am-23-logic',values:[1,2,3,0]}));
   assert.throws(()=>validateSourceFigure({kind:'source_figure',profile:'legacy-2016-spring-am-49',values:[0,0,1,1,1,2]}));
 });

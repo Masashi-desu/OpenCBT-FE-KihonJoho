@@ -27,7 +27,7 @@ test("generation preparation reads packed inputs, revises only the requested ser
     const oldAM = before.templates.filter(t => /^generator-source-(?:2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/.test(t.generatorRef.id));
     assert.equal(oldAM.length, 467, "all admitted morning bases are booklet-managed preservation inputs");
     const stage3AM=before.templates.filter(t=>/^generator-source-2016h28h-fe-am-/.test(t.generatorRef.id));
-    assert.equal(stage3AM.length,75,'the current stage3 publication is inside the preservation domain');
+    assert.equal(stage3AM.length,77,'the current stage3 publication is inside the preservation domain');
     const autumnAM=before.templates.filter(t=>/^generator-source-2016h28a-fe-am-/.test(t.generatorRef.id));
     assert.equal(autumnAM.length,77,'all admitted autumn templates are inside the preservation domain');
     assert.equal(before.questions.find(q => q.id === "question-ipa-sample-2022-apr-b-1")!.choiceShuffleAllowed, false);

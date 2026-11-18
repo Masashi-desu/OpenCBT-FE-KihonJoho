@@ -39,7 +39,7 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
   const b = fixture();
   await validateBundle(b);
   assertPublishedSourceScope(b);
-  assert.equal(b.assets.filter(asset => !isDeclaredExtensionAsset(asset)).length, 1361,
+  assert.equal(b.assets.filter(asset => !isDeclaredExtensionAsset(asset)).length, 1363,
     'the retained released material cohort is not reduced by later booklet additions');
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
@@ -47,7 +47,7 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
   );
   const morning = b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
   assert.equal(morning.length, publishedSourceScope.morningCount);
-  assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 152);
+  assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 154);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => [2017, 2018, 2019].includes(ref.locator.year ?? 0))).length, 467);
   assert(morning.every(q => q.learning.tags.includes("legacy-morning") || q.origin.sourceRefs.some(ref =>
     ref.locator.timeSlot === "午前" && ref.locator.year !== undefined && q.learning.tags.includes(`legacy-${ref.locator.year}`))),

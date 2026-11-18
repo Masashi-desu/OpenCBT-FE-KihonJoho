@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import discovery from '../../scripts/source-evidence/pre-2009-official-discovery-review.json';
 import { auditPre2023Discovery as gate, finalizePre2023Readiness as finalStatus, DiscoveryGateError } from '../../scripts/pre-2023-discovery-gate';
 import { auditPre2023Readiness } from '../../scripts/audit-pre-2023-readiness';
+import reviewedSpring2016 from '../../scripts/source-evidence/stage3-s3-001-review.json';
 import extensions from '../../scripts/source-inventory-extensions.json';
 import { inventoryCollectionIdentity } from '../../scripts/source-inventory-extension-contract';
 import { fixture } from '../fixtures';
@@ -36,7 +37,7 @@ test('even all enumerated questions ready cannot bypass pending discovery; futur
  const futureToy={ready:true};assert.equal(finalStatus(false,true,futureToy),'not_ready');assert.equal(finalStatus(true,false,futureToy),'not_ready');assert.equal(finalStatus(true,true,futureToy),'ready');
  const evidence=JSON.parse(fs.readFileSync('scripts/source-evidence/ipa-pre-2023.json','utf8'));
  const actual=auditPre2023Readiness(fixture(),evidence);
- const admitted=783+extensions.collections.reduce((n,c)=>n+inventoryCollectionIdentity(c.collectionId).count-c.excluded.length,0);
+ const admitted = 164 + 467 + 77 + reviewedSpring2016.includedNumbers.length + extensions.collections.reduce((n,c)=>n+inventoryCollectionIdentity(c.collectionId).count-c.excluded.length,0);
  assert.deepEqual(actual.summary,{collections:67,requestedUnits:3062,missingOriginals:3062-admitted,originalSemanticsReviewed:admitted,ready:admitted});
  assert.equal(actual.capacity.find(row=>row.kind==='questions')!.requiredAtLeast,6330);
  assert.equal(actual.collections.filter(c=>c.id.endsWith('-fe-am')&&[2017,2018,2019].some(y=>c.id.startsWith(String(y)))).reduce((n,c)=>n+c.count,0),480);

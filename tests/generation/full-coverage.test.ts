@@ -106,9 +106,9 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     [...source.properties.profile.anyOf[0].enum,...additionalBookletFigures.map(figure=>figure.profile)].sort(),
     Object.keys(sourceFigureDomains).sort(),
   );
-  assert.equal(stage3MorningDefinitions.length,75);
+  assert.equal(stage3MorningDefinitions.length,77);
   assert.equal(stage3AllMorningDefinitions.filter(definition =>
-    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 152);
+    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 154);
   assert.deepEqual(stage3AllMorningDefinitions.filter(definition => isAutumn2015Source(definition.source)).map(definition => definition.source),
     autumn2015Official.records.filter(row => !autumn2015Review.held.some(held => held.number === row.number))
       .map(row => `${autumn2015Official.collectionId}-${row.number}`));
@@ -204,12 +204,12 @@ test("installed registry retains all467 reviewed AM families and their variable/
   assert.equal(amCapacity.rows.filter(r => r.answerCanVary).length, amCapacity.variableSeries);
   assert.equal(amCapacity.rows.filter(r => !r.answerCanVary).length, amCapacity.fixedSeries);
 });
-test("installed registry adds exactly75 stage3 morning families with all705 reviewed finite conditions", () => {
+test("installed registry adds 77 spring 2016 families with all 713 reviewed finite conditions", () => {
   const admitted = additionalDefinitions.filter(d => isStage3Source(d.source));
-  assert.equal(admitted.length, 75); assert.equal(stage3Counts.size, 75);
+  assert.equal(admitted.length, 77); assert.equal(stage3Counts.size, 77);
   assert.deepEqual(admitted.map(d => Number(d.source.split("-").at(-1))).sort((a,b) => a-b),
     [...stage3Counts.keys()].sort((a,b) => a-b));
-  assert.equal([...stage3Counts.values()].reduce((a,b) => a+b,0),705);
+  assert.equal([...stage3Counts.values()].reduce((a,b) => a+b,0),713);
   assert.equal(stage3FixedSignatures.size,4);
   for (const d of admitted) {
     const n=Number(d.source.split("-").at(-1)), count=stage3Counts.get(n)!;
@@ -218,7 +218,7 @@ test("installed registry adds exactly75 stage3 morning families with all705 revi
     assert.equal(d.answerVariation === "fixed",stage3FixedSignatures.has(n));
   }
 });
-test("installed registry adds exactly77 autumn2016 families with all450 independent finite conditions and keeps spring75 separate",()=>{
+test("installed registry adds exactly77 autumn2016 families with all450 independent finite conditions and keeps spring 2016 separate",()=>{
   const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)).map(n=>'2016h28a-fe-am-'+n);
   assert.equal(autumn2016FirstReview.rows.length,40);assert.equal(autumn2016LastReview.questions.length,37);
   assert.equal(autumn2016FirstReview.rows.reduce((n,r)=>n+r.finiteInputs,0),236);

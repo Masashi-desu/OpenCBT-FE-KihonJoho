@@ -20,8 +20,6 @@ export const sourceExclusions: Record<string, {reason:string;sourceId:string;che
   "2016h28a-fe-am-57": {reason:"ITIL2011が挙げる可用性管理のKPI例について、一般概念・短語と第三者表現の範囲及び本アプリでの利用条件の確認が未完了",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-46": {reason:"ソフトウェア方式設計に関する規格・共通フレーム等の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-56": {reason:"インシデント等の記録に関する規格要求の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
-  "2016h28h-fe-am-60": {reason:"旧システム監査基準の目的に関する原版と具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
-  "2016h28h-fe-am-63": {reason:"旧システム管理基準との直接対応箇所の原版と具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-66": {reason:"グリーン購入の具体的表現の出自・GPN等の第三者部分に適用する利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2025-b-6": {
     reason: "JIS Q 27001:2023に依存する第三者部分の再配布・改変条件を未確認",

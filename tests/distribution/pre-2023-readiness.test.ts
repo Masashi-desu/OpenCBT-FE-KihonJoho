@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { fixture } from "../fixtures";
 import { auditPre2023Readiness, pre2023Reviews, pre2023Scope, pre2023LegacyScope } from "../../scripts/audit-pre-2023-readiness";
+import reviewedSpring2016 from '../../scripts/source-evidence/stage3-s3-001-review.json';
 import extensions from "../../scripts/source-inventory-extensions.json";
 import { inventoryCollectionIdentity, type InventoryExtensions } from "../../scripts/source-inventory-extension-contract";
 import { readPre2009InventoryAdmission } from "../../scripts/pre-2023-inventory-admission";
@@ -129,7 +130,7 @@ test("the new13 registered majors remain pending when any one of the five scoped
 test("the current catalog retains every independently declared booklet admission and all outstanding source obligations", () => {
   const report = auditPre2023Readiness(fixture(), evidence());
   assert.equal(report.status, "not_ready");
-  let ready = 783;
+  let ready = 164 + 467 + 77 + reviewedSpring2016.includedNumbers.length;
   let archivedReady = 0;
   for (const { collectionId, excluded } of (extensions as InventoryExtensions).collections) {
     const count = inventoryCollectionIdentity(collectionId).count;

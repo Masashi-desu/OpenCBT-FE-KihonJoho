@@ -17,8 +17,8 @@ import { validateBundle } from "../../src/core/validation";
 test("declared scope cannot be reduced by deleting an original and its generator", () => {
   const b = fixture();
   assertPublishedSourceScope(b);
-  assert.equal(publishedSourceScope.retainedExclusionIds.length, 22,
-    'the existing22 held source numbers remain obligations when later collections are added');
+  assert.equal(publishedSourceScope.retainedExclusionIds.length, 20,
+    'the retained 20 held source numbers remain obligations');
   assert.deepEqual(validateSourceInventory(b), {
     declared: publishedSourceScope.declaredCount,
     included: publishedSourceScope.originalCount,

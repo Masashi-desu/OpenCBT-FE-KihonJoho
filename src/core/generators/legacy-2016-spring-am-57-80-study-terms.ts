@@ -5,8 +5,10 @@ export const legacy2016SpringAm5780StudyTerms:StudyTerm[]=[
  at([57],{term:'CPU',expansion:'Central Processing Unit',meaning:'中央処理装置。使用率は負荷を見る指標の一つで，応答時間や処理量などと併せて読む。'}),
  at([58],{term:'SPD',expansion:'Surge Protective Device',meaning:'サージ保護デバイス。雷などによる瞬間的な過電圧を抑える。停電時の給電や回線の冗長化とは役割が異なる。'}),
  at([59],{term:'ID',expansion:'Identifier',meaning:'識別子。利用者IDの発行・変更・削除は運用管理で，監査人による記録の確認・評価と区別する。'}),
+ at([60],{term:'システム監査',meaning:'情報システムのリスクに対する統制を独立した立場で調べ，評価結果による保証や改善の助言を行う。'}),
  at([61],{term:'OS',expansion:'Operating System',meaning:'基本ソフトウェア。更新による依存ソフトウェアや周辺機能への影響を事前の動作確認で調べる。'}),
  at([62],{term:'EA',expansion:'Enterprise Architecture',meaning:'組織全体の業務と情報システムの構造を整合させる考え方。本問の四分類は業務，データ，アプリケーション，技術。',aliases:['エンタープライズアーキテクチャ']}),
+ at([63],{term:'全体最適化計画',meaning:'平成16年版システム管理基準の情報戦略で扱う，経営方針に沿って組織全体の情報化を進める計画。'}),
  at([64],{term:'UML',expansion:'Unified Modeling Language',meaning:'統一モデリング言語。構造や振る舞いなどを，目的に合う複数のモデル図法で表現する。'}),
  at([64],{term:'ER',expansion:'Entity-Relationship',meaning:'実体とその属性，実体間の関連を表すモデル。UMLやDFDの呼称と同一視しない。'}),
  at([64],{term:'DFD',expansion:'Data Flow Diagram',meaning:'データフロー図。データの発生・吸収，処理，保存とデータの流れを表す。'}),
@@ -36,4 +38,4 @@ export const legacy2016SpringAm5780StudyTerms:StudyTerm[]=[
  at([79],{term:'プログラムの解法',meaning:'プログラムにおける指令の組合せの方法そのもの。2016年時点の著作権法10条3項で保護が及ばないものとして言語・規約とともに区別される。'}),
  at([80],{term:'請負・派遣・準委任',meaning:'2016年当時の教材の区分。請負の完成責任，派遣先の指揮命令，準委任の事務処理の関係を区別する。原の瑕疵担保責任を2020年以降の契約不適合の用語へ読み替えない。'}),
 ];
-export const legacy2016SpringAm5780RelatedTerms=Object.fromEntries([57,58,59,61,62,64,65,67,68,69,70,71,72,73,74,75,76,77,78,79,80].map(n=>{const source=`2016h28h-fe-am-${n}`;return[source,legacy2016SpringAm5780StudyTerms.filter(t=>t.sources?.includes(source)).map(t=>t.term)];}));
+export const legacy2016SpringAm5780RelatedTerms=Object.fromEntries([57,58,59,60,61,62,63,64,65,67,68,69,70,71,72,73,74,75,76,77,78,79,80].map(n=>{const source=`2016h28h-fe-am-${n}`;return[source,legacy2016SpringAm5780StudyTerms.filter(t=>t.sources?.includes(source)).map(t=>t.term)];}));

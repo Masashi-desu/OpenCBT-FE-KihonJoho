@@ -8,6 +8,7 @@ import {legacy2016SpringAm5780Definitions as definitions} from '../../../src/cor
 import {Legacy2016SpringAm5780Figures} from '../../../src/ui/Legacy2016SpringAm5780Figures';
 import {spring2016Am5780Knowledge as knowledge} from '../../fixtures/legacy-2016-spring-am-57-80-oracle';
 import facts from '../../fixtures/legacy-2016-spring-am-57-80-review.json';
+import officialAnswers from '../../fixtures/legacy-2016-spring-am-official-answers.json';
 const numberOf=(source:string)=>Number(source.split('-').at(-1));
 const text=(blocks:readonly Block[]):string=>blocks.map(b=>b.type==='paragraph'?b.text:b.type==='list'?b.items.join('\n'):'').join('\n');
 const epsilon=1e-8;
@@ -50,6 +51,29 @@ function statementTruth(number:number,caseIndex:number,body:GeneratedBody):boole
  }
  if(number===76){const expected=/機能別組織/.test(prompt)?/^経理/:/事業部制/.test(prompt)?/^地域/:/ネットワーク型/.test(prompt)?/^複数企業/:/プロジェクト/.test(prompt)?/^ある問題/:undefined;assert(expected);assert.deepEqual(values.map(s=>expected.test(s)),truths);}
  if(semanticAnswer)assert.deepEqual(values.map(s=>s===semanticAnswer),truths);
+ if(number===60){
+  assert.match(prompt,/システム監査基準.*組織体がシステム監査を実施する目的/);
+  const evaluation=/評価|検証|調べ/;
+  const independentAudit=values.map(value=>evaluation.test(value)&&(
+   /独立した立場.*(?:助言|リスク管理|統制の状況を報告)/.test(value)||
+   /リスクに対するコントロール.*ITガバナンス/.test(value)));
+  assert.deepEqual(independentAudit,truths);
+ }
+ if(number===63){
+  const artifacts=[
+   [/情報戦略策定段階/,'全体最適化計画'],
+   [/企画段階/,'開発計画'],
+   [/開発段階/,'開発手順'],
+   [/運用段階/,'運用手順'],
+  ] as const;
+  const asked=artifacts.filter(([stage])=>stage.test(prompt));
+  assert.equal(asked.length,1,'choose a single stage in the 2004 standard');
+  assert.match(prompt,/システム管理基準.*成果物はどれか/);
+  const displayed=values.map(value=>artifacts.filter(([,artifact])=>value.endsWith(artifact)).map(([,artifact])=>artifact));
+  assert(displayed.every(labels=>labels.length===1));
+  assert.equal(new Set(displayed.flat()).size,artifacts.length);
+  assert.deepEqual(displayed.map(([artifact])=>artifact===asked[0][1]),truths);
+ }
  const directions:Record<number,RegExp>={57:/容量・能力.*監視/,58:/落雷|雷による/,59:/アクセス.*監査|アクセス.*監査人/,61:/パッチ|ソフトウェア更新/,64:/UML/,65:/IoT/,67:/SWOT/,68:/ベンチマーキング/,69:/マトリックス/,70:/EMS/,71:/ディジタルディバイド/,74:/ロングテール/,76:/プロジェクト組織|機能別組織|事業部制組織|ネットワーク型組織/,79:/保護.*対象.*ならない/,80:/契約|請負/};
  if(directions[number])assert.match(prompt,directions[number]);
  assert.equal(truths.filter(Boolean).length,1);return truths;
@@ -70,11 +94,11 @@ function inspectPareto(markup:string){
  return descending&&cumulative;
 }
 
-test('source57–80 keeps all24 dispositions, 21 candidate originals, complete original wording and official answers',()=>{
+test('source57–80 keeps all24 dispositions, 23 candidate originals, complete original wording and official answers',()=>{
  assert.deepEqual([...facts.questions.map(q=>q.number),...facts.held.map(q=>q.number)].sort((a,b)=>a-b),Array.from({length:24},(_,i)=>57+i));
- assert.deepEqual(facts.held.map(h=>h.number),[60,63,66]);assert.equal(definitions.length,21);
+ assert.deepEqual(facts.held.map(h=>h.number),[66]);assert.equal(definitions.length,23);
  for(const d of definitions){
-  const n=numberOf(d.source),q=facts.questions.find(q=>q.number===n)!;assert(q);const b=d.build([0]);assert.deepEqual(d.reference,[0]);assert.equal(d.sourceAnswer,q.officialKey);assert.equal(b.correctIndex,'アイウエ'.indexOf(q.officialKey));assert.equal(text([b.prompt[0]]),q.prompt);
+  const n=numberOf(d.source),q=facts.questions.find(q=>q.number===n)!;assert(q);const b=d.build([0]);assert.deepEqual(d.reference,[0]);assert.equal(d.sourceAnswer,q.officialKey);assert.equal(q.officialKey,officialAnswers.questions[n-1].key);assert.equal(b.correctIndex,'アイウエ'.indexOf(q.officialKey));assert.equal(text([b.prompt[0]]),q.prompt);
   assert.equal(b.choices.length,4);if(n!==77)assert.deepEqual(b.choices.map(text),q.choices);
   if(n===72){const ls=b.prompt.find(b=>b.type==='list');assert(ls?.type==='list');assert.deepEqual(ls.items,'steps' in q?q.steps:undefined);}
   if(n===69)assert.equal(b.prompt.filter(b=>b.type==='diagram').length,1);
@@ -83,7 +107,7 @@ test('source57–80 keeps all24 dispositions, 21 candidate originals, complete o
  }
 });
 
-test('independent primary-fact truth review covers all92 finite bodies and368 choices, including original conditions',()=>{
+test('independent primary-fact truth review covers all100 finite bodies and400 choices, including original conditions',()=>{
  let bodies=0,choices=0;for(const d of definitions){const n=numberOf(d.source),seen=new Set<string>();
   for(let i=0;i<=d.fields[0].maximum;i++){
    const b=d.build([i]);assert.deepEqual(b,d.build([i]));assert.equal(b.choices.length,4);
@@ -92,7 +116,7 @@ test('independent primary-fact truth review covers all92 finite bodies and368 ch
    const signature=JSON.stringify([b.prompt,b.choices]);assert(!seen.has(signature),`${n}/${i}: substantive finite input must differ`);seen.add(signature);bodies++;choices+=4;
   }
   for(const v of [[],[-1],[d.fields[0].maximum+1],[NaN],[Infinity],[.5],[0,0]])assert.throws(()=>d.build(v),/PARAMETER_CONSTRAINT/);
- }assert.equal(bodies,92);assert.equal(choices,368);
+ }assert.equal(bodies,100);assert.equal(choices,400);
 });
 
 test('knowledge mutations reject wrong correct answer, swapped claim, counterfeit condition and all unreviewed questions',()=>{
@@ -104,7 +128,7 @@ test('knowledge mutations reject wrong correct answer, swapped claim, counterfei
    const negated=structuredClone(b),b0=negated.choices[j][0];assert(b0.type==='paragraph');b0.text+='ただし上記の記述は誤りである。';assert.throws(()=>assertKnowledge(n,i,negated));rejected++;
   }
  }
- assert.equal(rejected,240);for(const n of[60,63,66])assert.throws(()=>statementTruth(n,0,definitions[0].build([0])));
+ assert.equal(rejected,264);assert.throws(()=>statementTruth(66,0,definitions[0].build([0])));
 });
 
 test('source-local SVG SSR validates all48 graphs and4 matrices, fixed labels and order; rejects invalid input and a false cumulative line',()=>{
@@ -125,7 +149,7 @@ test('source-local SVG SSR validates all48 graphs and4 matrices, fixed labels an
 });
 
 
-test('source-local study terms retain reviewed expansions and source scopes, excluding held60/63/66',async()=>{
+test('source-local study terms retain reviewed expansions and source scopes, excluding held66',async()=>{
  const {legacy2016SpringAm5780StudyTerms:terms,legacy2016SpringAm5780RelatedTerms:related}=await import('../../../src/core/generators/legacy-2016-spring-am-57-80-study-terms');
  const expansions:Record<string,string>={IT:'Information Technology',CPU:'Central Processing Unit',SPD:'Surge Protective Device',ID:'Identifier',OS:'Operating System',EA:'Enterprise Architecture',UML:'Unified Modeling Language',ER:'Entity-Relationship',DFD:'Data Flow Diagram',IoT:'Internet of Things',CtoC:'Consumer to Consumer',Web:'World Wide Web',SWOT:'Strengths, Weaknesses, Opportunities, Threats',BSC:'Balanced Scorecard',PEST:'Political, Economic, Social, Technological','3C':'Customer, Competitor, Company',ERP:'Enterprise Resource Planning',BPR:'Business Process Reengineering',EMS:'Electronics Manufacturing Service',PC:'Personal Computer',CAD:'Computer-Aided Design',CRP:'Capacity Requirements Planning',JIT:'Just In Time',MRP:'Material Requirements Planning',BtoB:'Business to Business',GtoC:'Government to Consumer'};
  const sources=facts.questions.map(q=>q.source);assert.deepEqual(Object.keys(related),sources);assert(terms.length>=Object.keys(expansions).length);

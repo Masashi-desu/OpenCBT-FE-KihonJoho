@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問3058件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2481問、旧午後388大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問3060件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2483問、旧午後388大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -1019,8 +1019,10 @@
 | [旧午前問57 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=25) | generator-source-2016h28h-fe-am-57@3.2.0 | 容量・能力の監視。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問58 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=25) | generator-source-2016h28h-fe-am-58@3.2.0 | 雷サージ対策。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問59 p.25](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=25) | generator-source-2016h28h-fe-am-59@3.2.0 | アクセス制御の監査。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問60 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=26) | generator-source-2016h28h-fe-am-60@3.2.0 | システム監査の目的。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問61 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=26) | generator-source-2016h28h-fe-am-61@3.2.0 | パッチ適用リスクの監査。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問62 p.26](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=26) | generator-source-2016h28h-fe-am-62@3.2.0 | EAの分類体系。caseIndex：0〜3（0） | 文章・表・図／4択 |
+| [旧午前問63 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=27) | generator-source-2016h28h-fe-am-63@3.2.0 | 情報戦略策定段階の成果物。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問64 p.27](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=27) | generator-source-2016h28h-fe-am-64@3.2.0 | UMLの活用。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問65 p.28](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=28) | generator-source-2016h28h-fe-am-65@3.2.0 | IoT。caseIndex：0〜3（0） | 文章・表・図／4択 |
 | [旧午前問67 p.29](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf#page=29) | generator-source-2016h28h-fe-am-67@3.2.0 | SWOT分析。caseIndex：0〜3（0） | 文章・表・図／4択 |

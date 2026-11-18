@@ -1,0 +1,168 @@
+{
+  "task": "S3-001",
+  "scope": [
+    60,
+    63
+  ],
+  "checkedOn": "2026-11-18",
+  "candidate": "q60-q63-content.patch",
+  "baseCommit": "7de4388c586ea9686b9d1492e5af08340bf61718",
+  "licenseDecision": "METIの平成28年1月29日制定の利用規約7）ウに基づき、同時期の配信文書にCC BY 4.0を選択する。掲載ではIPAの教育目的利用条件と併用し、経産省の資料名、原版URL、CC BY 4.0のリンク、改変の有無を対応付ける。原問と可変問題の作成主体を表示する。",
+  "scopeLimits": [
+    "原問画像はIPAの対象問と全4択を切り出したもの。PDF中の基準本文や基準のページ画像をアプリに収録する必要はない。",
+    "IPA原問の画像切り出しと解説・可変問題の新規作成を記録し、出典・適用条件を区別する。",
+    "WARPヘルプ5-4は元の著作権者の二次利用許諾を求める。利用根拠はWARPの公開状態に置かず、元の配信元であるMETIの同時期の利用規約に置く。",
+    "METI規約2）・3）・4）と同じ配信にある別紙3）を点検。対象の基準は個別適用除外の列挙に現れない。PDF全16頁の画像・注釈は0件で、対象節に第三者の資料名の引用、規格の転載、個別利用制限の表示は特定されない。",
+    "監査基準のPDF一般プロパティのAuthorに駿河台大学がある。基準本文に同大学の執筆・権利等の表示はなく、METI配信案内はMETIの基準本文として扱う。Author情報を権利確認記録と、必要に応じた出典表示に保持する。PDF製作分担・契約上の権利帰属は確認していない。",
+    "著作権法13条の官公署文書の該当性、平成16年公表時の紙媒体・第三者解説書の権利、他の設問へ本判定を広げない。通常アプリの統合・配布判定は親タスクで実施する。"
+  ],
+  "sources": [
+    {
+      "id": "source-meti-2004-system-audit",
+      "title": "システム監査基準（平成16年10月8日改訂）",
+      "url": "https://warp.ndl.go.jp/20170101/20161211215810/http://www.meti.go.jp/policy/netsecurity/downloadfiles/system_kansa.pdf",
+      "local": "source/system_kansa.pdf",
+      "sha256": "e74646a3135318b2a7eb7639d31adb994132f312e3a0adb2f31c9aabdb3e4d83",
+      "bytes": 45140,
+      "locators": [
+        "p1 Ⅰ 前文",
+        "p2 Ⅱ システム監査の目的",
+        "p2 Ⅲ 2.1 外観上の独立性"
+      ],
+      "mirrorComparison": "既存SAAJ同版とSHA-256一致。採用証拠はMETI公式配信。PDF物理ファイルはハードリンクで重複格納を避けた。"
+    },
+    {
+      "id": "source-meti-2004-system-management",
+      "title": "システム管理基準（平成16年10月8日策定）",
+      "url": "https://warp.ndl.go.jp/20170101/20161211215810/http://www.meti.go.jp/policy/netsecurity/downloadfiles/system_kanri.pdf",
+      "local": "source/system_kanri.pdf",
+      "sha256": "43a944ea78e26081bffa5d381b648db2e70574897d66c3f4f1d948d1302ae9f7",
+      "bytes": 182410,
+      "locators": [
+        "p2 Ⅰ 1.1(3)(4)・1.3(1)",
+        "p3–4 Ⅱ 1(2)(3)",
+        "p4 Ⅲ 1(2)(3)",
+        "p6 Ⅳ 1(3)"
+      ],
+      "mirrorComparison": "既存SAAJ同版とはバイト列が異なる。全12ページの抽出本文は各ページ単位で同一。採用証拠はMETI公式配信。"
+    },
+    {
+      "id": "source-meti-2016-website-terms",
+      "title": "経済産業省ウェブサイト利用規約（2016年1月29日制定、同年12月11日保存）",
+      "url": "https://warp.ndl.go.jp/20170101/20161211215810/http://www.meti.go.jp/main/rules.html",
+      "local": "source/rules.html",
+      "sha256": "3d4d6c4fde79fae15946eb6043ef919ab7bc602ec5eca8518b3ed608d4f7937b",
+      "locators": [
+        "コンテンツ利用の冒頭",
+        "1）出典と編集・加工の表示",
+        "2）第三者の権利",
+        "3）法令上の制約",
+        "4）適用除外",
+        "7）イ・ウ 政府標準利用規約2.0準拠とCC BY 4.0による二次利用"
+      ]
+    },
+    {
+      "id": "source-meti-2016-website-terms-appendix",
+      "title": "経済産業省ウェブサイト利用規約 別紙",
+      "url": "https://warp.ndl.go.jp/20170101/20161211215810/http://www.meti.go.jp/main/rules_02.html",
+      "local": "source/rules_02.html",
+      "sha256": "b9084838904401a1cdb09c9d4a65dced18bf7436c17f33b1682360cfd249bea5",
+      "locators": [
+        "3）別のルールを適用するコンテンツ"
+      ]
+    },
+    {
+      "title": "経済産業省 情報セキュリティ政策（2016年12月11日保存）",
+      "url": "https://warp.ndl.go.jp/20170101/20161211215810/http://www.meti.go.jp/policy/netsecurity/",
+      "local": "source/metisecurity-index.html",
+      "locators": [
+        "システム監査制度、平成16年版監査基準へのリンク",
+        "下部の利用規約リンク"
+      ]
+    },
+    {
+      "title": "CC BY 4.0 リーガルコード",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+      "locators": [
+        "§2(a)(1) 複製・共有・翻案の取消不能な許諾",
+        "§2(a)(6) 公式な後援の示唆を扱う条項",
+        "§3(a) 帰属表示、変更の表示、ライセンスの明示"
+      ]
+    },
+    {
+      "title": "国立国会図書館 WARP ヘルプ",
+      "url": "https://warp.ndl.go.jp/info/help",
+      "locators": [
+        "5-4 著作権について"
+      ]
+    },
+    {
+      "title": "IPA 平成28年度春期 FE 午前問題冊子",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_qs.pdf",
+      "retained": "output/source-review/s3-001-2016-spring-am/primary/questions.pdf",
+      "sha256": "d68dd03ec4beccc2a80c482ada27c67e4370c2bdacd600d9d3fc10b18ea6ef34",
+      "locators": [
+        "p26 問60 原問、注記、全4択",
+        "p27 問63 原問、注記、全4択"
+      ]
+    },
+    {
+      "title": "IPA 平成28年度春期 FE 午前解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gn5o-att/2016h28h_fe_am_ans.pdf",
+      "retained": "output/source-review/s3-001-2016-spring-am/primary/answers.pdf",
+      "sha256": "3fdd9ff26142d487e509b0de25d2fcb24485d442eafd81103d5e2609310f83f9",
+      "locators": [
+        "p1 問60 ウ、問63 イ"
+      ]
+    },
+    {
+      "title": "IPA 試験に関するよくある質問",
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "locators": [
+        "その他 試験の過去問題の使用方法"
+      ]
+    }
+  ],
+  "dispositions": [
+    {
+      "number": 60,
+      "page": 26,
+      "officialKey": "ウ",
+      "asset": "assets/q60.png",
+      "sourceId": "source-meti-2004-system-audit",
+      "mapping": {
+        "ア": "SWOTで事業戦略候補を定める。監査基準Ⅱが定める目的に対応する表現の転載は確認されない。",
+        "イ": "運用担当の自己点検と是正。Ⅱ・Ⅲ2.1の独立評価とは実施主体と活動が異なる。",
+        "ウ": "監査基準Ⅰ・Ⅱのリスク統制評価とITガバナンスへの寄与を近い言い回しで要約した。対応する表現へMETIの利用条件を併用する。",
+        "エ": "開発組織の生産性を測定し改善する執行活動。監査基準Ⅱの目的はリスク統制の評価を通じた保証・助言。"
+      },
+      "generation": "単一選択4択を維持。仕入の職務分離、給与システムの権限管理、受注システムの復元という三つの統制に合わせて、監査目的と各業務活動の内容を変更した。"
+    },
+    {
+      "number": 63,
+      "page": 27,
+      "officialKey": "イ",
+      "asset": "assets/q63.png",
+      "sourceId": "source-meti-2004-system-management",
+      "mapping": {
+        "ア": "Ⅱ1(2)と直接対応。全体最適化計画との整合を取る開発計画は企画業務。",
+        "イ": "Ⅰ1.1(3)(4)とⅠ1.3(1)に直接対応。経営戦略に沿う全体最適化計画は情報戦略。",
+        "ウ": "Ⅳ1(3)と文言が最も接近。運用設計・運用管理ルールと規模・期間・システム特性を列挙する運用手順は運用業務。",
+        "エ": "Ⅲ1(2)(3)と直接対応。開発方法に基づく開発手順は開発業務。標準化・効率の説明は設問で補われている。"
+      },
+      "generation": "段階の成果物の説明を選ぶ単一選択4択を維持。企画・運用・開発を問う各ケースで、対象システムと各段階の成果物の具体例を変更した。"
+    }
+  ],
+  "verification": {
+    "sourceImages": "IPA冊子p26–27と切り出しを目視して全肢と問題番号を確認。公式解答例と全公式鍵fixtureに照合。",
+    "independent": "対象cohortの原問含む総数100条件・400肢、正答改変・選択肢交換・文言否定264件を自動検証。新規追加分8条件・32肢。問60は独立評価とその目的を全4肢に照合。問63は本文の段階と4肢の成果物を独立対応表で判定。",
+    "proof": "verification.log",
+    "pending": "通常アプリのデータ取り込み・表示・利用経路、出典・利用条件の表示、配布範囲とCIは親タスクで実施。",
+    "materialStaging": {
+      "script": "legacy-2016-spring-am-60-63-prepare.ts",
+      "entryPoint": "prepareSpring2016AmSupplement(bundle, cropDir)",
+      "result": "原問・基準4レコード、テンプレート2、画像2、出典5、権利4。共通表記の既存データは再登録しない。原本ハッシュ、原画像のハッシュと寸法、全レコードのスキーマを確認。純粋な素材作成のみ。実配布バンドルへ書き込まない。",
+      "runtime": "配布データを比較元に2原問、原条件を含む8生成、40選択肢の採点、原問・基準・生成の原版・権利の継承、共通表記の分離を照合。77問の年度別セットとミックスをメモリ上で合成して本体validateBundleを通過。"
+    }
+  }
+}
