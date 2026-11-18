@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryChangeScopes, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from './scopes.mjs';
+import { RECORD_KINDS, distributionOwnership, classifyScopedChanges, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryChangeScopes, retainedSourceHoldRemovalScopes, historicalBookletHost, dataDependentBookletManifest, SCOPED_DISPLAYS, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from './scopes.mjs';
 import { validScope } from './booklet-scope.mjs';
 import { successfulBaseEvidence } from './base-evidence.mjs';
 import { runtimeDependencyGraph } from './runtime-dependencies.mjs';
@@ -131,14 +131,18 @@ export function makeParts(files, entries, selectedScopes, full = false, options 
     }
     return Object.fromEntries(Object.entries(parts).sort(([a], [b]) => a.localeCompare(b)).map(([part, names]) => [part, { files: names.sort(), expectedByFile: Object.fromEntries(names.map(f => [f, entries[f].count])), expectedNames: Object.fromEntries(names.filter(f => entries[f].names).map(f => [f, entries[f].names])), expectedDeclarations: Object.fromEntries(names.map(f => [f, callbackDeclarations(f, entries[f].names)]).filter(([, declarations]) => declarations)), expectedCount: names.reduce((n, f) => n + entries[f].count, 0), requiredDiagnostics: names.flatMap(f => entries[f].diagnostics ?? []), coverage: Object.fromEntries(names.filter(f => entries[f].coverage).map(f => [f, entries[f].coverage])), filters: [] }]));
 }
-function manifestDeltaAllowed(beforeBytes, afterBytes, beforeFiles, afterFiles, changed, scopes) {
+function manifestDeltaAllowed(beforeBytes, afterBytes, beforeFiles, afterFiles, changed, scopes, changedRecords) {
     if (!beforeBytes || !afterBytes)
         return false;
     const a = JSON.parse(beforeBytes.toString()).files, b = JSON.parse(afterBytes.toString()).files;
     for (const file of new Set([...Object.keys(a), ...Object.keys(b)])) {
         if (canonical(a[file]) === canonical(b[file]))
             continue;
-        if (!b[file] || !changed.includes(file) || !b[file].scopes?.length || b[file].scopes.some(s => !scopes.includes(s)))
+        if (!b[file] || !b[file].scopes?.length || b[file].scopes.some(s => !scopes.includes(s)))
+            return false;
+        const unchangedWrapper = beforeFiles[file] && beforeFiles[file] === afterFiles[file] &&
+            dataDependentBookletManifest(file, a[file], b[file], changedRecords);
+        if (!changed.includes(file) && !unchangedWrapper)
             return false;
         if (a[file] && canonical(a[file].scopes) !== canonical(b[file].scopes))
             return false;
@@ -206,6 +210,8 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
     const extensionScopes = Object.fromEntries(Object.keys(EXTENSION_DECLARATIONS).filter(p => changed.includes(p)).map(p => [p, appendOnlyExtensionScopes(readAt(base.commit, p)?.toString(), readAt(null, p)?.toString(), p)]));
     if (changed.includes('scripts/source-inventory-extensions.json'))
         extensionScopes['scripts/source-inventory-extensions.json'] = sourceInventoryChangeScopes(readAt(base.commit, 'scripts/source-inventory-extensions.json')?.toString(), readAt(null, 'scripts/source-inventory-extensions.json')?.toString(), before, after);
+    if (changed.includes('scripts/source-inventory.ts'))
+        extensionScopes['scripts/source-inventory.ts'] = retainedSourceHoldRemovalScopes(readAt(base.commit, 'scripts/source-inventory.ts')?.toString(), readAt(null, 'scripts/source-inventory.ts')?.toString(), before, after);
     if (changed.includes(AFTERNOON_SELECTION_COUNTS_FILE))
         extensionScopes[AFTERNOON_SELECTION_COUNTS_FILE] = afternoonSelectionCountAppendScopes(
             readAt(base.commit, AFTERNOON_SELECTION_COUNTS_FILE)?.toString(), readAt(null, AFTERNOON_SELECTION_COUNTS_FILE)?.toString());
@@ -230,7 +236,7 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
         if (feature) selected = feature;
     }
     for (const file of manifests)
-        if (!['details', 'features'].includes(selected.profile) && !manifestDeltaAllowed(readAt(base.commit, file), readAt(null, file), baseline, actual, changed, selected.scopes)) {
+        if (!['details', 'features'].includes(selected.profile) && !manifestDeltaAllowed(readAt(base.commit, file), readAt(null, file), baseline, actual, changed, selected.scopes, selected.changedRecords)) {
             selected.profile = 'full';
             selected.scopes = after.scopes;
             selected.unknown.push(file);
@@ -258,6 +264,10 @@ export function createPlan({ forceFull = false, baseCommit, bookletScope = null,
                 else if (host === false)
                     displayUnknown.push('unproven UI consumer boundary: ' + file);
             }
+        }
+        for (const file of sourceChanges) {
+            const host = historicalBookletHost(file, changed, oldGraph, newGraph);
+            if (host) graph[host] = graph[host].filter(dependency => dependency !== file);
         }
         const affected = expandOwnedDependencies(sourceChanges, graph, after.scopes, carriers);
         if (selected.profile === 'features' && selected.features.includes('storage'))

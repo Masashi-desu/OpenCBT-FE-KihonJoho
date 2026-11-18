@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { scopeFamily, scopeForQuestion } from '../../scripts/ci/booklet-scope.mjs';
-import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryChangeScopes, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from '../../scripts/ci/scopes.mjs';
+import { distributionOwnership, compareDistribution, classifyScopedChanges, scopesForOwnedPath, parseBookletExtensions, appendOnlyExtensionScopes, EXTENSION_DECLARATIONS, expandOwnedDependencies, sourceInventoryChangeScopes, retainedSourceHoldRemovalScopes, historicalBookletHost, dataDependentBookletManifest, inertDisplaySource, scopedDisplayImports, AFTERNOON_SELECTION_COUNTS_FILE, afternoonSelectionCountAppendScopes, ANSWER_CHOICE_MATRIX_HOST, answerChoiceMatrixAppendScopes } from '../../scripts/ci/scopes.mjs';
 import { runtimeDependencyGraph } from '../../scripts/ci/runtime-dependencies.mjs';
 import { makeParts } from '../../scripts/ci/plan.mjs';
 const scopes = ['2016-autumn-am', '2016-autumn-pm', '2016-spring-am', '2016-spring-pm', '2017-spring-pm', '2024-a'];
@@ -339,6 +339,34 @@ test('source inventory only narrows a hold removal backed by the released origin
     assert.equal(sourceInventoryChangeScopes(before, inventory([held(55)]), empty, release()), null);
     assert.equal(sourceInventoryChangeScopes(before, inventory([held(54), held(66)]), empty, release()), null);
     assert.equal(sourceInventoryChangeScopes(before, inventory([{ ...held(55), reason: 'Unrelated reason changed' }, held(66)]), empty, release()), null);
+
+    const retainedHold = (numbers: number[]) => `export const sourceExclusions: Record<string, Hold> = {
+${numbers.map(number => `  "${collectionId}-${number}": { reason: 'Third-party material conditions pending', sourceId: '${held(number).sourceId}', checkedOn: '2026-11-08' },`).join('\n')}
+};
+const expected = 80;
+`;
+    assert.deepEqual(retainedSourceHoldRemovalScopes(retainedHold([55, 65, 66]), retainedHold([55, 66]), empty, release()), [scope]);
+    assert.equal(retainedSourceHoldRemovalScopes(retainedHold([55, 65, 66]), retainedHold([55, 66]).replace('expected = 80', 'expected = 78'), empty, release()), null);
+    assert.equal(retainedSourceHoldRemovalScopes(retainedHold([55, 65, 66]), retainedHold([55, 66]).replace('conditions pending', 'conditions modified'), empty, release()), null);
+    assert.equal(retainedSourceHoldRemovalScopes(retainedHold([55, 65, 66]), retainedHold([55, 66]), empty, release([annual])), null);
+    assert.deepEqual(scopesForOwnedPath('scripts/source-evidence/stage3-s3-001-review.json', ['2016-spring-am', '2016-autumn-am']), ['2016-spring-am']);
+    const wrapper = 'tests/booklets/2014-autumn-am/content-contract.test.ts';
+    const entry = { scopes: [scope], count: 77 }, successor = { ...entry, count: 78 };
+    const actualChange = [{ kind: 'questions', scopes: [scope] }];
+    assert(dataDependentBookletManifest(wrapper, entry, successor, actualChange));
+    assert(!dataDependentBookletManifest(wrapper, entry, successor, []));
+    assert(!dataDependentBookletManifest(wrapper, entry, { ...successor, features: ['verification'] }, actualChange));
+    assert(!dataDependentBookletManifest(wrapper, entry, successor, [{ kind: 'questions', scopes: ['2013-spring-am'] }]));
+    assert(!dataDependentBookletManifest(wrapper.replace('content-contract', 'bookmarks'), entry, successor, actualChange));
+    for (const [file, host] of [
+        ['src/core/generators/legacy-2016-spring-am-57-80.ts', 'src/core/generators/stage3-morning-install.ts'],
+        ['src/core/generators/legacy-2016-spring-am-57-80-study-terms.ts', 'src/core/study-terms.ts'],
+    ]) {
+        const graph = { [host]: [file] };
+        assert.equal(historicalBookletHost(file, [file], graph, graph), host);
+        assert.equal(historicalBookletHost(file, [file, host], graph, graph), undefined);
+        assert.equal(historicalBookletHost(file, [file], {}, graph), undefined);
+    }
 });
 
 test('only the known generated validator resolves virtually through its tracked compiler, Schema, Unicode and dependency inputs',()=>{

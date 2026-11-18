@@ -46,6 +46,11 @@ export function scopedDisplayImports(file, imports) {
 /** Infer only a narrowing that is justified by an explicit year/term/section.
  * Year-wide legacy modules intentionally select both terms and both sections. */
 export function scopesForOwnedPath(file, available) {
+    const initial2016Review = /^scripts\/source-evidence\/stage3-s3-00([12])-review\.json$/.exec(file);
+    if (initial2016Review) {
+        const term = initial2016Review[1] === '1' ? 'spring' : 'autumn';
+        return available.filter(scope => scope === `2016-${term}-am`);
+    }
     const wrapper = /^tests\/booklets\/([^/]+)\/random-bindings\.test\.ts$/.exec(file);
     if (wrapper)
         return validScope(wrapper[1]) ? [wrapper[1]] : [];
@@ -374,6 +379,84 @@ function publishedHoldRemoval(collection, held, scope, before, after) {
         mix.generationBindings.some(binding => binding.questionRef.questionId === baseId && binding.questionRef.revision === base.revision &&
             binding.templateRef.id === templateId && binding.templateRef.revision === template.revision);
 }
+
+/** The older inventory stores its holds in a literal object. A release can
+ * remove entries from that object without changing the inventory algorithm. */
+export function retainedSourceHoldRemovalScopes(beforeText, afterText, before, after) {
+    if (!before || !after)
+        return null;
+    const parse = (text) => {
+        if (typeof text !== 'string')
+            return null;
+        const source = ts.createSourceFile('source-inventory.ts', text, ts.ScriptTarget.Latest, true);
+        if (source.parseDiagnostics.length)
+            return null;
+        const declarations = source.statements.filter(ts.isVariableStatement)
+            .flatMap(statement => [...statement.declarationList.declarations])
+            .filter(declaration => ts.isIdentifier(declaration.name) && declaration.name.text === 'sourceExclusions');
+        const object = declarations.length === 1 && declarations[0].initializer;
+        if (!object || !ts.isObjectLiteralExpression(object))
+            return null;
+        const rows = new Map();
+        for (const row of object.properties) {
+            if (!ts.isPropertyAssignment(row) || !ts.isStringLiteral(row.name) || !ts.isObjectLiteralExpression(row.initializer) || rows.has(row.name.text))
+                return null;
+            const fields = new Map();
+            for (const field of row.initializer.properties) {
+                if (!ts.isPropertyAssignment(field) || !ts.isIdentifier(field.name) || !ts.isStringLiteral(field.initializer) || fields.has(field.name.text))
+                    return null;
+                fields.set(field.name.text, field.initializer.text);
+            }
+            if (fields.size !== 3 || !fields.has('reason') || !fields.has('sourceId') || !fields.has('checkedOn'))
+                return null;
+            rows.set(row.name.text, { text: row.getText(source), sourceId: fields.get('sourceId') });
+        }
+        return { shell: text.slice(0, object.getStart(source) + 1) + text.slice(object.end - 1), rows };
+    };
+    const a = parse(beforeText), b = parse(afterText);
+    if (!a || !b || a.shell !== b.shell || b.rows.size >= a.rows.size)
+        return null;
+    const retained = [...a.rows].filter(([id]) => b.rows.has(id)).map(([id, row]) => [id, row.text]);
+    if (stable(retained) !== stable([...b.rows].map(([id, row]) => [id, row.text])))
+        return null;
+    const scopes = new Set();
+    for (const [id, row] of a.rows) {
+        if (b.rows.has(id))
+            continue;
+        const match = /^((20\d{2})(?:h\d{2}|r\d{2})([ha])-fe-am)-([1-9]|[1-7]\d|80)$/.exec(id);
+        if (!match)
+            return null;
+        const [, collection, year, term, number] = match;
+        const scope = `${year}-${term === 'h' ? 'spring' : 'autumn'}-am`;
+        if (!publishedHoldRemoval(collection, { number: Number(number), sourceId: row.sourceId }, scope, before, after))
+            return null;
+        scopes.add(scope);
+    }
+    return [...scopes].sort();
+}
+
+// These unchanged hosts select by the registered 2016 spring source ID, not
+// by the contents of the rest of their registry. Other consumers still fan out.
+const historicalBookletHosts = {
+    'src/core/generators/legacy-2016-spring-am-57-80.ts': 'src/core/generators/stage3-morning-install.ts',
+    'src/core/generators/legacy-2016-spring-am-57-80-study-terms.ts': 'src/core/study-terms.ts',
+};
+export function historicalBookletHost(file, changed, before, after) {
+    const host = historicalBookletHosts[file];
+    return host && !changed.includes(host) && before[host]?.includes(file) && after[host]?.includes(file) ? host : undefined;
+}
+/** Existing booklet wrappers register callbacks from the released data.
+ * Their executable source may stay byte-identical when the real workload
+ * changes. The common manifest observer checks the exact new callbacks. */
+export function dataDependentBookletManifest(file, before, after, changedRecords) {
+    const scope = /^tests\/booklets\/([^/]+)\/(?:random-bindings|content-contract)\.test\.ts$/.exec(file)?.[1];
+    if (!validScope(scope) || !before || !after || stable(before.scopes) !== stable([scope]) ||
+        stable(after.scopes) !== stable([scope]))
+        return false;
+    const fixed = (entry) => Object.fromEntries(Object.entries(entry).filter(([key]) => !['count', 'names', 'diagnostics', 'coverage'].includes(key)));
+    return stable(fixed(before)) === stable(fixed(after)) &&
+        changedRecords.some(record => ['questions', 'templates'].includes(record.kind) && stable(record.scopes) === stable([scope]));
+}
 /** Follow direct imports between owned modules. Generic runtime consumers are
  * full-scope unless they are an explicit, separately tested registry boundary. */
 export function expandOwnedDependencies(changed, imports, available, carriers = []) {
@@ -421,7 +504,7 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
         const addedScopes = extensionScopes[file];
         const newBookletGate = [AFTERNOON_SELECTION_COUNTS_FILE, ANSWER_CHOICE_MATRIX_HOST].includes(file) &&
             addedScopes?.every(scope => !beforeOwnership.scopes.includes(scope));
-        if ((Object.hasOwn(EXTENSION_DECLARATIONS, file) || file === 'scripts/source-inventory-extensions.json' || newBookletGate) &&
+        if ((Object.hasOwn(EXTENSION_DECLARATIONS, file) || ['scripts/source-inventory-extensions.json', 'scripts/source-inventory.ts'].includes(file) || newBookletGate) &&
             addedScopes?.length && addedScopes.every(scope => afterOwnership.scopes.includes(scope))) {
             add(selected, addedScopes);
             continue;
@@ -438,7 +521,7 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
             }
         }
         const owned = scopesForOwnedPath(file, available);
-        if (owned.length && /^(?:src\/core\/generators\/legacy-|src\/core\/(?:spring|autumn)-|src\/ui\/(?:Legacy|legacy-)|scripts\/(?:import-legacy-|legacy-|source-evidence\/legacy-)|tests\/fixtures\/)/.test(file)) {
+        if (owned.length && /^(?:src\/core\/generators\/legacy-|src\/core\/(?:spring|autumn)-|src\/ui\/(?:Legacy|legacy-)|scripts\/(?:import-legacy-|legacy-|source-evidence\/(?:legacy-|stage3-s3-00[12]-review\.json$))|tests\/fixtures\/)/.test(file)) {
             add(selected, owned);
             continue;
         }

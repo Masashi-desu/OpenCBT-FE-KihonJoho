@@ -1,6 +1,8 @@
 import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';import{fixture}from'../../fixtures';
 import ledger from'../../../scripts/source-evidence/stage2-2019-spring-pm-review.json';
 import{sourceScope,sourceExclusions,validateSourceInventory}from'../../../scripts/source-inventory';
+import springStage3Review from '../../../scripts/source-evidence/stage3-s3-001-review.json';
+import autumnStage3Review from '../../../scripts/source-evidence/stage3-s3-002-review.json';
 import{publishedSourceScope,assertPublishedSourceScope}from'../../helpers/published-source-scope';
 import{auditPre2023Readiness,pre2023Reviews,pre2023Scope,spring2019BookletImportReviews}from'../../../scripts/audit-pre-2023-readiness';
 import{pre2009HardPending,pre2009InventoryScope}from'../../../scripts/pre-2023-inventory-admission';
@@ -33,7 +35,7 @@ test('current inventory retains S205 and all480 AM source positions, while2025B6
  assert.deepEqual(sourceScope.filter(s=>amCollections.some(([id])=>s.startsWith(id+'-'))).sort(),
   amCollections.flatMap(([id])=>Array.from({length:80},(_,i)=>`${id}-${i+1}`)).sort());
  assert.deepEqual(sourceExclusions['2025-b-6'],{reason:'JIS Q 27001:2023に依存する第三者部分の再配布・改変条件を未確認',sourceId:'source-ipa-2025-b-qs',checkedOn:'2026-10-07'});
- const stage3Held=[...[46,56,60,63,66].map(n=>'2016h28h-fe-am-'+n),...[55,56,57].map(n=>'2016h28a-fe-am-'+n)];
+ const stage3Held=[...springStage3Review.held.map(row=>'2016h28h-fe-am-'+row.number),...autumnStage3Review.held.map(row=>'2016h28a-fe-am-'+row.number)];
  assert.deepEqual(sourceScope.filter(s=>s.startsWith('2016h28a-fe-am-')),Array.from({length:80},(_,i)=>'2016h28a-fe-am-'+(i+1)));
  assert.deepEqual(sourceScope.filter(s=>s.startsWith('2016h28h-fe-am-')),Array.from({length:80},(_,i)=>'2016h28h-fe-am-'+(i+1)));
  const held=amCollections.flatMap(([id,numbers])=>numbers.map(n=>`${id}-${n}`));
