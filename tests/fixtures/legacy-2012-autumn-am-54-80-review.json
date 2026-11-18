@@ -35,10 +35,6 @@
       "reason": "ITIL v3 Service Operation・同時代の用語集のプロセス目標とサービスデスクの複合的な具体表現を含む。四択の日本語表現の由来と旧版の再配布・改変条件を確認できるまで保留。"
     },
     {
-      "number": 61,
-      "reason": "平成16年10月8日版のⅠ1.1(3)の最適化目標、Ⅰ1.2(1)の経営戦略との整合性、関連する費用・開発計画項目と表現が近い。発行主体の旧版利用条件又は個別許諾を確認できるまで保留。"
-    },
-    {
       "number": 66,
       "reason": "共通フレーム2007第2版1.4／1.5／1.6.2の要求事項の具体的な記述。企画・要件定義のIPA拡張は確認できるが、選択肢全体の市販書籍・JIS系原文との表現境界を確認できるまで保留。同じ選択肢構成の2015年度春期問66も保留。"
     }
@@ -189,6 +185,39 @@
         }
       },
       "independentMethod": "本文の判定条件と四択の意味を、別管理の査読済み対応表から照合して正答を一意に決める。"
+    },
+    {
+      "number": 61,
+      "page": 27,
+      "officialAnswer": "ウ",
+      "statementHash": "b64ff81c3b42fa0df3a94ae16caa0aef37d2d322080788c5d0c6a3ba8d90d7d5",
+      "inputs": 4,
+      "choiceShuffleAllowed": true,
+      "materialReview": {
+        "status": "review-candidate",
+        "basis": "平成16年版の本文と経済産業省の旧サイト規約を照合。原紙にある四肢の根拠箇所と出典を記録した。改変版の選択肢は独自表現にした。",
+        "paperTerms": "https://www.ipa.go.jp/shiken/faq.html",
+        "referenceSources": [
+          {
+            "title": "システム管理基準（平成16年10月8日）",
+            "url": "https://warp.ndl.go.jp/20170101/20161218092215/http://www.meti.go.jp/policy/netsecurity/docs/isaudit/system_kanrikijyun.pdf",
+            "locator": "p.2 Ⅰ1.1(3)、p.3 Ⅰ3(1)、p.4 Ⅱ1(6)・Ⅱ3(3)・Ⅲ1(3)",
+            "role": "全体最適化目標、開発計画、開発手順、調達の各肢対応を確認。"
+          },
+          {
+            "title": "経済産業省ウェブサイトの利用規約",
+            "url": "https://warp.ndl.go.jp/20170101/20161207043136/http://www.meti.go.jp/main/rules.html",
+            "locator": "著作権について（政府標準利用規約 第2.0版）",
+            "role": "同省の公開資料に対する複製、公衆送信、翻案、出典と加工表示の条件を確認。"
+          }
+        ],
+        "uses": {
+          "repositoryRedistribution": "candidate",
+          "browserDisplay": "candidate",
+          "adaptation": "candidate"
+        }
+      },
+      "independentMethod": "平成16年版の節ごとに原題と生成各肢の意味を分類し、本文の対象と一致する1肢を固定資料で検査。原題での出題箇所はⅠ1.1(3)、ウと文言が近いⅠ3(1)は情報化投資計画。"
     },
     {
       "number": 62,

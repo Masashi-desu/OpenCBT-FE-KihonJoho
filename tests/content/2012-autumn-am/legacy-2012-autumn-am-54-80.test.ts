@@ -70,8 +70,8 @@ function number(text: string) {
   return Number(text.replaceAll(',', ''));
 }
 
-test('2012秋午前54〜80の掲載24問が原紙面・公式解答・全可変入力に対応する', () => {
-  const held = [56, 61, 66];
+test('2012秋午前54〜80の掲載25問が原紙面・公式解答・全可変入力に対応する', () => {
+  const held = [56, 66];
   assert.deepEqual(review.rightsHolds.map(row => row.number), held);
   const numbers = Array.from({ length: 27 }, (_, i) => i + 54).filter(n => !held.includes(n));
   assert.deepEqual(review.records.map(row => row.number), numbers);
@@ -106,7 +106,7 @@ test('2012秋午前54〜80の掲載24問が原紙面・公式解答・全可変�
       assert.throws(() => item.build(invalid), /入力が範囲外/);
     }
   }
-  assert.equal(review.records.reduce((sum, row) => sum + row.inputs, 0), 83);
+  assert.equal(review.records.reduce((sum, row) => sum + row.inputs, 0), 87);
 });
 
 for (const [question, oracle] of Object.entries(knowledge)) {

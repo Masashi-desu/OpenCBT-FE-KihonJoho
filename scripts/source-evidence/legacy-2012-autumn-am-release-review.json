@@ -65,6 +65,7 @@
     58,
     59,
     60,
+    61,
     62,
     63,
     64,
@@ -88,12 +89,6 @@
     {
       "number": 56,
       "reason": "ITIL v3 Service Operation・同時代の用語集のプロセス目標とサービスデスクの複合的な具体表現を含む。四択の日本語表現の由来と旧版の再配布・改変条件を確認できるまで保留。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 61,
-      "reason": "平成16年10月8日版のⅠ1.1(3)の最適化目標、Ⅰ1.2(1)の経営戦略との整合性、関連する費用・開発計画項目と表現が近い。発行主体の旧版利用条件又は個別許諾を確認できるまで保留。",
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false
     },
@@ -1016,6 +1011,20 @@
       ]
     },
     {
+      "number": 61,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2012-autumn-am/legacy-2012-autumn-am-54-80.test.ts",
+        "tests/content/2012-autumn-am/legacy-2012-autumn-am-integration.test.ts"
+      ]
+    },
+    {
       "number": 62,
       "checks": {
         "transcription": "pass",
@@ -1285,5 +1294,16 @@
         "tests/booklets/2012-autumn-am/content-contract.test.ts"
       ]
     }
-  ]
+  ],
+  "supplement": {
+    "checkedOn": "2026-11-18",
+    "numbers": [
+      61
+    ],
+    "sourceAndIndependent": {
+      "path": "scripts/source-evidence/legacy-2012-autumn-am-61-source-review.json",
+      "sha256": "53aac8d5d0b470cab02f778f43117bc32d867bacc08741b6669a405adef48083",
+      "byteLength": 5604
+    }
+  }
 }
