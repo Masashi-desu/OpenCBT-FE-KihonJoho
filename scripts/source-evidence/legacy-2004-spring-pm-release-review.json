@@ -1,0 +1,187 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-052",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    1,
+    5,
+    7,
+    8,
+    9,
+    11,
+    12
+  ],
+  "held": [
+    {
+      "number": 2,
+      "status": "original_answer_ambiguous",
+      "reason": "原紙p.6は更新前・後のログとDBの書出しをチェックポイントで一致させ、ロールバック後は直前チェックポイントの時点まで戻すとする。p.7でTR3の処理区間はチェックポイントをまたぎ、A−500とD＋300のそれぞれの実行時刻や確定済み処理のみを同期するかは指定されない。TR3のA−500をチェックポイント後とした同期済み像はA=1,100（公式エ）であり、A−500を先に実行して同期した像はA=600（ア）になる。両方ともTR1が先にコミットし、TR3が後にコミットする。Mohanらの同時代の一次論文でもチェックポイントは活動中トランザクションを含み得る。確定取引だけを対象とする論理像に限定する根拠がないため、原題のまま保留する。",
+      "bodyPublished": false
+    },
+    {
+      "number": 3,
+      "status": "material_conditions_unconfirmed",
+      "reason": "原紙p.10の図1には民俗伝承歌の歌詞があり、翻案・採詞の出所の表示はない。1961年・1962年の書誌と後年の伝承採集研究で同題の歌は確認できるが、歌詞全体は採集地域・刊本で異なり、原紙の表現が採集資料そのものか異形の採詞かを特定できなかった。歌詞の掲載に用いる原資料・版と利用条件の確認が残るため、題材を取り換えた別問題もこの候補には含めない。原紙の37種・100文字、併合の32と57、総符号長484ビット、比率30.25%は歌詞を複製せず独立計算した。",
+      "bodyPublished": false
+    },
+    {
+      "number": 4,
+      "status": "original_answer_ambiguous",
+      "reason": "原紙p.2の共通擬似言語に論理演算の優先順位はあるが短絡評価の指定はなく、問4本文と注記にもない。p.16を公式a=エ、b=クで補完し、有効なsize=2、入力[2,1]を与えると右の1を先に出してb_idx=2、b_yet=falseとなる。左が残る次の反復で条件の全オペランドを評価するとoutput[2]に触れ、配列外参照になる。ガードを短絡すると[1,2]になる。短絡が保証されない元条件では空欄で直せず、附属p.2を含めて保留する。",
+      "bodyPublished": false
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "reason": "公式補完を使用したCプログラムは、すべて正で10000以下にある3点（1,1）、（11,1）、（1.00001,1.01001）で停止するが、中心のy座標が厳密値1.00001から約3.879×10⁻⁶ずれる。最小円は鋭角三角形の外接円で、指定された10⁻⁸の誤差を満たさない。問6は保留し、p26〜29の原資料や実行登録を配布対象から外す。",
+      "bodyPublished": false
+    },
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "reason": "p.41は空でない妥当なCソースを対象とし、除外は注釈の入れ子と図形文字の3文字表記である。逆斜線＋改行による行連結の除外はない。行連結は注釈と文字列の認識より先なので、公式補完したプログラム2が生入力で字句を判定すると、除去すべき注釈を残し、残すべき文字列の内容を失う入力がある。",
+      "bodyPublished": false
+    },
+    {
+      "number": 13,
+      "status": "original_answer_ambiguous",
+      "reason": "p.57は文字列先頭の番地範囲を狭めていない。p.60 §1.1(2)の主記憶は0〜65535で、p.63 §2.3のSTARTではデータと異なる実行開始番地を指定できる。p.65 §3.1(2)のロード位置は不定である。先頭#0000、長さ1が許されるとき、行17でGR1が#FFFFになる。行12の符号なし比較はGR1＜#0000を検出できず、間隔文字を入れる代わりに別領域を読み出す。",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "23a235bd6b93e1211dc31b0ec84f11c4499437cd1f0f4b654529a22e09037b77",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-052-2004-spring-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "d0839d8c0aecbfb7d105b01d2248858141893eadc17d98a9537904bbf04115f4",
+      "byteLength": 4745
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-052-2004-spring-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "e47ac942744fcf2f121cd6494ab71da12dba8cb234add6b1eea9b67c50fcf2b5",
+      "byteLength": 3039
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-052/local.json",
+      "sha256": "534efb7493efcd103bcf0bc1d27b75f7b60a5d40adcf135e38a8afce58b83cfb",
+      "byteLength": 2048
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-01-05.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-01-05.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-06-09.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-06-09.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-06-09.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-10-13.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-10-13.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}

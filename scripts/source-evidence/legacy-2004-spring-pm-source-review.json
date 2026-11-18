@@ -1,0 +1,1010 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-052",
+  "collectionId": "2004h16h-fe-pm",
+  "checkedOn": "2026-11-18",
+  "status": "verified_source_and_rights",
+  "sourceInputs": {
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http://www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16.html",
+      "sha256": "bd3dc35bb81ca37e377f9cfa08e181102d4026b7f45ade62a267b151324c2f53",
+      "byteLength": 69829
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16_1/2004h16h_fe_pm_qs.pdf",
+      "sha256": "23a235bd6b93e1211dc31b0ec84f11c4499437cd1f0f4b654529a22e09037b77",
+      "byteLength": 2267146
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16_1/2004h16h_fe_pm_ans.pdf",
+      "sha256": "f0b498cd3681009437cbd20b94b6aac40d1135f09a3de8ff676c4f56ef0b9cbd",
+      "byteLength": 12006
+    }
+  },
+  "sourceAcceptanceSHA256": "d0839d8c0aecbfb7d105b01d2248858141893eadc17d98a9537904bbf04115f4",
+  "materialEvidenceSHA256": "e1b9ed1c8975e99757f34102836c010c0bf1dabc3fefe6831925016a4c687ab9",
+  "originalQuestionCount": 13,
+  "officialScoredFields": 68,
+  "officialSelectionMarks": 68,
+  "selection": {
+    "coverPage": 1,
+    "durationSeconds": 9000,
+    "scheduledTime": "13:00～15:30",
+    "earlyDepartureTime": "13:40～15:20",
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "groups": [
+      {
+        "first": 6,
+        "last": 9,
+        "choose": 1
+      },
+      {
+        "first": 10,
+        "last": 13,
+        "choose": 1
+      }
+    ],
+    "officialPresentedMajors": 13,
+    "officialAnsweredMajors": 7,
+    "instructionPages": [
+      1,
+      3,
+      26,
+      41,
+      68
+    ],
+    "marksRule": "選択した問題に「選」をマーク。選択範囲で2問以上を選んだ場合、最初の1問を採点する。マークなしは採点対象外。",
+    "languageGroups": [
+      {
+        "range": [
+          6,
+          9
+        ],
+        "questions": {
+          "6": "C",
+          "7": "COBOL",
+          "8": "Java",
+          "9": "CASL II"
+        }
+      },
+      {
+        "range": [
+          10,
+          13
+        ],
+        "questions": {
+          "10": "C",
+          "11": "COBOL",
+          "12": "Java",
+          "13": "CASL II"
+        }
+      }
+    ],
+    "selectedAnswerFieldCounts": [
+      36,
+      37,
+      38,
+      39
+    ],
+    "selectedSelectionMarkCounts": [
+      36,
+      37,
+      38,
+      39
+    ]
+  },
+  "commonPages": [
+    60,
+    61,
+    62,
+    63,
+    64,
+    65
+  ],
+  "caslExcerpt": {
+    "page": 62,
+    "box": [
+      0,
+      0,
+      804,
+      654
+    ],
+    "retains": "スタック操作、CALL/RET、SVC/NOP、実効アドレスとFRの注記",
+    "omits": "1.3節のJIS X 0201文字符号の表",
+    "requiredBy": [
+      9
+    ]
+  },
+  "errataCheck": {
+    "inPaper": "冊子全68頁に別紙の正誤表は見当たらない。",
+    "inArchive": "IPAの保存索引の基本情報技術者試験午後は問題冊子と解答例の2項目。"
+  },
+  "appendixRightsNotes": "CASL IIの必要ページからJIS X 0201の表を切り離した。",
+  "referencePagesByQuestion": {
+    "9": [
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
+    ]
+  },
+  "rightsTerms": "その他／試験の過去問題の使用方法・留意点",
+  "rightsScope": "IPA公式資料の保存先としてWARPを参照する。教育用教材として出典と改変を表示し、第三者の規格原文・図表・API資料は配布から除く。",
+  "independentReferenceChecks": [
+    {
+      "question": 2,
+      "url": "https://www.cs.cmu.edu/~15849g/readings/mohan92.pdf",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 3,
+      "url": "https://crd.ndl.go.jp/reference/entry/reference/show?id=1000287875",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 3,
+      "url": "https://koutoku.ac.jp/toyooka/pdf/department/kiyou/r1/r1-10.pdf",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 3,
+      "url": "https://www.bunka.go.jp/seisaku/chosakuken/hokaisei/kantaiheiyo_chosakuken/1411890.html",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 7,
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.3.0?topic=expressions-abbreviated-combined-relation-conditions",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 7,
+      "url": "https://publibfp.dhe.ibm.com/epubs/pdf/igy6lr40.pdf",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 8,
+      "url": "https://docs.oracle.com/javase/specs/jls/se6/html/interfaces.html",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 10,
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n802.pdf",
+      "usage": "1998年のWG14 C Rationale §5.1.1.2で、逆斜線と改行が物理行を連結し、字句の途中でも使用できることを照合。"
+    },
+    {
+      "question": 11,
+      "url": "https://www.ibm.com/docs/en/cobol-aix/5.1.0?topic=statement-initialize-rules",
+      "usage": "表の各出現と、FILLERの除外が基本項目に適用されること。"
+    },
+    {
+      "question": 11,
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.4.0?topic=statement-format-1-set-basic-table-handling",
+      "usage": "数値項目に索引が表す出現順番号を設定する仕様。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/jp/1.4/api/java/lang/String.html#charAt(int)",
+      "usage": "出題前のJ2SE 1.4.0での長さと添字によるcharの取得。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/jp/1.4/api/java/util/NoSuchElementException.html",
+      "usage": "出題前のJ2SE 1.4.0の例外型。"
+    },
+    {
+      "question": 7,
+      "url": "https://www.microfocus.com/documentation/reuze/60d/lhpdf60q.htm",
+      "usage": "ANS85の複合条件で同じ優先階層を左から評価し、真偽確定後は後続条件を評価しない。Nが上限を超える条件が真なら配列を参照しない。資料本文は同梱しない。"
+    },
+    {
+      "question": 7,
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.4.0?topic=expressions-combined-conditions",
+      "usage": "COBOLのORを含む複合条件の短絡評価を照合。資料本文は同梱しない。"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        3,
+        4,
+        5
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 1,
+        "status": "allowed",
+        "notes": "原紙p.3〜5のIPA試験用の全加算処理、演算表、加算例、2状態の遷移図と配列図、擬似言語・解答群を照合。4組の入力に対し4桁の状態と下位ビットの幅を変え、表と図の各遷移、およびプログラム中の3空欄の全512候補を最下位からの算術と独立照合した。外部の回路図・実装コードは使わない。"
+      }
+    },
+    {
+      "number": 2,
+      "pages": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問4",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 2,
+        "status": "original_answer_ambiguous",
+        "notes": "原紙p.6は更新前・後のログとDBの書出しをチェックポイントで一致させ、ロールバック後は直前チェックポイントの時点まで戻すとする。p.7でTR3の処理区間はチェックポイントをまたぎ、A−500とD＋300のそれぞれの実行時刻や確定済み処理のみを同期するかは指定されない。TR3のA−500をチェックポイント後とした同期済み像はA=1,100（公式エ）であり、A−500を先に実行して同期した像はA=600（ア）になる。両方ともTR1が先にコミットし、TR3が後にコミットする。Mohanらの同時代の一次論文でもチェックポイントは活動中トランザクションを含み得る。確定取引だけを対象とする論理像に限定する根拠がないため、原題のまま保留する。"
+      }
+    },
+    {
+      "number": 3,
+      "pages": [
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 3,
+        "status": "material_conditions_unconfirmed",
+        "notes": "原紙p.10の図1には民俗伝承歌の歌詞があり、翻案・採詞の出所の表示はない。1961年・1962年の書誌と後年の伝承採集研究で同題の歌は確認できるが、歌詞全体は採集地域・刊本で異なり、原紙の表現が採集資料そのものか異形の採詞かを特定できなかった。歌詞の掲載に用いる原資料・版と利用条件の確認が残るため、題材を取り換えた別問題もこの候補には含めない。原紙の37種・100文字、併合の32と57、総符号長484ビット、比率30.25%は歌詞を複製せず独立計算した。"
+      }
+    },
+    {
+      "number": 4,
+      "pages": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 4,
+        "status": "original_answer_ambiguous",
+        "notes": "原紙p.2の共通擬似言語に論理演算の優先順位はあるが短絡評価の指定はなく、問4本文と注記にもない。p.16を公式a=エ、b=クで補完し、有効なsize=2、入力[2,1]を与えると右の1を先に出してb_idx=2、b_yet=falseとなる。左が残る次の反復で条件の全オペランドを評価するとoutput[2]に触れ、配列外参照になる。ガードを短絡すると[1,2]になる。短絡が保証されない元条件では空欄で直せず、附属p.2を含めて保留する。"
+      }
+    },
+    {
+      "number": 5,
+      "pages": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "answerSlots": 9,
+      "selectionMarks": 9,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c d",
+          "key": [
+            "ア",
+            "カ"
+          ],
+          "scoring": "unordered_two_fields"
+        },
+        {
+          "locator": "設問3 e",
+          "key": [
+            "ケ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 f",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 g",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問4 h",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問4 i",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 5,
+        "status": "allowed",
+        "notes": "原紙p.19〜25にあるIPA試験用の架空のニュースシステム。本文、9レコードの様式・実例、処理図、時刻別分類集計表と各解答群を照合。登録日時・発生日時、24時間境界、ファイルだけでの受渡し、分類別上限と三つのキーを維持。全4条件の顔となる前回時刻、対象分類、集計の上限を同期し、数値・レコード・整列の全候補を独立に確認。c/dは6種の書式項目と分類・端末種別の2つの欠落を区別し、順不同の単一選択欄を2つ保持。実在のニュースや第三者の媒体資料なし。"
+      }
+    },
+    {
+      "number": 6,
+      "pages": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 6,
+        "status": "original_answer_ambiguous",
+        "notes": "公式補完を使用したCプログラムは、すべて正で10000以下にある3点（1,1）、（11,1）、（1.00001,1.01001）で停止するが、中心のy座標が厳密値1.00001から約3.879×10⁻⁶ずれる。最小円は鋭角三角形の外接円で、指定された10⁻⁸の誤差を満たさない。問6は保留し、p26〜29の原資料や実行登録を配布対象から外す。"
+      }
+    },
+    {
+      "number": 7,
+      "pages": [
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 7,
+        "status": "allowed",
+        "notes": "公式IPAのp30〜34にある三つのレコード様式、COBOLのプログラム、解答群を照合した。英語点数0〜999点、各ファイルの社員番号順、同じ社員の資格複数記録、未知の社員と既存資格重複のエラーを保持する。変換条件は13・8・11・15区分で、図表・OCCURS・固定長レコード幅・探索上限に反映させた。生成された空欄候補16,000組を各条件で解釈実行し、社員番号を索引とする別算法で、ファイル終端の先後、全空、点数0・999、資格欄満杯・重複、複数資格及び社員不明を照合した。略式複合条件と短絡評価はIBMの仕様で確認し、COBOL処理系での実行は未実施。外部コード、外部教材の図版や規格文言の転載表示なし。"
+      }
+    },
+    {
+      "number": 8,
+      "pages": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 8,
+        "status": "allowed",
+        "notes": "公式IPAのp35〜38のインタフェース、呼出しクラス、二つの実装、対話式テスト、実行図、全4欄の候補を照合した。温度、距離、時間、質量の各単位、双方向の数式、実行例を同期した。原題が指定するqで終了する対話範囲で、正答を補完した実コードをJava 8言語ターゲットでコンパイルし、全4条件で双方向の値と不正な数値文字列を検算した。原題の条件で一欄を誤答へ置換した12通りも実コンパイルで拒否を確認し、可変三条件では各肢の型と呼出しを独立に検査した。JDKの標準クラスを参照するが外部ライブラリの実装コード・仕様文・図版は収録しない。"
+      }
+    },
+    {
+      "number": 9,
+      "pages": [
+        39,
+        40
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "設問1",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 9,
+        "status": "allowed",
+        "notes": "公式IPAのp39〜40のCASL IIコードと全3欄を照合した。GR1下位15ビットの保持、15番のパリティ、GR2の退避と復元、シフト後の分岐フラグを独立命令モデルで確認。下位15ビットだけの入力を各条件で全32,768通り、修正版は各条件で全65,536通り検算し、全候補の誤りも境界値で判定した。CASL II付属資料p60〜65を参照し、p62はJIS X 0201の文字符号説明と規格表より前の上部 [0,0,804,654] pxだけ使用する。必要なのはフラグ、ビット演算、シフト、分岐とスタックであり、文字コードは参照しない。原題と付属資料のIPA作成箇所に外部規格図の引用表示なし。"
+      }
+    },
+    {
+      "number": 10,
+      "pages": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 10,
+        "status": "original_answer_ambiguous",
+        "notes": "p.41は空でない妥当なCソースを対象とし、除外は注釈の入れ子と図形文字の3文字表記である。逆斜線＋改行による行連結の除外はない。行連結は注釈と文字列の認識より先なので、公式補完したプログラム2が生入力で字句を判定すると、除去すべき注釈を残し、残すべき文字列の内容を失う入力がある。"
+      }
+    },
+    {
+      "number": 11,
+      "pages": [
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 11,
+        "status": "allowed",
+        "notes": "p.47〜51。社員・作業日の昇順、1時間単位、平日8時間以上と休日、1日上限24時間、最大100種類、月の3桁、超過0時間も出力、1〜82行、表1・2、行番号を振り直さない条件および公式キエウカイアを照合した。"
+      }
+    },
+    {
+      "number": 12,
+      "pages": [
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 12,
+        "status": "allowed",
+        "notes": "p.52〜56。nextの返却順、hasNext、次要素なしの例外継承、nullの引数、外側と内側の昇順、nullの内側配列を飛ばすコード、表示例と公式カエアエエカを照合した。"
+      }
+    },
+    {
+      "number": 13,
+      "pages": [
+        57,
+        58,
+        59
+      ],
+      "answerSlots": 7,
+      "selectionMarks": 7,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 g",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 13,
+        "status": "original_answer_ambiguous",
+        "notes": "p.57は文字列先頭の番地範囲を狭めていない。p.60 §1.1(2)の主記憶は0〜65535で、p.63 §2.3のSTARTではデータと異なる実行開始番地を指定できる。p.65 §3.1(2)のロード位置は不定である。先頭#0000、長さ1が許されるとき、行17でGR1が#FFFFになる。行12の符号なし比較はGR1＜#0000を検出できず、間隔文字を入れる代わりに別領域を読み出す。"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 2,
+      "status": "original_answer_ambiguous",
+      "notes": "原紙p.6は更新前・後のログとDBの書出しをチェックポイントで一致させ、ロールバック後は直前チェックポイントの時点まで戻すとする。p.7でTR3の処理区間はチェックポイントをまたぎ、A−500とD＋300のそれぞれの実行時刻や確定済み処理のみを同期するかは指定されない。TR3のA−500をチェックポイント後とした同期済み像はA=1,100（公式エ）であり、A−500を先に実行して同期した像はA=600（ア）になる。両方ともTR1が先にコミットし、TR3が後にコミットする。Mohanらの同時代の一次論文でもチェックポイントは活動中トランザクションを含み得る。確定取引だけを対象とする論理像に限定する根拠がないため、原題のまま保留する。"
+    },
+    {
+      "number": 3,
+      "status": "material_conditions_unconfirmed",
+      "notes": "原紙p.10の図1には民俗伝承歌の歌詞があり、翻案・採詞の出所の表示はない。1961年・1962年の書誌と後年の伝承採集研究で同題の歌は確認できるが、歌詞全体は採集地域・刊本で異なり、原紙の表現が採集資料そのものか異形の採詞かを特定できなかった。歌詞の掲載に用いる原資料・版と利用条件の確認が残るため、題材を取り換えた別問題もこの候補には含めない。原紙の37種・100文字、併合の32と57、総符号長484ビット、比率30.25%は歌詞を複製せず独立計算した。"
+    },
+    {
+      "number": 4,
+      "status": "original_answer_ambiguous",
+      "notes": "原紙p.2の共通擬似言語に論理演算の優先順位はあるが短絡評価の指定はなく、問4本文と注記にもない。p.16を公式a=エ、b=クで補完し、有効なsize=2、入力[2,1]を与えると右の1を先に出してb_idx=2、b_yet=falseとなる。左が残る次の反復で条件の全オペランドを評価するとoutput[2]に触れ、配列外参照になる。ガードを短絡すると[1,2]になる。短絡が保証されない元条件では空欄で直せず、附属p.2を含めて保留する。"
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "notes": "公式補完を使用したCプログラムは、すべて正で10000以下にある3点（1,1）、（11,1）、（1.00001,1.01001）で停止するが、中心のy座標が厳密値1.00001から約3.879×10⁻⁶ずれる。最小円は鋭角三角形の外接円で、指定された10⁻⁸の誤差を満たさない。問6は保留し、p26〜29の原資料や実行登録を配布対象から外す。"
+    },
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "notes": "p.41は空でない妥当なCソースを対象とし、除外は注釈の入れ子と図形文字の3文字表記である。逆斜線＋改行による行連結の除外はない。行連結は注釈と文字列の認識より先なので、公式補完したプログラム2が生入力で字句を判定すると、除去すべき注釈を残し、残すべき文字列の内容を失う入力がある。"
+    },
+    {
+      "number": 13,
+      "status": "original_answer_ambiguous",
+      "notes": "p.57は文字列先頭の番地範囲を狭めていない。p.60 §1.1(2)の主記憶は0〜65535で、p.63 §2.3のSTARTではデータと異なる実行開始番地を指定できる。p.65 §3.1(2)のロード位置は不定である。先頭#0000、長さ1が許されるとき、行17でGR1が#FFFFになる。行12の符号なし比較はGR1＜#0000を検出できず、間隔文字を入れる代わりに別領域を読み出す。"
+    }
+  ],
+  "assetSHA256ByPage": {
+    "3": "79a95c572a222002b0e99269feae3e4bea87fa262e35c0abec694f8f91ee5564",
+    "4": "4d1dad33c75b9188b09aef8269c6cfc508602f573414044234fee7a77b0c0f8a",
+    "5": "9cfd297c70c1a6076d7659507ce38ac343d9bb4cc5b1b3da7b081a5e28fbd657",
+    "19": "e7da086b33121958a9440d19a0cdfc6a90435733980351550f593f2926ad95b3",
+    "20": "24a30537e3e496f21c9f0d3270f7debfc669f3dae87d33304357ba94da184a92",
+    "21": "562fc4f2712ac051885ea338f099a0cf82dd5946056a4a3e1b4712d90a71fc30",
+    "22": "476ac6b43c64a1b2a8ee26d51237f5348760f9f199349eb31e0bc2213e913a3e",
+    "23": "97f3c0b7eed3219300eb8580544552188fd92478b9c2d1cec17d40ad440f84c4",
+    "24": "98696bf7e483ecdca02e2594fd449fc0782ae7fc711029bc9a2b25e1ab9130e0",
+    "25": "f520ac260f1b381f02b5e1ec16f7f6e016222590a441c8776a6003c4092ec277",
+    "30": "102986205cb5e39d352aa0ac9c2cbf6da7212a5a15a3f4e7a914e0074e336a85",
+    "31": "5c9a6a683a260e8598f65f3622aa6ca63dd4eebf78d96c0051b352cf7d77ea6c",
+    "32": "bed959ed3bfeb684bc16a7ddec1855cc0b5119bbd8deede4ef6973b9932f4350",
+    "33": "92f40bda78228943473b96898c69b4e83494422ebc7d333033312f1654f781f3",
+    "34": "d8a2943a57c48067dc13e5c64f7b5fe01be06b3f287e2ad2e5b3ebe24a8b325b",
+    "35": "25442c29d081f37c9c22bb2ca1e7a7a2c1f66f225ff6256b1ad1ddf7aade85bb",
+    "36": "4d72b9975b875e5bd16b59556284b57f3f3727938d059bb3276ebfecb097578d",
+    "37": "f23b46dbc658a447f76dd4b318685c41707c7b48b74ba399777de9291866430b",
+    "38": "84c0c70fed7016827506d55dadf651167327cd467d4d70fa6b8ace93c48549aa",
+    "39": "30b76471273f18f8f9a6e0c0bd6f99e3797b209d425bcc906a59a729439a6f71",
+    "40": "3dae776fe22d4584fd30858250cac72c8bc819f17c67c61bad66e07382b794f2",
+    "47": "df219c1f7514b4de83da5bddbd15317f5f12692cc07bbbccf2d4ed83ce24a921",
+    "48": "e8b4bf2e426d930c2d882fd328da95c9b2c391da3411e34490043d2f763ffc11",
+    "49": "d698680d404fc1262caeb14358a10e74f525e0303af2c1fea294e320bb63af0d",
+    "50": "ac580ee7ce8eab5759828eabc9ffda4e373ca5a1738a4c2bcc1fe4adf131a94f",
+    "51": "562925f057e34722d4ca4a17e353a7f9979104a643932166d2293965b8e946fd",
+    "52": "6a0ceddf03aa90bebe521e79ba2f738bbecd5df3dacf67c2d8fc1b5665ef5323",
+    "53": "16928bdc1cad47b292dfa57069914892718c95e5027dcbbffdd39bada32e93c3",
+    "54": "ca24d995d7f51b60adfc68cb9f1928fbe8634fb4dd33d3ca51392ac08497e58e",
+    "55": "352ab4af93a9de38bde13f63756227811358c92d3c41cfabec1c2372d1deb967",
+    "56": "c1a7bea2460f01c080beeca29095356c26e026c523d4a1899169e8223020f155",
+    "60": "69567efb1cfff91eefd30c2362c89d7c2d54cb5b0d2d4c312f05c2cb5061b210",
+    "61": "2f7cce983ef8852f517633e9f5b4a07dd5ba0e8827420b1681577fe12bfc3fd9",
+    "62": "b17fdabe56d2bc126e2128ae157014bfd7d0de34694623927e72e45de0e08ac6",
+    "63": "548d304b00e7d3e6cd28e765be0390d8b373844825c50673209d3bacf2b76470",
+    "64": "99e4fc11435d13f9b2c78ef3e706a3ca529ece990a69c138b645293a7b742b29",
+    "65": "6ef15dd8a456b463d5bbaa87bb136555658428e2c8651ac61c9aec7f66bf1c2d"
+  }
+}
