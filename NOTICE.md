@@ -29,3 +29,5 @@ IPA問題の本文・選択肢・正答・画像には本プロジェクトのMI
 2013年度春期・旧午前問62の基準由来部分は、平成16年版「システム管理基準」（経済産業省）に対応します。当時の経産省サイト利用規約第7項ウに基づいてCC BY 4.0で利用し、教材で出典・切り出し・改変を表示します。問の作問・組版・公式正答にはIPA試験の利用条件を適用します。[当時の経産省サイト利用規約](https://warp.ndl.go.jp/20170101/20161207043136/http://www.meti.go.jp/main/rules.html)・[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)
 
 2012年度秋期・旧午前問61の基準由来部分は、平成16年版「システム管理基準」（経済産業省）に対応します。当時の経産省サイト利用規約第7項ウに基づいてCC BY 4.0で利用し、教材で出典・切り出し・改変を表示します。問の作問・組版・公式正答にはIPA試験の利用条件を適用します。[当時の経産省サイト利用規約](https://warp.ndl.go.jp/20170101/20161207043136/http://www.meti.go.jp/main/rules.html)・[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)
+
+2011年度秋期・旧午前問67の基準由来部分は、平成16年版「システム管理基準」（経済産業省）に対応します。当時の経産省サイト利用規約第7項ウに基づいてCC BY 4.0で利用し、教材で出典・切り出し・改変を表示します。問の作問・組版・公式正答にはIPA試験の利用条件を適用します。[当時の経産省サイト利用規約](https://warp.ndl.go.jp/20170101/20161207043136/http://www.meti.go.jp/main/rules.html)・[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)

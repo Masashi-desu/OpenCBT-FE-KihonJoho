@@ -14,7 +14,7 @@ import { legacy2011AutumnAm54To80Definitions as definitions } from '../../../src
 import { legacy2011AutumnAm5480Figures as figures } from '../../../src/core/generators/legacy-2011-autumn-am-54-80-figures';
 import { autumn2011Am5480Source as source } from '../../../src/core/generators/legacy-2011-autumn-am-54-80-source';
 import { legacy2011AutumnAm5480FigureRenderers as renderers } from '../../../src/ui/Legacy2011AutumnAm5480Figures';
-import { autumn2011Am5480KnowledgeOracle as oracle } from '../../fixtures/legacy-2011-autumn-am-54-80-knowledge-oracle';
+import { autumn2011Am5480KnowledgeOracle as oracle, autumn2011Am67ManagementFacts } from '../../fixtures/legacy-2011-autumn-am-54-80-knowledge-oracle';
 import review from '../../fixtures/legacy-2011-autumn-am-54-80-review.json';
 
 function text(blocks: Block[]) {
@@ -58,8 +58,8 @@ function amounts(body: GeneratedBody) {
   return values;
 }
 
-test('2011秋午前54〜80の原紙・公式解答と掲載25系列の100条件が対応する', () => {
-  const held = [56, 67];
+test('2011秋午前54〜80の原紙・公式解答と掲載26系列の104条件が対応する', () => {
+  const held = [56];
   const ajv = new Ajv({ strict: false, allErrors: true });
   addFormats(ajv);
   ajv.addSchema([commonSchema, diagramSchema, formulaSchema]);
@@ -115,6 +115,28 @@ for (const [number, rows] of Object.entries(oracle)) {
     });
   });
 }
+
+test('問67の各条件の本文・全選択肢・解説を平成16年版の管理項目と照合する', () => {
+  const { concepts, queries } = autumn2011Am67ManagementFacts;
+  const used = new Set();
+  for (const [i, body] of cases(67).entries()) {
+    const prompt = text(body.prompt);
+    if (i > 0) assert.match(prompt, /^平成16年版のシステム管理基準によれば，/);
+    const targets = queries.filter(([pattern]) => pattern.test(prompt));
+    assert.equal(targets.length, 1);
+    const [key, role, reason] = targets[0];
+    assert(!used.has(key));
+    used.add(key);
+    const classified = body.choices.map(choice => {
+      const matches = concepts.filter(([, pattern]) => pattern.test(text(choice)));
+      assert.equal(matches.length, 1);
+      return matches[0][0];
+    });
+    assert.equal(new Set(classified).size, 4);
+    unique(body, classified.map(concept => concept === role));
+    assert.match(body.explanation, reason);
+  }
+});
 
 test('問57は表示した営業時間と可用性から、許容範囲内の最大整数を選ぶ', () => {
   const original = [8, 10, 995, 30];

@@ -71,6 +71,7 @@
     64,
     65,
     66,
+    67,
     68,
     69,
     70,
@@ -89,12 +90,6 @@
     {
       "number": 56,
       "reason": "ITIL v3 Service Operation 6.2.3.1〜3のサービスデスク分類について、集約と大量呼量、利用者近接と文化・VIP対応、分散を単一窓口として扱う説明が選択肢に近い。旧版の日本語表現の再配布・改変条件を確認できるまで保留。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 67,
-      "reason": "経済産業省の平成16年版システム管理基準Ⅰ1.1(3)の全体最適化目標とⅤ3(2)の保守手順に基づくプログラム変更などに近い選択肢を含む。発行主体の旧版利用条件を確認できるまで保留。",
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false
     }
@@ -1101,6 +1096,20 @@
       ]
     },
     {
+      "number": 67,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2011-autumn-am/legacy-2011-autumn-am-54-80.test.ts",
+        "tests/content/2011-autumn-am/legacy-2011-autumn-am-integration.test.ts"
+      ]
+    },
+    {
       "number": 68,
       "checks": {
         "transcription": "pass",
@@ -1295,5 +1304,16 @@
         "tests/booklets/2011-autumn-am/content-contract.test.ts"
       ]
     }
-  ]
+  ],
+  "supplement": {
+    "checkedOn": "2026-11-18",
+    "numbers": [
+      67
+    ],
+    "sourceAndIndependent": {
+      "path": "scripts/source-evidence/legacy-2011-autumn-am-67-source-review.json",
+      "sha256": "2062492ba9767582d101e89ae60c690875ae9fa51b8027aaa04830a7a0ed99d9",
+      "byteLength": 5828
+    }
+  }
 }

@@ -4,7 +4,6 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { fixture, installFixtureGenerators } from '../../fixtures';
 import official from '../../fixtures/legacy-2011-autumn-am-official-answers.json';
-import review from '../../../scripts/source-evidence/legacy-2011-autumn-am-source-review.json';
 import { sourceExclusions, sourceScope } from '../../../scripts/source-inventory';
 import { bookmarkTemplate, makeBookmark } from '../../../src/core/bookmarks';
 import { contentHash } from '../../../src/core/hash';
@@ -21,7 +20,7 @@ import { SourceFigure } from '../../../src/ui/SourceFigure';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map((row: { number: number }) => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, row.source)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -36,8 +35,8 @@ test('S3-021 preserves all official obligations and admits only the reviewed sou
   const annual = sourceCollections(bundle, 'A').find(item => item.id === setId);
   assert(annual);
   assert.equal(official.records.length, 80);
-  assert.deepEqual(held, [56, 67]);
-  assert.equal(published.length, 78);
+  assert.deepEqual(held, [56]);
+  assert.equal(published.length, 79);
   assert.deepEqual(sourceScope.filter(id => id.startsWith(`${collection}-`)), official.records.map(row => `${collection}-${row.number}`));
   assert.deepEqual(annual.questionRefs.map(ref => ref.questionId), published.map(row => originalId(row.number)));
   const questions = new Map(bundle.questions.map(question => [question.id, question]));
@@ -159,9 +158,15 @@ test('S3-021 attributes each original and adaptation to the correct booklet and 
     assert(base.origin.isModified);
     assert.equal(original.prompt.attribution.sourceRefs[0].sourceId, `source-ipa-${collection}-qs`);
     assert.equal(original.correctAnswer.attribution.sourceRefs[0].sourceId, `source-ipa-${collection}-ans`);
-    assert(original.prompt.attribution.rightsRefs.includes(rightId));
-    assert(base.prompt.attribution.rightsRefs.includes(rightId));
-    assert(template.attribution.rightsRefs.includes(rightId));
+    const examRightId = row.number === 67 ? `rights-ipa-${row.source}` : rightId;
+    assert.equal(bundle.rights.find(right => right.id === examRightId)?.licenseId, 'LicenseRef-IPA-Past-Exam');
+    for (const attribution of [original.prompt.attribution, base.prompt.attribution, template.attribution]) {
+      assert(attribution.rightsRefs.includes(examRightId));
+      if (row.number === 67) {
+        assert(attribution.rightsRefs.some(id => bundle.rights.find(right => right.id === id)?.licenseId === 'CC-BY-4.0'));
+        assert(attribution.sourceRefs.some(ref => ref.sourceId.startsWith('source-meti-system-management-2004-')));
+      }
+    }
     assert.deepEqual(original.explanation.attribution.rightsRefs, ['rights-original']);
     assert.deepEqual(base.explanation.attribution.rightsRefs, ['rights-original']);
   }
