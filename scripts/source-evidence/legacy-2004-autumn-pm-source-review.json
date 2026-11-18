@@ -1,0 +1,982 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-050",
+  "collectionId": "2004h16a-fe-pm",
+  "checkedOn": "2026-11-18",
+  "status": "verified_source_and_rights",
+  "sourceInputs": {
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http://www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16.html",
+      "sha256": "bd3dc35bb81ca37e377f9cfa08e181102d4026b7f45ade62a267b151324c2f53",
+      "byteLength": 69829
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16_2/2004h16a_fe_pm_qs.pdf",
+      "sha256": "6413e1304d250ae07dbfb170d5e48d4d42cf75bf97319bd3466c7d0caf8e57c6",
+      "byteLength": 2301053
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16_2/2004h16a_fe_pm_ans.pdf",
+      "sha256": "67235608607b1e680c8512d9406a6b7d4857bdb3b7c140fd630fa12f68c6a80c",
+      "byteLength": 18500
+    }
+  },
+  "sourceAcceptanceSHA256": "00f441ced2e7f7b2ea2c19c8c490596938e7166f780da8df5d2a33367a75b654",
+  "materialEvidenceSHA256": "396e46e9443847ca96301be5fe014070ddbf294d5edd8f05a80170f00f13a0a9",
+  "originalQuestionCount": 13,
+  "officialScoredFields": 64,
+  "officialSelectionMarks": 64,
+  "selection": {
+    "coverPage": 1,
+    "durationSeconds": 9000,
+    "scheduledTime": "13:00～15:30",
+    "earlyDepartureTime": "13:40～15:20",
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "groups": [
+      {
+        "first": 6,
+        "last": 9,
+        "choose": 1
+      },
+      {
+        "first": 10,
+        "last": 13,
+        "choose": 1
+      }
+    ],
+    "officialPresentedMajors": 13,
+    "officialAnsweredMajors": 7,
+    "instructionPages": [
+      1,
+      3,
+      23,
+      35,
+      64
+    ],
+    "marksRule": "選択した問題に「選」をマーク。選択範囲で2問以上を選んだ場合、最初の1問を採点する。マークなしは採点対象外。",
+    "languageGroups": [
+      {
+        "range": [
+          6,
+          9
+        ],
+        "questions": {
+          "6": "C",
+          "7": "COBOL",
+          "8": "Java",
+          "9": "CASL II"
+        }
+      },
+      {
+        "range": [
+          10,
+          13
+        ],
+        "questions": {
+          "10": "C",
+          "11": "COBOL",
+          "12": "Java",
+          "13": "CASL II"
+        }
+      }
+    ],
+    "selectedAnswerFieldCounts": [
+      33,
+      34,
+      35
+    ],
+    "selectedSelectionMarkCounts": [
+      33,
+      34,
+      35
+    ]
+  },
+  "commonPages": [
+    2,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "caslExcerpt": {
+    "page": 60,
+    "box": [
+      0,
+      0,
+      804,
+      643
+    ],
+    "retains": "スタック操作、CALL/RET、SVC/NOP、実効アドレスとFRの注記",
+    "omits": "1.3節のJIS X 0201文字符号の表",
+    "requiredBy": [
+      9,
+      13
+    ]
+  },
+  "errataCheck": {
+    "inPaper": "冊子全64頁に別紙の正誤表は見当たらない。",
+    "inArchive": "IPAの保存索引の基本情報技術者試験午後は問題冊子と解答例の2項目。"
+  },
+  "appendixRightsNotes": "共通擬似言語を原資料と照合した。CASL IIの必要ページからJIS X 0201の表を切り離した。",
+  "referencePagesByQuestion": {
+    "4": [
+      2
+    ],
+    "9": [
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "13": [
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ]
+  },
+  "rightsTerms": "その他／試験の過去問題の使用方法・留意点",
+  "rightsScope": "IPA公式資料の保存先としてWARPを参照する。教育用教材として出典と改変を表示し、第三者の規格原文・図表・API資料は配布から除く。",
+  "independentReferenceChecks": [
+    {
+      "question": 2,
+      "title": "RFC 1918 — Address Allocation for Private Internets",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc1918.html",
+      "scope": "問題と生成条件の社内用IPv4アドレスの範囲を照合。"
+    },
+    {
+      "question": 2,
+      "title": "RFC 2616 § 5.1.2 — Request-URI",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc2616.html#section-5.1.2",
+      "scope": "試験当時のHTTPプロキシの要求形式と、表の送信先IPの前提を区別する参考。"
+    },
+    {
+      "question": 2,
+      "title": "RFC 9112 § 3.2.2 — absolute-form",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc9112.html#name-absolute-form",
+      "scope": "明示プロキシ宛てHTTPと問題の外部宛先P指定を区別するための現行資料。"
+    },
+    {
+      "question": 6,
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 7,
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.4.0?topic=statement-format-1-set-basic-table-handling",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 8,
+      "url": "https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.10.4",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 8,
+      "url": "https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.10",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 11,
+      "url": "https://publibfp.boulder.ibm.com/epubs/pdf/igy3pg32.pdf",
+      "usage": "数値項目のINITIALIZEで0を設定することとVALUEのない初期値が保証されないことを確認した。"
+    },
+    {
+      "question": 11,
+      "url": "https://publibfp.boulder.ibm.com/epubs/pdf/igy3lr31.pdf",
+      "usage": "集団項目へのMOVEと文字としてのZEROの扱いを確認した。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Thread.html#sleep(long)",
+      "usage": "当時のJava APIのsleepを照合した。起床後の実行時刻を保証する記述はない。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/1.5.0/docs/api/java/lang/System.html#currentTimeMillis()",
+      "usage": "時計の刻みがOSに依存する条件を確認した。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/specs/jls/se6/jls3.pdf#page=617",
+      "usage": "第3版17.9節で、復帰がスケジューリングとCPUの利用可能性に依存することを確認した。"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 1,
+        "status": "original_answer_ambiguous",
+        "notes": "p5は同じディレクトリ直下のファイルとディレクトリに共通の名前の重複禁止条件を定める。図2の初期状態ではdir2直下にfile1というディレクトリを作成できる。その後でdir1/file1をdir2へ移動すると、同名のファイルの有無だけを確認する公式の分岐を通り、DCTの上位ディレクトリを変更して重複を作る。設問1のFAT操作は公式解答と一致したが、設問2に同名ディレクトリも調べる選択肢がない。"
+      }
+    },
+    {
+      "number": 2,
+      "pages": [
+        8,
+        9,
+        10
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "ケ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 2,
+        "status": "allowed",
+        "notes": "会社、端末、Web・FTPサーバの名前は架空。IPAによるネットワーク模式図、アドレス表、解答群に外部製品画面、第三者の図版または文章の転載表示なし。RFCは仕様の照合に利用した。"
+      }
+    },
+    {
+      "number": 3,
+      "pages": [
+        11,
+        12,
+        13
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d e",
+          "key": [
+            "エ",
+            "ク"
+          ],
+          "scoring": "unordered_two_fields"
+        }
+      ],
+      "materialDecision": {
+        "number": 3,
+        "status": "allowed",
+        "notes": "IPAによる架空の仮想機械、資源名、ポリシーファイルと解答群。擬似的なポリシー表記をそのまま原問題として扱い、実製品のポリシーファイルやコードを引用していない。"
+      }
+    },
+    {
+      "number": 4,
+      "pages": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 4,
+        "status": "allowed",
+        "notes": "IPAの共通疑似言語p2と試験用の基数変換、定義表、空欄付き疑似言語。第三者の実装コード、製品図版または文章の転載表示なし。"
+      }
+    },
+    {
+      "number": 5,
+      "pages": [
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 5,
+        "status": "allowed",
+        "notes": "IPAによる架空の店舗、商品、売上実績例、基幹ファイルの形式、帳票、処理の流れ。外部製品画面、第三者の販売データ・図版または教材の転載表示なし。"
+      }
+    },
+    {
+      "number": 6,
+      "pages": [
+        23,
+        24,
+        25
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 6,
+        "status": "original_answer_ambiguous",
+        "notes": "原紙p.23の変換規則はJIS X 0201の名称・コード範囲・数個の文字を列挙するが規格表の転載はない。inputは変換前、outputは変換後の文字型配列へのポインタで、出力容量以外の重なりの条件は示されていない。0x21の文字と終端を保持した4バイトの同一配列を両引数に渡すと、最初に“%”を書いた段階で変換前の0x21が0x25になる。公式鍵では%21ではなく%25を記録し、さらに自身が書いた数字を読んで領域外に書く。別領域では%21となる。原紙に別領域を要求する条件がないため保留する。C17で実行しAddressSanitizerでも確認。"
+      }
+    },
+    {
+      "number": 7,
+      "pages": [
+        26,
+        27,
+        28
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 7,
+        "status": "allowed",
+        "notes": "原紙p.26〜28にあるIPA試験用の研修レコード、印字見本、COBOLプログラムと選択肢を照合。申込者数1,000未満、印字見出し1回、ゼロ行除外を保持。内容区分の種類、開催区分数、探索表と二次元集計表・印字ループ上限を同期。索引の初期化、SEARCHの対象、二次元の添字の全324組を独立集計で検証し、入力順に依存しないこと、空ファイルと999人の境界を確認した。外部資料の本文・図表は収録しない。COBOL処理系による実行は未実施。"
+      }
+    },
+    {
+      "number": 8,
+      "pages": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 8,
+        "status": "allowed",
+        "notes": "原紙p.29〜32のIPA試験用のJavaプログラム5件、3つの仕様宣言、実行例及び選択肢を照合。格納上限を50・8・16・32とし、表示例の入力と出力を連動させた。全候補を配列の満杯・空、FIFOの移動先、両サブクラスに共通する型と照合し、OpenJDKで原例・可変例、容量溢れ例外、空での例外、nullのオブジェクト、型の各候補を実行・コンパイルした。外部ライブラリのソースや仕様文は含めない。"
+      }
+    },
+    {
+      "number": 9,
+      "pages": [
+        33,
+        34
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 9,
+        "status": "allowed",
+        "notes": "原紙p.33〜34のIPA作成の本文・2図・CASL IIプログラム・解答群と、付属資料p.58〜63を照合した。文字列長＞0を原資料の領域図と同じ役割で表示。先頭・末尾・全空白・内部の実行例を変え、結果とヘッダの長さを同期する。全120の命令組を独立CASL IIモデルと連続空白だけを除く参照解法で照合。不変なCASL II付属資料はp.60だけ上部 [0,0,804,643] pxを提供し、1.3のJIS X 0201の説明・規格表は除外する。GR5と空白リテラルの比較に符号表の具体的な数値は不要であり、残りの命令・条件フラグ・スタックの資料で解答できる。"
+      }
+    },
+    {
+      "number": 10,
+      "pages": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "answerSlots": 7,
+      "selectionMarks": 7,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ク"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "g",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 10,
+        "status": "original_answer_ambiguous",
+        "notes": "p.36の回転値valには非負整数以外の上限が示されていない。p.37以降の原プログラムの空欄bを公式ウで補完すると、初期方向1に許されるINT_MAXを足してから4で割った余りを求める。32ビットintの加算があふれるため、数学上の方向0を保証できない。"
+      }
+    },
+    {
+      "number": 11,
+      "pages": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "f",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 11,
+        "status": "allowed",
+        "notes": "原紙p.41〜46。チャンネル01〜05、標本600世帯、1世帯1台、毎分00秒の検出、視聴と番組の同日・時刻範囲・開始≦終了、範囲の両端、入力順の印字、小数第1位への丸め、全6欄イウアカエイを照合した。"
+      }
+    },
+    {
+      "number": 12,
+      "pages": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "answerSlots": 7,
+      "selectionMarks": 7,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 f",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 12,
+        "status": "original_answer_ambiguous",
+        "notes": "p.52が実時間8秒と明記する一方、公式補完したJavaは通話や次の着信をThread.sleepとSystem.currentTimeMillisで扱い、8秒時点のスケジューリングを固定しない。公式ウの2人は、第1通話が7秒で終わる理想時刻で成立する。0秒、3秒、6秒に割り当てた後、第1通話のスレッドだけでも再開が8.5秒まで遅れると、8秒時点で3人が通話処理中となる。原紙に実行遅延を無視する前提はない。"
+      }
+    },
+    {
+      "number": 13,
+      "pages": [
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "キ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問4 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問4 d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 13,
+        "status": "allowed",
+        "notes": "原紙p.53〜57と付録p.58〜63。時刻範囲、同じ日、6桁と8桁、GR1〜GR3での引数、桁下がりの調整、チーム数、タイムが同じときの最小番号、出力形式、レジスタ復元、全6欄イキエエイエを照合した。ORによる数字化とチーム番号の加算にはnを16進0030へ足す符号関係が必要である。"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 1,
+      "status": "original_answer_ambiguous",
+      "notes": "p5は同じディレクトリ直下のファイルとディレクトリに共通の名前の重複禁止条件を定める。図2の初期状態ではdir2直下にfile1というディレクトリを作成できる。その後でdir1/file1をdir2へ移動すると、同名のファイルの有無だけを確認する公式の分岐を通り、DCTの上位ディレクトリを変更して重複を作る。設問1のFAT操作は公式解答と一致したが、設問2に同名ディレクトリも調べる選択肢がない。"
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "notes": "原紙p.23の変換規則はJIS X 0201の名称・コード範囲・数個の文字を列挙するが規格表の転載はない。inputは変換前、outputは変換後の文字型配列へのポインタで、出力容量以外の重なりの条件は示されていない。0x21の文字と終端を保持した4バイトの同一配列を両引数に渡すと、最初に“%”を書いた段階で変換前の0x21が0x25になる。公式鍵では%21ではなく%25を記録し、さらに自身が書いた数字を読んで領域外に書く。別領域では%21となる。原紙に別領域を要求する条件がないため保留する。C17で実行しAddressSanitizerでも確認。"
+    },
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "notes": "p.36の回転値valには非負整数以外の上限が示されていない。p.37以降の原プログラムの空欄bを公式ウで補完すると、初期方向1に許されるINT_MAXを足してから4で割った余りを求める。32ビットintの加算があふれるため、数学上の方向0を保証できない。"
+    },
+    {
+      "number": 12,
+      "status": "original_answer_ambiguous",
+      "notes": "p.52が実時間8秒と明記する一方、公式補完したJavaは通話や次の着信をThread.sleepとSystem.currentTimeMillisで扱い、8秒時点のスケジューリングを固定しない。公式ウの2人は、第1通話が7秒で終わる理想時刻で成立する。0秒、3秒、6秒に割り当てた後、第1通話のスレッドだけでも再開が8.5秒まで遅れると、8秒時点で3人が通話処理中となる。原紙に実行遅延を無視する前提はない。"
+    }
+  ],
+  "assetSHA256ByPage": {
+    "2": "8a90dea6952110ee33ee81ac2259de196878d25f29b08dd8d1aa888a2a8fcc31",
+    "8": "040a6ba26e7658c91fd5a88c99921d3aabc71a317dc292759dc18d58ada97d03",
+    "9": "1d24e96d386e4618a01e1d52372b1fd96f3e2cf57fef25c3bba8fc8d7210e03a",
+    "10": "331fa3974db9378423157970ed0888c42de29525722b5f9828a6897043737ee6",
+    "11": "0ef3a4958800ac5f4a82c0675697a1755f1b4b893e2ca047bdf9f052ed30e160",
+    "12": "c78083c600f50a46fd135e0207614c445b26b9c49fb58dc35482c5c3a95e6f45",
+    "13": "5d26d91aa6e34debe3c97db029f8d194aa42274575484aa00e43ebd625bff485",
+    "14": "f2df325bebdcef8aa900963a96c33a716234677ec87fc82ae1e7bbc0d73ea311",
+    "15": "1670da0c3bc409d623c4a11f63d1fd3478a855db27e0ce0e060530bc853e0da3",
+    "16": "ca94b0d48b2d4b1d97b1b11ca7f41617a0081fa5da563a71163ce17469a5f5df",
+    "17": "a9b9776cb530019cfae1b93ee3d2ee773f8be3271402929f5a99006edef829b8",
+    "18": "41d121d805c460fbd82907232dc6ce4f2ce0879651e06c401fa696f54a879eed",
+    "19": "9515ec8b5f8a1e05aee697ddc596211fe5234a30a934f0a5e2cac1feada40192",
+    "20": "5b43be58a6af82e9e2c8979c0e1d13a836f855905135aa11e0d30682359fb565",
+    "21": "fe1b289bb382db814893e7e4be4464e9cb5b4b70c99e6b910f7424da16898f0b",
+    "22": "907760f608a31fac77e7afdead6536faa0108e73cbe0ecc2fb23ef74556072e0",
+    "26": "5f09b3d5cfc724e0480d207acfa529fd8d4dbcda72335122bf8e63ef673ecbf1",
+    "27": "18ac5c1489305fa21347a0be08b7996058df9fe95386b3bfa356b204ea877941",
+    "28": "f55bf8f3085c70eb36d55e7da3349be0c3b5a58cb25e3b339468b8195ab569a1",
+    "29": "d48726c9567c23c622f1b717358988523995f020553dbd43b06cd78732f86a33",
+    "30": "c20252fe212967aeefb504ee98d4c9295ec7388c3b4667034b20ed60e675352b",
+    "31": "351f6e8baa0ff79871b8defd7ed8ffe8c3d28bd30ea43e868be22f33796ecba6",
+    "32": "d9a9d9603a7b5cf5374c8aca560ba7a97a69394430ff49d74370dcea25f5e0d6",
+    "33": "50a2bf0b8f82d2de3c5cdb3fa51f0e583c71b4340d25732bb92b40b5fcd76a91",
+    "34": "a36f5bfed40829913726bb2189399a8ec5d56b358c8b9d6e3570d67b2f7529fd",
+    "41": "80640a32ccd0af94a6e87bb5bd27698ef4eaabe08bd828bb46d4c29c3effb289",
+    "42": "ec61d77fe52d3cb4aa0246c9d270d5c28a85102e10ccff0cd4ed7aa0e80131d9",
+    "43": "3a0c5794cfcd5701941ce10cf7e9117af796247636e53b275c6d5c69c3488bf7",
+    "44": "b0c35e6b5a58ea23d0f0a71533e9a3e34c4db18a813ca714749aa24d6010054b",
+    "45": "d3af83fa5c1c01749e223f7ff448f12463d3b15e68a874ee809d313b2487a149",
+    "46": "b3344c5ab70ea056b9aee2dc97a0d37a8753b0f2cf6f595f59e9d8d8c759ead5",
+    "53": "ce9569edaf092089bcaa76201a40053e8958b4f500d83352d1e04f2d3e87cbdc",
+    "54": "6262558a2a7ce140cb1c3aa0b4531c2d9c77bdc308e84e933e9aeefd9825aff8",
+    "55": "aa74c7e70239f619567c27b9400104aa6b0385173bef3e5778c44786bde6783e",
+    "56": "7450b4cc482f08f0f0ce9a35f2ba5ef71b8ef0c685a097db4eb42243960be6f8",
+    "57": "33d0cda695028c81cb17981ffa4cdc22d493f906d0b085c64cbeaf6594739bdf",
+    "58": "50eeff8d4252cd2232d9e26ddd89e86c2412e9f87beb799ca0cbc782448ea803",
+    "59": "45dac5f796725cc9f798a1cdeb200d8dccd183dadf20774986e4f4427556cf03",
+    "60": "dab04e3a2c090db2d0834f7f70ea56ab57a3a637be7cb1924cfa7ab67c118602",
+    "61": "3ca106cf8cb53660c9250b674993f6f4bc3bafcf3cde706dd4be210c71b74da1",
+    "62": "2325226c9c1e4469ba9a678705dd158e6e3ebcf2c1b535242b6fc4a95652dfbb",
+    "63": "b8d6d00db2a9f5e8167a5717bcf99508878d163c11cba4942a51a2098567ce50"
+  }
+}

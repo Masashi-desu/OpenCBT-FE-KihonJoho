@@ -27,6 +27,7 @@ import { legacy2006AutumnAfternoonDefinitions } from './legacy-2006-autumn-after
 import { legacy2006SpringAfternoonDefinitions } from './legacy-2006-spring-afternoon';
 import { legacy2005AutumnAfternoonDefinitions } from './legacy-2005-autumn-afternoon';
 import { legacy2005SpringAfternoonDefinitions } from './legacy-2005-spring-afternoon';
+import { legacy2004AutumnAfternoonDefinitions } from './legacy-2004-autumn-afternoon';
 
 export const bookletExtensions: readonly AfternoonBookletExtension[] = [
   { scope: '2016-autumn-pm', definitions: legacy2016AutumnAfternoonDefinitions },
@@ -53,4 +54,5 @@ export const bookletExtensions: readonly AfternoonBookletExtension[] = [
   { scope: '2006-spring-pm', definitions: legacy2006SpringAfternoonDefinitions },
   { scope: '2005-autumn-pm', definitions: legacy2005AutumnAfternoonDefinitions },
   { scope: '2005-spring-pm', definitions: legacy2005SpringAfternoonDefinitions },
+  { scope: '2004-autumn-pm', definitions: legacy2004AutumnAfternoonDefinitions },
 ];

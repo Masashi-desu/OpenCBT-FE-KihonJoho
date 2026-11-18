@@ -1,0 +1,207 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-050",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    11,
+    13
+  ],
+  "held": [
+    {
+      "number": 1,
+      "status": "original_answer_ambiguous",
+      "reason": "p5は同じディレクトリ直下のファイルとディレクトリに共通の名前の重複禁止条件を定める。図2の初期状態ではdir2直下にfile1というディレクトリを作成できる。その後でdir1/file1をdir2へ移動すると、同名のファイルの有無だけを確認する公式の分岐を通り、DCTの上位ディレクトリを変更して重複を作る。設問1のFAT操作は公式解答と一致したが、設問2に同名ディレクトリも調べる選択肢がない。",
+      "bodyPublished": false
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "reason": "原紙p.23の変換規則はJIS X 0201の名称・コード範囲・数個の文字を列挙するが規格表の転載はない。inputは変換前、outputは変換後の文字型配列へのポインタで、出力容量以外の重なりの条件は示されていない。0x21の文字と終端を保持した4バイトの同一配列を両引数に渡すと、最初に“%”を書いた段階で変換前の0x21が0x25になる。公式鍵では%21ではなく%25を記録し、さらに自身が書いた数字を読んで領域外に書く。別領域では%21となる。原紙に別領域を要求する条件がないため保留する。C17で実行しAddressSanitizerでも確認。",
+      "bodyPublished": false
+    },
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "reason": "p.36の回転値valには非負整数以外の上限が示されていない。p.37以降の原プログラムの空欄bを公式ウで補完すると、初期方向1に許されるINT_MAXを足してから4で割った余りを求める。32ビットintの加算があふれるため、数学上の方向0を保証できない。",
+      "bodyPublished": false
+    },
+    {
+      "number": 12,
+      "status": "original_answer_ambiguous",
+      "reason": "p.52が実時間8秒と明記する一方、公式補完したJavaは通話や次の着信をThread.sleepとSystem.currentTimeMillisで扱い、8秒時点のスケジューリングを固定しない。公式ウの2人は、第1通話が7秒で終わる理想時刻で成立する。0秒、3秒、6秒に割り当てた後、第1通話のスレッドだけでも再開が8.5秒まで遅れると、8秒時点で3人が通話処理中となる。原紙に実行遅延を無視する前提はない。",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "6413e1304d250ae07dbfb170d5e48d4d42cf75bf97319bd3466c7d0caf8e57c6",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-050-2004-autumn-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "00f441ced2e7f7b2ea2c19c8c490596938e7166f780da8df5d2a33367a75b654",
+      "byteLength": 4557
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-050-2004-autumn-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "8714fe6c0f9448ed908b31f658c91f7512afcadc69ce98f6af52dceb32606b9c",
+      "byteLength": 3057
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-050/local.json",
+      "sha256": "4b9cc2d33c5b7d861f8dd05136c3c8197f4f1d112f3035cfac12912e4c9776b2",
+      "byteLength": 2505
+    }
+  },
+  "questions": [
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-01-05.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-01-05.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-01-05.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-01-05.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-06-09.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-06-09.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-06-09.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-10-13.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-10-13.test.ts",
+        "tests/content/2004-autumn-pm/legacy-2004-autumn-pm-integration.test.ts",
+        "tests/booklets/2004-autumn-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}
