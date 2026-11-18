@@ -24,6 +24,7 @@ import { spring2006MorningBooklet } from './legacy-2006-spring-am';
 import { autumn2005MorningBooklet } from './legacy-2005-autumn-am';
 import { spring2005MorningBooklet } from './legacy-2005-spring-am';
 import { autumn2004MorningBooklet } from './legacy-2004-autumn-am';
+import { spring2004MorningBooklet } from './legacy-2004-spring-am';
 
 export const morningBookletExtensions: readonly MorningBookletExtension[] = [
   { scope: '2015-spring-am', booklet: spring2015MorningBooklet },
@@ -48,4 +49,5 @@ export const morningBookletExtensions: readonly MorningBookletExtension[] = [
   { scope: '2005-autumn-am', booklet: autumn2005MorningBooklet },
   { scope: '2005-spring-am', booklet: spring2005MorningBooklet },
   { scope: '2004-autumn-am', booklet: autumn2004MorningBooklet },
+  { scope: '2004-spring-am', booklet: spring2004MorningBooklet },
 ];
