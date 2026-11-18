@@ -26,6 +26,7 @@ test("material pages preserve every distributed question's complete reading orde
   // problem only. The original and its generated base both place it last.
   const spreadsheetAppendices = new Map([
     ["source-ipa-2005h17h-fe-am-qs", "39"],
+    ["source-ipa-2004h16a-fe-am-qs", "46"],
   ]);
   const commonPageCounts = new Map<string, number>([
     ...Array.from(commonSources.keys(), book => [book, 1] as const),

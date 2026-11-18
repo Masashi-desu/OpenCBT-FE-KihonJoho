@@ -1,0 +1,530 @@
+{
+  "taskId": "S3-049",
+  "scope": "2004-autumn-am",
+  "collectionId": "2004h16a-fe-am",
+  "checkedOn": "2026-11-18",
+  "officialCount": 80,
+  "timeLimitSeconds": 9000,
+  "commonPages": [
+    36,
+    37,
+    38
+  ],
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    40,
+    41,
+    42,
+    43,
+    44,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 22,
+      "status": "original_answer_ambiguous",
+      "reason": "キャッシュ参照時間がミス時に含まれるかを指定していない。キャッシュ・主記憶を排他的に選ぶ加重平均では両系が22nsとなるヒット率0.8が公式エに一致する。キャッシュ照合後に主記憶アクセスを追加する直列方式では0.75で両系が27.5nsとなり、選択肢にはない。どちらも本文のヒット率が同じ、実効時間が同じという条件を満たす。"
+    },
+    {
+      "number": 26,
+      "status": "original_answer_ambiguous",
+      "reason": "磁気ヘッドで直接読取りしないという意味では公式ウの光磁気ディスクを選べるが、記録層の磁化に依存するKerr回転の光学検出を使い、出題前2001年のMAMMOSの実験では読出し時にも直流磁界10 kA/mを実際に印加した。原題は「磁気を使用しない」を太字で示し、磁化や能動印加を除いた検出器の種類への限定がないため、公式選択肢を無条件に導けない。"
+    },
+    {
+      "number": 33,
+      "status": "original_answer_ambiguous",
+      "reason": "p.15の公式ウは、密結合マルチプロセッサの各タスクをどのプロセッサでも実行できるとする。DECの1987年2月発行の開発者資料は、VAX 8800上のVMSを密結合・非対称と明記し、主記憶・OSを共有したまま二次CPUではカーネルモードを実行できず、入出力、ページング、資源管理を一次CPUに限定する。原題は対称構成やユーザモードだけを条件にしていないため、公式ウの一般化が成立しない。"
+    },
+    {
+      "number": 39,
+      "status": "original_answer_ambiguous",
+      "reason": "A・B・Cの稼働が独立との記載がない。3台が同時に稼働・停止する場合は各台0.8かつ全体も0.8となる。独立時の0.768を原題の条件だけから一意に導けない。"
+    },
+    {
+      "number": 45,
+      "status": "original_answer_ambiguous",
+      "reason": "p.19の公式ウはJavaサーブレット。出題時に実用されていたIIS 6.0のClassic ASPは、VBScriptをWebサーバ側で実行して動的ページを生成し、ブラウザ側ではスクリプトの実行を要求しない。サーバ側のみで動作するVBScriptのプログラムも成立するため、原題が問う動的処理と実行場所だけではエを排除できない。"
+    }
+  ],
+  "sourcePreflightSHA256": "109640d44911b74328cf7b59f8503f14d2c8ec80f2deaece6d9f257b405bde7c",
+  "cropCandidatesSHA256": "11680943a16fe7d0ec2a7e6d6e03878fb718d5b05caad6dcbb9d3a2ebe9c4843",
+  "sourceInputs": {
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16_2/2004h16a_fe_am_qs.pdf",
+      "sha256": "e3c002417e631967956f0525ea59167d58046aa26548775764cdb61acb544931",
+      "byteLength": 1166190
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16_2/2004h16a_fe_am_ans.pdf",
+      "sha256": "0f7526219e86a0773bf1d62723b72279d3ea724918e759a30a1fb251d3d829d3",
+      "byteLength": 17326
+    },
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http://www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2004h16.html",
+      "sha256": "bd3dc35bb81ca37e377f9cfa08e181102d4026b7f45ade62a267b151324c2f53",
+      "byteLength": 69829
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    }
+  },
+  "materialFindings": [
+    "全80問の題材・図表・解答例を個別照合し、配布する原問題と改変図表の利用条件を確認した。",
+    "表計算ソフトの機能・用語は問46の原資料付録であり、該当する問の参考資料として掲載する。"
+  ],
+  "holdReferences": [
+    {
+      "number": 22,
+      "path": "draft-01-26/source-review.json",
+      "scope": "キャッシュ参照時間がミス時に含まれるかを指定していない。キャッシュ・主記憶を排他的に選ぶ加重平均では両系が22nsとなるヒット率0.8が公式エに一致する。キャッシュ照合後に主記憶アクセスを追加する直列方式では0.75で両系が27.5nsとなり、選択肢にはない。どちらも本文のヒット率が同じ、実効時間が同じという条件を満たす。"
+    },
+    {
+      "number": 26,
+      "path": "draft-01-26/source-review.json",
+      "scope": "磁気ヘッドで直接読取りしないという意味では公式ウの光磁気ディスクを選べるが、記録層の磁化に依存するKerr回転の光学検出を使い、出題前2001年のMAMMOSの実験では読出し時にも直流磁界10 kA/mを実際に印加した。原題は「磁気を使用しない」を太字で示し、磁化や能動印加を除いた検出器の種類への限定がないため、公式選択肢を無条件に導けない。"
+    },
+    {
+      "number": 33,
+      "path": "draft-27-53/source-review.json",
+      "scope": "p.15の公式ウは、密結合マルチプロセッサの各タスクをどのプロセッサでも実行できるとする。DECの1987年2月発行の開発者資料は、VAX 8800上のVMSを密結合・非対称と明記し、主記憶・OSを共有したまま二次CPUではカーネルモードを実行できず、入出力、ページング、資源管理を一次CPUに限定する。原題は対称構成やユーザモードだけを条件にしていないため、公式ウの一般化が成立しない。"
+    },
+    {
+      "number": 39,
+      "path": "source/root-independent-examples.json",
+      "scope": "A・B・Cの稼働が独立との記載がない。3台が同時に稼働・停止する場合は各台0.8かつ全体も0.8となる。独立時の0.768を原題の条件だけから一意に導けない。"
+    },
+    {
+      "number": 45,
+      "path": "draft-27-53/source-review.json",
+      "scope": "p.19の公式ウはJavaサーブレット。出題時に実用されていたIIS 6.0のClassic ASPは、VBScriptをWebサーバ側で実行して動的ページを生成し、ブラウザ側ではスクリプトの実行を要求しない。サーバ側のみで動作するVBScriptのプログラムも成立するため、原題が問う動的処理と実行場所だけではエを排除できない。"
+    }
+  ],
+  "references": [
+    {
+      "id": "cohort-reference-7-1",
+      "type": "independent_note",
+      "title": "Normal Distribution",
+      "publisher": "NIST",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm",
+      "scope": "標準正規密度と累積分布関数。配布する生成表は密度から独立に計算する。",
+      "section": "Normal Distribution",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-13-1",
+      "type": "independent_note",
+      "title": "Dictionary of Algorithms and Data Structures — sorting algorithms",
+      "publisher": "NIST",
+      "url": "https://xlinux.nist.gov/dads/HTML/sort.html",
+      "scope": "整列法の分類と各方式の定義の照合。",
+      "section": "Dictionary of Algorithms and Data Structures — sorting algorithms",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-20-1",
+      "type": "independent_note",
+      "title": "Machine-Level ISA",
+      "publisher": "RISC-V International",
+      "url": "https://docs.riscv.org/reference/isa/priv/machine.html",
+      "scope": "外部装置の通知と、実行命令による同期例外を区別する技術例。",
+      "section": "Machine-Level ISA",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-27-1",
+      "type": "independent_note",
+      "title": "IEEE 1394a-2000",
+      "publisher": "IEEE Standards Association",
+      "url": "https://standards.ieee.org/ieee/1394a/2098/",
+      "scope": "IEEE 1394のシリアルバスと、試験当時の改訂版を確認。",
+      "section": "IEEE 1394a-2000",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-27-2",
+      "type": "independent_note",
+      "title": "PIAFS Protocol STD-T76",
+      "publisher": "Association of Radio Industries and Businesses",
+      "url": "https://www.arib.or.jp/english/std_tr/telecommunications/desc/std-t76.html",
+      "scope": "PHSデジタル回線によるデータ伝送の規格。",
+      "section": "PIAFS Protocol STD-T76",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-40-1",
+      "type": "independent_note",
+      "title": "RFC 959 File Transfer Protocol",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc959.html",
+      "scope": "ファイル取得・登録、ディレクトリの操作を確認。",
+      "section": "RFC 959 File Transfer Protocol",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-40-2",
+      "type": "independent_note",
+      "title": "HTML 4.01 Specification",
+      "publisher": "World Wide Web Consortium",
+      "url": "https://www.w3.org/TR/html401/",
+      "scope": "試験当時のWeb文書の要素と属性を確認。",
+      "section": "HTML 4.01 Specification",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-40-3",
+      "type": "independent_note",
+      "title": "RFC 2616 Hypertext Transfer Protocol",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc2616.html",
+      "scope": "試験当時のHTTP要求と応答の目的を確認。",
+      "section": "RFC 2616 Hypertext Transfer Protocol",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-40-4",
+      "type": "independent_note",
+      "title": "RFC 2821 Simple Mail Transfer Protocol",
+      "publisher": "RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc2821.html",
+      "scope": "試験当時のSMTPのメール転送と宛先指定を確認。",
+      "section": "RFC 2821 Simple Mail Transfer Protocol",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-48-1",
+      "type": "independent_note",
+      "title": "The Open Source Definition",
+      "publisher": "Open Source Initiative",
+      "url": "https://opensource.org/osd",
+      "scope": "変更・再配布の許可、利用者や分野による差別の禁止、販売・配布時の要件を確認。",
+      "section": "The Open Source Definition",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-50-1",
+      "type": "independent_note",
+      "title": "Unified Modeling Language 1.5",
+      "publisher": "Object Management Group",
+      "url": "https://www.omg.org/spec/UML/1.5/About-UML",
+      "scope": "2003年公開のUMLで、構造を表すクラス図と関連を確認。",
+      "section": "Unified Modeling Language 1.5",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-53-1",
+      "type": "independent_note",
+      "title": "Guide to the Software Engineering Body of Knowledge 2004",
+      "publisher": "IEEE Computer Society",
+      "url": "https://sceweb.uhcl.edu/helm/SWEBOK_IEEE/SWEBOK_Guide_2004.pdf",
+      "scope": "2004年版の制御フローテスト。全経路テストの目標と、ループ等により一般には実行できない場合の分岐基準を確認。",
+      "section": "Software Testing §3.3.1",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-61-1",
+      "type": "independent_note",
+      "title": "RFC 950 Internet Standard Subnetting Procedure",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc950",
+      "scope": "IPv4のサブネット番号と元のホスト部を分けるマスクを照合した。",
+      "section": "Subnet addressing",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-62-1",
+      "type": "independent_note",
+      "title": "RFC 2821 Simple Mail Transfer Protocol",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc2821",
+      "scope": "出題時の電子メールの転送とSMTPの役割。",
+      "section": "§1–2",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-62-2",
+      "type": "independent_note",
+      "title": "RFC 3501 IMAP4rev1",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc3501",
+      "scope": "メールボックスをサーバに保持するIMAPの同期・参照の役割。",
+      "section": "§2.1",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-62-3",
+      "type": "independent_note",
+      "title": "RFC 2045 MIME Part One",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc2045",
+      "scope": "MIMEでメディア型と転送時の符号化を指定する仕組み。",
+      "section": "§5–6",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-62-4",
+      "type": "independent_note",
+      "title": "RFC 1939 Post Office Protocol Version 3",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc1939",
+      "scope": "クライアントが保存済みメールを受信するPOP3の役割。",
+      "section": "§1",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-63-1",
+      "type": "independent_note",
+      "title": "RFC 20 ASCII Format for Network Interchange",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc20",
+      "scope": "JISの問題文で使うTと生成条件のR・M・Nの7ビット値を独立に照合。RFCの表は転載しない。",
+      "section": "ASCIIコード表の欧文大文字",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-65-1",
+      "type": "independent_note",
+      "title": "RFC 2131 Dynamic Host Configuration Protocol",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc2131",
+      "scope": "DHCPのアドレス割当てとDNSの名前解決を区別。",
+      "section": "§1",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-68-1",
+      "type": "independent_note",
+      "title": "SQL Language Expressions",
+      "publisher": "SQLite Project",
+      "url": "https://www.sqlite.org/lang_expr.html",
+      "scope": "四候補の閾値・AND/ORの優先順位をSQLiteで実行・独立照合。",
+      "section": "Operators, and Parse-Affecting Attributes",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-70-1",
+      "type": "independent_note",
+      "title": "SQLite Foreign Key Support",
+      "publisher": "SQLite Project",
+      "url": "https://www.sqlite.org/foreignkeys.html",
+      "scope": "親行が先に存在する条件と複合外部キーを照合。",
+      "section": "§1, §4.1",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-71-1",
+      "type": "independent_note",
+      "title": "RFC 3447 PKCS #1 RSA Cryptography Specifications Version 2.1",
+      "publisher": "IETF",
+      "url": "https://www.rfc-editor.org/rfc/rfc3447",
+      "scope": "出題時点で規定された公開鍵による暗号化と対応する秘密鍵による復号を照合。",
+      "section": "§7 Encryption Schemes",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-73-1",
+      "type": "independent_note",
+      "title": "Character Sets",
+      "publisher": "IANA",
+      "url": "https://www.iana.org/assignments/character-sets",
+      "scope": "各文字集合の登録、7ビットASCIIと日本語符号の構成の差を確認。",
+      "section": "US-ASCII、EUC-JP、Shift_JIS",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-73-2",
+      "type": "independent_note",
+      "title": "Unicode Technical Report #17 Character Encoding Model",
+      "publisher": "Unicode Consortium",
+      "url": "https://www.unicode.org/reports/tr17/tr17-4.html",
+      "scope": "出題時に存在した版で符号位置、符号化形式と符号化方式を区別する。",
+      "section": "§2–4",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-76-1",
+      "type": "independent_note",
+      "title": "QC七つ道具の活用",
+      "publisher": "日本科学技術連盟",
+      "url": "https://www.juse.or.jp/upload/files/shanai_rensai_Q7_01.pdf",
+      "scope": "特性要因図・管理図・パレート図の目的を照合。原紙にあるアロー図の定義と混同しない。",
+      "section": "表1",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-80-1",
+      "type": "independent_note",
+      "title": "著作権法（平成15年法律第85号までの統合版）",
+      "publisher": "WIPO Lex",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/2663",
+      "scope": "2004年秋期で適用された職務著作、アイディアと表現、表示と複製、著作権と著作者人格権の区別。",
+      "section": "第2条、第10条第3項、第15条第2項、第17条第2項、第21条、第30条、第59条及び第61条第1項",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-80-2",
+      "type": "independent_note",
+      "title": "著作権法の一部を改正する法律（平成16年法律第92号）",
+      "publisher": "衆議院",
+      "url": "https://www.shugiin.go.jp/Internet/itdb_housei.nsf/html/housei/15920040609092.htm",
+      "scope": "同改正の施行は2005年1月1日であり、2004年秋期の出題後。",
+      "section": "附則第1条",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    },
+    {
+      "id": "cohort-reference-80-3",
+      "type": "independent_note",
+      "title": "著作権法 日本法令索引",
+      "publisher": "国立国会図書館",
+      "url": "https://hourei.ndl.go.jp/simple/detail?current=4&lawId=0000060661",
+      "scope": "原試験時の法律の状態と、その後に施行された版を区別する。",
+      "section": "平成15年・平成16年の改正履歴",
+      "limits": "内容の独立照合に使用。参照先の本文・図表は同梱しない。"
+    }
+  ],
+  "referencesByQuestion": {
+    "7": [
+      "cohort-reference-7-1"
+    ],
+    "13": [
+      "cohort-reference-13-1"
+    ],
+    "20": [
+      "cohort-reference-20-1"
+    ],
+    "27": [
+      "cohort-reference-27-1",
+      "cohort-reference-27-2"
+    ],
+    "40": [
+      "cohort-reference-40-1",
+      "cohort-reference-40-2",
+      "cohort-reference-40-3",
+      "cohort-reference-40-4"
+    ],
+    "48": [
+      "cohort-reference-48-1"
+    ],
+    "50": [
+      "cohort-reference-50-1"
+    ],
+    "53": [
+      "cohort-reference-53-1"
+    ],
+    "61": [
+      "cohort-reference-61-1"
+    ],
+    "62": [
+      "cohort-reference-62-1",
+      "cohort-reference-62-2",
+      "cohort-reference-62-3",
+      "cohort-reference-62-4"
+    ],
+    "63": [
+      "cohort-reference-63-1"
+    ],
+    "65": [
+      "cohort-reference-65-1"
+    ],
+    "68": [
+      "cohort-reference-68-1"
+    ],
+    "70": [
+      "cohort-reference-70-1"
+    ],
+    "71": [
+      "cohort-reference-71-1"
+    ],
+    "73": [
+      "cohort-reference-73-1",
+      "cohort-reference-73-2"
+    ],
+    "76": [
+      "cohort-reference-76-1"
+    ],
+    "80": [
+      "cohort-reference-80-1",
+      "cohort-reference-80-2",
+      "cohort-reference-80-3"
+    ]
+  }
+}
