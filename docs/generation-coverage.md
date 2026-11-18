@@ -4,7 +4,7 @@
 
 ## 対象と対応条件
 
-本システムでは、収録した公式公開問題・大問2716件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2184問、旧午後343大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
+本システムでは、収録した公式公開問題・大問2727件すべてに、原問題とは別の改変済み基準問題と登録生成器を一対一で用意する。科目A140問、科目B49問、旧午前2184問、旧午後354大問をそれぞれの問題集に対応したランダムミックスの候補にする。2025年度科目B問6は第三者のJIS文言の利用条件が未確認であり、原問題・生成版とも対象外とする。非公開問題を含めた全FE問題という意味ではない。
 
 年度別オリジナルは公式本文・図・数値・正答を維持した原資料画像を表示する。生成版ではその学習対象と媒体の形式を基に、文章を文章、表を表、図を作図、疑似言語を空欄付きコードとして構造化する。問いの方向・正誤条件・解答対象・選択肢の役割と数は固定する。知識問題では用語・対象・状況、計算問題では数値・条件、アルゴリズムでは引数・添字・処理条件、長文では規則・状況を変数とする。本文・図・選択肢・正答・独自解説は同じ入力から確定する。選択肢の並べ替えだけで生成対応とは扱わない。
 
@@ -2955,6 +2955,22 @@
 | [旧午前問79 p.35](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_am_qs.pdf#page=35) | generator-source-2006h18a-fe-am-79@3.7.0 | デビットカードの決済。対象・判断条件：0〜3（0） | 文章／4択 |
 | [旧午前問80 p.35](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_2/2006h18a_fe_am_qs.pdf#page=35) | generator-source-2006h18a-fe-am-80@3.7.0 | ソフトウェアのサイトライセンス。対象・判断条件：0〜3（0） | 文章／4択 |
 
+### 2006年度 春期・午後
+
+| 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
+| --- | --- | --- | --- |
+| [旧午後問1 p.6](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=6) | generator-source-2006h18h-fe-pm-1@3.6.0 | 相関副問合せと限定比較ALL。社員と家族の年齢の組合せ：0〜3（0） | 文章・表・コード／12択・4解答欄 |
+| [旧午後問2 p.9](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=9) | generator-source-2006h18h-fe-pm-2@3.6.0 | ハッシュ鎖による使い捨てパスワード。一つのパスワード生成段階当たりのハッシュ回数：0〜3（0） | 文章・図・数式／7択・3解答欄 |
+| [旧午後問5 p.21](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=21) | generator-source-2006h18h-fe-pm-5@3.6.0 | 売上データの前処理と整列済みファイルの突合せ。抽せん対象となる購入額と，突合せに使う顧客番号の間隔：0〜3（0） | 文章・図・表／20択・5解答欄 |
+| [旧午後問6 p.25](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=25) | generator-source-2006h18h-fe-pm-6@3.7.0 | C：コッホ曲線の再帰と線分の向き。描画座標と求める四辺の突起方向：0〜3（0） | 文章・図・コード／15択・3解答欄 |
+| [旧午後問7 p.29](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=29) | generator-source-2006h18h-fe-pm-7@3.7.0 | COBOL：駐輪場の空き区画を連続範囲にまとめる。駐輪場の総区画数と終端判定の上限：0〜3（0） | 文章・表・コード／12択・5解答欄 |
+| [旧午後問8 p.32](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=32) | generator-source-2006h18h-fe-pm-8@3.7.0 | Java：PCのパッチと暗号化ツールの適用状況。端末ごとの適用済みパッチ、要求パッチの順番、ノートPCの暗号化状態：0〜3（0） | 文章・コード／22択・4解答欄 |
+| [旧午後問9 p.36](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=36) | generator-source-2006h18h-fe-pm-9@3.7.0 | CASL II：シフトと加算による長方形の面積。対角頂点の整数座標、絶対値と高さの1ビット数：0〜3（0） | 画像・文章・図・表・コード／18択・4解答欄 |
+| [旧午後問10 p.39](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=39) | generator-source-2006h18h-fe-pm-10@3.7.0 | 木構造の英単語検索と入力補完。辞書の分岐と補完する接頭辞：0〜3（0） | 文章・図・コード／18択・5解答欄 |
+| [旧午後問11 p.43](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=43) | generator-source-2006h18h-fe-pm-11@3.7.0 | 鉄道の区間利用者数の集計。入出場駅・時刻と区間所要時間：0〜3（0） | 文章・表・図・コード／24択・6解答欄 |
+| [旧午後問12 p.48](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=48) | generator-source-2006h18h-fe-pm-12@3.7.0 | トランプの隣接カードと配列。盤面の横幅と隣接ペア：0〜3（0） | 文章・図・コード／30択・5解答欄 |
+| [旧午後問13 p.53](https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=53) | generator-source-2006h18h-fe-pm-13@3.7.0 | 32ビットの乗算・加算と階乗の再帰。階乗を計算する整数：0〜3（0） | 画像・文章・表・コード／24択・5解答欄 |
+
 ### 2006年度 春期・午前
 
 | 原問題 | 登録生成器・版 | 学習対象／生成入力 | 表示形式・選択肢数 |
@@ -4172,6 +4188,22 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | legacy-2006-spring-am-75-option-2 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-am-75-option-2」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2006-spring-am-75-option-3 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-am-75-option-3」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | legacy-2006-spring-am-75-option-4 | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-am-75-option-4」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-2-otp-system | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-2-otp-system」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-2-otp-flow | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-2-otp-flow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-5-file-layout | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-5-file-layout」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-5-file-flow | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-5-file-flow」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-5-module-tree | 0：0〜0 | 問題集が所有する有限入力1組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-5-module-tree」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-6-koch-steps | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-6-koch-steps」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-6-koch-target | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-6-koch-target」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-9-oblong | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-9-oblong」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-10-dictionary | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-10-dictionary」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-10-display | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-10-display」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-10-autocomplete | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-10-autocomplete」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-10-program-changes | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-10-program-changes」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-11-layout | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-11-layout」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-11-counted | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-11-counted」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-11-program-changes | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-11-program-changes」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
+| legacy-2006-spring-pm-12-pair-removal | 0：0〜3 | 問題集が所有する有限入力4組。位置ごとの値と描画条件の全対応は後掲の「legacy-2006-spring-pm-12-pair-removal」を参照。未登録の値・相関条件を満たさない組は拒否する。 |
 | waf-network | 0：0〜1、1：0〜1 | 0：TLS終端（0=インターネット側の機器、1=Webサーバ側の機器）、1：FWとSSLアクセラレータの接続順。a〜dと末尾のDBアクセスは固定 |
 | euclid-flow | 0：0〜3 | 0：設問の初期値比の候補（2:1、1:2、3:2、2:3）。流れ図自体の手順は固定 |
 | crash-network | 0：1〜40、1：1〜40、2：1〜40、3：1〜40、4：1〜40、5：1〜40、6：1〜40 | 0〜6：作業A〜Gの標準日数。図の枝はB→E、C、D→Fで固定 |
@@ -20885,6 +20917,199 @@ renderer-source-figures@1.0.0はsource_figureのprofileとvaluesだけを受け�
 | `[1]` | 横軸と縦軸があり，隙間のない六つの棒が左から右へ低くなる。 |
 | `[2]` | 右から左へ枝分かれし，末端が五つ。近い枝同士が右側へ進むにつれ順に合流して一つになる。 |
 | `[3]` | 横軸と縦軸があり，隙間のない六つの棒が左から右へ低くなる。 |
+
+</details>
+
+### legacy-2006-spring-pm-2-otp-system
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 使い捨てパスワード生成装置、利用者、クライアントPC、ネットワーク、サーバを左から並べる。利用者から装置とPCへの矢印は入力、装置とPCから利用者への矢印は表示。クライアントPCとサーバをネットワークで結ぶ。 |
+
+</details>
+
+### legacy-2006-spring-pm-2-otp-flow
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 時間は上から下へ進む。縦の順に、利用者からPCへログイン操作、①PCからサーバへ利用者ID、②サーバからPCへパスワード要求、PCから利用者へ表示。利用者から生成装置へK、生成装置から利用者へotp(n)。利用者からPCへパスワード入力、③PCからサーバへotp(n)、④サーバからPCへログイン可否メッセージ、PCから利用者へ表示。 |
+
+</details>
+
+### legacy-2006-spring-pm-5-file-layout
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 売上伝票ファイルは購入日付、顧客番号、商品コード、購入数量、購入金額。応募者ファイルは顧客番号。顧客マスタファイルとあて先ファイルはそれぞれ顧客番号、顧客住所、顧客氏名を左から並べる。 |
+
+</details>
+
+### legacy-2006-spring-pm-5-file-flow
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 売上伝票ファイルから前処理を経て中間ファイルへ。中間ファイル、応募者ファイル及び顧客マスタファイルはあて先ファイル作成処理に接続する。あて先ファイル作成処理はあて先ファイルを出力する。 |
+
+</details>
+
+### legacy-2006-spring-pm-5-module-tree
+
+<details><summary>許可する1組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | あて先ファイル作成の下に初期処理、主処理、終了処理。主処理は反復し、その直下は処理A、あて先処理、処理Bへの条件分岐。あて先処理の直下にあて先編集、処理C、処理D。 |
+
+</details>
+
+### legacy-2006-spring-pm-6-koch-steps
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | ①の線分を左から右へ (x1, y1)、(x2, y2) の順に結ぶ。②は中央の三分の一を外側へ出る二辺に置き換え、左から (x3, y3)、上の (x4, y4)、右の (x5, y5) を経て終点へ達する。③は②の四線分に同じ置換えを行い、左右の短い突起と中央の大きな突起の周囲が細分化される。 |
+| `[1]` | ①の線分を左から右へ (x1, y1)、(x2, y2) の順に結ぶ。②は中央の三分の一を外側へ出る二辺に置き換え、左から (x3, y3)、上の (x4, y4)、右の (x5, y5) を経て終点へ達する。③は②の四線分に同じ置換えを行い、左右の短い突起と中央の大きな突起の周囲が細分化される。 |
+| `[2]` | ①の線分を左から右へ (x1, y1)、(x2, y2) の順に結ぶ。②は中央の三分の一を外側へ出る二辺に置き換え、左から (x3, y3)、上の (x4, y4)、右の (x5, y5) を経て終点へ達する。③は②の四線分に同じ置換えを行い、左右の短い突起と中央の大きな突起の周囲が細分化される。 |
+| `[3]` | ①の線分を左から右へ (x1, y1)、(x2, y2) の順に結ぶ。②は中央の三分の一を外側へ出る二辺に置き換え、左から (x3, y3)、上の (x4, y4)、右の (x5, y5) を経て終点へ達する。③は②の四線分に同じ置換えを行い、左右の短い突起と中央の大きな突起の周囲が細分化される。 |
+
+</details>
+
+### legacy-2006-spring-pm-6-koch-target
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 四隅は左上(0, 0)、右上(180, 0)、左下(0, 180)、右下(180, 180)。各辺にコッホ曲線の2回の置換えがある。4辺とも突起が正方形の内部に向く。 |
+| `[1]` | 四隅は左上(0, 0)、右上(162, 0)、左下(0, 162)、右下(162, 162)。各辺にコッホ曲線の2回の置換えがある。左辺の突起だけ内部、上辺、右辺、下辺の突起は外部に向く。 |
+| `[2]` | 四隅は左上(0, 0)、右上(216, 0)、左下(0, 216)、右下(216, 216)。各辺にコッホ曲線の2回の置換えがある。左辺と下辺の突起は内部、上辺と右辺の突起は外部に向く。 |
+| `[3]` | 四隅は左上(0, 0)、右上(243, 0)、左下(0, 243)、右下(243, 243)。各辺にコッホ曲線の2回の置換えがある。4辺とも突起が正方形の内部に向く。 |
+
+</details>
+
+### legacy-2006-spring-pm-9-oblong
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 横軸はx、縦軸はy、交点が原点(0, 0)。長方形の辺は二つの軸に平行で、左下の頂点が A (x1, y1)、右上の頂点が B (x2, y2)。 |
+| `[1]` | 横軸はx、縦軸はy、交点が原点(0, 0)。長方形の辺は二つの軸に平行で、左下の頂点が A (x1, y1)、右上の頂点が B (x2, y2)。 |
+| `[2]` | 横軸はx、縦軸はy、交点が原点(0, 0)。長方形の辺は二つの軸に平行で、左下の頂点が A (x1, y1)、右上の頂点が B (x2, y2)。 |
+| `[3]` | 横軸はx、縦軸はy、交点が原点(0, 0)。長方形の辺は二つの軸に平行で、左下の頂点が A (x1, y1)、右上の頂点が B (x2, y2)。 |
+
+</details>
+
+### legacy-2006-spring-pm-10-dictionary
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | p&#95;rootは「m」の節を指す。LETTERの左上がc、右上がother、左下がfollow、右下がtrans。NULLはポインタの行き先なし。 m：follow ma、other n、trans NULL ma：follow man、other NULL、trans NULL man：follow NULL、other mai、trans 男，人間 mai：follow main、other NULL、trans NULL main：follow NULL、other mail、trans 主な mail：follow maile、other NULL、trans 郵便物 maile：follow mailer、other NULL、trans NULL mailer：follow NULL、other NULL、trans 電子メールソフト n：follow na、other NULL、trans NULL na：follow nam、other NULL、trans NULL nam：follow name、other NULL、trans NULL name：follow NULL、other NULL、trans 名前 |
+| `[1]` | p&#95;rootは「c」の節を指す。LETTERの左上がc、右上がother、左下がfollow、右下がtrans。NULLはポインタの行き先なし。 c：follow ca、other t、trans NULL ca：follow car、other NULL、trans NULL car：follow care、other cas、trans 自動車 care：follow NULL、other NULL、trans 世話 cas：follow case、other NULL、trans NULL case：follow cases、other NULL、trans 事例 cases：follow NULL、other NULL、trans 事例の複数形 t：follow to、other NULL、trans NULL to：follow ton、other NULL、trans NULL ton：follow tone、other NULL、trans NULL tone：follow NULL、other NULL、trans 音色 |
+| `[2]` | p&#95;rootは「t」の節を指す。LETTERの左上がc、右上がother、左下がfollow、右下がtrans。NULLはポインタの行き先なし。 t：follow te、other NULL、trans NULL te：follow tea、other to、trans NULL tea：follow team、other ter、trans 茶 team：follow NULL、other tear、trans チーム tear：follow NULL、other NULL、trans 涙 ter：follow term、other NULL、trans NULL term：follow NULL、other NULL、trans 用語 to：follow toa、other NULL、trans NULL toa：follow toas、other NULL、trans NULL toas：follow toast、other NULL、trans NULL toast：follow NULL、other NULL、trans トースト |
+| `[3]` | p&#95;rootは「b」の節を指す。LETTERの左上がc、右上がother、左下がfollow、右下がtrans。NULLはポインタの行き先なし。 b：follow be、other s、trans NULL be：follow bee、other NULL、trans である bee：follow NULL、other ben、trans ハチ ben：follow bend、other NULL、trans NULL bend：follow NULL、other bent、trans 曲げる bent：follow NULL、other NULL、trans 曲がった s：follow se、other NULL、trans NULL se：follow see、other NULL、trans NULL see：follow seed、other NULL、trans NULL seed：follow NULL、other NULL、trans 種 |
+
+</details>
+
+### legacy-2006-spring-pm-10-display
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 訳語表示領域は「郵便物」、検索語入力領域は「mail」。 |
+| `[1]` | 訳語表示領域は「事例」、検索語入力領域は「case」。 |
+| `[2]` | 訳語表示領域は「チーム」、検索語入力領域は「team」。 |
+| `[3]` | 訳語表示領域は「曲がった」、検索語入力領域は「bent」。 |
+
+</details>
+
+### legacy-2006-spring-pm-10-autocomplete
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | m → ma n → name |
+| `[1]` | c → ca t → tone |
+| `[2]` | t → t to → toast |
+| `[3]` | b → be s → seed |
+
+</details>
+
+### legacy-2006-spring-pm-10-program-changes
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 処置｜プログラムの変更内容 αの部分に追加｜while((p-&gt;trans == NULL) &amp;&amp; ([設問2]))&#123;     p = p-&gt;follow;     appendToField(p-&gt;c); &#125; |
+| `[1]` | 処置｜プログラムの変更内容 αの部分に追加｜while((p-&gt;trans == NULL) &amp;&amp; ([設問2]))&#123;     p = p-&gt;follow;     appendToField(p-&gt;c); &#125; |
+| `[2]` | 処置｜プログラムの変更内容 αの部分に追加｜while((p-&gt;trans == NULL) &amp;&amp; ([設問2]))&#123;     p = p-&gt;follow;     appendToField(p-&gt;c); &#125; |
+| `[3]` | 処置｜プログラムの変更内容 αの部分に追加｜while((p-&gt;trans == NULL) &amp;&amp; ([設問2]))&#123;     p = p-&gt;follow;     appendToField(p-&gt;c); &#125; |
+
+</details>
+
+### legacy-2006-spring-pm-11-layout
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。06:00から23:00まで，各時台を上りと下りの2行で表示する。 |
+| `[1]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。06:00から23:00まで，各時台を上りと下りの2行で表示する。 |
+| `[2]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。06:00から23:00まで，各時台を上りと下りの2行で表示する。 |
+| `[3]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。06:00から23:00まで，各時台を上りと下りの2行で表示する。 |
+
+</details>
+
+### legacy-2006-spring-pm-11-counted
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。この乗客を数える網掛けは06:00 UP B-C，07:00 UP C-D。 |
+| `[1]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。この乗客を数える網掛けは06:00 DOWN D-E，07:00 DOWN C-D，07:00 DOWN B-C。 |
+| `[2]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。この乗客を数える網掛けは06:00 UP A-B，07:00 UP B-C。 |
+| `[3]` | TIMEとUP／DOWN別にA-B，B-C，C-D，D-E，…，I-Jの区間利用者数を形式ZZZ,ZZ9で表示する。この乗客を数える網掛けは07:00 DOWN C-D，08:00 DOWN B-C，08:00 DOWN A-B。 |
+
+</details>
+
+### legacy-2006-spring-pm-11-program-changes
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 処置｜プログラムの変更内容 行番号40と41 の間に追加｜01 TIME-TABLE.    02 TIME-DATA PIC X(18) VALUE "080611071009081013".    02 SECT-MM REDEFINES TIME-DATA PIC 9(2) OCCURS 9. 行番号64と65 の間に追加｜COMPUTE TIME-CNT = [e] 行番号66と67 の間に追加｜COMPUTE TIME-CNT = [f] 行番号68を削除｜ |
+| `[1]` | 処置｜プログラムの変更内容 行番号40と41 の間に追加｜01 TIME-TABLE.    02 TIME-DATA PIC X(18) VALUE "120807101509071108".    02 SECT-MM REDEFINES TIME-DATA PIC 9(2) OCCURS 9. 行番号64と65 の間に追加｜COMPUTE TIME-CNT = [e] 行番号66と67 の間に追加｜COMPUTE TIME-CNT = [f] 行番号68を削除｜ |
+| `[2]` | 処置｜プログラムの変更内容 行番号40と41 の間に追加｜01 TIME-TABLE.    02 TIME-DATA PIC X(18) VALUE "070905111008091206".    02 SECT-MM REDEFINES TIME-DATA PIC 9(2) OCCURS 9. 行番号64と65 の間に追加｜COMPUTE TIME-CNT = [e] 行番号66と67 の間に追加｜COMPUTE TIME-CNT = [f] 行番号68を削除｜ |
+| `[3]` | 処置｜プログラムの変更内容 行番号40と41 の間に追加｜01 TIME-TABLE.    02 TIME-DATA PIC X(18) VALUE "110806121007100912".    02 SECT-MM REDEFINES TIME-DATA PIC 9(2) OCCURS 9. 行番号64と65 の間に追加｜COMPUTE TIME-CNT = [e] 行番号66と67 の間に追加｜COMPUTE TIME-CNT = [f] 行番号68を削除｜ |
+
+</details>
+
+### legacy-2006-spring-pm-12-pair-removal
+
+<details><summary>許可する4組と描画条件</summary>
+
+| values（順序付き） | 対応する描画条件 |
+| --- | --- |
+| `[0]` | 図の状態1。3 8 3 A／2 4 7 8／3 7。黒いペアは2段目左から3番目と3段目左から2番目。 図の状態2。3 8 3 A／2 4 8 3。黒いペアは1段目左から2番目と2段目左から3番目。ほかの候補は1段目左から3番目と2段目左から4番目。 図の状態3。3 3 A 2／4 3。黒いペアは1段目左から1番目と1段目左から2番目。ほかの候補は1段目左から1番目と2段目左から2番目、1段目左から2番目と2段目左から2番目。 図の状態4。A 2 4 3。 |
+| `[1]` | 図の状態1。6 A 3 4 7／2 4 6 5 3／3 2。黒いペアは2段目左から1番目と3段目左から2番目。 図の状態2。6 A 3 4 7／4 6 5 3 3。黒いペアは1段目左から1番目と2段目左から2番目。ほかの候補は1段目左から3番目と2段目左から4番目、2段目左から4番目と2段目左から5番目。 図の状態3。A 3 4 7 4／5 3 3。黒いペアは1段目左から2番目と2段目左から2番目。ほかの候補は1段目左から2番目と2段目左から3番目、2段目左から2番目と2段目左から3番目。 図の状態4。A 4 7 4 5／3。 |
+| `[2]` | 図の状態1。5 3 5 7 2 4／A 2 A 4 5 7／7 A。黒いペアは2段目左から1番目と3段目左から2番目。ほかの候補は2段目左から3番目と3段目左から2番目。 図の状態2。5 3 5 7 2 4／2 A 4 5 7 7。黒いペアは1段目左から3番目と2段目左から4番目。ほかの候補は1段目左から4番目と2段目左から5番目、2段目左から5番目と2段目左から6番目。 図の状態3。5 3 7 2 4 2／A 4 7 7。黒いペアは1段目左から3番目と2段目左から3番目。ほかの候補は1段目左から3番目と2段目左から4番目、2段目左から3番目と2段目左から4番目。 図の状態4。5 3 2 4 2 A／4 7。 |
+| `[3]` | 図の状態1。6 4 6 A 2／7 2 3 4 6／3 6 5 3。黒いペアは2段目左から3番目と3段目左から4番目。 図の状態2。6 4 6 A 2／7 2 4 6 3／6 5。黒いペアは1段目左から2番目と2段目左から3番目。ほかの候補は1段目左から3番目と2段目左から4番目。 図の状態3。6 6 A 2 7／2 6 3 6 5。黒いペアは1段目左から1番目と1段目左から2番目。ほかの候補は1段目左から1番目と2段目左から2番目、1段目左から2番目と2段目左から2番目。 図の状態4。A 2 7 2 6／3 6 5。 |
 
 </details>
 

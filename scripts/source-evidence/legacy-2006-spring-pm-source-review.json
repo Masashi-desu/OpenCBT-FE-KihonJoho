@@ -1,0 +1,915 @@
+{
+  "schema": "stage3-afternoon-source-review/v1",
+  "taskId": "S3-044",
+  "collectionId": "2006h18h-fe-pm",
+  "checkedOn": "2026-11-18",
+  "status": "verified_source_and_rights",
+  "sourceInputs": {
+    "archived-index.html": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18.html",
+      "sha256": "db1d92bf32fcc1b42d362aab9ee291dea72c2bb4939ef1052c9f3b74d8833a81",
+      "byteLength": 78330
+    },
+    "faq.html": {
+      "url": "https://www.ipa.go.jp/shiken/faq.html",
+      "sha256": "ccfe8e653eed04aa7e0c2e538cefca23760b9d8a302b05c67a3885ae3833e1af",
+      "byteLength": 108562
+    },
+    "siteinfo.html": {
+      "url": "https://www.ipa.go.jp/siteinfo.html",
+      "sha256": "b895cf9ae5d8b974deb30abef25d0d562b405e2221524efc2daee08f6b2c72a3",
+      "byteLength": 46881
+    },
+    "warp-help.html": {
+      "url": "https://warp.ndl.go.jp/info/help#section5-4",
+      "sha256": "2045f5fcb7daf17997ec3e7345a4f092c695be73c078979f8b80e644d3b490fc",
+      "byteLength": 74253
+    },
+    "questions.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf",
+      "sha256": "b0b1b06288ccd39c67cbe3014e26b6627e0ae0c85793fbd33f77de77eb67f4c8",
+      "byteLength": 2087541
+    },
+    "answers.pdf": {
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_ans.pdf",
+      "sha256": "e1627f104514d2d27031b827048ef22c862e36f1efeadda99e3737d82abb20ee",
+      "byteLength": 43574
+    }
+  },
+  "sourceAcceptanceSHA256": "d0c2f11ab7f02ea3019e12dbbe29b49bd4655a02930e51a12ac3b507af80516f",
+  "materialEvidenceSHA256": "dd62a48d418c60830db1d1997d20d5da86f7939bf935c9b3e8f36cbe1aed9866",
+  "originalQuestionCount": 13,
+  "officialScoredFields": 59,
+  "officialSelectionMarks": 60,
+  "selection": {
+    "coverPage": 1,
+    "durationSeconds": 9000,
+    "required": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "groups": [
+      {
+        "first": 6,
+        "last": 9,
+        "choose": 1
+      },
+      {
+        "first": 10,
+        "last": 13,
+        "choose": 1
+      }
+    ]
+  },
+  "commonPages": [
+    57,
+    58,
+    59,
+    60,
+    61,
+    62
+  ],
+  "caslExcerpt": {
+    "page": 59,
+    "box": [
+      0,
+      0,
+      910,
+      721
+    ],
+    "retains": "スタック操作、CALL/RET、SVC/NOP、実効アドレスとFRの注記",
+    "omits": "1.3節のJIS X 0201文字符号の表",
+    "requiredBy": [
+      9,
+      13
+    ]
+  },
+  "erratum": {
+    "page": 2,
+    "question": 4,
+    "sourcePage": 18,
+    "printedPage": 17,
+    "line": 12,
+    "correction": "Idx ← ClstS の行に動作マーカーを追加",
+    "clockwiseDegrees": 90
+  },
+  "appendixRightsNotes": "CASL IIの必要ページからJIS X 0201の表を切り離した。",
+  "referencePagesByQuestion": {
+    "9": [
+      57,
+      58,
+      59,
+      60,
+      61,
+      62
+    ],
+    "13": [
+      57,
+      58,
+      59,
+      60,
+      61,
+      62
+    ]
+  },
+  "rightsTerms": "その他／試験の過去問題の使用方法・留意点",
+  "rightsScope": "IPA公式資料の保存先としてWARPを参照する。教育用教材として出典と改変を表示し、第三者の規格原文・図表・API資料は配布から除く。",
+  "independentReferenceChecks": [
+    {
+      "question": 1,
+      "title": "PostgreSQL 18 documentation: Subquery Expressions",
+      "url": "https://www.postgresql.org/docs/18/functions-subquery.html",
+      "fact": "相関したEXISTSは対応する行の有無を調べ、ALLは空の副問合せに対して真。"
+    },
+    {
+      "question": 1,
+      "title": "PostgreSQL 18 documentation: Aggregate Functions",
+      "url": "https://www.postgresql.org/docs/18/functions-aggregate.html",
+      "fact": "AVGは算術平均。AVG、MINは行がないとNULLを返す。"
+    },
+    {
+      "question": 2,
+      "title": "RFC 2289 A One-Time Password System",
+      "url": "https://www.rfc-editor.org/rfc/rfc2289.html",
+      "fact": "ハッシュ鎖、サーバ側の既使用値の保持、受動的再利用対策の技術背景のみ参照。原問題固有の通信手順・装置・図をRFC方式へ変更しない。"
+    },
+    {
+      "question": 6,
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf#page=31",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 7,
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.3.0?topic=entry-level-numbers",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 7,
+      "url": "https://www.ibm.com/docs/en/cobol-zos/6.4.0?topic=clause-picture-editing",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 8,
+      "url": "https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 8,
+      "url": "https://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.1.4",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 8,
+      "url": "https://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.8.7.1",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 9,
+      "url": "https://warp.ndl.go.jp/20200719/20200713150011/http:/www.jitec.ipa.go.jp/1_04hanni_sukiru/mondai_kaitou_2006h18_1/2006h18h_fe_pm_qs.pdf#page=57",
+      "usage": "内容の独立照合。外部資料は同梱しない。"
+    },
+    {
+      "question": 10,
+      "url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf",
+      "usage": "WG14のC草案6.5.13で論理積の左からの評価を確認。"
+    },
+    {
+      "question": 11,
+      "url": "https://www.ibm.com/docs/en/cobol-aix/5.1.0?topic=entry-redefines-clause",
+      "usage": "同じ記憶域の複数の定義と、再定義される側にOCCURSがないことを確認。"
+    },
+    {
+      "question": 11,
+      "url": "https://www.ibm.com/docs/en/cobol-aix/5.1.0?topic=entry-occurs-clause",
+      "usage": "繰返し定義と添字付き参照の確認。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/specs/jls/se8/html/jls-12.html#jls-12.4",
+      "usage": "クラス初期化の時点。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/8/docs/api/java/util/Random.html#nextInt-int-",
+      "usage": "上限を含まない整数の範囲。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/8/docs/api/java/util/List.html",
+      "usage": "get、add、remove、sizeの動作。"
+    },
+    {
+      "question": 12,
+      "url": "https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html",
+      "usage": "Listの実装と削除後の位置。"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "pages": [
+        6,
+        7,
+        8
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 1,
+        "status": "allowed",
+        "notes": "社員・家族の例、架空の個人名と数値、SQL作例、結果枠及び選択肢を紙面と照合。第三者資料・規格本文の帰属表示は見当たらず、教育用の紙面再録と条件変更を、出典・改変を表示して採用する。"
+      }
+    },
+    {
+      "number": 2,
+      "pages": [
+        9,
+        10,
+        11
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 2,
+        "status": "allowed",
+        "notes": "IPAの問題内の使い捨てパスワードの例。ハッシュ鎖の式、端末・ネットワークの図及びシーケンス図は、外部製品・RFCの図版や本文を使っていない。教育用に出典を付した紙面再録及び図の独自描画を採用する。"
+      }
+    },
+    {
+      "number": 3,
+      "pages": [
+        12,
+        13,
+        14
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 c",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 3,
+        "status": "original_answer_ambiguous",
+        "notes": "回線間の故障・稼働状態の独立性が原題にない。ABとBCの40 Mbps回線が同じ0.9の時間帯に稼働し、80 Mbps回線がそのうち0.8で稼働する場合、各稼働率と負荷条件を満たしながら通常0.9・週末0.8となる。独立の場合の公式値0.882・0.72とは別の結果となる。紙面p11–13（PDF p12–14）を保留し、独立性等の公式補足を確認できた場合に再査読する。"
+      }
+    },
+    {
+      "number": 4,
+      "pages": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "key": [
+            "ケ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 4,
+        "status": "original_answer_ambiguous",
+        "notes": "冊子の共通疑似言語は論理積andの評価順・短絡を定義していない。紙面p16（PDF p17）のFAT全使用またはFCT全使用の探索、紙面p18（PDF p19）の存在しないファイルの削除で、短絡評価なら仕様どおり−1、両辺評価では範囲外要素を読む。PDF p2公式正誤表は紙面p17（PDF p18）行12の動作記号を補うのみで、評価順を補足しない。原題に必要な試験当時の評価規則を確認できた場合に再査読する。"
+      }
+    },
+    {
+      "number": 5,
+      "pages": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1",
+          "key": [
+            "イ",
+            "カ"
+          ],
+          "scoring": "unordered_one_field"
+        },
+        {
+          "locator": "設問2 a b",
+          "key": [
+            "イ",
+            "ケ"
+          ],
+          "scoring": "unordered_two_fields"
+        },
+        {
+          "locator": "設問3 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 5,
+        "status": "allowed",
+        "notes": "架空の通信販売例。ファイル様式、ファイル・処理の接続、モジュール構造図、実行条件表、テストデータと解答群に外部著作物の出典表示は見当たらず、出典・改変を表示した紙面再録と独自描画を採用する。"
+      }
+    },
+    {
+      "number": 6,
+      "pages": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "answerSlots": 3,
+      "selectionMarks": 3,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 6,
+        "status": "allowed",
+        "notes": "物理p.25〜28（印刷p.24〜27）のIPA試験用本文・図2種・Cプログラム・3解答群と選択注意を使用。Kochの幾何学的作図法と標準ライブラリ名を掲げるが外部著作物の転載表示はない。表示された原版の void main() を保持し、生成版はホスト環境の標準形 int main(void) を使う。DrawLine は原設問で提供済みの外部関数。C17検算では印刷されたKochCurveをそのまま使い、mainブロックを観察用の関数へ移してDrawLineのテスト実装で全頂点を記録した。"
+      }
+    },
+    {
+      "number": 7,
+      "pages": [
+        29,
+        30,
+        31
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "ケ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 7,
+        "status": "allowed",
+        "notes": "物理p.29〜31（印刷p.28〜30）のIPAによる仮想ファイルレコード、出力例、COBOLコード、解答群を使用。無名の100桁項目・順次READと終端処理・編集表示の動作はIBMの言語資料で裏付け、同資料の図表・サンプル・定義文は取り込まない。処理系を実行した検証は含めず、空き区画を列挙する参照解と表示コードに対応する状態・整形モデルを比較した。"
+      }
+    },
+    {
+      "number": 8,
+      "pages": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 8,
+        "status": "allowed",
+        "notes": "物理p.32〜35（印刷p.31〜34）のIPAによるPC状態管理の事例・実行結果・4プログラム・解答群を使用。独立したJava付属資料はない。p.33(6)は標準ライブラリ名、公開メソッドのシグネチャ、用いる機能の日本語説明であり、第三者文献の引用表示や外部文書の画像・サンプルはない。Oracle文書で利用関係・戻り値と継承を確認し、文面・図・ソースコードを転載しない。生成版では観測可能な動作を独立に説明する。"
+      }
+    },
+    {
+      "number": 9,
+      "pages": [
+        36,
+        37,
+        38
+      ],
+      "answerSlots": 4,
+      "selectionMarks": 4,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "ケ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 9,
+        "status": "allowed",
+        "notes": "物理p.36〜38（印刷p.35〜37）のIPAによる長方形、パラメタの配置、プログラム、3解答群を使用。対象となる演算は数値語・加減算・シフト・分岐・スタックのみで、JISの文字符号は必要ない。物理p.57〜62の公式付属資料を参照し、p.59は1.3節のJIS X 0201文字符号表より上の命令とフラグ注記だけを使用する。原資料と照合した独自SVGには軸・対角点・辺を描画する。"
+      }
+    },
+    {
+      "number": 10,
+      "pages": [
+        39,
+        40,
+        41,
+        42
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 10,
+        "status": "allowed",
+        "notes": "IPAの木構造・架空の登録例・検索画面・関数例及び正答を対象とする。原図には外部の主体の権利・出典表示がなく、生成図は各条件から独立描画する。C規格の説明を同梱しない。"
+      }
+    },
+    {
+      "number": 11,
+      "pages": [
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "answerSlots": 6,
+      "selectionMarks": 6,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 c",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 e",
+          "key": [
+            "ウ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2 f",
+          "key": [
+            "オ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 11,
+        "status": "allowed",
+        "notes": "IPAの架空の鉄道路線・乗客記録、帳票とCOBOL例を対象とする。実在事業者の情報及び外部の言語仕様の文言・図表を同梱しない。帳票及び変更表は独立描画する。"
+      }
+    },
+    {
+      "number": 12,
+      "pages": [
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "a",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "c",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "d",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "e",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 12,
+        "status": "allowed",
+        "notes": "IPAのトランプの例、盤面とカードのコードを対象とする。原題にあるAPIの説明は問題冊子の本文内の機能説明であり、外部資料の引用表示がない。生成版で必要な動作説明はOracleのJava SE 8公式仕様と照合して独立編集し、その解説文や図版を同梱しない。"
+      }
+    },
+    {
+      "number": 13,
+      "pages": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "answerSlots": 5,
+      "selectionMarks": 5,
+      "fields": [
+        {
+          "locator": "設問1 a",
+          "key": [
+            "カ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問1 b",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問2",
+          "key": [
+            "イ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 c",
+          "key": [
+            "エ"
+          ],
+          "scoring": "one_choice"
+        },
+        {
+          "locator": "設問3 d",
+          "key": [
+            "ア"
+          ],
+          "scoring": "one_choice"
+        }
+      ],
+      "materialDecision": {
+        "number": 13,
+        "status": "allowed",
+        "notes": "IPAのCASL II設問と論理演算・階乗例、同冊子付属資料を対象とする。使用するCASL IIの付属資料は物理57〜62頁。物理59頁は積む／取り出す命令、実効アドレス、FRの注記までで、JIS X 0201の文字表を含む下部は収録しない。設問が使用する値は数値語・ビット・アドレスで、文字コード表に依存しない。"
+      }
+    }
+  ],
+  "held": [
+    {
+      "number": 3,
+      "status": "original_answer_ambiguous",
+      "notes": "回線間の故障・稼働状態の独立性が原題にない。ABとBCの40 Mbps回線が同じ0.9の時間帯に稼働し、80 Mbps回線がそのうち0.8で稼働する場合、各稼働率と負荷条件を満たしながら通常0.9・週末0.8となる。独立の場合の公式値0.882・0.72とは別の結果となる。紙面p11–13（PDF p12–14）を保留し、独立性等の公式補足を確認できた場合に再査読する。"
+    },
+    {
+      "number": 4,
+      "status": "original_answer_ambiguous",
+      "notes": "冊子の共通疑似言語は論理積andの評価順・短絡を定義していない。紙面p16（PDF p17）のFAT全使用またはFCT全使用の探索、紙面p18（PDF p19）の存在しないファイルの削除で、短絡評価なら仕様どおり−1、両辺評価では範囲外要素を読む。PDF p2公式正誤表は紙面p17（PDF p18）行12の動作記号を補うのみで、評価順を補足しない。原題に必要な試験当時の評価規則を確認できた場合に再査読する。"
+    }
+  ],
+  "assetSHA256ByPage": {
+    "6": "1713a5c3235054a08a0006511b255931ffab42daa0d7283b716e5055b48916a3",
+    "7": "0ab33a3c04a7ff7031cd7826307b9a47f098aff9907985fded515a276547288d",
+    "8": "9ce6d76637803b704c6547719389da2e0656532acb1d33580f2610d3d5139036",
+    "9": "417ad99891718831e6bf03095f438b2e96d86979064c5d0446ca0a2c3a9ca6fb",
+    "10": "d8bfaaf94e8b8fbd4cdf4c8d3ac3f9a5b58975a58967b7749eb7645ff3404927",
+    "11": "4e5954d4c1ab05036f2faf51d7c9ad0e139cb199cbd0f21b5e74a6da2d124bef",
+    "21": "67298c5a2a20b6fd4bd3a9cadd3aad8292a308ec4249730cc4067c523b70ddfe",
+    "22": "a2cfe332159b45ec31dc6995326a38e7aa6f12da2c2f97a4cc57e62ce6445c6d",
+    "23": "5f956d1b612e5aaad0b27e573e3f78346dd443c53e2b9c38d3871a7785e305fd",
+    "24": "62b72c0e24dc74c17cee7647fbecbf01aac7d9728befc5ce1fb088af03392097",
+    "25": "922282e2a132a39aeace352ef8ff0f175ba813dd0c38da92b906e853fc7a3669",
+    "26": "b92ff627d48a447b812c0208a76086421676be9f9149869c2be28e262dadc28e",
+    "27": "4a7b3fbe10ffc2367af23415396ddd6fa9a14300c908c78fee277838c4d2c63e",
+    "28": "4ca280145dc96d1b7822342740018258465529cab770f55f029ce000c5ad86b1",
+    "29": "252f506ca3a4092e2e0af985b379775d111e6299b2bea064783aeff69d9a098c",
+    "30": "5550e97f1e66c58cafeb5dfaa1502fa4f52edd7f678006022145052d3f779daa",
+    "31": "12519caa4f741af893728c0943de8b258efcc6272a0c43d7eb1eb6b2b2dd9309",
+    "32": "b3efb60f4b1d8f0624a978150cd8777b5a2f7ea66fb6494a9f248090e0902679",
+    "33": "1e03b079037fa01b550854487d5467ed2c07ee45c1b7e85e8e589cc7b85ca1d0",
+    "34": "a121a1fb6af398b862a348625215ba58e4dad00397113f416225891e77b5987e",
+    "35": "1b9ac0b16a46af6ed5ae58d935a5b5d6a89a5b40f7b0f925164ab2c626079bd1",
+    "36": "5342e4d111f99596fc52a81ddbf223c40c967757264a21564aef526dfa86b3c5",
+    "37": "8507d27e535f4a0ff35ada3d6724900f54c6c787ac7ff77ecbe69764db713588",
+    "38": "47a535658c6db46335b77df6ad0f62e5a35d4b4a80c5cb6ce53d41413f6e8d8b",
+    "39": "f82ec4d076cc381f3cc013a26b27bf96872ba59c7dea346717cd5038322e57c4",
+    "40": "3d34057f5a3bb81e11ebbedeaa2f9fd1b732d0749a95026cc6fd223296542121",
+    "41": "83157e66a5edf7a14f04e163fa9bd1248dbd31b08e4a32041f940432f6743245",
+    "42": "d5d97a808a3c83146efe0cd41a37ff4bdf6aead463d672368fb3f4b342c4c562",
+    "43": "3b04399bf998833954c9e014387f800800e7e78c5d89b9ac1d0adec4e172782c",
+    "44": "f23f22f93b483b3752d05e61e0e897354e4a3800371ac9aaf27f436507a51982",
+    "45": "82388a141aa753da2ba5c9a9e803490b738299c92d233aa47825bb601156dda9",
+    "46": "5778f1b85a3db96a69f313d1c85eaf7bcda9491b1e064e112e011de12310ee13",
+    "47": "fe521a908dc9300259b4b5feaa3821a969b77d1b465b511a11e0e96331aeb978",
+    "48": "6db4f217514be1f12ac807bcfd300e55f3f8681a7542297013f9ede0663c2cd7",
+    "49": "1e1cc4334fa9b5d5c2cb5020515b53c31bbdfe1e09f9fbb93d58e1d03d682be2",
+    "50": "37728ebdb6265c8f0ce7b6d0af06083014b1e24f2e61910740faf0c22fc1da0d",
+    "51": "b1960df6f354111217975187352558bbd7b2dbf308067ba90d31433609389aa0",
+    "52": "8fdd411335f42b7da455ac80dd48c67a9eadbb140071bd66b0c0a739ca601d38",
+    "53": "8a7501ffcc026fa8c8b3dcce1fdc7f919b93306699d2e09d9d4e9ac4886ed6d3",
+    "54": "d2819307cb9b57e0ef81c9159f25ed494d1eff46d64ab829a82b2a8ec0f51117",
+    "55": "74c5bebc423229b66845eda3aee47243b6efadd86cce650ea38ce639f94a844e",
+    "56": "ab14d467ab88ae873b066ebc1091051fd10f868447d9c7ab3e29363527acb60f",
+    "57": "b8118531c17118fdd847657316d9264d7cb8faf9fe6c0b1d91d9a8b48c94bd9e",
+    "58": "105f9edc92728ff641767ed422cb74fa288f1134cdba86011cd8b302729b94ff",
+    "59": "f2852655097036d87292979cc66385da2fca0d3e17bfdb6121208ad8d876aa3d",
+    "60": "01f7f271cdea8b0bc71bbd478ea3bc205238c3e1d27c8a2a85e44950a3b7db15",
+    "61": "9e20cdeb7dee0f9fbe1d94da90b6ce0795439e7111d8730c8dabb6385ca0ef93",
+    "62": "e594a22b88505928c2f444784dce8f0702ddfd7f7a14a1c7627904ae38236ba8"
+  }
+}
