@@ -22,6 +22,11 @@ test("material pages preserve every distributed question's complete reading orde
     ...onePageNumberedBooklets.map(book => [`source-ipa-${book}-qs`, [2]] as const),
     ...twoPageBooklets.map(book => [`source-ipa-${book}-qs`, [2, 3]] as const),
   ]);
+  // The spreadsheet appendix is shared reference material for the indicated
+  // problem only. The original and its generated base both place it last.
+  const spreadsheetAppendices = new Map([
+    ["source-ipa-2005h17h-fe-am-qs", "39"],
+  ]);
   const commonPageCounts = new Map<string, number>([
     ...Array.from(commonSources.keys(), book => [book, 1] as const),
     ...onePageNumberedBooklets.map(book => [book, 1] as const),
@@ -41,17 +46,24 @@ test("material pages preserve every distributed question's complete reading orde
       question.origin.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.timeSlot === "午前") &&
       context.content.attribution.sourceRefs.some(ref => ref.sourceId === sourceId && ref.locator.page === 2 && !ref.locator.questionNumber)));
     if (numberedSource) assert.deepEqual(common.map(context => context.title), numberedTitles, question.id);
-    const native = contexts.filter(context => !common.includes(context));
+    const hasSpreadsheetAppendix = question.origin.sourceRefs.some(ref =>
+      ref.locator.timeSlot === "午前" && ref.locator.questionNumber !== undefined &&
+      spreadsheetAppendices.get(ref.sourceId) === ref.locator.questionNumber);
+    const spreadsheet = contexts.filter(context =>
+      hasSpreadsheetAppendix && context.title === "表計算ソフトの機能・用語");
+    if (hasSpreadsheetAppendix) assert.equal(spreadsheet.length, 1, question.id);
+    const references = contexts.filter(context => common.includes(context) || spreadsheet.includes(context));
+    const native = contexts.filter(context => !references.includes(context));
     commonCount += common.length;
     const expected = [
       ...native.flatMap(context => context.content.blocks),
       ...question.prompt.blocks,
-      ...common.flatMap(context => context.content.blocks),
+      ...references.flatMap(context => context.content.blocks),
     ];
     assert.deepEqual(pages.flatMap((page) => page.content.blocks), expected, question.id);
     assert.deepEqual(
       pages.flatMap((page) => page.context ? [page.context] : []),
-      [...native, ...common],
+      [...native, ...references],
       question.id,
     );
     assert.deepEqual(question, saved, question.id);

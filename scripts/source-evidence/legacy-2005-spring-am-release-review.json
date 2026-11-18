@@ -1,0 +1,1259 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-047",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 80,
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    35,
+    36,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    65,
+    66,
+    67,
+    69,
+    70,
+    71,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80
+  ],
+  "held": [
+    {
+      "number": 34,
+      "reason": "p.16の各装置の稼働率Aと直列・並列の稼働条件は、同時に稼働する確率を定めない。A＝1/2で完全相関なら4構成すべて1/2になり、指定式の9/16を満たす構成がない。各装置が16等確率状態の8個ずつで稼働し、二つの直列枝が稼働する状態を各6個、重複3個にすると、ウだけが指定式の9/16を満たす。独立時には公式エが成立する。原文に独立性の指定がないため保留する。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    },
+    {
+      "number": 37,
+      "reason": "公式エは「仮想マシンを実装した環境上であれば，どこでも」アプレットを実行できると述べる。JDK 1.4.2当時も対応プラグイン・ブラウザや表示環境が必要。JVMは動作する一方、ヘッドレス時にAppletコンストラクタが例外になることを独立再現した。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    },
+    {
+      "number": 38,
+      "reason": "公式ウはSGML。イのHTMLもISO/IEC 15445:2000の国際規格で、タグと属性で文書構造を述べる。原題の記載に、別の文書型を定義できる一般化構文などSGMLに限定する条件がない。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    },
+    {
+      "number": 64,
+      "reason": "原紙p.28の公式イには秘密鍵での暗号化と公開鍵での復号だけがあり，署名の符号化・受信メッセージの照合・検証が書かれていない。2003年のRFC 3447は暗号化方式と署名方式を区別する。送信者の真正な公開鍵を受信者が持つ場合でも，例の素のRSAでは第三者がs=2を選び，公開鍵n=55・e=3からm=8を算出できる。mの秘密演算でもs=2になるため，復号だけで送信者本人と判定できない。原題の範囲では本人であることを一意に保証できない。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    },
+    {
+      "number": 68,
+      "reason": "インターネットVPNにて個人識別ができないとする公式エを、出題4年前のRFC 3193 §5.1.1にある利用者単位認証の構成が反証する。原題の問いは拠点間の機器認証だけに限定されていない。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    },
+    {
+      "number": 72,
+      "reason": "公式イは製品1個当たりの変動費を比較するが、原図の横軸が売上高のため図から比較できるのは変動費率。単価が異なる場合、原図の固定費・損益分岐点・両社の利益関係を満たしながらA社の単位変動費がB社より高くなる。",
+      "status": "original_answer_ambiguous",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "9650e8342df75dda4dc2100cc67749f6e7386044ed8e2578ebac5a3686207a18",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-047-2005-spring-am/PREFLIGHT-REVIEW.json",
+      "sha256": "1bfc4a10841ec149194564b570c7f6399f9e9445ac563e49bcf8d303edf456da",
+      "byteLength": 7263
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-047-2005-spring-am/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "76ddfc1ad87c670568a9e3014846e95ff4e7c55927307f410677aeec1b3ebf57",
+      "byteLength": 2959
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-047/local.json",
+      "sha256": "ee0d3aa132af0c2a57d8fb9290d4c41b76eae4b6672d693a221372b7ca120e94",
+      "byteLength": 2256
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 6,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 8,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 10,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 14,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 15,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 16,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 17,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 18,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 19,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 20,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 21,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 22,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 23,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 24,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 25,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 26,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-01-26.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 27,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 28,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 29,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 30,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 31,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 32,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 33,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 35,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 36,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 39,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 40,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 41,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 42,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 43,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 44,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 45,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 46,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 47,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 48,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 49,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 50,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 51,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 52,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 53,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-27-53.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 54,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 55,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 56,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 57,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 58,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 59,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 60,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 61,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 62,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 63,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 65,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 66,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 67,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 69,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 70,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 71,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 73,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 74,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 75,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 76,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 77,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 78,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 79,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 80,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-am/legacy-2005-spring-am-54-80.test.ts",
+        "tests/content/2005-spring-am/legacy-2005-spring-am-integration.test.ts",
+        "tests/booklets/2005-spring-am/content-contract.test.ts"
+      ]
+    }
+  ]
+}
