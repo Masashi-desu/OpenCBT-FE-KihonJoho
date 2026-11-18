@@ -1,0 +1,197 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-048",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    1,
+    2,
+    4,
+    5,
+    7,
+    9,
+    12,
+    13
+  ],
+  "held": [
+    {
+      "number": 3,
+      "status": "original_answer_ambiguous",
+      "reason": "紙面p9–11は同一機種、各サーバの平均故障間隔と平均修理時間、設問2の各台稼働率0.9を与えるが、同一サブシステム内やサブシステム間の独立を規定していない。全台が同期して9時間稼働と1時間停止を繰り返す場合は各台の稼働率は0.9、Web・AP・DBと全体もそれぞれ0.9で、台を追加してもW＝A＝D。独立としたときの公式式及びA＞D＞Wを一意に導けない。",
+      "bodyPublished": false
+    },
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "reason": "原紙p.24は文字幅をCHARPROFのintとし，単語幅が行幅を超えないとする。個々の文字幅の最小値や幅の合計の最大値は限定しない。標準的な正の小さな字幅なら公式鍵で成立する。幅0の文字で始まる2語を与えると，空欄外の cur_w == str_w が次の語も先頭とみなし，必要な語間空白を出力しない。両方の幅が正でも行幅をINT_MAX，語幅をINT_MAX−1及び1，空白幅を1にすると，各語は行幅内だが，折り返し判定より先の合算で符号付きintがあふれる。C17の実行・UBSanで確認し，原題のまま保留する。",
+      "bodyPublished": false
+    },
+    {
+      "number": 8,
+      "status": "original_answer_ambiguous",
+      "reason": "原紙p.31でSpace.getMaxXは正のintを返すが，2倍してもintに収まるという制限はない。公式mainにある点(10,20)、速さ3を使い，長方形幅をInteger.MAX_VALUE、高さを100とすると最初の点は領域内で境界に触れない。しかし空欄外の 2 * Space.getMaxX() が−2になり，13の剰余が1となるため，(13,23)ではなく(1,23)へ進む。通常幅200との比較を含めてOpenJDKで再現し，原題のまま保留する。",
+      "bodyPublished": false
+    },
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "reason": "p.37〜42。公式エイウアイオで補完した固定のdouble逐次加算とceilは境界上で誤り得る。0.4、4.4、0.2 kmの合計5 kmは図2で100円だが、実行では5.0000000000000009 kmになり200円となる。各入力値をdoubleの有理数として厳密に合計しても5 kmになる別入力でも再現した。原紙は整数距離・誤差許容を指定していないため保留する。",
+      "bodyPublished": false
+    },
+    {
+      "number": 11,
+      "status": "original_answer_ambiguous",
+      "reason": "p.43〜49。元金999,999,999円、年利5％、2005年6月1日借入、6月30日初回の1回返済は1,004,109,588円となる。原紙が許す元金11桁・返済回数1〜420の範囲であり、原プログラムの固定9桁欄M-HENSAI-GAKUに収まらず10桁目を失う。公式エエウエウエを含むどの空欄補完でも欄幅は変わらないため保留する。",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "256bfbbde0b7b892ec6b4b3b88f27ac3a17538616ddd6bfcb10de27f968b6c59",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-048-2005-spring-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "88f2fc1757ffc81f100d7db20a8eaa27cbe1de9fb3efde8875305b650ca9cf20",
+      "byteLength": 4660
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-048-2005-spring-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "ea92b84efaf987a0751e8c89f24509bc92e7d396d73cd33145dd1da3323cdf42",
+      "byteLength": 3050
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-048/local.json",
+      "sha256": "433001184572e47f90ca471af8bb7610c7a3828b6618241ca2c5be5d235702bb",
+      "byteLength": 2321
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-01-05.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-01-05.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-01-05.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-01-05.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-06-09.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-06-09.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-10-13.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-10-13.test.ts",
+        "tests/content/2005-spring-pm/legacy-2005-spring-pm-integration.test.ts",
+        "tests/booklets/2005-spring-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}
