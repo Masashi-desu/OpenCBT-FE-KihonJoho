@@ -68,8 +68,8 @@ function number(value: string) {
   return Number(value.replaceAll(',', ''));
 }
 
-test('2013春 午前問54〜80のうち掲載する25問を原紙面・公式解答・全可変条件と照合する', () => {
-  const holds = [55, 62];
+test('2013春 午前問54〜80のうち掲載する26問を原紙面・公式解答・全可変条件と照合する', () => {
+  const holds = [55];
   const originals = Array.from({ length: 27 }, (_, i) => 54 + i).filter(n => !holds.includes(n));
   assert.deepEqual(review.rightsHolds.map(row => row.number), holds);
   assert.deepEqual(review.records.map(row => row.number), originals);

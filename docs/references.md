@@ -442,6 +442,8 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 
 問55はサービスデスクの第三者表現、問62は経済産業省の平成16年版システム管理基準に近い文言の再配布・改変条件を確認中。両問は原問番号を台帳に保持して掲載を保留する。問58は当時の監査基準の目的に照らしてIPAの要約を確認した。問64の企画プロセスは共通フレームのIPA独自追加。問80は出題時の民法を適用する。対象と出典を `scripts/source-evidence/legacy-2013-spring-am-source-review.json` に記録する。[平成16年版システム監査基準](https://www.saaj.or.jp/kijun/system_kansa.pdf)・[平成16年版システム管理基準](https://www.saaj.or.jp/kijun/system_kanri.pdf)・[IPAの共通フレームの説明](https://www.ipa.go.jp/archive/files/000027415.pdf)・[法務省の旧民法資料](https://www.moj.go.jp/content/000047330.pdf)。
 
+追加収録は問62。元の公式80問を台帳に保持し、現在の年度別とランダムミックスは79問・150分で、問55を保留している。照合記録は `scripts/source-evidence/legacy-2013-spring-am-62-source-review.json` に記録した。
+
 ### 第3段階 S3-016 2013年度春期・旧午後
 
 全13大問・80解答欄を収録する。時間付き練習は150分で、問1〜7から5大問、必須の問8、問9〜13から1大問を選ぶ。問7の設問1は同じ解答群の8択から順不同で3つを選び、1欄として採点する。物理頁と印刷頁の番号は一致する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_pm_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_pm_ans.pdf)・[採点講評](https://www.ipa.go.jp/shiken/mondai-kaiotu/ug65p90000002e6g-att/2013h25h_fe_pm_cmnt.pdf)。

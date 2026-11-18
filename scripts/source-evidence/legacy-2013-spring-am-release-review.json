@@ -66,6 +66,7 @@
     59,
     60,
     61,
+    62,
     63,
     64,
     65,
@@ -89,12 +90,6 @@
     {
       "number": 55,
       "reason": "ITIL Service Operationのサービスデスク組織の具体的説明に対応し、当該訳文の再配布・改変条件を未確認",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 62,
-      "reason": "経済産業省の平成16年版システム管理基準Ⅰ1.1(4)と近い表現について、原版に適用される再配布・改変条件を未確認",
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false
     }
@@ -1026,6 +1021,20 @@
       ]
     },
     {
+      "number": 62,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2013-spring-am/legacy-2013-spring-am-54-80.test.ts",
+        "tests/content/2013-spring-am/legacy-2013-spring-am-integration.test.ts"
+      ]
+    },
+    {
       "number": 63,
       "checks": {
         "transcription": "pass",
@@ -1295,5 +1304,16 @@
         "tests/booklets/2013-spring-am/content-contract.test.ts"
       ]
     }
-  ]
+  ],
+  "supplement": {
+    "checkedOn": "2026-11-18",
+    "numbers": [
+      62
+    ],
+    "sourceAndIndependent": {
+      "path": "scripts/source-evidence/legacy-2013-spring-am-62-source-review.json",
+      "sha256": "ac02a00a237bbe019c6f63a48b336f5aa69c1a9f7e6a8ba3f91bdb53d42d55a7",
+      "byteLength": 6362
+    }
+  }
 }

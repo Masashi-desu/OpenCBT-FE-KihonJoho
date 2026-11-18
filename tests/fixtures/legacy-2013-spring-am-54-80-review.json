@@ -10,23 +10,21 @@
     {
       "number": 55,
       "reason": "ITIL v3 Service Operation §6.2.3の組織構成と具体例（言語・文化、VIP、集中時の少数拠点と大量コール）の選択・組合せに対応。第三者の日本語表現の境界と本アプリでの再利用条件を確認するまで保留。"
-    },
-    {
-      "number": 62,
-      "reason": "経済産業省の平成16年版システム管理基準Ⅰ1.1(4)と原問本文の表現が近接。原版・年度・条項は照合済み。旧版の著作物に現在の公共データ利用規約が適用されること又は別の許諾を確認するまで保留。"
     }
   ],
   "references": {
     "reuse": "https://www.ipa.go.jp/shiken/mondai-kaiotu/",
     "audit2004": "https://www.saaj.or.jp/kijun/system_kansa.pdf",
-    "management2004": "https://www.saaj.or.jp/kijun/system_kanri.pdf",
+    "management2004": "https://warp.ndl.go.jp/20170101/20161218092215/http://www.meti.go.jp/policy/netsecurity/docs/isaudit/system_kanrikijyun.pdf",
     "process2007": "https://www.ipa.go.jp/archive/files/000024493.pdf",
     "process2013": "https://www.ipa.go.jp/archive/files/000027415.pdf",
     "greenPurchase": "https://www.env.go.jp/policy/hozen/green/g-law/index.html",
     "environmentLabel": "https://www.env.go.jp/policy/hozen/green/ecolabel/a04_01.html",
     "unfairCompetition": "https://laws.e-gov.go.jp/law/405AC0000000047",
     "laborDispatch": "https://www.mhlw.go.jp/bunya/koyou/gigi_outou01.html",
-    "civilCode2013": "https://www.moj.go.jp/content/000047330.pdf"
+    "civilCode2013": "https://www.moj.go.jp/content/000047330.pdf",
+    "management2004Terms": "https://warp.ndl.go.jp/20170101/20161207043136/http://www.meti.go.jp/main/rules.html",
+    "management2004TermsExceptions": "https://warp.ndl.go.jp/20170101/20161207055131/http://www.meti.go.jp/main/rules_02.html"
   },
   "independence": "数値問題は表示した表を解析して、元入力モデルを使わず顧客数を別の方法で集計し、最大利益を整数全列挙と線形計画の双対上界で検算。契約は表示した取引前提と図の矢印・参照番号から当時の契約成立を判定。知識選択は独立査読した概念表で全選択肢を分類。学習者による難易度の実測は未実施。",
   "records": [
@@ -100,6 +98,18 @@
       "rights": "IPAの公式公開問題。外部の転載素材表記なし。",
       "inputs": 3,
       "oracle": "概念表による全四択の分類と真偽、問いの方向、解説の結論。"
+    },
+    {
+      "number": 62,
+      "page": 29,
+      "officialAnswer": "ウ",
+      "statementHash": "5a32e8d15134fc22897233b7ef6d75478dc83a15e23f11236279336cb146edfd",
+      "conditions": "平成16年10月8日策定版を参照。原紙の本文と選択肢順を照合。図表なし。",
+      "rights": "IPAの原問題を教育用再録。基準に近い本文と短い計画名は、経済産業省の旧版の配信時に適用された政府標準利用規約（第2.0版、CC BY 4.0も選択可）を根拠に利用する。",
+      "rightsReview": "同時期の公式掲載ページとPDF・利用規約・別紙を照合。原題ウはⅠ1.1(4)及びⅠ1.3(1)の組合せ。アはⅡ1、イはⅠ5、エはⅣ2(1)(2)。第三者素材・個別除外なし。",
+      "rightsRecheckedAt": "2026-11-18",
+      "inputs": 4,
+      "oracle": "平成16年版に基づく4つの計画の役割と節を独立に照合し、全条件について各選択肢の真偽・正答・説明を確認。"
     },
     {
       "number": 63,
