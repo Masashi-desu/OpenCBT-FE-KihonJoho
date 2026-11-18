@@ -1,0 +1,217 @@
+{
+  "schema": "stage3-booklet-release-review/v1",
+  "taskId": "S3-046",
+  "status": "reviewed_source_and_normal_app",
+  "releaseUnitReady": true,
+  "wholeScopeReady": false,
+  "expectedTotal": 13,
+  "includedNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9,
+    11,
+    12,
+    13
+  ],
+  "held": [
+    {
+      "number": 6,
+      "status": "original_answer_ambiguous",
+      "reason": "原紙p.25(2)は新旧マスタとトランザクションの購読終了年月を共通の6桁数字列 YYYYMM と定義し、最小年を限定していない。用途は月刊誌の管理で、実在する月刊誌の刊行年代を前提とすれば通常は4桁の年が1000以上になる。データがその年代だけに限られるとの条件は原紙にない。p.26(6)の抽出要件に従い処理年月と購読終了年月を同じ000101又は099901にして公式正答で実行すると、p.27で先頭の0を失い空白埋めした「   101」「 99901」になる。規定の6桁数字列を出力する書式は空欄外で、解答群はいずれも修正できない。C17で旧側、新規側、同一キー更新側をすべて再現し、100001及び200501が成立することも確認したため保留。第三者素材に起因する保留ではない。",
+      "bodyPublished": false
+    },
+    {
+      "number": 8,
+      "status": "original_answer_ambiguous",
+      "reason": "p.32は英字だけから成る単語を対象とし、大文字を小文字に変換すると定義。p.34の引数なし String.toLowerCase() は既定ロケールに従い、p.35〜36の d に公式鍵の添字式を入れると、tr-TR の英字 I は U+0131 へ変換されて添字208となり、26要素の範囲外になる。既定ロケールの限定は紙面にない。OpenJDK 21で en-US が i の出現を数え、tr-TR が例外になることを独立に確認したため保留。第三者素材に起因する保留ではない。",
+      "bodyPublished": false
+    },
+    {
+      "number": 10,
+      "status": "original_answer_ambiguous",
+      "reason": "原題は空白で区切られた科目名のバイト上限を明示しない。固定の配列2000×21に対し、最終科目の名前21バイトに終端NULを加えると22バイトを格納する。名前の読込み箇所は空欄の前にあり、どの公式選択肢でも変わらない。",
+      "bodyPublished": false
+    }
+  ],
+  "questionPaperSHA256": "a8f429d0a1d22fbc348a55d9146d5d9791c94394243a9d7c6b88a123065f984d",
+  "rootSourceReview": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-046-2005-autumn-pm/ROOT-SOURCE-ACCEPTANCE.json",
+      "sha256": "989d5792401a80e114a393a6efe9bc0d743eebf9af328867a993d14b450aedc0",
+      "byteLength": 4851
+    }
+  },
+  "independent": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/source-review/s3-046-2005-autumn-pm/ROOT-INDEPENDENT-ACCEPTANCE.json",
+      "sha256": "cdd1113b5203f696c446a02a6aa3f9aecf46d8c4874853de0c56e8bc22541802",
+      "byteLength": 3067
+    }
+  },
+  "normalApp": {
+    "status": "pass",
+    "evidence": {
+      "path": "output/playwright/s3-046/local.json",
+      "sha256": "b8e42e16bed13277b72b86168c27b1a4114b776a39244c85929c7a015435f8d5",
+      "byteLength": 2735
+    }
+  },
+  "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-01-05.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 2,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-01-05.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-01-05.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 4,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-01-05.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 5,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-01-05.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-06-09.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 9,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-06-09.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 11,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-10-13.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 12,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-10-13.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 13,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-10-13.test.ts",
+        "tests/content/2005-autumn-pm/legacy-2005-autumn-pm-integration.test.ts",
+        "tests/booklets/2005-autumn-pm/random-bindings.test.ts"
+      ]
+    }
+  ]
+}
