@@ -1,6 +1,6 @@
 import type { BookletFigureDefinition } from '../booklet-figure-extension-contract';
 import { DataError } from '../errors';
-import { field, figure, p, strings, variableNotes, type GeneratedBody, type GenerationDefinition } from './definition';
+import { field, figure, p, strings, table, variableNotes, type GeneratedBody, type GenerationDefinition } from './definition';
 import {
   contractCases, contractFigure, factoryCases, factoryFigure, integerText,
   products, requirementsCases, requirementsFigure, scatterCases, scatterFigure, type Company,
@@ -149,7 +149,39 @@ function contract(index: number): GeneratedBody {
   };
 }
 
+const enterpriseScenarios = [
+  { heading: '', target: 3, company: ['仕事を機能ごとに捉える', '各機能が入力・出力する情報を整理する', '関連する処理を集約したサービス群を整理する', '各サービスを支える［非表示］を整理する'] },
+  { heading: '社内申請業務を整理する。', target: 1, company: ['申請と審査の業務機能を整理する', '各処理が使う申請識別子と承認状態の項目を整理する', '申請受付や審査で使うサービス群を整理する', '各サービスを支える［非表示］を整理する'] },
+  { heading: '倉庫の出荷業務を整理する。', target: 2, company: ['出荷依頼から発送までの業務機能を整理する', '依頼番号と商品の情報項目を整理する', '在庫確認と発送処理をまとめたサービス群を整理する', '各サービスを支える［非表示］を整理する'] },
+  { heading: '予約管理業務を整理する。', target: 3, company: ['窓口とオンラインでの予約の業務機能を整理する', '予約枠と受付状態の情報項目を整理する', '予約受付と変更を行うサービス群を整理する', '予約サービスを動かすための［非表示］の共通基盤を整理する'] },
+] as const;
+export function enterpriseArchitectureReference(index: number) {
+  const { target, company } = enterpriseScenarios[index];
+  return {
+    id: 'context-2009-autumn-am-61-enterprise-architecture',
+    title: 'エンタープライズアーキテクチャの参考図（独立編集）',
+    presentation: 'text_figure' as const,
+    blocks: [table('四つの体系と扱う対象（網掛け箇所は［非表示］）', ['体系', '扱う対象'],
+      company.map((work, row) => [row === 0 ? 'ビジネスアーキテクチャ' :
+        (row === target ? '［a］' : '［非表示］') + 'アーキテクチャ', work]))],
+  };
+}
+function enterpriseArchitecture(index: number): GeneratedBody {
+  const { heading, target } = enterpriseScenarios[index];
+  const choice = { 1: 1, 2: 0, 3: 2 }[target];
+  const option = source[61].choices[choice];
+  return {
+    prompt: [p(heading + source[61].prompt)],
+    contexts: [enterpriseArchitectureReference(index)],
+    choices: strings([...source[61].choices]),
+    correctIndex: choice,
+    explanation: 'エンタープライズアーキテクチャでは、業務機能、扱う情報、業務処理を提供するサービス群、それらを動かす技術を四つの体系に分ける。'
+      + '指定された欄には' + option + 'アーキテクチャが当てはまる。',
+  };
+}
+
 const models: Readonly<Record<number, { notes: string; build(index: number): GeneratedBody }>> = {
+  61: { notes: '四体系・二つの非表示項目と解答欄aを保ち、図中で問う体系と対象業務を変える。公開資料の事実から独立に組み立てた参考図を使用する。', build: enterpriseArchitecture },
   69: { notes: '一次関係と無需要価格，三つの価格条件，単位と空欄を保持する。価格と既知需要を変え，5,000個刻みの整数選択肢を昇順に並べる。', build: demand },
   72: { notes: '3製品の利益・所要時間・需要上限と月間時間を提示する。1分当たりの利益順の割当てが端数なく成立する範囲に制約し，円の四択は昇順に保つ。', build: capacity },
   73: { notes: '構成表・在庫表を保持し，出荷数，構成数，在庫数を変える。各階層で在庫を先に引き，bの直接需要と間接需要を合わせる。', build: materialRequirements },

@@ -172,7 +172,7 @@ export async function prepareAutumn2009Morning(inputRoot: string, destination: s
   assert.deepEqual([review.sourceInputs['question.pdf'].sha256, review.sourceInputs['answer.pdf'].sha256],
     [official.questionPaperSHA256, official.answerPaperSHA256]);
   const { facts, files } = reviewInputs(inputRoot);
-  const definitions = stage3AllMorningDefinitions.filter(definition => definition.source.startsWith(`${collection}-`));
+  const definitions = stage3AllMorningDefinitions.filter(definition => facts.some(fact => fact.source === definition.source));
   assert.deepEqual(definitions.map(definition => definition.source), facts.map(fact => fact.source));
   const records = await makeStage3MorningRecords({ collectionId: collection, facts, definitions, commonAssets: [], reviewedCommonPages: review.commonPages,
     ...sourceMetadata(), checkedOn: review.checkedOn });

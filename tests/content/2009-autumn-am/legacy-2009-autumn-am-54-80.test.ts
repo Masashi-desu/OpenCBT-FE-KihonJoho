@@ -210,7 +210,7 @@ function checkSpecial(number: number, index: number, prompt: string, choices: st
   assert.fail('独立した検算がない問' + number);
 }
 
-const expectedQuestions = Array.from({ length: 27 }, (_, i) => 54 + i).filter(number => number !== 56 && number !== 61);
+const expectedQuestions = Array.from({ length: 27 }, (_, i) => 54 + i).filter(number => number !== 56);
 test('2009年秋期旧午前・問54〜80の掲載対象、保留、図登録は一対一', () => {
   assert.deepEqual(legacy2009AutumnAm54To80Definitions.map(definition => Number(definition.source.split('-').at(-1))), expectedQuestions);
   assert.deepEqual(legacy2009AutumnAm5480FigureRenderers.map(renderer => renderer.profile), legacy2009AutumnAm5480Figures.map(figure => figure.profile));
@@ -241,7 +241,19 @@ for (const definition of legacy2009AutumnAm54To80Definitions) {
       const alt = diagram?.alt ?? '';
       renderedInputs.add(prompt + '\n' + alt);
       const facts = knowledgeFacts[number]?.[index];
-      const matches = facts ? assertKnowledge(facts, prompt, choices) : checkSpecial(number, index, prompt, choices, alt);
+      let matches: boolean[];
+      if (number === 61) {
+        const diagram = generated.contexts?.[0].blocks[0];
+        assert(diagram?.type === 'table');
+        assert.equal(diagram.rows.length, 4);
+        assert.equal(diagram.rows[0][0], 'ビジネスアーキテクチャ');
+        assert.equal(diagram.rows.filter(row => row[0] === '［非表示］アーキテクチャ').length, 2);
+        const asked = diagram.rows.findIndex(row => row[0] === '［a］アーキテクチャ');
+        assert.equal(asked, [3, 1, 2, 3][index]);
+        assert.equal(diagram.rows[asked][1].includes('［非表示］'), asked === 3);
+        const independentlyClassified = ['', 'データ', 'アプリケーション', 'テクノロジ'];
+        matches = choices.map(item => item === independentlyClassified[asked]);
+      } else matches = facts ? assertKnowledge(facts, prompt, choices) : checkSpecial(number, index, prompt, choices, alt);
       assert.equal(matches.filter(Boolean).length, 1, '内容の一致は一つだけ');
       assert.equal(generated.correctIndex, matches.indexOf(true));
       assert.ok(generated.explanation.length >= 40);

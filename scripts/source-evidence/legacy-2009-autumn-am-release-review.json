@@ -65,6 +65,7 @@
     58,
     59,
     60,
+    61,
     62,
     63,
     64,
@@ -89,12 +90,6 @@
     {
       "number": 56,
       "reason": "ITIL v2のService Supportの5プロセスと1機能の説明表について、第三者資料に由来する具体的表現の公開Gitへの同梱・ブラウザ表示・改変の条件を確認できず、保留。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 61,
-      "reason": "経済産業省の2004年資料のEA概念図を参照している。RIETIで同一原図を確認したが、今回の公開Gitへの同梱・ブラウザ表示・改変を認める権利者の利用条件を確認できず、保留。",
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false
     }
@@ -1011,6 +1006,21 @@
       ]
     },
     {
+      "number": 61,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2009-autumn-am/legacy-2009-autumn-am-54-80.test.ts",
+        "tests/content/2009-autumn-am/legacy-2009-autumn-am-integration.test.ts",
+        "tests/booklets/2009-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
       "number": 62,
       "checks": {
         "transcription": "pass",
@@ -1294,6 +1304,17 @@
         "tests/content/2009-autumn-am/legacy-2009-autumn-am-integration.test.ts",
         "tests/booklets/2009-autumn-am/content-contract.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 61,
+      "sourceReview": "scripts/source-evidence/legacy-2009-autumn-am-61-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "7d070527f3744e6d81240ee1ec8f42283df9c57075a291372ef13c256da569b4",
+        "catalogSHA256": "d4b50f7d42202eb3fcb7e181822c4d8e24263b9ff34d8ce9a14d3cd80c0bfff9"
+      }
     }
   ]
 }

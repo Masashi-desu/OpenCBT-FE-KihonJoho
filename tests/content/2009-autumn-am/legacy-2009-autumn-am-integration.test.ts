@@ -23,7 +23,7 @@ import { materialPages } from '../../../src/ui/MaterialViewer';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map((row: { number: number }) => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, row.source)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -55,6 +55,18 @@ test('S3-029 preserves all official obligations and admits only the reviewed sou
     assert.deepEqual(mix.generationBindings.filter(binding => binding.questionRef.questionId === base.id),
       [{ questionRef: refOf(base), templateRef: { id: template.id, revision: template.revision } }]);
     assert.equal(base.choiceShuffleAllowed, false);
+    if (row.number === 61) {
+      assert(original.origin.changes.some(change => change.kind === 'diagram' && !change.affectsAnswer));
+      assert.equal(original.prompt.blocks[0].type, 'image');
+      assert.deepEqual(original.prompt.blocks.slice(1), ['アプリケーション', 'データ', 'テクノロジ', 'コンピュータ']
+        .map((text, index) => ({ type: 'paragraph', text: 'アイウエ'[index] + '　' + text })));
+      assert.deepEqual(original.choices.map(choice => choice.content.blocks), [...'アイウエ'].map(text => [{ type: 'paragraph', text }]));
+      for (const question of [original, base]) {
+        assert.equal(question.contexts.length, 1);
+        assert.match(question.contexts[0].title, /独立編集/);
+        assert.deepEqual(question.contexts[0].content.attribution.rightsRefs, ['rights-original']);
+      }
+    }
     const [domain, ...additionalFields] = template.parameterDomain.fields ?? [];
     assert(domain && !additionalFields.length);
     for (let value = domain.minimum; value <= domain.maximum; value++) {
@@ -138,7 +150,8 @@ test('S3-029 keeps its blank second page outside the original and generated mate
     const original = bundle.questions.find(question => question.id === originalId(row.number));
     assert(original);
     const { base, template } = bookmarkTemplate(bundle, refOf(original));
-    assert.equal(materialPages(original).length, 1);
+    assert.equal(materialPages(original).length, row.number === 61 ? 2 : 1);
+    assert(!materialPages(original).some(page => page.commonReference));
     assert(!materialPages(base).some(page => page.commonReference));
     assert(!original.origin.sourceRefs.some(ref => ref.locator.page === 2));
     assert(!template.attribution.sourceRefs.some(ref => ref.locator.page === 2));
@@ -171,7 +184,8 @@ test('S3-029 attributes each original and adaptation to the correct booklet and 
   assert(Object.values(rights.uses).every(value => value === 'allowed'));
   for (const row of published) {
     const original = bundle.questions.find(question => question.id === originalId(row.number));
-    assert(original && !original.origin.isModified);
+    assert(original);
+    assert.equal(original.origin.isModified, row.number === 61);
     const { base, template } = bookmarkTemplate(bundle, refOf(original));
     assert(base.origin.isModified);
     assert.equal(original.prompt.attribution.sourceRefs[0].sourceId, `source-ipa-${collection}-qs`);
