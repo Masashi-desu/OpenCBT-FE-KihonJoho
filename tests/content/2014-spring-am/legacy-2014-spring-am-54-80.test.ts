@@ -33,9 +33,9 @@ function table(body:Body){
 const integer=(value:string)=>Number(value.replaceAll(',',''));
 const sum=(values:readonly number[])=>values.reduce((a,b)=>a+b,0);
 
-test('2014春 午前問54〜80の基準原文・公式解答と全132条件を照合する',()=>{
+test('2014春 午前問54〜80の基準原文・公式解答と全136条件を照合する',()=>{
   assert.deepEqual(definitions.map(item=>Number(item.source.split('-').at(-1))),review.records.map(item=>item.number));
-  assert.deepEqual(review.holds,[56,61]);
+  assert.deepEqual(review.holds,[56]);
   let total=0;
   for(const {number,key,statementHash} of review.records){
     const item=definition(number),original=item.build([0]);
@@ -58,7 +58,23 @@ test('2014春 午前問54〜80の基準原文・公式解答と全132条件を�
     assert(answers.size>=2,'問'+number);
     for(const invalid of [[],[-1],[count(number)],[0,1],[0.1],[NaN],Array(1)])assert.throws(()=>item.build(invalid));
   }
-  assert.equal(total,132);
+  assert.equal(total,136);
+});
+
+test('2014春 午前問61の四つの成果物と作成目的を公開ガイダンスから照合する',()=>{
+  const criteria = [
+    [/システム化構想の立案/, /^企業で将来的に必要.*業務組織.*業務の全体像$/, /業務全体の姿/],
+    [/店舗から倉庫への返品処理.*実現すべき内容/, /^業務手順.*入出力情報.*実現すべき要件$/, /実現すべき要件/],
+    [/新しい運用へ移す前.*同じ順序で実行/, /^日次や月次.*入出力作業.*業務手順$/, /作業の実施方法/],
+    [/実装前にシステムの構成要素とそれらの分担/, /^必要なハードウェア.*最上位レベルのシステム方式$/, /構成を示すのはシステム方式/],
+  ] as const;
+  for (const [index, [stem, valid, rationale]] of criteria.entries()) {
+    const body=question(61,index);
+    assert.match(prompt(body),stem);
+    assert.deepEqual(choices(body),choices(question(61,0)));
+    unique(body,option=>valid.test(option));
+    assert.match(body.explanation,rationale);
+  }
 });
 
 test('2014春 午前問54は導入・教育を含む管理基準から工数を独立検算する',()=>{

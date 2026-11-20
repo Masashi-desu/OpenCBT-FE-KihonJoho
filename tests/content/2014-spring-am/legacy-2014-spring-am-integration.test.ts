@@ -4,7 +4,6 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { fixture, installFixtureGenerators } from '../../fixtures';
 import official from '../../fixtures/legacy-2014-spring-am-official-answers.json';
-import review from '../../../scripts/source-evidence/legacy-2014-spring-am-source-review.json';
 import { sourceExclusions, sourceScope } from '../../../scripts/source-inventory';
 import { bookmarkTemplate, makeBookmark } from '../../../src/core/bookmarks';
 import { contentHash } from '../../../src/core/hash';
@@ -21,7 +20,7 @@ import { SourceFigure } from '../../../src/ui/SourceFigure';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map(row => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, row.source)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -52,6 +51,14 @@ test('S3-011 preserves all official obligations and admits only the reviewed sou
     assert.deepEqual(mix.generationBindings.filter(binding => binding.questionRef.questionId === base.id),
       [{ questionRef: refOf(base), templateRef: { id: template.id, revision: template.revision } }]);
     assert.equal(base.choiceShuffleAllowed, false);
+    if (row.number === 61) {
+      const guidance = original.prompt.attribution.sourceRefs.filter(ref => ref.sourceId.includes('cf2013-guidance'));
+      assert.deepEqual(guidance.map(ref => ref.locator.page), [9, 12]);
+      assert(base.choices.slice(0, 2).every(choice => choice.content.attribution.rightsRefs.some(id =>
+        bundle.rights.find(right => right.id === id)?.licenseId === 'CC-BY-SA-2.1-JP')));
+      assert(base.choices.slice(2).every(choice => choice.content.attribution.rightsRefs.every(id =>
+        bundle.rights.find(right => right.id === id)?.licenseId !== 'CC-BY-SA-2.1-JP')));
+    }
   }
   for (const n of held) {
     const source = `${collection}-${n}`;

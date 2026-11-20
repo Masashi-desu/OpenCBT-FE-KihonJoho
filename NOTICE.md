@@ -24,6 +24,8 @@ IPA問題の本文・選択肢・正答・画像には本プロジェクトのMI
 
 2014年度秋期・旧午前問65の4肢のうち、©2013 IPA『共通フレーム2013』第3部ガイダンスp.12項1(3)・p.13技術要件(c)(d)の対応表現にCC BY-SA 2.1 日本を適用します。対象を原画像と代替文の該当表現、基準問題の選択肢、`src/core/generators/legacy-2014-autumn-am-65.ts` と配布問題の派生した選択肢に明示します。編集者はOpenCBT-FE-KihonJohoで、生成例は開発場面と各肢の作業内容を変更しています。試験の問い・組版にはIPA試験の利用条件を適用します。[IPA ガイダンスと使用条件](https://www.ipa.go.jp/publish/secbooks20130304.html)・[同梱ライセンス本文](public/notices/CC-BY-SA-2.1-JP.txt)
 
+2014年度春期・旧午前問61のア・イと派生問題の対応表現には、©2013 IPA『共通フレーム2013』第3部ガイダンスp.9第2.1.1.2.6項及びp.12第2.2.3.1項1(1)(a)のCC BY-SA 2.1 日本を適用します。OpenCBT-FE-KihonJohoが出題条件を編集し、試験の組版・正答と素材条件を区別して表示します。[IPA ガイダンスと使用条件](https://www.ipa.go.jp/publish/secbooks20130304.html)・[同梱ライセンス本文](public/notices/CC-BY-SA-2.1-JP.txt)
+
 2015年度秋期・旧午前問50の設問と派生問題で、利用者の視点と意図された用途に対応する表現には、©2013 IPA『共通フレーム2013』第3部ガイダンスp.28第4.4.2.2項のCC BY-SA 2.1 日本を適用します。OpenCBT-FE-KihonJohoは具体例を作成し、原冊子の出典・利用条件と区別して表示します。[IPA ガイダンスと使用条件](https://www.ipa.go.jp/publish/secbooks20130304.html)・[同梱ライセンス本文](public/notices/CC-BY-SA-2.1-JP.txt)
 
 2016年度春期・旧午前問60・63の基準由来部分は、経済産業省の平成16年版「システム監査基準」「システム管理基準」に基づきます。当時の経産省サイト利用規約第7項ウに基づいてCC BY 4.0で利用し、教材では対象問の切り出しと作問・選択肢の改変を表示します。原問の作問・組版と公式正答にはIPA試験の利用条件を適用します。[当時の経産省サイト利用規約](https://warp.ndl.go.jp/20170101/20161211215810/http://www.meti.go.jp/main/rules.html)・[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)
