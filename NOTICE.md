@@ -20,6 +20,8 @@ IPA問題の本文・選択肢・正答・画像には本プロジェクトのMI
 
 2007年度春期午前問11はUnicodeData 17.0.0のASCII範囲の16文字を独立参考表にしています。試験の原本文と正答の出典を分け、[Unicode License V3全文](public/notices/Unicode-17.0.0-V3-LICENSE.txt)を同梱します。
 
+2006年度春期午前問8はUnicode公開JIS0201 table 2.0の6文字の符号値を独立参考表にしています。試験の原本文と正答の出典を分け、[Unicode License V3全文](public/notices/Unicode-17.0.0-V3-LICENSE.txt)を同梱します。
+
 2018年度春期午後問12の12文字の参考資料はUnicodeData 17.0.0から、2019年度春期午後問9の95文字の参考資料はUnicode公開mappingのJIS0201 table 2.0／2015年ヘッダ・CP932 table 2.01／1998年及びUnicodeData 17.0.0から、それぞれ独立編集しています。問9では5Cを円記号（U+00A5）、7Eを原問題に合わせたチルダ（U+007E）として明示し、この合成資料を規範的なJIS対応表とは呼びません。各年度のSource／RightとUnicode License V3の通知を分け、`public/notices/Unicode-17.0.0-V3-LICENSE.txt` と `public/notices/Unicode-2019-spring-Q9-V3-LICENSE.txt` に全文を保持します。この通知の対象にJIS原表・規格文言、Unicodeの図表・フォント、IPA問題本文は含めません。
 
 2016年度秋期・旧午後の13大問と必要な付属資料は、©2016 IPAの出典及び改変を明示して収録します。原画像・公式訂正文と本プロジェクトの適用案内・生成問題・独自解説を区別します。CASL II参考資料の物理73頁は上部の仕様説明だけを抜粋し、下部のJIS X0201文字コード表・規格文言は配布しません。個別の出典・画像の範囲と用途別判断は当該問題及び素材の権利情報に表示します。

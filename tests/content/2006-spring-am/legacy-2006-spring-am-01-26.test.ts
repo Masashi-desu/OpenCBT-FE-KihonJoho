@@ -27,8 +27,8 @@ function binary(value:string) {
  const [integer,fraction='']=value.split('.');
  return [...integer].reduce((n,bit)=>2*n+Number(bit),0)+[...fraction].reduce((n,bit,i)=>n+Number(bit)/2**(i+1),0);
 }
-test('公式の問番号・頁・全正答、問8保留、四条件を照合する',()=>{
- const intended=Array.from({length:26},(_,i)=>i+1).filter(n=>n!==8);
+test('公式の問番号・頁・全正答と四条件を照合する',()=>{
+ const intended=Array.from({length:26},(_,i)=>i+1);
  assert.deepEqual([...definitionsByNumber.keys()],intended);
  assert.deepEqual(source.map(row=>row.number),intended);
  for(const [n,definition] of definitionsByNumber){
@@ -47,6 +47,31 @@ test('公式の問番号・頁・全正答、問8保留、四条件を照合す�
   for(const invalid of [[],[-1],[4],[0.3],[0,1],Array<number>(1)])assert.throws(()=>definition.build(invalid));
  }
 });
+test('問8は査読したJISマッピングを参照し、二文字の全8ビットと順番で全択を判定する',()=>{
+ const reference={ '1':0x31,'2':0x32,'3':0x33,A:0x41,B:0x42,C:0x43 } as const;
+ const entries=Object.entries(reference);
+ for(const i of cases) {
+  const body=build(8,i);
+  const [first,second]=[...text(body.prompt).matchAll(/“(.)”/g)].map(match=>match[1]);
+  assert.equal(first+second,['A2','B3','C1','3A'][i]);
+  const block=body.contexts?.[0].blocks[0];
+  assert(block?.type==='table');
+  assert.deepEqual(block.rows.map(row=>row[0]),['0001','0010','0011']);
+  assert.deepEqual(block.columns.slice(1).map(column=>column.split(' ').at(-1)),['0001','0010','0011','0100']);
+  const recovered=block.rows.flatMap(([low,...columns])=>columns.flatMap((value,index)=>
+    value ? [[value, ((index+1)*16)+Number.parseInt(low,2)]] : []));
+  assert.deepEqual(recovered.sort(),entries.sort());
+  unique(body, option=>{
+   const words=text(option).split('　');
+   assert.equal(words.length,2);
+   assert(words.every(word=>/^[01]{8}$/.test(word)));
+   return Number.parseInt(words[0],2)===reference[first as keyof typeof reference] &&
+     Number.parseInt(words[1],2)===reference[second as keyof typeof reference];
+  });
+ }
+ assert.deepEqual(build(8,0).choices.map(text),['00010100　00100011','00110010　01000001','01000001　00110010','01000010　00110010']);
+});
+
 test('問1〜3の各候補を桁位置・繰下がり・全ビット値から別方式で検算する',()=>{
  for(const i of cases){
   const radix=build(1,i), [whole,fraction]=text(radix.prompt).match(/[\dA-F]+\.[\dA-F]+/)![0].split('.');

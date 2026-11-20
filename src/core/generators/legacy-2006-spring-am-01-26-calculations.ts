@@ -201,7 +201,38 @@ const sectors=define(24,'セクタのバイト数、ブロック構成、ファ�
  return textBody(prompt,choices,choices.indexOf(correct),'1ブロックは'+group(bytes*count)+'バイト。空きがあっても別ファイルは残りを共有しないため、各ファイルに'+
   blocks[0]+'ブロックと'+blocks[1]+'ブロックが必要になる。1ブロック'+count+'セクタなので必要なセクタ数の合計は'+correct+'である。');
 });
+export const jisCodeReference = () => ({
+  id: 'context-2006-spring-am-8-jis-code',
+  title: 'JISコードの参考表（独立編集）',
+  presentation: 'text_figure' as const,
+  blocks: [table('上位と下位の4ビットに対応する文字（Unicode公開マッピング）',
+    ['下位4ビット', '上位4ビット 0001', '上位4ビット 0010', '上位4ビット 0011', '上位4ビット 0100'],
+    [['0001', '', '', '1', 'A'], ['0010', '', '', '2', 'B'], ['0011', '', '', '3', 'C']])],
+});
+
+const jisCode = define(8, '符号を読む二文字の並び', 4,
+  '原の上位と下位の4ビットを読む作業と、2文字分の8ビットを並べる四択を保持。独立参考表はUnicode公開マッピングのJIS0201 table 2.0から6件を照合する。',
+  index => {
+    const [first, second] = ['A2', 'B3', 'C1', '3A'][index];
+    const bits = (character: string) => character.charCodeAt(0).toString(2).padStart(8, '0');
+    const a = bits(first), b = bits(second);
+    const correct = a + '　' + b;
+    const alternate = ({ A: 'B', B: 'C', C: 'A', '3': '2' } as Record<string, string>)[first];
+    const official = source[8];
+    const represent = [a.slice(4) + a.slice(0, 4) + '　' + b.slice(4) + b.slice(0, 4), b + '　' + a, correct, bits(alternate) + '　' + b];
+    const rotation = index % represent.length;
+    const options = index ? [...represent.slice(rotation), ...represent.slice(0, rotation)] : official.choices;
+    const prompt = official.prompt.replace('“A”と“2”', `“${first}”と“${second}”`);
+    return {
+      ...textBody(prompt, options, options.indexOf(correct),
+        first + 'は表の列が' + a.slice(0, 4) + '、行が' + a.slice(4) + 'なので' + a + 'になる。' +
+        second + 'も同じ規則で' + b + 'になるので、指定された順番では' + correct + 'となる。'),
+      contexts: [jisCodeReference()],
+    };
+  });
+
 export const calculations2006SpringAm0126=[
+  jisCode,
  radix,base,twos,float,precision,parity,venn,transition,postfix,triangle,structures,sorting,
  search,multiplication,circuit,cpi,speed,sectors,
 ];

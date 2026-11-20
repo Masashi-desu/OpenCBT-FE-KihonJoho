@@ -21,7 +21,7 @@ import { materialPages } from '../../../src/ui/MaterialViewer';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map((row: { number: number }) => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, row.source)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -53,6 +53,20 @@ test('S3-043 preserves all official obligations and admits only the reviewed sou
     assert.deepEqual(mix.generationBindings.filter(binding => binding.questionRef.questionId === base.id),
       [{ questionRef: refOf(base), templateRef: { id: template.id, revision: template.revision } }]);
     assert.equal(base.choiceShuffleAllowed, false);
+    if (row.number === 8) {
+      assert(original.origin.isModified && original.origin.changes.some(change => change.kind === 'diagram' && !change.affectsAnswer));
+      assert.equal(original.prompt.blocks[0].type, 'image');
+      assert.deepEqual(original.prompt.blocks.slice(1), ['00010100　00100011','00110010　01000001','01000001　00110010','01000010　00110010']
+        .map((text, index) => ({ type: 'paragraph', text: 'アイウエ'[index] + '　' + text })));
+      assert.deepEqual(original.choices.map(choice => choice.content.blocks), [...'アイウエ'].map(text => [{ type: 'paragraph', text }]));
+      for (const question of [original, base]) {
+        assert.equal(question.contexts.length, 1);
+        const [context] = question.contexts;
+        assert.match(context.title, /独立編集/);
+        assert.equal(context.content.blocks[0].type, 'table');
+        assert(context.content.attribution.rightsRefs.some(id => bundle.rights.find(right => right.id === id)?.licenseId === 'Unicode-3.0'));
+      }
+    }
     const fields = template.parameterDomain.fields;
     assert(fields);
     assert.equal(fields.length, 1);
@@ -62,6 +76,7 @@ test('S3-043 preserves all official obligations and admits only the reviewed sou
       const generated = bindQuestion(base, template, [value], 's3-041-format-check', '2026-11-15T00:00:00Z');
       assert.doesNotThrow(() => validateSourceFormat(generated, template), `問${row.number} 条件${value}`);
       assert.doesNotThrow(() => schema('question', generated), `問${row.number} 条件${value} の配布形式`);
+      if (row.number === 8) assert(generated.contexts[0].content.attribution.rightsRefs.includes('rights-unicode-2006-spring-am-8'));
       for (const block of [...generated.prompt.blocks, ...generated.choices.flatMap(choice => choice.content.blocks)]) {
         if (block.type === 'formula' && block.format === 'latex')
           assert.doesNotThrow(() => validateFormula(block.text), `問${row.number} 条件${value} の数式`);
@@ -183,7 +198,8 @@ test('S3-043 attributes each original and adaptation to the correct booklet and 
   assert(Object.values(rights.uses).every(value => value === 'allowed'));
   for (const row of published) {
     const original = bundle.questions.find(question => question.id === originalId(row.number));
-    assert(original && !original.origin.isModified);
+    assert(original);
+    assert.equal(original.origin.isModified, row.number === 8);
     const { base, template } = bookmarkTemplate(bundle, refOf(original));
     assert(base.origin.isModified);
     assert.equal(original.prompt.attribution.sourceRefs[0].sourceId, `source-ipa-${collection}-qs`);

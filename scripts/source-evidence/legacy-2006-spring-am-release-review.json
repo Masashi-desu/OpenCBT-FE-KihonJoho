@@ -13,6 +13,7 @@
     5,
     6,
     7,
+    8,
     9,
     10,
     11,
@@ -85,12 +86,6 @@
     80
   ],
   "held": [
-    {
-      "number": 8,
-      "reason": "原問がJISコード表の一部であると明示する図を含む。掲載と改変の条件を確認できていない。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
     {
       "number": 32,
       "reason": "並列構成の装置の同時停止条件が未指定。同一周辺確率でア、イ、ウがそれぞれ最大になる。",
@@ -222,6 +217,21 @@
     },
     {
       "number": 7,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2006-spring-am/legacy-2006-spring-am-01-26.test.ts",
+        "tests/content/2006-spring-am/legacy-2006-spring-am-integration.test.ts",
+        "tests/booklets/2006-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 8,
       "checks": {
         "transcription": "pass",
         "rights": "pass",
@@ -1284,6 +1294,17 @@
         "tests/content/2006-spring-am/legacy-2006-spring-am-integration.test.ts",
         "tests/booklets/2006-spring-am/content-contract.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 8,
+      "sourceReview": "scripts/source-evidence/legacy-2006-spring-am-8-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "3c0f3df75dd7065464c832b72420f3aafebe1a1a6b8d3f9169df393a55f7995b",
+        "catalogSHA256": "79981e016295c118e11a6a9df08fa4e783b9c53502d9cecdeafad55164484099"
+      }
     }
   ]
 }

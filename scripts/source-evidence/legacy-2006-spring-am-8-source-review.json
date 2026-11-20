@@ -1,0 +1,70 @@
+{
+  "collectionId": "2006h18h-fe-am",
+  "checkedOn": "2026-11-20",
+  "question": {
+    "number": 8,
+    "page": 5,
+    "answer": "ウ",
+    "area": "technology",
+    "cropBox": [
+      162,
+      620,
+      899,
+      732
+    ],
+    "cropSHA256": "499e228db697cd14eef7bdc4cff6def84056cf63177d11c0db3de5032fe5c742",
+    "renderedPageSHA256": "46fc72db96031d07747f2d4f1ab147c76b5bbceda10227f729697af5707d8fe7",
+    "questionPaperSHA256": "31cce7aa607889609734cd08b4c7602c8d75303a324520aa309caf17336fa4fb",
+    "answerPaperSHA256": "f04a89fb8ac0b1ade6f125e4f26fc4bb500e3505ef872c9e67d74cefcc96b26f",
+    "alt": "問8　次の表はJISコード表の一部である。二つの文字“A”と“2”をこの順にJISコードで表したものはどれか。",
+    "choices": [
+      "00010100　00100011",
+      "00110010　01000001",
+      "01000001　00110010",
+      "01000010　00110010"
+    ]
+  },
+  "reference": {
+    "url": "https://www.unicode.org/Public/MAPPINGS/OBSOLETE/EASTASIA/JIS/JIS0201.TXT",
+    "sha256": "3f26a4c8c083cb6303dcdfcac2b73e8119c1cc1a7da1736fc7435f6efbd037de",
+    "rows": [
+      {
+        "line": 64,
+        "code": "31",
+        "character": "1"
+      },
+      {
+        "line": 65,
+        "code": "32",
+        "character": "2"
+      },
+      {
+        "line": 66,
+        "code": "33",
+        "character": "3"
+      },
+      {
+        "line": 80,
+        "code": "41",
+        "character": "A"
+      },
+      {
+        "line": 81,
+        "code": "42",
+        "character": "B"
+      },
+      {
+        "line": 82,
+        "code": "43",
+        "character": "C"
+      }
+    ],
+    "lookup": "https://www.unicode.org/Public/MAPPINGS/VENDORS/MICSFT/WINDOWS/CP932.TXT",
+    "lookupSHA256": "c9bc0b0cd42e0fbcb82a09635bb5abed86afbdd4abc9e76fa5716638217cb59f",
+    "license": "Unicode-3.0",
+    "licenseUrl": "https://www.unicode.org/license.txt",
+    "licenseSHA256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+    "notice": "public/notices/Unicode-17.0.0-V3-LICENSE.txt"
+  },
+  "generationReview": "元の本文、二文字の順序、各8ビットの全四択と公式正答を保持する。原表の画素・線・矢印は収録せず、Unicodeの公開マッピングから同じ6文字の上位・下位4ビットと元の空欄の位置関係を保った別の読み取り表を作る。答えの8ビット値は表に示さない。基準のA・2と、B・3、C・1、3・Aに対し、逆順、桁の位置誤り、似た別字を用いた誤答を独立検算する。"
+}
