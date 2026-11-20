@@ -15980,6 +15980,7 @@
       ],
       "coverage": {
         "sourceIds": [
+          "question-ipa-2007h19a-fe-pm-1",
           "question-ipa-2007h19a-fe-pm-10",
           "question-ipa-2007h19a-fe-pm-11",
           "question-ipa-2007h19a-fe-pm-12",
@@ -15993,6 +15994,7 @@
           "question-ipa-2007h19a-fe-pm-9"
         ],
         "smallIds": [
+          "template-source-2007h19a-fe-pm-1",
           "template-source-2007h19a-fe-pm-10",
           "template-source-2007h19a-fe-pm-11",
           "template-source-2007h19a-fe-pm-12",
@@ -16011,8 +16013,8 @@
         ]
       },
       "diagnostics": [
-        "2007-autumn-pm: 11 domains, 44 valid inputs, 132 initial draws, 44 draws with complete prior history; current-format domains retain all five paths.",
-        "2007-autumn-pm: old afternoon: 11 domains, all 44 finite inputs, 132 initial draws on three applicable explicit routes, 44 history draws; all12 booklet selections separately retained."
+        "2007-autumn-pm: 12 domains, 48 valid inputs, 144 initial draws, 48 draws with complete prior history; current-format domains retain all five paths.",
+        "2007-autumn-pm: old afternoon: 12 domains, all 48 finite inputs, 144 initial draws on three applicable explicit routes, 48 history draws; all12 booklet selections separately retained."
       ]
     },
     "tests/booklets/2007-autumn-pm/bookmarks.test.ts": {
@@ -16039,6 +16041,12 @@
     },
     "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-01-05.test.ts": {
       "count": 6,
+      "scopes": [
+        "2007-autumn-pm"
+      ]
+    },
+    "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-1.test.ts": {
+      "count": 1,
       "scopes": [
         "2007-autumn-pm"
       ]

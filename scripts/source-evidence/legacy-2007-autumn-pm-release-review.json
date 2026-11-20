@@ -6,6 +6,7 @@
   "wholeScopeReady": false,
   "expectedTotal": 13,
   "includedNumbers": [
+    1,
     2,
     3,
     4,
@@ -19,12 +20,6 @@
     13
   ],
   "held": [
-    {
-      "number": 1,
-      "status": "material_conditions_unconfirmed",
-      "reason": "原冊子p.5の単精度浮動小数点形式の図はIEEE 754（IEC 60559）を明示し、規格図と対応する。図版の出典・改変・再配布条件を確認できるまで保留。",
-      "bodyPublished": false
-    },
     {
       "number": 6,
       "status": "original_answer_ambiguous",
@@ -58,6 +53,21 @@
     }
   },
   "questions": [
+    {
+      "number": 1,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-1.test.ts",
+        "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
+        "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
+      ]
+    },
     {
       "number": 2,
       "checks": {
@@ -222,6 +232,17 @@
         "tests/content/2007-autumn-pm/legacy-2007-autumn-pm-integration.test.ts",
         "tests/booklets/2007-autumn-pm/random-bindings.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 1,
+      "sourceReview": "scripts/source-evidence/legacy-2007-autumn-pm-1-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "e13f24759efefff32639056c28b9fa1192637bc342980dc6b2fff6932fc7f4b8",
+        "catalogSHA256": "dd7ed1000baffe5c89d7d51fb3dbc6bf732c8c300c62bc825406b4892394dd53"
+      }
     }
   ]
 }

@@ -42,8 +42,10 @@ assert.deepEqual(materials.materials.filter(item => item.crop).map(item => [item
 
 const declaration = inventory.collections.find(row => row.collectionId === evidence.collectionId);
 assert(declaration, 'declare the independent release inventory');
-const held = new Set(declaration.excluded.map(row => row.number));
-assert.deepEqual([...held], evidence.held.map((item: { number: number }) => item.number));
+// This assembler recreates the initial booklet. Independent additions use
+// their own pinned sources and the supplement installer.
+const held = new Set(evidence.held.map((item: { number: number }) => item.number));
+assert(declaration.excluded.every(row => held.has(row.number)));
 const specs: Stage3AfternoonQuestionSpec[] = [...autumn2007Pm01To05Specs, ...autumn2007Pm06To09Specs, ...autumn2007Pm10To13Specs]
   .filter(spec => !held.has(spec.number)).map(withAutumn2007PmEditorialReference);
 const numbers = specs.map(spec => spec.number);

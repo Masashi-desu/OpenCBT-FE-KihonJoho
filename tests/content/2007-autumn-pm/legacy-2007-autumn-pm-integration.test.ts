@@ -5,6 +5,8 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { readDistributionBundle } from '../../../scripts/distribution-files';
 import review from '../../../scripts/source-evidence/legacy-2007-autumn-pm-source-review.json';
+import supplement from '../../../scripts/source-evidence/legacy-2007-autumn-pm-1-source-review.json';
+import { sourceExclusions } from '../../../scripts/source-inventory';
 import { displayedAnswerParts } from '../../../src/core/answers';
 import { bookmarkSource, bookmarkTemplate } from '../../../src/core/bookmarks';
 import { bindQuestion, checkParameters } from '../../../src/core/generation';
@@ -22,7 +24,7 @@ import { Content } from '../../../src/ui/Content';
 const bundle = readDistributionBundle();
 const collection = review.collectionId;
 const setId = 'set-annual-2007-autumn-pm';
-const held = review.held.map((row: { number: number }) => row.number);
+const held = review.questions.filter(row => Object.hasOwn(sourceExclusions, collection + `-${row.number}`)).map(row => row.number);
 const published = review.questions.filter(row => !held.includes(row.number));
 const totalFields = published.reduce((count, row) => count + row.answerSlots, 0);
 const totalMarks = published.reduce((count, row) => count + row.selectionMarks, 0);
@@ -53,13 +55,13 @@ function correctParts(question: Question) {
   return Object.fromEntries(answers);
 }
 
-test('S3-038 keeps the 13 official majors, matches the 64 official and 57 admitted answer fields and binds each admitted generator', () => {
+test('S3-038 keeps the 13 official majors, matches the 64 official and 61 admitted answer fields and binds each admitted generator', () => {
   assert.deepEqual(review.questions.map(row => row.number), Array.from({ length: 13 }, (_, index) => index + 1));
   assert.equal(review.questions.reduce((count, row) => count + row.answerSlots, 0), 64);
   assert.equal(review.questions.reduce((count, row) => count + row.selectionMarks, 0), 65);
-  assert.deepEqual(held, [1, 6]);
-  assert.equal(totalFields, 57);
-  assert.equal(totalMarks, 58);
+  assert.deepEqual(held, [6]);
+  assert.equal(totalFields, 61);
+  assert.equal(totalMarks, 62);
   for (const number of held) {
     assert(!bundle.questions.some(row => row.id === ref(number).questionId));
     assert(!bundle.templates.some(row => row.id === `template-source-${collection}-${number}`));
@@ -70,7 +72,8 @@ test('S3-038 keeps the 13 official majors, matches the 64 official and 57 admitt
   for (const [index, row] of published.entries()) {
     const question = original(row.number);
     assert.equal(question.origin.kind, 'official_reprint');
-    assert.equal(question.origin.isModified, false);
+    assert.equal(question.origin.isModified, row.number === 1);
+    if (row.number === 1) assert(question.origin.changes.some(change => change.kind === 'diagram' && !change.affectsAnswer));
     assert.deepEqual(question.origin.sourceRefs.map(source => source.locator.page), row.pages);
     assert(question.origin.sourceRefs.every(source => source.locator.year === 2007
       && source.locator.period === '秋期' && source.locator.timeSlot === '午後'));
@@ -104,16 +107,21 @@ test('S3-038 keeps the 13 official majors, matches the 64 official and 57 admitt
 });
 
 test('S3-038 matches the source images and routes only the required language or notation pages to each major', async () => {
-  const hashes: Record<string, string> = review.assetSHA256ByPage;
+  const hashes: Record<string, string> = { ...review.assetSHA256ByPage, 5: supplement.pages[5].assetSHA256, 6: supplement.pages[6].assetSHA256 };
   const assets = bundle.assets.filter(asset => asset.id.startsWith(`asset-ipa-${collection}-`));
   assert.deepEqual(assets.map(asset => asset.attribution.sourceRefs[0].locator.page).sort((a, b) => a! - b!), Object.keys(hashes).map(Number));
-  assert.equal(assets.length, 50);
+  assert.equal(assets.length, 52);
   for (const asset of assets) {
     const page = asset.attribution.sourceRefs[0].locator.page!;
     assert.equal(await sha256(fs.readFileSync(`public/data/${asset.path}`)), hashes[page]);
     assert.equal(asset.sha256, hashes[page]);
     assert(asset.alt.trim().length >= 40);
-    if (page === 58) {
+    if (page === 5) {
+      assert.equal(asset.attribution.origin, 'adapted');
+      assert.deepEqual([asset.width, asset.height], [1323, 1681]);
+      assert(asset.path.endsWith('-reviewed.png'));
+      assert.match(asset.alt, /独立参考表/);
+    } else if (page === 58) {
       assert.equal(asset.attribution.origin, 'adapted');
       assert.deepEqual([asset.width, asset.height], [1323, 1056]);
       assert(asset.path.endsWith('-casl-excerpt.webp'));
@@ -129,6 +137,14 @@ test('S3-038 matches the source images and routes only the required language or 
     const { base } = bookmarkTemplate(bundle, ref(row.number));
     assert.deepEqual(scopePages(question), references[row.number] ?? []);
     assert.deepEqual(scopePages(base), references[row.number] ?? []);
+    if (row.number === 1) {
+      for (const entry of [question, base]) {
+        const table = entry.contexts[0]?.content;
+        assert(table?.blocks[0]?.type === 'table');
+        assert.deepEqual(table.attribution.rightsRefs, ['rights-original']);
+        assert(table.attribution.sourceRefs[0]?.sourceId.startsWith('source-oracle-binary32'));
+      }
+    }
   }
 });
 
@@ -156,7 +172,7 @@ test('S3-038 shows IPA and WARP credit while retaining the collection and search
   }
 });
 
-test('S3-038 grades and resumes all 57 answer fields in both practice sources', async () => {
+test('S3-038 grades and resumes all 61 answer fields in both practice sources', async () => {
   for (const kind of ['annual', 'mix'] as const) {
     const config = selection(kind);
     const prepared = selectQuestions(bundle, config, items => items);
@@ -201,8 +217,8 @@ test('S3-038 uses radio groups or the official two-choice checklist and preserve
   }
 });
 
-test('S3-038 uses all 12 admitted two-language choices, six issued majors and the official 150 minutes', async () => {
-  const required = [2, 3, 4, 5];
+test('S3-038 uses all 12 admitted two-language choices, seven issued majors and the official 150 minutes', async () => {
+  const required = [1, 2, 3, 4, 5];
   for (const kind of ['annual', 'mix'] as const) {
     const timed = selection(kind, 'practice');
     for (const first of [7, 8, 9]) for (const second of [10, 11, 12, 13]) {
@@ -219,6 +235,6 @@ test('S3-038 uses all 12 admitted two-language choices, six issued majors and th
     const prepared = selectQuestions(bundle, config, items => items);
     const run = startRun(await prepareRun(bundle, config, {}, 1000, undefined, prepared), 2000);
     assert.equal(remaining(run, 2000), 9000);
-    assert.equal(run.issued.length, 6);
+    assert.equal(run.issued.length, 7);
   }
 });

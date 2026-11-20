@@ -1,0 +1,41 @@
+{
+  "scope": "2007-autumn-pm",
+  "checkedOn": "2026-11-20",
+  "collectionId": "2007h19a-fe-pm",
+  "number": 1,
+  "paperSHA256": "495cf78f1c77060db717cc5b54e0a16a0b3b7a0695817cc4525362e2a301d794",
+  "answersSHA256": "c562e724e1b89e0ccb0ddde2576b8c9ac7c47feec3af89cc32c9082bd9b7aab2",
+  "parts": [
+    "イ",
+    "ウ",
+    "オ",
+    "ウ"
+  ],
+  "includedStripsAtPage5": [
+    [
+      0,
+      928
+    ],
+    [
+      1119,
+      1872
+    ]
+  ],
+  "pages": {
+    "5": {
+      "sourcePageSHA256": "058562c6d387fc9160d95f157e2702ce17152b13ab95f657ae8443546145dc5c",
+      "assetSHA256": "78567cecc4664a6c7ccbad7c497bf5a256a6b32eb8daa786f30dbda8ee618bf8"
+    },
+    "6": {
+      "sourcePageSHA256": "1122ca483ad315e4d3a0fa9cff4021752bba4953b5b0e774f872750dc6474b2b",
+      "assetSHA256": "1122ca483ad315e4d3a0fa9cff4021752bba4953b5b0e774f872750dc6474b2b"
+    }
+  },
+  "oracle": {
+    "url": "https://docs.oracle.com/cd/E19957-01/806-3568/ncg_math.html",
+    "sha256": "5b49bc9af27a2822c4eb2b35181f7597f88a617dc16ba720c65ab578a50473f6",
+    "section": "IEEE Arithmetic／Single Format"
+  },
+  "rightsBoundary": "PDF p.5から規格の図1とキャプションを除く。IPAの原設問、A×2^B、符号・指数・仮数の前提、正規化と0の条件、45.625の例、図2、p.6の全解答群と4欄を保持。参考表は欄名・位置・幅の事実を独立に編集し、IEEE・Oracleの文章や図を再録しない。",
+  "reviewNotes": "例と負数の符号・バイアス127・先頭の1の省略を照合し、すべて2進有限小数を採用。原加算は2.5と10で12.5。全4条件・全択を実際のfloat32のビット表現で検算する。IPAの原出典と独立編集の表を分けて表示する。"
+}
