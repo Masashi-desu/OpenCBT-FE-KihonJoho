@@ -390,3 +390,39 @@ test('only the known generated validator resolves virtually through its tracked 
  const absent={...inputs};delete absent['scripts/compile-schemas.mjs'];assert.equal(runtimeDependencyGraph({[file]:source},absent).unresolved.length,1);
  assert.equal(runtimeDependencyGraph({[file]:source.replace('validators.js','unreviewed.js')},inputs).unresolved.length,1);
 });
+
+test('afternoon hold removal requires the identical official PDF and both newly connected mix pools', () => {
+    const collectionId = '2007h19a-fe-pm', scope = '2007-autumn-pm', suffix = collectionId + '-1';
+    const bookletSource = { id: 'source-ipa-' + collectionId + '-qs', type: 'official_problem',
+        publisher: 'IPA', url: 'https://example.test/official-2007.pdf', sha256: 'a'.repeat(64) };
+    const questionSource = { ...bookletSource, id: 'source-ipa-' + suffix + '-qs' };
+    const held = { number: 1, reason: 'Third-party material conditions pending', sourceId: bookletSource.id, checkedOn: '2026-11-20' };
+    const inventory = (excluded: typeof held[]) => JSON.stringify({ version: 1, collections: [{ collectionId, excluded }] });
+    const original = { id: 'question-ipa-' + suffix, revision: 1, subject: 'B', distribution: 'included',
+        origin: { kind: 'official_reprint', sourceRefs: [{ sourceId: questionSource.id,
+            locator: { questionNumber: '1', year: 2007, period: '秋期', timeSlot: '午後' } }] } };
+    const ref = { questionId: original.id, revision: 1 };
+    const base = { ...original, id: 'question-template-source-' + suffix,
+        origin: { ...original.origin, kind: 'official_adaptation', derivedFrom: [ref] } };
+    const baseRef = { questionId: base.id, revision: 1 };
+    const template = { id: 'template-source-' + suffix, revision: 1, distribution: 'included',
+        baseQuestionRef: baseRef, generatorRef: { id: 'generator-source-' + suffix } };
+    const annual = { id: 'set-annual-' + scope, distribution: 'included', questionRefs: [ref] };
+    const global = { id: 'set-mix-b', distribution: 'included', questionRefs: [baseRef],
+        generationBindings: [{ questionRef: baseRef, templateRef: { id: template.id, revision: 1 } }] };
+    const booklet = { ...global, id: 'set-mix-' + scope };
+    const catalog = { files: {} };
+    const prior = distributionOwnership(catalog, { sources: [bookletSource] });
+    const release = (sets = [annual, global, booklet], sources = [bookletSource, questionSource]) =>
+        distributionOwnership(catalog, { sources, questions: [original, base], templates: [template], sets });
+    const check = (published = release()) => sourceInventoryChangeScopes(inventory([held]), inventory([]), prior, published);
+    assert.deepEqual(check(), [scope]);
+    for (const sets of [[annual, global], [annual, booklet], [global, booklet],
+        [annual, global, { ...booklet, generationBindings: [] }],
+        [{ ...annual, id: 'set-annual-' + collectionId }, global, booklet]])
+        assert.equal(check(release(sets)), null);
+    for (const paper of [{ ...questionSource, sha256: 'b'.repeat(64) }, { ...questionSource, url: 'https://example.test/other.pdf' },
+        { ...questionSource, publisher: 'Other' }, { ...questionSource, type: 'policy' }])
+        assert.equal(check(release([annual, global, booklet], [bookletSource, paper])), null);
+    assert.equal(check(release([annual, global, booklet], [{ ...bookletSource, url: 'https://example.test/other.pdf' }, questionSource])), null);
+});

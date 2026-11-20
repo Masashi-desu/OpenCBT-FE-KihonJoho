@@ -364,20 +364,40 @@ function publishedHoldRemoval(collection, held, scope, before, after) {
         return false;
     const original = after.entries.get(originalId)?.record, base = after.entries.get(baseId)?.record;
     const template = after.entries.get(templateId)?.record;
+    const afternoon = scope.endsWith('-pm');
+    const questionSourceId = afternoon ? 'source-ipa-' + suffix + '-qs' : held.sourceId;
+    if (afternoon) {
+        // The hold is attached to the booklet, while an admitted major has its
+        // own source record for a page range from the identical official PDF.
+        const booklet = before.entries.get(held.sourceId);
+        const retained = after.entries.get(held.sourceId);
+        const paper = after.entries.get(questionSourceId);
+        if (booklet?.kind !== 'sources' || paper?.kind !== 'sources' ||
+            stable(booklet) !== stable(retained) || before.entries.has(questionSourceId) ||
+            booklet.record.type !== 'official_problem' || paper.record.type !== 'official_problem' ||
+            !/^[a-f0-9]{64}$/.test(booklet.record.sha256 ?? '') ||
+            !['url', 'publisher', 'sha256'].every(key => typeof booklet.record[key] === 'string' &&
+                booklet.record[key].length > 0 && booklet.record[key] === paper.record[key]))
+            return false;
+    }
     if (original?.distribution !== 'included' || base?.distribution !== 'included' || template?.distribution !== 'included' ||
         original.origin?.kind !== 'official_reprint' || base.origin?.kind !== 'official_adaptation' ||
-        !original.origin.sourceRefs?.some(ref => ref.sourceId === held.sourceId && ref.locator.questionNumber === String(held.number)) ||
+        !original.origin.sourceRefs?.some(ref => ref.sourceId === questionSourceId && ref.locator.questionNumber === String(held.number)) ||
         !base.origin.derivedFrom?.some(ref => ref.questionId === originalId && ref.revision === original.revision) ||
         template.generatorRef?.id !== 'generator-source-' + suffix ||
         template.baseQuestionRef?.questionId !== baseId || template.baseQuestionRef.revision !== base.revision)
         return false;
-    const annual = after.entries.get('set-annual-' + collection)?.record;
-    const mix = after.entries.get(scope.endsWith('-am') ? 'set-mix-a' : 'set-mix-b')?.record;
-    return annual?.distribution === 'included' && mix?.distribution === 'included' &&
+    const annual = after.entries.get('set-annual-' + (afternoon ? scope : collection))?.record;
+    const carriesBinding = setId => {
+        const mix = after.entries.get(setId)?.record;
+        return mix?.distribution === 'included' &&
+            mix.questionRefs.some(ref => ref.questionId === baseId && ref.revision === base.revision) &&
+            mix.generationBindings.some(binding => binding.questionRef.questionId === baseId && binding.questionRef.revision === base.revision &&
+                binding.templateRef.id === templateId && binding.templateRef.revision === template.revision);
+    };
+    return annual?.distribution === 'included' &&
         annual.questionRefs.some(ref => ref.questionId === originalId && ref.revision === original.revision) &&
-        mix.questionRefs.some(ref => ref.questionId === baseId && ref.revision === base.revision) &&
-        mix.generationBindings.some(binding => binding.questionRef.questionId === baseId && binding.questionRef.revision === base.revision &&
-            binding.templateRef.id === templateId && binding.templateRef.revision === template.revision);
+        (afternoon ? carriesBinding('set-mix-b') && carriesBinding('set-mix-' + scope) : carriesBinding('set-mix-a'));
 }
 
 /** The older inventory stores its holds in a literal object. A release can
