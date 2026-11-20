@@ -435,9 +435,10 @@ export function retainedSourceHoldRemovalScopes(beforeText, afterText, before, a
     return [...scopes].sort();
 }
 
-// These unchanged hosts select by the registered 2016 spring source ID, not
-// by the contents of the rest of their registry. Other consumers still fan out.
+// These unchanged hosts select by the source's registered booklet identity.
+// Other consumers still fan out.
 const historicalBookletHosts = {
+    'src/core/generators/legacy-2015-autumn-am-27-53.ts': 'src/core/generators/stage3-morning-install.ts',
     'src/core/generators/legacy-2016-spring-am-57-80.ts': 'src/core/generators/stage3-morning-install.ts',
     'src/core/generators/legacy-2016-spring-am-57-80-study-terms.ts': 'src/core/study-terms.ts',
 };
@@ -521,6 +522,11 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
             }
         }
         const owned = scopesForOwnedPath(file, available);
+        const preparation = /^scripts\/prepare-legacy-(20\d{2}-(?:spring|autumn|special)-(?:am|pm))\.ts$/.exec(file)?.[1];
+        if (preparation && owned.length === 1 && owned[0] === preparation) {
+            add(selected, owned);
+            continue;
+        }
         if (owned.length && /^(?:src\/core\/generators\/legacy-|src\/core\/(?:spring|autumn)-|src\/ui\/(?:Legacy|legacy-)|scripts\/(?:import-legacy-|legacy-|source-evidence\/(?:legacy-|stage3-s3-00[12]-review\.json$))|tests\/fixtures\/)/.test(file)) {
             add(selected, owned);
             continue;

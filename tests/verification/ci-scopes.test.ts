@@ -286,6 +286,21 @@ test('strict pool append scopes only new references while preserving every old v
     assert.deepEqual(compareDistribution(own(a), own(changed)).scopes, ['2016-autumn-pm', '2017-spring-pm']);
 });
 test('owned reverse imports widen all consuming booklets and unknown common consumers force full verification', () => {
+    const distribution = fixture();
+    distribution.records.questions.push(question('2015-morning', 2015, '秋期', '午前'));
+    const records = own(distribution);
+    const preparation = 'scripts/prepare-legacy-2015-autumn-am.ts';
+    assert.deepEqual(classify([preparation], records).scopes, ['2015-autumn-am']);
+    assert.equal(classify([preparation], records).profile, 'booklets');
+    for (const unowned of ['scripts/prepare-legacy-2015.ts', 'scripts/prepare-legacy-2015-autumn-pm.ts',
+        'scripts/prepare-legacy-2015-autumn-am-helper.ts', 'src/core/prepare-legacy-2015-autumn-am.ts'])
+        assert.equal(classify([unowned], records).profile, 'full', unowned);
+    const legacy = 'src/core/generators/legacy-2015-autumn-am-27-53.ts';
+    const host = 'src/core/generators/stage3-morning-install.ts';
+    const consumers = { [host]: [legacy] };
+    assert.equal(historicalBookletHost(legacy, [legacy], consumers, consumers), host);
+    assert.equal(historicalBookletHost(legacy, [legacy, host], consumers, consumers), undefined);
+    assert.equal(historicalBookletHost(legacy, [legacy], consumers, {}), undefined);
     const target = 'src/core/generators/legacy-2016-autumn-afternoon.ts', consumer = 'src/core/generators/legacy-2017-spring-pm8.ts';
     assert.deepEqual(expandOwnedDependencies([target], { [consumer]: [target] }, scopes).scopes, ['2017-spring-pm']);
     assert.equal(expandOwnedDependencies([target], { 'src/core/session.ts': [target] }, scopes).unknown.length, 1);
