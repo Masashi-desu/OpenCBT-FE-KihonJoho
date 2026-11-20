@@ -28,9 +28,8 @@ function unique(body: GeneratedBody, verify: (option: Block[], index: number) =>
   assert.deepEqual(body.choices.flatMap((option, i) => verify(option, i) ? [i] : []), [body.correctIndex]);
 }
 
-test('原紙面と採用25問について、4条件・択群・正答・入出力域・数式を検査する', () => {
-  assert.equal(legacy2007SpringAm01To26Definitions.length, 25);
-  assert.equal(definition(11), undefined);
+test('原紙面と採用26問について、4条件・択群・正答・入出力域・数式を検査する', () => {
+  assert.equal(legacy2007SpringAm01To26Definitions.length, 26);
   for (const row of source) {
     const def = definition(row.number);
     assert(def);
@@ -49,6 +48,36 @@ test('原紙面と採用25問について、4条件・択群・正答・入出�
     assert.equal(new Set(bodies.map(body => JSON.stringify(body.prompt))).size, 4, String(row.number));
     for (const invalid of [[], [-1], [4], [0.5], [0,1], Array<number>(1)]) assert.throws(() => def.build(invalid), { code: 'PARAMETER_CONSTRAINT' });
   }
+});
+
+test('問11は独立したASCIIの対応表と、各バイトの1の個数から正答を求める', () => {
+  const ascii = { '@': 0x40, A: 0x41, B: 0x42, C: 0x43, D: 0x44, E: 0x45, F: 0x46, G: 0x47,
+    P: 0x50, Q: 0x51, R: 0x52, S: 0x53, T: 0x54, U: 0x55, V: 0x56, W: 0x57 } as const;
+  const cases = [['ET', 0], ['AP', 1], ['CW', 0], ['DV', 1]] as const;
+  for (const [index, [word, parity]] of cases.entries()) {
+    const body = build(11, index);
+    assert(prompt(body).includes(word) && prompt(body).includes(parity ? '奇数パリティ' : '偶数パリティ'));
+    const block = body.contexts?.[0].blocks[0];
+    assert(block?.type === 'table');
+    assert.deepEqual(block.columns, ['下位4ビット', '上位3ビット 100', '上位3ビット 101']);
+    assert.equal(block.rows.length, 8);
+    for (const [low, left, right] of block.rows) {
+      assert.equal(ascii[left as keyof typeof ascii], Number.parseInt('100' + low, 2));
+      assert.equal(ascii[right as keyof typeof ascii], Number.parseInt('101' + low, 2));
+    }
+    unique(body, option => {
+      const candidate = text(option);
+      assert.match(candidate, /^[0-9A-F]{4}$/);
+      return [...word].every((letter, position) => {
+        const byte = Number.parseInt(candidate.slice(position * 2, position * 2 + 2), 16);
+        let ones = 0;
+        for (let coefficient = 1; coefficient < 256; coefficient *= 2) ones += Math.floor(byte / coefficient) % 2;
+        return byte % 128 === ascii[letter as keyof typeof ascii] && ones % 2 === parity;
+      });
+    });
+    assert(body.explanation.includes(choices(body)[body.correctIndex!]));
+  }
+  assert.deepEqual(choices(build(11, 0)), ['4554', 'A32B', 'ACA5', 'C5D4']);
 });
 
 test('問1〜3は分数の交差積・けた数の傾き・符号ビットを使う参照方式を比較する', () => {

@@ -16,6 +16,7 @@
     8,
     9,
     10,
+    11,
     12,
     13,
     14,
@@ -86,12 +87,6 @@
     80
   ],
   "held": [
-    {
-      "number": 11,
-      "reason": "p.6のASCII規格表の掲載・改変条件を確認できていない。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
     {
       "number": 33,
       "reason": "p.15はA/C、B/D各組の各装置の周辺確率のみを指定する。各装置独立は0.9504（エ）、各組の二台を同時に稼働・停止させ両組を独立にすると0.72（ア）となり、どちらも同じ周辺確率を満たす。",
@@ -262,6 +257,21 @@
     },
     {
       "number": 10,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2007-spring-am/legacy-2007-spring-am-01-26.test.ts",
+        "tests/content/2007-spring-am/legacy-2007-spring-am-integration.test.ts",
+        "tests/booklets/2007-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 11,
       "checks": {
         "transcription": "pass",
         "rights": "pass",
@@ -1294,6 +1304,17 @@
         "tests/content/2007-spring-am/legacy-2007-spring-am-integration.test.ts",
         "tests/booklets/2007-spring-am/content-contract.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 11,
+      "sourceReview": "scripts/source-evidence/legacy-2007-spring-am-11-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "735a0cefdb466ae1fedaad346147fc1c6575c51d285ea8c713ca73eb0ae14732",
+        "catalogSHA256": "b6ff1140394b92a3a5af91721bc75130c7c72e5f6de1c9bfd54bdc8d4da6ebdf"
+      }
     }
   ]
 }

@@ -1,0 +1,120 @@
+{
+  "collectionId": "2007h19h-fe-am",
+  "checkedOn": "2026-11-20",
+  "question": {
+    "number": 11,
+    "page": 6,
+    "answer": "エ",
+    "area": "technology",
+    "cropBox": [
+      90,
+      492,
+      1070,
+      604
+    ],
+    "cropSHA256": "b7bc8a28c352128b96ed0a5602bcb0dece4ed872af8166cc0ce1782f417509f7",
+    "renderedPageSHA256": "bd49c6f1f58d7b0d16490835432f828a239ec216f09c432ee783d97245b90542",
+    "questionPaperSHA256": "f14efa5540d2a4e1eed1a4d2a44fcd6949a6fec3fbc00cb1dc3fef7744ce5663",
+    "answerPaperSHA256": "14c09eb7e584de8d79505658597d2dbf91498c20dc715d442cd94a84f29261bf",
+    "alt": "問11　文字列“ET”をASCIIでコード化したものを16進表記したものはどれか。ここで，文字コードの8ビット目には，偶数パリティビットが付く。",
+    "choices": [
+      "4554",
+      "A32B",
+      "ACA5",
+      "C5D4"
+    ]
+  },
+  "reference": {
+    "url": "https://www.unicode.org/Public/17.0.0/ucd/UnicodeData.txt",
+    "sha256": "2e1efc1dcb59c575eedf5ccae60f95229f706ee6d031835247d843c11d96470c",
+    "rows": [
+      {
+        "line": 65,
+        "code": "0040",
+        "name": "COMMERCIAL AT"
+      },
+      {
+        "line": 66,
+        "code": "0041",
+        "name": "LATIN CAPITAL LETTER A"
+      },
+      {
+        "line": 67,
+        "code": "0042",
+        "name": "LATIN CAPITAL LETTER B"
+      },
+      {
+        "line": 68,
+        "code": "0043",
+        "name": "LATIN CAPITAL LETTER C"
+      },
+      {
+        "line": 69,
+        "code": "0044",
+        "name": "LATIN CAPITAL LETTER D"
+      },
+      {
+        "line": 70,
+        "code": "0045",
+        "name": "LATIN CAPITAL LETTER E"
+      },
+      {
+        "line": 71,
+        "code": "0046",
+        "name": "LATIN CAPITAL LETTER F"
+      },
+      {
+        "line": 72,
+        "code": "0047",
+        "name": "LATIN CAPITAL LETTER G"
+      },
+      {
+        "line": 81,
+        "code": "0050",
+        "name": "LATIN CAPITAL LETTER P"
+      },
+      {
+        "line": 82,
+        "code": "0051",
+        "name": "LATIN CAPITAL LETTER Q"
+      },
+      {
+        "line": 83,
+        "code": "0052",
+        "name": "LATIN CAPITAL LETTER R"
+      },
+      {
+        "line": 84,
+        "code": "0053",
+        "name": "LATIN CAPITAL LETTER S"
+      },
+      {
+        "line": 85,
+        "code": "0054",
+        "name": "LATIN CAPITAL LETTER T"
+      },
+      {
+        "line": 86,
+        "code": "0055",
+        "name": "LATIN CAPITAL LETTER U"
+      },
+      {
+        "line": 87,
+        "code": "0056",
+        "name": "LATIN CAPITAL LETTER V"
+      },
+      {
+        "line": 88,
+        "code": "0057",
+        "name": "LATIN CAPITAL LETTER W"
+      }
+    ],
+    "lookup": "https://www.rfc-editor.org/rfc/rfc20.html#section-2",
+    "lookupSHA256": "714d11bfcbc001f98cd8a92291a19e3f670c2236ad02771092e0eea826acd13a",
+    "license": "Unicode-3.0",
+    "licenseUrl": "https://www.unicode.org/license.txt",
+    "licenseSHA256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+    "notice": "public/notices/Unicode-17.0.0-V3-LICENSE.txt"
+  },
+  "generationReview": "本文・4選択肢・原正答を保ち、元のASCII表からは独立した参考資料を追加する。原と同じ上位3ビット・下位4ビットの読み方を保つ16事実を使用し、答えの16進値やパリティビットは表に示さない。2文字とパリティの偶奇を変えた4条件で、全択の符号と偶奇を独立検算する。"
+}

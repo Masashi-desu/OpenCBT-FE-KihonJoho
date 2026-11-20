@@ -190,6 +190,44 @@ const video = define(24, '画素数・色数・フレームレート・再生時
     '秒を掛けると' + format(bytes) + 'バイトで，約' + mb + ' Mバイトになる。');
 }, true);
 
+export const asciiParityReference = () => ({
+  id: 'context-2007-spring-am-11-ascii',
+  title: 'ASCIIコードの参考表（独立編集）',
+  presentation: 'text_figure' as const,
+  blocks: [table('上位3ビットと下位4ビットから文字を読む（UnicodeData 17.0.0）', ['下位4ビット', '上位3ビット 100', '上位3ビット 101'],
+    Array.from({ length: 8 }, (_, row) => [
+      row.toString(2).padStart(4, '0'),
+      String.fromCharCode(0x40 + row),
+      String.fromCharCode(0x50 + row),
+    ]))],
+});
+
+const asciiParity = define(11, 'ASCIIコードとパリティビット', 4,
+  '原の2文字・最上位のパリティビット・16進4桁の四択を維持。符号値はUnicodeData 17.0.0から取り出しRFC 20で照合した独立参考表を参照する。',
+  index => {
+    const [input, parity] = ([['ET', 0], ['AP', 1], ['CW', 0], ['DV', 1]] as const)[index];
+    const raw = Array.from(input, character => character.charCodeAt(0));
+    const hexByte = (byte: number) => byte.toString(16).padStart(2, '0').toUpperCase();
+    const hexPair = (bytes: number[]) => bytes.map(hexByte).join('');
+    const countOnes = (byte: number) => Array.from(byte.toString(2)).filter(bit => bit === '1').length;
+    const coded = raw.map(byte => byte | ((countOnes(byte) % 2 ^ parity) << 7));
+    const reverse = (byte: number) => Number.parseInt(Array.from(byte.toString(2).padStart(8, '0')).reverse().join(''), 2);
+    const represented = [hexPair(raw), hexPair(coded.map(reverse)), hexPair([coded[0], raw[1]]), hexPair(coded)];
+    const official = source[11];
+    const rotation = index % represented.length;
+    const options = index ? [...represented.slice(rotation), ...represented.slice(0, rotation)] : official.choices;
+    const prompt = official.prompt.replace('ET', input).replace('偶数パリティ', parity ? '奇数パリティ' : '偶数パリティ');
+    const reasons = raw.map((byte, position) =>
+      `${input[position]}の7ビット符号は${byte.toString(2).padStart(7, '0')}で1が${countOnes(byte)}個だから，最上位ビットは${coded[position] >>> 7}となり${hexByte(coded[position])}になる。`);
+    return {
+      ...textBody(prompt, options, options.indexOf(hexPair(coded)),
+        'ASCII（American Standard Code for Information Interchange）は文字に7ビットの符号を割り当てる。' +
+        reasons.join('') + '文字順に並べると' + hexPair(coded) + 'となる。'),
+      contexts: [asciiParityReference()],
+    };
+  });
+
 export const calculations2007SpringAm0126 = [
+  asciiParity,
   hexFraction, radixLengths, overflow, average, repetition, stringCount, normal, boolean, parity, tree, match, bubble, gate, cycles, hit, video,
 ];
