@@ -293,10 +293,10 @@ const numerical: Record<number, (body: GeneratedBody, candidate: number) => void
   },
 };
 
-test('2015秋午前27–53 原冊子の27番号と掲載候補25問を照合する', () => {
+test('2015秋午前27–53 原冊子の27番号と掲載対象26問を照合する', () => {
   assert.deepEqual(facts.questions.map(row => row.number), Array.from({ length: 27 }, (_, index) => index + 27));
   const held = facts.questions.filter(row => row.status === 'material_conditions_hold');
-  assert.deepEqual(held.map(row => row.number), [40, 50]);
+  assert.deepEqual(held.map(row => row.number), [40]);
   for (const hold of held) assert.deepEqual(Object.keys(hold), ['number', 'physicalPage', 'status']);
   assert.deepEqual(definitions.map(entry => numberOf(entry.source)), facts.questions.filter(row => row.officialKey).map(row => row.number));
   assert.match(facts.paperSha256, /^[a-f0-9]{64}$/);

@@ -145,8 +145,9 @@ export async function prepareAutumn2015Morning(inputRoot: string, destination: s
   assert.equal(review.officialCount, official.officialQuestionCount);
   assert.equal(review.timeLimitSeconds, official.officialTimeLimitSeconds);
   const { facts, commonAssets, files } = readInputs(inputRoot);
-  assert.deepEqual(definitions.map(definition => definition.source), facts.map(fact => fact.source));
-  const records = await makeStage3MorningRecords({ collectionId: collection, facts, definitions, commonAssets,
+  const initialDefinitions = definitions.filter(definition => facts.some(fact => fact.source === definition.source));
+  assert.deepEqual(initialDefinitions.map(definition => definition.source), facts.map(fact => fact.source));
+  const records = await makeStage3MorningRecords({ collectionId: collection, facts, definitions: initialDefinitions, commonAssets,
     ...sourceMetadata(), checkedOn: review.checkedOn });
   const explanation = records.questions.find(q => q.id === `question-ipa-${collection}-15`)?.explanation.blocks[0];
   assert(explanation?.type === 'paragraph');

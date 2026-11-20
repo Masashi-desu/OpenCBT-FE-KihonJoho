@@ -194,4 +194,20 @@ export const legacy2015AutumnAm2753Reviews: Record<number, Review> = {
       { prompt: /対象業務の変更.*別の基盤にシステムを再構築/, truths: [true, false, false, false], conclusion: /仕様変更と再構築までを含める/ },
     ],
   },
+  50: {
+    evidence: [
+      'https://www.ipa.go.jp/publish/qv6pgp000000107j-att/000062659.pdf#page=27',
+      'https://www.ipa.go.jp/publish/qv6pgp000000107j-att/000062659.pdf#page=28',
+      'https://www.ipa.go.jp/publish/qv6pgp000000107j-att/000062659.pdf#page=30',
+    ],
+    cases: [
+      { prompt: /成果物が利用者の視点から意図された正しいもの/, truths: [false, false, false, true], conclusion: /妥当性確認プロセスが該当/ },
+      { prompt: /計算式と入力範囲を実装しているかを，テスト結果と照合/, truths: [false, true, false, false], conclusion: /設計仕様への適合.*検証プロセス/ },
+      { prompt: /開発チームから独立した担当者.*承認手順.*指摘事項を報告書/, truths: [true, false, false, false], conclusion: /独立した担当者.*監査プロセス/ },
+      { prompt: /実際の棚卸し手順.*在庫差異を見つけられるか/, truths: [false, false, false, true], conclusion: /棚卸しの目的.*妥当性確認プロセス/ },
+      { prompt: /請求処理の出力項目と並び順.*インタフェース仕様/, truths: [false, true, false, false], conclusion: /インタフェース仕様.*検証プロセス/ },
+      { prompt: /実施部門とは別の部門.*抜き取った作業記録.*遵守状況を報告/, truths: [true, false, false, false], conclusion: /独立した立場.*監査プロセス/ },
+      { prompt: /実際の交代勤務を想定.*運行上の異常に対応できるか/, truths: [false, false, false, true], conclusion: /予定した利用場面.*妥当性確認プロセス/ },
+    ],
+  },
 };

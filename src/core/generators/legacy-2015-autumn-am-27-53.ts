@@ -234,6 +234,34 @@ const fpCases = [
   { counts: [2, 1, 0, 1, 0], factor: 80, options: [12, 16, 20, 25] },
   { counts: [2, 0, 2, 0, 1], factor: 75, options: [18, 21, 24, 32] },
 ] as const;
+const processOptions = ['監査プロセス', '検証プロセス', '使用性向上プロセス', '妥当性確認プロセス'];
+const processQuestion = '共通フレームのプロセスのうち，この作業に該当するものはどれか。';
+const processDistinctions = '検証は決められた要求や仕様との一致を確かめる。妥当性確認は想定した使い方で目的を達成できるかを確かめる。監査では独立した立場から成果物や活動の証拠を調べる。使用性の向上は，操作のしやすさなどを改善する取組である。';
+const processCases = [
+  { prompt: '共通フレームのプロセスのうち，成果物が利用者の視点から意図された正しいものになっているかどうかを確認するプロセスはどれか。',
+    correct: 3, explanation: '妥当性確認プロセスが該当する。' + processDistinctions },
+  { prompt: '予約機能が設計仕様書に定められた計算式と入力範囲を実装しているかを，テスト結果と照合する。' + processQuestion,
+    correct: 1, explanation: '計算式と入力範囲について設計仕様への適合を確認するので，検証プロセスである。' + processDistinctions },
+  { prompt: '開発チームから独立した担当者が，承認手順を守って変更したことを記録から調べ，指摘事項を報告書にまとめる。' + processQuestion,
+    correct: 0, explanation: '独立した担当者が変更管理の証拠を調べて報告する監査プロセスである。' + processDistinctions },
+  { prompt: '倉庫の作業員が実際の棚卸し手順で試作品を使い，作業目標どおり在庫差異を見つけられるかを確かめる。' + processQuestion,
+    correct: 3, explanation: '利用者が想定した棚卸しの目的を達成できるかを確認するので，妥当性確認プロセスである。' + processDistinctions },
+  { prompt: '結合した請求処理の出力項目と並び順が，事前に定めたインタフェース仕様に合っているかを確かめる。' + processQuestion,
+    correct: 1, explanation: '結合した成果物をインタフェース仕様に照らして確かめるので，検証プロセスである。' + processDistinctions },
+  { prompt: '保守作業の実施部門とは別の部門が，抜き取った作業記録を根拠に，定めた管理手順の遵守状況を報告する。' + processQuestion,
+    correct: 0, explanation: '作業部門から独立した立場で遵守状況を調査し報告する監査プロセスである。' + processDistinctions },
+  { prompt: '運行管理者が実際の交代勤務を想定して引継ぎ機能を試し，担当が変わっても運行上の異常に対応できるかを確かめる。' + processQuestion,
+    correct: 3, explanation: '交代勤務という予定した利用場面で運行上の目的を達成できるかを確認するので，妥当性確認プロセスである。' + processDistinctions },
+];
+const frameworkProcess = finite(
+  50, '共通フレームの検証・妥当性確認・監査', 'エ', '成果物を確認する目的', processCases.length,
+  candidate => {
+    const { prompt, correct, explanation } = processCases[candidate];
+    return { prompt: [p(prompt)], choices: strings(processOptions), correctIndex: correct, explanation };
+  },
+  '利用者の用途への適合、仕様との照合、独立した活動の確認を区別し、原問のプロセス名四択とその順序を保つ。',
+);
+
 const functionPoints = finite(52, '5機能のファンクションポイント補正', 'ア', '機能の個数と補正係数', fpCases.length, candidate => {
   const { counts, factor, options } = fpCases[candidate];
   const raw = counts.reduce<number>((sum, value, i) => sum + value * fpWeights[i], 0);
@@ -272,7 +300,7 @@ const staffing = finite(53, '実績から見直す最少追加要員', 'ウ', '�
 }, '計画と実績を両方提示し，現在要員と追加要員の生産性が同じ前提を保持。全人数と追加人数を区別し，端数がある場合は最少の整数に切り上げる。');
 
 const definitions = [
-  ...legacy2015AutumnAm2753Knowledge, normalization, aggregate, transfer, ipv4, signature, filtering, branch, criticalPath, functionPoints, staffing,
+  ...legacy2015AutumnAm2753Knowledge, normalization, aggregate, transfer, ipv4, signature, filtering, branch, criticalPath, frameworkProcess, functionPoints, staffing,
 ];
 export function legacy2015AutumnAm2753Definitions(): GenerationDefinition[] {
   return [...definitions].sort((a, b) => Number(a.source.split('-').at(-1)) - Number(b.source.split('-').at(-1)));

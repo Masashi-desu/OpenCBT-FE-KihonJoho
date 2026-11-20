@@ -54,6 +54,7 @@
     47,
     48,
     49,
+    50,
     51,
     52,
     53,
@@ -88,12 +89,6 @@
     {
       "number": 40,
       "reason": "プライバシーマーク制度の説明と2015年以前の第三者資料との表現の境界を確認中。原画像・全文・可変版の一対一の配布を保留。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 50,
-      "reason": "共通フレーム2013の説明と第三者規格本文の境界、公開ガイダンスの利用条件が原問へ適用される範囲を確認中。",
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false
     },
@@ -851,6 +846,21 @@
       ]
     },
     {
+      "number": 50,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2015-autumn-am/legacy-2015-autumn-am-27-53.test.ts",
+        "tests/content/2015-autumn-am/legacy-2015-autumn-am-integration.test.ts",
+        "tests/booklets/2015-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
       "number": 51,
       "checks": {
         "transcription": "pass",
@@ -1284,6 +1294,17 @@
         "tests/legacy-2015-autumn-am-integration.test.ts",
         "tests/booklets/2015-autumn-am/content-contract.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 50,
+      "sourceReview": "scripts/source-evidence/legacy-2015-autumn-am-50-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "2c3c0dcd0848c66ccd70b8dabbd76781011f61ac46af057ff8285eadd3167e37",
+        "catalogSHA256": "820e2acb9574e16d39fc47c553fbaf2e2ade98501979083590c8ee3e54abf76d"
+      }
     }
   ]
 }

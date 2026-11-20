@@ -4,7 +4,6 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { fixture, installFixtureGenerators } from '../../fixtures';
 import official from '../../fixtures/legacy-2015-autumn-am-official-answers.json';
-import review from '../../../scripts/source-evidence/legacy-2015-autumn-am-source-review.json';
 import { sourceExclusions, sourceScope } from '../../../scripts/source-inventory';
 import { bookmarkTemplate, makeBookmark } from '../../../src/core/bookmarks';
 import { contentHash } from '../../../src/core/hash';
@@ -21,7 +20,7 @@ import { SourceFigure } from '../../../src/ui/SourceFigure';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map(row => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, `${collection}-${row.number}`)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -52,6 +51,16 @@ test('S3-005 preserves all official obligations and admits only the reviewed sou
     assert.deepEqual(mix.generationBindings.filter(binding => binding.questionRef.questionId === base.id),
       [{ questionRef: refOf(base), templateRef: { id: template.id, revision: template.revision } }]);
     assert.equal(base.choiceShuffleAllowed, false);
+    if (row.number === 50) {
+      const licensed = [original.prompt.attribution, base.prompt.attribution, template.attribution];
+      for (const attribution of licensed) {
+        assert(attribution.sourceRefs.some(ref => ref.locator.page === 28 && ref.locator.section?.includes('4.4.2.2')));
+        const rights = attribution.rightsRefs.map(id => bundle.rights.find(right => right.id === id)?.licenseId);
+        assert(rights.includes('LicenseRef-IPA-Past-Exam'));
+        assert(rights.includes('CC-BY-SA-2.1-JP'));
+      }
+      assert.deepEqual(original.correctAnswer.attribution.rightsRefs, [`rights-ipa-${collection}-50`]);
+    }
   }
   for (const n of held) {
     const source = `${collection}-${n}`;
@@ -82,7 +91,7 @@ test('S3-005 uses its year and period, the admitted count and the official 150-m
   }
 });
 
-test('S3-005 keeps search, bookmark identity and original numbering across the three publication gaps', () => {
+test('S3-005 keeps search, bookmark identity and original numbering across publication gaps', () => {
   const bundle = fixture();
   const originals = searchableQuestions(bundle).filter(question => question.id.startsWith(`question-ipa-${collection}-`));
   assert.deepEqual(originals.map(question => question.id).sort(), published.map(row => originalId(row.number)).sort());

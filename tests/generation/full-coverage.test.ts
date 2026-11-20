@@ -45,7 +45,7 @@ import {
 import {additionalBookletFigures}from'../../src/core/booklet-figure-extension-contract';
 import { publishedSourceScope } from '../helpers/published-source-scope';
 import autumn2015Official from '../fixtures/legacy-2015-autumn-am-official-answers.json';
-import autumn2015Review from '../../scripts/source-evidence/legacy-2015-autumn-am-source-review.json';
+import { sourceExclusions } from '../../scripts/source-inventory';
 
 test("native AM semantic drawings reject missing names, cells, source marks and headers", () => {
   const b = fixture();
@@ -110,7 +110,7 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   assert.equal(stage3AllMorningDefinitions.filter(definition =>
     isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 154);
   assert.deepEqual(stage3AllMorningDefinitions.filter(definition => isAutumn2015Source(definition.source)).map(definition => definition.source),
-    autumn2015Official.records.filter(row => !autumn2015Review.held.some(held => held.number === row.number))
+    autumn2015Official.records.filter(row => !Object.hasOwn(sourceExclusions, `${autumn2015Official.collectionId}-${row.number}`))
       .map(row => `${autumn2015Official.collectionId}-${row.number}`));
   const stage3ReferenceBlocks = stage3AllMorningDefinitions.flatMap(definition => {
     const body = definition.build([...definition.reference!]);
