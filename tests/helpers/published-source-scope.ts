@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../../src/core/official-booklet";
 import assert from 'node:assert/strict';
 import {sourceScope, sourceExclusions} from '../../scripts/source-inventory';
 import extensionDeclarations from '../../scripts/source-inventory-extensions.json';
@@ -33,8 +34,14 @@ export const publishedSourceScope = {
   retainedExclusionIds: Object.keys(sourceExclusions).filter(id => !belongsToExtension(id)),
 } as const;
 
+export function expectedPublishedQuestionCount(collectionId: string): number {
+  const prefix = collectionId + '-';
+  assert(sourceScope.some(id => id.startsWith(prefix)), 'known official collection ' + collectionId);
+  return publishedSourceScope.eligibleSourceIds.filter(id => id.startsWith(prefix)).length;
+}
+
 export function assertPublishedSourceScope(bundle: Bundle): void {
-  const originals = bundle.questions.filter(q => q.origin.kind === 'official_reprint');
+  const originals = bundle.questions.filter(q => isOfficialBookletQuestion(q));
   assert.deepEqual(originals.map(q => q.id).sort(), publishedSourceScope.originalIds,
     'every independently declared eligible original is present exactly once');
   assert.equal(bundle.questions.length, publishedSourceScope.questionCount,

@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "./official-booklet";
 import type { Bundle, Question, Ref, Selection, SetRecord } from "./types";
 import { refKey, refOf } from "./types";
 import { DataError } from "./errors";
@@ -22,7 +23,7 @@ export function validateQuestionSelection(bundle: Bundle, collection: SetRecord)
     collection.questionRefs.some(ref => {
       const question = bundle.questions.find(q => refKey(refOf(q)) === refKey(ref));
       const slots = new Set(question?.origin.sourceRefs.flatMap(r => r.locator.timeSlot ? [r.locator.timeSlot] : []));
-      return question?.origin.kind !== "official_reprint" || slots.size !== 1 || !slots.has("午後");
+      return !question || !isOfficialBookletQuestion(question) || slots.size !== 1 || !slots.has("午後");
     })) fail();
 }
 

@@ -7,6 +7,7 @@ import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { fixture } from "../fixtures";
 import reviewedAutumn2016 from '../../scripts/source-evidence/stage3-s3-002-review.json';
+import reviewedSpring2016 from '../../scripts/source-evidence/stage3-s3-001-review.json';
 import { encodeRecordPacks, compactDistribution, readDistributionBundle } from "../../scripts/distribution-files";
 import { catalogFileRecords, CATALOG_MAX_BYTES, RECORD_FILE_MAX_BYTES, PACK_MAX_RECORDS } from "../../src/core/catalog-files";
 import { readCatalog } from "../../src/core/catalog-reader";
@@ -28,7 +29,9 @@ test("generation preparation reads packed inputs, revises only the requested ser
     const oldAM = before.templates.filter(t => /^generator-source-(?:2017h29[ha]|2018h30[ha]|2019h31h|2019r01a)-fe-am-/.test(t.generatorRef.id));
     assert.equal(oldAM.length, 467, "all admitted morning bases are booklet-managed preservation inputs");
     const stage3AM=before.templates.filter(t=>/^generator-source-2016h28h-fe-am-/.test(t.generatorRef.id));
-    assert.equal(stage3AM.length,77,'the current stage3 publication is inside the preservation domain');
+    assert.deepEqual(stage3AM.map(template => template.generatorRef.id).sort(),
+      reviewedSpring2016.includedNumbers.map(number => `generator-source-2016h28h-fe-am-${number}`).sort(),
+      'every reviewed spring template is inside the preservation domain');
     const autumnAM=before.templates.filter(t=>/^generator-source-2016h28a-fe-am-/.test(t.generatorRef.id));
     assert.deepEqual(
       autumnAM.map(template => template.generatorRef.id).sort(),
@@ -101,7 +104,7 @@ test("generic generation refresh refuses explicit and bulk booklet-managed rebui
       ["--refresh-sources=2018h30h-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2018h30h-fe-am-1/],
       ["--refresh-sources=2019r01a-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2019r01a-fe-am-1/],
       ["--refresh-sources=2016h28h-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2016h28h-fe-am-1/],
-      ["--refresh-sources=2016h28h-fe-am-66", /Unknown refresh source 2016h28h-fe-am-66/],
+      ["--refresh-sources=2016h28h-fe-am-81", /Unknown refresh source 2016h28h-fe-am-81/],
       ["--refresh-sources=2016h28a-fe-am-1", /BOOKLET_REVIEW_REQUIRED: 2016h28a-fe-am-1/],
       ["--refresh-sources=2016h28a-fe-am-55", /Unknown refresh source 2016h28a-fe-am-55/],
       ["--refresh-all", /BOOKLET_REVIEW_REQUIRED: 2017h29[ha]-fe-pm-/],

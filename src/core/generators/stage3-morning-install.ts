@@ -13,6 +13,7 @@ import { legacy2016AutumnAm4180Definitions } from './legacy-2016-autumn-am-41-80
 import { autumn2016CommonContexts } from './legacy-2016-autumn-am-common';
 import { legacy2015AutumnAm0126Definitions } from './legacy-2015-autumn-am-01-26';
 import { legacy2015AutumnAm2753Definitions } from './legacy-2015-autumn-am-27-53';
+import { legacy2015AutumnAm40 } from './legacy-2015-autumn-am-40';
 import { legacy2015AutumnAm5480Definitions } from './legacy-2015-autumn-am-54-80';
 import { autumn2015CommonContexts } from './legacy-2015-autumn-am-common';
 import { additionalStage3MorningDefinitions, isAdditionalStage3MorningSource } from './stage3-morning-booklet-extension-contract';
@@ -37,8 +38,8 @@ export const stage3AutumnMorningDefinitions:readonly GenerationDefinition[]=[
 ].map(d=>({...d,notes:d.notes+' 2016年度秋期の共通表記p2–3（規格の版、論理回路・回路記号と注記）を解答前の参照資料に保持する。',
   build:(values:number[])=>{const body=d.build(values);return{...body,contexts:[...autumn2016CommonContexts(),...(body.contexts??[])]};}}));
 export const stage3Autumn2015MorningDefinitions: readonly GenerationDefinition[] = [
-  ...legacy2015AutumnAm0126Definitions, ...legacy2015AutumnAm2753Definitions(), ...legacy2015AutumnAm5480Definitions,
-].map(definition => ({
+  ...legacy2015AutumnAm0126Definitions, ...legacy2015AutumnAm2753Definitions(), legacy2015AutumnAm40, ...legacy2015AutumnAm5480Definitions,
+].sort((left, right) => Number(left.source.split('-').at(-1)) - Number(right.source.split('-').at(-1))).map(definition => ({
   ...definition,
   notes: definition.notes + ' 2015年度秋期の規格・標準の版と論理回路の共通表記p.2–3を解答前に参照できる。',
   build(values) {

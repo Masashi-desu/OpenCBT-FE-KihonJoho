@@ -6,11 +6,13 @@ import {
   type Question,
   type Attribution,
   type Content,
+  type SourceRef,
 } from "./types";
 import { contentHash } from "./hash";
 import { DataError } from "./errors";
 import { validateAnswerDefinition } from "./answers";
 import { validateQuestionSelection } from "./question-selection";
+import { isOfficialBookletQuestion } from "./official-booklet";
 export { DataError } from "./errors";
 import { validateTemplateContract } from "./generation";
 import { validateSourceFormat } from "./generation-formats";
@@ -26,6 +28,15 @@ import {
 const fail = (code: string, message: string): never => {
   throw new DataError(code, message);
 };
+function samePaperPosition(left: SourceRef, right: SourceRef) {
+  return left.sourceId === right.sourceId &&
+    left.locator.year === right.locator.year &&
+    left.locator.period === right.locator.period &&
+    left.locator.subject === right.locator.subject &&
+    left.locator.timeSlot === right.locator.timeSlot &&
+    left.locator.page === right.locator.page &&
+    left.locator.questionNumber === right.locator.questionNumber;
+}
 export function schema(kind: string, value: unknown) {
   const validate = (
     validators as unknown as Record<
@@ -280,14 +291,24 @@ export async function validateBundle(b: Bundle, executableTemplates?: ReadonlySe
           "RIGHTS_PROVENANCE",
           `${q.id}: 公式依存の改変本文を独立作成へ変更できない`,
         );
-      const roots = ancestors.filter(
-        (a) => a.origin.kind === "official_reprint",
-      );
+      if (isOfficialBookletQuestion(q)) {
+        const [paper, ...otherReferences] = q.origin.sourceRefs;
+        const source = get("source", paper.sourceId);
+        const number = paper.locator.questionNumber ?? "";
+        const page = paper.locator.page ?? 0;
+        if ((source.type !== "official_problem" && source.type !== "official_sample") ||
+          source.availability !== "officially_published" || !Number.isSafeInteger(page) || page <= 0 ||
+          !/^[1-9][0-9]*$/.test(number) || !q.id.startsWith("question-ipa-") || !q.id.endsWith("-" + number) ||
+          otherReferences.some((ref) => ref.locator.questionNumber !== undefined) ||
+          !q.prompt.attribution.sourceRefs.some((part) => samePaperPosition(paper, part)))
+          fail("SOURCE_INHERITANCE", `${q.id}: 年度別の改変版では公式冊子の同じ原問番号・ページを参照する`);
+      }
+      const roots = ancestors.filter((ancestor) => ancestor !== q && isOfficialBookletQuestion(ancestor));
       for (const root of roots) {
         for (const ref of root.origin.sourceRefs)
           if (
             !q.origin.sourceRefs.some(
-              (r) =>
+              (r) => root.origin.kind === "official_adaptation" ? samePaperPosition(r, ref) :
                 r.sourceId === ref.sourceId &&
                 r.locator.year === ref.locator.year &&
                 r.locator.subject === ref.locator.subject &&

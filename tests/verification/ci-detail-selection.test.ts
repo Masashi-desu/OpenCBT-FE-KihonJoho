@@ -161,6 +161,7 @@ test('real Git plans and witnessed execution separate detail updates and restore
     write('.gitignore', '/node_modules\n/output/\n'); write('package.json', '{"type":"module","dependencies":{"typescript":"5.9.3"}}');
     fs.symlinkSync(path.join(root, 'node_modules'), path.join(dir, 'node_modules'), 'dir');
     for (const file of fs.readdirSync('scripts/ci').filter(f => f.endsWith('.mjs'))) write('scripts/ci/' + file, fs.readFileSync('scripts/ci/' + file, 'utf8'));
+    write('src/core/official-booklet.js', fs.readFileSync('src/core/official-booklet.js', 'utf8'));
     write('src/core/session.ts', 'export const unchanged = 1;');
     for (const file of Object.keys(priorEntries)) write(file, "import test from 'node:test';test('probe assertion in " + file + "',()=>{});");
     write('scripts/ci/public-test-manifest.json', JSON.stringify({ version: 2, files: priorEntries })); distribution(f.before);

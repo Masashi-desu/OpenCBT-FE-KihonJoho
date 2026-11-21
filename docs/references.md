@@ -370,9 +370,9 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 
 ### 第3段階 S3-005 2015年度秋期・旧午前
 
-公式80問のうち、掲載条件を確認した78問を収録する。年度別オリジナルとランダムミックスは78問を出題し、時間付き練習には公式の150分を使う。原問番号、テクノロジ・マネジメント・ストラテジの区分、冊子p.2–3の規格の版と論理回路の凡例を保持する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_ans.pdf)。
+公式80問のうち、掲載条件を確認した79問を収録する。年度別オリジナルとランダムミックスは79問を出題し、時間付き練習には公式の150分を使う。原問番号、テクノロジ・マネジメント・ストラテジの区分、冊子p.2–3の規格の版と論理回路の凡例を保持する。[公式問題冊子](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_qs.pdf)・[公式解答例](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_ans.pdf)。
 
-問40はプライバシーマーク制度、問55はITIL 2011に関する具体的表現の利用条件を確認中とする。原画像、全文、可変版は保留し、全80問の台帳と欠番を保持する。確認済みの問題に適用した出典・改変表示・権利留保はアプリで確認できる。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[IPAウェブサイトの利用条件](https://www.ipa.go.jp/siteinfo.html)。
+問40は四つの制度の説明を独自に編集した固定改変版として追加する。原問の順と公式正答「ウ」を維持し、出典と変更内容を表示する。第三者の定型表現と原画像は掲載を保留する。問55はITIL 2011に関する素材条件の保留を継続する。全80問の台帳と欠番を保持する。内容と利用条件の査読は `scripts/source-evidence/legacy-2015-autumn-am-40-source-review.json` に記録する。[IPAの公表問題利用条件](https://www.ipa.go.jp/shiken/faq.html)・[IPAウェブサイトの利用条件](https://www.ipa.go.jp/siteinfo.html)。
 
 問65は原問題のIRRの注記を保存し、可変問題には割引を考慮しない条件を明示する。問79・80は2015年10月18日の出題時点の法令に対応させた。素材の判断、出典、対象全問の正答は `scripts/source-evidence/legacy-2015-autumn-am-source-review.json` と問題集の検証資料に記録する。初回収録時点では既知最小3,062問／大問のうち886件を収録した。[IPAの2019年度春期問65](https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000ddiw-att/2019h31h_fe_am_qs.pdf)・[国土交通省のIRRの定義](https://www.mlit.go.jp/common/001205703.pdf)。
 

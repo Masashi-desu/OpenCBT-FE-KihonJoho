@@ -1,4 +1,5 @@
 import ts from 'typescript';
+import { isOfficialBookletQuestion } from '../../src/core/official-booklet.js';
 import { scopeFamily, scopeForQuestion, validScope } from './booklet-scope.mjs';
 export const RECORD_KINDS = ['questions', 'templates', 'sets', 'exams', 'sources', 'rights', 'assets'];
 const stable = value => JSON.stringify(value);
@@ -381,7 +382,7 @@ function publishedHoldRemoval(collection, held, scope, before, after) {
             return false;
     }
     if (original?.distribution !== 'included' || base?.distribution !== 'included' || template?.distribution !== 'included' ||
-        original.origin?.kind !== 'official_reprint' || base.origin?.kind !== 'official_adaptation' ||
+        !original.origin || !isOfficialBookletQuestion(original) || base.origin?.kind !== 'official_adaptation' ||
         !original.origin.sourceRefs?.some(ref => ref.sourceId === questionSourceId && ref.locator.questionNumber === String(held.number)) ||
         !base.origin.derivedFrom?.some(ref => ref.questionId === originalId && ref.revision === original.revision) ||
         template.generatorRef?.id !== 'generator-source-' + suffix ||

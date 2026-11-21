@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../../src/core/official-booklet";
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -15,7 +16,7 @@ before(installFixtureGenerators);
 
 test("every distributed original and registered generator belongs to exactly one booklet execution scope", () => {
   const bundle = fixture(), rows = generationCoverage(bundle).rows, groups = partitionBookletRows(bundle),
-    inventory = generationPathInventory(bundle), originals = bundle.questions.filter(q => q.origin.kind === "official_reprint");
+    inventory = generationPathInventory(bundle), originals = bundle.questions.filter(q => isOfficialBookletQuestion(q));
   assert.equal(rows.length, originals.length);
   assert.equal([...groups.values()].reduce((sum, owned) => sum + owned.length, 0), rows.length);
   assert.deepEqual(inventory.flatMap(booklet => booklet.originalIds).sort(), originals.map(q => q.id).sort());
@@ -56,18 +57,18 @@ test("booklet finite and64-seed partitions equal the former complete-domain sele
 
 test("unscoped, ambiguous, duplicate and cross-booklet source ownership cannot silently remove exhaustive work", () => {
   const original = fixture();
-  const unscoped = structuredClone(original), q = unscoped.questions.find(q => q.origin.kind === "official_reprint")!;
+  const unscoped = structuredClone(original), q = unscoped.questions.find(q => isOfficialBookletQuestion(q))!;
   q.origin.sourceRefs = [];
   assert.equal(scopeForQuestion(q), null);
   assert.throws(() => partitionBookletRows(unscoped));
-  const ambiguous = structuredClone(original), mixed = ambiguous.questions.find(q => q.origin.kind === "official_reprint")!;
+  const ambiguous = structuredClone(original), mixed = ambiguous.questions.find(q => isOfficialBookletQuestion(q))!;
   mixed.origin.sourceRefs.push({ ...structuredClone(mixed.origin.sourceRefs[0]), locator: {
     ...mixed.origin.sourceRefs[0].locator, year: 2030, subject: "科目" + mixed.subject,
   } });
   assert.equal(scopeForQuestion(mixed), null);
   assert.throws(() => partitionBookletRows(ambiguous));
   const duplicate = structuredClone(original);
-  duplicate.questions.push(structuredClone(duplicate.questions.find(q => q.origin.kind === "official_reprint")!));
+  duplicate.questions.push(structuredClone(duplicate.questions.find(q => isOfficialBookletQuestion(q))!));
   assert.throws(() => partitionBookletRows(duplicate));
   const noGenerator = structuredClone(original); noGenerator.templates = noGenerator.templates.slice(1);
   assert.throws(() => partitionBookletRows(noGenerator));

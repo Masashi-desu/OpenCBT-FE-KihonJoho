@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../../../src/core/official-booklet";
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -80,9 +81,13 @@ const transport = () => stage1PartialReleaseRecordFiles(baseline, approved, read
 
 test("partial-release transport appends467 families, preserves every old record and all afternoon majors, and changes only mix-A", async () => {
   const retainedCount = publishedSourceScope.originalCount - 467;
-  assert.equal(baseline.questions.filter(q => q.origin.kind === "official_reprint").length, retainedCount);
+  assert.equal(baseline.questions.filter(isOfficialBookletQuestion).length, retainedCount);
   assert.equal(baseline.templates.length, retainedCount);
-  assert.equal(baseline.assets.filter(asset => !isDeclaredExtensionAsset(asset)).length, 890);
+  const laterMorningCrops = new Set([
+    "asset-ipa-2016h28h-fe-am-60", "asset-ipa-2016h28h-fe-am-63", "asset-ipa-2016h28a-fe-am-57",
+  ]);
+  assert.deepEqual(new Set(baseline.assets.filter(asset => laterMorningCrops.has(asset.id)).map(asset => asset.id)), laterMorningCrops);
+  assert.equal(baseline.assets.filter(asset => !isDeclaredExtensionAsset(asset) && !laterMorningCrops.has(asset.id)).length, 890);
   const before = sha(JSON.stringify({ baseline, approved })), result = transport();
   const decoded = await readCatalog(async (name, max) => {
     const bytes = result.files.get(name); assert(bytes && bytes.byteLength <= max); return bytes;
@@ -90,11 +95,19 @@ test("partial-release transport appends467 families, preserves every old record 
   assert.equal(result.catalog.revision, baseline.catalog.revision + 1);
   assert.equal(result.catalogHash, sha(result.files.get("catalog.json")!));
   assertPublishedSourceScope(decoded);
-  assert.equal(decoded.questions.filter(q => q.origin.kind === "official_reprint").length, publishedSourceScope.originalCount);
+  assert.equal(decoded.questions.filter(q => isOfficialBookletQuestion(q)).length, publishedSourceScope.originalCount);
   assert.equal(decoded.templates.length, publishedSourceScope.originalCount);
   assert.deepEqual(Object.fromEntries(catalogKinds.map(kind => [kind,
     result.added[kind].filter(n => !baseline[kind].some(old => old.id === n.id)).length])),
-    { questions: 934, sources: 78, rights: 51, assets: 471, sets: 6, exams: 12, templates: 467 });
+    { questions: 934, sources: 75, rights: 51, assets: 471, sets: 6, exams: 12, templates: 467 });
+  for (const id of [
+    "source-cc-by-sa-21jp-legalcode-20261025",
+    "source-ipa-cf2013-guidance-license-20261025",
+    "source-ipa-cf2013-guidance-q65-20261025",
+  ]) {
+    assert.deepEqual(baseline.sources.find(source => source.id === id), allNodes.get(id));
+    assert(result.added.sources.some(source => source.id === id), id);
+  }
   for (const kind of catalogKinds) {
     for (const old of baseline[kind]) {
       const next = decoded[kind].find(node => node.id === old.id)!; assert(next, old.id);
@@ -102,7 +115,7 @@ test("partial-release transport appends467 families, preserves every old record 
     }
     assert.deepEqual(sorted(decoded, kind), sorted(expectedTransport, kind), `${kind} retains every current record and the transport baseline's binding prefix`);
   }
-  const pm = decoded.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"));
+  const pm = decoded.questions.filter(q => isOfficialBookletQuestion(q) && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後"));
   assert.equal(pm.length, publishedSourceScope.afternoonCount);
   const nextMix = decoded.sets.find(s => s.id === "set-mix-a")!;
   assert.equal(nextMix.revision, oldMix.revision + 1);

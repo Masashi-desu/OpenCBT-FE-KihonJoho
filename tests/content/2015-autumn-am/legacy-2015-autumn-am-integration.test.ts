@@ -15,6 +15,7 @@ import { finishRun, prepareRun, remaining, startRun, updateAnswer, validateRun }
 import { sourceCollections } from '../../../src/core/source-collections';
 import { displayQuestionNumber } from '../../../src/core/source-label';
 import { refOf, type Run, type Selection } from '../../../src/core/types';
+import { schema, validateBundle } from '../../../src/core/validation';
 import { materialPages } from '../../../src/ui/MaterialViewer';
 import { SourceFigure } from '../../../src/ui/SourceFigure';
 
@@ -146,4 +147,42 @@ test('S3-005 places its own two common pages after the question, with 2015 versi
   assert(html.includes('data-common-reference="2015h27a-fe-am-p3"'));
   assert.equal([...html.matchAll(/data-common-gate=/g)].length, 9);
   assert(html.includes('論理状態の反転又は否定'));
+});
+
+test('2015秋午前問40の固定改変版を原問番号で検索・保存でき、生成基準に出典を継承する', async () => {
+  const bundle = fixture(), original = bundle.questions.find(question => question.id === originalId(40))!;
+  assert.equal(original.origin.kind, 'official_adaptation');
+  assert.equal(original.origin.isModified, true);
+  assert.deepEqual(original.origin.derivedFrom, []);
+  assert.equal(original.origin.changes[0].affectsAnswer, false);
+  assert.equal(original.correctAnswer.attribution.origin, 'official');
+  assert.deepEqual(original.assetRefs, []);
+  assert.deepEqual(original.choices.map(choice => choice.content.attribution.origin), Array(4).fill('adapted'));
+  const { base, template } = bookmarkTemplate(bundle, refOf(original));
+  assert.deepEqual(base.origin.derivedFrom, [refOf(original)]);
+  assert.deepEqual(base.prompt.attribution, original.prompt.attribution);
+  assert.equal(materialPages(original).filter(page => page.commonReference).length, 2);
+  const found = findSearchDocuments(questionSearchDocuments(bundle), { ...emptySearch, query: 'ISMS適合性評価制度', year: 2015 });
+  assert(found.some(result => result.question.id === original.id));
+
+  const unmodified = structuredClone(original);
+  unmodified.origin.isModified = false;
+  assert.throws(() => schema('question', unmodified), { code: 'SCHEMA' });
+  const primary = original.origin.sourceRefs[0], promptPrimary = original.prompt.attribution.sourceRefs[0];
+  primary.locator.page = 19;
+  await assert.rejects(validateBundle(bundle), { code: 'SOURCE_INHERITANCE' });
+  primary.locator.page = 18;
+  original.origin.sourceRefs.push({ ...primary, locator: { ...primary.locator, questionNumber: '41' } });
+  await assert.rejects(validateBundle(bundle), { code: 'SOURCE_INHERITANCE' });
+  original.origin.sourceRefs.pop();
+  primary.locator.questionNumber = promptPrimary.locator.questionNumber = '41';
+  await assert.rejects(validateBundle(bundle), { code: 'SOURCE_INHERITANCE' });
+
+  primary.locator.questionNumber = promptPrimary.locator.questionNumber = '40';
+  for (const ref of [primary, promptPrimary, base.origin.sourceRefs[0], base.prompt.attribution.sourceRefs[0]])
+    delete ref.locator.page;
+  template.originalContentSha256 = await contentHash(base);
+  await assert.rejects(validateBundle(bundle), {
+    code: 'SOURCE_INHERITANCE', message: /年度別の改変版では公式冊子の同じ原問番号・ページ/,
+  });
 });

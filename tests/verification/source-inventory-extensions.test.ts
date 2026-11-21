@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../../src/core/official-booklet";
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { inventoryCollectionIdentity, inventoryExtensionRecords, type InventoryExtensions } from '../../scripts/source-inventory-extension-contract';
@@ -46,7 +47,7 @@ test('retained obligations, duplicate collections and malformed or cross-source 
 
 test('actual distribution remains bound to all declared obligations and unavailable material holds', () => {
   const b = fixture(), result = validateSourceInventory(b);
-  assert.equal(result.included, b.questions.filter(q => q.origin.kind === 'official_reprint').length);
+  assert.equal(result.included, b.questions.filter(q => isOfficialBookletQuestion(q)).length);
   assert.equal(result.declared, result.included + result.excluded);
   assert.deepEqual(inventoryExtensionRecords({ version: 1, collections: [] }, []), { sources: [], exclusions: {} });
   assert.equal(declarations.version, 1);

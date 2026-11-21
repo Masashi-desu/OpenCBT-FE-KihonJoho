@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../src/core/official-booklet";
 import spring2019PMReview from "./source-evidence/stage2-2019-spring-pm-review.json";
 import morningPartialReview from "./source-evidence/stage1-am-partial-release-review.json";
 import autumn2019PMReview from "./source-evidence/stage2-2019-autumn-pm-review.json";
@@ -209,7 +210,7 @@ export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, 
       if (set.distribution !== "included" || set.subject !== scope.subject || set.generationBindings.length ||
         !set.questionRefs.length || set.questionRefs.length > scope.count) return false;
       const numbers = set.questionRefs.map(ref => {
-        const q = bundle.questions.find(q => q.id === ref.questionId && q.revision === ref.revision && q.origin.kind === "official_reprint");
+        const q = bundle.questions.find(q => q.id === ref.questionId && q.revision === ref.revision && isOfficialBookletQuestion(q));
         return q?.origin.sourceRefs.find(ref => sources.get(ref.sourceId)?.sha256 === c.questionPaper.sha256)?.locator.questionNumber;
       });
       // A published subset is a usable source collection. The independent
@@ -218,7 +219,7 @@ export function auditPre2023Readiness(bundle: Bundle, evidence: SourceEvidence, 
         n !== undefined && c.questionNumbers.some(expected => String(expected) === n));
     });
     const questions = c.questionNumbers.map(number => {
-      const matching = bundle.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref =>
+      const matching = bundle.questions.filter(q => isOfficialBookletQuestion(q) && q.origin.sourceRefs.some(ref =>
         sources.get(ref.sourceId)?.sha256 === c.questionPaper.sha256 && ref.locator.questionNumber === String(number)));
       const question = matching.length === 1 ? matching[0] : undefined;
       const pending: string[] = [];

@@ -106,9 +106,12 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
     [...source.properties.profile.anyOf[0].enum,...additionalBookletFigures.map(figure=>figure.profile)].sort(),
     Object.keys(sourceFigureDomains).sort(),
   );
-  assert.equal(stage3MorningDefinitions.length,77);
-  assert.equal(stage3AllMorningDefinitions.filter(definition =>
-    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 155);
+  const springSources = publishedSourceScope.eligibleSourceIds.filter(isStage3Source).sort();
+  const autumnSources = publishedSourceScope.eligibleSourceIds.filter(isAutumn2016Source).sort();
+  assert.deepEqual(stage3MorningDefinitions.map(definition => definition.source).sort(), springSources);
+  assert.deepEqual(stage3AllMorningDefinitions.filter(definition =>
+    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).map(definition => definition.source).sort(),
+    [...springSources, ...autumnSources].sort());
   assert.deepEqual(stage3AllMorningDefinitions.filter(definition => isAutumn2015Source(definition.source)).map(definition => definition.source),
     autumn2015Official.records.filter(row => !Object.hasOwn(sourceExclusions, `${autumn2015Official.collectionId}-${row.number}`))
       .map(row => `${autumn2015Official.collectionId}-${row.number}`));
@@ -205,7 +208,7 @@ test("installed registry retains all467 reviewed AM families and their variable/
   assert.equal(amCapacity.rows.filter(r => !r.answerCanVary).length, amCapacity.fixedSeries);
 });
 test("installed registry adds 77 spring 2016 families with all 713 reviewed finite conditions", () => {
-  const admitted = additionalDefinitions.filter(d => isStage3Source(d.source));
+  const admitted = additionalDefinitions.filter(d => isStage3Source(d.source) && stage3Counts.has(Number(d.source.split("-").at(-1))));
   assert.equal(admitted.length, 77); assert.equal(stage3Counts.size, 77);
   assert.deepEqual(admitted.map(d => Number(d.source.split("-").at(-1))).sort((a,b) => a-b),
     [...stage3Counts.keys()].sort((a,b) => a-b));

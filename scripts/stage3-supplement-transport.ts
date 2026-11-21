@@ -7,6 +7,7 @@ import type { Bundle, Question } from '../src/core/types';
 import { catalogFileRecords, catalogKinds, CATALOG_MAX_BYTES } from '../src/core/catalog-files';
 import { hasAssetSignature } from '../src/core/asset-signature';
 import { contentHash } from '../src/core/hash';
+import { isOfficialBookletQuestion } from '../src/core/official-booklet';
 import { encodeRecordPacks, readDistributionBundle } from './distribution-files';
 import type { Stage3MorningRecords } from './stage3-morning-records';
 
@@ -25,9 +26,9 @@ export async function installMorningSupplement(dataDir: string, bundle: Bundle, 
   const mix = bundle.sets.find(set => set.id === 'set-mix-a');
   assert(annual?.distribution === 'included' && mix?.distribution === 'included' && annual.subject === 'A');
   const next = structuredClone(additions);
-  const originals = next.questions.filter(q => q.origin.kind === 'official_reprint');
+  const originals = next.questions.filter(isOfficialBookletQuestion);
   assert(originals.length && next.questions.length === originals.length * 2 && next.templates.length === originals.length &&
-    next.assets.length === originals.length && assetFiles.size === originals.length);
+    assetFiles.size === next.assets.length);
   const count = annual.questionRefs.length + originals.length;
   assert(count <= 80);
   for (const q of next.questions) {
@@ -44,8 +45,10 @@ export async function installMorningSupplement(dataDir: string, bundle: Bundle, 
     assert.equal(template.generatorRef.id, 'generator-source-' + source);
     const original = originals.find(q => q.id === 'question-ipa-' + source);
     assert(original && isDeepStrictEqual(base.origin.derivedFrom, [ref(original)]));
-    const asset = next.assets.find(a => a.id === 'asset-ipa-' + source);
-    assert(asset && original.assetRefs.includes(asset.id) && assetFiles.has(asset.path));
+    if (original.origin.kind === 'official_reprint') {
+      const asset = next.assets.find(a => a.id === 'asset-ipa-' + source);
+      assert(asset && original.assetRefs.includes(asset.id) && assetFiles.has(asset.path));
+    }
     template.distribution = 'included';
     template.originalContentSha256 = await contentHash(base);
   }
@@ -102,6 +105,7 @@ export async function installMorningSupplement(dataDir: string, bundle: Bundle, 
     catalog.files[kind] = upcoming;
   }
   for (const asset of next.assets) {
+    assert(next.questions.some(question => question.assetRefs.includes(asset.id)), 'unreferenced supplementary asset');
     assert(/^assets\/[a-z0-9/_-]+\.png$/.test(asset.path) && !asset.path.includes('//'));
     const filename = assetFiles.get(asset.path);
     assert(filename);

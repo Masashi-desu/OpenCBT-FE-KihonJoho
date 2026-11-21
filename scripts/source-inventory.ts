@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../src/core/official-booklet";
 import type { Bundle } from "../src/core/types";
 import extensionDeclarations from './source-inventory-extensions.json';
 import { inventoryExtensionRecords } from './source-inventory-extension-contract';
@@ -51,7 +52,7 @@ export function validateSourceInventory(b: Bundle) {
     .map((id) => `question-ipa-${id}`)
     .sort();
   const actual = b.questions
-    .filter((q) => q.origin.kind === "official_reprint")
+    .filter(isOfficialBookletQuestion)
     .map((q) => q.id)
     .sort();
   if (JSON.stringify(expected) !== JSON.stringify(actual))

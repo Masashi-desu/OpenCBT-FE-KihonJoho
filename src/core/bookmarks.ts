@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "./official-booklet";
 import type { Bundle, Ref, Result, Selection } from "./types";
 import { refKey, refOf } from "./types";
 import { generationCoverage } from "./generation-coverage";
@@ -112,7 +113,7 @@ export function bookmarkPreview(bundle: Bundle, ref: Ref): string {
   const original =
     bundle.questions.find(
       (q) =>
-        q.origin.kind === "official_reprint" &&
+        isOfficialBookletQuestion(q) &&
         refKey(refOf(q)) === refKey(ref),
     ) ?? bookmarkSource(bundle, ref);
   // Official text supplements also contain choices and figure transcriptions.

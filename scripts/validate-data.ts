@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../src/core/official-booklet";
 import fs from "node:fs";
 import crypto from "node:crypto";
 import { validateBundle } from "../src/core/validation";
@@ -68,7 +69,7 @@ if (
 )
   throw Error("KATEX_LICENSE");
 console.log(
-  `${bundle.questions.length} distribution questions (${bundle.questions.filter((q) => q.origin.kind === "official_reprint").length} official), ${bundle.assets.length} assets: Schema, rights, references and hashes passed`,
+  `${bundle.questions.length} distribution questions (${bundle.questions.filter(isOfficialBookletQuestion).length} official), ${bundle.assets.length} assets: Schema, rights, references and hashes passed`,
 );
 console.log(
   `${licenseResult.notices} local license notices: metadata, installed versions and original texts passed`,

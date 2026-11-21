@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../../src/core/official-booklet";
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "../fixtures";
@@ -191,7 +192,7 @@ test("all-year mixes expose every eligible source family while keeping old after
   const b = fixture();
   for (const subject of ["A", "B"] as const) {
     const s: Selection = { ...initial, subject, year: undefined, mixScope: "all" };
-    const expected = b.questions.filter(q => q.origin.kind === "official_reprint" && q.subject === subject &&
+    const expected = b.questions.filter(q => isOfficialBookletQuestion(q) && q.subject === subject &&
       q.distribution === "included" && q.lifecycle === "active" &&
       (subject === "A" || !q.origin.sourceRefs.some(ref => ref.locator.timeSlot)));
     assert.equal(expected.length, publishedSourceScope.subjectPoolCounts[subject]);

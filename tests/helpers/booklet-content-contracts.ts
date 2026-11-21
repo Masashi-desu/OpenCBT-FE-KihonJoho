@@ -2,6 +2,7 @@
  * Existing callback bodies and64 seeded inputs are retained without weakening
  * the all-choice, finite-capacity or diagram assertions. Old multi-answer PM
  * definitions keep their separate independent per-major content tests. */
+import { isOfficialBookletQuestion } from "../../src/core/official-booklet";
 import { bookletRows, partitionBookletRows } from "./generation-paths/scope";
 import { isAdditionalStage3MorningSource } from "../../src/core/generators/stage3-morning-booklet-extension-contract";
 import {
@@ -44,14 +45,21 @@ export async function registerBookletContentContractTests(scope: string) {
       )!,
       base = b.questions.find((q) => q.id === t.baseQuestionRef.questionId)!,
       original = b.questions.find((q) => q.id === `question-ipa-${d.source}`)!;
-    const correctOriginal = original.choices.find(
-      (c) => c.id === original.correctAnswer.choiceId,
-    )!.content.blocks[0];
-    assert(correctOriginal.type === "paragraph");
-    assert.equal(correctOriginal.text, d.sourceAnswer);
+    const adaptedEdition = original.origin.kind === "official_adaptation" && isOfficialBookletQuestion(original);
+    const correctIndex = original.choices.findIndex(choice => choice.id === original.correctAnswer.choiceId);
+    assert(correctIndex >= 0);
+    if (adaptedEdition) {
+      assert.equal(original.choiceShuffleAllowed, false);
+      assert.equal("アイウエ"[correctIndex], d.sourceAnswer);
+      assert.equal(base.choices.findIndex(choice => choice.id === base.correctAnswer.choiceId), correctIndex);
+    } else {
+      const correctOriginal = original.choices[correctIndex].content.blocks[0];
+      assert(correctOriginal.type === "paragraph");
+      assert.equal(correctOriginal.text, d.sourceAnswer);
+    }
     assert.equal(base.choices.length, original.choices.length);
     assert.equal(base.origin.derivedFrom[0].questionId, original.id);
-    const reviewedFiniteMorning = isAutumn2015Source(d.source) || isAdditionalStage3MorningSource(d.source);
+    const reviewedFiniteMorning = adaptedEdition || isAutumn2015Source(d.source) || isAdditionalStage3MorningSource(d.source);
     const before = JSON.stringify(base),
       answers = new Set<string>(), visibleConditions = new Set<string>();
     for (let i = 0; i < 64; i++) {
@@ -135,7 +143,7 @@ export async function registerBookletContentContractTests(scope: string) {
       assert(finiteAnswers.size >= 1);
       assert([...answers].every(signature => finiteAnswers.has(signature)), d.source + " seeded answers remain inside reviewed finite capacity");
       assert(valid >= 2 && displays.size >= 2 && retainedReference, d.source + " must retain substantive conditions and reference");
-    } else if (isNativeStage3Source(d.source)) {
+    } else if (isNativeStage3Source(d.source) && !adaptedEdition) {
       const n=Number(d.source.split("-").at(-1)),autumn=isAutumn2016Source(d.source),count=autumn?autumn2016Counts.get(d.source)!:stage3Counts.get(n)!;
       assert.equal(d.answerVariation,"fixed"); assert.equal(answerCanVary(t),false);
       const finiteAnswers=new Set<string>(), displays=new Set<string>();

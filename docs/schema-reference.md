@@ -945,15 +945,36 @@
       "properties": {
         "origin": {
           "properties": {
-            "derivedFrom": {
-              "minItems": 1,
-              "type": "array"
-            },
             "changes": {
               "minItems": 1,
               "type": "array"
             }
           },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "derivedFrom": {
+                    "type": "array",
+                    "maxItems": 0
+                  }
+                },
+                "required": [
+                  "derivedFrom"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "isModified": {
+                    "const": true
+                  },
+                  "modificationBasis": {
+                    "const": "official_source"
+                  }
+                }
+              }
+            }
+          ],
           "type": "object"
         }
       },

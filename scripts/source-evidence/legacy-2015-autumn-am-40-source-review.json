@@ -1,0 +1,58 @@
+{
+  "collectionId": "2015h27a-fe-am",
+  "checkedOn": "2026-11-21",
+  "question": {
+    "number": 40,
+    "page": 18,
+    "answer": "ウ",
+    "area": "technology",
+    "questionPaper": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_qs.pdf",
+    "questionPaperSHA256": "d9e1e4ae74f5d1736ab67339637c6ce32a3f50ec7cced76b532489a48e5a0df5",
+    "answerPaper": "https://www.ipa.go.jp/shiken/mondai-kaiotu/gmcbt8000000gxj0-att/2015h27a_fe_am_ans.pdf",
+    "answerPaperSHA256": "326e6dd325ba0b9ae3ce9e3585d82d3cade0186edc44f24d3be088995c9d13d4"
+  },
+  "materialReview": {
+    "classification": "official_adaptation",
+    "policy": "https://www.ipa.go.jp/shiken/faq.html",
+    "adaptation": "IPA公開問題の問40を直接参照し、2015年当時の制度を説明する四つの選択肢を編集部が独立に記述した。設問の方向、制度ごとの役割・順番、公式正答ウを保持した。問題表示にIPA、冊子、原問番号、改変の表示を付ける。",
+    "thirdPartyBoundary": "外部資料で制度名、規格番号、評価対象、認証と付与の仕組みを確認した。原設問の転載保留理由となった第三者の説明文、規格の定義文、ロゴ、冊子の問40画像・転載altは配布対象外。",
+    "additionalMaterials": "問40固有の図表・注記はない。冊子の共通表記p.2–3を従来の参照経路に載せ、JIS Q 15001:2006、JIS Q 27001:2014を当該試験の参照版として保持する。"
+  },
+  "independentReferences": [
+    {
+      "label": "ア",
+      "review": "IT製品のセキュリティ機能の評価と評価結果の認証。",
+      "url": "https://www.ipa.go.jp/security/jisec/"
+    },
+    {
+      "label": "イ",
+      "review": "個人情報保護の仕組みを運用する事業者の審査とマーク付与。",
+      "url": "https://privacymark.jp/system/about/outline_and_purpose.html"
+    },
+    {
+      "label": "ウ",
+      "review": "組織の認証範囲で運用する情報セキュリティ管理の仕組みの適合性認証。",
+      "url": "https://isms.jp/isms/about.html"
+    },
+    {
+      "label": "エ",
+      "review": "承認された暗号機能を実装したモジュールの試験と認証。",
+      "url": "https://www.ipa.go.jp/security/jcmvp/index.html"
+    }
+  ],
+  "historicalReferences": [
+    {
+      "url": "https://www.cas.go.jp/jp/seisaku/jouhouwg/hyoka/dai2/sankou6.pdf",
+      "checked": "2011年の比較資料でJISEC、プライバシーマーク、ISMSについて当時の根拠・評価単位・付与対象を照合した。JISの版は試験冊子の共通表記を使う。"
+    },
+    {
+      "url": "https://www.jipdec.or.jp/archives/publications/J0005082.pdf",
+      "checked": "2017年版への改正前にJIS Q 15001:2006が用いられていたことを照合した。"
+    },
+    {
+      "url": "https://www.ipa.go.jp/security/jcmvp/val.html",
+      "checked": "2015年の登録例でも暗号モジュールに対して認証が行われていたことを照合した。"
+    }
+  ],
+  "generationReview": "4入力で問う制度を変え、選択肢に当てはまる説明を選ぶ方向、四肢の役割と順番を保つ。各入力で選択肢から別の制度の事実を真偽の根拠として除外でき、正答は一つ。基準はISMSの説明を選ぶ入力0で公式正答ウ。全入力の選択肢、正答、解説の根拠、無効入力を独立fixtureと自動テストで検証する。"
+}

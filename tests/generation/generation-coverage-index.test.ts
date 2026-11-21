@@ -6,12 +6,13 @@ import { generationCoverage, validateGenerationCoverage } from "../../src/core/g
 import type { Bundle, Question, Template, SetRecord } from "../../src/core/types";
 import {assertPublishedSourceScope, publishedSourceScope} from '../helpers/published-source-scope';
 
-// Independent reference: the unoptimized scan, kept verbatim apart from its
-// function name. Expectations never come from the indexed implementation.
+// Independent reference using a direct scan of the graph. Fixed adaptations
+// belong to the published edition; a generated base already has a parent.
+const isFixedEdition = ({ origin }: Question) => origin.kind === "official_reprint" ||
+  origin.kind === "official_adaptation" && origin.isModified === true &&
+    origin.modificationBasis === "official_source" && origin.derivedFrom.length === 0;
 function scanCoverage(b: Bundle) {
-  const official = b.questions.filter(
-      (q) => q.origin.kind === "official_reprint",
-    ),
+  const official = b.questions.filter(isFixedEdition),
     rows = official.map((original) => {
       const bases = b.questions.filter((q) =>
         q.origin.derivedFrom.some(
@@ -112,6 +113,12 @@ test("indexed coverage equals the old scan for missing, extra, duplicate and sou
     ["empty all arrays", b => { b.questions = []; b.templates = []; b.sets = []; }],
     ["no originals", b => { b.questions = b.questions.filter(q => q.origin.kind !== "official_reprint"); }],
     ["no bases", b => { b.questions = b.questions.filter(q => q.origin.kind === "official_reprint"); }],
+    ["attributed fixed edition", b => {
+      const q = b.questions[0];
+      q.origin.kind = "official_adaptation";
+      q.origin.isModified = true;
+      q.origin.modificationBasis = "official_source";
+    }],
     ["no templates", b => { b.templates = []; }],
     ["no sets", b => { b.sets = []; }],
     ["missing original", b => { b.questions.splice(0, 1); }],

@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "./official-booklet";
 import type { Bundle, Question, Selection, SetRecord } from "./types";
 import { refKey, refOf } from "./types";
 import { DataError } from "./errors";
@@ -18,7 +19,7 @@ export function isCurrentSubjectMixQuestion(question: Question): boolean {
 /** A year alone cannot distinguish spring/autumn or two sample publications. */
 export function sourceCollections(bundle: Bundle, subject: Selection["subject"]): SetRecord[] {
   const originals = new Map(bundle.questions
-    .filter(q => q.origin.kind === "official_reprint" && q.lifecycle === "active" && q.distribution === "included")
+    .filter(q => isOfficialBookletQuestion(q) && q.lifecycle === "active" && q.distribution === "included")
     .map(q => [refKey(refOf(q)), q]));
   return bundle.sets.filter(set => set.subject === subject && set.distribution === "included" &&
     set.questionRefs.length > 0 && set.generationBindings.length === 0 &&
@@ -49,7 +50,7 @@ export function selectedMixProfileCollection(bundle: Bundle, selection: Selectio
     new Set(collection.questionRefs.map(refKey)).size !== collection.questionRefs.length ||
     !collection.questionRefs.every(ref => {
       const q = originals.get(refKey(ref));
-      return q?.subject === selection.subject && q.origin.kind === "official_reprint" &&
+      return q?.subject === selection.subject && isOfficialBookletQuestion(q) &&
         q.lifecycle === "active" && q.distribution === "included";
     })) throw new DataError("MIX_PROFILE", "分野構成の基準問題集を利用できません。");
   return collection;

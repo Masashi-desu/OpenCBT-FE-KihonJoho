@@ -1,3 +1,4 @@
+import { expectedPublishedQuestionCount } from '../../helpers/published-source-scope';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createElement as h } from 'react';
@@ -130,7 +131,7 @@ test('S3-030 groups autumn AM and PM in both menu modes', () => {
     const afternoon = chooseMenuSourceGroup(groups, selection(kind), group.id, 'B');
     assert.equal(selectQuestions(bundle, afternoon, items => items).questions.length, admitted.length);
     const morning = chooseMenuSourceGroup(groups, afternoon, group.id, 'A');
-    assert.equal(selectQuestions(bundle, morning, items => items).questions.length, 78);
+    assert.equal(selectQuestions(bundle, morning, items => items).questions.length, expectedPublishedQuestionCount('2009h21a-fe-am'));
   }
   const documents = new Set(questionSearchDocuments(bundle).map(document => document.question.id));
   assert(admitted.every(row => documents.has(ref(row.number).questionId)));

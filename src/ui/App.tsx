@@ -1315,7 +1315,7 @@ export function App() {
                         {
                           kind: "annual" as const,
                           title: "年度別オリジナル",
-                          text: "公開年度の問題を、原文・元の値・順序のまま。",
+                          text: "公開問題を冊子順に出題。改変した問題には出典と変更内容を表示。",
                           icon: CalendarDays,
                         },
                         {

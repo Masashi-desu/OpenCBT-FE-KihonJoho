@@ -1,3 +1,4 @@
+import { expectedPublishedQuestionCount } from '../../helpers/published-source-scope';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import test from 'node:test';
@@ -153,7 +154,7 @@ test('S3-044 shows IPA and WARP credit while retaining the collection and search
     const afternoon = chooseMenuSourceGroup(menuSourceGroups(bundle), selection(kind), group.id, 'B');
     assert.equal(selectQuestions(bundle, afternoon, items => items).questions.length, published.length);
     const morning = chooseMenuSourceGroup(menuSourceGroups(bundle), afternoon, group.id, 'A');
-    assert.equal(selectQuestions(bundle, morning, items => items).questions.length, 77);
+    assert.equal(selectQuestions(bundle, morning, items => items).questions.length, expectedPublishedQuestionCount('2006h18h-fe-am'));
   }
   const search = new Set(questionSearchDocuments(bundle).map(document => document.question.id));
   for (const row of published) {

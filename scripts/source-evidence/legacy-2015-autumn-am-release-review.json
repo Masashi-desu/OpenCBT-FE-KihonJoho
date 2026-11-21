@@ -45,6 +45,7 @@
     37,
     38,
     39,
+    40,
     41,
     42,
     43,
@@ -87,12 +88,6 @@
   ],
   "held": [
     {
-      "number": 40,
-      "reason": "プライバシーマーク制度の説明と2015年以前の第三者資料との表現の境界を確認中。原画像・全文・可変版の一対一の配布を保留。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
       "number": 55,
       "reason": "ITIL 2011のサービスデスク組織に関する具体的表現の由来と、転載・改変の利用条件を確認中。",
       "status": "material_conditions_unconfirmed",
@@ -103,25 +98,25 @@
   "rootSourceReview": {
     "status": "pass",
     "evidence": {
-      "path": "output/source-review/s3-005-2015-autumn-am/ROOT-SOURCE-ACCEPTANCE.json",
-      "sha256": "31457bfdd24804d8fb2c376e72363e58888d9c5a8a6068022573759307f44291",
-      "byteLength": 2191
+      "path": "scripts/source-evidence/legacy-2015-autumn-am-40-source-review.json",
+      "sha256": "81198bb4a6c1c3234f5e250759eaa32da863f44251967505248760d12b2cad6e",
+      "byteLength": 3521
     }
   },
   "independent": {
     "status": "pass",
     "evidence": {
-      "path": "output/source-review/s3-005-2015-autumn-am/ROOT-INDEPENDENT-ACCEPTANCE.json",
-      "sha256": "06ec1f48d17928d91c6de95de7272891b72a2f7149277468230c293026111859",
-      "byteLength": 1386
+      "path": "output/source-review/holds-92-next/p1-2015-am/local-focused.log",
+      "sha256": "2a31654d2e47508a3fbb0cc60a4c2eabd24b533769f56b692d3a86d69a2e4f62",
+      "byteLength": 479
     }
   },
   "normalApp": {
     "status": "pass",
     "evidence": {
-      "path": "output/playwright/s3-005/local.json",
-      "sha256": "18751fae8c7e757acde41fab3c51c623d69138eb70b38b0cd73098ad2cb99a13",
-      "byteLength": 1555
+      "path": "output/source-review/holds-92-next/p1-2015-am/local-app.json",
+      "sha256": "f0cf047f10ab5475b7d5fa138235063b232618e09b7644f499ab81e71f86d76d",
+      "byteLength": 420
     }
   },
   "questions": [
@@ -707,6 +702,21 @@
       "testFiles": [
         "tests/legacy-2015-autumn-am-27-53.test.ts",
         "tests/legacy-2015-autumn-am-integration.test.ts",
+        "tests/booklets/2015-autumn-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 40,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2015-autumn-am/legacy-2015-autumn-am-40.test.ts",
+        "tests/content/2015-autumn-am/legacy-2015-autumn-am-integration.test.ts",
         "tests/booklets/2015-autumn-am/content-contract.test.ts"
       ]
     },

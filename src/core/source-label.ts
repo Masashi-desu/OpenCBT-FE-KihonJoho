@@ -1,9 +1,10 @@
+import { isOfficialBookletQuestion } from "./official-booklet";
 import type { Bundle, Question, SourceRef } from "./types";
 
 /** Original booklet numbers may have gaps or a selected afternoon subset.
  * Generated and open-ended practice keep their own issuance order. */
 export function originalBookletQuestionNumber(question: Question): string | undefined {
-  if (question.origin.kind !== "official_reprint") return undefined;
+  if (!isOfficialBookletQuestion(question)) return undefined;
   return question.origin.sourceRefs.find(ref => ref.locator.timeSlot && ref.locator.questionNumber)?.locator.questionNumber;
 }
 

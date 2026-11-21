@@ -1,3 +1,4 @@
+import { expectedPublishedQuestionCount } from '../../helpers/published-source-scope';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createElement as h } from 'react';
@@ -136,7 +137,7 @@ test('2014 spring AM and PM share the menu group and timed PM uses seven chosen 
     const afternoon = chooseMenuSourceGroup(groups, selection(kind), group.id, 'B');
     assert.equal(selectQuestions(bundle, afternoon, items => items).questions.length, 13);
     const morning = chooseMenuSourceGroup(groups, afternoon, group.id, 'A');
-    assert.equal(selectQuestions(bundle, morning, items => items).questions.length, 78);
+    assert.equal(selectQuestions(bundle, morning, items => items).questions.length, expectedPublishedQuestionCount('2014h26h-fe-am'));
     const selectedQuestionRefs = [12, 8, 7, 6, 4, 2, 1].map(ref);
     const config = { ...selection(kind, 'practice'), selectedQuestionRefs };
     const prepared = selectQuestions(bundle, config, items => items);

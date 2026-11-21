@@ -1,3 +1,4 @@
+import { expectedPublishedQuestionCount } from '../../helpers/published-source-scope';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createElement as h } from 'react';
@@ -109,7 +110,7 @@ test('spring afternoon is grouped with the existing morning booklet in both annu
     const afternoon = chooseMenuSourceGroup(groups, selection(kind), group.id, 'B');
     assert.equal(selectQuestions(bundle, afternoon, q => q).questions.length, 13);
     const morning = chooseMenuSourceGroup(groups, afternoon, group.id, 'A');
-    assert.equal(selectQuestions(bundle, morning, q => q).questions.length, 75);
+    assert.equal(selectQuestions(bundle, morning, q => q).questions.length, expectedPublishedQuestionCount('2016h28h-fe-am'));
   }
   const documents = new Set(questionSearchDocuments(bundle).map(d => d.question.id));
   for (const row of evidence.questions) assert(documents.has(ref(row.number).questionId));

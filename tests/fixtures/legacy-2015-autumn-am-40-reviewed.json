@@ -1,0 +1,55 @@
+{
+  "source": "2015h27a-fe-am-40",
+  "publisher": "独立行政法人情報処理推進機構",
+  "page": 18,
+  "officialKey": "ウ",
+  "choiceReview": [
+    {
+      "label": "ア",
+      "institution": "JISEC",
+      "claim": "ISO/IEC 15408によるIT製品のセキュリティ機能の評価及び評価結果の認証",
+      "reviewedWording": "ISO/IEC 15408を用いて，IT製品のセキュリティ機能が要求を満たすかを評価し，評価結果を認証する。",
+      "roleIndicators": ["ISO/IEC 15408", "IT製品", "評価結果を認証"],
+      "reason": "適合を確認する対象は情報セキュリティ管理を行う組織ではなく製品。",
+      "source": "https://www.ipa.go.jp/security/jisec/"
+    },
+    {
+      "label": "イ",
+      "institution": "プライバシーマーク",
+      "claim": "JIS Q 15001を基礎とした事業者の個人情報管理の評価とマーク使用の付与",
+      "reviewedWording": "事業者ごとの個人情報管理をJIS Q 15001に沿って審査し，適合した事業者にマークの使用を認める。",
+      "roleIndicators": ["JIS Q 15001", "事業者", "個人情報管理", "マークの使用"],
+      "reason": "評価対象の情報は個人情報。適合した事業者がマークの使用を認められる。",
+      "source": "https://privacymark.jp/system/about/outline_and_purpose.html"
+    },
+    {
+      "label": "ウ",
+      "institution": "ISMS",
+      "claim": "JIS Q 27001による組織の情報セキュリティマネジメントシステムの適合性評価",
+      "reviewedWording": "組織が情報資産を安全に扱うための管理の仕組みとその運用を，JIS Q 27001を基準に審査し，適合を認証する。",
+      "roleIndicators": ["JIS Q 27001", "組織", "仕組みとその運用"],
+      "reason": "認証範囲の組織が運用する情報セキュリティ管理の仕組みが対象。",
+      "source": "https://isms.jp/isms/about.html"
+    },
+    {
+      "label": "エ",
+      "institution": "JCMVP",
+      "claim": "承認された暗号機能を備えたモジュールの安全性の試験と認証",
+      "reviewedWording": "電子政府推奨暗号リストなどにある承認済み機能を実装した暗号モジュールを試験し，鍵などの保護を確認して認証する。",
+      "roleIndicators": ["電子政府推奨暗号リスト", "暗号モジュール", "鍵などの保護"],
+      "reason": "暗号モジュールが保護する鍵等と実装を対象とする。推奨暗号アルゴリズムのリスト自体が認証基準の全体ではない。",
+      "source": "https://www.ipa.go.jp/security/jcmvp/index.html"
+    }
+  ],
+  "cases": [
+    {"value": 0, "target": "ISMS適合性評価制度", "matches": [false, false, true, false], "key": "ウ"},
+    {"value": 1, "target": "ITセキュリティ評価及び認証制度（JISEC）", "matches": [true, false, false, false], "key": "ア"},
+    {"value": 2, "target": "プライバシーマーク制度", "matches": [false, true, false, false], "key": "イ"},
+    {"value": 3, "target": "暗号モジュール試験及び認証制度（JCMVP）", "matches": [false, false, false, true], "key": "エ"}
+  ],
+  "historicalReferences": [
+    "https://www.cas.go.jp/jp/seisaku/jouhouwg/hyoka/dai2/sankou6.pdf",
+    "https://www.ipa.go.jp/security/jcmvp/val.html",
+    "https://www.jipdec.or.jp/archives/publications/J0005082.pdf"
+  ]
+}

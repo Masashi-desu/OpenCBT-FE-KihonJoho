@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "./official-booklet";
 import type { Bundle } from "./types";
 import { DataError } from "./errors";
 export function generationCoverage(b: Bundle) {
@@ -13,7 +14,7 @@ export function generationCoverage(b: Bundle) {
     if (!revisions) index.set(id, revisions = new Map());
     revisions.set(revision, value);
   };
-  const rows: Row[] = b.questions.filter(q => q.origin.kind === "official_reprint")
+  const rows: Row[] = b.questions.filter(isOfficialBookletQuestion)
     .map(original => ({ original, templates: [], linked: [] }));
   if (!rows.length) return { rows, total: 0, covered: 0 };
   const originals: RefIndex<Row[]> = new Map(), owners: RefIndex<Set<Row>> = new Map();

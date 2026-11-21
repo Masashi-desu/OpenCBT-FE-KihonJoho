@@ -1,3 +1,4 @@
+import { isOfficialBookletQuestion } from "../../src/core/official-booklet";
 import { currentSourceOriginals } from "../fixtures/current-source-scope";
 import {assertPublishedSourceScope, isDeclaredExtensionAsset, publishedSourceScope} from '../helpers/published-source-scope';
 import reviewedSpring2016 from '../../scripts/source-evidence/stage3-s3-001-review.json';
@@ -51,10 +52,10 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
   assert.equal(retainedAssets.length - autumnAssets.length, 1284,
     'the earlier material cohort and 2016 autumn materials remain independently accounted for');
   assert.equal(
-    b.questions.filter((q) => q.origin.kind === "official_reprint").length,
+    b.questions.filter((q) => isOfficialBookletQuestion(q)).length,
     publishedSourceScope.originalCount,
   );
-  const morning = b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
+  const morning = b.questions.filter(q => isOfficialBookletQuestion(q) && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
   assert.equal(morning.length, publishedSourceScope.morningCount);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length,
     reviewedSpring2016.includedNumbers.length + reviewedAutumn2016.includedNumbers.length);
@@ -62,7 +63,7 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
   assert(morning.every(q => q.learning.tags.includes("legacy-morning") || q.origin.sourceRefs.some(ref =>
     ref.locator.timeSlot === "午前" && ref.locator.year !== undefined && q.learning.tags.includes(`legacy-${ref.locator.year}`))),
     "AM source classifications remain attached to the official year");
-  assert.equal(b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, publishedSourceScope.afternoonCount);
+  assert.equal(b.questions.filter(q => isOfficialBookletQuestion(q) && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午後")).length, publishedSourceScope.afternoonCount);
   assert(!b.questions.some((q) => q.id === "question-ipa-2025-b-6"));
   const keys = {
     2023: { A: "ウウエエイウイエウウエウエウエイウウエア", B: "アクエエエア" },

@@ -1,5 +1,6 @@
 // Rebuild only managed template data from already recorded, verified public questions.
 // This script neither collects remote questions nor converts PDFs.
+import { isOfficialBookletQuestion } from "../src/core/official-booklet";
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
@@ -23,7 +24,7 @@ const root = path.resolve("public/data");
 const inputBundle = readDistributionBundle(root);
 const catalog = structuredClone(inputBundle.catalog);
 const questions = inputBundle.questions;
-const originals = questions.filter((q) => q.origin.kind === "official_reprint");
+const originals = questions.filter(isOfficialBookletQuestion);
 const generated: {
   question: Question;
   template: Template;
