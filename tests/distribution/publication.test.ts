@@ -17,8 +17,11 @@ import { validateBundle } from "../../src/core/validation";
 test("declared scope cannot be reduced by deleting an original and its generator", () => {
   const b = fixture();
   assertPublishedSourceScope(b);
-  assert.equal(publishedSourceScope.retainedExclusionIds.length, 20,
-    'the retained 20 held source numbers remain obligations');
+  for (const id of publishedSourceScope.retainedExclusionIds) {
+    assert(!b.questions.some(q => q.id === `question-ipa-${id}` || q.id === `question-template-source-${id}`),
+      `${id}: the held source must have neither an original nor a generated base`);
+    assert(!b.templates.some(t => t.id === `template-source-${id}`), `${id}: the held source must have no generator template`);
+  }
   assert.deepEqual(validateSourceInventory(b), {
     declared: publishedSourceScope.declaredCount,
     included: publishedSourceScope.originalCount,

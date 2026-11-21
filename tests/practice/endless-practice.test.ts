@@ -3,6 +3,7 @@ import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "../fixtures";
 import { publishedSourceScope } from "../helpers/published-source-scope";
+import reviewedAutumn2016 from '../../scripts/source-evidence/stage3-s3-002-review.json';
 import { answerSignature, parametersForSeed } from "../../src/core/generation";
 import { generationCoverage } from "../../src/core/generation-coverage";
 import { nextQuestionRef, selectQuestions } from "../../src/core/selection";
@@ -92,7 +93,7 @@ test("endless current-subject pools retain all applicable series and explicit bo
     assert.equal(expected.length, publishedSourceScope.subjectPoolCounts[subject]);
     if (subject === "A") assert.deepEqual(clean.set.questionRefs.filter(ref=>ref.questionId.startsWith("question-template-source-2016h28a-fe-am-"))
       .map(ref=>Number(ref.questionId.split("-").at(-1))).sort((a,b)=>a-b),
-      Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)));
+      reviewedAutumn2016.includedNumbers);
     assert(clean.set.questionRefs.every(ref => !ref.questionId.includes("2017h29h-fe-pm")));
     if (subject === "B") {
       // A deliberate bookmark pool uses the old majors instead of silently

@@ -2,6 +2,7 @@ import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import { fixture, installFixtureGenerators } from "../fixtures";
 import { publishedSourceScope } from "../helpers/published-source-scope";
+import reviewedAutumn2016 from '../../scripts/source-evidence/stage3-s3-002-review.json';
 import { prepareRun, validateRun } from "../../src/core/session";
 import { bookmarkTemplates } from "../../src/core/bookmarks";
 import { schema, DataError } from "../../src/core/validation";
@@ -78,7 +79,7 @@ test("local endless indexes preserve complete subject, mixed and old-afternoon p
   assert.equal(a.set.questionRefs.length, publishedSourceScope.subjectPoolCounts.A);
   assert.deepEqual(a.set.questionRefs.filter(ref=>ref.questionId.startsWith("question-template-source-2016h28a-fe-am-"))
     .map(ref=>Number(ref.questionId.split("-").at(-1))).sort((a,b)=>a-b),
-    Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)));
+    reviewedAutumn2016.includedNumbers);
   assert.equal(b.set.questionRefs.length, publishedSourceScope.subjectPoolCounts.B);
   assert.equal(mixed.set.questionRefs.length, 2);
   assert.equal(afternoon.set.questionRefs.length, 13);

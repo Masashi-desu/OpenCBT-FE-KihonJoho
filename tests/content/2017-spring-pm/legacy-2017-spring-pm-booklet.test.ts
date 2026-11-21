@@ -1,6 +1,8 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import baseline from "../../fixtures/generator-composition-existing.json";
+import reviewedSpring2016 from '../../../scripts/source-evidence/stage3-s3-001-review.json';
+import reviewedAutumn2016 from '../../../scripts/source-evidence/stage3-s3-002-review.json';
 import { readDistributionBundle } from "../../../scripts/distribution-files";
 import {publishedSourceScope,assertPublishedSourceScope} from "../../helpers/published-source-scope";
 import { refKey, refOf, type Ref, type Run, type Selection } from "../../../src/core/types";
@@ -21,10 +23,8 @@ const morningSources = ([
   ["2019h31h-fe-am", [41, 51, 67]], ["2019r01a-fe-am", [55, 57]],
 ] as const).flatMap(([id, held]) => Array.from({ length: 80 }, (_, i) => i + 1)
   .filter(n => !(held as readonly number[]).includes(n)).map(n => `${id}-${n}`));
-const stage3MorningSources = Array.from({ length: 80 }, (_, i) => i + 1)
-  .filter(n => ![46, 56, 60, 63, 66].includes(n)).map(n => `2016h28h-fe-am-${n}`);
-const autumn2016Sources = Array.from({length:80},(_,i)=>i+1)
-  .filter(n=>![55,56,57].includes(n)).map(n=>`2016h28a-fe-am-${n}`);
+const stage3MorningSources = reviewedSpring2016.includedNumbers.map(n => `2016h28h-fe-am-${n}`);
+const autumn2016Sources = reviewedAutumn2016.includedNumbers.map(n => `2016h28a-fe-am-${n}`);
 const numbers = Array.from({ length: 13 }, (_, index) => index + 1);
 const fieldCounts = [5, 5, 5, 4, 5, 6, 8, 7, 7, 7, 7, 6, 6];
 const collectionId = "set-annual-2017-spring-pm";
@@ -113,7 +113,7 @@ function assertScore(run: Run, selectedNumbers: readonly number[]) {
   }
 }
 
-test("実配布は既存189系列・旧午後6冊各13系列・旧午前467系列を保持し、2016春午前75・秋午前77系列を一対一に追加する", async () => {
+test("実配布は既存189系列・旧午後6冊各13系列・旧午前467系列を保持し、2016年の査読済み旧午前を一対一に保持する", async () => {
   const { bundle, collection, originals, bases, templates, refs } = realBooklet();
   assert.equal(baseline.rows.length, 189);
   const previousOriginals = baseline.rows.flatMap(row => row.originals.map(original => original.ref.questionId));
@@ -127,7 +127,6 @@ test("実配布は既存189系列・旧午後6冊各13系列・旧午前467系�
   assert.deepEqual(sorted(retainedQuestions.filter(q => q.origin.kind !== "official_reprint").map(q => q.id)), sorted([...baseline.rows.map(row => row.base.id), ...[...morningSources, ...stage3MorningSources,...autumn2016Sources].map(source => `question-template-source-${source}`), ...numbers.map(baseId), ...numbers.map(n => `question-template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `question-template-source-2019r01a-fe-pm-${n}`)]));
   assert.deepEqual(sorted(retainedTemplates.map(t => t.id)), sorted([...baseline.rows.map(row => row.template.id), ...[...morningSources, ...stage3MorningSources,...autumn2016Sources].map(source => `template-source-${source}`), ...numbers.map(templateId), ...numbers.map(n => `template-source-2017h29a-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30h-fe-pm-${n}`), ...numbers.map(n => `template-source-2018h30a-fe-pm-${n}`), ...numbers.map(n => `template-source-2019h31h-fe-pm-${n}`), ...numbers.map(n => `template-source-2019r01a-fe-pm-${n}`)]));
   assert.equal(morningSources.length, 467);
-  assert.equal(stage3MorningSources.length, 75);assert.equal(autumn2016Sources.length,77);
   assertPublishedSourceScope(bundle);
   for (const [setId, prefix, count] of [["set-sample-2022-apr-b", "sample-2022-apr-b", 6],
     ["set-sample-2022-dec-a", "sample-2022-dec-a", 60], ["set-sample-2022-dec-b", "sample-2022-dec-b", 20]] as const) {

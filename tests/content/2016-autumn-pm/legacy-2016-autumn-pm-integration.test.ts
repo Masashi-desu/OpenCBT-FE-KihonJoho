@@ -5,6 +5,7 @@ import {createElement as h} from 'react';
 import {renderToStaticMarkup as render} from 'react-dom/server';
 import {readDistributionBundle} from '../../../scripts/distribution-files';
 import review from '../../../scripts/source-evidence/legacy-2016-autumn-pm-source-review.json';
+import reviewedAutumnMorning from '../../../scripts/source-evidence/stage3-s3-002-review.json';
 import {autumn2016PmSets,S3_003_ASSET_PAGES,S3_003_QUESTION_SHA,S3_003_ANSWER_SHA} from '../../../scripts/legacy-2016-autumn-pm-metadata';
 import {makeAutumn2016PmRecords} from '../../../scripts/legacy-2016-autumn-pm-records';
 import {autumn2016PmPageAssetId} from '../../../src/core/generators/legacy-2016-autumn-pm-materials';
@@ -61,11 +62,11 @@ test('S3-003 source assets have exact checked bytes and exclude the whole JIS pa
  for(const q of originals){assert.deepEqual(q.prompt.blocks.flatMap(b=>b.type==='image'?[b.assetId]:[]),specs[originals.indexOf(q)].pages.map(p=>`asset-ipa-${book}-p${String(p).padStart(3,'0')}`));assert(q.prompt.attribution.rightsRefs.length);}
 });
 
-test('S3-003 year/term group selects morning77 or afternoon13 in both annual and mix modes without renaming them A/B',()=>{
+test('S3-003 year/term group selects the reviewed morning collection or afternoon13 in both annual and mix modes without renaming them A/B',()=>{
  const groups=menuSourceGroups(bundle),group=groups.find(g=>g.collections.some(c=>c.id===id))!;assert(group);assert.equal(group.title,'旧制度 · 2016年度 秋期');
  assert.deepEqual(menuSubjectOptions(group).map(o=>[o.title,o.available]),[['旧制度・午前',true],['旧制度・午後',true]]);
- assert.equal(sourceCollections(bundle,'A').find(c=>c.id==='set-annual-2016h28a-fe-am')!.questionRefs.length,77);
- for(const kind of ['annual','mix']as const){const afternoon=chooseMenuSourceGroup(groups,select(kind),group.id,'B');assert.equal(afternoon.subject,'B');const key=kind==='annual'?'sourceCollectionId':'mixProfileCollectionId';assert.equal(afternoon[key],id);assert.equal(selectQuestions(bundle,afternoon,a=>a).questions.length,13);const morning=chooseMenuSourceGroup(groups,afternoon,group.id,'A');assert.equal(morning.subject,'A');assert.equal(selectQuestions(bundle,morning,a=>a).questions.length,77);}
+ assert.equal(sourceCollections(bundle,'A').find(c=>c.id==='set-annual-2016h28a-fe-am')!.questionRefs.length,reviewedAutumnMorning.includedNumbers.length);
+ for(const kind of ['annual','mix']as const){const afternoon=chooseMenuSourceGroup(groups,select(kind),group.id,'B');assert.equal(afternoon.subject,'B');const key=kind==='annual'?'sourceCollectionId':'mixProfileCollectionId';assert.equal(afternoon[key],id);assert.equal(selectQuestions(bundle,afternoon,a=>a).questions.length,13);const morning=chooseMenuSourceGroup(groups,afternoon,group.id,'A');assert.equal(morning.subject,'A');assert.equal(selectQuestions(bundle,morning,a=>a).questions.length,reviewedAutumnMorning.includedNumbers.length);}
  assert.equal(mixProfile(bundle,select('mix')).publicCount,13);
 });
 

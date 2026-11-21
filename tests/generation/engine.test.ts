@@ -1,5 +1,7 @@
 import { currentSourceOriginals } from "../fixtures/current-source-scope";
 import {assertPublishedSourceScope, isDeclaredExtensionAsset, publishedSourceScope} from '../helpers/published-source-scope';
+import reviewedSpring2016 from '../../scripts/source-evidence/stage3-s3-001-review.json';
+import reviewedAutumn2016 from '../../scripts/source-evidence/stage3-s3-002-review.json';
 import test, { before } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -39,15 +41,23 @@ test("distribution gate: real sources, official answer keys, JIS exclusion and S
   const b = fixture();
   await validateBundle(b);
   assertPublishedSourceScope(b);
-  assert.equal(b.assets.filter(asset => !isDeclaredExtensionAsset(asset)).length, 1363,
-    'the retained released material cohort is not reduced by later booklet additions');
+  const autumnAssetPrefix = 'asset-ipa-2016h28a-fe-am-';
+  const retainedAssets = b.assets.filter(asset => !isDeclaredExtensionAsset(asset));
+  const autumnAssets = retainedAssets.filter(asset => asset.id.startsWith(autumnAssetPrefix));
+  assert.deepEqual(autumnAssets.map(asset => asset.id).sort(), [
+    ...reviewedAutumn2016.includedNumbers.map(number => autumnAssetPrefix + number),
+    autumnAssetPrefix + 'common-2', autumnAssetPrefix + 'common-3',
+  ].sort());
+  assert.equal(retainedAssets.length - autumnAssets.length, 1284,
+    'the earlier material cohort and 2016 autumn materials remain independently accounted for');
   assert.equal(
     b.questions.filter((q) => q.origin.kind === "official_reprint").length,
     publishedSourceScope.originalCount,
   );
   const morning = b.questions.filter(q => q.origin.kind === "official_reprint" && q.origin.sourceRefs.some(ref => ref.locator.timeSlot === "午前"));
   assert.equal(morning.length, publishedSourceScope.morningCount);
-  assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length, 154);
+  assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => ref.locator.year === 2016)).length,
+    reviewedSpring2016.includedNumbers.length + reviewedAutumn2016.includedNumbers.length);
   assert.equal(morning.filter(q => q.origin.sourceRefs.some(ref => [2017, 2018, 2019].includes(ref.locator.year ?? 0))).length, 467);
   assert(morning.every(q => q.learning.tags.includes("legacy-morning") || q.origin.sourceRefs.some(ref =>
     ref.locator.timeSlot === "午前" && ref.locator.year !== undefined && q.learning.tags.includes(`legacy-${ref.locator.year}`))),

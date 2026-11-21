@@ -6,6 +6,7 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { fixture } from "../fixtures";
+import reviewedAutumn2016 from '../../scripts/source-evidence/stage3-s3-002-review.json';
 import { encodeRecordPacks, compactDistribution, readDistributionBundle } from "../../scripts/distribution-files";
 import { catalogFileRecords, CATALOG_MAX_BYTES, RECORD_FILE_MAX_BYTES, PACK_MAX_RECORDS } from "../../src/core/catalog-files";
 import { readCatalog } from "../../src/core/catalog-reader";
@@ -29,7 +30,11 @@ test("generation preparation reads packed inputs, revises only the requested ser
     const stage3AM=before.templates.filter(t=>/^generator-source-2016h28h-fe-am-/.test(t.generatorRef.id));
     assert.equal(stage3AM.length,77,'the current stage3 publication is inside the preservation domain');
     const autumnAM=before.templates.filter(t=>/^generator-source-2016h28a-fe-am-/.test(t.generatorRef.id));
-    assert.equal(autumnAM.length,77,'all admitted autumn templates are inside the preservation domain');
+    assert.deepEqual(
+      autumnAM.map(template => template.generatorRef.id).sort(),
+      reviewedAutumn2016.includedNumbers.map(number => `generator-source-2016h28a-fe-am-${number}`).sort(),
+      'every reviewed autumn template is inside the preservation domain',
+    );
     assert.equal(before.questions.find(q => q.id === "question-ipa-sample-2022-apr-b-1")!.choiceShuffleAllowed, false);
     assert.equal(before.questions.find(q => q.id === "question-template-source-sample-2022-apr-b-1")!.choiceShuffleAllowed, true);
     assert(before.catalog.files.sources.every(f => f.recordCount));
