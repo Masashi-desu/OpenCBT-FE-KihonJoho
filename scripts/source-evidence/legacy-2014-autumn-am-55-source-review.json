@@ -1,0 +1,35 @@
+{
+  "collectionId": "2014h26a-fe-am",
+  "checkedOn": "2026-11-21",
+  "number": 55,
+  "page": 24,
+  "answer": "エ",
+  "area": "management",
+  "questionSHA256": "6ac3641c17dba91814f5064a6adbb0d4d3116f28fbe55bf6dd160b7dd43bd4ae",
+  "answerSHA256": "33c4523255ed2c0bad9ffc394e9a7df3d4929d78a3012d3ea3fb1b860236ca89",
+  "cropSHA256": "8f717188c61761c209867b3c677d2d73e76944373ca9fdc2cd17106a518d3b50",
+  "cropBox": [
+    48,
+    90,
+    700,
+    244
+  ],
+  "prompt": "PMBOKによれば，プロジェクトのリスクマネジメントにおいて，脅威に対して適用できる対応戦略と好機に対して適用できる対応戦略がある。脅威に対して適用できる対応戦略はどれか。",
+  "choices": [
+    "活用",
+    "強化",
+    "共有",
+    "受容"
+  ],
+  "classification": {
+    "url": "https://www.pmi.org/learning/library/effective-strategies-exploiting-opportunities-7947",
+    "title": "Effective Strategies For Exploiting Opportunities",
+    "sections": [
+      "Risk Response Planning—Current Practice",
+      "Planning for Opportunities"
+    ]
+  },
+  "rightsBoundary": "原冊子p.24の問55だけを切り出した。四肢は一般的な戦略名。PMBOK及び関連文献の定義文・表・図・例題・ロゴを同梱せず、文献は原四肢の分類の照合に参照した。公開Git・ブラウザ配信・生成にIPAの作問部分と独立解説のみを用いる。",
+  "generationReview": "脅威に適用する戦略名を四肢から一つ選ぶ形式を維持する。原条件の受容に加え、計画変更による回避、第三者への移転、発生可能性の低減を独立した本文例で問う。各事例の3つの誤答は好機の戦略。",
+  "test": "tests/content/2014-autumn-am/legacy-2014-autumn-am-54-80.test.ts"
+}

@@ -60,6 +60,7 @@
     52,
     53,
     54,
+    55,
     56,
     57,
     58,
@@ -86,12 +87,6 @@
     80
   ],
   "held": [
-    {
-      "number": 55,
-      "reason": "PMBOKガイド第4版のリスク対応戦略の分類と、選択肢の転載・改変の利用条件を確認中。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
     {
       "number": 66,
       "reason": "共通フレーム2013の要件定義プロセスの記述と、外部規格・資料との表現の境界を確認中。",
@@ -936,6 +931,20 @@
       ]
     },
     {
+      "number": 55,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2014-autumn-am/legacy-2014-autumn-am-54-80.test.ts",
+        "tests/content/2014-autumn-am/legacy-2014-autumn-am-integration.test.ts"
+      ]
+    },
+    {
       "number": 56,
       "checks": {
         "transcription": "pass",
@@ -1309,5 +1318,9 @@
       "sha256": "f516dfa5d5a7ee6d323514faadd346e2a3cd0c5b64a9fd0072ffcaca81c9481b",
       "byteLength": 899
     }
+  },
+  "additionalSupplement": {
+    "number": 55,
+    "review": "scripts/source-evidence/legacy-2014-autumn-am-55-source-review.json"
   }
 }

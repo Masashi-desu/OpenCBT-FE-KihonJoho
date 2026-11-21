@@ -28,7 +28,7 @@ function unique(item:Body, oracle:(candidate:string)=>boolean) {
   assert.deepEqual(visible.map(oracle),visible.map((_,i)=>i===item.correctIndex));
 }
 
-test('2014秋 午前問54〜80の掲載候補24問・原文・公式キー・116条件を照合する',()=>{
+test('2014秋 午前問54〜80の掲載候補25問・原文・公式キー・120条件を照合する',()=>{
   assert.deepEqual(definitions.map(d=>Number(d.source.split('-').at(-1))),review.records.map(record=>record.number));
   for(const n of review.hold)assert.equal(definitions.some(d=>d.source.endsWith('-'+n)),false);
   let cases=0;
@@ -54,7 +54,7 @@ test('2014秋 午前問54〜80の掲載候補24問・原文・公式キー・116
     assert.ok(answers.size>=2);
     for(const invalid of [[],[-1],[0.5],Array(1),[count(number)],[0,1]])assert.throws(()=>d.build(invalid));
   }
-  assert.equal(cases,116);
+  assert.equal(cases,120);
 });
 
 type Roles=Record<string,RegExp>;
@@ -308,5 +308,21 @@ test('2014秋 午前問78はロットを先頭から払い出して単価と全�
     unique(item,candidate=>Number(candidate)===correct);
     assert.deepEqual(options(item).map(Number),[correct,...others].sort((a,b)=>a-b));
     assert(Number.isSafeInteger(correct));
+  }
+});
+
+test('2014秋 午前問55は原問と三つの脅威事例で全戦略の適用条件を照合する', () => {
+  const strategiesForThreats = new Set(['回避', '転嫁', '軽減', '受容']);
+  const strategiesForOpportunities = new Set(['活用', '共有', '強化']);
+  const expected = ['受容', '回避', '転嫁', '軽減'];
+  const circumstances = [/脅威に対して適用できる/, /計画の対象から外した/, /保険会社が負担/, /故障が起きる可能性を下げる/];
+  for (const [index, criterion] of circumstances.entries()) {
+    const item = body(55, index);
+    assert.match(prompt(item), criterion);
+    const choices = options(item);
+    assert.equal(choices.filter(choice => strategiesForOpportunities.has(choice)).length, 3);
+    unique(item, choice => strategiesForThreats.has(choice));
+    assert.equal(choices[item.correctIndex!], expected[index]);
+    assert(item.explanation.includes(expected[index]));
   }
 });
