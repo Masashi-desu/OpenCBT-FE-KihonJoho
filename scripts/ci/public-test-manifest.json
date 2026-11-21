@@ -19351,6 +19351,7 @@
           "question-ipa-2004h16h-fe-pm-1",
           "question-ipa-2004h16h-fe-pm-11",
           "question-ipa-2004h16h-fe-pm-12",
+          "question-ipa-2004h16h-fe-pm-3",
           "question-ipa-2004h16h-fe-pm-5",
           "question-ipa-2004h16h-fe-pm-7",
           "question-ipa-2004h16h-fe-pm-8",
@@ -19360,6 +19361,7 @@
           "template-source-2004h16h-fe-pm-1",
           "template-source-2004h16h-fe-pm-11",
           "template-source-2004h16h-fe-pm-12",
+          "template-source-2004h16h-fe-pm-3",
           "template-source-2004h16h-fe-pm-5",
           "template-source-2004h16h-fe-pm-7",
           "template-source-2004h16h-fe-pm-8",
@@ -19371,8 +19373,8 @@
         ]
       },
       "diagnostics": [
-        "2004-spring-pm: 7 domains, 28 valid inputs, 84 initial draws, 28 draws with complete prior history; current-format domains retain all five paths.",
-        "2004-spring-pm: old afternoon: 7 domains, all 28 finite inputs, 84 initial draws on three applicable explicit routes, 28 history draws; all6 booklet selections separately retained."
+        "2004-spring-pm: 8 domains, 32 valid inputs, 96 initial draws, 32 draws with complete prior history; current-format domains retain all five paths.",
+        "2004-spring-pm: old afternoon: 8 domains, all 32 finite inputs, 96 initial draws on three applicable explicit routes, 32 history draws; all6 booklet selections separately retained."
       ]
     },
     "tests/booklets/2004-spring-pm/bookmarks.test.ts": {
@@ -19399,6 +19401,12 @@
     },
     "tests/content/2004-spring-pm/legacy-2004-spring-pm-01-05.test.ts": {
       "count": 6,
+      "scopes": [
+        "2004-spring-pm"
+      ]
+    },
+    "tests/content/2004-spring-pm/legacy-2004-spring-pm-3.test.ts": {
+      "count": 2,
       "scopes": [
         "2004-spring-pm"
       ]

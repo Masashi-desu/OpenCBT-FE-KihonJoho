@@ -7,6 +7,7 @@
   "expectedTotal": 13,
   "includedNumbers": [
     1,
+    3,
     5,
     7,
     8,
@@ -19,12 +20,6 @@
       "number": 2,
       "status": "original_answer_ambiguous",
       "reason": "原紙p.6は更新前・後のログとDBの書出しをチェックポイントで一致させ、ロールバック後は直前チェックポイントの時点まで戻すとする。p.7でTR3の処理区間はチェックポイントをまたぎ、A−500とD＋300のそれぞれの実行時刻や確定済み処理のみを同期するかは指定されない。TR3のA−500をチェックポイント後とした同期済み像はA=1,100（公式エ）であり、A−500を先に実行して同期した像はA=600（ア）になる。両方ともTR1が先にコミットし、TR3が後にコミットする。Mohanらの同時代の一次論文でもチェックポイントは活動中トランザクションを含み得る。確定取引だけを対象とする論理像に限定する根拠がないため、原題のまま保留する。",
-      "bodyPublished": false
-    },
-    {
-      "number": 3,
-      "status": "material_conditions_unconfirmed",
-      "reason": "原紙p.10の図1には民俗伝承歌の歌詞があり、翻案・採詞の出所の表示はない。1961年・1962年の書誌と後年の伝承採集研究で同題の歌は確認できるが、歌詞全体は採集地域・刊本で異なり、原紙の表現が採集資料そのものか異形の採詞かを特定できなかった。歌詞の掲載に用いる原資料・版と利用条件の確認が残るため、題材を取り換えた別問題もこの候補には含めない。原紙の37種・100文字、併合の32と57、総符号長484ビット、比率30.25%は歌詞を複製せず独立計算した。",
       "bodyPublished": false
     },
     {
@@ -89,6 +84,21 @@
       },
       "testFiles": [
         "tests/content/2004-spring-pm/legacy-2004-spring-pm-01-05.test.ts",
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
+        "tests/booklets/2004-spring-pm/random-bindings.test.ts"
+      ]
+    },
+    {
+      "number": 3,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2004-spring-pm/legacy-2004-spring-pm-3.test.ts",
         "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
         "tests/booklets/2004-spring-pm/random-bindings.test.ts"
       ]
@@ -182,6 +192,17 @@
         "tests/content/2004-spring-pm/legacy-2004-spring-pm-integration.test.ts",
         "tests/booklets/2004-spring-pm/random-bindings.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 3,
+      "sourceReview": "scripts/source-evidence/legacy-2004-spring-pm-3-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "2766ec64526e1c8f9d9a004ea85534fb504bc1c0b97334c6ed571f9116c3971e",
+        "catalogSHA256": "b0d678ac2b408e45cdaf26687c54f058fa137421094f4e20ea6ec1e511418604"
+      }
     }
   ]
 }

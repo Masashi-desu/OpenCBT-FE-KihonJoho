@@ -20,10 +20,12 @@ import { labels, refOf, type AnswerPart, type Question, type Run, type Selection
 import { AnswerChoices } from '../../../src/ui/AnswerChoices';
 import { Content } from '../../../src/ui/Content';
 
+import supplement from '../../../scripts/source-evidence/legacy-2004-spring-pm-3-source-review.json';
+
 const bundle = readDistributionBundle();
 const collection = review.collectionId;
 const setId = 'set-annual-2004-spring-pm';
-const held = review.held.map((row: { number: number }) => row.number);
+const held = review.held.map((row: { number: number }) => row.number).filter(number => number !== supplement.number);
 const published = review.questions.filter(row => !held.includes(row.number));
 const totalFields = published.reduce((count, row) => count + row.answerSlots, 0);
 const totalMarks = published.reduce((count, row) => count + row.selectionMarks, 0);
@@ -71,7 +73,7 @@ test('S3-052 keeps the 13 official majors, matches official and admitted answer 
   for (const [index, row] of published.entries()) {
     const question = original(row.number);
     assert.equal(question.origin.kind, 'official_reprint');
-    assert.equal(question.origin.isModified, false);
+    assert.equal(question.origin.isModified, row.number === supplement.number);
     assert.deepEqual(question.origin.sourceRefs.map(source => source.locator.page), row.pages);
     assert(question.origin.sourceRefs.every(source => source.locator.year === 2004
       && source.locator.period === '春期' && source.locator.timeSlot === '午後'));
@@ -115,7 +117,8 @@ test('S3-052 keeps the 13 official majors, matches official and admitted answer 
 });
 
 test('S3-052 matches the source images and routes only the required language or notation pages to each major', async () => {
-  const hashes: Record<string, string> = review.assetSHA256ByPage;
+  const hashes: Record<string, string> = { ...review.assetSHA256ByPage,
+    ...Object.fromEntries(Object.entries(supplement.pages).map(([page, item]) => [page, item.sha256])) };
   const assets = bundle.assets.filter(asset => asset.id.startsWith(`asset-ipa-${collection}-`));
   assert.deepEqual(assets.map(asset => asset.attribution.sourceRefs[0].locator.page).sort((a, b) => a! - b!), Object.keys(hashes).map(Number));
   for (const page of [1, 66, 67, 68, ...review.questions.filter(row => held.includes(row.number)).flatMap(row => row.pages)])
@@ -131,6 +134,9 @@ test('S3-052 matches the source images and routes only the required language or 
       assert(asset.path.endsWith('-casl-excerpt.webp'));
       assert.match(asset.alt, /PUSH.*POP.*CALL.*RET.*FR/);
       assert(!asset.alt.includes('JIS') && !asset.alt.includes('文字の符号表'));
+    } else if (page === 10) {
+      assert.equal(asset.attribution.origin, 'adapted');
+      assert(asset.path.endsWith('-reviewed.webp'));
     } else assert.equal(asset.attribution.origin, 'official');
   }
   const references: Record<string, number[]> = review.referencePagesByQuestion;
