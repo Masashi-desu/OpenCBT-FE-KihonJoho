@@ -289,6 +289,10 @@ test('owned reverse imports widen all consuming booklets and unknown common cons
     const distribution = fixture();
     distribution.records.questions.push(question('2015-morning', 2015, '秋期', '午前'));
     const records = own(distribution);
+    distribution.records.questions.push(question('2016-morning', 2016, '秋期', '午前'));
+    const with2016 = own(distribution);
+    assert.deepEqual(classify(['scripts/prepare-s3-002.ts'], with2016).scopes, ['2016-autumn-am']);
+    assert.equal(classify(['scripts/prepare-s3-001.ts'], with2016).profile, 'full');
     const preparation = 'scripts/prepare-legacy-2015-autumn-am.ts';
     assert.deepEqual(classify([preparation], records).scopes, ['2015-autumn-am']);
     assert.equal(classify([preparation], records).profile, 'booklets');
@@ -374,6 +378,7 @@ const expected = 80;
     assert(!dataDependentBookletManifest(wrapper, entry, successor, [{ kind: 'questions', scopes: ['2013-spring-am'] }]));
     assert(!dataDependentBookletManifest(wrapper.replace('content-contract', 'bookmarks'), entry, successor, actualChange));
     for (const [file, host] of [
+        ['src/core/generators/legacy-2016-autumn-am-41-80.ts', 'src/core/generators/stage3-morning-install.ts'],
         ['src/core/generators/legacy-2016-spring-am-57-80.ts', 'src/core/generators/stage3-morning-install.ts'],
         ['src/core/generators/legacy-2016-spring-am-57-80-study-terms.ts', 'src/core/study-terms.ts'],
     ]) {

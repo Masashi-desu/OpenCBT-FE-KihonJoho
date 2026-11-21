@@ -46,9 +46,9 @@ export function scopedDisplayImports(file, imports) {
 /** Infer only a narrowing that is justified by an explicit year/term/section.
  * Year-wide legacy modules intentionally select both terms and both sections. */
 export function scopesForOwnedPath(file, available) {
-    const initial2016Review = /^scripts\/source-evidence\/stage3-s3-00([12])-review\.json$/.exec(file);
+    const initial2016Review = /^scripts\/(?:source-evidence\/stage3-s3-00([12])-review\.json|prepare-s3-00([12])\.ts)$/.exec(file);
     if (initial2016Review) {
-        const term = initial2016Review[1] === '1' ? 'spring' : 'autumn';
+        const term = (initial2016Review[1] ?? initial2016Review[2]) === '1' ? 'spring' : 'autumn';
         return available.filter(scope => scope === `2016-${term}-am`);
     }
     const wrapper = /^tests\/booklets\/([^/]+)\/random-bindings\.test\.ts$/.exec(file);
@@ -459,6 +459,7 @@ export function retainedSourceHoldRemovalScopes(beforeText, afterText, before, a
 // Other consumers still fan out.
 const historicalBookletHosts = {
     'src/core/generators/legacy-2015-autumn-am-27-53.ts': 'src/core/generators/stage3-morning-install.ts',
+    'src/core/generators/legacy-2016-autumn-am-41-80.ts': 'src/core/generators/stage3-morning-install.ts',
     'src/core/generators/legacy-2016-spring-am-57-80.ts': 'src/core/generators/stage3-morning-install.ts',
     'src/core/generators/legacy-2016-spring-am-57-80-study-terms.ts': 'src/core/study-terms.ts',
 };
@@ -542,7 +543,8 @@ export function classifyScopedChanges({ changed, beforeOwnership, afterOwnership
             }
         }
         const owned = scopesForOwnedPath(file, available);
-        const preparation = /^scripts\/prepare-legacy-(20\d{2}-(?:spring|autumn|special)-(?:am|pm))\.ts$/.exec(file)?.[1];
+        const preparation = /^scripts\/prepare-legacy-(20\d{2}-(?:spring|autumn|special)-(?:am|pm))\.ts$/.exec(file)?.[1] ??
+            (file === 'scripts/prepare-s3-002.ts' ? '2016-autumn-am' : undefined);
         if (preparation && owned.length === 1 && owned[0] === preparation) {
             add(selected, owned);
             continue;
