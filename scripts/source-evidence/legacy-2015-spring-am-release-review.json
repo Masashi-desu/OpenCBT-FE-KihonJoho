@@ -61,6 +61,8 @@
     53,
     54,
     55,
+    56,
+    57,
     58,
     59,
     60,
@@ -85,18 +87,6 @@
     80
   ],
   "held": [
-    {
-      "number": 56,
-      "reason": "ITIL 2011 editionの可用性管理で挙げられた指標例と第三者資料との表現の境界を確認中。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
-    {
-      "number": 57,
-      "reason": "JIS Q 20000-1:2012／ISO/IEC 20000-1:2011のプロセス・活動の表現と試験独自の記述の境界を確認中。",
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false
-    },
     {
       "number": 66,
       "reason": "共通フレーム2013とJIS系の要求事項記述の表現の境界を確認中。",
@@ -956,6 +946,36 @@
       ]
     },
     {
+      "number": 56,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2015-spring-am/legacy-2015-spring-am-54-80.test.ts",
+        "tests/content/2015-spring-am/legacy-2015-spring-am-integration.test.ts",
+        "tests/booklets/2015-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
+      "number": 57,
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2015-spring-am/legacy-2015-spring-am-54-80.test.ts",
+        "tests/content/2015-spring-am/legacy-2015-spring-am-integration.test.ts",
+        "tests/booklets/2015-spring-am/content-contract.test.ts"
+      ]
+    },
+    {
       "number": 58,
       "checks": {
         "transcription": "pass",
@@ -1284,6 +1304,26 @@
         "tests/legacy-2015-spring-am-integration.test.ts",
         "tests/booklets/2015-spring-am/content-contract.test.ts"
       ]
+    }
+  ],
+  "supplements": [
+    {
+      "number": 56,
+      "sourceReview": "scripts/source-evidence/legacy-2015-spring-am-56-57-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "decc3383247dd05335c9b34c8b87bc5b3415f81000836e9292d793b5e66325d2",
+        "catalogSHA256": "98009ba13d5e21dc4f9f96f619350c06a803c75029fdbcb96c658028f0ae5b5d"
+      }
+    },
+    {
+      "number": 57,
+      "sourceReview": "scripts/source-evidence/legacy-2015-spring-am-56-57-source-review.json",
+      "normalApp": {
+        "status": "pass",
+        "sha256": "decc3383247dd05335c9b34c8b87bc5b3415f81000836e9292d793b5e66325d2",
+        "catalogSHA256": "98009ba13d5e21dc4f9f96f619350c06a803c75029fdbcb96c658028f0ae5b5d"
+      }
     }
   ]
 }

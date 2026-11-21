@@ -388,9 +388,11 @@ Stage2の第5冊として全13大問の原問題・基準問題・生成器を�
 
 ### 第3段階 S3-007 2015年度春期・旧午前
 
-2015年4月19日の旧制度・午前は80問・150分。分野区分は原冊子の問1〜51がテクノロジ、問52〜61がマネジメント、問62〜80がストラテジ。原問番号と解答順を維持し、利用条件と内容を確認した77問を年度別・ミックスに収録する。[IPA 平成27年度 春期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2015h27.html)
+2015年4月19日の旧制度・午前は80問・150分。分野区分は原冊子の問1〜51がテクノロジ、問52〜61がマネジメント、問62〜80がストラテジ。原問番号と解答順を維持し、初回77問と追加の問56・57を合わせた79問を年度別・ミックスに収録する。[IPA 平成27年度 春期 基本情報技術者試験](https://www.ipa.go.jp/shiken/mondai-kaiotu/2015h27.html)
 
-原画像は各問の本文・図表・四択と共通表記p.2–3に限定する。冊子に示された規格名と版、論理回路の図記号と反転の注記を保持する。問56・57・66は外部教材や規格に由来する表現の利用条件を確認するまで、原画像・本文・生成器を掲載対象から外す。素材・出典の照合値と保留理由は `scripts/source-evidence/legacy-2015-spring-am-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html)
+原画像は各問の本文・図表・四択と共通表記p.2–3に限定する。冊子に示された規格名と版、論理回路の図記号と反転の注記を保持する。問66は外部教材や規格に由来する表現の利用条件を確認中のため保留する。素材・出典の照合値と保留理由は `scripts/source-evidence/legacy-2015-spring-am-source-review.json` に記録する。[IPA 試験の過去問題の使用方法](https://www.ipa.go.jp/shiken/faq.html)
+
+問56はITILの四つの指標名、問57はインシデント処理の四つの活動名を照合した。原冊子p.28と解答例のウ・アを保持し、用語集とガイドは事実確認に参照する。配布には用語集の定義やガイドの手続図を含めない。照合は `scripts/source-evidence/legacy-2015-spring-am-56-57-source-review.json` に記録する。 [ITIL 2011用語集](https://s3.amazonaws.com/Quint.Redwood/Foundation/ITIL_2011_English_glossary_v1.0.pdf#page=47) [JIPDEC 2012版ガイド PDF p.94](https://www.jipdec.or.jp/archives/publications/JIP-ITSMS111-20.pdf#page=94)
 
 ### 第3段階 S3-008 2015年度春期・旧午後
 

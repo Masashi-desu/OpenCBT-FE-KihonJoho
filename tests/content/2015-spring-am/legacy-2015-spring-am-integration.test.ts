@@ -4,7 +4,6 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { fixture, installFixtureGenerators } from '../../fixtures';
 import official from '../../fixtures/legacy-2015-spring-am-official-answers.json';
-import review from '../../../scripts/source-evidence/legacy-2015-spring-am-source-review.json';
 import { sourceExclusions, sourceScope } from '../../../scripts/source-inventory';
 import { bookmarkTemplate, makeBookmark } from '../../../src/core/bookmarks';
 import { contentHash } from '../../../src/core/hash';
@@ -24,7 +23,7 @@ import { SourceFigure } from '../../../src/ui/SourceFigure';
 
 const collection = official.collectionId;
 const setId = `set-annual-${collection}`;
-const held = review.held.map(row => row.number);
+const held = official.records.filter(row => Object.hasOwn(sourceExclusions, `${collection}-${row.number}`)).map(row => row.number);
 const published = official.records.filter(row => !held.includes(row.number));
 const originalId = (n: number) => `question-ipa-${collection}-${n}`;
 const config = (kind: 'annual' | 'mix'): Selection => ({ subject: 'A', kind, mode: 'practice', size: 'public',
@@ -104,7 +103,7 @@ test('S3-007 uses its year and period, the admitted count and the official 150-m
   }
 });
 
-test('S3-007 keeps search, bookmark identity and original numbering across the three publication gaps', () => {
+test('S3-007 keeps search, bookmark identity and original numbering across any publication gaps', () => {
   const bundle = fixture();
   const originals = searchableQuestions(bundle).filter(question => question.id.startsWith(`question-ipa-${collection}-`));
   assert.deepEqual(originals.map(question => question.id).sort(), published.map(row => originalId(row.number)).sort());

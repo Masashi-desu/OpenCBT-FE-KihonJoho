@@ -25,7 +25,7 @@ const graph = [
   ['first', 'third', 'F'], ['third', 'fourth', 'D'], ['second', 'fourth', 'H'], ['fourth', 'end', 'I'],
 ] as const;
 
-test('2015春 午前54〜80の掲載候補24問と101入力の原文・四択・公式キーを照合する', () => {
+test('2015春 午前54〜80の掲載候補26問と109入力の原文・四択・公式キーを照合する', () => {
   assert.deepEqual(definitions.map(value => Number(value.source.split('-').at(-1))), review.questions.map(value => value.number));
   for (const held of review.holds) assert.equal(definitions.some(value => value.source.endsWith('-' + held)), false);
   let cases = 0;
@@ -52,7 +52,7 @@ test('2015春 午前54〜80の掲載候補24問と101入力の原文・四択・
     assert.ok(signatures.size >= 2, 'must be able to avoid the last correct answer Q' + number);
     for (const invalid of [[], [-1], [0.5], Array(1), [0, 0], [maximum(number) + 1]]) assert.throws(() => authored.build(invalid));
   }
-  assert.equal(cases, 101);
+  assert.equal(cases, 109);
 });
 
 type Labels = Record<string, RegExp>;
@@ -66,6 +66,36 @@ const knowledge: Record<number, { targets: Labels; alternatives: Labels }> = {
   55: {
     targets: { operation: /運用者が優先/, business: /利用者が優先/ },
     alternatives: { operation: /運用手順/, business: /業務手順/, software: /仕様/, speed: /性能|目標処理時間/ },
+  },
+  // The metric's measurement window, rather than the generator's key or choice position, determines its meaning.
+  56: {
+    targets: {
+      frequency: /頻度が下がった.*同じ長さの観測期間/,
+      runUntilFailure: /復旧後から次に障害が発生.*連続して動作/,
+      timeToRestore: /保守性を表す指標値の短縮/,
+      failureToFailure: /障害が起きた時点から次の障害が起きた時点.*復旧に要した時間も含め/,
+    },
+    alternatives: {
+      frequency: /^一定期間内での中断の数$/,
+      runUntilFailure: /^平均故障間隔$/,
+      timeToRestore: /^平均サービス回復時間$/,
+      failureToFailure: /^平均サービス・インシデント間隔$/,
+    },
+  },
+  // The original asks for the start of handling. In variants the completed stages and the local rule identify the next activity.
+  57: {
+    targets: {
+      record: /^ITサービスマネジメント.*インシデントに対して最初/,
+      transfer: /受付番号，対象サービスのカテゴリ，ほかの案件との対応順が確定.*専門担当に処置を委ねる/,
+      categorize: /受付番号を付け，症状を台帳に入力した.*判断する前に.*案件を扱う区分を決める/,
+      prioritize: /受付番号が発行され，対象サービスのカテゴリも確定.*利用者への影響と復旧期限から.*対応順を決めてから/,
+    },
+    alternatives: {
+      record: /^記録$/,
+      transfer: /^段階的取扱い$/,
+      categorize: /^分類$/,
+      prioritize: /^優先度の割当て$/,
+    },
   },
   58: {
     targets: { lifecycle: /TCO/, development: /プログラムを完成させる/, setup: /完成済み.*初期設定/, network: /拠点間回線やルータ/ },
@@ -173,8 +203,8 @@ const knowledge: Record<number, { targets: Labels; alternatives: Labels }> = {
   },
 };
 
-test('2015春 午前の知識21問は各入力の全択を別の分類条件で検証する', () => {
-  assert.equal(Object.keys(knowledge).length, 21);
+test('2015春 午前の知識23問は各入力の全択を別の分類条件で検証する', () => {
+  assert.equal(Object.keys(knowledge).length, 23);
   for (const [number, { targets, alternatives }] of Object.entries(knowledge)) {
     const q = Number(number);
     for (let index = 0; index <= maximum(q); index++) {
@@ -185,6 +215,20 @@ test('2015春 午前の知識21問は各入力の全択を別の分類条件で�
         return expected === 'external' ? actual === 'opportunity' || actual === 'threat' : actual === expected;
       });
       assert.deepEqual(marks, options(generated).map((_, position) => position === generated.correctIndex), q + '/' + index);
+      if (q === 56 || q === 57) {
+        const explanationTerms: Record<string, RegExp> = {
+          frequency: /期間.*何度サービスが中断/,
+          runUntilFailure: /状態から次に故障するまで/,
+          timeToRestore: /障害からサービスを回復させるまで/,
+          failureToFailure: /障害発生から次の発生まで.*回復させる時間と/,
+          record: /最初に発生状況を記録/,
+          transfer: /処置できない案件を専門担当に引き継ぐ/,
+          categorize: /区分を決める活動は分類/,
+          prioritize: /復旧期限を材料に対応順を決める/,
+        };
+        assert.match(generated.explanation, explanationTerms[expected]);
+        assert.match(stem(generated), q === 56 ? /指標.*どれか。$/ : /最初に実施する活動はどれか。$/);
+      }
       if (q === 65) assert.match(stem(generated), /ここで，ソリューションとは.*プロフェッショナルサービスを通して支援する/);
       if (q === 79 || q === 80) {
         if (index === 0) assert.match(generated.explanation, /2015年当時/);

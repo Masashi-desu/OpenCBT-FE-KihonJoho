@@ -2,8 +2,6 @@
   "sourceQuestionSha256": "64a598d846041dbcf90b4646aef1407ac31173dc2f60c91ce5393e9019834f54",
   "sourceAnswerSha256": "c0c40c0860ba769528ad6db9cb8a0fda655878f860c64e97e02c0782ccd13c44",
   "holds": [
-    56,
-    57,
     66
   ],
   "questions": [
@@ -21,6 +19,22 @@
       "key": "イ",
       "statementHash": "bb5abfc9292447f077cff3f1eceedaa95a0befa2591f3ea2decf12e6d14561d2",
       "check": "運用手順の遂行、実際の業務手順、個別プログラム仕様、性能の四責任を分類し、利用者の優先事項が一意にイとなることを査読する。",
+      "reused": "new-native"
+    },
+    {
+      "number": 56,
+      "page": 28,
+      "key": "ウ",
+      "statementHash": "2be8ff5818876bc08bab5e25f615bae96be5604a8dfcd4a44dbfddc454226d8f",
+      "check": "件数、稼働開始から故障まで、故障からサービス回復まで、故障発生から次の発生までの四つの観点を区別する。ITIL用語集2011年版p.47–48と原解答を対応付け、原問と三つの条件の全択を独立分類する。",
+      "reused": "new-native"
+    },
+    {
+      "number": 57,
+      "page": 28,
+      "key": "ア",
+      "statementHash": "1901f66f215a394e3244dfce2c0929f32c1f7fa287810ffa3b4fc8c1e2e14066",
+      "check": "受付直後の記録を他の取扱いと区別する。生成では完了した作業と当該組織の運用順序を本文で示し、分類・優先付け・専門担当への移管が最初になる条件を独立分類する。",
       "reused": "new-native"
     },
     {
@@ -189,7 +203,11 @@
       "key": "エ",
       "statementHash": "546975b773d23912795172e72a88c4dc8b28be909d92daf94917fe9c61b9e6ec",
       "check": "作成・転送・提供・保管それぞれで、実行させる目的、ウイルスと知っているか、正当な理由を照合。エの悪意ある保管を選ぶ。刑法168条の2・3と法務省の当時資料を参照し、事例の法的断定を原条件の外へ広げない。",
-      "references": ["https://laws.e-gov.go.jp/document?lawid=140AC0000000045_20250601_505AC0000000028", "https://www.moj.go.jp/content/001267498.pdf", "https://www.moj.go.jp/content/001267488.pdf"],
+      "references": [
+        "https://laws.e-gov.go.jp/document?lawid=140AC0000000045_20250601_505AC0000000028",
+        "https://www.moj.go.jp/content/001267498.pdf",
+        "https://www.moj.go.jp/content/001267488.pdf"
+      ],
       "reused": "related-concept"
     },
     {
@@ -198,7 +216,11 @@
       "key": "ア",
       "statementHash": "4636d28e49deecd41981ac76a9c5047277666404ba130aab316975d6c44517d9",
       "check": "JISC、IEEE、電気規格調査会、電子情報技術産業協会を規格の審議と制定・発行の役割で照合。現行の認定機関経路を原問の2015年へ遡及しない。",
-      "references": ["https://www.jisc.go.jp/jisc/index.html", "https://www.meti.go.jp/policy/economy/hyojun-kijun/jisho/jis.html", "https://www.meti.go.jp/policy/economy/hyojun-kijun/keihatsu/hyosho/interview/R04fy/20221024-12.html"],
+      "references": [
+        "https://www.jisc.go.jp/jisc/index.html",
+        "https://www.meti.go.jp/policy/economy/hyojun-kijun/jisho/jis.html",
+        "https://www.meti.go.jp/policy/economy/hyojun-kijun/keihatsu/hyosho/interview/R04fy/20221024-12.html"
+      ],
       "reused": "new-native"
     }
   ]
