@@ -1,0 +1,33 @@
+{
+  "collectionId": "2016h28a-fe-am",
+  "checkedOn": "2026-11-21",
+  "number": 57,
+  "page": 27,
+  "answer": "エ",
+  "area": "management",
+  "questionSHA256": "e288f1f0d8f8287702bbbba0b00643b0c24bfdb92660172806bbe137e93df7e5",
+  "answerSHA256": "7ed521a518b3d9d04a27cda699a0b29de9f911eb569fdb3cb6bf1ba39589bf90",
+  "cropSHA256": "99dabcdbca1ed937a76eb6c7619e00424ce1a05409a2b5f3472fc9bfe47baf96",
+  "cropBox": [
+    171,
+    920,
+    1494,
+    585
+  ],
+  "prompt": "ITILでは，可用性管理における重要業績評価指標（KPI）の例として，保守性を表す指標値の短縮を挙げている。この指標に該当するものはどれか。",
+  "choices": [
+    "一定期間内での中断の数",
+    "平均故障間隔",
+    "平均サービス・インシデント間隔",
+    "平均サービス回復時間"
+  ],
+  "glossary": {
+    "url": "https://s3.amazonaws.com/Quint.Redwood/Foundation/ITIL_2011_English_glossary_v1.0.pdf",
+    "page": "47–48",
+    "sha256": "087be7914ac1442b108b02a95640e23c11d93a7d4c962c78de3649e8372f8d93",
+    "termsURL": "https://www.peoplecert.org/Organizations/Services/third-party-product-licensing-service"
+  },
+  "rightsBoundary": "IPA原冊子の問57だけを切り出した。ITILの出典名・四肢の短い指標名を、用語集の定義・表・図・ロゴから分離した。用語集は事実照合に参照し、原画像・ブラウザ配信・版管理・生成版に用語集本文を収録しない。",
+  "generationReview": "指標名を選ぶ四択を維持する。観察を始める時点・終える時点又は観察する量を変え、復旧時間・正常稼働時間・インシデント間隔・中断件数を区別する。原冊子と解答例、独立した四役割を全条件で照合する。",
+  "test": "tests/content/2016-autumn-am/legacy-2016-autumn-am-41-80.test.ts"
+}

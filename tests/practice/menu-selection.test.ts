@@ -132,7 +132,7 @@ test("legacy menu choices group AM/PM by year and period while issuing each exac
   const actualBooklets = legacy.filter(group => !synthetic.includes(group));
   assert.equal(actualBooklets.length, 8);
   assert.deepEqual(actualBooklets.map(group => [group.year, group.period, group.collections[0].questionRefs.length]), [
-    [2019, "秋期", 78], [2019, "春期", 77], [2018, "秋期", 78], [2018, "春期", 77], [2017, "秋期", 79], [2017, "春期", 78], [2016, "秋期", 77], [2016, "春期", 77],
+    [2019, "秋期", 78], [2019, "春期", 77], [2018, "秋期", 78], [2018, "春期", 77], [2017, "秋期", 79], [2017, "春期", 78], [2016, "秋期", 78], [2016, "春期", 77],
   ]);
   const pairedBooklets=actualBooklets.filter(group=>group.collections.length===2);
   assert.equal(pairedBooklets.length,8);

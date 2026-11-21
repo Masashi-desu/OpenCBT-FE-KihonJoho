@@ -5,7 +5,7 @@ import {autumn2016Am4180Cases as cases,autumn2016Am4180OriginalExplanations as o
 import {autumn2016Am4180Profiles as profiles,autumn2016Am4180FigureAlt as alt} from './legacy-2016-autumn-am-41-80-figures';
 type Source=typeof originals[number];type ChoiceCase=[string,string[],number,string];
 const knowledge=knowledgeRows as unknown as Record<string,ChoiceCase[]>;
-export const legacy2016AutumnAm4180HeldNumbers=[55,56,57] as const;
+export const legacy2016AutumnAm4180HeldNumbers=[55,56] as const;
 export const legacy2016AutumnAm4180IncludedNumbers=originals.map(x=>x.number);
 const figureBlock=(profile:string,values:number[],caption:string)=>{const b=figure(profile,values,caption,alt(profile,values));return b.type==='diagram'?{...b,captionPresentation:'accessible' as const}:b;};
 const fmt=(v:number)=>v.toLocaleString('en-US');
@@ -15,6 +15,16 @@ function build(src:Source,index:number):GeneratedBody{
  let prompt=src.prompt,choices=[...src.choices],correctIndex='アイウエ'.indexOf(src.key),explanation='';let extra:ReturnType<typeof p>[]=[];
  if(knowledge[n]){
   const q=knowledge[n][index?index-1:0];if(index){[prompt,choices,correctIndex,explanation]=q;}else explanation=originalExplanations[n];
+ }
+ if(n===57){
+  const scenarios = [
+   [src.prompt, 3],
+   ['ITILの可用性管理で，サービスが正常に稼働し始めてから，次の故障で機能を失うまでの時間を平均した。この指標に該当するものはどれか。', 1],
+   ['ITILの可用性管理で，一つのサービスの故障が発生してから，復旧を経て次の故障が発生するまでを一つの区間として時間を平均した。この指標に該当するものはどれか。', 2],
+   ['ITILの可用性管理で，月ごとの改善を比較するため，期間内にサービスが利用できなくなった事象を1件ずつ集計した。この指標に該当するものはどれか。', 0],
+  ] as const;
+  [prompt, correctIndex] = scenarios[index];
+  explanation = choices[correctIndex] + 'が該当する。平均サービス回復時間は障害発生から利用可能な状態に戻るまでを測る。平均故障間隔は正常稼働を開始してから次の故障まで、平均サービス・インシデント間隔は故障から次の故障までを測る。中断の数は観測期間内の件数である。';
  }
  if(n===48){const[lo,split,hi]=cases.boundary[index];if(index)prompt=`整数${fmt(lo)}～${fmt(hi)}を有効とする入力値が，${fmt(lo)}～${fmt(split)}の場合は処理Aを，${fmt(split+1)}～${fmt(hi)}の場合は処理Bを実行する入力処理モジュールを，同値分割法と境界値分析によってテストする。次の条件でテストするとき，テストデータの最小個数は幾つか。`;extra=[p('〔条件〕'),list(src.steps!,true)];correctIndex=3;explanation=`境界は無効側も含めて${lo-1}，${lo}，${split}，${split+1}，${hi}，${hi+1}の6値である。さらに二つの有効同値クラスそれぞれから，境界ではない代表値を一つずつ選ぶ。合計は6＋2＝8個。境界値だけの6個や，代表値を片方だけ加える7個では条件を満たさない。`;}
  if(n===54){const w=cases.staff[index],heads=w.map((x,i)=>200*x/100/(10*[.2,.3,.4,.1][i]));extra=[table('工程別の工数配分と期間配分',src.table!.columns,[['工数配分（%）',...w.map(String)],...src.table!.rows.slice(1)])];choices=[heads[3],20,heads[2],heads[1]].map(String);correctIndex=choices.indexOf(String(Math.max(...heads)));explanation=`各工程の要員数は配分工数÷配分期間であり，順に${heads.join('，')}人となる。開始から終了まで一定という条件なので最大の${Math.max(...heads)}人がピークである。全体平均20人や，ピーク以外の工程の要員数を選ばない。`;}

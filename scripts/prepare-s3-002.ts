@@ -22,7 +22,7 @@ export function autumn2016ReviewedFacts():Stage3MorningFact[]{
   assert.equal(facts.officialTargets,80);assert.deepEqual(facts.rows.map(r=>r.number),Array.from({length:80},(_,i)=>i+1));
   assert.deepEqual(facts.materialHeldNumbers,held);assert.deepEqual(sourceReview.materials.eligibleNumbers,numbers);
   assert.deepEqual(sourceReview.materials.heldNumbers,held);assert.equal(facts.materialEligibleCount,77);
-  assert.deepEqual(stage3AutumnMorningDefinitions.map(d=>d.source),numbers.map(n=>collection+'-'+n));
+  assert.deepEqual(stage3AutumnMorningDefinitions.filter(d=>numbers.includes(Number(d.source.split('-').at(-1)))).map(d=>d.source),numbers.map(n=>collection+'-'+n));
   for(const row of facts.rows.filter(r=>held.includes(r.number)))assert.equal(row.bodyIncluded,false,'held text cannot enter the source fixture');
   return facts.rows.filter(r=>numbers.includes(r.number)).map(row=>{
     assert(row.bodyIncluded&&row.status==='eligible_materials_reviewed'&&row.crop&&row.fullAlt,'reviewed literal source row');

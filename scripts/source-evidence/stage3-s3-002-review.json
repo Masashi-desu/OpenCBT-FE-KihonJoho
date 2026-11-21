@@ -141,6 +141,7 @@
     52,
     53,
     54,
+    57,
     58,
     59,
     60,
@@ -177,12 +178,6 @@
       "status": "material_conditions_unconfirmed",
       "bodyPublished": false,
       "reason": "JIS Q20000-1:2012のPlan等の具体的活動を挙げる本文・選択肢について、規格内容の引用・転載・改変を認める条件が未確認。規格番号への言及だけとは区別する。"
-    },
-    {
-      "number": 57,
-      "status": "material_conditions_unconfirmed",
-      "bodyPublished": false,
-      "reason": "ITIL2011が挙げる可用性管理のKPI例の構成・表現について、一般概念・短語と第三者表現の範囲の切分け及び本アプリでの利用条件の確認が未完了。"
     }
   ],
   "unprepared": [],
@@ -1246,6 +1241,24 @@
       ]
     },
     {
+      "number": 57,
+      "originalId": "question-ipa-2016h28a-fe-am-57",
+      "baseId": "question-template-source-2016h28a-fe-am-57",
+      "templateId": "template-source-2016h28a-fe-am-57",
+      "generatorId": "generator-source-2016h28a-fe-am-57",
+      "checks": {
+        "transcription": "pass",
+        "rights": "pass",
+        "originalSemantics": "pass",
+        "generatorSemantics": "pass",
+        "rendering": "pass"
+      },
+      "testFiles": [
+        "tests/content/2016-autumn-am/legacy-2016-autumn-am-41-80.test.ts",
+        "tests/content/2016-autumn-am/stage3-2016-autumn-am-integration.test.ts"
+      ]
+    },
+    {
       "number": 58,
       "originalId": "question-ipa-2016h28a-fe-am-58",
       "baseId": "question-template-source-2016h28a-fe-am-58",
@@ -1684,8 +1697,14 @@
     }
   ],
   "limits": [
-    "77 eligible questions are source/material/content/App accepted; fixed actual guard, full F/C checks, CI/live/publication remain separate.",
-    "All80 obligations and holds55–57 remain; global67/3062 scope is not complete.",
+    "The initial 77 eligible questions retain their original review; the supplement has its own source and content record.",
+    "All 80 obligations remain with holds 55 and 56.",
     "Static/pure metadata never replaces actual filesystem admission and actual release evidence."
+  ],
+  "supplements": [
+    {
+      "number": 57,
+      "sourceReview": "scripts/source-evidence/legacy-2016-autumn-am-57-source-review.json"
+    }
   ]
 }

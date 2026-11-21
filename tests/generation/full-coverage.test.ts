@@ -108,7 +108,7 @@ test("source figure profiles match Schema and reject wrong shapes and parameter 
   );
   assert.equal(stage3MorningDefinitions.length,77);
   assert.equal(stage3AllMorningDefinitions.filter(definition =>
-    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 154);
+    isStage3Source(definition.source) || isAutumn2016Source(definition.source)).length, 155);
   assert.deepEqual(stage3AllMorningDefinitions.filter(definition => isAutumn2015Source(definition.source)).map(definition => definition.source),
     autumn2015Official.records.filter(row => !Object.hasOwn(sourceExclusions, `${autumn2015Official.collectionId}-${row.number}`))
       .map(row => `${autumn2015Official.collectionId}-${row.number}`));
@@ -218,14 +218,14 @@ test("installed registry adds 77 spring 2016 families with all 713 reviewed fini
     assert.equal(d.answerVariation === "fixed",stage3FixedSignatures.has(n));
   }
 });
-test("installed registry adds exactly77 autumn2016 families with all450 independent finite conditions and keeps spring 2016 separate",()=>{
-  const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56,57].includes(n)).map(n=>'2016h28a-fe-am-'+n);
-  assert.equal(autumn2016FirstReview.rows.length,40);assert.equal(autumn2016LastReview.questions.length,37);
+test("installed registry adds exactly78 autumn2016 families with all454 independent finite conditions and keeps spring 2016 separate",()=>{
+  const expected=Array.from({length:80},(_,i)=>i+1).filter(n=>![55,56].includes(n)).map(n=>'2016h28a-fe-am-'+n);
+  assert.equal(autumn2016FirstReview.rows.length,40);assert.equal(autumn2016LastReview.questions.length,38);
   assert.equal(autumn2016FirstReview.rows.reduce((n,r)=>n+r.finiteInputs,0),236);
-  assert.equal(autumn2016LastReview.questions.reduce((n,r)=>n+r.variableDesign.finiteConditions,0),205);
-  assert.equal(autumn2016Counts.size,77);assert.deepEqual([...autumn2016Counts.keys()],expected);
-  assert.equal([...autumn2016Counts.values()].reduce((a,b)=>a+b,0),450);assert.equal(autumn2016FixedSignatures.size,9);
-  const admitted=additionalDefinitions.filter(d=>isAutumn2016Source(d.source));assert.equal(admitted.length,77);
+  assert.equal(autumn2016LastReview.questions.reduce((n,r)=>n+r.variableDesign.finiteConditions,0),209);
+  assert.equal(autumn2016Counts.size,78);assert.deepEqual([...autumn2016Counts.keys()],expected);
+  assert.equal([...autumn2016Counts.values()].reduce((a,b)=>a+b,0),454);assert.equal(autumn2016FixedSignatures.size,9);
+  const admitted=additionalDefinitions.filter(d=>isAutumn2016Source(d.source));assert.equal(admitted.length,78);
   assert.deepEqual(admitted.map(d=>d.source).sort(),[...expected].sort());
   assert.deepEqual(stage3AllMorningDefinitions.filter(d=>isAutumn2016Source(d.source)).map(d=>d.source),expected);
   for(const d of admitted){const n=Number(d.source.split('-').at(-1)),count=autumn2016Counts.get(d.source)!;

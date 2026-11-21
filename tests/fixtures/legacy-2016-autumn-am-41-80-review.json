@@ -782,6 +782,56 @@
       }
     },
     {
+      "number": 57,
+      "title": "ITILの可用性管理の指標",
+      "prompt": "ITILでは，可用性管理における重要業績評価指標（KPI）の例として，保守性を表す指標値の短縮を挙げている。この指標に該当するものはどれか。",
+      "choices": [
+        "一定期間内での中断の数",
+        "平均故障間隔",
+        "平均サービス・インシデント間隔",
+        "平均サービス回復時間"
+      ],
+      "key": "エ",
+      "page": 27,
+      "officialKey": "エ",
+      "crop": {
+        "byteLength": 287448,
+        "cropBox": [
+          171,
+          920,
+          1494,
+          585
+        ],
+        "height": 585,
+        "number": 57,
+        "path": "crops/q57.png",
+        "pdfPage": 27,
+        "renderHeight": 2546,
+        "renderWidth": 1800,
+        "width": 1494,
+        "sha256": "99dabcdbca1ed937a76eb6c7619e00424ce1a05409a2b5f3472fc9bfe47baf96"
+      },
+      "fullAlt": "ITILでは，可用性管理における重要業績評価指標（KPI）の例として，保守性を表す指標値の短縮を挙げている。この指標に該当するものはどれか。\nア 一定期間内での中断の数\nイ 平均故障間隔\nウ 平均サービス・インシデント間隔\nエ 平均サービス回復時間",
+      "sourceFormatReviewed": true,
+      "notesReviewed": "原画像の本文と4肢・注記の有無を照合。規格の文章・図表は含まない。",
+      "variableDesign": {
+        "finiteConditions": 4,
+        "referenceCondition": 0,
+        "sourceFormat": "肯定の設問・四肢の短い指標名・単一選択を保持。",
+        "quality": "計測区間と観察量で四指標を区別する。",
+        "priorHistoryCapacity": "4入力、4正答本文。",
+        "revision": "初回配布3.2.0"
+      },
+      "statuses": {
+        "source": "image_reviewed",
+        "material": "short_metric_names",
+        "generator": "all_finite_cases_tested",
+        "independent": "independent_all_four_choices_pass",
+        "display": "all_finite_SSR_pass",
+        "normalApp": "root_pending"
+      }
+    },
+    {
       "number": 58,
       "page": 27,
       "title": "安全性の監査",
@@ -2026,18 +2076,6 @@
     {
       "number": 56,
       "reason": "JIS Q20000-1に依拠する具体的な活動表現の転載/改変条件未確認。",
-      "statuses": {
-        "material": "held_unconfirmed",
-        "source": "private_only",
-        "generator": "not_distributed",
-        "independent": "not_admitted",
-        "display": "not_admitted",
-        "normalApp": "not_registered"
-      }
-    },
-    {
-      "number": 57,
-      "reason": "ITIL可用性管理の指標例に関する具体的表現の用途別再利用条件未確認。",
       "statuses": {
         "material": "held_unconfirmed",
         "source": "private_only",

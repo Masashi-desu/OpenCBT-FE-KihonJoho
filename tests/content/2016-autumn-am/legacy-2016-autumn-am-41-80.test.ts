@@ -14,17 +14,38 @@ import {autumn2016Am4180Knowledge as knowledge,assertAutumn2016Knowledge,autumn2
 const numberOf=(s:string)=>Number(s.split('-').at(-1));
 const graph=(block:Block)=>{assert(block.type==='diagram'&&block.scene.kind==='source_figure');return render(h(Legacy2016AutumnAm4180Figures,{scene:block.scene,caption:block.caption}));};
 function ocCorrect(markup:string){const curves=[...markup.matchAll(/<polyline\b([^>]*)>/g)].map(m=>{const attrs=m[1],c=attrs.match(/data-c="(\d+)"/),p=attrs.match(/points="([^"]+)"/);assert(c&&p);return{c:+c[1],points:p[1].split(' ').map(s=>s.split(',').map(Number))};}).sort((a,b)=>a.c-b.c);assert.equal(curves.length,3);assert.equal(new Set(curves.map(x=>x.c)).size,3);return curves.slice(1).every((current,i)=>current.points.every(([x,y],j)=>{const[px,py]=curves[i].points[j];assert(Math.abs(x-px)<1e-9);return y<=py+1e-9;}));}
-function truths(n:number,i:number,b:GeneratedBody){if(String(n) in knowledge.questions)return assertAutumn2016Knowledge(n,i,b);if(n===77)return b.choices.map(bs=>ocCorrect(graph(bs[0])));return autumn2016QuantitativeTruth(n,b);}
+const metricMeanings = new Map([
+ ['一定期間内での中断の数', 'count'],
+ ['平均故障間隔', 'work-to-failure'],
+ ['平均サービス・インシデント間隔', 'failure-to-failure'],
+ ['平均サービス回復時間', 'failure-to-recovery'],
+]);
+const observationByCase = [
+ [/保守性を表す指標値の短縮/, 'failure-to-recovery'],
+ [/正常に稼働し始めてから，次の故障/, 'work-to-failure'],
+ [/故障が発生してから，復旧を経て次の故障/, 'failure-to-failure'],
+ [/期間内にサービスが利用できなくなった事象を1件ずつ集計/, 'count'],
+] as const;
+function truths(n:number,i:number,b:GeneratedBody){if(n===57){
+ const observed = observationByCase.filter(([pattern])=>pattern.test(bodyText(b.prompt)));
+ assert.equal(observed.length,1);
+ assert.equal(observed[0],observationByCase[i]);
+ return b.choices.map(blocks=>{
+  const meaning=metricMeanings.get(bodyText(blocks));
+  assert(meaning);
+  return meaning===observed[0][1];
+ });
+}if(String(n) in knowledge.questions)return assertAutumn2016Knowledge(n,i,b);if(n===77)return b.choices.map(bs=>ocCorrect(graph(bs[0])));return autumn2016QuantitativeTruth(n,b);}
 function inspect(n:number,i:number,b:GeneratedBody){const t=truths(n,i,b);assert.equal(t.length,4);assert.equal(t.filter(Boolean).length,1,`${n}/${i}: unique semantic answer`);assert.equal(b.correctIndex,t.indexOf(true));assert(b.explanation.length>55,`${n}/${i}: explanation`);assert.equal(new Set(b.choices.map(bs=>JSON.stringify(bs))).size,4);return t;}
 
-test('all40 obligations retain37 candidates and3 explicit material holds; original condition0 matches complete source and official keys',()=>{
- assert.deepEqual([...facts.questions.map(q=>q.number),...facts.held.map(q=>q.number)].sort((a,b)=>a-b),Array.from({length:40},(_,i)=>41+i));assert.deepEqual([...held],[55,56,57]);assert.equal(definitions.length,37);
+test('all40 obligations retain38 candidates and2 explicit material holds; original condition0 matches complete source and official keys',()=>{
+ assert.deepEqual([...facts.questions.map(q=>q.number),...facts.held.map(q=>q.number)].sort((a,b)=>a-b),Array.from({length:40},(_,i)=>41+i));assert.deepEqual([...held],[55,56]);assert.equal(definitions.length,38);
  const official='イアエアウエエエウエアアイエアイエアイアウエアイウウエエアイエウエエウイイエアア';assert.equal(official.length,40);
  for(const d of definitions){const n=numberOf(d.source),s=facts.questions.find(q=>q.number===n)!;assert(s);const b=d.build([0]);assert.equal(d.sourceAnswer,official[n-41]);assert.equal(s.officialKey,d.sourceAnswer);assert.equal(b.correctIndex,'アイウエ'.indexOf(d.sourceAnswer));assert.equal(bodyText([b.prompt[0]]),s.prompt);assert.deepEqual(d.reference,[0]);if(n!==77)assert.deepEqual(b.choices.map(bodyText),s.choices);assert(s.fullAlt.includes(s.prompt));assert.equal(s.crop.sha256.length,64);assert(s.crop.width>1000&&s.crop.height>150);if('table' in s){const actual=b.prompt.find(x=>x.type==='table');assert(actual?.type==='table');assert.deepEqual(actual.columns,s.table!.columns);assert.deepEqual(actual.rows,s.table!.rows);}if(n===48){const l=b.prompt.find(x=>x.type==='list');assert(l?.type==='list');assert.deepEqual(l.items,'steps' in s?s.steps:undefined);}}
 });
 
-test('independent all-choice meanings and exact reference calculations cover all205 finite bodies and820 choices',()=>{
- let bodies=0;for(const d of definitions){const n=numberOf(d.source),seen=new Set<string>();for(let i=0;i<=d.fields[0].maximum;i++){const b=d.build([i]);inspect(n,i,b);assert.deepEqual(b,d.build([i]));const text=JSON.stringify([b.prompt,b.choices]);assert(!seen.has(text),`${n}/${i}: substantive condition must differ`);seen.add(text);bodies++;}for(const v of [[],[-1],[d.fields[0].maximum+1],[NaN],[Infinity],[.5],[0,0]])assert.throws(()=>d.build(v),/PARAMETER_CONSTRAINT/);}assert.equal(bodies,205);
+test('independent all-choice meanings and exact reference calculations cover all209 finite bodies and836 choices',()=>{
+ let bodies=0;for(const d of definitions){const n=numberOf(d.source),seen=new Set<string>();for(let i=0;i<=d.fields[0].maximum;i++){const b=d.build([i]);inspect(n,i,b);assert.deepEqual(b,d.build([i]));const text=JSON.stringify([b.prompt,b.choices]);assert(!seen.has(text),`${n}/${i}: substantive condition must differ`);seen.add(text);bodies++;}for(const v of [[],[-1],[d.fields[0].maximum+1],[NaN],[Infinity],[.5],[0,0]])assert.throws(()=>d.build(v),/PARAMETER_CONSTRAINT/);}assert.equal(bodies,209);
 });
 
 test('wrong-key and changed-claim mutations cannot reuse valid source truth; every question has a registered oracle',()=>{

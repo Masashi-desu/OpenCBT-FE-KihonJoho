@@ -17,7 +17,6 @@ sourceScope.push(...legacyMorningScope.flatMap(id => Array.from({length:80}, (_,
 export const sourceExclusions: Record<string, {reason:string;sourceId:string;checkedOn:string}> = {
   "2016h28a-fe-am-55": {reason:"ITIL2011に基づくサービスデスク組織の具体的な説明について、第三者表現の対応範囲と本アプリでの転載・改変条件の確認が未完了",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28a-fe-am-56": {reason:"JIS Q20000-1:2012の具体的活動を挙げる本文・選択肢について、規格内容の引用・転載・改変を認める条件が未確認",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
-  "2016h28a-fe-am-57": {reason:"ITIL2011が挙げる可用性管理のKPI例について、一般概念・短語と第三者表現の範囲及び本アプリでの利用条件の確認が未完了",sourceId:"source-ipa-2016h28a-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-46": {reason:"ソフトウェア方式設計に関する規格・共通フレーム等の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-56": {reason:"インシデント等の記録に関する規格要求の具体的表現の利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
   "2016h28h-fe-am-66": {reason:"グリーン購入の具体的表現の出自・GPN等の第三者部分に適用する利用条件を未確認",sourceId:"source-ipa-2016h28h-fe-am-qs",checkedOn:"2026-11-01"},
